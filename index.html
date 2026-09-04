@@ -19,13 +19,6 @@
           document.querySelector('link[rel="apple-touch-icon"]').href = base + '/game/' + slug + '/api/logo/192';
         }
         
-        // --- 强制伪装成 embed 模式，不依赖 URL 参数 ---
-        const originalGet = URLSearchParams.prototype.get;
-        URLSearchParams.prototype.get = function(name) {
-          if (name === 'embed') return '1';
-          return originalGet.call(this, name);
-        };
-        
         // --- 拦截 tRPC 并接管本地存档到 IndexedDB ---
         const originalFetch = window.fetch;
         const DB_NAME = 'Miu2D_Saves';
@@ -216,8 +209,6 @@
 
     <style>
       body { margin: 0; padding: 0; overflow: hidden; background: #000; }
-      /* 隐藏所有游戏中的顶部菜单栏 */
-      .h-10.bg-black\/40.backdrop-blur-md { display: none !important; }
       /* 隐藏右下角的版权信息（通过它特有的绝对定位坐标） */
       div[style*="bottom: 4px"][style*="right: 8px"],
       div[style*="bottom:4px"][style*="right:8px"] {
