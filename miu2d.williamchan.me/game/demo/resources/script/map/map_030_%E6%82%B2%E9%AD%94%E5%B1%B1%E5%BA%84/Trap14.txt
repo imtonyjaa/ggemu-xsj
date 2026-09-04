@@ -1,0 +1,75 @@
+If($Event == 576) @Event576;
+Return;
+
+@Event576:
+DisableNpcAI();
+PlayerRunTo(60,175);
+Watch("杨影枫","纳兰真",1);
+SetNpcDir("纳兰真",7);
+
+Talk(11440,11440);
+MoveScreen(7,80,2);
+PlayerRunTo(63,176);
+Watch("杨影枫","纳兰真",1);
+Talk(11450,11450);
+Watch("杨影枫","纳兰真",0);
+
+PlayerGoto(64,180);
+NpcGoto("纳兰真",64,181);
+
+Watch("杨影枫","纳兰真",0);
+Sleep(500);
+Talk(11460,11480);
+Sleep(500);
+//Talk(11470,11470);
+NpcGotoEx("纳兰真",54,194);
+SetPlayerDir(1);
+Sleep(1500);
+PlayerGotoDir(1,2);
+Talk(11481,11481);
+Sleep(1500);
+NpcGoto("纳兰真",54,194);
+//Say("选择追与不追");
+Select(68110,68120,68130,$SelVal);
+If ($SelVal == 0) @Catchit;
+DelNpc("纳兰真");
+Talk(11482,11482);
+FadeOut();
+SetPlayerPos(48,157);
+PlayerGotoEx(54,164);
+FadeIn();
+EnableNpcAI();
+Assign($Event,578);
+Goto @end;
+
+
+
+@Catchit:
+	PlayerRunTo(55,194);
+	Talk(68150,68150);
+	Watch("杨影枫","纳兰真",0);
+	Talk(68160,68230);
+	NpcGotoEx("纳兰真",56,221);
+	Sleep(500);
+	SetPlayerDir(0);
+	Talk(68240,68240);
+	Sleep(2000);
+	NpcGoto("纳兰真",56,211);
+	DelNpc("纳兰真");
+	Talk(68250,68250);
+	PlayerGoto(57,189);
+	Sleep(1000);
+	Say("杨影枫：……",2);
+	PlayerGoto(54,195);
+	Say("杨影枫：唉，不管这些了，薇儿还在房里等我。",2);
+	PlayerRunTo(48,185);
+	Assign($Event,578);
+	
+	Goto @end;
+
+
+
+
+@end:
+Return;
+

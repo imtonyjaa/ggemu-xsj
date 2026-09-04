@@ -1,0 +1,2 @@
+AddRandGoods("特级药品.ini");
+DelCurObj();

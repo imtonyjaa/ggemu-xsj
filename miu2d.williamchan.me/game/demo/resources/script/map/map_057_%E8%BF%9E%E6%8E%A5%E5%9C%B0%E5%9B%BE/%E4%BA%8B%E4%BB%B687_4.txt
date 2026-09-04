@@ -1,0 +1,25 @@
+
+
+	If ($Event == 866) @Label1;
+	
+	Goto @end;
+	
+@Label1:
+	If ($Result <> 3) @end;
+
+//	系统消息：发生事件87.4，无忧教的弟子找到杨影枫
+	
+	NpcGoto("无忧教女弟子B", 9, 42);
+	SetNpcDir("无忧教女弟子B", 1);
+	
+	Talk(17260, 17271);
+	
+	NpcGoto("无忧教女弟子B", 13, 27);
+	DelNpc("无忧教女弟子B");
+
+	Assign($Event, 870);
+	
+	Goto @end;
+	
+@end:
+	Return;

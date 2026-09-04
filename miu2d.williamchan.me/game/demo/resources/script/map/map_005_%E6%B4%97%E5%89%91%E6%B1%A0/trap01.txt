@@ -1,0 +1,80 @@
+	If ($Event == 20) @Event20;
+	If ($Event == 30) @Event20;
+	If ($Event == 40) @Event20;
+	If ($Event == 35) @Event35;
+		
+	If ($SubEvent01 == 0) @SubEvent01;
+	
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_003_武当山下.map");
+	LoadNpc("wudangshanxia.npc");
+	LoadObj("map003_obj.obj");
+	SetNpcDir("武当山下酒客",0);
+	SetPlayerPos(35, 7);
+	SetPlayerDir(7);
+	EnableNpcAI();
+	FadeIn();
+	Goto @end;
+
+@Event20:
+	Say("杨影枫：还是先上武当山吧。", 2); 
+	Goto @end;
+
+@Event35:
+	Talk(241, 241); 
+	Goto @end;
+
+@SubEvent01:
+	If ($Event == 46) @Event46;
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_003_武当山下.map");
+	LoadNpc("wudangshanxia.npc");
+	LoadObj("map003_obj.obj");
+	SetNpcDir("武当山下酒客",0);
+	SetPlayerPos(35, 7);
+	SetPlayerDir(7);
+	EnableNpcAI();
+	FadeIn();
+	Goto @end;
+	
+@Event46:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("Mc011.mp3");
+	LoadMap("map_003_武当山下.map");
+	LoadNpc("wudangshanxia.npc");
+	SaveNpc("temp_wudangshanxia.npc");
+	LoadNpc("temp_wudangshanxia.npc");
+	LoadObj("map003_obj.obj");
+	SetNpcDir("武当山下酒客",0);
+
+	MergeNpc("SubEvent01.npc");
+	SaveNpc("Temp_SubEvent01.npc");
+	LoadNpc("Temp_SubEvent01.npc");
+//	AddNpc("张仲天.ini", 8, 33, 7);
+//	SetNpcKind("张仲天", 0);
+//	SetNpcActionType("张仲天", 0);
+	
+//	AddNpc("支线一强盗.ini", 9, 35, 3);
+//	SetNpcKind("强盗",0);
+//	SetNpcActionType("强盗",0);
+
+	SetPlayerPos(35, 7);
+	SetPlayerDir(7);
+	EnableNpcAI();
+	FadeIn();
+
+	Assign($SubEvent01, 2);
+	Goto @end;
+
+@end:	
+	Return;

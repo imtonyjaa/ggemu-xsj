@@ -1,0 +1,70 @@
+	If ($Event == 144) @Event144;	
+	Return;
+@Event144:
+	// zroc add
+	SetMapTrap(2, "");
+
+	PlayerGoto(6, 48);
+	SetNpcKind("紫轩", 1);
+	NpcGoto("紫轩", 6, 49);
+	Watch("杨影枫", "紫轩", 0);
+	Say("紫轩：杨公子，前面就是清平乡了，你就在此留步吧。多谢你送我回家。", 16);
+	Say("杨影枫：啊！这么快就到了？", 2);
+	Say("紫轩：天都快黑了，公子请回吧！", 16);
+	Say("杨影枫（依依不舍的）：那…好吧，紫轩姑娘，你自己多加小心！", 2);
+	Say("紫轩：我会的。咦？你还有什么事吗？", 16);
+	Say("杨影枫：我……我想问姑娘，明天你还会去樱花谷吹萧吗？", 2);
+	Say("紫轩：公子……再会！", 16);
+	//NpcGoto("紫轩", 4, 52);
+	NpcGoto("紫轩", 1, 55);
+	DelNpc("紫轩");
+	Sleep(500);
+	SetPlayerDir(1);
+	Say("杨影枫：再会？再会……哦！那是暗示我明日还会相见！太棒了！谢谢老天爷！谢谢如来佛祖！谢谢观音菩萨！我杨影枫真是天底下最幸运的人！……", 3);
+	SetMapTrap(3, "");
+
+	// zroc add
+	PlayerGoto(7, 46);
+	SetMapTrap(2, "Trap02.txt");
+
+	FadeOut();
+	StopMusic();
+	LoadMap("map_019_寒波谷.map");
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	SetPlayerPos(21, 91);
+	SetPlayerDir(1);
+	SetPlayerScn();
+	PlayMusic("mc008.mp3");
+	FadeIn();
+	PlayerGoto(21, 92);
+	Say("杨影枫：紫轩，紫轩，你此刻睡了么？会不会也正在想我？……", 2);
+	PlayerGoto(22, 90);
+	SetPlayerDir(7);
+	Say("杨影枫：唉，这天为什么还不亮呢？", 2);
+	StopMusic();
+	FadeOut();
+	Say("杨影枫又度过了一个辗转难眠的夜晚。", 0);
+	Say("第三天……", 0);
+	LoadMap("map_019_寒波谷.map");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	LoadNpc("map019.npc");
+	LoadObj("map019_obj.obj");
+	SetPlayerPos(22, 89);
+	SetPlayerDir(1);
+	SetPlayerScn();
+	FullLife();
+	FullThew();
+	FullMana();
+	PlayMusic("mc013.mp3");
+	FadeIn();
+	Say("杨影枫：天终于亮了。", 2);
+	PlayerRunTo(24, 94);
+	SetPlayerDir(7);
+	Say("杨影枫：紫轩会不会已经在樱花谷等我了？我此刻就去见她！", 2);
+	Memo("去樱花谷见紫轩。");
+	Assign($Event, 145);
+	Return;

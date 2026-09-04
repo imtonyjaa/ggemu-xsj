@@ -1,0 +1,89 @@
+// 刚掉进盆地
+	If ($Event == 320) @Label4;
+	If ($Event == 322) @Label5;
+// 事件33.1 刚发生
+	If ($Event == 325) @Label1;
+// 事件33.2 刚发生，走不出去
+	If ($Event == 330) @Label2;
+// 事件34.1 刚发生，回山洞
+	If ($Event == 335) @Label3;
+	Return;
+	
+@Label1:
+	Talk(5670, 5680);
+	Talk(5700, 5700);
+	
+	FadeOut();
+	StopMusic();
+	Talk(5690, 5690);
+	LoadMap("map_056_盆地加坟墓.map");
+	LoadNpc("map056.npc");
+	LoadObj("map056_obj.obj");
+	DelObj("白骨");
+	SaveObj();
+	//AddNpc("纳兰真.ini", 9, 66, 6);
+	AddObj("丝帕2.ini", 5, 39, 0);
+	SetNpcScript("纳兰真","纳兰真对话.txt");
+	SetPlayerPos(9, 67);
+	SetPlayerDir(6);
+	SetPlayerScn();
+	SetNpcPos("纳兰真", 9, 66);
+	SetNpcDir("纳兰真", 6);
+	Sleep(500);
+	Assign($Event, 330);
+	PlayMusic("Mc019.mp3");
+	FullLife();
+	FullThew();
+	FadeIn();
+
+	AddMagic("player-magic-蚀骨血仞.ini");
+	SetMagicLevel("player-magic-蚀骨血仞.ini",4);
+	LimitMana(0);
+	Talk(5701,5707);
+	PlayerGoto(8,66);
+	SetNpcKind("纳兰真",3);
+	
+	
+	SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(3, "Trap03.txt");
+	AddToMemo(90560);
+	Return;
+	
+@Label2:
+	Talk(5708, 5708);
+	If ($TempAddMemo >> 0) @TempAddMemo;
+		AddToMemo(90560);
+		Assign($TempAddMemo, 10);
+	@TempAddMemo:
+	Return;
+	
+@Label3:
+	FadeOut();
+	Talk(5941, 5941);
+	SaveNpc();
+	SaveObj();
+	DelNpc("纳兰真");
+	PlayerChange(1);
+	LoadMap("map_055_山洞.map");
+	SetPlayerPos(76, 22);
+	SetPlayerDir(0);
+	LoadNpc("beishanshandong-yangyf.npc");
+	SetNpcKind("杨影枫",3);
+	
+	FadeIn();
+	Talk(20190, 20190);
+	Sleep(200);
+	Talk(20170, 20170);
+	Assign($Event, 340);
+	Return;
+	
+@Label4:
+	Talk(5479, 5479);
+	Return;
+
+@Label5:
+	Say("杨影枫：还没有解开骷髅的秘密呢！", 2);
+	Goto @end;
+
+@end:
+	Return;

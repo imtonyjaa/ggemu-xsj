@@ -1,0 +1,139 @@
+	If ($Event == 2010) @2010;//结局2带蔷薇回落叶谷
+	If ($Event == 1803) @1803;//结局2
+	If ($Event == 1801) @1801;//结局2
+	If ($Result == 0)  @Result0;
+	If ($Result == 1)  @Result1;
+	If ($Result == 2)  @Result2;
+	If ($Result == 3)  @Result3;
+	Return;
+          
+@2010:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("map030_1.npc");
+	LoadObj("map030_obj.obj");
+	SetPlayerPos(76, 210);
+	SetPlayerDir(2);
+	FadeIn();
+	SetMapTrap(1,"trap01.txt");
+	Return;
+
+@1801:
+	Say("杨影枫：还是去救真儿要紧。",2);
+	Return;
+	                    
+@Result0:
+	Goto @commonmap;
+                                    
+@Result1:
+	If ($Event == 600) @Event600;
+	If ($Event >= 650) @UseTomb3Map;
+	If ($Event >= 620) @UseTombMap;
+	Goto @commonmap ;
+                                          
+@Result2:
+	Goto @commonmap;
+                                               
+@Result3:
+	FadeOut();
+	SaveNpc();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("beimo.npc");
+	LoadObj("map030_obj.obj");
+	SetNpcPos("侍女可意", 40, 139);
+	SetNpcPos("侍女可心", 41, 138);
+	SetNpcDir("侍女可意", 7);
+	SetNpcDir("侍女可心", 7);
+	SetPlayerPos(76, 210);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@UseTombMap:
+	FadeOut();
+	SaveNpc();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("beimo.npc");
+	LoadObj("map030_obj.obj");
+	SetPlayerPos(76, 210);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@UseTomb3Map:
+	FadeOut();
+	SaveNpc();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("beimo.npc");
+	LoadObj("map030_obj.obj");
+	SetPlayerPos(76, 210);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+	
+@Event600:
+	FadeOut();
+	SaveNpc();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadObj("map030_obj.obj");
+	LoadNpc("beimo.npc");
+	DelNpc("纳兰真");
+	DelNpc("蔷薇");
+	AddNpc("蔷薇.ini",49,155,1);
+	SetNpcScript("蔷薇","蔷薇对话.txt");
+	SetNpcKind("蔷薇",0);
+	SetPlayerPos(76, 210);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+	
+@commonmap:	
+	FadeOut();
+	SaveNpc();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("beimo.npc");
+	LoadObj("map030_obj.obj");
+	SetPlayerPos(76, 210);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@1803:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("beimo.npc");
+	LoadObj("map030_obj.obj");
+	SetNpcPos("侍女可意", 59, 216);
+	SetNpcDir("侍女可意", 7);
+	SetPlayerPos(76, 210);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@end:
+	Return;		
+	

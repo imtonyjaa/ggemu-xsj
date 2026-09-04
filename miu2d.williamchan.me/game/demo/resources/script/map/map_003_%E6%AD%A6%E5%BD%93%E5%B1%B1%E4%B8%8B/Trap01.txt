@@ -1,0 +1,24 @@
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	If ($Event >> 60) @Label1;
+	StopMusic();
+	PlayMusic("Mc001.mp3");	
+@Label1:
+	LoadMap("map_001_凌绝峰连接地图.map");
+	LoadNpc("map001-luren.npc");
+	LoadObj("map001_obj.obj");
+	SetPlayerPos(4, 48);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	
+	If ($SubEvent01 == 2) @SubEvent01;
+	Goto @end;
+	
+@SubEvent01:
+	Assign($SubEvent01, 0);
+	Goto @end;
+
+@end:
+	Return;

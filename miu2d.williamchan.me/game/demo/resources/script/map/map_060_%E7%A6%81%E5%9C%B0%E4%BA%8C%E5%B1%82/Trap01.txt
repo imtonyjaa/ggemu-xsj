@@ -1,0 +1,80 @@
+
+// 事件45 刚发生
+	If ($Event == 450) @Label1;
+	If ($Event == 460) @Event460;
+	If ($Event == 690) @Label2;
+	If ($Event == 767) @Event767;
+	If ($Event == 3060) @Evt3060;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_059_禁地一层.map");
+
+	LoadNpc("map059.npc");
+	LoadObj("map059_obj.obj");
+
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(8, 28);
+	SetPlayerDir(7);
+	EnableNpcAI();
+	FadeIn();
+	Goto @end;
+	
+@Label1:
+	PlayerGoto(14, 28);
+	Say("这条路好像不通。");
+	SetMapTrap(1, "Trap01.txt");
+	Goto @end;
+	
+@Label2:
+	PlayerGotoDir(2,2);
+	Say("杨影枫：看看涟漪到底是要作什么？");
+	SetMapTrap(1, "Trap01.txt");
+	Goto @end;
+
+@Event460:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_059_禁地一层.map");
+	LoadNpc("map059.npc");
+	LoadObj("map059_obj.obj");
+	SetPlayerPos(8, 28);
+	SetPlayerDir(7);
+	FadeIn();
+	SetMapTrap(1,"trap01.txt");
+	SetMapTrap(2,"trap02.txt");
+	Goto @end;
+	
+
+@Event767:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_059_禁地一层.map");
+	LoadNpc("map059.npc");
+	LoadObj("map059_obj.obj");
+	SetPlayerPos(8, 28);
+	SetPlayerDir(7);
+	FadeIn();
+	SetMapTrap(1,"trap01.txt");
+	Goto @end;
+
+
+@Evt3060:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_059_禁地一层.map");
+	LoadNpc("map059.npc");
+	LoadObj("map059_obj.obj");
+	SetPlayerPos(8, 28);
+	SetPlayerDir(7);
+	FadeIn();
+	SetMapTrap(1,"trap01.txt");
+	Goto @end;
+	
+@end:
+	Return;
+
+	
+	

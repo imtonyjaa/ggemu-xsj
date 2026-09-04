@@ -1,0 +1,2 @@
+AddRandGoods("3级防具.ini");
+DelCurObj();

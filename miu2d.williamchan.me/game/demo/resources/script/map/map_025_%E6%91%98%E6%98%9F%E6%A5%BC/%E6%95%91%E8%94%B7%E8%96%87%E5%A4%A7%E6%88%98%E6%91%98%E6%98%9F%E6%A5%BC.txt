@@ -1,0 +1,31 @@
+	SetMapTrap(1,"");
+	SetMapTrap(2,"");
+	SetMapTrap(12,"");
+	PlayerRunTo(8,102);
+	SetPlayerDir(5);
+	Talk(96910,96930);
+	
+	//Say("杨影枫：快把蔷薇给我交出来！",6);
+	//Say("无忧教徒：杨影枫来了，快去禀告教主。");
+	NpcGoto("无忧教徒",14,88);
+	Sleep(1000);
+	
+	NpcGoto("纳兰潜凛",9,100);
+	
+	SetNpcDir("纳兰潜凛",1);
+	MoveScreen(5,80,1);
+	MoveScreen(3,50,1);
+	MoveScreen(7,50,1);
+	MoveScreen(1,80,1);
+	Talk(96950,97050);
+	SetNpcRelation("纳兰潜凛",1);
+	SetNpcDeathScript("杨影枫","杨影枫死亡.txt");
+	GetNpcCount(1,1);
+	PlayMusic("mc014.mp3");
+	EnableNpcAI();
+	EnableFight();
+	
+	Assign($Event ,3005);
+	
+	Return;
+

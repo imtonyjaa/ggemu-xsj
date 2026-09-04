@@ -1,0 +1,24 @@
+
+
+	If ($Event == 562) @Label1;
+	
+	Goto @end;
+	
+@Label1:
+
+	Talk(10910, 11060);
+	Assign($Event, 565);
+	
+	FadeOut();
+	ShowMessage(1713);
+	Sleep(200);
+	DelNpc("纳兰真");
+	SetPlayerPos(55, 160);
+	SetPlayerDir(1);
+	SetNpcPos("侍女可意", 34, 165);
+	SetMapTrap(9, "trap09.txt");
+	FadeIn();
+	Goto @end;
+	
+@end:
+	Return;

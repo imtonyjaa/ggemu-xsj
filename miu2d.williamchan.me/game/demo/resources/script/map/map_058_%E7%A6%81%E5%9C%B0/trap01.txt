@@ -1,0 +1,99 @@
+	If ($Event == 1817) @1817;
+	If ($Event == 298) @Event298;
+	If ($Event == 301) @Label4;		
+	If ($Event == 690) @Label5;
+	If ($Event == 890) @Label3;
+	If ($Event == 991) @Event991;
+	If ($Event == 3060) @Evt3060;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_057_连接地图.map");
+	LoadNpc("map057.npc");
+	LoadObj("map057_obj.obj");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(16, 6);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@1817:
+	Say("杨影枫：去看真儿要紧",4);
+	Return;	
+
+@Label5:
+//	系统消息：跟踪涟漪 // need change
+	PlayerGotoDir(5,2);
+	SetPlayerDir(5);
+	Say("杨影枫：先去看看涟漪再说！");
+	SetMapTrap(1, "Trap01.txt");
+
+	Return;	
+
+@Event298:
+	Say("纳兰真：我爹进去了，我们也快进去吧！", 9);
+	Goto(@end);
+	
+@Label3:
+	If ($Result <> 3) @end;
+	
+//	系统消息：现在去救纳兰真 // need change
+	Talk(17801, 17801);
+	PlayerGoto(3, 81);
+	SetMapTrap(1, "Trap01.txt");
+
+	Return;
+
+@Label4:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_057_连接地图.map");
+	LoadNpc("map057.npc");
+	LoadObj("map057_night.obj");
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	SetPlayerPos(16, 6);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event991:
+	Say("杨影枫：先带真儿去看看她娘留给她的信。");
+	PlayerGoto(3, 81);
+	SetMapTrap(1, "Trap01.txt");
+	Return;
+	
+@Evt3060:
+	SaveObj();
+	FadeOut();
+	PlayMusic("mc025.mp3");
+	Say("与此同时");
+	LoadMap("map_025_摘星楼.map");
+	DisableNpcAI();
+	LoadNpc("map025_MZQ_VS_NNQL2.npc");
+	LoadObj("map025_Bodys.obj");
+	SetPlayerPos(5,67);
+	SetNpcRelation("杨影枫",2);
+	SetNpcRelation("月眉儿",2);
+	SetNpcKind("月眉儿",1);
+	SetNpcRelation("纳兰潜凛",2);
+	EnableNpcAI();
+	ShowNpc("杨影枫",0);
+	ShowNpc("月眉儿",0);
+	ShowNpc("遮挡1",0);
+	ShowNpc("遮挡2",0);
+	//DisableInput();
+	Sleep(500);
+	FadeIn();
+	MoveScreen(7,120,2);
+	SetNpcRelation("纳兰潜凛",0);
+	MoveScreen(7,100,2);
+	Return;
+	
+@end:
+	Return;

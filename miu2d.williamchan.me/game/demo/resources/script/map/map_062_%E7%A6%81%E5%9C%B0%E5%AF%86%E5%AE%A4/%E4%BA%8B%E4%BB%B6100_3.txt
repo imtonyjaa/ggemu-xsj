@@ -1,0 +1,33 @@
+
+
+	If ($Event == 995) @Label1;
+	
+	Goto @end;
+	
+@Label1:
+	If ($Result <> 3) @end;
+	
+	PlayerRunTo(14, 27);
+	SetPlayerDir(5);
+
+	Say("杨影枫：真儿？……怎么是你！玉佩重合……啊，月眉儿！", 4);
+	Say("月眉儿：你，你，不许过来！", 22);
+	Say("杨影枫：你……真儿呢？", 6);
+
+	SetNpcDir("月眉儿", 0);
+//	播放动画，月眉儿飞走
+	NpcSpecialAction("月眉儿", "月眉儿消失b.asf");
+	Sleep(2100);
+	DelNpc("月眉儿");
+
+	Say("杨影枫：喂，别跑，我的真儿呢？", 2);
+	Say("月眉儿：哈哈哈，有胆你到飞龙堡找她吧！", 23);
+
+	Assign($Event, 1000);
+	SetObjScript("宝盒", "");
+	
+	
+	Goto @end;
+	
+@end:
+	Return;

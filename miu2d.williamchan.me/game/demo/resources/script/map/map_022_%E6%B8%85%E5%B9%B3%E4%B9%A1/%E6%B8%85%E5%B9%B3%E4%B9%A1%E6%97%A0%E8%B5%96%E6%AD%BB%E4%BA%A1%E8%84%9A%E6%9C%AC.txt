@@ -1,0 +1,69 @@
+	Add($Map022Enemy, 1);
+	If ($Map022Enemy >= 3) @finished;
+	Goto @end;
+@finished:
+	StopMusic();
+	SetPlayerScn();
+	
+	EnableNpcAI();
+	FadeOut();
+	SetPlayerPos(30,138);
+	SetPlayerDir(4);
+	SetPlayerScn();
+	FadeIn();
+	PlaySound("mpc039.wav");
+	Talk(2300, 2300);
+	SetNpcActionFile("紫轩", 0, "npc010_st.asf");
+	SetNpcActionFile("紫轩", 1, "npc010_pst.asf");
+	NpcGoto("紫轩", 30, 136);
+	SetNpcDir("紫轩", 1);
+	PlayerGoto(29, 137);
+	SetPlayerDir(5);
+	ShowNpc("杨影枫", 0);
+	SetNpcActionFile("紫轩", 0, "mpc040-1.asf");
+	SetNpcActionFile("紫轩", 1, "mpc040-1.asf");
+	NpcSpecialAction("紫轩", "mpc040.asf");
+	Sleep(2500);
+	//Talk(2310, 2370);
+	Say("紫轩：杨大哥，我以为再也见不到你了……",	19);
+	Say("杨影枫：不要怕，那些坏人已经被我教训了一顿，以后不敢再来欺负你了。", 5);
+	Say("紫轩：杨大哥，我真的好怕，这个世界上恶人这么多……如果以后你走了，我可怎么办？", 20);
+	Say("杨影枫：紫轩，我不会离开你的！", 2);
+	Say("紫轩：……", 20);
+	Say("杨影枫：紫轩，相信我！", 2);
+	Say("紫轩：嗯。", 20);
+	Say("杨影枫：我想这里你暂时是不能住了，我担心那帮无赖的帮凶会来寻事。", 2);
+	Say("紫轩：可是我无亲无故，离开此处，便无容身之地了，又能去哪里？", 19);
+	Say("杨影枫：紫轩，如果你不嫌弃，可以先和我一起回芭蕉小筑避一避，日后再做长远打算，你看如何？",	2);
+	Say("紫轩：可是芭蕉小筑是你义兄的房子，你也只是客居，我住在那里，会不会让你为难？", 17);
+	Say("杨影枫：不会的，我大哥为人最是慷慨大方，他如果知道你的处境，一定不会见怪的。",	2);
+	Say("紫轩：……", 17);
+	Say("杨影枫：别多想了，紫轩，无论如何，我不能放心你一个人留在这里。", 2);
+	Say("紫轩：那……好吧，我现在唯一能信的人也只有你。只不过，我老是给你添麻烦……",	17);
+	Say("杨影枫：别这样说，紫轩，我会很难过的。能照顾你，是我最大的快乐。", 2);
+	Say("紫轩：杨大哥！……", 16);
+	Say("杨影枫：紫轩，我们走吧！", 2);
+	Say("紫轩：嗯。", 16);
+	FadeOut();
+	Sleep(500);
+	ShowNpc("杨影枫", 1);
+	DelNpc("紫轩");
+    AddNpc("紫轩.ini", 30, 136, 1);
+    SetNpcRelation("紫轩",2);
+    FadeIn();
+	SetNpcKind("紫轩",3);
+	Sleep(200);
+	Talk(20110, 20110);
+	
+	
+	AddToMemo(2371);
+	SetNpcScript("紫轩","紫轩对话.txt");
+	Assign($Event, 170);
+	PlayMusic("mc008.mp3");
+	DelNpc("高大个A");
+	DelNpc("高大个B");
+	SetMapTrap(1, "Trap01.txt");
+	Return;
+        
+@end:
+	Return();

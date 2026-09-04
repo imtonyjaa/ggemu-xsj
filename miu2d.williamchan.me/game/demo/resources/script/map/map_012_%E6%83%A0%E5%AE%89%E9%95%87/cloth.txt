@@ -1,0 +1,72 @@
+	If ($Event == 146) @Event146;
+	Return;
+@Event146:
+	GetMoneyNum();
+	If ($MoneyNum >= 150) @continue;
+	If ($MoneyNum == 0) @continue0;
+	Say("杨影枫：（我身上的银子不多，不如先去卖些物品，手头准备多点钱，可以买些好东西送给她。）", 2);
+	SetNpcKind("紫轩", 1);
+	NpcGoto("紫轩", 90, 74);
+	PlayerGoto(90, 76);
+	SetNpcKind("紫轩", 3);
+	SetMapTrap(18, "cloth.txt");
+	Return;	
+@continue0:
+	Say("杨影枫：（哎呀，我身上没带银子，先去卖些物品换点钱，待会如果看到什么中意的东西就可以买给她。）", 2);
+	SetNpcKind("紫轩", 1);
+	NpcGoto("紫轩", 90, 74);
+	PlayerGoto(90, 76);
+	SetNpcKind("紫轩", 3);
+	SetMapTrap(18, "cloth.txt");
+	Return;	
+	
+@continue:
+	Say("紫轩：咦？这里有一家布店，我正想买一匹布回去做衣服，我们进去看看好吗？", 16);
+	Say("杨影枫：好啊。", 3);
+	PlayerGoto(95, 62);
+	SetNpcKind("紫轩", 1);
+	NpcGoto("紫轩", 95, 60);
+	SetNpcDir("紫轩", 4);
+	SetPlayerDir(4);
+	SetNpcDir("李惠娘", 0);
+	Say("夏萍：姑娘要买布吗？我这里的布品种繁多，价格公道，姑娘随便看看，保管有你满意的货色。", 90);
+	Say("紫轩：好的。你这里有没有颜色素雅一点的苏绸？", 16);
+	Say("夏萍：有啊有啊。", 90);
+	NpcGoto("李惠娘", 97, 59);
+	SetNpcDir("李惠娘", 1);
+	Say("夏萍：姑娘过来看看，这边都是上好的苏绸。", 90);
+	NpcGoto("紫轩", 96, 63);
+	SetNpcDir("紫轩", 5);
+	PlayerGoto(96, 62);
+	SetPlayerDir(6); 
+	Say("杨影枫：紫轩，这匹粉色的布挺淡雅的，你穿上肯定好看！", 2);
+	Say("夏萍：公子是这位姑娘的情郎吧？你真是好眼光，这位姑娘肤色白皙，穿上粉色的衣服一定会像朵花似的娇嫩！", 90);
+	Say("紫轩（面飞红云）：你……不要胡说！…… 这布一尺多少钱？", 122);
+	Say("夏萍：不贵不贵！五十两银子一尺，按姑娘的身材，三尺足矣，才一百五十两，多便宜！", 90);
+	Say("紫轩：（啊！这么贵！）……", 16);
+	Say("夏萍：看得出姑娘很喜欢这布，这位公子就买给这位姑娘吧！", 90);
+	Say("紫轩：这怎么可以！", 16);
+	Say("杨影枫：没关系，只要你喜欢就好！老板娘，你裁吧！", 3);
+	Say("夏萍：姑娘你真幸福，瞧这位公子对你多好！", 90);
+	SetNpcDir("紫轩", 3);
+	Say("紫轩：杨大哥，我怎好意思让你破费？……", 16);
+	Say("夏萍：姑娘，你还不好意思干什么？你看，布我都已经裁好了！", 90);
+	AddMoney(-150);
+	Say("杨影枫：多谢！紫轩，咱们走吧！", 3);
+	Say("紫轩：……", 16);
+	SetNpcKind("紫轩", 3);
+	SetMapTrap(18, "");
+	SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(2, "Trap02.txt");
+	SetMapTrap(3, "Trap03.txt");
+	If ($Zixuan == 0) @sub1;
+	If ($Zixuan == 10) @sub2;
+	Return;
+@sub1:
+	Assign($Zixuan, 10);
+	Return;
+@sub2:
+	Assign($Zixuan, 20);
+	SetMapTrap(16, "rain.txt");
+	Return;
+	

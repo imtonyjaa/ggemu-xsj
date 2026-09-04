@@ -1,0 +1,28 @@
+
+	If ($Event <> 90) @end;
+
+	PlayMusic("mc014.mp3");	
+	SetPlayerState(0);
+	Talk(1090, 1090);
+	
+	NpcGotoEx("小叁子", 45, 67);
+	Sleep(2500);
+//	NpcGoto("小叁子", 45, 67);
+
+	PlayerGotoEx(46, 69);
+//	PlayerRunTo(46, 69);
+	Talk(1090, 1100);
+	
+	NpcGotoEx("小叁子", 42, 72);
+	PlayerRunTo(54, 70);
+	SetPlayerDir(0);
+	SetNpcPos("小叁子", 37, 85);
+	SetNpcDir("小叁子", 7);
+	Talk(1100, 1100);
+	Talk(1130, 1130);
+	Assign($Event, 95);
+	AddToMemo(90140);
+	SetMapTrap(8, "Trap08.txt");
+
+@end:
+	Return;

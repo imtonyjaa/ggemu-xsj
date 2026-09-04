@@ -1,0 +1,7 @@
+If ($Event <> 674) @end;
+Talk(61830,61840);
+Goto @end;
+
+
+@end:
+Return;

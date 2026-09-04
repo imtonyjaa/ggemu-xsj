@@ -1,0 +1,25 @@
+If ($Event <> 592) @end;
+
+	DisableNpcAI();
+	
+	StopMusic();
+	MoveScreen(2,50,2);
+	PlayerRunTo(31,65);
+	Watch("杨影枫","紫轩",0);
+	SetNpcDeathScript("紫轩","紫轩死亡.txt");
+	Sleep(500);
+	Talk(11790,11840);
+	SetNpcRelation("紫轩",1);
+	EnableNpcAI();
+	EnableFight();
+	Assign($Event, 595);
+	SetMapTrap(1,"");
+	SetMapTrap(2,"");
+	PlayMusic("mc025.mp3");
+	Goto @end;
+	
+	
+
+@end:
+Return;
+

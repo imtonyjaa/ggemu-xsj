@@ -1,0 +1,72 @@
+	If ($Event == 460) @common;
+	If ($Event == 440) @Label1;
+	If ($Event == 450) @Event450;
+	If ($Event == 300) @Event300;
+	If ($Event == 301) @Event301;
+	If ($Event <= 689) @Label2;
+
+@common:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_060_禁地二层.map");
+	LoadNpc("map060.npc");
+	LoadObj("map060_obj.obj");
+	SetPlayerPos(14, 28);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Label1:
+	StopMusic();
+	FadeOut();
+	SaveObj();
+	LoadMap("map_019_寒波谷.map");
+	ChangeMapColor(240,120,120);
+	ChangeAsfColor(255,255,255);
+	SetPlayerPos(41, 63);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	BeginRain("Rain.ini");
+	FadeIn();
+	PlayMusic("Mc020.mp3");
+
+	SetMapTrap(1,"");
+	SetMapTrap(2,"");
+	Talk(7630,7630);
+	Return;
+
+@Event300:
+	SetNpcDir("纳兰潜凛", 3);
+	Say("纳兰潜凛：真儿，这是无忧教的禁地，不许乱闯，快些回去！", 39);
+//	PlayerGotoDir(7, 2);	
+//	SetMapTrap(2, "Trap02.txt");
+	Return;	
+
+@Event301:
+	Say("杨影枫：真儿，这是无忧教的禁地，我们还是不要乱闯了，快些回去吧！", 2);
+//	PlayerGotoDir(7, 2);	
+//	SetMapTrap(2, "Trap02.txt");
+	Return;	
+
+@Label2:
+	Say("这是无忧教的禁地，还是不要乱闯的好！", 0);
+//	PlayerGotoDir(7, 2);	
+//	SetMapTrap(2, "Trap02.txt");
+	Return;		
+
+@Event450:
+	SetMapTrap(1,"Trap01.txt");
+	FadeOut();
+	SaveObj();
+	LoadMap("map_060_禁地二层.map");
+	LoadNpc("map060.npc");
+	LoadObj("map060_obj.obj");
+	SetPlayerPos(14, 28);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;
+	
+@end:
+	Return;

@@ -1,0 +1,92 @@
+
+
+If ($Result == 0)  @Result0;
+If ($Result == 1)  @Result1;
+If ($Result == 2)  @Result2;
+If ($Result == 3)  @Result3;
+Goto(@end);
+
+@Result0:
+Goto(@end);
+
+@Result1:
+If ($Event == 630) @Event630;
+If ($Event == 660) @Event660;
+If ($Event == 662) @Event662;
+If ($Event == 3010) @Event3010;
+Goto(@end);
+
+@Result2:
+Goto(@end);
+
+@Result3:
+Goto(@end);
+
+@Event630:
+Talk(12610,12647);
+Assign($Event ,640);
+EnableRun();
+AddToMemo(65168);
+SetMapTrap(1,"trap01.txt");
+Goto @end;
+
+	
+@Event660:
+	Watch("涟漪","孟知秋",1);
+	Talk(12930,13120);	
+	//
+	//SetNpcKind("杨影枫",3);
+	NpcGotoEx("纳兰潜凛",16,100);
+	//FollowNpc("杨影枫","纳兰潜凛");
+	Watch("纳兰潜凛","ALLPLAYER",0);
+	NpcGotoEx("纳兰潜凛",16,100);
+	Sleep(1000);
+	Watch("纳兰潜凛","ALLPLAYER",0);
+	NpcGoto("纳兰潜凛",16,100);
+	Watch("纳兰潜凛","ALLPLAYER",0);
+	
+	SetNpcPos("纳兰潜凛",22,102);
+	SetNpcDir("纳兰潜凛",1);
+	
+	Sleep(2000);
+	//SetNpcKind("纳兰潜凛",2);
+	SetMapTrap(1,"");
+	Assign($Event,662);
+	Goto @end;
+
+@Event662:
+	Talk(61810,61810);
+	SetNpcKind("涟漪",0);
+	SetNpcKind("纳兰潜凛",1);
+	SetNpcKind("杨影枫",2);
+	
+	PlayerGoto(20,104);
+	SetPlayerDir(7);
+	
+	NpcGoto("纳兰潜凛",22,108);
+	SetNpcDir("纳兰潜凛",3);
+	
+	NpcGoto("涟漪",22,102);
+	SetNpcDir("涟漪",1);
+	
+	Sleep(2000);
+	//PlayerGoto(10，83);
+	//SetPlayerDir(7);
+	//NpcGoto("纳兰潜凛",13,89);
+	//SetNpcDir("纳兰潜凛",3);
+	//Sleep(500);
+	SetNpcDeathScript("杨影枫","杨影枫死亡.txt");	
+	SetNpcRelation("纳兰潜凛",1);
+	Assign($Event, 665);
+//	Assign($Event, 670);
+	
+	//Say("系统消息：RunScript 事件68_1.txt ");
+	//RunScript("事件68_1.txt");
+	Goto @end;	
+	
+	
+@Event3010:
+	Talk(62920,62940);	
+	Goto @end;
+@end:
+	Return;

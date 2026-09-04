@@ -1,0 +1,115 @@
+	If ($Event == 150) @Label1;
+	If ($Event == 155) @Label2;
+	If ($Event == 231) @Label3;
+	If ($Event == 232) @Label3;
+	If ($Event == 170) @Label4;
+	If ($Event == 230) @Label5;
+	Goto @end;
+	
+@Label1:	
+	If ($Talkzx022 == 0) @Talk0;
+	If ($Talkzx022 == 1) @Talk1;
+	If ($Talkzx022 == 2) @Talk2;
+	If ($Talkzx022 == 3) @Talk3;
+	Goto @end;
+@Talk0:
+	If ($ZiXuanSense >> 20) @AddSenseEnd5;
+	Add($ZiXuanSense, 5);
+	Add($SenseVal, 5);
+@AddSenseEnd5:
+	Say("紫轩：杨大哥，如果你以后遇到了比我好的女孩，会不会不理我？", 16);
+	Say("杨影枫：紫轩，你放心，我决不会做对不起你的事！", 3);
+	Assign($Talkzx022, 1);
+	Return;
+@Talk1:	
+	If ($ZiXuanSense >> 20) @AddSenseEnd6;
+	Add($ZiXuanSense, 5);
+	Add($SenseVal, 5);
+@AddSenseEnd6:
+	Say("紫轩：杨大哥，我真的好想能够永远和你在一起，只是……世事难料，谁也不知道明天会发生些什么。", 17);
+	Say("杨影枫：紫轩，何必杞人忧天呢？只要你愿意，我也愿意，我们就可以永远在一起。", 3);
+	Say("紫轩：唉，杨大哥，你把一切都想得太简单了。", 17);
+	Assign($Talkzx022, 2);
+	Return;
+@Talk2:	
+	If ($ZiXuanSense >> 20) @AddSenseEnd7;
+	Add($ZiXuanSense, 5);
+	Add($SenseVal, 5);
+@AddSenseEnd7:
+	Say("杨影枫：紫轩，你好像有心事的样子，有什么不能对我说吗？", 2);
+	Say("紫轩：杨大哥，如果有一天我做了对不起你的事，你会不会原谅我？", 16);
+	Say("杨影枫：我会，因为我知道你对我的感情是真的，我对你的感情也没有半点虚假。", 2);
+	Say("紫轩：杨大哥……", 17);
+	Assign($Talkzx022, 3);
+	Return;
+@Talk3:
+	If ($ZiXuanSense >> 20) @AddSenseEnd8;
+	Add($ZiXuanSense, 5);
+	Add($SenseVal, 5);
+@AddSenseEnd8:
+	Say("杨影枫：紫轩，你家在清平乡的什么地方？", 2);
+	Say("紫轩：清平乡里有一条<color=Red>小河<color=Black>横穿乡间，我家在小河的<color=Red>南面<color=Black>，走过河上的小桥就到了。", 16);
+	Return;
+
+	
+@Label2:
+	If ($ZiXuanSense >> 20) @AddSenseEnd1;
+	Add($ZiXuanSense, 5);
+	Add($SenseVal, 5);
+@AddSenseEnd1:
+	Talk(2086, 2086);
+	Goto @end;
+	
+@Label3:
+	If ($ZiXuanSense >> 20) @AddSenseEnd2;
+	Add($ZiXuanSense, 5);
+	Add($SenseVal, 5);
+@AddSenseEnd2:
+	Say("紫轩：杨大哥，我在家等着你！", 16);
+	Goto @end;	
+
+@Label4:
+	If ($Talkzx0221 == 0) @Talk4;
+	If ($Talkzx0221 == 1) @Talk5;
+	If ($Talkzx0221 == 2) @Talk6;
+	Goto @end;
+@Talk4:
+	If ($ZiXuanSense >> 20) @AddSenseEnd3;
+	Add($ZiXuanSense, 5);
+	Add($SenseVal, 5);
+@AddSenseEnd3:
+	Say("杨影枫：紫轩，你受惊了吧？如果我早点赶到，你就不会被恶人欺负了。", 2);	
+	Say("紫轩：杨大哥，如果你不来，我真不知怎么办才好。", 17);
+	Assign($Talkzx0221, 1);
+	Goto @end;	
+@Talk5:
+	If ($ZiXuanSense >> 20) @AddSenseEnd9;
+	Add($ZiXuanSense, 5);
+	Add($SenseVal, 5);
+@AddSenseEnd9:
+	Say("紫轩：其实，那个贾少已经纠缠我很久了，我一直都不理他，没想到这次他竟然敢……。", 17);	
+	Say("杨影枫：为什么从没有听你说起过？", 2);
+	Say("紫轩：我……不愿让你为了我而惹上麻烦。", 17);
+	Say("杨影枫：唉！紫轩，你太傻了！", 2);
+	Assign($Talkzx0221, 2);
+	Goto @end;
+@Talk6:
+	If ($ZiXuanSense >> 20) @AddSenseEnd10;
+	Add($ZiXuanSense, 5);
+	Add($SenseVal, 5);
+@AddSenseEnd10:
+	Say("杨影枫：紫轩，有我在，你再也不用担心什么了！", 2);
+	Goto @end;	
+	
+	
+@Label5:
+	If ($ZiXuanSense >> 20) @AddSenseEnd4;
+	Add($ZiXuanSense, 5);
+	Add($SenseVal, 5);
+@AddSenseEnd4:
+	Say("紫轩：杨公子，我……你为什么对我这么好？你真的愿意和我成亲吗？你……会不会后悔？", 17);	
+	Say("杨公子：傻丫头，我开心还来不及，怎么会后悔？别再胡思乱想了，能娶到你，我将是天下最幸福的人！", 3);
+	Goto @end;	
+
+@end:	
+	Return;

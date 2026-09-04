@@ -1,0 +1,85 @@
+	If ($Event == 2006) @Event2006;
+	If ($Event == 960) @Event960;
+	If ($Event == 980) @Event980;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_025_摘星楼.map");
+
+	LoadNpc("map025.npc");
+	LoadObj("map025_obj.obj");
+
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(35,104);
+	SetPlayerDir(7);
+	EnableNpcAI();
+	FadeIn();
+	
+	Goto @end;
+
+@Event960:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_025_摘星楼.map");
+	
+	LoadObj("map025_event97.obj");
+	LoadNpc("map025_event97.npc");
+	
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(35,104);
+	SetPlayerDir(7);
+	EnableNpcAI();
+	FadeIn();
+
+	Goto @end;
+
+@Event980:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_025_摘星楼.map");
+
+	LoadNpc("Event99_feilongbao.npc");
+	LoadObj("map025_event97.obj");
+
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(31,105);
+	SetPlayerDir(7);
+	DisableNpcAI();
+	FadeIn();
+	SetPlayerDir(2);
+	MoveScreen(2, 35, 2);
+	
+	Say("杨影枫：怎么又来了这么多飞龙堡的人。", 2);
+	Say("飞龙堡总管卢肇灏：弟兄们，上啊，这小子杀了我们这么多人，大家把他剁成肉酱，为死了的弟兄们报仇。", 46);
+	Say("杨影枫：（怎么不分青红皂白就要打？）慢着，我问你们，你们把纳兰真小姐藏到哪里去了？", 6);
+	Say("卢肇灏：少罗嗦，大家上啊！", 46);
+	EnableNpcAI();
+	Assign($Event99FightNo, 0);
+	
+	SetMapTrap(1, "");
+	SetMapTrap(2, "");
+	
+	Goto @end;
+
+@end:
+	Return;
+	
+@Event2006:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_025_摘星楼.map");
+	LoadNpc("map025_empty.npc");
+	LoadObj("map025_obj.obj");
+	SetPlayerPos(35,104);
+	SetPlayerDir(7);
+	EnableNpcAI();
+	SetMapTrap(1,"trap01.txt");
+	FadeIn();
+	Return;

@@ -1,0 +1,45 @@
+	If ($Event <> 200) @end;
+	
+//	Talk(2650, 2670);
+//	AddToMemo(2671);
+//	Assign($Event, 202);
+
+	Say("杨影枫：大夫，怎么样？", 8);
+	Say("大夫王安：唉，她中了剧毒“七星草”。这种毒无药可医，我看是回天乏力了，你还是为她准备后事吧。", 53);
+	Say("杨影枫：大夫，你想想办法吧，你一定要救好她啊！一定会有办法的，我不能没有她！只要能救好她，你要我做什么都可以！", 8);
+	Say("大夫王安：唉，小伙子，现在很少看到你这么痴情的年轻人了。好吧，我告诉你，要救她，可能还有一个法子，只是太困难了！", 53);
+	Say("杨影枫：什么法子？大夫，你快说啊，我什么困难都不怕，只要能治好她。", 8);
+	Say("大夫王安：在北方的<color=Red>药王谷<color=Black>里住有一位<color=Red>胡神医<color=Black>。据说此人医术精湛，能活死人，肉白骨。这“七星草”之毒，说不定他能解。只是此人生性怪癖，给人治病从不收受钱财，但是必须要送他一样宝物，而且这样宝物必须是他所要求的。只要宝物一到手，他就立刻治病救人，否则就算刀架在他脖子上，他也不会理会。不过他所要的宝物都是一些极其难得之物，我怕你去了也是白跑一趟。", 53);
+	Say("杨影枫：多谢大夫告知。只要有一线希望，我都不会放弃！我现在就带她去药王谷，告辞！", 2);
+	PlayerRunTo(80, 31);
+	SetPlayerDir(4);
+	Assign($Event, 208);
+	
+	FadeOut();
+	SaveNpc();
+	DelObj("躺着盖被的紫轩");
+	SaveObj();
+	LoadMap("map_063_药王谷.map");
+    PlayMusic("mc016.mp3");
+    LoadNpc("yaowanggu.npc"); 
+    SaveNpc("temp_yaowanggu.npc");
+	LoadNpc("temp_yaowanggu.npc");
+    LoadObj("map063_obj.obj");
+	AddObj("躺着的紫轩.ini"，34，73，0);
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(35, 77);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	Say("杨影枫带着紫轩一路跋涉，终于来到药王谷……", 0);
+	
+	//参看 鼓眼鱼.txt
+	Assign($RecentlyMeetWooy, 0);
+	
+	FadeIn();
+	RunScript("事件21_4.txt");
+	Goto @end;
+
+
+@end:
+	Return;

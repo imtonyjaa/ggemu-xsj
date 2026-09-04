@@ -1,0 +1,97 @@
+
+	If ($Event == 145) @Label1;
+	If ($Event == 162) @Label2;
+
+	Goto @end;
+
+@Label1:
+	PlayerGoto(11, 20);
+	SetPlayerDir(1);
+	NpcSpecialAction("杨影枫", "mpc026_主角.asf");
+	Sleep(2000);
+	Talk(1880, 1880);
+	Sleep(500);
+	SetNpcActionFile("紫轩", 0, "npc010_st.asf");
+	SetNpcActionFile("紫轩", 1, "npc010_pst.asf");
+	NpcSpecialAction("紫轩", "mpc036.asf");
+	Sleep(1800);
+	DelNpc("紫轩");
+	AddNpc("紫轩.ini",10,22,5);
+	Sleep(500);
+	Talk(1890, 2061);
+	NpcGoto("紫轩", 10, 21);
+	SetNpcRelation("紫轩",2);//别看到血条,又不战斗 -- spe
+	SetNpcKind("紫轩",3);
+	SetNpcScript("紫轩","紫轩对话.txt");
+	Talk(20110, 20110);
+	
+	
+	Assign($Event, 150);
+	AddToMemo(90220);
+	Goto @end;
+
+@Label2:
+	Say("杨影枫：紫轩可能有什么事情耽搁了，我先等等吧。", 2);
+	PlayerGoto(11, 22);
+    Sleep(1000);
+    Say("杨影枫：紫轩呀，你为什么还不来？", 2);
+    PlayerGoto(10, 20);
+    Sleep(1000);
+    Say("杨影枫：“离恨恰如春草，更行更远还生”，杨影枫啊杨影枫，如今你终于明白什么叫做“一日不见，如隔三秋”了……", 2);
+    Sleep(200);
+    FadeOut();
+    StopMusic();
+    Sleep(500);
+    Say("不知不觉中，几个时辰过去了，但是紫轩还没有来……", 0);
+    PlayMusic("mc014.mp3");
+    SetPlayerPos(11, 24);
+    SetPlayerDir(0);
+    FadeIn();
+    Say("杨影枫：已经这么晚了，紫轩怎么还没来？她不会出了什么事吧？不行，我得到她家去看看！",	2);
+    AddToMemo(2161);
+	Assign($Event, 164);
+	SetMapTrap(2, "");
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_022_清平乡.map");
+
+	LoadNpc("qingpingxiang.npc");
+	LoadObj("map022_obj.obj");
+
+	SetNpcPos("鲁老头", 39, 115);
+	SetNpcDir("鲁老头", 7);
+	SetNpcPos("贾少", 30, 133);
+	SetNpcDir("贾少",5);
+	SetNpcPos("曾泼皮",30,136);
+	SetNpcDir("曾泼皮",4);
+	SetNpcPos("史泼皮",29,135);
+	SetNpcDir("史泼皮",6);
+	SetNpcPos("南琴",28,145);
+	SetNpcDir("南琴",5);
+	SetNpcPos("胖婶子",29,146);
+	SetNpcDir("胖婶子",4);
+	SetNpcPos("简梅",29,145);
+	SetNpcDir("简梅",4);
+	SetNpcPos("紫轩", 31, 132);
+	SetNpcDir("紫轩", 0);
+
+	If ($QiGaiPos == 1) @QiGaiPos11;
+	If ($QiGaiPos == 2) @QiGaiPos12;
+	@QiGaiPos11:
+		SetNpcPos("乞丐", 54, 62);
+		Goto @QiGaiPos1End;
+	@QiGaiPos12:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos1End;
+	@QiGaiPos1End:
+
+	SetPlayerPos(76, 18);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@end:
+	Return;

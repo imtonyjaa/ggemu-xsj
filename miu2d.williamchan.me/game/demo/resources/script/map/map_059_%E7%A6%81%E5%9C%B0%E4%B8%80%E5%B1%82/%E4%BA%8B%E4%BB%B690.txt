@@ -1,0 +1,80 @@
+
+
+	If ($Event == 890) @Label1;
+	
+	Goto @end;
+	
+@Label1:
+	If ($Result <> 3) @end;
+
+//	播放动画，主角救人，脉门被扣
+	
+	MoveScreen(5, 50, 1);
+	
+	Talk(17820, 17820);
+
+	PlayerGoto(9, 31);
+	SetPlayerDir(7);
+
+	Talk(17830, 17830);
+	
+	SetNpcKind("杨影枫", 0);
+	SetNpcPos("杨影枫", 10, 32);
+	SetNpcDir("杨影枫", 0);
+	DelNpc("假纳兰真");
+	NpcSpecialAction("杨影枫", "mpc208-2.asf");
+	SetNpcActionFile("杨影枫", 0, "mpc208-4.asf");
+	SetNpcActionFile("杨影枫", 1, "mpc208-4.asf");
+	Sleep(4000);
+
+	Talk(17840, 17860);
+	
+	FadeOut();
+	SetNpcPos("杨影枫", 9, 31);
+	SetNpcActionFile("杨影枫", 0, "mpc208-3.asf");
+	SetNpcActionFile("杨影枫", 1, "mpc208-3.asf");
+	AddNpc("无忧教站立女弟子A.ini", 10, 33, 2);
+	SetNpcKind("无忧教女弟子A", 0);
+	FadeIn();
+	
+	SetNpcKind("杨影枫", 2);
+	
+	AddNpc("事件90_纳兰潜凛.ini", 5, 42, 5);
+	
+	Talk(17870, 17870);
+	
+	NpcGoto("纳兰潜凛", 7, 36);
+	NpcGoto("纳兰潜凛", 8, 33);
+	NpcGoto("纳兰潜凛", 9, 32);
+	SetNpcDir("纳兰潜凛", 6);
+	
+	Talk(17880, 17920);
+
+	NpcGoto("纳兰潜凛", 5, 41);
+	DelNpc("纳兰潜凛");
+
+	Assign($Event, 900);
+
+	FadeOut();
+	DelNpc("无忧教女弟子A");
+	ShowMessage(18000);
+	
+	FadeIn();
+
+	SetNpcKind("杨影枫", 0);
+	SetNpcDir("杨影枫", 0);
+	NpcSpecialAction("杨影枫", "mpc225.asf");
+	Sleep(3800);
+	SetNpcActionFile("杨影枫", 0, "npc007_st2.asf");
+	SetNpcActionFile("杨影枫", 1, "npc007_sst2.asf");
+	SetNpcPos("杨影枫", 10, 32);
+	SetNpcKind("杨影枫", 2);
+	SetPlayerDir(1);
+	
+	Talk(18010, 18020);
+	Assign($Event, 905);
+	
+	Goto @end;
+	
+@end:
+	Return;

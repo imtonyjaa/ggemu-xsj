@@ -1,0 +1,33 @@
+	If ($Event == 210) @Event210211;
+	If ($Event == 211) @Event210211;
+	If ($Event == 220) @Event220;
+
+	Return;
+@Event210211:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_064_霹雳堂.map");
+	LoadNpc("pilitang-day.npc");
+	LoadObj("map064_obj.obj");
+	AddObj("雷震子.ini", 54, 44, 0);
+	SetObjScript("雷震子", "雷震子.txt");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(5, 11);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+@Event220:
+	Say("杨影枫：赶紧去救紫轩吧！", 2);
+	Return;
+
+
+
+
+
+	
+	
+	

@@ -1,0 +1,2 @@
+AddRandGoods("5级防具.ini");
+DelCurObj();

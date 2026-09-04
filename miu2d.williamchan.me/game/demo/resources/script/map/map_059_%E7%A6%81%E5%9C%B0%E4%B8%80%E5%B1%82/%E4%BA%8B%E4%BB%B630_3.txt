@@ -1,0 +1,43 @@
+
+	If ($Event <> 298) @end;
+	
+	PlayerGoto(9, 42);
+	SetPlayerDir(4);
+	SetNpcKind("杨影枫",1);
+	NpcGoto("杨影枫",8, 43);
+	SetNpcDir("杨影枫",4);
+	SetNpcKind("杨影枫",3);
+	MoveScreen(4,80,2);
+	NpcSpecialAction("纳兰潜凛", "mpc066.asf");
+	Sleep(800);
+	PlaySound("mpc066.wav");
+	Sleep(2500);
+	ShowNpc("桑芹", 1);
+	ShowNpc("路异", 1);
+	Talk(5020, 5030);
+	NpcGoto("路异",8,28);
+	SetNpcDir("路异",7);
+	Talk(5040, 5050);
+	NpcGoto("桑芹",8,30);
+	SetNpcDir("桑芹",7);
+	Talk(5060, 5070);
+	Sleep(200);
+	Talk(5080, 5080);
+	SetNpcDir("纳兰潜凛",0);
+	Talk(5090, 5090);
+	MoveScreen(0,80,2);
+	NpcGotoEx("路异",7,25);
+	NpcGoto("桑芹",7,25);
+	DelNpc("路异");
+	DelNpc("桑芹");
+	PlayerGoto(9,31);
+	SetPlayerDir(3);
+	SetNpcDir("纳兰潜凛",7);
+	Talk(5100, 5140);
+	SetNpcScript("纳兰潜凛","纳兰潜凛对话.txt");
+	SetNpcScript("杨影枫","杨影枫对话.txt");
+	
+	Assign($Event, 300);
+
+@end:
+	Return;

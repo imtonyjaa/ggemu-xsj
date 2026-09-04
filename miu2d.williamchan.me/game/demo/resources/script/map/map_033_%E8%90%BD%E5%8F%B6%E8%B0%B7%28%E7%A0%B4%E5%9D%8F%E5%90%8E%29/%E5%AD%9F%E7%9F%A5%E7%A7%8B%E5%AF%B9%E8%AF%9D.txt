@@ -1,0 +1,24 @@
+
+	GetRandNum($MengTalk, 1, 4);
+	If ($MengTalk == 1) @MengTalk31;
+	If ($MengTalk == 2) @MengTalk32;
+	If ($MengTalk == 3) @MengTalk33;
+	If ($MengTalk == 4) @MengTalk34;
+	
+@MengTalk31:
+	Say("孟知秋：影枫，武当山的事怎么样了？", 42);
+	Say("杨影枫：我这就去武当山。", 2);
+	Goto @end;
+@MengTalk32:
+	Say("孟知秋：影枫，无忧教来势不小，你此去武当山，千万小心。", 42);
+	Say("杨影枫：多谢前辈关心，晚辈一定注意。", 2);
+	Goto @end;
+@MengTalk33:
+	Say("孟知秋：影枫，武当山事情紧急，你要抓紧时间。", 42);
+	Say("杨影枫：晚辈这就赶去。", 2);
+	Goto @end;
+@MengTalk34:
+	Talk(80740, 80750);
+	Goto @end;
+@end:
+	Return;

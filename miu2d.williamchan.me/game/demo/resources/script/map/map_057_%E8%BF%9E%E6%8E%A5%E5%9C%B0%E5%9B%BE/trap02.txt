@@ -1,0 +1,358 @@
+	If ($Event == 1822) @1822;//结局2遇到假孟知秋
+	If ($Event == 1817) @1817;//结局2遇到假孟知秋
+	If ($Event == 296) @296;//跟踪纳兰潜凛
+	If ($Result == 3) @Result3;
+	If ($Event == 425) @Event425;
+	If ($Event == 812) @Event812;
+	If ($Event == 690) @Label3;
+	If ($Event == 3030) @Evt3030;
+	If ($Event == 762) @Event762;
+	If ($Event == 301) @Label4;
+
+	FadeOut();
+	SaveObj();
+	LoadMap("map_058_禁地.map");
+	LoadNpc("map058.npc");
+	LoadObj("map058_obj.obj");
+	SetPlayerPos(3, 81);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	If ($Event == 302) @talk1;
+	If ($Event == 340) @talk2;
+	If ($Event == 350) @talk3;
+	Return;
+
+@1822:
+	FadeOut();
+	StopMusic();
+	SaveObj();
+	LoadMap("map_058_禁地.map");
+	LoadNpc("map058_Fight.npc");
+	LoadObj("map058_obj.obj");
+	SetPlayerPos(5,80);
+	DisableNpcAI();
+	FadeIn();
+	PlayMusic("mc022.mp3");
+	PlayerGoto(7,73);
+	SetPlayerDir(5);
+	GetNpcCount(1,1);
+	Say("无忧教徒：什么人？竟敢擅闯禁地！",75);
+	Say("杨影枫：此处守卫森严，看来真儿和眉儿必定囚禁与此。",2);
+	Say("蔷薇：影枫哥，我们一起杀进去吧。",29);
+	Say("杨影枫：好，你要多加小心！",2);
+	SetMapTrap(1,"");
+	SetMapTrap(2,"");
+	EnableNpcAI();
+	SetNpcDeathScript("杨影枫","主角死亡.txt");
+	SetNpcDeathScript("蔷薇","主角死亡.txt");
+	Return;	
+
+@1817:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_058_禁地.map");
+	LoadNpc("map058.npc");
+	LoadObj("map058_obj.obj");
+	SetPlayerPos(3, 81);
+	SetPlayerDir(5);
+	AddNpc("孟知秋.ini",3,75,7);
+	SetMapTrap(3,"");
+	FadeIn();
+	StopMusic();
+	PlayerGoto(8,70);
+	SetPlayerDir(1);
+	Say("杨影枫：谁？",4);
+	NpcGoto("孟知秋",2,81);
+	DelNpc("孟知秋");
+	Say("杨影枫：噫？那不是孟知秋吗？他怎么会躲在这里？",4);
+	Say("杨影枫：……真儿不会出事吧。",4);
+	Say("杨影枫：我赶紧进去看看吧。",2);
+	PlayMusic("mc014.mp3");
+	Return;
+
+@talk1:
+	Talk(5213, 5213);
+	Return;	
+@talk2:
+	Talk(6232, 6233);
+	Return;	
+@talk3:
+	Talk(6234, 6234);
+	Return;	
+	
+
+@296:
+	FadeOut();
+	SaveObj();
+	StopMusic();
+	SetMapTrap(1,"trap01.txt");
+	LoadMap("map_058_禁地.map");
+	LoadNpc("map058.npc");
+	LoadObj("map058_obj.obj");
+	SetPlayerPos(3, 81);
+	SetPlayerDir(5);
+	DelNpc("纳兰潜凛");
+	AddNpc("纳兰潜凛.ini", 12, 53, 5);
+//	AddNpc("纳兰潜凛.ini", 5, 75, 5);
+//	NpcGotoEx("纳兰潜凛",10,59);
+	PlayMusic("Mc020.mp3");
+	SetMapPos(6, 42);
+	FadeIn();
+	SetNpcDir("纳兰潜凛", 1);
+	Sleep(800);
+	SetNpcDir("纳兰潜凛", 3);
+	Sleep(800);
+	SetNpcDir("纳兰潜凛", 7);
+	Sleep(800);
+	SetNpcDir("纳兰潜凛", 1);
+	Sleep(800);
+	NpcGoto("纳兰潜凛", 12, 49);
+	SetNpcDir(5);
+	DelNpc("纳兰潜凛");
+//	SetMapTrap(1,"");
+	Assign($Event,298);
+	SetPlayerScn();
+	Say("纳兰真：我爹进去了，我们也快跟进去吧！", 9);
+	Return;
+		
+@Label3:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_058_禁地.map");
+	LoadNpc("map058.npc");
+	LoadObj("map058_obj.obj");
+	SetPlayerPos(3, 81);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	SetPlayerPos(3, 81);
+	SetPlayerDir(5);
+	AddNpc("涟漪.ini",5,77,5);
+	SetNpcKind("涟漪",5);
+	NpcGotoEx("涟漪",12,53);
+	
+	FadeIn();
+	
+	Return;
+
+@Event425:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_058_禁地.map");
+	//LoadNpc("map058.npc");
+	LoadObj("map058_obj.obj");
+	SetPlayerPos(3, 81);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	LoadNpc("Event425.npc");
+	FadeIn();
+	Return;
+
+@Event812:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_058_禁地.map");
+	LoadNpc("map058.npc");
+	LoadObj("map058_obj.obj");
+	SetPlayerPos(3, 81);
+	SetPlayerDir(5);
+	DisableNpcAI();
+	LoadNpc("map058_Fight.npc");
+	FadeIn();
+	MoveScreen(5,100,2);
+	Sleep(500);
+	MoveScreen(3,100,2);
+	Sleep(500);
+	MoveScreen(7,100,2);
+	Sleep(500);
+	MoveScreen(1,100,2);
+	Sleep(500);
+	Assign($Event,814);
+	GetNpcCount(1,1);
+	Talk(75780,75800);
+	SetMapTrap(1,"");
+	SetMapTrap(2,"");
+	EnableNpcAI();
+	Return;	
+	
+@Event762:
+	FadeOut();
+	SaveObj();
+	SetMapTrap(1,"trap01.txt");
+	LoadMap("map_058_禁地.map");
+	LoadNpc("map058.npc");
+	LoadObj("map058_obj.obj");
+	SetPlayerPos(3, 81);
+	SetPlayerDir(5);
+	EnableNpcAI();
+ 	AddNpc("纳兰真.ini",7,69,5);
+	NpcGotoEx("纳兰真",10,59);
+	FadeIn();
+	Sleep(1000);
+	Talk(75450,75450);
+	EnableRun();
+	SetMapTrap(1,"");
+	SetMapTrap(2,"trap02.txt");
+	DelNpc("纳兰真");
+	Return;	
+	
+@Label4:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_058_禁地.map");
+	LoadNpc("map058.npc");
+	LoadObj("map058_obj.obj");
+	SetPlayerPos(3, 81);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	SetPlayerPos(3, 81);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;
+	
+
+@Result3:
+	If ($Event == 870) @Event870;
+	If ($Event == 991) @Event991;
+	If ($Event >= 880) @Label5;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_058_禁地.map");
+
+	LoadNpc("map058.npc");
+	LoadObj("map058_obj.obj");
+
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(3, 81);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+
+	Return;	
+
+@Event870:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_058_禁地.map");
+
+	LoadNpc("event88_zhongren.npc");
+	LoadObj("map058_obj.obj");
+
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(3, 81);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+
+	RunScript("事件88.txt");
+
+	Return;
+@Label5:
+	If ($Event >= 890) @Label6;
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_058_禁地.map");
+
+	LoadNpc("event88_jiaozhong.npc");
+	LoadObj("map058_obj.obj");
+
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(3, 81);
+	SetPlayerDir(5);
+	EnableNpcAI();
+
+	FadeIn();
+	
+	Return;
+
+@Label6:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_058_禁地.map");
+
+	LoadNpc("map058.npc");
+	LoadObj("map058_obj.obj");
+
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(3, 81);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+
+	Return;
+@Event991:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_058_禁地.map");
+
+	LoadNpc("map058.npc");
+	LoadObj("map058_obj.obj");
+
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(3, 81);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+
+	Say("杨影枫：这是无忧教的禁地，你爹是无忧教教主，他平日里不允许任何人进来，不过你曾经偷偷带我进去过……", 2);
+	Say("纳兰真：是吗？", 15);
+	Say("杨影枫：不错，而且这里面还有一个有关你身世的秘密……", 2);
+	Say("杨影枫：对了，你爹临死前要我给你看一封信，是有关你身世的秘密，你跟我来。", 2);
+	
+	Return;
+	
+	
+@Evt3030:
+	SetMapTrap(1,"Trap01.txt");
+	FadeOut();
+	SaveObj();
+	LoadMap("map_058_禁地.map");
+	LoadNpc("map058.npc");
+	LoadObj("map058_obj.obj");
+	SetPlayerPos(3, 81);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	SetPlayerPos(3, 81);
+	SetPlayerDir(5);
+	AddNpc("纳兰真.ini",5,77,5);
+	SetNpcKind("纳兰真",0);
+	SetNpcKind("杨影枫",1);
+	SetNpcKind("纳兰真",2);
+	SetPlayerScn();
+	NpcGotoEx("纳兰真",12,53);
+	FadeIn();
+	
+	NpcGoto("纳兰真",12,53);
+	SetNpcKind("纳兰真",0);
+	SetNpcKind("杨影枫",2);
+	NpcGoto("纳兰真",12,49);
+	
+	DelNpc("纳兰真");
+	SetMapTrap(2,"Trap02.txt");
+	EnableRun();
+	SetPlayerScn();
+	Say("跟进去看看！");
+	
+	SetMapTrap(1,"");
+	Return;
+	
+	
+@end:
+    Return;

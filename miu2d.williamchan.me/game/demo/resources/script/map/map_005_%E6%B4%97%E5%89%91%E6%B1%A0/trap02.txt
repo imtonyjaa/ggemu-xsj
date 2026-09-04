@@ -1,0 +1,33 @@
+
+	If ($Event <> 35) @Label1;
+	Talk(241, 241); 
+	Goto @end;
+
+@Label1:
+	FadeOut();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_004_武当山连接地图.map");
+	LoadNpc("map004-luren.npc");
+	LoadObj("map004_obj.obj");
+
+	If ($SubEvent02 >= 2) @SubLabel1;
+	If ($SubEvent02 << 2) @SubLabel2;
+	Goto @SubLabelEnd;
+
+@SubLabel1:
+	SetObjScript("草葱", "支线草药.txt");
+	Goto @SubLabelEnd;
+
+@SubLabel2:
+	SetObjScript("草葱", "");
+	Goto @SubLabelEnd;
+
+@SubLabelEnd:
+	SetPlayerPos(4, 47);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+
+@end:
+	Return;

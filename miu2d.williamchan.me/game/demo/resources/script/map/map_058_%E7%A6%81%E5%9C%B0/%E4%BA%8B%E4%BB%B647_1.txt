@@ -1,0 +1,73 @@
+// 事件46 刚发生
+	If ($Event == 460) @Label1;
+	Return;
+	
+@Label1:
+	PlayerGoto(10,60);
+	Watch("杨影枫","纳兰真",0);
+	Watch("杨影枫","ALLNPC",0);
+//  $Sel等于1 为杀纳兰真
+	If ($Sel == 0) @killna;
+	Goto @nokillna;
+
+@killna:
+	Say("杨影枫：真儿……你没事吧？",5);
+	Say("纳兰真：你……怎么啦？你的脸色很差！我很好呀！",12);
+	Say("杨影枫：没事，刚才在心魔阵里……", 2);
+	Say("纳兰真：那里面发生了什么吗？", 12);
+	Say("杨影枫：没有，只是一些心结罢了……",2);
+	Say("纳兰真：可你看起来心力交瘁……",12);
+	Goto @blade;	
+
+@nokillna:
+	Say("纳兰真：影枫哥哥，你出来啦！我很担心你会……出事。",12);
+	Say("杨影枫：真儿……我没事。只是觉得有些疲倦……", 5);
+	Say("纳兰真：在心魔阵里发生了什么事吗？", 12);
+	Say("杨影枫：没……什么。只是一些无法释怀的心结……", 2);
+
+//  $SelectBlade等于1 为留下刀
+@blade:
+	Watch("杨影枫","纳兰潜凛",0);
+	If ($SelectBlade == 1) @noreturnblade;
+	Goto @returnblade;
+
+@noreturnblade:
+	Say("纳兰潜禀：枫儿，恭喜你闯过心魔阵！", 38);
+	Say("杨影枫：前辈，多谢你的关心。晚辈在心魔内……受益匪浅……！", 2);
+	Say("纳兰潜凛：能过心魔着实不易。真儿，送影枫去歇息吧！",38);
+	Goto @finish;
+
+@returnblade:
+	Say("纳兰潜禀：枫儿，恭喜你！",38);
+	Say("杨影枫：前辈，我在禁地第三层中得到一把刀，你可认识此物？",2);
+	Say("纳兰潜凛：此乃无忧教镇教至宝——悲魔之刃，据说能与主人之心相通，主人的心灵越是坚强，其威力越大。",38);
+	Say("杨影枫：那就没错了。既然是无忧教重宝，理当物归原主，影枫愿把悲魔之刃奉还。", 2);
+	Say("纳兰潜凛：嗯，我就代本教收回此刀。真儿，送影枫去歇息吧！", 38);
+	DelGoods("goods-w11-悲魔之刃.ini");
+
+@finish:
+	Talk(8050, 8120);
+	Assign($Event, 465);
+	
+	SetNpcKind("纳兰潜凛",3);
+	SetNpcKind("纳兰真",3);
+	
+	FadeOut();
+	LoadMap("map_052_码头.map");
+	LoadNpc("map052.npc");
+	LoadObj("map052_obj.obj");
+	SetPlayerPos(16, 29);
+	SetPlayerDir(2);
+	FadeIn();
+	PlayerGoto(12,26);
+	Watch("杨影枫","纳兰潜凛",0);
+	Watch("纳兰真","纳兰潜凛",0);
+	Talk(41310,41340);
+	SetNpcKind("纳兰潜凛",0);
+	PlayerGoto(9,32);	
+	Watch("纳兰潜凛","杨影枫",0);
+	RunScript("事件47_2.txt");
+	Return;
+	
+@end:
+	Return;

@@ -1,0 +1,49 @@
+	If ($Event == 558) @Label1;
+	Return;
+	
+@Label1:
+	StopMusic();
+   	FadeOut();
+   	Sleep(1000);
+	ClearBody();
+	SetNpcRelation("孟知秋", 2);
+	SetNpcPos("孟知秋", 18, 94);
+	SetNpcDir("孟知秋", 7);
+    SetPlayerPos(18, 95);
+    SetPlayerDir(3); 
+    SetPlayerState(0);
+    SetPlayerScn();
+    FullLife();
+	SetNpcScript("孟知秋","孟知秋对话.txt");
+	AddToMemo(90780);
+	FadeIn();
+	
+	NpcSpecialAction("杨影枫", "mpc108.asf");
+	Sleep(2000);
+	Talk(10660, 10660);
+	SetNpcPos("蔷薇", 23, 81);
+	NpcGoto("蔷薇", 19, 94);
+	SetNpcDir("蔷薇", 1);
+	Talk(10670, 10670);
+	NpcGoto("蔷薇", 18, 93);
+	SetNpcDir("蔷薇", 1);
+	Talk(10690, 10770);
+	NpcGoto("蔷薇", 13, 106);
+	SetNpcPos("蔷薇", 7, 123);
+	SetNpcDir("蔷薇", 5);
+	SetNpcScript("蔷薇","蔷薇对话.txt");
+	SetPlayerDir(1);
+	Talk(10780, 10780);
+	SetPlayerDir(3);
+	Talk(10790, 10830);
+	NpcSpecialAction("杨影枫", "mpc108.asf");
+	Sleep(2000);
+	Talk(10840, 10850);
+	SetNpcDeathScript("杨影枫","主角死亡.txt");
+	Assign($Event, 560);
+	SetMapTrap(9, "事件71_1.txt");
+	AddToMemo(90790);
+	Return;
+	
+@end:
+	Return;

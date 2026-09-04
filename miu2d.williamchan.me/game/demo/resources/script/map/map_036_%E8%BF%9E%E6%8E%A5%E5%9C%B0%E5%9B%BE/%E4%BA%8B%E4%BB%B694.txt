@@ -1,0 +1,29 @@
+	If ($Event == 930) @Label1;
+	Return;
+	
+@Label1:
+	If ($Result <> 3) @end;
+	PlayerGoto(51, 46);	
+	SetPlayerDir(7);
+	MoveScreen(7, 60, 2);
+	MoveScreen(0, 40, 2);
+	Talk(18270, 18370);
+	MoveScreen(4, 60, 2);
+	Talk(18380, 18380);
+	SetNpcDir("高泊", 3);
+	SetNpcDir("肖头", 3);
+	PlayerGoto(52, 55);
+	SetPlayerDir(7);
+	Talk(18390, 18410);
+	EnableNpcAI();
+	
+//	系统消息：发生事件94，碰到人贩子，进入战斗
+	Assign($Event, 935);
+	Assign($Event94Val, 0);
+	
+//	系统消息：战斗胜利，就出蔷薇，这一段要放在敌人死亡脚本里
+//	Assign($Event, 940);
+	Return;
+	
+@end:
+	Return;

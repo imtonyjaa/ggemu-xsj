@@ -1,0 +1,4 @@
+	PlayerGotoDir(5, 2);
+	Say("杨影枫：事还没办完，怎么能一走了之？", 2);
+    SetMapTrap(8, "Trap08.txt");
+    Return;

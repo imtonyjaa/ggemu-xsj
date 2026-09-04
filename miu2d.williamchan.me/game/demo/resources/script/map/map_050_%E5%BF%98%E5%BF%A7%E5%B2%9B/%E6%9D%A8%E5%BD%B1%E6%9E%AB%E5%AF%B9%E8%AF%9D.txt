@@ -1,0 +1,111 @@
+	If ($Event == 302) @Label1;
+	If ($Event == 350) @Label2;
+	If ($Event == 296) @Talk;
+	If ($Event == 301) @Label3;
+	If ($Event == 340) @Label4;
+	
+	Goto @end;
+
+@Label1:
+	If ($Talkyyf050 == 0) @Talk0;
+	If ($Talkyyf050 == 1) @Talk1;
+	Goto @end;
+@Talk0:
+	If ($NaLanZhenSense >= 20) @AddSenseEnd;
+	Add($SenseVal, 5);
+	Add($NaLanZhenSense, 5);
+@AddSenseEnd:
+    Talk(5215, 5216);
+	Assign($Talkyyf050, 1);
+	Goto @end;
+@Talk1:
+	If ($NaLanZhenSense >= 20) @AddSenseEnd1;
+	Add($SenseVal, 5);
+	Add($NaLanZhenSense, 5);
+@AddSenseEnd1:
+	Talk(5217, 5218);
+	Assign($Talkyyf050, 0);
+	Goto @end;	
+	
+	
+@Label2:
+	If ($Talkyyf050b == 0) @Talk2;
+	If ($Talkyyf050b == 1) @Talk3;
+	If ($Talkyyf050b == 2) @Talk4;
+	If ($Talkyyf050b == 3) @Talk5;
+	If ($Talkyyf050b == 4) @Talk6;
+	Goto @end;	
+@Talk2:
+	If ($NaLanZhenSense >= 20) @AddSenseEnd2;
+	Add($SenseVal, 5);
+	Add($NaLanZhenSense, 5);
+@AddSenseEnd2:
+	Talk(6235, 6238);
+	Assign($Talkyyf050b, 1);
+	Goto @end;
+@Talk3:
+	If ($NaLanZhenSense >= 20) @AddSenseEnd3;
+	Add($SenseVal, 5);
+	Add($NaLanZhenSense, 5);
+@AddSenseEnd3:
+	Say("纳兰真：影枫哥哥，你走了以后，还会记得我吗？", 12);
+	Say("杨影枫：真儿，我绝不会忘记你。在岛上与你共度的这些日子，是我一生中最宁静快乐的时光。", 2);
+	Assign($Talkyyf050b, 2);
+	Goto @end;
+@Talk4:	
+	If ($NaLanZhenSense >= 20) @AddSenseEnd4;
+	Add($SenseVal, 5);
+	Add($NaLanZhenSense, 5);
+@AddSenseEnd4:
+	Say("纳兰真：影枫哥哥，你还会回忘忧岛吗？", 12);
+	Say("杨影枫：真儿，如果有缘，我们自会有重逢的一天，对吗？", 2);
+	Assign($Talkyyf050b, 3);
+	Goto @end;
+@Talk5:	
+	If ($NaLanZhenSense >= 20) @AddSenseEnd5;
+	Add($SenseVal, 5);
+	Add($NaLanZhenSense, 5);
+@AddSenseEnd5:
+	Say("纳兰真：影枫哥哥，如果你不需要报仇，不需要成为武林第一，那该有多好…", 12);
+	Say("杨影枫：真儿…", 2);
+	Assign($Talkyyf050b, 4);
+	Goto @end;
+@Talk6:	
+	If ($NaLanZhenSense >= 20) @AddSenseEnd6;
+	Add($SenseVal, 5);
+	Add($NaLanZhenSense, 5);
+@AddSenseEnd6:
+	Say("杨影枫：别哭呀，真儿…", 2);
+	Say("纳兰真：呜呜，影枫哥哥，你不要走了好吗？我真的舍不得你走呀，呜呜…", 12);
+	Say("杨影枫：真儿…", 2);
+	Goto @end;
+
+@Talk:
+	If ($NaLanZhenSense >= 20) @AddSenseEnd7;
+	Add($SenseVal, 5);
+	Add($NaLanZhenSense, 5);
+@AddSenseEnd7:
+	Say("纳兰真：嘘！轻一点，咱们不要惊动了其它人。", 9);
+	Say("杨影枫：好的。", 2);
+	Goto @end;	
+	
+@Label3:
+	If ($NaLanZhenSense >= 20) @AddSenseEnd8;
+	Add($SenseVal, 5);
+	Add($NaLanZhenSense, 5);
+@AddSenseEnd8:
+	Say("杨影枫：真儿，不要到处乱逛了，我们回去吧！", 2);
+	Goto @end;			
+	
+@Label4:
+	If ($NaLanZhenSense >= 20) @AddSenseEnd9;
+	Add($SenseVal, 5);
+	Add($NaLanZhenSense, 5);
+@AddSenseEnd9:
+	Say("纳兰真：我们现在就回家找我爹问个明白吧！", 12);
+	Goto @end;	
+	
+@end:
+	Return;
+
+

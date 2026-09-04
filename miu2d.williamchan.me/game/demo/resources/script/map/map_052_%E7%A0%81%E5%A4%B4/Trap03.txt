@@ -1,0 +1,66 @@
+
+
+
+	If ($Event == 880) @Label1;
+	
+	If ($Event == 920) @Label2;
+	
+	If ($Event == 1000) @Label3;
+	
+	Goto @end;
+	
+@Label1:
+	If ($Result <> 3) @end;
+	Say("系统消息：去找孟知秋，坐船走喽");
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_029_码头.map");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(10, 105);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+
+	Say("系统消息：去找孟知秋");
+	
+	Goto @end;
+	
+@Label2:
+	If ($Result <> 3) @end;
+	Say("系统消息：去飞龙堡救纳兰真");
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_029_码头.map");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(10, 105);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Say("系统消息：去飞龙堡救纳兰真");
+
+	Goto @end;
+
+@Label3:
+	If ($Result <> 3) @end;
+	Say("系统消息：去飞龙堡救纳兰真");
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_029_码头.map");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(10, 105);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Say("系统消息：去飞龙堡救纳兰真");
+
+	Goto @end;
+
+@end:
+	Return;

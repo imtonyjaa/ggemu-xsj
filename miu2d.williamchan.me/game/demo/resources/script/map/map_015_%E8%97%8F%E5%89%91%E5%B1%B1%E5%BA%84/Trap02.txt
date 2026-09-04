@@ -1,0 +1,135 @@
+
+
+// 发生事件50.2，主角余卓非凡、天星道人比武
+	If ($Event == 492) @Label1;
+	If ($Event == 234) @Label2;
+    If ($Event == 235) @Label3;
+	If ($Event == 233) @Label5;
+	If ($Event == 120) @Label6;
+	If ($Event == 124) @Label7;
+	If ($Event == 130) @Label8;
+	If ($Event == 135) @Label9;
+	If ($Event == 478) @Label10;
+	If ($Event == 475) @Label11;
+	If ($Event == 382) @Event382;
+	If ($Event == 390) @Event390;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	If ($Event <> 135) @Label4;
+	SetNpcScript("卓非凡","");
+@Label4:
+	LoadMap("map_016_剑气峰.map");
+	LoadNpc("map016-luren.npc");
+	LoadObj("map016_obj.obj");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(29, 108);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+	Goto @end;
+
+@Label2:
+	FadeOut();
+	SetNpcPos("李四", 27, 55);
+	SetNpcDir("李四", 5);
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_016_剑气峰.map");
+    LoadNpc("jianqifeng-zhuofeifan.npc");
+	SetNpcScript("卓非凡","卓非凡对话.txt");
+	LoadObj("map016_obj.obj");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(29, 108);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+	Goto @end;
+
+@Label3:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_016_剑气峰.map");
+    LoadNpc("jianqifeng-zhuofeifan2.npc");
+	SetNpcScript("卓非凡","卓非凡对话.txt");
+	LoadObj("map016_obj.obj");
+	ChangeMapColor(100, 128, 150);
+	ChangeAsfColor(100, 128, 150);
+	SetPlayerPos(29, 108);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+	Goto @end;	
+
+@Label1:
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_016_剑气峰.map");
+	LoadNpc("jianqifeng-wulin.npc");
+	LoadObj("map016_obj.obj");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(29, 108);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+	SetMapTrap(6, "事件50_2.txt");
+	Goto @end;
+
+@Label5:
+	Say("杨影枫：为什么不在山庄里找找呢？说不定会有什么发现。", 2);
+    Goto @end;        
+
+@Label6:            
+	Talk(1632, 1632); 
+    Goto @end;
+
+@Label7:
+	Talk(241, 241); 
+    Goto @end; 
+
+@Label8:
+	Talk(1633, 1633); 
+    Goto @end;
+
+@Label9:
+	Talk(1634, 1634); 
+    Goto @end;
+
+@Label10:
+	Talk(8391, 8391); 
+    Goto @end;  
+
+@Label11:
+	Say("杨影枫：还没有见到卓非凡呢！"， 0);
+	PlayerGoto(3,17);
+	SetPlayerDir(7);
+	SetMapTrap(2,"Trap02.txt");
+	Goto(@end); 
+
+
+@Event382:
+	Say("杨影枫：先找到卓非凡再说！");
+	PlayerGoto(3,17);
+	SetPlayerDir(7);
+	SetMapTrap(2,"Trap02.txt");
+	Goto @end;
+
+@Event390:
+	Say("杨影枫：赶紧离开这里吧");
+	PlayerGoto(3,17);
+	SetPlayerDir(7);
+	SetMapTrap(2,"Trap02.txt");
+	Goto @end;
+	
+
+@end:
+	Return;
+
+	

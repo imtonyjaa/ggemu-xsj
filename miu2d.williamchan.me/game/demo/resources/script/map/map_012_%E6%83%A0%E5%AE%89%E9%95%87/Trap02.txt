@@ -1,0 +1,213 @@
+	If ($Event == 1821) @1821;//结局2求证回来
+	If ($Event == 1819) @1819;//结局2求证
+	If ($Event == 1806) @1806;//结局2
+	If ($Event == 2102) @2102;//蔷薇死亡
+	If ($Event == 2034) @2102;
+	If ($Event == 2040) @2102;
+	If ($Event == 592) @Event592;
+	If ($Event == 520) @Event520;
+	If ($SubEvent19 <> 5) @SubEventNE5;
+	Assign($SubEvent19, 10);
+
+@SubEventNE5:
+	
+	If ($Event == 85) @Label1;
+	If ($Event == 60) @Label4;
+	If ($Event == 70) @Label5;
+	If ($Event == 100) @Label6;
+	If ($Event == 146) @Event146;
+	If ($Event == 148) @Event148;
+	If ($Event == 185) @Label2;
+	If ($Event == 402) @Label402;
+	If ($Event == 404) @Label404;
+	If ($Event == 485) @Label7;
+	If ($Event == 365) @Event365;
+	If ($Event == 390) @Event390;
+	If ($Event == 991) @Event991;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_014_连接地图.map");
+	LoadNpc("map014-luren.npc");
+	LoadObj("map014_obj.obj");
+	SetPlayerPos(34, 9);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event365:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_014_连接地图.map");
+
+//	need change
+	LoadNpc("map014_helpYMR.npc");
+	LoadObj("map014_obj.obj");
+	SetPlayerPos(34, 9);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Say("离紫轩的家不远了，不知她现在怎样？");
+	Return;
+
+
+// 如果在战斗中，关闭出入口，战斗结束后要重新打开出入口
+@Label1:
+	Talk(241, 241); 
+	Return;	
+        
+        
+//没有打听到张仲天死因，关闭出入口
+@Label2:        
+	Say("杨影枫：先打听打听张仲天大哥的死因吧！", 2);
+	Return;
+
+@Label4:
+	Talk(1281, 1281);
+	Return;
+
+@Label5:
+	Talk(1282, 1282);
+	PlayerGotoDir(5, 2);
+	SetMapTrap(2, "Trap02.txt");
+	Return;	
+
+@Label6:
+	Talk(1283, 1283);
+	PlayerGotoDir(5, 2);
+	SetMapTrap(2, "Trap02.txt");
+	Return;
+
+@Label7:
+	Say("杨影枫：还是先回悲魔山庄吧，真儿还在等我呢。",2);
+	PlayerGotoDir(5, 2);
+	SetMapTrap(2, "Trap02.txt");
+	Return;
+
+@Label402:
+	PlayerGotoDir(5, 2);
+	Say("还是先去给月眉儿买药吧", 2);
+    SetMapTrap(2, "Trap02.txt");
+	Return;	
+	
+@Label404:
+	PlayerGotoDir(5, 2);
+	Say("还是先把药给月眉儿送去吧！", 2);
+    SetMapTrap(2, "Trap02.txt");
+	Return;	
+	
+@Event390:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_014_连接地图.map");
+//	need change
+	LoadNpc("map014_night.npc");
+	LoadObj("map014_obj.obj");
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	SetPlayerPos(34, 9);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event991:
+	Say("杨影枫：带真儿回忘忧岛吧，对她的病情康复也许有帮助。", 2);
+	PlayerGotoDir(5, 2);
+	SetMapTrap(2, "Trap02.txt");
+	Return;
+
+@end:
+	Return;
+
+@2102:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_014_连接地图.map");
+	LoadNpc("map014_2.npc");
+	SaveNpc("temp.npc");
+	LoadObj("map014_obj.obj");
+	SetPlayerPos(34, 9);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@1806:
+	Say("杨影枫：我要去凌绝峰赴月眉儿之约。",2);
+	PlayerGotoDir(4,2);
+	SetMapTrap(2,"trap02.txt");
+	Return;
+
+@1819:
+	Say("杨影枫：这不是去武当山的路。",2);
+	Return;
+
+@1821:
+	Say("杨影枫：这不是去忘忧岛的路。",2);
+	Return;
+
+@Event592:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_014_连接地图.map");
+	LoadObj("map014_obj.obj");
+	BeginRain("Rain.ini");
+	SetPlayerPos(34, 9);
+	SetPlayerDir(1);
+	SetMapTrap(2,"");
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event520:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_014_连接地图.map");
+	LoadNpc("map014_night.npc");
+	LoadObj("map014_night.obj");
+	SetPlayerPos(34, 9);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event146:
+	Say("杨影枫：先带紫轩在惠安镇里逛逛吧！", 2);
+	Return;
+	
+@Event148:	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("mc015.mp3");
+	Say("杨影枫送紫轩从惠安镇回到了清平乡。");
+	LoadMap("map_022_清平乡.map");
+
+	LoadNpc("qingpingxiang.npc");
+	LoadObj("map022_obj.obj");
+
+	If ($QiGaiPos == 1) @QiGaiPos31;
+	If ($QiGaiPos == 2) @QiGaiPos32;
+	@QiGaiPos31:
+		SetNpcPos("乞丐", 54, 62);
+		Goto @QiGaiPos3End;
+	@QiGaiPos32:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos3End;
+	@QiGaiPos3End:
+
+	SetPlayerPos(76, 18);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Assign($Event, 150);
+	Return;

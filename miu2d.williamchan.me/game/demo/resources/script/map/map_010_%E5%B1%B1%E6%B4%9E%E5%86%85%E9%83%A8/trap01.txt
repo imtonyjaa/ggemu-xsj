@@ -1,0 +1,24 @@
+	If ($Event <= 50) @Label1;
+	If ($Event >= 60) @Label1;
+
+	Talk(241, 241); 
+	Goto @end;
+	
+@Label1:
+
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_009_山洞内部.map");
+	LoadNpc("yeshulin-bianfu.npc"); 
+    SaveNpc("temp.npc");
+    LoadObj("map009_obj.obj");
+	SetPlayerPos(27, 10);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();
+	Goto(@end);
+
+@end:
+	Return;

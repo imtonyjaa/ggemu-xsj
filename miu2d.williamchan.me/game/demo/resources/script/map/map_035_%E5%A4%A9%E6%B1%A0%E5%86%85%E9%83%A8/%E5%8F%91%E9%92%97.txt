@@ -1,0 +1,11 @@
+	If ($Event == 542) @Label1;
+	Return;
+	
+@Label1:
+	DelCurObj();
+	AddGoods("Goods-e09-发钗.ini");
+	Assign($Event, 545);
+	AddToMemo(90761);
+	Say("杨影枫：我还是早点离开这里为妙！", 2);
+	SetMapTrap(1, "Trap01.txt");
+	Return;

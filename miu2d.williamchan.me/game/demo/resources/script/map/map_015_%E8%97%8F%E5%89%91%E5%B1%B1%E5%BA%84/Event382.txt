@@ -1,0 +1,38 @@
+If ($Event==110) @Label1;
+If ($Event==232) @Label2;
+//If ($Event==382) @Event382;
+If ($Event==390) @Event390;
+If ($Event==492) @Event492;
+
+Goto @end;
+
+@Label1:
+	RunScript("trap03.txt");
+	Goto @end;
+	
+@Label2:
+	RunScript("trap06.txt");
+	Goto @end;	
+
+
+@Event382:
+PlayerRunTo(44,20);
+SetPlayerDir(1);
+Talk(41360,41360);
+SetMapTrap(12,"Event382.txt");
+Goto @end;
+
+@Event390:
+PlayerRunTo(44,20);
+Talk(41370,41370);
+SetMapTrap(12,"Event382.txt");
+Goto @end;
+
+@Event492:
+PlayerGoto(40, 31);
+SetPlayerDir(1);
+Say("家丁阿水：我家庄主和众多武林人士已在剑气峰恭候多时！",	0);
+Goto @end;
+
+@end:
+Return;

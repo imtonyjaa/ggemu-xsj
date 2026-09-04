@@ -1,0 +1,46 @@
+
+If ($Pos == 1) @Pos1;
+If ($Pos == 2) @Pos2;
+If ($Pos == 3) @Pos3;
+If ($Pos == 4) @Pos4;
+If ($Pos == 5) @Pos5;
+If ($Pos == 6) @Pos6;
+Goto(@end);
+
+
+@Pos1:
+SetNpcPos("紫轩",5,5);
+Goto(@end);
+
+@Pos2:
+SetNpcPos("紫轩",9,37);
+Goto(@end);
+
+@Pos3:
+SetNpcPos("紫轩",1,23);
+Goto(@end);
+
+@Pos4:
+SetNpcPos("紫轩",16,27);
+Goto(@end);
+
+@Pos5:
+SetNpcPos("紫轩",3,41);
+Goto(@end);
+
+@Pos6:
+SetNpcPos("紫轩",11,21);
+Goto(@end);
+
+
+
+@end:
+SetTimeScript(10,"ChangePos.txt");
+Add($Pos ,1);
+If ($Pos >= 7 ) @Again;
+Return;
+
+@Again:
+Assign($Pos,1);
+Return;
+

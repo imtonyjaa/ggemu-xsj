@@ -1,0 +1,28 @@
+	If ($Event == 190) @Event190;
+	If ($Event == 195) @Event195;
+	If ($Event == 140) @Event140;
+
+	FadeOut();
+//	SaveNpc();
+	SaveObj();
+	LoadMap("map_018_连接地图.map");
+	LoadNpc("map018.npc");
+	LoadObj("map018_obj.obj");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(3, 35);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Event195:
+    Talk(241, 241); 
+	Return;
+	
+@Event140:
+	Return;
+	
+@Event190:
+    Say("杨影枫：还是先回芭蕉小筑看看木匣吧！", 2); 
+	Return;	

@@ -1,0 +1,66 @@
+	If ($Event == 146) @Event146;
+	Return;
+@Event146:
+	GetMoneyNum();
+	If ($MoneyNum >= 1)	@continue;
+	If ($MoneyNum == 0) @continue0;
+	Say("杨影枫：（我身上的银子不多，不如先去卖些物品，手头准备多点钱，可以买些好东西送给她。）", 2);
+	SetNpcKind("紫轩", 1);
+	NpcGoto("紫轩", 49, 235);
+	PlayerGoto(48, 235);
+	SetNpcKind("紫轩", 3);
+	SetMapTrap(17, "sing.txt");
+	Return;	
+@continue0:
+	Say("杨影枫：（哎呀，我身上没带银子，先去卖些物品换点钱，待会如果看到什么中意的东西就可以买给她。）", 2);
+	SetNpcKind("紫轩", 1);
+	NpcGoto("紫轩", 49, 235);
+	PlayerGoto(48, 235);
+	SetNpcKind("紫轩", 3);
+	SetMapTrap(17, "sing.txt");
+	Return;	
+
+@continue:
+	PlayerGoto(50, 231);
+	SetPlayerDir(5);
+	NpcGoto("紫轩", 50, 233);
+	Say("杨影枫：这里就是醉仙楼了，我们进去看看。", 2);
+	PlayerGoto(53, 219);
+	SetPlayerDir(4);
+	Say("老板娘：啊呀，多俊的小伙子，多俏的姑娘，真是一对金童玉女！要吃点什么？喝点什么？我们醉仙楼的“一步倒”可是有名得很哪！", 96);
+	Say("杨影枫：多谢，我们不喝酒，我们是来听阿萝姑娘唱歌的。", 3);
+	Say("老板娘：阿萝姑娘此刻在楼上。", 96);
+	PlayerGoto(46, 210);
+	PlayerGoto(49, 198);
+	PlayerGoto(55, 203);
+	SetPlayerDir(1);
+	Say("歌女阿萝：公子，小姐，要听什么曲子？小女子唱曲儿也算得上远近闻名，一支曲子才一两银子。");
+	Say("杨影枫：我们想听那首“天仙子”。", 2);	
+	Say("歌女阿萝：公子真会点，那可是我最拿手的歌啊。");
+	AddMoney(-1);
+	StopMusic();
+	//PlayMusic("tianxianzi.mp3");
+	//Sleep(90000);
+	//StopMusic();
+	PlayMovie("sing.avi");
+	Say("紫轩：真好听啊！", 16);
+	Say("歌女阿萝：这首歌讲的是昔日大侠南宫飞云与燕若雪之间的一段感人肺腑的爱情故事，他们倾心相爱，但是却因为国仇家恨，最终生死相隔，遗恨千古。");
+	Say("杨影枫：难怪闻之令人恻然，真想早生几十年，一睹当年南宫大侠的风采。", 2);
+	Say("紫轩：燕若雪姑娘能够找到一个自己生死相许、倾心相爱的人，真是让人羡慕啊！", 16);
+	Say("杨影枫：多谢姑娘的歌声！紫轩，我们走吧。", 3);
+	PlayMusic("mc003.mp3");
+	SetMapTrap(17, "");
+	SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(2, "Trap02.txt");
+	SetMapTrap(3, "Trap03.txt");
+	If ($Zixuan == 0) @sub1;
+	If ($Zixuan == 10) @sub2;
+	Return;
+@sub1:
+	Assign($Zixuan, 10);
+	Return;
+@sub2:
+	Assign($Zixuan, 20);
+	SetMapTrap(16, "rain.txt");
+	Return;
+	

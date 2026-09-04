@@ -1,0 +1,14 @@
+	If ($Event == 530) @Label1;
+	If ($Event == 532) @Label1;
+	If ($Event == 535) @Label2;
+	Goto @end;
+@Label1:
+	RunScript("事件54_AB.txt");
+	Goto @end;
+@Label2:
+	RunScript("事件54_2.txt");
+	Goto @end;
+@end:
+	Return;
+
+

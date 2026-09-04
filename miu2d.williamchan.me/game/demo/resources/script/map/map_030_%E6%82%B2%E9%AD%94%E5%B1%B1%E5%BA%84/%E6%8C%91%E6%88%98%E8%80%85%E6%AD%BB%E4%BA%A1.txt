@@ -1,0 +1,34 @@
+	FadeOut();
+	DelNpc("挑战者");
+	ClearBody();
+	SetPlayerPos(15,29);
+	SetPlayerState(0);
+	AddNpc("武林人士1.ini", 14, 32, 5);
+	SetNpcKind("银面佛小叶", 0);
+	SetNpcRelation("银面佛小叶", 2);
+	Watch("杨影枫","银面佛小叶", 0);
+	//SetPlayerDir(1);
+	
+	FadeIn();
+	Sleep(1000);
+	Talk(106990,107000);
+	NpcGoto("银面佛小叶",11,30);
+	NpcGoto("银面佛小叶",9,27);
+	SetNpcDir("银面佛小叶",7);
+
+	
+	//MoveScreen(2,100,1);
+	NpcGoto("尚进",13,27);
+	NpcGoto("尚进",13,34);
+	
+	SetPlayerScn();
+	Watch("杨影枫","尚进",0);
+	Talk(107020,107030);
+	SetPlayerScn();
+	SetNpcRelation("尚进",1);
+	
+	EnableNpcAI();
+	SetNpcDeathScript("尚进","尚进死亡.txt");
+	Return;
+
+

@@ -1,0 +1,5 @@
+	If ($Event <> 510) @end;
+	RunScript("事件52.txt");
+	Return;
+@end:
+	Return;	

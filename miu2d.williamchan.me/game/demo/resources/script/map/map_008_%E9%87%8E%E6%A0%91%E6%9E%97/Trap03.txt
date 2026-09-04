@@ -1,0 +1,61 @@
+	If ($Event == 1806) @1806;
+	If ($Event == 50) @Event50;
+	If ($Event >= 60) @Label1;
+	
+	Talk(520, 520); 
+	SetPlayerDir(6);
+	PlayerGoto(3, 67);
+	SetMapTrap(3, "Trap03.txt");
+	Goto @end;
+	
+@Label1:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("Mc011.mp3");
+	LoadMap("map_007_连接地图.map");
+	LoadNpc("map007-luren.npc");
+	LoadObj("map007_obj.obj");
+	SetObjScript("草药", "");
+
+	GetRandNum($Map008RandVal, 1, 2);
+	If ($Map008RandVal == 1) @RandVal1;
+	If ($Map008RandVal == 2) @RandVal2;
+	
+	@RandVal1:
+		SetNpcPos("农夫", 5, 43);
+		Goto @RandValEnd;
+	@RandVal2:
+		SetNpcPos("农夫", 0, 0);
+		Goto @RandValEnd;
+	
+	@RandValEnd:
+
+	SetPlayerPos(18, 92);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+	Goto @end;
+
+@Event50:
+	Say("杨影枫：去看看那个强盗在干什么。", 2);
+	SetPlayerDir(6);
+	PlayerGoto(3, 67);
+	SetMapTrap(3, "Trap03.txt");
+	Goto @end;
+@end:
+	Return;
+
+@1806:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_007_连接地图.map");
+	LoadNpc("map007-luren.npc");
+	LoadObj("map007_obj.obj");
+	SetPlayerPos(18, 92);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+	Return;

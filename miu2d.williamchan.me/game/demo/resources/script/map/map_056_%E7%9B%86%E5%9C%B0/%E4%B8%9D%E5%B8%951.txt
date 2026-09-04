@@ -1,0 +1,75 @@
+	If ($Event == 322) @Label1;
+	
+	Goto(@end);
+	
+@Label1:
+	SetNpcKind("纳兰真",1);
+	Talk(5540, 5540);
+	Sleep(200);
+	DelObj("丝帕1");
+	SaveObj();
+	AddGoods("Goods-e03-丝绸手帕.ini");
+	NpcGoto("纳兰真",6,40);
+	SetNpcDir("纳兰真", 4);
+	SetPlayerDir(3);
+	Talk(5550, 5550);
+	SetNpcDir("纳兰真", 5);
+	SetPlayerDir(1);
+	Talk(5560, 5560);
+
+	Select(5561, 5570, 5600, $SelectVal);
+	// 学
+	If ($SelectVal == 0) @Label2;
+	// 不学
+	If ($SelectVal == 1) @Label3;
+	
+@Label2:
+	Talk(5580 ,5580);
+	PlayerGoto(5,43);
+	SetPlayerDir(4);
+	NpcGoto("纳兰真", 6, 41);
+	SetNpcDir("纳兰真", 2);
+	Talk(5590, 5590);
+	NpcSpecialAction("杨影枫", "mpc077.asf");
+	Sleep(3000);
+	NpcGoto("纳兰真", 6, 42);
+	SetNpcDir("纳兰真", 1);
+	Say("纳兰真：恭喜影枫哥哥机缘巧合，拜得名师！早日治好内伤，练成神功，报仇雪恨！", 9);
+	Say("杨影枫：谢谢你，真儿！", 3);
+	Say("纳兰真：影枫哥哥，我想回去了，我们四处找找，看看除了掉下来的地方外还有没有别的出口。", 9);
+	Say("杨影枫：好吧！", 2);
+	SetNpcKind("纳兰真",3);
+	
+	
+	SetMapTrap(1, "Trap01.txt");
+	AddToMemo(90550);
+	Add($EvilVal, -20);
+	Assign($Event, 325);
+	Goto(@end);
+	
+@Label3:
+	Talk(5610, 5640);
+	PlayerGoto(5,43);
+	SetPlayerDir(4);
+	NpcGoto("纳兰真", 6, 41);
+	SetNpcDir("纳兰真", 2);
+	Talk(5650, 5660);
+	NpcSpecialAction("杨影枫", "mpc077.asf");
+	Sleep(3000);
+	NpcGoto("纳兰真", 6, 42);
+	SetNpcDir("纳兰真", 1);
+	Say("纳兰真：恭喜影枫哥哥机缘巧合，拜得名师！早日治好内伤，练成神功，报仇雪恨！", 9);
+	Say("杨影枫：谢谢你，真儿！", 3);
+	Say("纳兰真：影枫哥哥，我想回去了，我们四处找找，看看除了掉下来的地方外还有没有别的出口。", 9);
+	Say("杨影枫：好吧！", 2);
+	SetNpcKind("纳兰真",3);
+	
+	
+	SetMapTrap(1, "Trap01.txt");
+	AddToMemo(90550);
+	Add($EvilVal, 20);
+	Assign($Event, 325);
+	Goto(@end);
+	
+@end:
+	Return;

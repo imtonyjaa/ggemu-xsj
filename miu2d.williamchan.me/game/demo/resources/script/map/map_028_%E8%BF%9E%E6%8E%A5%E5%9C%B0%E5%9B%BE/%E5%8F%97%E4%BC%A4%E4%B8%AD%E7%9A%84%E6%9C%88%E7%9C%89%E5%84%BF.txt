@@ -1,0 +1,27 @@
+If ($Event <> 404) @end;
+Assign($Event ,408);
+Memo("回忘忧岛见纳兰真");
+//Talk(41510,41530);
+//Sleep(1000);
+//Talk(41540,41560);
+
+PlayerGoto(16,57);
+SetPlayerDir(2);
+Sleep(500);
+SetPlayerDir(6);
+Sleep(500);
+Say("杨影枫：月眉儿！她已经走了……既然如此，我还是回忘忧岛罢！", 2);
+//FadeOut();
+//DelNpc("月眉儿");
+//SetPlayerPos(12,75);
+//PlayerGoto(16,58);
+//FadeIn();
+//Sleep(3000);
+//Talk(7100,7110);
+
+SetMapTrap(4, "");
+Return;
+
+@end:
+Return;
+

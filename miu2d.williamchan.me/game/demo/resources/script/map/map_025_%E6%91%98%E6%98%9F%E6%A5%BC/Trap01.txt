@@ -1,0 +1,109 @@
+	If ($Event == 2006) @L2006;
+	If ($Event == 671) @Label1;
+	If ($Event == 675) @Event675;
+
+	If ($Result == 2) @Result2;
+	If ($Result == 3) @Result3;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_024_倚天山.map");
+	LoadNpc("map024.npc");
+	LoadObj("map024_obj.obj");
+	SetPlayerPos(27, 22);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Goto @end;
+	
+@Label1:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_024_倚天山.map");
+	LoadNpc("map024.npc");
+	LoadObj("map024_obj.obj");
+	SetPlayerPos(27, 22);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Goto @end;
+	
+
+@Event675:
+	FadeOut();
+	SaveNpc();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_024_倚天山.map");
+//	need change
+//	LoadNpc("map024.npc");
+	LoadNpc("Event675逃出摘星楼.npc");
+	LoadObj("map024_obj.obj");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(27, 22);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	SetMapTrap(2,"");
+	SetMapTrap(4,"");
+	FadeIn();
+	Goto @end;
+	
+	
+@Result2:
+	If ($Event >> 820) @end;
+	Goto @end;
+	
+@Result3:
+	If ($Event == 960) @Event960;
+	If ($Event == 990) @Event990;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_024_倚天山.map");
+	LoadNpc("map024.npc");
+	LoadObj("map024_obj.obj");
+	SetPlayerPos(27, 22);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	
+	Goto @end;
+	
+	@Event960:
+		PlayerGoto(4, 113);
+		SetMapTrap(1, "Trap01.txt");
+		Say("杨影枫：真儿没找到，不能就此回去，还是查探一番再说。", 2);
+		Goto @end;
+	@Event990:
+		SetMapTrap(9, "Trap09.txt");
+		FadeOut();
+		SaveNpc();
+		SaveObj();
+		LoadMap("map_024_倚天山.map");
+		LoadNpc("map024.npc");
+		LoadObj("map024_obj.obj");
+		SetPlayerPos(27, 22);
+		SetPlayerDir(1);
+		EnableNpcAI();
+		FadeIn();
+		Goto @end;
+	
+@end:
+	Return;
+
+@L2006:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_024_倚天山.map");
+	LoadNpc("map024.npc");
+	LoadObj("map024_obj.obj");
+	SetPlayerPos(27, 22);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;

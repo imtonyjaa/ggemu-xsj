@@ -1,0 +1,240 @@
+	If ($Event == 2103) @common;//蔷薇死亡
+	If ($Event == 2102) @2102;//蔷薇死亡
+	If ($Event == 2040) @end; //结局2
+	If ($Event == 2034) @2034;//结局2回来接紫轩和眉儿
+	If ($Event == 2007) @2007;// 去飞龙堡救月眉儿等人
+	If ($Event == 2006) @2006;// 把紫轩从摘星楼救回来
+	If ($Event == 2003) @2003;// 去摘星楼救紫轩
+	If ($Event == 2002) @2002;// 来看紫轩在不在
+	If ($Event == 190) @Label3;
+	If ($Event == 510) @Event510;
+	If ($Event == 520) @520;
+	If ($Event == 135) @135;
+	If ($Event == 144) @144;
+	If ($Event == 146) @146;
+	If ($Event == 155) @155;
+	If ($Result == 1) @Result1;
+	If ($Event >= 744) @Lab744;
+	If ($Event >> 510) @common;
+	If ($Event >> 190) @mapchange;
+
+@common:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_019_寒波谷.map");
+	LoadNpc("map019.npc");
+	LoadObj("map019_obj.obj");
+	SetPlayerPos(56, 22);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	If ($Event == 135) @Talk;
+	Goto @end;
+
+@Talk:
+	Say("卓非凡：这里就是寒波谷了。", 33);
+	Talk(1815, 1817);
+	Goto @end;
+	
+@135:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("mc013.mp3");
+	LoadMap("map_019_寒波谷.map");
+	LoadNpc("map019.npc");
+	LoadObj("map019_obj.obj");
+	SetPlayerPos(56, 22);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Say("卓非凡：这里就是寒波谷了。", 33);
+	Talk(1815, 1817);
+	Goto @end;
+	
+@144:
+	Say("杨影枫：先送紫轩姑娘回家吧！", 2);
+	Return;	
+	
+@146:
+	Say("杨影枫：还是先带紫轩到惠安镇逛逛吧。", 2);
+	Return;		
+	
+@155:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("mc013.mp3");
+	LoadMap("map_019_寒波谷.map");
+	LoadNpc("map019.npc");
+	LoadObj("map019_obj.obj");
+	SetPlayerPos(56, 22);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Goto @end;
+	
+@mapchange:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_019_寒波谷(B).map");
+	LoadNpc("map019.npc");
+	LoadObj("map019_obj.obj");
+	SetPlayerPos(56, 22);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Result1:
+	If ($Event == 592) @Event592;
+	Say("杨影枫：哎，前面这个伤心地，不去也罢！", 5);
+	Return;
+
+@Label3:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_019_寒波谷(A).map")
+	LoadNpc("map019.npc");
+	DelNpc("紫轩");
+	SaveNpc();
+	LoadNpc("hanbogu-duomingyidianjin.npc");    
+	SetNpcPos("大块", 29, 70);
+	SetNpcDir("大块", 1);
+    LoadObj("map019_fire.obj"); 
+	SetPlayerPos(56, 22);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+
+@Event510:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_019_寒波谷.map");
+	LoadNpc("hanbogu-zixuan.npc");
+	LoadObj("map019_obj.obj");
+	SetPlayerPos(56, 22);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Event592:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_019_寒波谷.map");
+	LoadNpc("hanbogu-zixuan1.npc");
+	ChangeMapColor(130,130,130);
+	ChangeAsfColor(130,130,130);
+	LoadObj("map019_obj.obj");
+	BeginRain("Rain.ini");
+	SetMapTrap(12,"Trap12_Rain.txt");
+	SetPlayerPos(56, 22);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Lab744:	
+	FadeOut();
+	SaveObj();
+	LoadMap("map_019_寒波谷.map");
+	LoadObj("map019_obj.obj");
+	LoadNpc("map019.npc");
+	SetPlayerPos(56, 22);
+	SetPlayerDir(2);
+	FadeIn();
+	Return;
+
+
+@2002:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_019_寒波谷.map");
+	LoadNpc("map019.npc");
+	LoadObj("map019_obj.obj");
+	SetPlayerPos(56, 22);
+	SetPlayerDir(2);
+	SetMapTrap(4,"trap04.txt");
+	DelNpc("紫轩");
+	FadeIn();
+	StopMusic();
+	PlayMusic("mc013.mp3");
+	Return;
+	
+@2003:
+	PlayerGotoDir(6,1);
+	Say("杨影枫：不行，我要去摘星楼救人。",6);
+	SetMapTrap(2,"trap02.txt");
+	Return;
+
+@520:
+	Say("杨影枫：我还是先回悲魔山庄吧。", 2);
+	Return;
+
+@2006:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_019_寒波谷.map");
+	LoadNpc("map019.npc");
+	LoadObj("map019_obj.obj");
+	SetPlayerPos(56, 22);
+	SetPlayerDir(2);
+	FadeIn();
+	SetMapTrap(9,"trap09.txt");
+	Return;
+
+@2007:
+	PlayerGotoDir(6,1);
+	Say("杨影枫：我现在要去飞龙堡救人。",6);
+	SetMapTrap(2,"trap02.txt");
+	Return;
+
+@2102:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_019_寒波谷.map");
+	LoadNpc("map019.npc");
+	LoadObj("map019_obj.obj");
+	SetPlayerPos(56, 22);
+	SetPlayerDir(2);
+	FadeIn();
+	ClearBody();
+	DelNpc("紫轩");
+	DelNpc("月眉儿");
+	SaveNpc();
+	AddObj("紫轩尸体.ini",27,85,1);
+	AddObj("月眉儿尸体.ini",27,82,0);
+	AddObj("无忧教男弟子A尸体.ini",27,84,4);
+	AddObj("无忧教男弟子A尸体.ini",27,85,1);
+	AddObj("无忧教男弟子A尸体.ini",25,81,6);
+	SaveObj();
+	SetMapTrap(9,"trap09.txt");
+	Return;
+
+@2034:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_019_寒波谷.map");
+	LoadNpc("map019.npc");
+	LoadObj("map019_obj.obj");
+	SetPlayerPos(56, 22);
+	SetPlayerDir(2);
+	DelNpc("紫轩");
+	FadeIn();
+	Return;
+
+@end:
+	Return;
+

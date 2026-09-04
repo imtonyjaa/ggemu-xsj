@@ -1,0 +1,10 @@
+	
+	If ($Event == 46) @Label1;
+	Goto @end;  
+   
+@Label1:
+	Talk(521, 521); 
+        Goto @end;       	
+	
+@end:
+	Return;

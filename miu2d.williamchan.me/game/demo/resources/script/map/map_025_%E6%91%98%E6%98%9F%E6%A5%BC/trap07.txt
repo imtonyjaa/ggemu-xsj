@@ -1,0 +1,104 @@
+
+If ($Result == 0)  @Result0;
+If ($Result == 1)  @Result1;
+If ($Result == 2)  @Result2;
+If ($Result == 3)  @Result3;
+Goto(@end);
+
+@Result0:
+	Goto(@end);
+
+@Result1:
+	If ($Event == 672) @Event672;
+	Goto(@end);
+
+@Result2:
+	Goto(@end);
+
+@Result3:
+	Goto(@end);
+
+
+
+@Event672:
+EnableNpcAI();
+EnableFight();
+	SetNpcRelation("杨影枫",2);
+	SetNpcRelation("涟漪",2);
+	//AddNpc("纳兰潜凛.ini",22,108);
+	//AddNpc("孟知秋.ini",24,111);
+	SetNpcRelation("纳兰潜凛",0);
+	SetNpcRelation("孟知秋",1);
+	PlayerGoto(15,99);
+	SetPlayerDir(7);
+	MoveScreen(7,100,2);
+	SetNpcKind("涟漪",1);
+	Sleep(1000);
+	SetPlayerScn();
+	NpcGoto("涟漪",18,101);
+	Watch("涟漪","纳兰潜凛",1);
+	Talk(13380,13380);
+	MoveScreen(7,40,2);
+	PlayerRunTo(18,102);
+	SetPlayerDir(7);
+	SetPlayerScn();
+	DisableNpcAI();
+	SetNpcRelation("孟知秋",2);
+	SetNpcRelation("纳兰潜凛",2);
+	NpcGoto("纳兰潜凛",19,101);
+	Watch("纳兰潜凛","涟漪",0);
+	Sleep(500);
+	Talk(13181,13181);
+	Sleep(500);
+	Talk(13390,13390);
+	NpcGotoEx("孟知秋",19,105);
+	
+	Talk(13391,13391);
+	Watch("纳兰潜凛","孟知秋",1);
+	NpcGoto("涟漪",18,103);
+	Watch("孟知秋","涟漪",0);
+	
+	Talk(13392,13392);
+	//SetNpcAction("孟知秋",5,0,0);
+	Sleep(500);
+	Talk(13400,13450);
+	SetNpcRelation("孟知秋",1);
+	SetNpcRelation("纳兰潜凛",0);
+	EnableNpcAI();
+	EnableFight();
+	//PlayerRunTo
+	
+	
+//	NpcGotoEx("孟知秋",22,108);
+	//NpcGoto("涟漪",22,102);
+	//NpcGoto("纳兰潜凛",22,103);
+	//Watch("纳兰潜凛","ALLPLAYER",0);
+	//Watch("纳兰潜凛","杨影枫",0);
+	//Talk(13390,13440);
+	
+	//Talk(13440,13470);
+	SetNpcKind("涟漪",3);
+	//SetNpcRelation("孟知秋",1);
+	//SetNpcRelation("杨影枫",2);
+	PlayerGoto(14,92);
+	//Talk(13450,13450);
+	//MoveScreen(7,100,2);
+	
+	SetNpcRelation("杨影枫",0);
+	Sleep(500);
+	Assign($Event,674);
+	AddToMemo(65200);
+	
+	SetMapTrap(1,"Trap01.txt");
+	SetMapTrap(13,"Trap13.txt");
+	SetMapTrap(12,"Trap12.txt");
+	Goto(@end);
+
+
+@end:
+	Return;	
+
+
+
+
+

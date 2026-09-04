@@ -1,0 +1,130 @@
+	If ($Event == 1823) @1823;//结局2四人出来遇到埋伏
+	If ($Event == 440) @Label1;
+	If ($Event == 460) @Label2;	// 打完三关
+	If ($Event == 300) @Label3;
+	If ($Event == 301) @Label5;
+	If ($Event == 690) @Label4;
+	If ($Event == 818) @Event818;
+	If ($Event == 905) @Event905;
+	
+	FadeOut();
+	SaveObj();
+	LoadMap("map_058_禁地.map");
+	LoadNpc("map058.npc");
+	LoadObj("map058_obj.obj");
+	SetPlayerPos(11, 53);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@1823:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_058_禁地.map");
+	LoadNpc("map058_1.npc");
+	LoadObj("map058_obj.obj");
+	ClearBody();
+	DisableNpcAI();
+	SetNpcLevel("蔷薇", 24);
+	SetNpcLevel("月眉儿", 24);
+	SetNpcLevel("纳兰真", 23);
+	SetNpcLevel("紫轩", 25);
+	SetPlayerDir(1);
+	SetPlayerPos(12,54);
+	FadeIn();
+	RunScript("埋伏.txt");
+	Return;
+
+@Label1:
+	Say("系统消息：要去第二层");
+	PlayerGoto(12, 26);
+	SetMapTrap(1, "Trap01.txt");
+	Return;
+	
+@Label4:
+	PlayerGotoDir(5,2);
+	Say("杨影枫：看看涟漪到底要作什么再说！");
+	SetMapTrap(1, "Trap01.txt");
+	Return;
+
+@Label2:
+	StopMusic();
+	FadeOut();
+	SaveObj();
+	LoadMap("map_058_禁地.map");
+	LoadObj("map058_obj.obj");
+	LoadNpc("Event425saved.npc");
+	SetPlayerPos(11, 53);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	PlayMusic("Mc017.mp3");
+	RunScript("事件47_1.txt");
+	Return;
+
+@Label3:
+	FadeOut();
+	SaveObj();
+	StopMusic();
+	LoadMap("map_058_禁地.map");
+	LoadNpc("map058.npc");
+	LoadObj("map058_obj.obj");
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	PlayMusic("Mc018.mp3");
+	SetPlayerPos(12, 52);
+	SetPlayerDir(7);
+	SetNpcPos("杨影枫", 12, 53);
+	SetNpcDir("杨影枫", 3);
+	FadeIn();
+	Talk(5144, 5146);
+	AddToMemo(90510);
+	Assign($Event, 301);
+	Return;
+	
+@Label5:
+	FadeOut();	
+	SaveObj();
+	LoadMap("map_058_禁地.map");
+	LoadNpc("map058.npc");
+	LoadObj("map058_obj.obj");
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	SetPlayerPos(12, 52);
+	SetPlayerDir(7);
+	SetNpcPos("杨影枫", 12, 53);
+	SetNpcDir("杨影枫", 3);
+	FadeIn();
+	Return;
+
+@Event818:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_058_禁地.map");
+	LoadNpc("map058_1.npc");
+	LoadObj("map058_obj.obj");
+	DisableNpcAI();
+	SetPlayerDir(1);
+	SetPlayerPos(12,54);
+	FadeIn();
+	RunScript("埋伏.txt");
+	Return;
+
+@Event905:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_058_禁地.map");
+	LoadNpc("map058.npc");
+	LoadObj("map058_obj.obj");
+	SetPlayerPos(11, 53);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	If ($Event905Talk >> 0) @end;
+	Talk(18021, 18021);
+	Assign($Event905Talk, 1);
+	Return;
+	
+@end:
+	Return;

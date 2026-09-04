@@ -1,0 +1,24 @@
+	If ($Event == 2103) @2103;//蔷薇死亡
+
+	FadeOut();
+	SaveObj();
+	LoadMap("map_024_倚天山.map");
+	LoadNpc("map024.npc");	
+	LoadObj("map024_obj.obj");
+	SetPlayerPos(2, 79);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@2103:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_024_倚天山.map");
+	LoadNpc("map024_1.npc");	
+	LoadObj("map024_obj.obj");
+	SetPlayerPos(2, 79);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;

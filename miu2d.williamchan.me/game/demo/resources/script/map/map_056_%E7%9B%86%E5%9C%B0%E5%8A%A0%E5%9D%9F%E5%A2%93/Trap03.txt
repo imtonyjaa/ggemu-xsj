@@ -1,0 +1,3 @@
+AddGoods("Goods-m10-珊瑚.ini");
+DelCurObj();
+Return;

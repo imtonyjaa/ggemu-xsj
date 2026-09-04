@@ -1,0 +1,8 @@
+PlaySound("魔-白虹贯日.wav");
+NpcSpecialAction("杨影枫","moc130-敦煌传送点.asf");
+Sleep(1000);
+FadeOut();
+SetPlayerPos(17,38);
+FadeIn();
+SetMapTrap(9,"trap09.txt");
+Return;

@@ -1,0 +1,48 @@
+	
+	If ($Event == 20) @Label;  
+	If ($Event == 30) @Label;  
+	If ($Event == 40) @Label;  
+	If ($Event <= 45) @end;  
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_007_连接地图.map");
+
+	LoadNpc("map007-luren.npc");
+	LoadObj("map007_obj.obj");
+
+	GetRandNum($Map003RandVal, 1, 2);
+	If ($Map003RandVal == 1) @RandVal1;
+	If ($Map003RandVal == 2) @RandVal2;
+	
+	@RandVal1:
+		SetNpcPos("农夫", 5, 43);
+		Goto @RandValEnd;
+	@RandVal2:
+		SetNpcPos("农夫", 0, 0);
+		Goto @RandValEnd;
+	
+	@RandValEnd:
+	
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(4, 13);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+
+	If ($SubEvent01 == 2) @SubEvent01;
+	Goto @end;
+
+@Label:
+	Talk(48, 48); 
+	Goto @end;
+	
+@SubEvent01:
+	Assign($SubEvent01, 0);
+	Goto @end;
+
+@end:
+	Return;
+	 

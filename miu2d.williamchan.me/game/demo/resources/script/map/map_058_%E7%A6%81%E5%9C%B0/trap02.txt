@@ -1,0 +1,163 @@
+	If ($Event == 1822) @1822;
+	If ($Event == 298) @Label2;
+	If ($Event == 425) @end;
+	If ($Event == 430) @end;
+	If ($Event == 762) @Event762;	
+	If ($Event == 890) @Label3;
+	If ($Event == 3030) @Evt3030;
+	If ($Event <= 297) @Label1;
+	If ($Event >= 880) @Label4;
+	
+	FadeOut();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_059_禁地一层.map");
+	LoadNpc("map059.npc");
+	LoadObj("map059_obj.obj");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(6, 39);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	If ($Event == 302) @talk1;
+	If ($Event == 340) @talk2;
+	If ($Event == 350) @talk3;
+	Return;
+@talk1:
+	Talk(5213, 5213);
+	Return;	
+@talk2:
+	Talk(6232, 6233);
+	Return;	
+@talk3:
+	Talk(6234, 6234);
+	Return;	
+
+@Label1:
+	Talk(5013, 5013);
+	PlayerGoto(11, 53);
+	SetPlayerDir(1);
+	SetMapTrap(2, "Trap02.txt");
+	Return;	
+
+@Label2:
+	FadeOut();
+	ClearBody();
+	SaveObj();
+	SetMapTrap(1,"trap01.txt");
+	LoadMap("map_059_禁地一层.map");
+	LoadNpc("jindi-wuyoujiao.npc");
+	LoadObj("map059_obj.obj");
+	ShowNpc("桑芹", 0);
+	ShowNpc("路异", 0);
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(6, 39);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	RunScript("事件30_3.txt");
+	Return;
+	
+@Label3:
+	FadeOut();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_059_禁地一层.map");
+	
+	LoadNpc("map059.npc");
+	LoadObj("map059_obj.obj");
+
+//  need change
+//	LoadNpc("事件90_假纳兰真.npc");
+
+	AddNpc("事件90_躺在地下的纳兰真.ini", 10, 32, 0);
+	SetNpcKind("假纳兰真", 0);
+
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(6, 39);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	
+	FadeIn();
+	
+	RunScript("事件90.txt");
+
+	Return;	
+	
+@Label4:
+	If ($Event >= 890) @Label5;
+
+	PlayerGoto(11, 53);
+	Talk(17581, 17581);
+	SetPlayerDir(1);
+	SetMapTrap(2, "Trap02.txt");
+
+	Return;
+	
+@Label5:
+
+	FadeOut();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_059_禁地一层.map");
+	
+	LoadNpc("map059.npc");
+	LoadObj("map059_obj.obj");
+
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(6, 39);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event762:
+	FadeOut();
+	ClearBody();
+	SaveObj();
+	SetMapTrap(1,"trap01.txt");
+	LoadMap("map_059_禁地一层.map");
+	LoadNpc("map059.npc");
+	LoadObj("map059_obj.obj");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(6, 39);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	SetMapTrap(1,"");
+	Return;
+	
+@Evt3030:
+	FadeOut();
+	SaveObj();
+	SetMapTrap(1,"trap01.txt");
+	LoadMap("map_059_禁地一层.map");
+	LoadObj("map059_obj.obj");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(6, 39);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	SetMapTrap(1,"");
+	Return;	
+
+@1822:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_059_禁地一层.map");
+	LoadNpc("map059.npc");
+	LoadObj("map059_obj.obj");
+	SetPlayerPos(6, 39);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;	
+
+@end:
+	Return;
+

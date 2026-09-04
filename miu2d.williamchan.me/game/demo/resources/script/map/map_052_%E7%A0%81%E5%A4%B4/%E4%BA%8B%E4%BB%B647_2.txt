@@ -1,0 +1,70 @@
+// 事件47.1 刚发生
+	If ($Event == 465) @Label1;
+	Return;
+	
+@Label1:
+	Assign($Event, 470);
+	FadeOut();
+	StopMusic();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("beimo.npc");
+	LoadObj("map030_obj.obj");
+	SetNpcRes("杨影枫","z-杨影枫2.ini");
+	SetPlayerPos(44, 142);
+	SetPlayerDir(1);
+	SetNpcPos("纳兰真", 43, 142);
+	SetNpcDir("纳兰真", 7);
+	SetNpcKind("纳兰真", 1);
+	SetNpcRelation("纳兰真", 2);
+	SetNpcScript("纳兰真","纳兰真对话.txt");
+	EnableNpcAI();
+	Watch("纳兰真","杨影枫",0);
+	Say("脱胎换骨的杨影枫回到中原，做了几件轰动武林的事情，建立了悲魔山庄，在江湖上的地位日渐崛起，与藏剑山庄和飞龙堡俨然已成三足鼎立之势。");
+	PlayMusic("Mc014.mp3");
+	FadeIn();
+	Talk(8160, 8200);
+	Sleep(500);
+	PlayerGoto(42, 145);
+	SetPlayerDir(1);
+	SetNpcDir("纳兰真", 0);
+	Say("杨影枫：我决定约卓非凡明日在<color=Red>剑气峰比武<color=Black>，一决雌雄。日前我已广发武林英雄帖，把这个消息传扬了出去，相信到时不少武林名宿都会在场。我要在天下英雄面前揭穿卓非凡的面具！", 2);
+	Say("纳兰真：那你打算什么时候通知卓非凡？", 9);
+	Sleep(500);
+	PlayerGoto(43, 143);
+	SetPlayerDir(3);
+	SetNpcDir("纳兰真", 7);
+	Say("杨影枫：眼下我想亲自去<color=Red>藏剑山庄<color=Black>走一趟，把<color=Red>比武帖<color=Black>交给卓非凡。",2);
+	Say("纳兰真：影枫哥哥，你要多加小心，以防那卓非凡使诈。", 9);
+	Say("杨影枫：你放心，吃一堑长一智，我不会再给他使诈的机会！", 2);
+	Say("纳兰真：那我就放心了，早去早回！", 9);
+	Say("杨影枫：好，我这就去藏剑山庄。", 9);
+	PlayerGoto(40, 150);
+	AddToMemo(8231);
+	Assign($Event, 475);	
+//	FadeOut();
+//	SaveNpc();
+//	SaveObj();
+//	LoadMap("map_015_藏剑山庄.map");
+//	LoadNpc("cangjian2.npc");
+//  LoadObj("map015-xianglu.obj");
+    
+//	If ($SubEvent21 <> 10) @DelThief3;
+//		DelNpc("找剑者");
+//	@DelThief3:
+	
+//	SetNpcPos("李四", 35, 59);
+//	SetNpcDir("李四", 5);
+//	DelNpc("卓非凡");
+//	AddNpc("卓非凡.ini",28,53,7);
+//	DelNpc("紫轩");
+//	AddNpc("紫轩.ini",29,54,3);
+//	SetPlayerPos(46, 17);
+//	SetPlayerDir(1);
+//	EnableNpcAI();
+//	Sleep(1000);
+//	FadeIn();
+//	SetMapTrap(9,"事件48_2.txt");
+	Return;
+	
+@end:
+	Return;

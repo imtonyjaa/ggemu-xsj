@@ -1,0 +1,4 @@
+	If ($Event >> 60) @end;
+	Talk(20730, 20730);
+@end:
+	Return;

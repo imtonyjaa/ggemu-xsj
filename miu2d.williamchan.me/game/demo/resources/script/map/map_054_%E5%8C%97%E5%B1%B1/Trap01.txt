@@ -1,0 +1,52 @@
+	If ($Event == 285) @Label2;
+	If ($Event == 294) @Label2;
+	If ($Event == 300) @Label2;
+    If ($Event == 302) @Label3;
+    If ($Event >= 260) @Label1;
+    If ($Event <= 253) @Label1;
+
+
+	Talk(4145, 4145);
+	Return;
+
+@Label1:
+	FadeOut();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_053_连接地图.map");
+	LoadNpc("map053.npc");
+	LoadObj("map053_obj.obj");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(3, 79);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+	If ($Event <> 340) @end;
+	SetNpcKind("纳兰真", 1);
+	SetNpcKind("杨影枫", 2);
+	FullLife();
+	SetNpcKind("杨影枫", 3);
+	SetNpcKind("纳兰真", 2);
+	Return;
+
+@Label2:
+	FadeOut();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_053_连接地图.map");
+	LoadObj("map053_obj.obj");
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	SetPlayerPos(3, 79);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Label3:	
+	Say("纳兰真：那个神秘的地方就在这离忧山上，我们现在就去吧。", 9);
+	Return;
+
+@end:
+    Return;

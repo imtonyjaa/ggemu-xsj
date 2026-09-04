@@ -1,0 +1,56 @@
+	If ($Event == 1823) @1823;
+	If ($Event == 818) @818;
+	Return;
+	
+@1823:	
+	SetNpcKind("纳兰真",1);
+	SetNpcKind("月眉儿",1);
+	SetNpcKind("蔷薇",1);
+	SetNpcRelation("纳兰真",0);
+	SetNpcRelation("月眉儿",0);
+	SetNpcRelation("蔷薇",0);
+	SetNpcDeathScript("纳兰真","同伴死亡.txt");
+	SetNpcDeathScript("月眉儿","同伴死亡.txt");
+	SetNpcDeathScript("蔷薇","同伴死亡.txt");
+	Say("杨影枫：不好！有埋伏！",2);
+	Say("无忧教头目：杨影枫！教主命我带你们回去，这次你逃不掉了。",75);
+	Say("杨影枫：真儿，想不到你爹竟然如此绝情。",6);
+	Say("纳兰真：影枫哥，你们先走吧，不要管我了，我毕竟是他的女儿，他不会把我怎么样的。",12);
+	Say("月眉儿：哼！还说呢，他竟然忍心把你伤成这样……，我没有这种父亲。",26);
+	Say("蔷薇：不管怎么样，我都要和影枫哥在一起。",30);
+	Say("杨影枫：蔷薇，眉儿，你们两个先保护真儿，待我把他们都收拾了再说。",2);
+	Say("月眉儿：……",22);
+	Say("蔷薇：不行！你一个人对付那么多人，太危险了。",30);
+	Say("无忧教头目：兄弟们上，一个也不能放走！",75);
+	SetMapTrap(1,"");
+	SetMapTrap(2,"");
+	GetNpcCount(1,1);
+	EnableNpcAI();
+	Return;
+
+@818:	
+	Assign($wangwei,0);
+	SetNpcKind("纳兰真",1);
+	SetNpcKind("月眉儿",1);
+	SetNpcKind("蔷薇",1);
+	SetNpcRelation("纳兰真",0);
+	SetNpcRelation("月眉儿",0);
+	SetNpcRelation("蔷薇",0);
+	SetNpcDeathScript("纳兰真","同伴死亡.txt");
+	SetNpcDeathScript("月眉儿","同伴死亡.txt");
+	SetNpcDeathScript("蔷薇","同伴死亡.txt");
+	Say("无忧教头目：杨影枫！教主命我带你们回去，这次你逃不掉了。",75);
+	Say("杨影枫：真儿，想不到你爹竟然变得如此绝情。",6);
+	Say("纳兰真：其实我是最伤心的……，影枫，你们先走吧，不要管我了，我毕竟是他的女儿，他不会把我怎么样的。",12);
+	Say("月眉儿：哼！还说呢，他忍心把你伤成这样……，我没有这种父亲。",22);
+	Say("蔷薇：不管怎么样，我都要和枫哥哥在一起。",30);
+	Say("杨影枫：蔷薇，眉儿，你们两个先保护真儿，待我把他们都收拾了再说。",2);
+	Say("月眉儿：……",22);
+	Say("蔷薇：不行！你一个人对付那么多人，太危险了。",30);
+	Say("无忧教头目：兄弟们上，一个也不能放走！。",75);
+	SetMapTrap(1,"");
+	SetMapTrap(2,"");
+	GetNpcCount(1,1);
+	EnableNpcAI();
+	Return;
+

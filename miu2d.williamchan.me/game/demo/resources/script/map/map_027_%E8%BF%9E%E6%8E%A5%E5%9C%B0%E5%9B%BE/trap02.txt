@@ -1,0 +1,266 @@
+	If ($Event == 2102) @2102;//蔷薇死亡
+	If ($Event == 2034) @2102;
+	If ($Event == 2040) @2102;
+	If ($Event == 592) @Event592;
+	If ($Event == 520) @Event520;
+
+	GetRandNum($QiGaiPos, 1, 2);
+
+	If ($Result == 0) @Result0;
+	If ($Result == 1) @Result1;
+	If ($Result == 2) @Result2;
+	If ($Result == 3) @Result3;
+	Return;
+
+@Result0:
+	If ($Event == 390) @Event390;
+	If ($Event == 482) @Event482;	
+	If ($Event == 402) @Event402;
+	If ($Event == 485) @Event485;
+
+	SaveNpc();
+	SaveObj();
+	FadeOut();
+	LoadMap("map_012_惠安镇.map");
+	LoadNpc("huianzhen.npc");
+	LoadObj("map012_obj.obj");	
+
+	If ($QiGaiPos == 1) @QiGaiPos11;
+	If ($QiGaiPos == 2) @QiGaiPos12;
+@QiGaiPos11:
+		SetNpcPos("乞丐", 83, 89);
+		Goto @QiGaiPos1End;
+@QiGaiPos12:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos1End;
+@QiGaiPos1End:
+
+	SetPlayerPos(111, 221);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	If ($Event <> 365) @end;
+	Say("已经是惠安镇了，如果我没有记错，这里离紫轩的家不远了。");
+
+	Return;
+
+@Result1:
+	If ($Event == 610 ) @Event610;
+	SaveNpc();
+	SaveObj();
+	FadeOut();
+	LoadMap("map_012_惠安镇.map");
+
+	LoadNpc("huianzhen.npc");
+
+	LoadObj("map012_obj.obj");
+	If ($QiGaiPos == 1) @QiGaiPos21;
+	If ($QiGaiPos == 2) @QiGaiPos22;
+	@QiGaiPos21:
+		SetNpcPos("乞丐", 83, 89);
+		Goto @QiGaiPos2End;
+	@QiGaiPos22:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos2End;
+	@QiGaiPos2End:
+
+	SetPlayerPos(111, 221);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+
+	Return;
+
+@Result2:
+
+	SaveNpc();
+	SaveObj();
+	FadeOut();
+	LoadMap("map_012_惠安镇.map");
+
+	LoadNpc("huianzhen.npc");
+
+	LoadObj("map012_obj.obj");
+	If ($QiGaiPos == 1) @QiGaiPos31;
+	If ($QiGaiPos == 2) @QiGaiPos32;
+	@QiGaiPos31:
+		SetNpcPos("乞丐", 83, 89);
+		Goto @QiGaiPos3End;
+	@QiGaiPos32:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos3End;
+	@QiGaiPos3End:
+
+	SetPlayerPos(111, 221);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Result3:
+	If ($Event == 864) @Event864;
+
+	SaveNpc();
+	SaveObj();
+	FadeOut();
+	LoadMap("map_012_惠安镇.map");
+
+	LoadNpc("huianzhen.npc");
+	LoadObj("map012_obj.obj");
+
+	If ($QiGaiPos == 1) @QiGaiPos41;
+	If ($QiGaiPos == 2) @QiGaiPos42;
+	@QiGaiPos41:
+		SetNpcPos("乞丐", 83, 89);
+		Goto @QiGaiPos4End;
+	@QiGaiPos42:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos4End;
+	@QiGaiPos4End:
+
+	SetPlayerPos(111, 221);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+
+	Return;
+
+@Event482:
+	Talk(241, 241); 
+	Return;
+        
+@Event610:
+	
+	SaveNpc();
+	SaveObj();
+	FadeOut();
+	LoadMap("map_012_惠安镇.map");
+	
+	LoadNpc("huianzhen.npc");
+	LoadObj("map012_obj.obj");
+	
+
+	If ($QiGaiPos == 1) @QiGaiPos51;
+	If ($QiGaiPos == 2) @QiGaiPos52;
+	@QiGaiPos51:
+		SetNpcPos("乞丐", 83, 89);
+		Goto @QiGaiPos5End;
+	@QiGaiPos52:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos5End;
+	@QiGaiPos5End:
+
+	SetPlayerPos(111, 221);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	
+	Return;
+
+@Event864:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_012_惠安镇.map");
+
+	LoadNpc("map012_nofishman.npc");
+	LoadObj("map012_obj.obj");
+
+
+	If ($QiGaiPos == 1) @QiGaiPos61;
+	If ($QiGaiPos == 2) @QiGaiPos62;
+	@QiGaiPos61:
+		SetNpcPos("乞丐", 83, 89);
+		Goto @QiGaiPos6End;
+	@QiGaiPos62:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos6End;
+	@QiGaiPos6End:
+
+	SetPlayerPos(111, 221);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+
+	Return;
+
+@Event390:
+	PlayerGoto(3, 159);
+	Say("杨影枫：真象是做了一场恶梦，原来紫轩也在欺骗我。"，5);
+	Say("杨影枫：只有真儿真心的待我，我也不想报仇了，还是回忘忧岛吧。", 5);	
+	SetPlayerDir(6);
+	SetMapTrap(2,"trap02.txt");
+	Return;
+	
+@Event402:
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	FadeOut();
+	LoadMap("map_012_惠安镇.map");
+	LoadNpc("huianzhen.npc");
+	LoadObj("map012_obj.obj");
+	SetPlayerPos(111, 221);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	ChangeMapColor(224, 224, 224);
+	ChangeAsfColor(255, 255, 255);
+	FadeIn();
+	PlayMusic("Mc001.mp3");
+	Say("此时已至清晨时分");
+	Return;
+	
+@Event485:
+	SaveNpc();
+	ClearBody();
+	SaveObj();
+	FadeOut();
+	LoadMap("map_012_惠安镇.map");
+	LoadNpc("huianzhen.npc");
+	LoadObj("map012_obj.obj");
+	
+	If ($QiGaiPos == 1) @QiGaiPos11;
+	If ($QiGaiPos == 2) @QiGaiPos12;
+	@QiGaiPos11:
+		SetNpcPos("乞丐", 83, 89);
+		Goto @QiGaiPos1End;
+	@QiGaiPos12:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos1End;
+	@QiGaiPos1End:
+
+	SetPlayerPos(111, 221);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;	
+
+@end:
+	Return;
+
+@2102:
+	FadeOut();
+	LoadMap("map_012_惠安镇.map");
+	LoadNpc("huianzhen.npc");
+	LoadObj("map012_obj.obj");
+	SetPlayerPos(111, 221);
+	SetPlayerDir(2);
+	FadeIn();
+	Return;
+
+@Event592:
+	FadeOut();
+	LoadMap("map_012_惠安镇.map");
+	LoadNpc("map012_Rain.npc");
+	LoadObj("map012_obj.obj");
+	BeginRain("rain.ini");
+	SetPlayerPos(111, 221);
+	SetPlayerDir(2);
+	SetMapTrap(1,"");
+	FadeIn();
+	Return;
+
+
+@Event520:
+	Say("杨影枫：我还是快赶回悲魔山庄吧。", 2);
+	Return;

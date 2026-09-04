@@ -1,0 +1,15 @@
+
+
+	If ($Event == 992) @Label1;
+	
+	Goto @end;
+	
+@Label1:
+	If ($Result <> 3) @end;
+
+	RunScript("事件100_2.txt");
+
+	Goto @end;
+	
+@end:
+	Return;

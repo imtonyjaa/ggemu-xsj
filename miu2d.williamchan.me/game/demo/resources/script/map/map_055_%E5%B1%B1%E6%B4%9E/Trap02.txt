@@ -1,0 +1,192 @@
+	If ($Event == 305) @Label1;
+	If ($Event == 309) @Label4;
+	If ($Event == 755 ) @Event755;
+	Return;
+	
+@Label1:
+	StopMusic();
+	Talk(5330, 5330);
+	SetNpcKind("杨影枫",1);
+	EnableRun();
+	PlayerRunTo(78, 12);
+	SetPlayerDir(5);
+    //Talk(5340, 5340);
+    Say("纳兰真：啊！……",	9);
+    FadeOut();
+    //PlaySound("mpc068.wav");
+    PlayMovie("nlz-fall.avi");
+	DelNpc("杨影枫");
+	PlayerChange(0);
+	SetPlayerPos(77,20);
+	SetPlayerDir(5);
+	Assign($Event, 308);
+	FadeIn();
+	PlayerRunTo(77, 17);
+	SetPlayerDir(4);
+	Say("杨影枫：真儿！", 4);
+	Select(5350, 5360, 5361, $SelectVal);
+	
+	// 选第一项立刻跟着跳进洞里
+	If ($SelectVal == 0) @Label2;
+	// 选第二项需要转转
+	If ($SelectVal == 1) @Label3;
+
+@Label2:
+	Talk(5362, 5362);
+	PlayerRunTo(78, 12);
+	SetPlayerDir(5);
+	NpcSpecialAction("杨影枫", "mpc070.asf");
+	Sleep(500);
+	Assign($Event, 310);
+	Add($EvilVal, 20);
+	Add($SenseVal, 20);
+	
+	FadeOut();
+	PlaySound("背-风.wav");
+	ClearBody();
+	SaveObj();
+	LoadMap("map_056_盆地.map");
+	LoadNpc("map056.npc");
+	AddNpc("纳兰真和杨影枫1.ini", 24, 39, 0);
+	LoadObj("map056_obj.obj");
+	AddObj("白骨.ini", 6, 36, 0);
+	AddObj("丝帕1.ini", 6, 37, 0);
+	SetPlayerPos(24, 38);
+	SetPlayerDir(1);
+	ShowNpc("杨影枫", 0);
+	EnableNpcAI();
+	Sleep(500);
+	PlayMusic("Mc019.mp3");
+	Say("杨影枫发觉自己的身体不断地下坠，耳边的风呼啸而过，似乎坠落了相当长的一段时间，他摔落在一片青翠的草地上……", 0);
+	NpcSpecialAction("纳兰真和杨影枫1", "mpc071.asf");
+	FadeIn();
+	Sleep(4000);
+	
+	FadeOut();
+	DelNpc("纳兰真和杨影枫1");
+	AddNpc("纳兰真和杨影枫2.ini", 24, 39, 0);
+	Say("当杨影枫清醒过来的时候，发现纳兰真一动不动地趴在身边，他顾不得身上疼痛，扑到纳兰真身前……", 0);
+	Say("纳兰真茫然地坐起来，惊恐之下大哭起来。杨影枫见纳兰真无恙，心中狂喜，两人紧紧地拥抱在了一起。", 0);
+	FadeIn();
+	PlaySound("mpc074.wav");
+	Talk(5390, 5420);
+	Sleep(1000);
+	FadeOut();
+	DelNpc("纳兰真和杨影枫2");
+	AddNpc("纳兰真.ini", 24, 39, 1);
+	SetNpcScript("纳兰真","纳兰真对话.txt");
+	SetNpcKind("纳兰真", 1);
+	SetNpcRelation("纳兰真", 0);
+	ShowNpc("杨影枫", 1);
+	FadeIn();
+
+	Talk(5430, 5470);
+	SetNpcKind("纳兰真",3);
+	Sleep(200);
+	Talk(20200, 20200);
+	Sleep(200);
+	Talk(20130, 20130);
+	
+	
+	Assign($Event, 320);
+	AddToMemo(90540);
+	Return;
+
+@Label3:
+	PlayMusic("Mc018.mp3");
+	Say("杨影枫：说起来我是不能丢下真儿……", 7);
+	Sleep(500);
+	PlayerGoto(75, 21);
+	SetPlayerDir(2);
+	Say("杨影枫：可是……", 7);
+	Sleep(500);
+	PlayerGoto(76, 23);
+	SetPlayerDir(7);
+	Say("杨影枫：她现在吉凶未卜，我即使跳下去，也未必能救得了她。", 7);
+	Sleep(500);
+	PlayerGoto(76, 26);
+	SetPlayerDir(0);
+	Say("杨影枫：还是先回去找纳兰前辈商量商量吧。",	7);
+	SetMapTrap(1, "Trap01.txt");
+	Sleep(200);
+	Talk(20200, 20200);
+	Add($EvilVal, -20);
+	Add($SenseVal, -30);
+	AddToMemo(90530);
+	Return;
+	
+@Label4:
+	PlayerRunTo(78, 12);
+	SetPlayerDir(5);
+	NpcSpecialAction("杨影枫", "mpc070.asf");
+	Sleep(500);
+	Assign($Event, 310);
+	
+	FadeOut();
+	PlaySound("背-风.wav");
+	StopMusic();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_056_盆地.map");
+	LoadNpc("map056.npc");
+	AddNpc("纳兰真和杨影枫1.ini", 24, 39, 0);
+	LoadObj("map056_obj.obj");
+	AddObj("白骨.ini", 6, 36, 0);
+	AddObj("丝帕1.ini", 6, 37, 0);
+	SetPlayerPos(24, 38);
+	SetPlayerDir(1);
+	ShowNpc("杨影枫", 0);
+	EnableNpcAI();
+	Sleep(500);
+	PlayMusic("Mc019.mp3");
+	Say("杨影枫发觉自己的身体不断地下坠，耳边的风呼啸而过，似乎坠落了相当长的一段时间，他摔落在一片青翠的草地上……", 0);
+	NpcSpecialAction("纳兰真和杨影枫1", "mpc071.asf");
+	FadeIn();
+	Sleep(4000);
+
+	FadeOut();
+	DelNpc("纳兰真和杨影枫1");
+	AddNpc("纳兰真和杨影枫2.ini", 24, 39, 0);
+	Say("当杨影枫清醒过来的时候，发现纳兰真一动不动地趴在身边，他顾不得身上疼痛，扑到纳兰真身前……", 0);
+	Say("纳兰真茫然地坐起来，看见杨影枫，大哭起来。杨影枫见纳兰真无恙，心中狂喜，两人紧紧地拥抱在了一起。", 0);
+	FadeIn();
+	PlaySound("mpc074.wav");
+	Talk(5390, 5420);
+	Sleep(1000);
+	FadeOut();
+	DelNpc("纳兰真和杨影枫2");
+	AddNpc("纳兰真.ini", 24, 39, 1);
+	SetNpcScript("纳兰真","纳兰真对话.txt");
+	SetNpcKind("纳兰真", 1);
+	SetNpcRelation("纳兰真", 0);
+	ShowNpc("杨影枫", 1);
+	FadeIn();
+	Talk(5430, 5470);
+	SetNpcKind("纳兰真",3);
+	Sleep(200);
+	Talk(20200, 20200);
+	Sleep(200);
+	Talk(20130, 20130);
+	
+	
+	Assign($Event, 320);
+	AddToMemo(90540);
+	Return;
+	
+@Event755:
+	Watch("杨影枫","纳兰真",0);
+	Talk(75310,75320);
+	FadeOut();
+	ClearBody();
+	LoadMap("map_056_盆地加坟墓.map");
+	LoadNpc("map056.npc");
+	LoadObj("map056_obj.obj");
+	SetPlayerPos(27, 27);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();
+	SetMapTrap(1,"");
+	Return;	
+	
+@end:
+	Return;

@@ -1,0 +1,11 @@
+//Say("结局一就此结束，欢迎收看，谢谢！Power By Romandou!");
+//Say("放结尾动画！");
+//Talk(16800,16880);
+//Say("结局三结束，谢谢收看！测试过程中的问题, 希望大家能够谅解，所有问题将会尽快得到解决!");
+
+	Talk(14170,14180);
+	Assign($Event ,720);
+	Sleep(3000);
+   	FadeOut();
+	PlayMovie("logo.avi");
+	ReturnToTitle();

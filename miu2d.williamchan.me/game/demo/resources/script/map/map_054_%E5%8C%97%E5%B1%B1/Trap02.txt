@@ -1,0 +1,49 @@
+	If ($Event == 294) @end;
+	If ($Event <= 301) @Label1;
+	If ($Event == 302) @Label2;
+	
+	FadeOut();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_055_山洞.map");
+	LoadNpc("beishan-bianfu.npc");
+	SaveNpc("temp.npc");
+	LoadObj("beishan-bianfu.obj");
+	SetPlayerDir(6);
+	SetPlayerPos(2, 23);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Label1:
+	Talk(5220, 5220);
+//	NpcGotoDir("纳兰真",0,2);
+//	SetMapTrap(2, "Trap02.txt");
+	Return;
+
+@Label2:
+	Talk(5230, 5230);
+	Talk(5240, 5240);
+	FadeOut();
+	ClearBody();
+	SaveObj();
+	StopMusic();
+	LoadMap("map_055_山洞.map");
+	LoadNpc("beishan-bianfu.npc");
+    SaveNpc("temp-bianfu.npc");
+    LoadObj("beishan-bianfu.obj");
+//	ChangeMapColor(255, 255, 255);
+//	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(2, 23);
+	SetPlayerDir(6);
+	SetNpcPos("杨影枫", 2, 22);
+	SetNpcDir("杨影枫", 6);
+	PlayMusic("Mc018.mp3");
+	FadeIn();
+	Talk(5250, 5270);
+	Assign($Event, 304);
+	SetMapTrap(2,"trap02.txt");
+	Return;
+
+@end:
+	Return;

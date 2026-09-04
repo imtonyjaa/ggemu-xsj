@@ -1,0 +1,93 @@
+	If ($Event == 2009) @2009;
+	If ($Result == 1) @Result1;
+	If ($Result == 2) @Result2;
+	If ($Result == 3) @Result3;
+	Return;
+
+@2009:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_040_沙漠.map");
+	LoadNpc("map040.npc");
+	LoadObj("map040_obj.obj");
+	SetPlayerPos(2, 37);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Say("杨影枫：想不到飞龙堡后竟别有洞天。",2);
+	Return;
+
+@Result1:
+	If ($Event << 3182 ) @end;
+	If ($Event == 3182) @Evt3182;
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_040_沙漠.map");
+	LoadNpc("map040.npc");
+	LoadObj("map040_obj.obj");
+	SetPlayerPos(2, 37);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Result2:
+	If ($Event == 744) @Event744;
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_040_沙漠.map");
+	LoadNpc("map040.npc");
+	LoadObj("map040_obj.obj");
+	SetPlayerPos(2, 37);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	SetMapTrap(2,"");
+	FadeIn();
+	Return;
+
+@Result3:
+	If ($Event << 1000) @end;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_040_沙漠.map");
+	LoadNpc("map040.npc");
+	LoadObj("map040_obj.obj");
+	SetPlayerPos(2, 37);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	If ($EnterMap40 >> 0) @end;
+	Say("杨影枫：想不到堡后竟别有洞天。", 2);
+	Assign($EnterMap40, 1);
+	Return;
+
+
+@Event744:
+	Say("正在战斗中……");
+	SetMapTrap(2,"trap02.txt");
+	PlayerGotoDir(1,4);
+	Return;
+
+@Evt3182:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_040_沙漠.map");
+
+	LoadNpc("map040.npc");
+	LoadObj("map040_obj.obj");
+
+	SetPlayerPos(2, 37);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@end:
+	Return;
+

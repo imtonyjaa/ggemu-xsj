@@ -1,0 +1,10 @@
+	
+        If ($Event <> 510) @end;
+        PlayerRunTo(31, 71);
+        SetPlayerDir(1);
+        Say("杨影枫：咦？芭蕉小筑怎么修好了？", 4);
+        SetMapTrap(5, "");
+        SetMapTrap(11, "Trap11.txt");
+        Goto @end;
+@end:
+	Return;

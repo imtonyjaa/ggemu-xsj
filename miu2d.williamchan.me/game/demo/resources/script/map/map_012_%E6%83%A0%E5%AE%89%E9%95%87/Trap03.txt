@@ -1,0 +1,215 @@
+	If ($Event == 2102) @2102;//蔷薇死亡
+	If ($Event == 2034) @2102;//蔷薇死亡
+	If ($Event == 2040) @2102;//蔷薇死亡
+	If ($Event == 1821) @Event1821;//张仲天死翘翘了
+	If ($Event == 592) @Event592;
+	If ($Event == 520) @Event520;
+	If ($Event == 370) @Event370;
+
+	If ($SubEvent19 <> 5) @SubEventNE5;
+	Assign($SubEvent19, 10);
+	
+@Event1821:
+	FadeOut();
+	DelNpc("张仲天");
+	DelNpc("紫轩");
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_027_连接地图.map");
+	LoadNpc("map027.npc");
+	LoadObj("map027_obj.obj");
+	SetPlayerPos(3, 159);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@SubEventNE5:
+
+	If ($Event == 85) @Label1;
+	If ($Event == 60) @Label4;
+	If ($Event == 70) @Label5;
+	If ($Event == 100) @Label6;
+	If ($Event == 146) @Event146;
+	If ($Event == 148) @Event148;
+	If ($Event == 185) @Label2;
+	If ($Event == 110) @Label3;
+	If ($Event == 135) @Label7;
+	If ($Event == 164) @Label8;
+	If ($Event == 202) @Label8;
+	If ($Event == 170) @Label9;
+	If ($Event == 190) @Label9;
+	If ($Event == 205) @Label10;
+	If ($Event == 232) @Label11;
+	If ($Event << 360) @end;
+	If ($Event == 390) @Event390;
+	If ($Event == 480) @Event480;	//不知道谁把地图Map027的连接去了，现在补回来。
+	If ($Event == 990) @Event990;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_027_连接地图.map");
+	LoadNpc("map027.npc");
+	LoadObj("map027_obj.obj");
+	SetPlayerPos(3, 159);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+// 如果在战斗中，关闭出入口，战斗结束后要重新打开出入口
+@Label1:
+    Talk(241, 241); 
+    Return;
+
+//没有打听到张仲天死因，关闭出入口
+@Label2:       
+    Say("杨影枫：先打听打听张仲天大哥的死因吧！", 2);
+    Return;
+        
+@Label3:
+    Talk(1284, 1284);
+	PlayerGotoDir(3, 2);
+    SetMapTrap(3, "Trap03.txt");
+    Return;
+        
+@Label4:
+	Talk(1281, 1281);
+	PlayerGotoDir(3, 2);
+    SetMapTrap(3, "Trap03.txt");
+	Return;
+
+@Label5:
+	Talk(1282, 1282);
+	PlayerGotoDir(3, 2);
+        SetMapTrap(3, "Trap03.txt");
+	Return;	
+
+@Label6:
+	Talk(1283, 1283);
+	PlayerGotoDir(3, 2);
+        SetMapTrap(3, "Trap03.txt");
+	Return;
+
+@Label7:
+	Talk(1811, 1811);
+	PlayerGotoDir(3, 2);
+        SetMapTrap(3, "Trap03.txt");
+	Return;
+	  
+@Label8:	  
+	Talk(2143, 2143);
+	PlayerGotoDir(3, 2);
+    SetMapTrap(3, "Trap03.txt");
+	Return;
+
+@Label9:
+	Say("杨影枫：还是先回芭蕉小筑吧！", 2);
+	Return;        
+	
+@Label10:
+	Say("杨影枫：还是先去大夫那里看看紫轩吧！", 2);
+	PlayerGotoDir(3, 2);
+    SetMapTrap(3, "Trap03.txt");
+	Return;	
+	
+@Label11:
+	Say("杨影枫：这不是去藏剑山庄的路。", 2);
+	PlayerGotoDir(3, 2);
+    SetMapTrap(3, "Trap03.txt");
+	Return;	
+
+@Event390:    
+    FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_027_连接地图.map");
+	LoadNpc("Event390HelpYMR.npc");
+	ChangeMapColor(128,150,200);
+	ChangeAsfColor(128,150,200);
+	SetPlayerPos(3, 159);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	SetMapTrap(1,"");
+	Return;
+
+@Event990:
+	Say("杨影枫：赶紧带纳兰真找大夫看看。", 2);
+	PlayerGotoDir(3, 2);
+	SetMapTrap(3, "Trap03.txt");
+	Return;
+
+@end:
+    Return;
+
+@2102:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_027_连接地图.map");
+	LoadNpc("map027_1.npc");
+	SaveNpc("temp.npc");
+	LoadObj("map027_obj.obj");
+	SetPlayerPos(3, 159);
+	SetPlayerDir(6);
+	FadeIn();
+	Return;
+
+@Event370:
+	PlayerGoto(111, 221);
+	Say("杨影枫：还有好多事没做呐。", 2);
+	SetMapTrap(3, "Trap03.txt");
+	Return;
+
+
+@Event480:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_027_连接地图.map");
+	SetMapTrap(4, "Trap04.txt");
+	LoadNpc("map027.npc");
+	LoadObj("map027_obj.obj");
+	SetPlayerPos(3, 159);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+
+@Event592:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_027_连接地图.map");
+	//LoadNpc("map027.npc");
+	LoadObj("map027_obj.obj");
+	SetPlayerPos(3, 159);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	BeginRain("Rain.ini");
+	FadeIn();
+	Return;
+	
+@Event520:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_027_连接地图.map");
+	BeginRain("rain.ini");
+	SetMapTrap(4, "Trap04.txt");
+	SetPlayerPos(3, 159);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Event146:
+	Say("杨影枫：先带紫轩在惠安镇里逛逛吧！", 2);
+	Return;	
+	
+@Event148:	
+	Say("杨影枫：先送紫轩回清平乡吧，这不是通往清平乡的路。", 2);
+	Return;	

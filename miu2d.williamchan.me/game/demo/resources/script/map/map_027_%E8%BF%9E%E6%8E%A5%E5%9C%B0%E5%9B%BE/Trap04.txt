@@ -1,0 +1,19 @@
+	If ($Event == 520) @Label1;
+	Return;
+	
+@Label1:
+	StopMusic();
+	LoadNpc("map027-feilongkiller.npc");
+	PlayerRunTo(28, 61);
+	NpcGoto("杀手头目", 30, 61);
+	SetNpcDir("杀手头目", 2);
+	Talk(8400, 8440);
+	SetNpcRelation("杀手头目", 1);
+    SetNpcRelation("杀手", 1);
+    GetNpcCount(1,1);
+    PlayMusic("mc027.mp3");
+	AddToMemo(90690);
+	SetMapTrap(4, "");
+	SetMapTrap(1, "");
+	SetMapTrap(2, "");
+	Return;

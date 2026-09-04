@@ -1,0 +1,15 @@
+	CloseTimeLimit();
+	LoadNpc("map064_bomb.npc");
+	SetNpcKind("杨影枫", 1);
+	SetNpcKind("霹雳堂爆炸", 2);
+	SetPlayerScn();
+	NpcSpecialAction("霹雳堂爆炸","听雷阁爆炸.asf");
+	PlaySound("魔-爆04.wav");
+	Sleep(1000);
+	StopMusic();
+	FadeOut();
+	PlayMovie("die.avi");
+	FreeMap();
+	PlayMusic("mc000.mp3");
+	ReturnToTitle();
+

@@ -1,0 +1,58 @@
+// 事件33.2 刚发生，走不出去
+	If ($Event == 330) @Label2;
+// 事件34.1 刚发生，回山洞
+	If ($Event == 335) @Label3;
+	Return;
+
+	
+@Label2:
+	Talk(5708, 5708);
+	Return;
+	
+@Label3:
+	//FadeOut();
+	SetNpcKind("纳兰真", 1);
+	PlayerGoto(27,23);
+	SetPlayerDir(5);
+	NpcGoto("纳兰真", 28, 24);
+	SetNpcDir("纳兰真", 5);
+	SaveObj();
+	DelNpc("纳兰真");
+	SetNpcPos("杨影枫",0,0);
+	AddNpc("纳兰真和杨影枫3.ini",27,25,0);
+	//FadeIn();
+	NpcSpecialAction("纳兰真和杨影枫3", "mpc077-1.asf");
+	Sleep(1500);
+	PlaySound("mpc077-1.wav");
+	Sleep(300);
+	FadeOut();
+	StopMusic();
+	PlayMusic("Mc018.mp3");
+	DelNpc("纳兰真和杨影枫3");
+	Talk(5941,5941);
+	LoadMap("map_055_山洞.map");
+	PlayerChange(1);
+	SetPlayerPos(76,22);
+	SetPlayerDir(0);
+	LoadNpc("beishanshandong-yangyf.npc");
+	SetNpcPos("杨影枫",76,23);
+	SetNpcKind("杨影枫",3);
+	SetNpcScript("杨影枫","杨影枫对话.txt");
+	DisableNpcAI();
+	LoadNpc("beishan-bianfu.npc");
+    SaveNpc("temp-bianfu.npc");
+    LoadObj("beishan-bianfu.obj");
+    FadeIn();
+	Talk(5714, 5716);
+	Sleep(200);
+	Talk(20190, 20190);
+	Sleep(200);
+	Talk(20170, 20170);
+	Assign($Event,340);
+	AddToMemo(90580);
+	EnableNpcAI();
+	SetMapTrap(1, "Trap01.txt");
+	Return;
+	
+@end:
+	Return;

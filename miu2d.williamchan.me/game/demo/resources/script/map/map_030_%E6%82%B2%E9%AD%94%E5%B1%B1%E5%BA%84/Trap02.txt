@@ -1,0 +1,46 @@
+	If ($Result == 1) Goto @Result1;
+	If ($Result == 2) Goto @Result2;
+	If ($Result == 3) Goto @Result3;
+		
+@Result1:
+	
+	If($Event == 576) Goto @Marrage;
+	If($Event == 590) Goto @Event590;
+	Return;
+@Marrage:
+	FadeOut();
+	FadeIn();
+	Say(" 张灯结彩的悲魔山庄大厅，杨影枫和蔷薇向坐在高堂上的孟知秋鞠躬行拜高堂之礼，拜天地，夫妻对拜。礼毕孟知秋说了一番祝语便起身回去。(需要对话配合)");
+	
+	
+	FadeOut();
+	FadeIn();
+	Say(" 杨影枫站在洞房里，蔷薇坐在床边，此时，窗外穿来奇怪的声音，杨影枫追出");
+	DisableInput();
+	PlayerRunTo(35,158);
+	PlayerRunTo(25,134);
+	PlayerRunTo(27,110);
+	PlayerRunTo(37,100);
+	Say("到后园看见纳兰真，两人说了几句话，纳兰真伤心的跑开。（需要对话配合）");
+	Assign($Event,578);
+	Say("Event = 578");
+	EnableInput();
+	Return;
+
+@Event590:
+	Say("杨影枫赶到落叶山庄，从孟知秋处学得一招"沧海月明珠有泪"。（需要对话配合）画面淡出。");
+	FadeOut();
+	SetPlayerPos(30,30);
+	SetMapTime(1);
+	FadeIn();
+	Say("主角需去芭蕉小筑");
+	Assign($Event , 592);
+	Say("Event = 592");
+	Return;
+	
+	
+@Result2:
+	Return;
+	
+@Result3:
+	Return;		

@@ -1,0 +1,171 @@
+	If ($Event == 2000) @2000;//结局2
+	If ($Event == 2002) @2002;//结局2
+	If ($Event == 1818) @1818;//结局2
+	If ($Event == 1806) @1806;//结局2
+	If ($Event == 1805) @1805;//结局2
+	If ($Event == 1804) @1804;//结局2
+	If ($Event == 1800) @1800;//结局2
+	If ($Event == 3175) @Event3175;
+	If ($Result == 0) @Label0;
+	//If ($Result == 1) @Label1;
+	If ($Result == 2) @Label2;
+	If ($Result == 3) @Label3;
+	Return;
+
+@2000:
+	Say("杨影枫：这不是去落叶谷的路，从后院走吧。", 2);
+	Return;		
+
+@2002:
+	Say("杨影枫：不是这条路。",2);
+	Return;
+
+@1818:
+	Say("杨影枫：我要去落叶谷找孟知秋", 2);
+	Return;
+
+@1805:
+    Say("杨影枫：先回去休息一下再说吧。",2); 
+    Return;
+
+@1804:
+    Say("杨影枫：还是先送蔷薇回落叶谷吧。",2); 
+    Return;
+
+@Label0:
+	If ($Event == 475) @Label;
+	If ($Event == 492) @Label;
+	If ($Event == 485) @Label4;
+	If ($Event == 500) @Label4;
+	If ($Event == 510) @Label5;
+	If ($Event == 530) @Label6;
+	If ($Event == 525) @Label7;
+	If ($Event == 562) @562;//从落叶谷回来
+	Return;
+	
+@Label:
+	Say("这不是去藏剑山庄的路。", 0);
+	Return;		
+	
+@Label1:
+	If ($Event << 650) @end;
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_036_连接地图.map");
+	LoadNpc("map036.npc");
+	SaveNpc("temp.npc");	// 反复战斗
+	LoadObj("map036_obj.obj");
+	SetPlayerPos(3, 18);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Label2:
+	If ($Event << 744 ) @end;
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_036_连接地图.map");
+	LoadNpc("map036.npc");
+	SaveNpc("temp.npc");//反复战斗
+	LoadObj("map036_obj.obj");
+	SetPlayerPos(3, 18);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Label3:
+	If ($Event << 920) @end;
+	If ($Event == 920) @Event920;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_036_连接地图.map");
+	LoadNpc("map036.npc");
+	SaveNpc("temp.npc");	// 反复战斗
+	LoadObj("map036_obj.obj");
+	SetPlayerPos(3, 18);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Label4:	
+	Say("杨影枫：先回悲魔山庄吧，真儿还在家里等着我呢！", 2);
+	Return;		
+	
+@Label5:	
+	Say("杨影枫：这不是去寒波谷的路。", 2);
+	PlayerGotoDir(3, 2);
+	SetMapTrap(6, "trap06.txt");
+	Return;		
+	
+@Label6:
+	Say("杨影枫：这不是去落叶谷的路，从后院走吧。", 2);
+	PlayerGotoDir(3, 2);
+	SetMapTrap(6, "trap06.txt");
+	Return;		
+	
+@562:
+    Say("杨影枫：先回悲魔山庄吧，真儿还在家里等我的消息呢！",2); 
+    Return;
+	
+@Event920:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_036_连接地图.map");
+	LoadNpc("map036.npc");
+	SaveNpc("temp.npc");	// 反复战斗
+	LoadObj("map036_obj.obj");
+	SetPlayerPos(3, 18);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@1800:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_036_连接地图.map");
+	LoadNpc("map036.npc");
+	SaveNpc("temp.npc");	// 反复战斗
+	LoadObj("map036_obj.obj");
+	SetPlayerPos(3,18);
+	SetPlayerDir(6);
+	AddNpc("紫轩.ini",9,18,2);
+	FadeIn();
+	RunScript("路遇紫轩.txt");
+	Return;
+
+@1806:
+	Say("杨影枫：我要去凌绝峰赴月眉儿之约。",2);
+	PlayerGotoDir(3,2);
+	SetMapTrap(6,"trap06.txt");
+	Return;
+
+@Event3175:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_036_连接地图.map");
+	LoadNpc("map036.npc");
+	SaveNpc("temp.npc");	// 反复战斗
+	LoadObj("map036_obj.obj");
+	SetPlayerPos(3, 18);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Label7:
+	Say("杨影枫：真儿还在后花园回廊上等我呢！", 2); 
+	Return;
+	
+@end:
+	Return;

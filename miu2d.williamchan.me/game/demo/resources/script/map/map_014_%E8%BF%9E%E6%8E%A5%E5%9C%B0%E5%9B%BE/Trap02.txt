@@ -1,0 +1,205 @@
+	If ($Event >> 3000) @end;
+	If ($Event == 2102) @end;//蔷薇死亡
+	If ($Event == 2040) @end;
+	If ($Event == 2034) @end;
+	If ($Event == 990) @Event990;
+	If ($Event == 370) @Event370;
+	If ($Event == 380) @Event380; //杨影枫潜入藏剑山庄找卓非凡报仇。
+	If ($Event == 390) @Event390;
+	If ($Event == 475) @Event475; //下挑战书
+	If ($Event == 492) @Event492; //前往剑气峰挑战卓非凡
+	If ($Event == 500) @Label2;
+	If ($Event == 520) @520;
+	If ($Event == 146) @146;
+	If ($Event == 185) @185;
+	If ($Event == 190) @190;
+	If ($Event >= 510) @Label3;
+	If ($Event == 110) @Label1;
+	If ($Event == 232) @Event232; //明察暗访
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_015_藏剑山庄.map");
+	LoadNpc("cangjian2.npc");
+	LoadObj("map015-xianglu.obj");
+
+	If ($SubEvent21 <> 10) @DelThief1;
+		DelNpc("找剑者");
+	@DelThief1:
+
+	SetPlayerPos(46, 17);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+   
+
+@Label1:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_015_藏剑山庄.map");
+    LoadNpc("cangjian.npc");
+    LoadObj("map015-xianglu.obj");
+	SetNpcPos("李四", 40, 32);
+	SetNpcDir("李四", 5);
+    ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(46, 17);
+	SetPlayerDir(1);
+	SetNpcScript("李四", "");
+	SetNpcScript("家丁阿扁", "");
+	SetNpcScript("家丁阿水", "");
+	EnableNpcAI();
+	FadeIn();
+    Return;
+
+@Label2:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_015_藏剑山庄.map");
+	LoadNpc("map015_empty.npc");
+    LoadObj("map015-xianglu.obj");
+	SetPlayerPos(46, 17);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Say("杨影枫：藏剑山庄里所有的下人都走了，真是树倒猢狲散啊！", 2);
+	Return;
+	
+@Label3:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_015_藏剑山庄.map");
+	LoadNpc("map015_empty.npc");
+    LoadObj("map015-xianglu.obj");
+	SetPlayerPos(46, 17);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Say("自从卓非凡死后，藏剑山庄的人一哄而散，这座山庄也就从此荒废了。", 0);
+	Return;
+	
+	
+@Event232:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_015_藏剑山庄.map");
+    LoadNpc("cangjian2.npc");
+    LoadObj("map015-xianglu.obj");
+
+	If ($SubEvent21 <> 10) @DelThief2;
+		DelNpc("找剑者");
+	@DelThief2:
+	
+	SetPlayerPos(46, 17);
+	SetPlayerDir(1);
+	SetNpcPos("李四", 40, 32);
+	SetNpcDir("李四", 5);
+	SetNpcScript("李四", "");
+	SetNpcScript("家丁阿扁", "");
+	SetNpcScript("家丁阿水", "");
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event370:
+	Say("还是先去找紫轩吧！");	
+	PlayerGotoDir(5,2);
+	SetMapTrap(2,"trap02.txt");
+	Return;
+	
+@Event380:
+	FadeOut();
+	Say("当杨影枫来到藏剑山庄时，天色已晚下来了。");
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_015_藏剑山庄.map");
+    LoadNpc("map015_visterZFF_night.npc");
+    LoadObj("map015-xianglu.obj");
+    ChangeMapColor(128,150,200);
+	ChangeAsfColor(128,150,200);
+	SetPlayerPos(46, 17);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event390:
+	Say("杨影枫：真象是做了一场恶梦，原来紫轩也在欺骗我。"，5);
+	Say("杨影枫：只有真儿真心的待我，我也不想报仇了，还是回忘忧岛吧。", 5);	
+	PlayerGotoDir(5,2);
+	SetMapTrap(2,"trap02.txt");
+	Return;
+	
+@Event475:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_015_藏剑山庄.map");
+    LoadNpc("cangjian2.npc");
+    LoadObj("map015-xianglu.obj");
+    
+	If ($SubEvent21 <> 10) @DelThief3;
+		DelNpc("找剑者");
+	@DelThief3:
+	
+	SetNpcPos("李四", 35, 59);
+	SetNpcDir("李四", 5);
+	DelNpc("卓非凡");
+	AddNpc("卓非凡.ini",28,53,7);
+	DelNpc("紫轩");
+	AddNpc("紫轩.ini",29,54,3);
+	SetPlayerPos(46, 17);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	
+	// zroc add
+	SetNpcPos("家丁阿扁", 0, 0);
+	SetNpcPos("家丁阿水", 0, 0);
+	
+	FadeIn();
+	SetMapTrap(9,"事件48_2.txt");
+	Return;
+
+@Event492:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_015_藏剑山庄.map");
+    LoadNpc("cangjian3.npc");
+    LoadObj("map015-xianglu.obj");
+	SetPlayerPos(46, 17);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event990:
+	PlayerGoto(20, 110);
+	SetMapTrap(2, "Trap02.txt");
+	Say("杨影枫：赶紧带真儿到惠安镇找大夫看看。", 2);
+	Return;
+
+@520:
+	Say("杨影枫：还是先回悲魔山庄吧。", 2);
+	Return;
+
+@146:
+	Say("杨影枫：还是先带紫轩到惠安镇逛逛吧。", 2);
+	Return;	
+	
+@185:	
+	Say("杨影枫：先去惠安镇打听张仲天大哥的死因吧。", 2);
+	Return;	
+
+@190:
+	Say("杨影枫：还是先回芭蕉小筑吧！", 2);
+	Return;	
+
+@end:	
+	Return;

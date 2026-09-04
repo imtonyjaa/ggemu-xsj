@@ -1,0 +1,58 @@
+	FadeOut();
+	Sleep(300);
+	DelNpc("张惟宜");
+	ClearBody();
+	SetPlayerState(0);
+	
+	SetPlayerPos(11, 37);
+	DisableNpcAI();
+	AddNpc("张惟宜.ini", 8, 37, 5);
+	SetNpcKind("张惟宜", 0);
+	SetNpcRelation("张惟宜",2);
+	Watch("杨影枫","张惟宜",0);
+	
+	FadeIn();
+	Sleep(1000);
+	Talk(107080,107090);
+//	SetNpcKind("杨影枫",1);
+//	SetNpcKind("张惟宜",2);
+//	NpcGoto("张惟宜",8,38);
+	NpcGoto("张惟宜",6,34);
+	SetNpcDir("张惟宜",7);
+	
+//	SetMapPos(3,13);
+//	SetNpcKind("杨影枫",2);
+//	SetNpcKind("张惟宜",1);
+
+	SetPlayerDir(3);
+	MoveScreen(3, 50, 2);
+	SetNpcDir("孟知秋",3);
+	Talk(107110,107110);
+	Sleep(4000);
+	Talk(107120,107120);
+	Say("杨影枫：不敢当，蒙各位承让啊！",3);
+
+
+	FadeOut();
+	SaveObj();
+	StopMusic();
+	PlayMusic("Mc011.mp3");
+	Sleep(1000);
+	LoadNpc("map030_wedding1.npc");	
+	LoadObj("map030_obj.obj");
+	AddObj("喜字1.ini",44,136,0);
+	AddObj("喜字2.ini",48,144,0);
+	AddObj("一对灯笼.ini",40,151,0);
+	SetPlayerPos(44,140);
+	SetPlayerDir(5);
+	SetNpcDir("蔷薇",5);
+	FadeIn();
+	
+	SetMapTrap(1,"");
+	SetMapTrap(5,"");
+	SetMapTrap(6,"");
+	RunScript("婚礼.txt");
+	Return;
+
+
+

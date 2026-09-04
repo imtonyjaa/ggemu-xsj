@@ -1,0 +1,11 @@
+If ($Event <> 3122) @end;
+Watch("杨影枫","李总管",0);
+Talk(99610,99610);
+NpcGoto("李总管",17,94);
+PlayerGoto(17,96);
+Watch("杨影枫","李总管",0);
+Talk(99620,99700);
+SetMapTrap(4,"");
+
+@end:
+	Return;

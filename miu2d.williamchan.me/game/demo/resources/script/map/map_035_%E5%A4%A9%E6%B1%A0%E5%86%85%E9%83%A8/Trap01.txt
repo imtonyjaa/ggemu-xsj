@@ -1,0 +1,49 @@
+	If ($Event >= 550) @550;
+	If ($Event == 545) @545;
+	Talk(10421, 10421);
+	Return;
+	
+@545:
+	CloseTimeLimit();
+	NpcSpecialAction("杨影枫", "mpc118起.asf");
+	Sleep(1500);
+	FadeOut();
+	StopMusic();
+	PlayMusic("Mc022.mp3");
+	LoadMap("map_034_天池.map");
+	LoadNpc("map034.npc");
+	LoadObj("map034_obj.obj");
+	SetPlayerPos(7, 12);
+	SetPlayerDir(2);
+	DelNpc("蔷薇");
+	AddNpc("蔷薇.ini",6,12,6);
+	CloseWaterEffect();
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	FadeIn();
+	Talk(10260,10300);
+	DelGoods("Goods-e09-发钗.ini");
+	SetNpcKind("蔷薇",3);
+	SetNpcScript("蔷薇","蔷薇对话.txt");
+	Sleep(200);
+	Talk(20181, 20181);
+	Assign($Event, 550);
+	AddToMemo(90770);
+	SetMapTrap(2,"trap02.txt");
+	Return;
+	
+@550:
+	CloseTimeLimit();
+	NpcSpecialAction("杨影枫", "mpc118起.asf");
+	Sleep(1000);
+	FadeOut();
+	LoadMap("map_034_天池.map");
+	LoadNpc("map034.npc");
+	LoadObj("map034_obj.obj");
+	SetPlayerPos(17,22);
+	SetPlayerDir(2);
+	CloseWaterEffect();
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	FadeIn();
+	Return;

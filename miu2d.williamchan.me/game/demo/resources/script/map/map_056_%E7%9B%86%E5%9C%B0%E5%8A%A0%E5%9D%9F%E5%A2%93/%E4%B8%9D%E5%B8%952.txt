@@ -1,0 +1,41 @@
+
+
+// 事件33 刚发生
+	If ($Event == 330) @Label1;
+	
+	Goto(@end);
+	
+@Label1:
+	SetNpcKind("纳兰真",1);
+	PlayerGoto(5, 41);
+	SetPlayerDir(4);
+	Talk(5710, 5710);
+	NpcGoto("纳兰真",6, 40);
+	SetNpcDir("纳兰真",3);
+	DelObj("丝帕2");
+	SaveObj();
+	Sleep(200);
+	AddGoods("Goods-e04-一块绸布.ini");
+	Sleep(200);
+	Talk(5730, 5780);
+	Say("杨影枫：（<color=Red>上官飞龙<color=Black>！！）", 8);
+	Talk(5790, 5830);
+	NpcGoto("纳兰真",5,42);
+	SetNpcDir("纳兰真",0);
+	PlayerGoto(5,43);
+	SetPlayerDir(3);
+	Talk(5840, 5880);
+	SetNpcDir("纳兰真",7);
+	Talk(5890, 5940);
+	SetNpcKind("纳兰真",3);
+	
+	
+	AddToMemo(90561);
+	Assign($Event, 335);
+
+	SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(5, "Trap05.txt");
+	Goto(@end);
+	
+@end:
+	Return;

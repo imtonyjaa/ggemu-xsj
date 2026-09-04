@@ -1,0 +1,96 @@
+	If ($Event == 1820) @1820;//结局2求证
+	If ($Event == 957) @Event957;
+	If ($Event == 40) @Label;
+	If ($Event == 41) @Label1;
+	If ($Event == 44) @Label1;
+	If ($Event == 45) @Label1;
+	If ($Event == 43) @Label3;
+	If ($Event == 42) @Label3;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_004_武当山连接地图.map");
+	LoadNpc("map004-luren.npc");
+	LoadObj("map004_obj.obj");
+
+	If ($SubEvent02 >= 2) @SubLabel1;
+	If ($SubEvent02 << 2) @SubLabel2;
+	Goto @SubLabelEnd;
+
+	@SubLabel1:
+		SetObjScript("草葱", "支线草药.txt");
+		Goto @SubLabelEnd;
+	@SubLabel2:
+		SetObjScript("草葱", "");
+		Goto @SubLabelEnd;
+	@SubLabelEnd:
+
+	SetPlayerPos(57, 17);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();	
+	If ($Event == 40) @Music1;
+	Return;
+@Music1:
+	StopMusic();
+	PlayMusic("Mc011.mp3");
+	Return;
+
+@Label:
+	Say("杨影枫：还是先去拜访武当掌门天星道长吧！", 2);
+	Return;
+
+@Label1:
+	Talk(241, 241); 
+	Return; 	
+
+@Label3:
+	Talk(510, 510); 
+	SetPlayerDir(4);
+	PlayerGoto(3, 165);
+	SetMapTrap(1, "Trap01.txt");
+	Return;	
+
+@Event957:
+	Assign($LeaveWuDang, 1);
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_004_武当山连接地图.map");
+	LoadNpc("map004-luren.npc");
+	LoadObj("map004_obj.obj");
+
+	If ($SubEvent02 >= 2) @SubLabel1;
+	If ($SubEvent02 << 2) @SubLabel2;
+	Goto @SubLabelEnd;
+	@SubLabel1:
+		SetObjScript("草葱", "支线草药.txt");
+		Goto @SubLabelEnd;
+	@SubLabel2:
+		SetObjScript("草葱", "");
+		Goto @SubLabelEnd;
+	@SubLabelEnd:
+
+	SetPlayerPos(57, 17);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();
+	Return;	
+
+@1820:
+	FadeOut();
+	DelNpc("天星道长");
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_004_武当山连接地图.map");
+	LoadNpc("map004-luren.npc");
+	LoadObj("map004_obj.obj");
+	SetPlayerPos(57, 17);
+	SetPlayerDir(0);
+	FadeIn();
+	Return;
+
+@end:	
+	Return;

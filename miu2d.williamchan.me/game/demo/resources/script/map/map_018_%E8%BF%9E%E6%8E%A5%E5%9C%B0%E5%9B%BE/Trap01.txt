@@ -1,0 +1,30 @@
+	If ($Event == 592) @Event592;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_017_连接地图.map");
+	LoadNpc("map017.npc");
+	LoadObj("map017_obj.obj");
+	SetPlayerPos(2, 7);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event592:
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_017_连接地图.map");
+	LoadObj("map017_obj.obj");
+	LoadNpc("map017.npc");
+	BeginRain("Rain.ini");
+	SetPlayerPos(2, 7);
+	SetPlayerDir(0);
+	FadeIn();
+	Return;
+	
+@end:
+	Return;

@@ -1,0 +1,57 @@
+	If ($Event == 475) @Label1;
+	Return;
+	
+@Label1:
+	StopMusic();
+	PlayerRunTo(32,41);
+	SetPlayerDir(0);
+	Sleep(500);
+	MoveScreen(1,60,2);
+	MoveScreen(0,20,2);
+	Talk(8240,8310);
+	NpcGoto("紫轩",26,66);
+	SetNpcPos("紫轩", 15, 135);
+	SetNpcDir("紫轩",0);
+	SetNpcScript("卓非凡","卓非凡对话.txt");
+	SetNpcScript("紫轩","紫轩对话.txt");
+	MoveScreen(5,60,2);
+	MoveScreen(4,20,2);
+	Assign($Event,478);
+	PlayerGoto(29, 52);
+	SetPlayerDir(1);
+	SetNpcDir("卓非凡",5);
+	Talk(8320, 8390);
+	Say("卓非凡：哼，那么我们明天就一见高下！", 34);  
+	Say("杨影枫：好，我们明天剑气峰见！到时你我之间的一切恩怨都要作个了断！", 2);
+	Say("卓非凡：哼，李四，送客！", 34);  
+	Say("杨影枫：不必，我自己会走。我要来，无人能拦得住我，我要走，也无人留得下我！这种龌龊之地，就是请我留下，我还不肯呢！", 2);
+	PlayerGoto(33, 44);
+	Assign($Event, 480);
+	AddToMemo(90710);
+	SetMapTrap(1, "Trap01.txt");
+    SetMapTrap(2, "Trap02.txt");
+    FadeOut();
+    SaveObj();
+    
+    // zroc add
+    SetNpcPos("家丁阿扁", 39, 31);
+    SetNpcDir("家丁阿扁", 7);
+    SetNpcPos("家丁阿水", 40, 33);
+    SetNpcDir("家丁阿水", 3);
+    SaveNpc();
+    
+    LoadMap("map_030_悲魔山庄.map");
+	LoadObj("map030_obj.obj");
+	LoadNpc("beimo.npc");
+	SetNpcPos("纳兰真", 44, 141);
+	SetNpcDir("纳兰真", 1);
+	SetPlayerPos(9, 225);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	Assign($Event, 485);
+	PlayMusic("Mc007.mp3");
+	FadeIn();
+	Goto @end;
+	
+@end:
+	Return;

@@ -1,0 +1,106 @@
+	If ($Event == 1821) @1821;//结局2求证回来
+	If ($Event == 415) @Label415;
+	If ($Event == 296) @Event296;
+	If ($Event == 450) @end;
+	If ($Event == 425) @425;
+	If ($Event == 690) @Event690;
+	If ($Event == 301) @Label5; 
+	If ($Event == 752) @Event752;
+	If ($Event == 270) @Event270;	// 找老爸给杨治伤
+	If ($Event == 275) @Event275;
+	If ($Event == 285) @Event285;
+	If ($Event == 294) @Event285;
+	If ($Event == 340) @Event340;
+	If ($Event == 350) @Event350;
+	If ($Event == 250) @Event250;
+	If ($Event == 260) @Event260;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_053_连接地图.map");
+	LoadNpc("map053.npc");
+	LoadObj("map053_obj.obj");
+	SetPlayerPos(25, 9);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Label415:
+	PlayerGoto(73, 139);
+	Say("纳兰真：先去见我爹吧！",9);
+	SetMapTrap(2, "Trap02.txt");
+	Return;	
+	
+@425:
+	Say("纳兰真：爹还在禁地等你呢。",9);
+	Return;
+
+
+@Event250:
+	Say("纳兰真：还是先去问问采药人阿里哪里有上好的草药吧！", 9);
+	Return;
+	
+@Event260:
+	Talk(5220, 5220);
+	Return;
+	
+@Event296:
+	Say("纳兰真：赶紧去禁地，晚了天就要亮了。", 9);
+	Return;	
+
+@Event690:
+	//Say("系统消息：跟踪涟漪");
+	PlayerGotoDir(4, 2);
+	SetMapTrap(2, "Trap02.txt");
+	Return;	
+
+@Label5:
+	Say("杨影枫：真儿，不要到处乱逛了，我们回去吧！", 2);
+	Return;	
+	
+@Event752:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_053_连接地图.map");
+	LoadNpc("map_053.npc");
+ 	LoadObj("map053_obj.obj");
+	SetPlayerPos(25, 9);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Event270:
+	Say("纳兰真：还是先回家找爹爹给杨大哥治伤要紧！", 9);
+	Return;
+	
+@Event275:
+	Say("纳兰真：还是先到海边小屋给杨大哥治伤要紧！", 9);
+	Return;
+	
+@Event285:	
+	Say("还是到海边找找吧！", 0);
+	PlayerGotoDir(4,2);
+	SetMapTrap(2, "Trap02.txt");
+	Return;
+		
+@Event340:		
+	Talk(6232, 6233);
+	Return;
+	
+@Event350:	
+	Say("纳兰真：影枫哥哥，你不要走了好吗？", 12);
+	Say("杨影枫：对不起，真儿，我……", 2);
+	Say("纳兰真：唉，留得住你的人，留不住你的心。我们还是去<color=Red>码头<color=Black>吧，码头在岛的<color=Red>西南边<color=Black>。", 12);
+	Return;
+	
+@1821:	
+	Say("杨影枫：还是先到海边看看真儿吧！",2);
+	Return;	
+	
+@end:
+	Return;
+

@@ -1,0 +1,80 @@
+
+
+	If ($Event == 870) @Label1;
+	
+	Goto @end;
+	
+@Label1:
+	If ($Result <> 3) @end;
+	
+
+	SetMapTrap(2, "");
+
+	PlayerGoto(7, 73);
+	MoveScreen(5, 50, 1);
+	NpcSpecialAction("杨影枫", "mpc108.asf");
+	Sleep(3000);
+	Talk(17280, 17430);
+//	系统消息：纳兰潜凛让杨影枫把那本秘笈参详参详
+	NpcGotoEx("纳兰潜凛", 12, 49);
+	PlayerGoto(10, 60);
+	DelNpc("纳兰潜凛");
+	PlayerGoto(12, 49);
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_059_禁地一层.map");
+	
+	LoadObj("map059_obj.obj");
+	
+	LoadNpc("map059.npc");
+	
+	AddNpc("纳兰潜凛.ini", 8, 30, 7);
+	SetNpcKind("纳兰潜凛", 0);
+	
+	AddNpc("纳兰真被捆.ini", 10, 33, 0);
+	SetNpcKind("纳兰真被捆", 0);
+
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(6, 39);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	
+	MoveScreen(5, 45, 1);
+	
+	Talk(17460, 17570);
+
+//	系统消息：看到纳兰真被绑，要密笈来换, 无可奈何，退出石牢
+	
+	PlayerGoto(6, 40);
+	
+	FadeOut();
+	
+	DelNpc("纳兰潜凛");
+	DelNpc("纳兰真被捆");
+	
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_058_禁地.map");
+	LoadObj("map058_obj.obj");
+	LoadNpc("event88_jiaozhong.npc");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(11, 53);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	
+	Talk(17580, 17580);
+
+	Assign($Event, 880);
+
+	SetMapTrap(2, "Trap02.txt");
+	
+	Goto @end;
+	
+@end:
+	Return;

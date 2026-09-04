@@ -1,0 +1,75 @@
+	If ($Event == 304) @Label1;
+	If ($Event == 305) @Label2;
+	If ($Event == 340) @Label3;
+	Goto @end;
+
+@Label1:
+	If ($Talkyyf055a == 0) @Talk0;
+	If ($Talkyyf055a == 1) @Talk1;
+	If ($Talkyyf055a == 2) @Talk2;
+	Goto @end;
+@Talk0:
+	If ($NaLanZhenSense >= 20) @AddSenseEnd;
+	Add($SenseVal, 5);
+	Add($NaLanZhenSense, 5);
+@AddSenseEnd:
+	Say("杨影枫：真儿，这里面黑漆漆的，不知藏有什么危险，我们要小心！", 2);
+	Say("纳兰真：好的……影枫哥哥，你是不是觉得我太任性了？", 12);
+	Say("杨影枫：……没有啊，你只是对什么都感到好奇，毕竟还是小孩子嘛！", 3);
+	Say("纳兰真：谁说我是小孩子！", 11);
+	Say("杨影枫：嘻嘻……", 3);
+	Assign($Talkyyf055a, 1);
+	Goto @end;
+@Talk1:
+	If ($NaLanZhenSense >= 20) @AddSenseEnd1;
+	Add($SenseVal, 5);
+	Add($NaLanZhenSense, 5);
+@AddSenseEnd1:
+	Say("杨影枫：真儿，生气啦？", 3);
+	Say("纳兰真：才没有呢！只是……你以后不要再说我是小孩子了，好吗？", 12);
+	Say("杨影枫：真儿……对不起！", 7);
+	Say("纳兰真：没事，我才没有那么小气呢！", 9);
+	Assign($Talkyyf055a, 2);
+	Goto @end;
+@Talk2:
+	If ($NaLanZhenSense >= 20) @AddSenseEnd2;
+	Add($SenseVal, 5);
+	Add($NaLanZhenSense, 5);
+@AddSenseEnd2:
+	Say("纳兰真：影枫哥哥，从小到大一直都没有什么人陪我玩，这次你能陪我来这里，我真的很开心呀！", 9);
+	Goto @end;
+
+	
+@Label2:
+	If ($Talkyyf055b == 0) @Talk3;
+	If ($Talkyyf055b == 1) @Talk4;
+	Goto @end;
+@Talk3:
+	If ($NaLanZhenSense >= 20) @AddSenseEnd3;
+	Add($SenseVal, 5);
+	Add($NaLanZhenSense, 5);
+@AddSenseEnd3:
+	Say("纳兰真：这些吸血蝙蝠真可怕呀！", 9);
+	Say("杨影枫：真儿，你的伤……", 5);
+	Say("纳兰真：没事！我们再往里走走，看看还有什么好玩的东西。", 9);
+	Say("杨影枫：真儿……", 2);
+	Assign($Talkyyf055b, 1);
+	Goto @end;
+@Talk4:
+	If ($NaLanZhenSense >= 20) @AddSenseEnd4;
+	Add($SenseVal, 5);
+	Add($NaLanZhenSense, 5);
+@AddSenseEnd4:
+	Say("纳兰真：影枫哥哥，我们再往里走走，看看还有什么好玩的东西。", 9);
+	Goto @end;	
+
+@Label3:
+	If ($NaLanZhenSense >= 20) @AddSenseEnd5;
+	Add($SenseVal, 5);
+	Add($NaLanZhenSense, 5);
+@AddSenseEnd5:
+	Say("纳兰真：影枫哥哥，你新练的神功真厉害啊！", 9);
+	Goto @end;
+	
+@end:
+	Return;

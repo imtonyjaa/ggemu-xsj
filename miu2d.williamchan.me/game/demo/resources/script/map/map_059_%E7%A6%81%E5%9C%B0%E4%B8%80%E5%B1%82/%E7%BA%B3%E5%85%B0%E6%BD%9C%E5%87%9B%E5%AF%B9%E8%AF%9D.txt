@@ -1,0 +1,6 @@
+	If ($Event <> 300) @end;
+	Talk(5143, 5143);
+@end:
+	Return;
+
+	

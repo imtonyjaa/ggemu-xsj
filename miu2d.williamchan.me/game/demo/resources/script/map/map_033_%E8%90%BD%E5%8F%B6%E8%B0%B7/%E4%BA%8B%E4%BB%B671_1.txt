@@ -1,0 +1,47 @@
+	If ($Event == 700) @Label1;
+	If ($Event == 560) @Label2;
+	Return;
+	
+@Label1:
+	If ($Result <> 1) @end;
+	DisableNpcAI();
+	
+	//SetNpcKind("杨影枫",1);
+	SetNpcRelation("杨影枫",0);
+	PlayerGoto(12,109);
+	MoveScreen(5,50);
+	
+	PlayerGoto(16, 100)
+	Talk(13840,13870);
+	EnableNpcAI();
+	EnableFight();
+	//Say("系统消息：发生事件71.1，武林大会，进入战斗");
+	//Say("系统消息：Event 的值变为 705");
+	Assign($DeathCount,0);
+	Assign($Event, 705);
+	
+	//Say("系统消息：下面这一段放在 npc 死亡脚本里");
+	//Say("系统消息：发生事件71.2，战斗胜利，月眉儿出现，相约决战");
+	//Say("系统消息：Event 的值变为 710");
+	//Assign($Event, 710);
+	Return;
+	
+@Label2:
+	PlayerGoto(8, 122);
+	SetPlayerDir(1);
+	SetNpcDir("蔷薇", 5);
+	Talk(10860, 10891);
+	NpcGoto("蔷薇", 7,122);
+	SetNpcDir("蔷薇", 7);
+	PlayerGoto(6, 128);
+	SetPlayerDir(1);
+	Talk(10900, 10900);
+	SetNpcDir("蔷薇", 1);
+	Assign($Event, 562);
+	SetMapTrap(9, "事件71_1.txt");
+	SetMapTrap(1, "Trap01.txt");
+	PlayMusic("Mc022.mp3"); 
+	Return;
+
+@end:
+	Return;

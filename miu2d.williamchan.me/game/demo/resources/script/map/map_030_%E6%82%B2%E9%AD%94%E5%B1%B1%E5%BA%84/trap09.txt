@@ -1,0 +1,61 @@
+	If ($Event == 490) @Label;
+	If ($Event == 565) @Label1;
+	Return;
+
+@Label:
+	Say("杨影枫：真儿！", 2);
+	PlayerGoto(41, 156);
+	SetPlayerDir(7);
+	SetNpcDir("纳兰真", 3);
+	Talk(8510, 8570);
+	Say("杨影枫：你就在家等我的好消息吧！", 2);
+	PlayerGoto(36, 161);
+	SetNpcDir("纳兰真", 1);
+	AddToMemo(90700);
+	Assign($Event, 492);
+    SetNpcScript("纳兰真", "纳兰真对话.txt");
+    FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_015_藏剑山庄.map");
+    LoadNpc("cangjian3.npc");
+    LoadObj("map015-xianglu.obj");
+	SetPlayerPos(46, 17);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+    
+
+@Label1:
+	PlayerGoto(39,151);
+	SetPlayerDir(1);
+	Talk(11070, 11070);
+	NpcGoto("侍女可意", 39, 152);
+	SetNpcDir("侍女可意", 5);
+	Talk(11080, 11080);
+	NpcGoto("侍女可意", 38, 149);
+	SetNpcDir("侍女可意", 7);
+	
+	SetPlayerDir(0);
+	NpcSpecialAction("杨影枫", "mpc_拿信.asf");
+	Sleep(1800);
+	SetNpcActionFile("杨影枫", 0, "mpc_看信.asf");
+	SetNpcActionFile("杨影枫", 1, "mpc_看信.asf");
+	Talk(11090, 11110);
+	NpcSpecialAction("杨影枫", "mpc_看完信.asf");
+	Sleep(1800);
+	SetNpcActionFile("杨影枫", 0, "npc007_st2.asf");
+	SetNpcActionFile("杨影枫", 1, "npc007_sst2.asf");
+	SetPlayerDir(1);
+
+	Assign($Event, 570);
+	Assign($Result, 1);
+
+	Say("杨影枫：真儿，你好好保重！为了实现我爹的遗愿，为了成为武功天下第一，我必须去落叶谷向孟知秋求亲。虽然我并不是很喜欢蔷薇，但只有这样我才能得到孟知秋的帮助。真儿，你会原谅我的！", 2);
+	AddToMemo(24290);
+	PlayMusic("mc013.mp3");
+	Assign($Event, 570);
+	Return;
+@end:
+	Return;

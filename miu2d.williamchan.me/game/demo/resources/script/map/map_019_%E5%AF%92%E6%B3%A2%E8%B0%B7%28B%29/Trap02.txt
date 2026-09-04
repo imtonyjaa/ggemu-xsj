@@ -1,0 +1,57 @@
+
+	If ($Event == 440) @Label1;
+
+        If ($Event <> 195) @Lable2;
+        Talk(241, 241); 
+        SetPlayerDir(0);
+        PlayerGoto(10, 10);
+        SetMapTrap(2, "Trap02.txt");
+        Goto @end;
+@Lable2:
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_020_樱花谷.map");
+	LoadNpc("map020-luren.npc");
+	SaveNpc("temp_map020-luren.npc");
+	LoadNpc("temp_map020-luren.npc");
+	LoadObj("map020_obj.obj");
+	SaveObj("temp_map020_obj.obj");
+	LoadObj("temp_map020_obj.obj");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(12, 49);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+	
+	If ($Event <> 140) @end;
+	LoadNpc("yinghuagu-zixuan.npc");
+	Talk(1870, 1870);
+        Assign($Event, 145);
+	Goto(@end);
+	
+@Label1:
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	
+	LoadMap("map_020_樱花谷.map");
+	LoadNpc("Event450.npc");
+	//AddNpc("紫轩.ini",10,19);
+	ChangeMapColor(0, 0, 0);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(12, 49);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+	SetMapTrap(1,"");
+	RunScript("假紫轩吹萧.txt");
+	
+
+	Goto(@end);
+	
+@end:
+	Return;

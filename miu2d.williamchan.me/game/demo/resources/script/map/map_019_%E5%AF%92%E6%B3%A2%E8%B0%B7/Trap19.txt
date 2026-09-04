@@ -1,0 +1,60 @@
+	//请参看	鼓眼鱼.txt
+	
+	//设置水流对面事件点
+	SetMapTrap(18, "Trap18.txt");
+
+	If ($FollowWaitSide >> 5) @MoreThan1Follow;
+	If ($FollowWaitSide == 5) @NotFemaleFollow;
+	If ($FollowWaitSide >= 1) @FemaleFollow;
+	Return;	//没有同伴
+
+@MoreThan1Follow://不止一个同伴
+	AddNpc("鼓眼鱼.ini", 35, 20, 0);
+	Assign($FollowWaitSide, 0);
+	If ($Lany << 1 ) @NeverMeetBefore;
+	If ($Lany == 1 ) @JustMeetBefore;
+		Goto @MeetBefore;
+	@NeverMeetBefore:
+		Say("杨影枫：刚才在那边感觉好像见着个人，后来又不见了，难道是我眼花了？", 2);
+		Return;
+	@JustMeetBefore:
+		Say("杨影枫：上次在对面遇见的那位隐士，这次倒是没有见着了。", 2);
+		Return;
+	@MeetBefore:
+		GetRandNum($Temp, 0, 2);
+		If ($Temp == 1) @WhyDisappear1;
+		If ($Temp == 2) @WhyDisappear2;
+			Say("杨影枫：走到这里，不由得过去看看吴兄是否又在水流那侧，这次却没有遇上他。");
+			Return;
+		@WhyDisappear1:
+			Say("杨影枫：刚才感觉好像看到了吴兄，后来又不见了，难道是我眼花了？", 2);
+			Return;
+		@WhyDisappear2:
+			Say("杨影枫：过去想看看吴兄，却没有遇见。", 2);
+			Return;
+@NotFemaleFollow://同伴非女主角，目前剧情里非女主角同伴只出现过卓非凡
+	SetNpcKind("卓非凡", 3);
+	Assign($FollowWaitSide, 0);
+	Return;
+@FemaleFollow://带着一个女同伴
+	If ($FollowWaitSide == 1) @FollowNaLanZhen;
+	If ($FollowWaitSide == 2) @FollowYueMeiEr;
+	If ($FollowWaitSide == 3) @FollowZhiXuan;
+	If ($FollowWaitSide == 4) @FollowQiangWei;
+		Return;
+	@FollowNaLanZhen:
+		SetNpcKind("纳兰真", 3);
+		Assign($FollowWaitSide, 0);
+		Return;	
+	@FollowYueMeiEr:
+		SetNpcKind("月眉儿", 3);
+		Assign($FollowWaitSide, 0);
+		Return;		
+	@FollowZhiXuan:
+		SetNpcKind("紫轩", 3);
+		Assign($FollowWaitSide, 0);
+		Return;		
+	@FollowQiangWei:
+		SetNpcKind("蔷薇", 3);
+		Assign($FollowWaitSide, 0);
+		Return;

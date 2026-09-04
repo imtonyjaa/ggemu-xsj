@@ -1,0 +1,29 @@
+	If ($Event == 2103) @2103;//蔷薇死亡
+	Return;
+	
+@2103:	
+	StopMusic();
+	SetMapTrap(1,"");
+	SetMapTrap(2,"");
+	SetMapTrap(12,"");
+	PlayerRunTo(8,102);
+	SetPlayerDir(5);
+	Say("杨影枫：快叫纳兰潜凛出来受死！",6);
+	Say("无忧教徒：不好！杨影枫来了，快去禀告教主。");
+	NpcGoto("无忧教徒",14,88);
+	Sleep(1000);
+	NpcGoto("纳兰潜凛",9,100);
+	SetNpcDir("纳兰潜凛",1);
+	Say("纳兰潜凛：哈哈……杨老弟，看到了我的真儿了吗？",41);
+	Say("杨影枫：老贼！是不是你杀了月眉儿和紫轩？",6);
+	Say("纳兰潜凛：哈哈……我帮我女儿铲除情敌，你不高兴吗？",41);
+	Say("杨影枫：老贼！我要给她们报仇。",6);
+	Say("纳兰潜凛：哼！天堂有路你不走，地狱无门自来投。要不是我女儿喜欢你，我早杀了你了。",39);
+	Say("杨影枫：老贼，休要废话，拿命来！",6);
+	SetNpcRelation("纳兰潜凛",1);
+	SetNpcDeathScript("纳兰潜凛","纳兰潜凛死亡.txt");
+	GetNpcCount(1,1);
+	EnableNpcAI();
+	Assign($Event,2104);
+	PlayMusic("mc027.mp3");
+	Return;

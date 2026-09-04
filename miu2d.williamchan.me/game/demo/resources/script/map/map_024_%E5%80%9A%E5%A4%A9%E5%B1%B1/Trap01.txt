@@ -1,0 +1,49 @@
+	If ($Event == 2103) @end;//蔷薇死亡
+	If ($Event == 2006) @2006;//结局二
+	If ($Event == 990) @Event990;
+	If ($Event == 675) @Event675;
+	If ($Event == 144) @Event144;
+	If ($Event <= 143) @end;
+
+	FadeOut();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_021_油菜花地.map");
+	LoadNpc("map021-luren.npc");
+	LoadObj("map021_obj.obj");
+	SetPlayerPos(25, 7);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Event144:	
+	FadeOut();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_021_油菜花地.map");
+	LoadObj("map021_obj.obj");
+	SetPlayerPos(25, 7);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	SetMapTrap(3, "Trap03.txt");
+	Return;
+	
+@Event675:
+	Say("杨影枫：不能从这边走，我们要紧快离开这里！", 2);
+	Return;
+
+@Event990:
+	PlayerGoto(2, 79);
+	SetMapTrap(1, "Trap01.txt");
+	Say("杨影枫：赶紧带真儿到惠安镇找大夫看看。", 2);
+	Return;
+
+@2006:
+	Say("杨影枫：还是先回寒波谷吧。",2);
+	Return;
+
+@end:
+	Return;
+	

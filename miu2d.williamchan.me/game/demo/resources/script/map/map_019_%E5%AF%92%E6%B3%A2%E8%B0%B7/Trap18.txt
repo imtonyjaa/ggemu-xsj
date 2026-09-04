@@ -1,0 +1,55 @@
+	//请参看	鼓眼鱼.txt
+	
+	//设置水流对面事件点
+	SetMapTrap(19, "Trap19.txt");
+	//设置此次和隐士鱼对话次数为0
+	Assign($TouchedWooy, 0);
+
+	//判断主角是否和同伴一起来的
+	GetPartnerIdx($FollowWaitSide);
+	If ($FollowWaitSide >> 5) @MoreThan1Follow;
+	If ($FollowWaitSide == 5) @NotFemaleFollow;
+	If ($FollowWaitSide >= 1) @FemaleFollow;
+	Return;	//没有同伴
+	
+@MoreThan1Follow://不止一个同伴
+	DelNpc("鼓眼鱼");
+	Return;
+	
+@NotFemaleFollow://同伴非女主角，目前剧情里非女主角同伴只出现过卓非凡
+	SetNpcKind("卓非凡", 0);
+	NpcGotoEx("卓非凡", 43, 24);
+	Sleep(600);
+	SetNpcPos("卓非凡", 43, 24);
+	Return;
+
+@FemaleFollow://带着一个女同伴
+	If ($FollowWaitSide == 1) @FollowNaLanZhen;
+	If ($FollowWaitSide == 2) @FollowYueMeiEr;
+	If ($FollowWaitSide == 3) @FollowZhiXuan;
+	If ($FollowWaitSide == 4) @FollowQiangWei;
+	Return;
+	@FollowNaLanZhen:
+		SetNpcKind("纳兰真", 0);
+		NpcGotoEx("纳兰真", 43, 24);
+		Sleep(600);
+		SetNpcPos("纳兰真", 43, 24);
+		Return;	
+	@FollowYueMeiEr:
+		SetNpcKind("月眉儿", 0);
+		NpcGotoEx("月眉儿", 43, 24);
+		Sleep(600);
+		SetNpcPos("月眉儿", 43, 24);
+		Return;		
+	@FollowZhiXuan:
+		SetNpcKind("紫轩", 0);
+		NpcGotoEx("紫轩", 43, 24);
+		Sleep(600);
+		SetNpcPos("紫轩", 43, 24);
+		Return;		
+	@FollowQiangWei:
+		SetNpcKind("蔷薇", 0);
+		NpcGotoEx("蔷薇", 43, 24);
+		Sleep(600);
+		SetNpcPos("蔷薇", 43, 24);
+		Return;

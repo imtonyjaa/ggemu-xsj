@@ -1,0 +1,287 @@
+	If ($Event == 2102) @2102;//结局2
+	If ($Event == 2034) @2034;//结局2
+	If ($Event == 2010) @2010;//结局2
+	If ($Event == 2008) @2008;//结局2
+	If ($Event == 2000) @2000;//结局2
+	If ($Event == 1805) @1805;//结局2
+	If ($Event == 1804) @1804;//结局2
+	If ($Event == 1800) @1800;//结局2
+	If ($Event == 562) @562;//从落叶谷回来
+	If ($Result == 0) @Result0;
+	If ($Result == 1) @Result1;
+	If ($Result == 2) @Result2;
+	If ($Result == 3) @Result3;
+	Return;
+
+@2034:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_028_连接地图.map");
+	LoadNpc("map028_1.npc");
+	SaveNpc("temp.npc");
+	LoadObj("map028_obj.obj");
+	SetPlayerPos(14, 8);
+	SetPlayerDir(0);
+	FadeIn();	
+	StopMusic();
+	PlayMusic("mc014.mp3");
+	Return;
+
+@2010:
+    Say("蔷薇：影枫哥，你不陪我回落叶谷看爹了？",32); 
+    Say("杨影枫：不，我只是想到处逛逛。",3); 
+    Say("蔷薇：影枫哥，我们快回落叶谷吧。",32); 
+    Say("杨影枫：好，这就走。",3); 
+	Return;
+
+@2008:
+    Say("杨影枫：这不是去飞龙堡的路。",2); 
+    Return;
+
+@2000:
+    Say("杨影枫：我现在要去落叶谷找孟老前辈帮忙。",2); 
+    Return;
+
+@1800:
+	Say("杨影枫：我现在要去找真儿。",2);
+    Return;
+
+@Result0:
+	If ($Event == 485) @Label;
+	If ($Event == 490) @Label1;
+	If ($Event == 500) @Label;
+	If ($Event == 510) @Label3;
+	If ($Event == 525) @Label2;
+	If ($Event == 530) @Label4;
+	If ($Event == 520) @Label5;
+
+	SaveNpc();
+	SaveObj();
+	FadeOut();
+	LoadMap("map_028_连接地图.map");
+	LoadObj("map028_obj.obj");
+	LoadNpc("map028_bird.npc");
+	SetPlayerPos(14, 8);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;
+	
+@Label:
+	Say("杨影枫：先回悲魔山庄吧，真儿还在家里等着我呢！", 2);
+	Return;	
+	
+@Label1:
+    Say("杨影枫：先同真儿道别，然后再去剑气峰比武吧！", 2);
+	Return;
+
+@562:
+    Say("杨影枫：先回悲魔山庄吧，真儿还在家里等我的消息呢！",2); 
+    Return;
+
+@1805:
+    Say("杨影枫：先回去休息一下再说吧。",2); 
+    Return;
+
+@1804:
+    Say("杨影枫：还是先送蔷薇回落叶谷吧。",2); 
+    Return;
+
+@Label2:
+    Say("杨影枫：真儿还在后花园回廊上等我呢！", 2); 
+    Return;
+    
+@Label3:
+	SetNpcPos("家丁阿柄", 37, 151);
+	SetNpcDir("家丁阿柄", 7);
+	SetNpcPos("管家铁云", 44, 138);
+	SetNpcDir("管家铁云", 0);
+	SaveNpc();
+	SaveObj();
+	FadeOut();
+	LoadMap("map_028_连接地图.map");
+	LoadObj("map028_obj.obj");
+	LoadNpc("map028_bird.npc");
+	SetPlayerPos(14, 8);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;
+    
+@Label4:
+	Say("这不是去落叶谷的路，从后院走吧。", 0);
+	PlayerGotoDir(5, 2);
+    SetMapTrap(5, "Trap05.txt");
+	Return;	    
+
+@Result1:
+	If($Event == 580) @Event580;
+	If ($Event == 3000) @Evt3000;
+	If ($Event == 3150) @Evt3150;//攻打武当山
+
+	SaveNpc();
+	SaveObj();
+	FadeOut();
+	LoadMap("map_028_连接地图.map");
+	LoadObj("map028_obj.obj");
+	LoadNpc("map028_bird.npc");
+	SetPlayerPos(14, 8);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;
+
+@Result2:
+
+	SaveNpc();
+	SaveObj();
+	FadeOut();
+	LoadMap("map_028_连接地图.map");
+	LoadObj("map028_obj.obj");
+	LoadNpc("map028_bird.npc");
+	SetPlayerPos(14, 8);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;
+
+@Result3:
+	If ($Event == 940) @Event940;
+
+	SaveNpc();
+	SaveObj();
+	FadeOut();
+	LoadMap("map_028_连接地图.map");
+	LoadObj("map028_obj.obj");
+	LoadNpc("map028_bird.npc");
+	SetPlayerPos(14, 8);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;
+	
+@Event940:
+	PlayerGoto(9, 225);
+	SetMapTrap(5, "Trap05.txt");
+	Say("杨影枫：还是先把紫轩送回家去吧！", 2);
+	Return;
+	
+@Event580:
+
+	SaveNpc();
+	SaveObj();
+	FadeOut();
+	StopMusic();
+	LoadMap("map_028_连接地图.map");
+	LoadObj("map028_obj.obj");
+	DisableNpcAI();
+	LoadNpc("map028_ZX.npc");
+	SaveNpc("temp_map028_zx.npc");
+	LoadNpc("temp_map028_zx.npc");
+	DisableNpcAI();
+	
+
+	SetPlayerPos(14, 8);
+	SetPlayerDir(1);
+	SetMapTrap(1,"");
+	SetMapTrap(2,"");
+	SetMapTrap(3,"");
+	SetNpcDeathScript("杨影枫","杨影枫死亡.txt");	
+	
+	FadeIn();
+
+	
+	MoveScreen(0,100,1);
+	Watch("杨影枫","ALLNPC",0);
+	Talk(67260,67280);
+	GetNpcCount(1,1);
+	EnableNpcAI();
+	EnableFight();
+	
+	Assign($Event, 585);
+	PlayMusic("mc025.mp3");
+	Return;
+	
+
+@Evt3000:
+
+	SaveNpc();
+	SaveObj();
+	FadeOut();
+	LoadMap("map_012_惠安镇.map");
+
+	LoadNpc("huianzhen.npc");
+
+	LoadObj("map012_obj.obj");	
+
+	If ($QiGaiPos == 1) @QiGaiPos21;
+	If ($QiGaiPos == 2) @QiGaiPos22;
+	@QiGaiPos21:
+		SetNpcPos("乞丐", 83, 89);
+		Goto @QiGaiPos2End;
+	@QiGaiPos22:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos2End;
+	@QiGaiPos2End:
+
+	SetPlayerPos(111, 221);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	SetPlayerState(0);
+	Say("杨影枫经过一段跋涉来到了惠安镇上。");
+	PlayerGotoEx(108,215);
+	FadeIn();
+	Say("杨影枫：摘星楼想必离这里不会太远了，我去到镇上问一下具体的位置吧！",2);
+	
+	SetMapTrap(3,"");
+	SetMapTrap(1,"");
+	Return;
+
+	
+	
+	
+@Evt3150:
+
+	SaveNpc();
+	SaveObj();
+	FadeOut();
+	LoadMap("map_012_惠安镇.map");
+
+	LoadNpc("huianzhen.npc");
+
+	LoadObj("map012_obj.obj");	
+
+	If ($QiGaiPos == 1) @QiGaiPos11;
+	If ($QiGaiPos == 2) @QiGaiPos12;
+	@QiGaiPos11:
+		SetNpcPos("乞丐", 83, 89);
+		Goto @QiGaiPos1End;
+	@QiGaiPos12:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos1End;
+	@QiGaiPos1End:
+
+	SetPlayerPos(111, 221);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Say("经过一段跋涉，终于来到了惠安镇");
+	Say("杨影枫：这里现在离武当山没有多远了",2);
+	SetMapTrap(3,"");
+	SetMapTrap(2,"");
+	Return;
+
+@end:
+	Return;
+
+@2102:
+	FadeOut();
+	LoadMap("map_028_连接地图.map");
+	LoadNpc("map028_1.npc");
+	SaveNpc("temp.npc");
+	LoadObj("map028_obj.obj");
+	SetPlayerPos(14, 8);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;
+
+
+@Label5:
+	Say("杨影枫：已经很晚了，还是回悲魔山庄休息吧！", 2);
+	Return;	

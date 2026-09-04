@@ -1,0 +1,43 @@
+	FadeOut();
+	Sleep(300);
+	DelNpc("尚进");
+	ClearBody();
+	SetPlayerState(0);
+	DisableNpcAI();
+	SetPlayerPos(11, 37);
+	SetPlayerScn();
+	DisableNpcAI();
+	AddNpc("霹雳堂堂主.ini", 14, 32, 5);
+	SetNpcKind("尚进", 0);
+	SetNpcRelation("尚进", 2);
+	Watch("杨影枫","尚进", 0);
+	
+	FadeIn();
+	Sleep(1000);
+	Say("杨影枫：承让！", 2);
+	Say("尚进：小弟我甘败下风！");
+
+	NpcGoto("尚进", 13, 26);
+	NpcGoto("尚进", 11, 22);
+	SetNpcDir("尚进", 7);
+
+	MoveScreen(2, 50, 2);
+	SetPlayerDir(2);
+	
+//	Talk(107190,107200);
+	Watch("杨影枫","张惟宜",0);
+	Say("张惟宜：杨大侠，久违了！咱们比划比划！", 47);
+	Say("杨影枫：张兄弟，请！", 2);
+	NpcGoto("张惟宜", 8, 37);
+	MoveScreen(6, 50, 2);
+	SetPlayerScn();
+		
+//	Talk(107220,107220);
+	SetPlayerScn();
+	SetNpcRelation("张惟宜",1);
+	
+	EnableNpcAI();
+	SetNpcDeathScript("张惟宜","张惟宜死亡.txt");
+	Return;
+
+

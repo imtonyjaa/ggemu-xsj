@@ -1,0 +1,102 @@
+
+	If ($Event == 380) @Label1;
+	If ($Event == 382) @Label1;
+	If ($Event == 232) @Label5;
+	If ($Event == 233) @Label3;
+	If ($Event == 234) @Label5;
+	If ($Event == 235) @Label5;
+	If ($Event == 120) @Label4;
+	If ($Event == 478) @Label6;
+	If ($Event == 124) @Label7;
+	If ($Event == 130) @Label8;
+	If ($Event == 475) @Label9;
+	If ($Event == 492) @Label10;
+	If ($Event == 390) @Event390;
+
+	FadeOut();
+//	SaveNpc();
+	SaveObj();
+	LoadMap("map_014_连接地图.map");
+	
+	LoadNpc("map014-luren.npc");
+	LoadObj("map014_obj.obj");
+	SetNpcDir("钓鱼翁",0);
+	SetNpcDir("农夫",0);
+
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(20, 110);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	If ($Event == 135) @Talk;
+	Goto @end;
+@Talk:
+	Talk(1812, 1814);
+	Goto @end;	
+	
+	
+@Label1:
+	Say("杨影枫：今晚来藏剑山庄就是要找卓非凡报仇，不能就这样走了。", 2);
+	Goto(@end);
+	
+@Label3:
+	Say("杨影枫：为什么不在山庄里找找呢？说不定会有什么发现。", 2);
+    Goto @end;    
+        
+@Label4:            
+	Talk(1632, 1632); 
+    Goto @end;       
+        
+@Label5:            
+	Say("杨影枫：还没有见到卓非凡呢！", 2);
+    Goto @end;       
+       
+@Label6:
+	Talk(8391, 8391); 
+    PlayerGotoDir(1, 2);        
+    SetMapTrap(1, "Trap01.txt");
+    Goto @end;      
+
+@Label7:
+	Talk(241, 241); 
+    Goto @end;     
+
+@Label8:
+	 Talk(1633, 1633); 
+     PlayerGotoDir(1, 2);        
+     SetMapTrap(1, "Trap01.txt");
+     Goto @end;   
+     
+@Label9:      
+	Say("杨影枫：已经到了藏剑山庄，还没有将比武帖给卓非凡呢！", 2);
+	Goto(@end); 
+ 
+@Label10: 
+	Say("杨影枫：先上剑气峰与卓非凡比武吧！", 2);
+	Goto(@end); 
+
+ 
+@Event390:
+	FadeOut();
+//	SaveNpc();
+	SaveObj();
+	LoadMap("map_014_连接地图.map");
+	
+	LoadNpc("map014_night.npc");
+	LoadObj("map014_night.obj");
+
+	ChangeMapColor(100, 128, 150);
+	ChangeAsfColor(100, 128, 150);
+	SetPlayerPos(20, 110);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+//	SetMapTrap(3,"");
+//	SetMapTrap(2,"");
+	Goto @end;
+
+        	
+@end:
+	Return;
+

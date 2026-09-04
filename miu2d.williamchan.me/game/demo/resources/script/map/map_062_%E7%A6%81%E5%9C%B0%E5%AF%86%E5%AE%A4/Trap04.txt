@@ -1,0 +1,146 @@
+	If ($Result == 0)  @Result0;
+	If ($Result == 1)  @Result1;
+	If ($Result == 2)  @Result2;
+	If ($Result == 3)  @Result3;
+	Return;
+
+@Result0:
+	Return;
+
+@Result1:
+	If ($Event == 694) @Event694;
+	If ($Event == 3050) @Evt3050;
+	Return;
+ 
+@Event694:
+	//Say("杨影枫现身，质问她究竟是何人。"纳兰真" 突然从脸上撕下一张面皮，竟然而是月眉儿！");
+	//Say("系统消息：她为得秘笈，冒充纳兰真跟着杨影枫来到忘忧岛。在杨影枫的逼问下，");
+	//Say("系统消息：月眉儿掩面而泣，断续说出：原来自从上次几番和杨影枫邂逅后，月眉儿已暗暗倾心于杨影枫，");
+	//Say("系统消息：因为家仇深重所以一直克制自己的感情，劫持纳兰真看来是因为秘笈，其实也是一己私心。");
+	//Say("系统消息：（对话中需要交待月眉儿是如何得到玉佩的）");
+	//SetMapTrap(1,"");
+	//Assign($Event,696);
+	//Say("Event == 696");
+ 	//Say("月眉儿撒下面皮");
+ 	
+	PlayerRunTo(16,15);
+	Watch("杨影枫","月眉儿",0);
+	Talk(13620,13624);
+	
+	NpcSpecialAction("月眉儿","mpc143.asf");
+	Sleep(5000);
+	
+	Watch("月眉儿","杨影枫",1);
+	Sleep(1000);
+	Talk(13630,13750);
+	Say("月眉儿：拿起那把床上的木剑");
+	PlayerGoto(18,14);
+	AddGoods("goods-w12-桃木剑.ini");
+
+	DelObj("禁地木剑");
+
+
+	SetNpcDir("月眉儿",0);
+	
+	PlayerGoto(16,22);
+	Watch("月眉儿","杨影枫",1);
+	Sleep(500);
+	SetPlayerDir(2);
+	Sleep(500);
+	SetPlayerDir(6);
+	Sleep(500);
+	Say("杨影枫：这是怎么回事，我怎么了？",);
+	Watch("月眉儿","杨影枫",1);
+	PlayerGoto(17,16);
+	Watch("杨影枫","月眉儿",0);	
+	Talk(13751,13754);
+	PlayerGoto(14,33);
+	Watch("月眉儿","杨影枫",1);
+	SetMapTrap(1,"trap01.txt");
+	Assign($Event,698);
+	Assign($Event ,700);
+	SetNpcScript("月眉儿","月眉儿对话.txt");
+	AddToMemo(65230);
+    Return;
+      
+@Evt3050:
+	
+	PlayerRunTo(16,15);
+	Watch("杨影枫","月眉儿",0);
+	Talk(98240,98240);
+	Talk(98310,98312);
+	SetNpcKind("月眉儿",1);
+	SetNpcRelation("月眉儿",1);
+	SetNpcRelation("杨影枫",0);
+	SetNpcDeathScript("月眉儿","月眉儿死亡.txt");
+	
+	SetNpcDeathScript("杨影枫","杨影枫死亡.txt");
+	Memo("战胜月眉儿");
+	PlayMusic("mc025.mp3");
+	EnableNpcAI();
+	Return;
+	
+	
+	
+
+      
+      
+@Result2:
+	If ($Event == 764) @Event764;
+	If ($Event == 816) @Event816;
+	Return;
+
+@Event764:
+
+	//Say("杨影枫现身，质问她究竟是何人。"纳兰真" 突然从脸上撕下一张面皮，竟然而是月眉儿！");
+	//Say("系统消息：她为得秘笈，冒充纳兰真跟着杨影枫来到忘忧岛。在杨影枫的逼问下，");
+	//Say("系统消息：月眉儿掩面而泣，断续说出：原来自从上次几番和杨影枫邂逅后，月眉儿已暗暗倾心于杨影枫，");
+	//Say("系统消息：因为家仇深重所以一直克制自己的感情，劫持纳兰真看来是因为秘笈，其实也是一己私心。");
+	//Say("系统消息：（对话中需要交待月眉儿是如何得到玉佩的）");
+
+	PlayerGoto(15,27);
+	SetPlayerDir(4);
+	MoveScreen(5,100,1);
+	Say("月眉儿从箱子里取出一封信，看了起来。");
+	Talk(14850,14850);
+	Talk(14860,14860);
+	Watch("杨影枫","纳兰真",0);
+	Talk(14870,14930);
+	Say("月眉儿撒下面皮");
+	FadeOut();
+	DelNpc("纳兰真");
+	AddNpc("月眉儿.ini",16,14,0);
+	Sleep(500);
+	FadeIn();	
+	Talk(14930,15020);
+	PlayerGoto(16,16);
+	Talk(15030,15090);
+	SetNpcKind("月眉儿",3);
+	
+	Assign($Event,766);
+	SaveMapTrap();
+	Return;
+
+@Event816:
+	PlayerRunTo(17,16);
+	Watch("杨影枫","月眉儿",0);
+	Watch("蔷薇","纳兰真",1);
+	Talk(16470,16484);
+	NpcSpecialAction("月眉儿","mpc160.asf");
+	Sleep(6000);
+	Talk(16486,16510);
+	Assign($Event ,818);
+	FadeOut();
+	DelObj("躺着的纳兰真");
+	AddNpc("纳兰真.ini",17,15,1);
+	SetNpcKind("纳兰真",3);
+	SetNpcKind("月眉儿",3);
+	Sleep(500);
+	FadeIn();
+	Return;
+
+@Result3:
+	Return;
+
+@end:
+	Return;

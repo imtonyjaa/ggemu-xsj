@@ -1,0 +1,66 @@
+	If ($Event == 2100) @2100;//蔷薇死亡
+	If ($Event == 2001) @2001;//结局2
+	If ($Event == 2000) @2000;//找孟帮忙
+	If ($Event == 940) @Event940;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_032_天山.map");
+	LoadNpc("map032.npc");
+	LoadObj("map032_obj.obj");
+	SetPlayerPos(30, 11);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	ShowSnow(1);
+	FadeIn();
+	Return;
+
+@2000:
+	Say("杨影枫：先去看看孟前辈怎么样了。",2);
+	PlayerGotoDir(5,2);
+	SetMapTrap(1, "Trap01.txt");
+	Return;
+
+@Event940:
+	PlayerGoto(3, 138);
+	SetMapTrap(1, "Trap01.txt");
+	Return;
+	
+@2001:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_032_天山.map");
+	LoadNpc("map032.npc");
+	LoadObj("map032_obj.obj");
+	SetPlayerPos(30, 11);
+	SetPlayerDir(0);
+	ShowSnow(1);
+	FadeIn();
+	Assign($Event,2002);
+	Return;
+
+@2100:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	DisableNpcAI();
+	LoadMap("map_032_天山.map");
+	LoadNpc("map032_1.npc");
+	LoadObj("map032_obj.obj");
+	SetPlayerPos(30, 11);
+	SetPlayerDir(0);
+	ShowSnow(1);
+	FadeIn();
+	StopMusic();
+	Say("杨影枫：不好，有埋伏。",6);
+	Say("无忧教头目：哈哈，杨影枫，我们已经在此等候多时了，快快束手就擒，回去听候教主发落。",75);
+	Say("杨影枫：哼，找死！",6);
+	PlayMusic("mc028.mp3");
+	GetNpcCount(1,1);
+	SetMapTrap(1,"");
+	SetMapTrap(2,"");
+	SetMapTrap(3,"");
+	EnableNpcAI();
+	Return;

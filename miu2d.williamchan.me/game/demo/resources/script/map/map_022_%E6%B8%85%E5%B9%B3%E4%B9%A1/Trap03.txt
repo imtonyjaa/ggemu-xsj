@@ -1,0 +1,26 @@
+//这段脚本已经转移到Npc上
+
+	If ($Event <> 164) @Lable1;
+        Talk(2170,2170);
+        Sleep(200);
+        PlayerGoto(41,120);
+        SetPlayerDir(7);    
+        Talk(2180,2180);
+        Sleep(200);
+        SetNpcDir("清平乡村民9",2);
+        Sleep(200);
+        Talk(2190,2200);
+        PlayerRunTo(40,124);
+	SetPlayerDir(1);
+	Assign($Event, 166);
+	SetMapTrap(4, "Trap04.txt");
+        Goto @end;
+@Lable1:
+        If ($Event <> 168) @end;
+        Talk(2372, 2372); 
+        SetPlayerDir(7);
+        PlayerGoto(40, 119);
+        SetMapTrap(3, "Trap03.txt");
+        Goto @end;
+@end:
+	Return;

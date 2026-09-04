@@ -1,0 +1,264 @@
+	If ($Event == 2102) @2102;//蔷薇死亡
+	If ($Event == 2034) @2102;//结局2
+	If ($Event == 2040) @2102;//结局2
+	If ($Event == 3020) @Evt3020;
+	If ($Event == 135) @135;
+	If ($Event == 146) @146;
+	If ($Event == 232) @232;
+	If ($Event == 365) @Event370;
+	//If ($Event == 370) @Event370;
+	If ($Event == 390) @Event390;
+	If ($Event == 520) @Event520;
+	If ($Event == 592) @Event592;
+	
+	GetRandNum($QiGaiPos, 1, 2);
+	
+	If ($Result == 3) @Result3;
+	
+	If ($Event <> 185) @Lable1;
+	        
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	LoadMap("map_012_惠安镇.map");
+	LoadNpc("huianzhen.npc");
+	LoadObj("map012_obj.obj");
+	If ($QiGaiPos == 1) @QiGaiPos11;
+	If ($QiGaiPos == 2) @QiGaiPos12;
+	@QiGaiPos11:
+		SetNpcPos("乞丐", 83, 89);
+		Goto @QiGaiPos1End;
+	@QiGaiPos12:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos1End;
+	@QiGaiPos1End:
+	SetPlayerPos(12, 228);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	PlayMusic("Mc003.mp3");
+	FadeIn();
+	Return;
+	
+@Lable1:
+	If ($Event <> 205) @Lable2;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_012_惠安镇.map");
+
+	LoadNpc("huianzhen.npc");
+	LoadObj("map012_obj.obj");
+
+	AddObj("躺着盖被的紫轩.ini"，80，27，0);
+
+	If ($QiGaiPos == 1) @QiGaiPos21;
+	If ($QiGaiPos == 2) @QiGaiPos22;
+	@QiGaiPos21:
+		SetNpcPos("乞丐", 83, 89);
+		Goto @QiGaiPos2End;
+	@QiGaiPos22:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos2End;
+	@QiGaiPos2End:
+
+	SetPlayerPos(12, 228);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Lable2:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_012_惠安镇.map");
+
+	LoadNpc("huianzhen.npc");
+	LoadObj("map012_obj.obj");
+        
+	If ($QiGaiPos == 1) @QiGaiPos31;
+	If ($QiGaiPos == 2) @QiGaiPos32;
+	@QiGaiPos31:
+		SetNpcPos("乞丐", 83, 89);
+		Goto @QiGaiPos3End;
+	@QiGaiPos32:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos3End;
+	@QiGaiPos3End:
+
+	SetPlayerPos(12, 228);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event370:
+	Say("还是先去找紫轩吧！");	
+	PlayerGoto(34, 9);
+	SetMapTrap(1,"trap01.txt");
+	Return;
+	
+@Event390:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_012_惠安镇.map");
+	LoadNpc("map012_night.npc");
+	LoadObj("map012_night.obj");
+	ChangeMapColor(128,150,200);
+	ChangeAsfColor(128,150,200);
+	SetPlayerPos(12, 228);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+//	SetMapTrap(1,"");
+//	SetMapTrap(2,"");
+	Return;
+
+@Result3:
+	If ($Event == 864) @Event864;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_012_惠安镇.map");
+	LoadNpc("huianzhen.npc");
+	LoadObj("map012_obj.obj");
+	If ($QiGaiPos == 1) @QiGaiPos41;
+	If ($QiGaiPos == 2) @QiGaiPos42;
+	@QiGaiPos41:
+		SetNpcPos("乞丐", 83, 89);
+		Goto @QiGaiPos4End;
+	@QiGaiPos42:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos4End;
+	@QiGaiPos4End:
+
+	SetPlayerPos(12, 228);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Event864:	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_012_惠安镇.map");
+	LoadNpc("map012_nofishman.npc");
+	LoadObj("map012_obj.obj");
+
+	If ($QiGaiPos == 1) @QiGaiPos51;
+	If ($QiGaiPos == 2) @QiGaiPos52;
+	@QiGaiPos51:
+		SetNpcPos("乞丐", 83, 89);
+		Goto @QiGaiPos5End;
+	@QiGaiPos52:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos5End;
+	@QiGaiPos5End:
+
+	SetPlayerPos(12, 228);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@2102:
+	FadeOut();
+	LoadMap("map_012_惠安镇.map");
+	LoadNpc("huianzhen.npc");
+	LoadObj("map012_obj.obj");
+	SetPlayerPos(12, 228);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;
+	
+	
+@Evt3020:
+	FadeOut();
+	LoadMap("map_012_惠安镇.map");
+	LoadNpc("huianzhen.npc");
+	LoadObj("map012_obj.obj");
+	SetPlayerPos(12, 228);
+	SetPlayerDir(5);
+	StopMusic();
+	PlayMusic("mc017.mp3");
+	SetMapTrap(1,"");
+	SetMapTrap(3,"Trap03.txt");
+	FadeIn();
+	Return;	
+
+@135:
+	Talk(1811, 1811);
+	Return;
+
+
+@Event592:
+	FadeOut();
+	LoadMap("map_012_惠安镇.map");
+	LoadNpc("map012_Rain.npc");
+	LoadObj("map012_obj.obj");
+	SetPlayerPos(12, 228);
+	SetPlayerDir(5);
+	BeginRain("Rain.ini");
+	FadeIn();
+	Return;	
+
+@232:	
+	Say("杨影枫：还是先去<color=Red>藏剑山庄<color=Black>吧！", 2);
+	Return;	
+
+@Event520:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_012_惠安镇.map");
+	SetPlayerPos(12, 228);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@146:
+	GetRandNum($QiGaiPos, 1, 2);
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	LoadMap("map_012_惠安镇.map");
+
+	LoadNpc("huianzhen.npc");
+	LoadObj("map012_obj.obj");
+        
+	If ($QiGaiPos == 1) @QiGaiPos61;
+	If ($QiGaiPos == 2) @QiGaiPos62;
+	@QiGaiPos61:
+		SetNpcPos("乞丐", 83, 89);
+		Goto @QiGaiPos3End6;
+	@QiGaiPos62:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos3End6;
+	@QiGaiPos3End6:
+	
+	PlayMusic("mc003.mp3");
+	SetPlayerPos(12, 228);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Say("杨影枫：紫轩，惠安镇好玩的地方可多了，我们先去醉仙楼听歌女唱歌，好吗？", 2);
+	Say("紫轩：好啊，醉仙楼在什么地方？", 16);
+	Say("杨影枫：好像在惠安镇的东南角。", 2);
+	Assign($Zixuan, 0);
+	SetMapTrap(16, "rain.txt");
+	SetMapTrap(17, "sing.txt");
+	SetMapTrap(18, "cloth.txt");
+	Memo("去醉仙楼听歌女唱歌。");
+	Return;
+
+
+@end:
+	Return;
+	

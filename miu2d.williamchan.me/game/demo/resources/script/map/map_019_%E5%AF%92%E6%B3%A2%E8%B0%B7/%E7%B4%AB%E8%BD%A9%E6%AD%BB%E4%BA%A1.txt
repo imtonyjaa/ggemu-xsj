@@ -1,0 +1,268 @@
+If ($Event == 595) @Event595;
+Goto(@end);
+	
+
+
+@Event595:
+FadeOut();
+ClearBody();
+SetPlayerState(0);
+DelNpc("紫轩尸体");
+DelNpc("紫轩");
+AddNpc("紫轩.ini",22,95,7);
+SetNpcKind("紫轩",0);
+StopMusic();
+SetPlayerPos(23,95);
+Watch("杨影枫","紫轩",0);
+Sleep(500);
+FadeIn();
+//DisableInput();
+Talk(11850,11900);
+Choose("原谅紫轩吗？","原谅。","不。",$douhao1);
+If ($douhao1 == 1) @UnZX;
+//原谅紫轩从前的所作所为
+SetNpcKind("杨影枫",1);
+SetNpcKind("紫轩",2);
+SetPlayerScn();
+Talk(11910,11940);
+NpcGoto("紫轩",26,91);
+Watch("杨影枫","紫轩",1);
+MoveScreen(1,50,2);
+Talk(11950,11950);
+SetNpcDir("紫轩",1);
+NpcGoto("杨影枫",25,93);
+Watch("杨影枫","紫轩",0);
+Talk(11960,12020);
+NpcGoto("紫轩",33,100);
+SetNpcDir("紫轩",3);
+Talk(12030,12040);
+SetNpcKind("紫轩",1);
+SetNpcKind("杨影枫",2);
+Sleep(500);
+NpcGotoEx("紫轩",35,82);
+Sleep(500);
+SetPlayerScn();
+Talk(12050,12050);
+EnableInput();
+DelNpc("紫轩");
+Sleep(500);
+Talk(68290,68290);
+PlayerRunTo(33,72);
+Sleep(1000);
+SetPlayerDir(5);
+Sleep(500);
+SetPlayerDir(3);
+Sleep(500);
+SetPlayerDir(5);
+Sleep(500);
+SetPlayerDir(5);
+Sleep(500);
+Talk(62070,62070);
+Sleep(2000);
+Talk(62080,62080);
+Sleep(1000);
+PlayerGotoEx(29,87);
+Sleep(2000);
+Assign($Event,600);
+Goto @Dream1;
+
+@UnZX:
+	Watch("紫轩","杨影枫",0);
+	Talk(12042,12047);
+	NpcGoto("紫轩",29,85);
+	DelNpc("紫轩");
+	Talk(12048,12048);
+	Sleep(2000);
+	Goto @Dream2;
+@Dream1:
+
+	FadeOut();
+	Sleep(1000);
+	//Say("夜晚");
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("Mc018.mp3");
+	LoadMap("map_020_樱花谷.map");
+	ChangeMapColor(0, 0, 0);
+	ChangeAsfColor(0, 0, 0);
+	LoadNpc("map020-luren.npc");
+	LoadObj("map020_obj.obj");
+	AddNpc("紫轩坐着.ini",10,22,0);
+	SetNpcKind("紫轩",0);
+	//SetNpcScript("紫轩","紫轩对话.txt");
+	SetPlayerPos(12, 49);
+	SetPlayerDir(4);
+	FadeIn();	
+	
+	Talk(67650,67650);
+	Sleep(1000);
+	MoveScreen(4,200,1);
+	Sleep(2000);
+	MoveScreen(0,200,1);
+	PlayerRunTo(11,32);
+	Talk(67660,67670);
+	PlayerGoto(11, 20);
+	SetPlayerDir(1);
+	//NpcSpecialAction("杨影枫", "mpc026_主角.asf");
+	
+	Talk(67680,67680);
+	SetNpcActionFile("紫轩", 0, "npc010_st.asf");
+	SetNpcActionFile("紫轩", 1, "npc010_pst.asf");
+	NpcSpecialAction("紫轩", "mpc036.asf");
+	Sleep(1800);
+	Watch("杨影枫","紫轩",0);
+	SetNpcDir("紫轩",5);
+	Talk(67690,67690);
+	PlayerGotoDir(1,1);
+	Talk(67700,67730);
+	
+	MoveScreen(0,80,2);
+	AddNpc("纳兰真.ini",10,45,4);
+	NpcGoto("纳兰真",10,35);
+	Watch("杨影枫","纳兰真",0);
+	PlayerGotoDir(0,2);
+	SetPlayerDir(0);
+	Talk(67740,67740);
+	NpcGotoEx("纳兰真",17,37);
+	Sleep(1000);
+	Watch("紫轩","杨影枫",1);
+	Talk(67750,67750);
+	//MoveScreen(4,80,2);
+	Say("杨影枫：……",2);
+	Sleep(1000);
+	DelNpc("纳兰真");
+	Talk(67760,67760);
+	PlayerRunTo(10,35);
+	PlayerRunTo(17,37);
+	Talk(67770,67770);
+	Sleep(1000);
+	SetPlayerDir(0);
+	Talk(67780,67780);
+	Sleep(2000);
+	Talk(67790,67790);
+	DelNpc("紫轩");
+	PlayerRunTo(11,30);
+	SetPlayerDir(4);
+	Talk(67800,67800);
+	PlayerRunTo(2,26);
+	Sleep(1000);
+	PlayerRunTo(15,44);
+	Sleep(1000);
+	PlayerRunTo(9,36);
+	Sleep(1000);
+	SetPlayerDir(0);
+	Talk(67810,67810);
+	
+
+	Goto @Next;
+
+@Dream2:            
+//不原谅紫轩的梦
+	
+		
+	FadeOut();
+	Sleep(1000);
+	//Say("夜晚");
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("Mc018.mp3");
+	LoadMap("map_020_樱花谷.map");
+	ChangeMapColor(0, 0, 0);
+	ChangeAsfColor(0, 0, 0);
+	LoadNpc("map020-luren.npc");
+	LoadObj("map020_obj.obj");
+	AddNpc("紫轩坐着.ini",10,22,0);
+	SetNpcKind("紫轩",0);
+	//SetNpcScript("紫轩","紫轩对话.txt");
+	SetPlayerPos(12, 49);
+	SetPlayerDir(4);
+	FadeIn();	
+		
+	Talk(67850,67850);
+
+	Sleep(1000);
+	MoveScreen(4,200,1);
+	Sleep(2000);
+	MoveScreen(0,200,1);
+	PlayerRunTo(11,32);
+	Talk(67860,67870);
+	
+	PlayerGoto(11, 20);
+	SetPlayerDir(1);
+	//NpcSpecialAction("杨影枫", "mpc026_主角.asf");
+	
+	Talk(67880,67880);
+	SetNpcActionFile("紫轩", 0, "npc010_st.asf");
+	SetNpcActionFile("紫轩", 1, "npc010_pst.asf");
+	NpcSpecialAction("紫轩", "mpc036.asf");
+	Sleep(1800);
+	Watch("杨影枫","紫轩",0);
+	SetNpcDir("紫轩",5);
+	Talk(67890,67890);
+	PlayerGotoDir(1,1);
+	Talk(67900,67900);	
+	
+	MoveScreen(0,80,2);
+	AddNpc("卓非凡.ini",10,45,4);
+	NpcGoto("卓非凡",10,35);
+	SetNpcDir("紫轩",0);
+	
+	Watch("杨影枫","卓非凡",0);
+	PlayerGotoDir(0,2);
+	SetPlayerDir(0);
+	Talk(67910,67910);
+	NpcGoto("卓非凡",11,30);
+	SetNpcDir("卓非凡",4);
+	Talk(67920,67920);
+
+	Sleep(1000);
+	Watch("紫轩","杨影枫",1);
+	NpcGoto("紫轩",10,30);
+	SetNpcDir("紫轩",4);
+	Talk(67930,67950);
+	Sleep(1000);
+	Talk(67960,67960);
+	PlayerRunTo(11,28);
+	NpcAttack("杨影枫",11,30);
+	Sleep(1000);
+	Goto @Next;
+		
+		
+	
+@Next:
+
+
+FadeOut();
+LoadMap("map_019_寒波谷.map");
+LoadNpc("map019.npc");
+LoadObj("map019_obj.obj");
+DelNpc("紫轩");
+
+SetPlayerPos(23,95);
+SetPlayerDir(7);
+ChangeMapColor(255,255,255);
+ChangeAsfColor(255,255,255);
+Sleep(1000);
+Talk(67980,67980);
+FadeIn();
+
+Say("杨影枫：没想到要和我挑战的人正是紫轩，真得有这么多的仇与恨吗？…",2);
+Say("杨影枫：不想了……，还是动身回山庄吧。",2);
+AddToMemo(24340);
+SetMapTrap(1,"Trap01.txt");
+SetMapTrap(2,"Trap02.txt");
+SetTrap("map_017_连接地图",3,"Trap03.txt");
+SetTrap("map_012_惠安镇",1,"Trap01.txt");
+SetTrap("map_027_连接地图",1,"Trap01.txt");
+PlayMusic("mc015.mp3");
+Assign($Event ,600);
+Goto(@end);
+
+
+
+
+@end:
+Return;
+

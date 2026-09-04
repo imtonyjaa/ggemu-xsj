@@ -1,0 +1,70 @@
+	If ($Event <> 70) @end;
+	
+//	Talk(880, 890);
+	Say("张仲天：杨兄弟，来来来，一起喝酒。", 51);
+	Say("杨影枫：好。", 2);
+	PlayerGoto(51, 67);
+	SetPlayerDir(6);
+	SetPlayerScn();
+	FadeOut();
+	SetPlayerPos(52, 72);
+	SetNpcActionFile("杨影枫", 0, "mpc014_喝酒.asf");
+	SetNpcActionFile("杨影枫", 1, "mpc014_喝酒.asf");
+	FadeIn();
+	Talk(900, 910);
+	SetNpcActionFile("喝酒的张仲天", 0, "mpc015-2.asf");
+	SetNpcActionFile("喝酒的张仲天", 1, "mpc015-2.asf");
+	NpcSpecialAction("喝酒的张仲天", "mpc015-1.asf");
+	Sleep(3000);
+	Talk(920, 920);
+
+	Select(921, 922, 923, $SelectVal12);
+	// 不愿意
+	If ($SelectVal12 == 0) @Label1;
+	// 愿意
+	If ($SelectVal12 == 1) @Label2;
+	@Label1:
+		Add($EvilVal, -40);
+		Say("杨影枫：在下虽然愿意为兄台效劳，只是，这祖传之物，非比寻常，我怕有差错，担待不起呀。", 2);
+		Say("张仲天：杨兄不必担心，其实匣内并无什么宝贝，只是我明日要出门几天，带在身边多有不便，故此才想到要请杨兄代为保管。既然兄弟也不方便，那就算了。来，我们喝酒。", 51);
+//		Say("杨影枫：承蒙信任，我一定妥善保管，在张兄回来时完璧归赵。", 2);
+//		Say("张仲天：如此兄弟在此谢过了。", 51);
+		Sleep(200);
+		Assign($Event, 80);
+//		AddGoods("Goods-e00-木匣.ini");
+		//受张仲天之托，代为保管木匣。
+//		AddToMemo(90110);
+		Goto @Label3;
+	@Label2:
+		Add($EvilVal, 20);
+		Talk(1000, 1000);
+		Sleep(200);
+		Assign($Event, 80);
+		AddGoods("Goods-e00-木匣.ini");
+		//受张仲天之托，代为保管木匣。
+		AddToMemo(90110);
+		Goto @Label3;
+@Label3:
+	FadeOut();
+	StopMusic();
+	DelNpc("喝酒的张仲天");
+	SaveNpc();
+	SaveObj();
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	SetPlayerPos(46, 50);
+	SetPlayerDir(0);
+	SetPlayerScn();
+	SetNpcActionFile("杨影枫", 0, "mpc017_躺.asf");
+	SetNpcActionFile("杨影枫", 1, "mpc017_躺.asf");
+	AddObj("惠安镇大门.ini", 49, 70);
+	AddObj("大门.ini", 35, 93);
+	DisableNpcAI();
+	Talk(1714, 1714);
+	Sleep(500);
+	FadeIn();
+	PlayMusic("Mc005.mp3");
+	RunScript("Trap06.txt");
+
+@end:
+	Return;

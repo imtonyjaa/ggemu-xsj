@@ -1,0 +1,54 @@
+
+	If ($Event <> 95) @end;
+
+	PlayerGoto(38, 88);
+	SetPlayerDir(1);
+	NpcGoto("张胜伟",37,87);
+	NpcGoto("张胜伟",37,89);
+	SetNpcDir("张胜伟",5);
+	NpcGoto("小叁子", 38, 86);
+	SetNpcDir("小叁子",0);
+	SetNpcActionFile("张胜伟", 0, "mpc022_掌柜-1.asf");
+	SetNpcActionFile("张胜伟", 1, "mpc022_掌柜-1.asf");
+//	FadeOut();
+	NpcSpecialAction("张胜伟", "mpc022_掌柜.asf");
+	NpcSpecialAction("杨影枫", "mpc022_主角.asf");
+	Sleep(800);
+//	FadeIn();
+	Talk(1140, 1160);
+	Sleep(500);
+	AddNpc("藏剑山庄家丁B.ini",33,100,5);
+	NpcGoto("藏剑山庄家丁B", 37, 90);
+	SetNpcDir("藏剑山庄家丁B", 5);
+	Sleep(1000);
+	Talk(1170, 1170);
+	SetNpcActionFile("张胜伟", 0, "npc080_st.asf");
+	SetNpcActionFile("张胜伟", 1, "npc080_pst.asf");
+	NpcSpecialAction("张胜伟", "mpc024_掌柜.asf");
+	Sleep(1000);
+	NpcGoto("张胜伟",37,87);
+	SetNpcDir("张胜伟",1);
+	Talk(1170, 1190);
+	Talk(1210, 1240);
+	NpcGoto("藏剑山庄家丁B", 33, 100);
+	DelNpc("藏剑山庄家丁B");
+	SetNpcDir("张胜伟",7);
+	Talk(1241, 1241);
+	SetNpcPos("何小妹", 39, 60);
+	SetNpcDir("何小妹",6);
+	SetNpcPos("陈大勇", 32, 74);
+	SetNpcDir("陈大勇",1);
+	SetNpcPos("柳彩姑", 39, 59);
+	SetNpcDir("柳彩姑",0);
+	DelObj("踢破大门");
+	DelObj("长剑");
+	DelObj("张仲天尸体");
+	PlayerGoto(38, 90);
+	SetPlayerDir(7);
+	Say("杨影枫：还是先让张兄的尸身入土为安吧！", 2);
+	Assign($Event, 100);
+	AddToMemo(90150);
+	SetMapTrap(9, "Trap09.txt");
+
+@end:
+	Return;

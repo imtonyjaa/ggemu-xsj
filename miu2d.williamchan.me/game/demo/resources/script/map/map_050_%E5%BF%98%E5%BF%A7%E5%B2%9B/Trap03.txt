@@ -1,0 +1,109 @@
+	If ($Event == 296) @Event296;
+	If ($Event == 350) @Label2;
+	If ($Event == 450) @end;
+	If ($Event == 690) @Label3;
+	If ($Event == 301) @Label4; 
+	If ($Event == 270) @Label5;	// 纳兰真找老爸给杨影枫治伤，就别乱跑了。
+	If ($Event == 275) @Label6;
+	If ($Event == 285) @Label7;
+	If ($Event == 294) @Label7;
+	If ($Event == 302) @Label8;
+	If ($Event == 340) @Label9;
+	If ($Event == 254) @Label10;
+	If ($Event == 250) @Event250;
+	If ($Event == 425) @425;
+	If ($Event == 260) @Event260;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_052_码头.map");
+	LoadNpc("map052.npc");
+	LoadObj("map052_Obj.Obj");
+	SetPlayerPos(16, 29);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event296:
+	Say("纳兰真：赶紧去禁地，晚了天就要亮了。", 9);
+	Return;	
+
+@Label2:
+	FadeOut();
+	SetNpcPos("纳兰潜凛", 0, 0);
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_052_码头.map");
+	LoadNpc("map052.npc");
+	LoadObj("map052_Obj.Obj");
+	SetNpcPos("渔夫窦昊", 4, 34);
+	SetNpcDir("渔夫窦昊", 7);
+	SetNpcKind("杨影枫",1);
+	DelNpc("杨影枫");
+	PlayerChange(0);
+	AddNpc("纳兰真.ini",16,31,4);
+	SetNpcKind("纳兰真",3);
+	SetNpcScript("纳兰真", "纳兰真对话.txt");
+	SetPlayerDir(2);
+	SetPlayerPos(16,29);
+	DelGoods("Goods-e03-丝绸手帕.ini");
+	DelGoods("Goods-e04-一块绸布.ini");
+	FadeIn();
+	Say("纳兰真：影枫哥哥，码头到了。", 12);
+	Sleep(500);
+	Talk(20200, 20200);
+	Return;
+
+@Label3:
+	Say("系统消息：跟踪涟漪");
+	PlayerGotoDir(5, 1);
+	SetMapTrap(3, "Trap03.txt");
+	Return;	
+
+@425:
+	Say("纳兰真：爹还在禁地等你呢。",9);
+	Return;
+
+@Label4:
+	Say("杨影枫：真儿，不要到处乱逛了，我们回去吧！", 2);
+	Return;
+	
+@Label5:
+	Say("纳兰真：还是先回家找爹爹给杨大哥治伤要紧！", 9);
+	Return;
+	
+@Label6:
+	Say("纳兰真：还是先到海边小屋给杨大哥治伤要紧！", 9);
+	Return;	
+	
+@Label7:	
+	Say("还是到海边找找吧！", 0);
+	PlayerGotoDir(5, 1);
+	SetMapTrap(3, "Trap03.txt");
+	Return;	
+	
+@Label8:
+	Say("杨影枫：真儿，离忧山的路口不是在东南方向吗？", 2);
+	Return;	
+	
+@Label9:		
+	Talk(6232, 6233);
+	Return;
+	
+@Label10:
+	Say("纳兰真：还是先去东南边的离忧山上采银丝草吧！", 9);
+	Goto(@end);	
+	
+@Event260:
+	Talk(5220, 5220);
+	Return;	
+	
+
+@Event250:
+	Say("纳兰真：还是先去问问采药人阿里哪里有上好的草药吧！", 9);
+	Return;	
+
+@end:
+	Return;

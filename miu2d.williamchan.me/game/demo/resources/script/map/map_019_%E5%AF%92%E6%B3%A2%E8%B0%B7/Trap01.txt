@@ -1,0 +1,128 @@
+	If ($Event == 2036) @2002;
+	If ($Event == 2035) @2002;
+	If ($Event == 2002) @2002;
+	If ($Event == 135) @Lable1;
+    If ($Event == 140) @Lable2;
+    If ($Event == 142) @Lable7;
+    If ($Event == 144) @Lable8;
+    If ($Event == 145) @Event145;
+    If ($Event == 155) @Lable6;
+    If ($Event == 162) @Lable3;
+    If ($Event == 170) @Lable9;
+    If ($Event == 185) @Lable5;
+    If ($Event == 195) @Lable4;
+    If ($Event == 440) @end;
+    If ($Event == 510) @510;
+    If ($Event == 592) @Event592;
+        
+    FadeOut();
+    SaveNpc();
+	SaveObj();
+	LoadMap("map_018_连接地图.map");
+	LoadNpc("map018.npc");
+	LoadObj("map018_obj.obj");
+	SetPlayerPos(3, 35);
+	SetPlayerDir(6);
+	FadeIn();
+	Return;
+	
+@2002:
+	Say("这里就是寒波谷了");
+    Return;	
+
+@Lable1:
+	Say("这里就是寒波谷了。", 2);
+    Return;	
+
+@510:
+	Say("杨影枫：还没有见到紫轩呢！",2);
+    Return;	
+
+@Lable2:
+	Say("杨影枫：还是在寒波谷里逛逛吧。", 2);
+    Return;
+        
+@Lable3:
+    Say("杨影枫：还是先到樱花谷去见紫轩吧。", 2);
+    Return;    
+    
+@Lable7:
+    Say("杨影枫：还是先去樱花谷寻访昨天遇见的那位姑娘吧。", 2);
+    Return;
+    
+@Lable8:
+    FadeOut();
+    SaveNpc();
+	SaveObj();
+	LoadMap("map_018_连接地图.map");
+	ChangeMapColor(255, 230, 150);
+	ChangeAsfColor(255, 230, 150);
+	LoadNpc("map018.npc");
+	LoadObj("map018_obj.obj");
+	SetPlayerPos(3, 35);
+	SetPlayerDir(6);
+	FadeIn();
+	PlayerGoto(4, 37);
+	SetPlayerDir(7);
+	Say("杨影枫：多美的黄昏啊！", 2);
+	NpcGoto("紫轩", 4, 36);
+	Say("紫轩：夕阳无限好，只是近黄昏。", 17);
+	Say("杨影枫：（紫轩为什么这么悲观？也许和她可怜的身世有关吧……）", 2);
+	Return;
+        
+@Lable9:
+    Say("杨影枫：先和紫轩回芭蕉小筑吧。", 2);
+    Return;
+        
+        
+@Lable5: 
+	FadeOut();
+	DelObj("木匣");
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_018_连接地图.map");
+	LoadNpc("map018.npc");
+	LoadObj("map018_obj.obj");
+	SetPlayerPos(3, 35);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Return;           
+        
+@Lable4:
+    Talk(241, 241); 
+    Return;	
+    
+@Lable6:
+    FadeOut();
+    SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("mc003.mp3");
+	LoadMap("map_018_连接地图.map");
+	LoadNpc("map018.npc");
+	LoadObj("map018_obj.obj");
+	SetPlayerPos(3, 35);
+	SetPlayerDir(6);
+	FadeIn();
+	Return;
+
+@Event592:
+	FadeOut();
+    SaveObj();
+	StopMusic();
+	LoadMap("map_018_连接地图.map");
+	LoadObj("map018_obj.obj");
+	SetPlayerPos(3, 35);
+	SetPlayerDir(6);
+	BeginRain("Rain.ini");
+	FadeIn();
+	Return;
+	
+@Event145:
+	Say("杨影枫：去樱花谷看看吧！", 2);
+	Return;
+@end:
+	Return;
+
+	

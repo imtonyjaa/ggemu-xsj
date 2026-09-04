@@ -1,0 +1,18 @@
+	If ($Event == 2010) @2010; // 结局2
+	Return;
+	
+@2010:
+	Say("蔷薇：爹……",32);
+	SetNpcKind("蔷薇",0);
+	NpcGoto("蔷薇",18,94);
+	SetNpcDir("蔷薇",7);
+	NpcSpecialAction("蔷薇","mpc171-1.asf");
+	Sleep(1000);
+	SetNpcActionFile("蔷薇",0,"mpc171-2.asf");
+	SetNpcActionFile("蔷薇",1,"mpc171-2.asf");
+	PlayerGoto(18,96);
+	SetPlayerDir(5);
+	SetMapTrap(1,"");
+	SetMapTrap(3,"");
+	Assign($Event,2021);
+	Return;

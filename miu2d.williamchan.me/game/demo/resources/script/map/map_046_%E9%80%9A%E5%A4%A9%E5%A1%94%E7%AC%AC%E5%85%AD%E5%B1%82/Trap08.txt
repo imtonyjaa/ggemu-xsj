@@ -1,0 +1,64 @@
+If ($Event == 3182) @Evt3182;
+If ($Event == 3184) @Evt3182;
+Return;
+
+
+@Evt3182:
+If ($EvilValue >> 112) @ResetLock;
+//这是真的开关
+
+If ($Lock6 == 1) @end;//是否打开
+SetPlayerDir(5);
+
+//未打开状态
+Choose("是否打开这个开关？","是","否",$OpenIt);
+If ($OpenIt == 1) @end;
+PlaySound("打开开关.wav");
+OpenBox("通天塔开关A");
+Sleep(1000);
+Assign($Lock6,1);
+Say("杨影枫打开这一层开关。");
+If ($Lock1 == 0) @end;
+If ($Lock2 == 0) @end;
+If ($Lock3 == 0) @end;
+If ($Lock4 == 0) @end;
+If ($Lock5 == 0) @end;
+If ($Lock6 == 0) @end;
+If ($Lock7 == 0) @end;
+If ($Lock8 == 0) @end;
+PlaySound("特-开关开完.wav");
+Say("杨影枫打开了全部的开关。");
+Goto @end;
+
+	
+@ResetLock:
+Choose("是否打开这个开关","是","否",$Reset);	
+If ($Reset == 1) @end;
+OpenBox("通天塔开关A");
+Sleep(2000);
+PlaySound("重设开关.wav");
+Assign($Lock1 ,0);
+Assign($Lock2 ,0);
+Assign($Lock3 ,0);
+Assign($Lock4 ,0);
+Assign($Lock5 ,0);
+
+Assign($Lock7 ,0);
+Assign($Lock8 ,0);
+Sleep(500);
+Say("杨影枫：不好，这个开关有问题！",4);
+Say("开过的开关全部被复位了。");
+CloseBox("通天塔开关A");
+
+
+Sleep(2000);
+If ($Lock6 == 0 ) @end;
+CloseBox("通天塔开关B");
+Assign($Lock6 ,0);
+
+Goto @end;	
+	
+	
+@end:
+SetMapTrap(9,"Trap09.txt");
+Return;	

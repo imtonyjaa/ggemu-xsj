@@ -1,0 +1,284 @@
+	If ($Event == 1821) @1821;//结局2求证回来
+	If ($Event == 415) @Label415;
+	If ($Event == 296) @296;// 跟踪纳兰潜凛
+	If ($Event == 690) @Label2;
+	If ($Event == 3030) @Evt3030;
+	If ($Event == 752) @Event752;
+	If ($Event == 762) @Event762;
+	If ($Event == 301) @Label4;
+	If ($Event == 810) @Event810;
+	If ($Event == 250) @Label5;
+	If ($Event == 254) @Label6;
+	If ($Event == 260) @Label7;
+	If ($Event == 270) @Label8;	// 纳兰真找老爸给杨影枫治伤，就别乱跑了。
+	If ($Event == 275) @Label9;	
+	If ($Event == 285) @Label10;	
+	If ($Event == 294) @Label10;
+	If ($Event == 302) @Label11;
+	If ($Event == 340) @Label12;
+	If ($Event == 350) @Label13;
+	If ($Event == 450) @end;
+	If ($Event <= 296) @end;
+	If ($Result == 3) @Result3;
+
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_057_连接地图.map");
+	LoadNpc("map057.npc");
+	LoadObj("map057_obj.obj");
+	SetPlayerPos(8, 47);
+	SetPlayerDir(5);
+	EnableNpcAI(); 
+	FadeIn();
+	Return;	
+
+@Label415:
+	PlayerGoto(75, 29);
+	Say("纳兰真：先去见我爹吧！",9);
+	SetMapTrap(4, "Trap04.txt");
+	Return;	
+		
+@296:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	SetMapTrap(1,"trap01.txt");
+	SetMapTrap(2,"trap02.txt");
+	SetMapTrap(3,"trap03.txt");
+	LoadMap("map_057_连接地图.map");
+	LoadNpc("map057.npc");
+	LoadObj("map057_night.obj");
+	SetPlayerPos(8, 47);
+	SetPlayerDir(5);
+	DelNpc("纳兰潜凛");
+	AddNpc("纳兰潜凛.ini",12,36,4);
+	NpcGotoEx("纳兰潜凛",14,31);
+	FadeIn();
+	NpcGoto("纳兰潜凛",14,31);
+	DelNpc("纳兰潜凛");
+	Say("纳兰真：咦？爹爹在前面，我们小心点儿。", 9);
+	Return;
+
+@Label2:
+	SetMapTrap(1,"Trap01.txt");
+	SetMapTrap(2,"Trap02.txt");
+	SetMapTrap(3,"Trap03.txt");
+	//SetMapTrap(4,"Trap04.txt");
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_057_连接地图.map");
+	LoadNpc("map057.npc");
+	LoadObj("map057_obj.obj");
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	SetPlayerPos(8, 47);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	DisableInput();
+	//LoadNpc("跟踪6.npc");
+	AddNpc("涟漪.ini",12,36,5);
+	SetNpcKind("涟漪",5);
+	
+	NpcGotoEx("涟漪", 14, 31);
+	
+	FadeIn();
+	Sleep(2000);
+	
+	Say("杨影枫：他到底想要作什么？？？");
+	DelNpc("涟漪");
+	SetMapTrap(1,"");
+	EnableInput();
+	Return;
+
+@Evt3030:
+	SetMapTrap(1,"Trap01.txt");
+	SetMapTrap(2,"Trap02.txt");
+	SetMapTrap(3,"Trap03.txt");
+	
+	SaveObj();
+	FadeOut();
+	LoadMap("map_057_连接地图.map");
+
+	LoadNpc("map057.npc");
+	LoadObj("map057_obj.obj");
+
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+
+	SetPlayerPos(8, 47);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	DisableInput();
+	//LoadNpc("跟踪6.npc");
+	AddNpc("纳兰真.ini",12,36,5);
+	SetNpcKind("纳兰真",5);
+	
+	NpcGotoEx("纳兰真", 14, 31);
+	
+	FadeIn();
+	SetMapTrap(1,"");
+	Sleep(2000);
+	
+	Say("杨影枫：他到底想要作什么？？？");
+	DelNpc("纳兰真");
+	EnableInput();
+	Return;
+
+
+@Event752:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_057_连接地图.map");
+
+	LoadNpc("map057.npc");
+	LoadObj("map057_obj.obj");
+
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(8, 47);
+	SetPlayerDir(5);
+	EnableNpcAI();
+
+	Say("这是带我去哪里呀，杨影枫");
+	Say("现在是带你去禁地呀");
+	//Say("增加对白：30000-30002");
+	Talk(30000, 30002);
+	FadeIn();
+	Return;		
+	
+@Event762:
+	FadeOut();
+	SaveObj();
+	// 恢复地图陷阱
+	SetMapTrap(2,"trap02.txt");
+	SetMapTrap(3,"trap03.txt");
+	LoadMap("map_057_连接地图.map");
+	LoadNpc("map057.npc");
+	LoadObj("map057_obj.obj");
+	SetPlayerPos(8, 47);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	AddNpc("纳兰真.ini",11,37,5);
+	NpcGotoEx("纳兰真",14,31);
+	SetMapTrap(1,"");	
+	FadeIn();
+	Sleep(1000);
+	DelNpc("纳兰真");
+	Return;
+
+@Label4:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_057_连接地图.map");
+	LoadNpc("map057.npc");
+	LoadObj("map057_night.obj");
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	SetPlayerPos(8, 47);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event810:
+	Watch("杨影枫","蔷薇",0);
+	Talk(75760,75760);
+	PlayerGotoDir(1,4);
+	SetMapTrap(4,"trap04.txt");
+	
+	Return;
+	
+@Result3:	
+	If ($Event == 866) @Event866;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_057_连接地图.map");
+
+	LoadNpc("map057.npc");
+	LoadObj("map057_obj.obj");
+
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(8, 47);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+
+	Return;
+	
+@Event866:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_057_连接地图.map");
+
+	LoadNpc("map057.npc");
+	LoadObj("map057_obj.obj");
+	
+	AddNpc("无忧教女弟子B.ini", 12, 28, 1);
+	SetNpcKind("无忧教女弟子B", 0);
+
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(8, 47);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+
+	RunScript("事件87_4.txt");
+
+	Return;
+
+@Label5:
+	Say("纳兰真：还是先去问问采药人阿里哪里有上好的草药吧！", 9);
+	Goto(@end);
+	
+@Label6:
+	Say("纳兰真：还是先去东南边的离忧山上采银丝草吧！", 9);
+	Goto(@end);
+	
+@Label7:	
+	Talk(5220, 5220);
+	Return;	
+	
+@Label8:
+	Say("纳兰真：还是先回家找爹爹给杨大哥治伤要紧！", 9);
+	Return;	
+	
+@Label9:
+	Say("纳兰真：还是先到海边小屋给杨大哥治伤要紧！", 9);
+	Return;	
+	
+@Label10:	
+	Say("还是到海边找找吧！", 0);
+	PlayerGotoDir(2, 2);
+    SetMapTrap(4, "Trap04.txt");
+	Return;	
+		
+@Label11:
+	Say("杨影枫：真儿，离忧山的路口不是在东南方向吗？", 2);
+	Return;	
+
+@Label12:		
+	Talk(6232, 6233);
+	Return;
+	
+@Label13:	
+	Say("纳兰真：影枫哥哥，你不要走了好吗？", 12);
+	Say("杨影枫：对不起，真儿，我……", 2);
+	Say("纳兰真：唉，留得住你的人，留不住你的心。我们还是去<color=Red>码头<color=Black>吧，码头在岛的<color=Red>西南边<color=Black>。", 12);
+	Return;
+
+@1821:	
+	Say("杨影枫：还是先到海边看看真儿吧！",2);
+	Return;	
+
+@end:	
+	Return;

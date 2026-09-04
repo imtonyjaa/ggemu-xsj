@@ -1,0 +1,12 @@
+// 没有用了，放在47_1里了
+	If ($Event == 470) @Label1;
+	Goto @end;
+@Label1:
+	Talk(8160, 8230);
+	EnableRun();
+	EnableJump();
+	AddToMemo(8231);
+	Assign($Event, 475);		
+	Goto @end;
+@end:
+	Return;

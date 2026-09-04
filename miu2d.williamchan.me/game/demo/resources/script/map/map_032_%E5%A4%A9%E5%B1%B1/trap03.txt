@@ -1,0 +1,142 @@
+	If ($Event == 1808) @Label3;//结局2救月眉儿
+	If ($Event == 550) @550;	// 取得发簪后。
+	If ($Event == 530) @530;	// 没有见到孟知秋之前。
+	If ($Event == 532) @532;	// 没有见到孟知秋之前。
+	If ($Event == 534) @530;	// 没有见到孟知秋之前。
+	If ($Event == 535) @535;	// 没有找到蔷薇之前。
+	If ($Event << 540) @Label1;	// 小于孟府叫主角找人前都不许玩家到天池。
+	If ($Event == 540) @Label3;	// 要加一个坐着的蔷薇
+	Goto @Label2;
+
+@532:
+	If ($SelectVal == 1) @Label4;
+	Say("杨影枫：这是通往天池的路，还是先去落叶谷见孟知秋吧。",2); 
+	Return;
+
+@Label4:
+	Talk(241, 241); 
+//	SetPlayerDir(4);
+//	PlayerGoto(3, 107);
+//	SetMapTrap(2, "Trap02.txt");
+	Return;
+	
+@530:
+	If ($XiaoHuaSub == 10) @XiaoHuaSub10;
+	If ($XiaoHuaSub == 20) @XiaoHuaSub20;
+	If ($XiaoHuaSub == 40) @XiaoHuaSub40;
+
+	Say("杨影枫：这是通往天池的路，还是先去落叶谷见孟知秋吧。", 2); 
+	Return;	
+
+	@XiaoHuaSub10:
+		Say("蔷薇：杨公子真见忘，我家可不是往这条路走噢。", 29);
+		Return;
+	@XiaoHuaSub20:
+		Watch("杨影枫", "蔷薇", 0);
+		Say("杨影枫：姑娘，你再想想，是往这边走吗？", 2);
+		Say("紫衣姑娘：错不了。怎么，你怀疑我吗？", 29);
+		Say("杨影枫：误会了，我只是担心姑娘回家晚了，父母会担心。", 2);
+		Say("紫衣姑娘：我……没有母亲；父亲从来不管我。", 32);
+		Say("杨影枫：说到姑娘的伤心事了，真是对不住。", 2);
+		Say("紫衣姑娘：没有人陪我……", 32);
+		Say("杨影枫：姑娘，我们快走吧。", 2);
+
+		FadeOut();
+		SaveNpc();
+		SaveObj();
+		LoadMap("map_034_天池.map");
+		LoadNpc("map034.npc");
+		LoadObj("map034_obj.obj");
+		SetPlayerPos(1,21);
+		SetPlayerDir(6);
+		SetNpcKind("蔷薇", 0);
+		DisableNpcAI();
+		SetNpcPos("蔷薇", 1, 17);
+		SetNpcDir("蔷薇", 6);
+		ShowSnow(0);
+		FadeIn();
+
+		PlayerGoto(5, 22);
+		SetPlayerDir(7);
+		Sleep(400);
+		SetPlayerDir(1);
+		Sleep(400);
+		SetPlayerDir(5);
+		Sleep(400);
+		SetPlayerDir(3);
+
+		Say("杨影枫：这里……是……？", 4);
+		NpcGoto("蔷薇", 5, 18);
+		SetNpcDir("蔷薇", 7);
+		SetPlayerDir(4);
+		Say("紫衣姑娘：这是天池。很漂亮吧！", 29);
+		Say("杨影枫：姑娘，你家住在……？", 4);
+		Say("紫衣姑娘：每当我高兴或难过的时候，就会来这里。你看，这天池水多清澈……", 29);
+		PlayerGoto(4, 19);
+		SetPlayerDir(5);
+		Say("杨影枫：天色不早了，我们快赶路吧……", 2);
+		Say("紫衣姑娘：回家有什么好，闷死了。又没有人陪我玩儿。", 29);
+		Say("杨影枫：看来姑娘是在消遣在下。告辞！", 2);
+		SetNpcDir("蔷薇", 1);
+		Sleep(500);
+		Say("紫衣姑娘：你……", 31);
+		Say("杨影枫：我还有事在身。这里罕见人烟，姑娘还是早些回去！", 2);
+		SetNpcDir("蔷薇", 7);
+		Sleep(500);
+		Say("紫衣姑娘：用不着你管，哼！", 31);
+		SetNpcScript("蔷薇", "蔷薇天池对话.txt");
+
+		Assign($XiaoHuaSub, 30);
+		EnableNpcAI();
+		Return;
+	@XiaoHuaSub40:
+		Say("杨影枫：这是通往天池的路，还是先去落叶谷见孟知秋吧！", 2); 
+		Return;
+
+@550:
+	Say("杨影枫：还是先带蔷薇回落叶谷吧！", 2); 
+	Return;	
+
+@Label1:
+	Talk(241, 241); 
+	Return;
+
+@535:
+	Say("杨影枫：还是先把捕兽夹捡起来吧。", 2); 
+	Return;
+
+@Label2:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_034_天池.map");
+	LoadNpc("map034.npc");
+	LoadObj("map034_obj.obj");
+	SetPlayerPos(1,21);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	ShowSnow(0);
+	FadeIn();
+	Return;
+
+@Label3:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_034_天池.map");
+	LoadNpc("map034.npc");
+	LoadObj("map034_obj.obj");
+	DelNpc("蔷薇");
+	AddNpc("蔷薇坐着.ini", 17, 25, 7);
+	SetNpcScript("蔷薇","蔷薇对话.txt");
+	SetPlayerPos(1,21);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	ShowSnow(0);
+	FadeIn();
+	Return;
+	
+@end:
+	Return;
+

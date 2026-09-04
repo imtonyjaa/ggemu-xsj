@@ -1,0 +1,19 @@
+If ($Event == 382) @Event382;
+If ($Event == 390) @Event390;
+Goto @end;
+
+@Event382:
+	PlayerRunTo(37,42);
+	Say("杨影枫：还没有见到卓非凡，我怎么能这样走了！", 2);
+	SetMapTrap(13,"Event390.txt");
+	Goto @end;
+
+@Event390: //离开山庄
+	PlayerRunTo(37,42);
+	Talk(41380,41380);
+	SetMapTrap(13,"Event390.txt");
+	Goto @end;
+	
+	
+@end:
+	Return;	

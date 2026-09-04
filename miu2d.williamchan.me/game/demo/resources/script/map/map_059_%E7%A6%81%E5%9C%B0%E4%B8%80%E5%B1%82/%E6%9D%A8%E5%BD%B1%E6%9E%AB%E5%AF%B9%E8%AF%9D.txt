@@ -1,0 +1,32 @@
+	If ($Event == 302) @Label1;
+	If ($Event == 340) @Label2;
+	If ($Event == 300) @Label3;
+	If ($Event == 301) @Label3;
+	Goto @end;
+
+@Label1:
+	If ($NaLanZhenSense >= 20) @AddSenseEnd;
+	Add($SenseVal, 5);
+	Add($NaLanZhenSense, 5);
+@AddSenseEnd:
+	Talk(5213, 5213);
+	Goto @end;
+	
+@Label2:
+	If ($NaLanZhenSense >= 20) @AddSenseEnd1;
+	Add($SenseVal, 5);
+	Add($NaLanZhenSense, 5);
+@AddSenseEnd1:
+	Talk(6232, 6233);
+	Goto @end;	
+	
+@Label3:
+	If ($NaLanZhenSense >= 20) @AddSenseEnd2;
+	Add($SenseVal, 5);
+	Add($NaLanZhenSense, 5);
+@AddSenseEnd2:
+	Say("杨影枫：真儿，不要到处乱逛了，我们回去吧！", 2);
+	Goto @end;	
+	
+@end:
+	Return;

@@ -1,0 +1,55 @@
+	If ($Event == 308) @Label1;
+	If ($Event == 304) @Label4;
+	If ($Event == 305) @Label4;
+	If ($Event == 309) @Label3;
+	
+	ClearBody();
+	SaveObj();
+	FadeOut();
+	LoadMap("map_054_北山.map");
+	LoadNpc("beishan-sharenfeng.npc");
+    SaveNpc("temp.npc");
+	LoadObj("map054_obj.obj");
+	SetPlayerPos(9,105);
+	SetPlayerDir(0);
+	FadeIn();
+	Return;
+
+@Label1:
+	If ($SelectVal == 1) @Label2;
+	Return;
+
+@Label2:
+	Say("杨影枫：可是……", 7);
+	Sleep(500);
+	PlayerGotoDir(6, 1);
+	Say("杨影枫：我此时回去，恐怕也难以对纳兰前辈交代，万一真儿有什么事……", 7);
+	Sleep(500);
+	PlayerGotoDir(2, 1);
+	Sleep(500);
+	PlayerGoto(2, 27);
+	SetPlayerDir(7);
+	Say("杨影枫：唉，我还是跟下去看看吧！", 7);
+	Assign($Event, 309);
+	SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(2, "Trap02.txt");
+	AddToMemo(90531);
+	Return;
+
+@Label3:
+	Say("杨影枫：唉，我还是跟下去看看吧！", 7);
+	PlayerGotoDir(6, 1);
+	SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(2, "Trap02.txt");
+	Return;
+
+@Label4:
+	Talk(5271, 5271);
+	Return;
+
+@end:
+	Return;
+	
+
+
+

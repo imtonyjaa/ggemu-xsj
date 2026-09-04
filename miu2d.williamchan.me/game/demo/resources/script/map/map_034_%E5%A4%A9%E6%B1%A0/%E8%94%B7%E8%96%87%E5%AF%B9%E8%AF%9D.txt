@@ -1,0 +1,59 @@
+	If ($Event == 1809) @1809;//结局2救月眉儿
+	If ($Event == 1808) @1808;//结局2救月眉儿
+	If ($Event == 540) @Label1;
+	If ($Event == 550) @Label2;
+	Return;
+
+
+@1809:
+	Say("蔷薇：影枫哥，你放心，我会让爹救月姑娘的。",29);
+	Say("杨影枫：蔷薇……谢谢你",3);
+	Return;
+
+@1808:
+	Say("杨影枫：蔷薇！终于找到你了！",3);
+	FadeOut();
+	Say("杨影枫给蔷薇讲了事情的经过……");
+	DelNpc("蔷薇");
+	AddNpc("蔷薇.ini",17,25,2);
+	SetNpcKind("蔷薇",3);
+	SetNpcScript("蔷薇","蔷薇对话.txt");
+	FadeIn();
+	Say("蔷薇：影枫哥，我爹太不讲理了！让我跟他说去……",29);
+	Say("杨影枫：蔷薇……谢谢你能理解我",3);
+	FadeOut();
+	LoadMap("map_033_落叶谷.map");
+	LoadNpc("map033.npc");
+	LoadObj("map033_obj.obj");
+	SetNpcKind("蔷薇",1);
+	SetNpcPos("蔷薇",27,106);
+	SetNpcDir("蔷薇",5);
+	SetPlayerPos(27,107);
+	SetPlayerDir(4);
+	Say("二人回到落叶谷");
+	FadeIn();
+	Say("蔷薇：爹……你怎么能这样难为影枫哥呢？",31);
+	Say("孟知秋：薇儿，我这还不都是为了你着想吗？",43);
+	Say("蔷薇：我和影枫哥之间的事用不着你管，你快帮影枫哥救人吧。",31);
+	Say("孟知秋：唉……真是女大不由爷呀……也罢……你们先回去休息吧，我今晚救人就是了。",42);
+	Say("蔷薇：爹……你真好",30);
+	Say("杨影枫：晚辈代月姑娘多谢前辈的救命之恩了",3);
+	SetNpcKind("蔷薇",3);
+	Assign($Event, 1809);
+	SetMapTrap(1,"");
+	Return;
+
+@Label1:
+	RunScript("事件55_1.txt");
+	Return;
+
+@Label2:
+	If ($QiangWeiSense >= 20) @AddSenseEnd;
+	Add($SenseVal, 5);
+	Add($QiangWeiSense, 5);
+@AddSenseEnd:
+	Talk(10491, 10491);
+	Return;
+
+@end:
+	Return;

@@ -1,0 +1,15 @@
+
+// 事件36 刚发生
+	If ($Event == 360) @Label1;
+	
+	Goto(@end);
+	
+@Label1:
+	
+	Talk(6340,6340);
+	Assign($Event, 365);
+	
+	Goto(@end);
+	
+@end:
+	Return;

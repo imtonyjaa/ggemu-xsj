@@ -1,0 +1,91 @@
+	If ($Event == 940) @Label1;
+	Return;
+	
+@Label1:
+	If ($Result <> 3) @end;
+	
+	MoveScreen(5, 30, 1);
+//	管家：小姐回来了，太好了，我去禀告老爷
+	Talk(18580, 18580);
+	NpcGoto("李总管", 9, 118);
+	SetNpcPos("李总管", 15, 91);
+	SetNpcDir("李总管", 7);
+
+	SetNpcKind("蔷薇", 0);
+	NpcGotoEx("蔷薇", 6, 131);
+	PlayerGoto(5, 129);
+	SetPlayerDir(5);
+	SetNpcDir("杨影枫", 5);
+//	杨影枫：怎么地上到处是血迹，谷内这么混乱？不会发生什么事了吧
+	Talk(18590, 18590);
+	SetNpcKind("蔷薇", 2);
+	SetNpcKind("杨影枫", 3);
+	PlayerGoto(9, 120);
+	SetPlayerDir(5);
+	Talk(18592, 18594);
+	PlayerGoto(13, 112);
+	PlayerGoto(17, 98);
+	SetNpcKind("杨影枫", 0);
+	SetNpcDir("杨影枫", 5);
+	SetPlayerDir(5);
+	Talk(18596, 18596);
+	PlayerGoto(19, 93);
+	SetPlayerDir(5);
+	Talk(18598, 18602);
+	PlayerGoto(21, 92);
+	SetPlayerDir(1);
+	MoveScreen(1, 30, 1);
+	Talk(18604, 18604);
+	SetNpcKind("杨影枫", 2);
+	PlayerGoto(18, 95);
+	SetPlayerDir(5);
+
+	NpcSpecialAction("杨影枫", "mpc108.asf");
+	Sleep(3000);
+
+	Talk(18606, 18622);
+	SetNpcDir("孟知秋", 6);
+	Talk(18624, 18624);
+	SetNpcKind("孟知秋", 2);
+	SetNpcKind("杨影枫", 3);
+
+	PlayerGoto(25, 80);
+	PlayerGoto(23, 58);
+	PlayerGoto(29, 45);
+	PlayerGoto(35, 55);
+	SetNpcKind("杨影枫", 0);
+	SetPlayerDir(7);
+	NpcGoto("杨影枫", 34, 57);
+	SetNpcDir("杨影枫", 7);
+	Talk(18626, 18626);
+	SetNpcKind("孟知秋", 1);
+	SetNpcKind("杨影枫", 2);
+	NpcAttack("孟知秋", 37, 61);
+	Sleep(3000);
+	AddMagic("player-magic-沧海月明.ini");
+	
+	SetNpcDir("孟知秋", 1);
+	SetPlayerDir(5);
+	
+	Talk(18628, 18670);
+
+	NpcSpecialAction("杨影枫", "mpc108.asf");
+	Sleep(3000);
+
+	EnableRun();
+	EnableJump();
+	
+	PlayerGoto(30, 47);
+	SetPlayerDir(3);
+	
+	Talk(18680, 18680);
+	
+	SetNpcScript("蔷薇", "蔷薇对话.txt");
+	SetNpcScript("孟知秋", "孟知秋对话.txt");
+
+	Assign($Event, 950);
+	
+	Goto @end;
+	
+@end:
+	Return;

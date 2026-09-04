@@ -1,0 +1,34 @@
+	If ($Event <> 233) @end;
+	If ($Event24Select <> 1) @end;
+	
+	PlayerRunTo(23, 39);
+	SetPlayerDir(1);
+	Say("杨影枫：<color=Red>银针<color=Black>！这银针上面怎么会有古怪的图案？", 4);
+	DelNpc("银针");
+	SaveNpc();
+    AddGoods("Goods-e01-银针.ini");
+	Sleep(500);
+	Say("杨影枫：这银针与那晚惠安镇上刺杀黑衣人所用的银针一样，难道……", 4);
+	PlayerGoto(24, 41);
+	SetPlayerDir(7);
+	Sleep(500);
+	PlayerGoto(23, 39);
+	SetPlayerDir(3);
+	Sleep(500);
+	PlayerGoto(24, 41);
+	SetPlayerDir(7);
+	Sleep(500);
+	Say("杨影枫：这到底是怎么回事儿啊？难道张仲天的死，真的跟大哥有关？", 2);
+	PlayerGoto(25, 46);
+	SetPlayerDir(7);
+	Sleep(500);
+	Say("杨影枫：不行，我必须到剑气峰上去找大哥问个清楚。唉，希望大哥与此事无干！", 2);
+//	Talk(3510, 3510);
+	Sleep(200);
+	Assign($Event, 235);
+	SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(2, "Trap02.txt");
+	AddToMemo(90380);
+	
+@end:
+	Return;

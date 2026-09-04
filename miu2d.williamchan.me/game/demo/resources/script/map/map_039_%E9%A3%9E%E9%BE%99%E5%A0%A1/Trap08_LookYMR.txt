@@ -1,0 +1,25 @@
+	If ($Event == 3175) @Ev3175;
+	Return;
+@Ev3175:	
+	//PlayerGotoDir(5,8);
+	SetPlayerScn();
+	MoveScreen(5,60,1);
+	SetMapTrap(18,"Trap018_FindNLZ.txt");
+	Talk(105950,105980);
+	//MoveScreen(1,60,2);
+	Assign($Event ,3180);
+	AddToMemo(24450);
+	Return;
+	
+	
+	PlayerGotoEx(7,115);
+	Sleep(2000);
+	FadeOut();
+	SetPlayerPos(2,83);
+	SetPlayerDir(4);
+	FadeIn();
+	Talk(100630,100690);
+	PlayerGoto(8,95);
+	Talk(100700,100700);
+	Return;
+	

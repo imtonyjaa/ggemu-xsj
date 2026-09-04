@@ -1,0 +1,84 @@
+	If ($Event == 2102) @end;
+	If ($Event == 2034) @end;
+	If ($Event == 2040) @end;
+	If ($Event == 850) @Event850;
+	If ($Event == 402) @Event402;
+	If ($Event == 404) @Event404;
+	If ($Event == 475) @Event475;
+	If ($Event == 500) @Event500;
+	If ($Event == 520) @Event520;
+	If ($Event == 3100) @Event3100;
+
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_029_码头.map");
+	LoadObj("map029_obj.obj");
+	LoadNpc("map029.npc");
+	If ($Event >= 860) @Label1;
+	Goto @LoadNpcEnd;
+	
+@Label1:
+	If ($Event <= 864) @Label2;
+	Goto @LoadNpcEnd;
+	
+@Label2:
+	Goto @LoadNpcEnd;
+	
+@LoadNpcEnd:	
+	
+	SetPlayerPos(32, 5);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();
+	
+	Goto @end;
+	
+@Event850:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_029_码头.map");
+	LoadObj("map029_obj.obj");
+	LoadNpc("map029_event86.npc");
+	SetPlayerPos(32, 5);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();
+	Goto @end;
+
+@Event402:
+	PlayerGotoDir(4,2);	
+	Say("还是赶紧去给月眉儿买药吧！");
+	SetMapTrap(1,"Trap01.txt");
+	Goto @end;
+	
+@Event404:
+	PlayerGotoDir(4,2);	
+	Say("还是赶紧把药给月眉儿服了吧！");
+	SetMapTrap(1,"Trap01.txt");
+	Goto @end;
+	
+@Event3100:
+	Watch("月眉儿","杨影枫",0);
+	Say("月眉儿：怎么了你，又想往回走吗？你到底在想些什么？",22);	
+	Say("杨影枫：……",2);
+	Goto @end;
+	
+@Event500:
+	Say("杨影枫：还是先回悲魔山庄吧，真儿还在等我呢！",2);	
+	Return;
+
+@Event520:
+	Say("杨影枫：还是先回悲魔山庄吧。",2);	
+	Return;
+
+@Event475:
+	Say("杨影枫：这是去码头的路，还是先去藏剑山庄吧。", 2);	
+	Return;
+
+
+@end:
+	Return;

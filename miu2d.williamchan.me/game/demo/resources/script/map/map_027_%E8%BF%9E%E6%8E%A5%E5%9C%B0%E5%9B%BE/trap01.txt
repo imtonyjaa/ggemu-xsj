@@ -1,0 +1,99 @@
+	If ($Event == 2102) @2102;
+	If ($Event == 2034) @2102;
+	If ($Event == 2040) @2102;
+	If ($Event == 482) @Label1;
+	If ($Event == 402) @Event402;
+	If ($Event == 404) @Event404;
+	If ($Event == 485) @Event485;
+	If ($Event == 520) @Event520;
+		
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_028_连接地图.map");
+	LoadObj("map028_obj.obj");
+	LoadNpc("map028_bird.npc");
+	SetPlayerPos(2, 59);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Label1:
+	//往后退会被堵住的
+	Talk(241,241);
+	Return;
+
+@Event402:
+	PlayerGotoDir(2,2);
+	Say("赶快为月眉儿买药吧！");
+	SetMapTrap(1,"trap01.txt");
+	Return;
+
+@Event404:
+	FadeOut();
+	
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_028_连接地图.map");
+	LoadObj("map028_obj.obj");
+	LoadNpc("map028_bird.npc");
+	SaveNpc("temp_map028_bird.npc");
+	LoadNpc("temp_map028_bird.npc");
+	
+	
+	//AddNpc("月眉儿.ini",15,53,1);
+	//SetNpcKind("月眉儿",0);
+	//SetNpcActionFile("月眉儿",0,"mpc091.asf");
+	//SetNpcActionFile("月眉儿",1,"mpc091.asf");
+	//SetNpcScript("月眉儿","受伤中的月眉儿.txt");
+	SetMapTrap(4, "受伤中的月眉儿.txt");
+	SetPlayerPos(2, 59);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	SetMapTrap(1,"Trap01.txt");
+	Return;
+	
+@Event485:	
+	FadeOut();
+	
+	SaveNpc();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_028_连接地图.map");
+	LoadObj("map028_obj.obj");
+	LoadNpc("map028_bird.npc");
+	SetPlayerPos(2, 59);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@2102:	
+	FadeOut();
+	LoadMap("map_028_连接地图.map");
+	LoadNpc("map028_1.npc");
+	SaveNpc("temp.npc");
+	LoadObj("map028_obj.obj");
+	SetPlayerPos(2, 59);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event520:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_028_连接地图.map");
+	SetPlayerPos(2, 59);
+	SetPlayerDir(6);
+	EndRain();
+	EnableNpcAI();
+	FadeIn();
+	Return; 
+ 
+@end:
+	Return;

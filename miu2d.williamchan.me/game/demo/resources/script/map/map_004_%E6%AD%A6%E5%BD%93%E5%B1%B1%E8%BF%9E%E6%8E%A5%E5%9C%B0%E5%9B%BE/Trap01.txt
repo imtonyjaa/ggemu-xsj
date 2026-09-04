@@ -1,0 +1,163 @@
+// 切换到武当山顶
+
+	If ($Event == 1819) @1819;//结局2找天星求证
+	If ($Result == 0)  @Result0;
+	If ($Result == 1)  @Result1;
+	If ($Result == 2)  @Result2;
+	If ($Result == 3)  @Result3;
+	Return;
+	
+@1819:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_006_武当山山顶.map");
+	LoadNpc("map006_AskTX.npc");
+	LoadObj("map006_obj.obj");
+	SetPlayerPos(3, 167);
+	SetPlayerDir(4);
+	DelNpc("天星道长");
+	AddNpc("天星道长.ini",38,76,1);
+	SetNpcScript("天星道长","天星道长对话.txt");
+	StopMusic();
+	PlayMusic("mc019.mp3");
+	FadeIn();
+	Return;
+
+@Result0:
+	If ($Event == 40) @Label1;
+	If ($Event == 46) @Label2;
+	If ($Event << 46) @Label3; 
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_006_武当山山顶.map");
+	LoadNpc("wudangshanding2.npc");
+	LoadObj("map006_obj.obj");
+	SetPlayerPos(3, 167);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Label1:
+	FadeOut();
+	StopMusic();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_006_武当山山顶.map");
+	LoadNpc("wudangshanding.npc");
+	LoadObj("map006_obj.obj");
+	SetPlayerPos(3, 167);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+	PlayMusic("mc019.mp3");
+	Say("杨影枫：武当山顶如此幽深静谧，真不愧是一处道家圣地！", 2);	
+	Return;
+
+@Label2:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_006_武当山山顶.map");
+	LoadNpc("wudangshanding2.npc");
+	LoadObj("map006_obj.obj");
+	SetPlayerPos(3, 167);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+	Return;	
+	
+@Label3:
+	FadeOut();
+	StopMusic();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_006_武当山山顶.map");
+	LoadNpc("wudangshanding.npc");
+	LoadObj("map006_obj.obj");
+	SetPlayerPos(3, 167);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+	PlayMusic("mc019.mp3");
+	Return;	
+	
+	
+@Result1:
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_006_武当山山顶.map");
+	LoadNpc("wudangshanding2.npc");
+	LoadObj("map006_obj.obj");
+	SetPlayerPos(3, 167);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Result2:
+	If ($Event == 790 ) @Event790;
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_006_武当山山顶.map");
+	LoadNpc("map006_AskTX.npc");
+	LoadObj("map006_obj.obj");
+	SetPlayerPos(3, 167);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Result3:
+
+	If ($Event == 950) @Event950;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_006_武当山山顶.map");
+	LoadNpc("wudangshanding2.npc");
+	LoadObj("map006_obj.obj");
+	SetPlayerPos(3, 167);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+
+	Return;
+	
+@Event790:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_006_武当山山顶.map");
+   	LoadNpc("map006_AskTX.npc");
+	LoadObj("map006_obj.obj");
+	SetPlayerPos(3, 167);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Event950:
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_006_武当山山顶.map");
+	LoadNpc("map006_event96.npc");
+	LoadObj("map006_event96.obj");
+	SetPlayerPos(3, 167);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+	RunScript("事件96.txt");
+	Return;
+	
+@end:
+	Return;

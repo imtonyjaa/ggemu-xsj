@@ -1,0 +1,37 @@
+	If ($Event == 60) @Label;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_008_野树林.map");
+	
+	LoadNpc("map008.npc");
+	LoadObj("map008_obj.obj");
+	
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(21, 105);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+	
+	Return;
+	
+@Label:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	LoadMap("map_008_野树林.map");
+	
+	LoadNpc("map008.npc");
+	LoadObj("map008_obj.obj");
+	
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(21, 105);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+	
+	Return;

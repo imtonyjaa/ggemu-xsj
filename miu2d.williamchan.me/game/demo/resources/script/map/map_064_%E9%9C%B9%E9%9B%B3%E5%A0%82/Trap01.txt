@@ -1,0 +1,82 @@
+	If ($Event == 210) @Label1;
+	If ($Event == 211) @Label1;
+	If ($Event == 212) @Label1;
+	If ($Event == 213) @Label1;
+	If ($Event == 218) @Event218;
+	If ($Event == 217) @Event217;
+
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_063_药王谷.map");
+    LoadNpc("yaowanggu.npc"); 
+    SaveNpc("temp_yaowanggu.npc");
+	LoadNpc("temp_yaowanggu.npc");
+    LoadObj("map063_obj.obj");
+	AddObj("躺着的紫轩.ini"，34，73，0);
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(4, 162);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Goto @end;
+
+@Event218:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("mc016.mp3");
+	LoadMap("map_063_药王谷.map");
+    LoadNpc("yaowanggu.npc"); 
+    SaveNpc("temp_yaowanggu.npc");
+	LoadNpc("temp_yaowanggu.npc");
+    LoadObj("map063_obj.obj");
+	AddObj("躺着的紫轩.ini"，34，73，0);
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(4, 162);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Talk(3002, 3002);
+	Assign($Event, 220);
+	Goto @end;
+
+@Event217:
+	FadeOut();
+	SetNpcPos("宋四郎", 12, 43);
+	SetNpcPos("汪信之", 13, 44);
+	SetNpcPos("荆十娘", 39, 152);
+	SetNpcPos("霍爷爷", 38, 153);
+	SetNpcPos("霍去病", 38, 158);
+	SaveNpc();
+	ClearBody();
+	SaveObj();
+	StopMusic();
+	PlayMusic("mc016.mp3");
+	LoadMap("map_063_药王谷.map");
+    LoadNpc("yaowanggu.npc"); 
+    SaveNpc("temp_yaowanggu.npc");
+	LoadNpc("temp_yaowanggu.npc");
+    LoadObj("map063_obj.obj");
+	AddObj("躺着的紫轩.ini"，34，73，0);
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(4, 162);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Assign($Event, 220);
+	Goto @end;
+	
+@Label1:
+	Say("杨影枫：还没拿到雷震子呢！", 2);
+	Goto @end;
+	
+@end:
+	Return;	
+	

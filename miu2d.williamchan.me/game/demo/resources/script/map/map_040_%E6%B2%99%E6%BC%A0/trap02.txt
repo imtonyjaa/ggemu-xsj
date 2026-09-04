@@ -1,0 +1,45 @@
+	If ($Event == 2010) @2010;
+	If ($Event == 2009) @2009;
+	If ($Event == 3182) @3182;
+
+@2010:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_039_飞龙堡.map");
+	LoadNpc("map039_1.npc");
+	LoadObj("map039_obj.obj");
+	SetPlayerPos(45, 18);
+	SetPlayerDir(1);
+	SetMapTrap(1,"trap01.txt");
+	FadeIn();
+	Return;
+
+@2009:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_039_飞龙堡.map");
+	LoadNpc("map039_1.npc");
+	LoadObj("map039_obj.obj");
+	SetPlayerPos(45, 18);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@3182:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_039_飞龙堡.map");
+	LoadNpc("map039_FindNLZ.npc");
+	LoadObj("map039_obj.obj");
+	SetPlayerPos(45, 18);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();	
+	Return;
+	
+@end:
+	Return;

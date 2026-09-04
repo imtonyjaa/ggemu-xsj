@@ -1,0 +1,19 @@
+
+	If ($Event <> 100) @end;
+
+	PlayerRunTo(53, 69);
+	SetPlayerDir(7);
+	Talk(1250, 1250);
+	SetNpcPos("小叁子", 48, 70);
+	NpcGoto("小叁子", 53, 70);
+	SetPlayerDir(1);
+	SetNpcDir("小叁子",5);
+	Talk(1260, 1280);
+	Assign($Event, 110);
+	AddToMemo(90160);
+	SetMapTrap(2, "Trap02.txt");
+	SetMapTrap(13, "事件7.txt");
+	StopMusic();
+
+@end:
+	Return;

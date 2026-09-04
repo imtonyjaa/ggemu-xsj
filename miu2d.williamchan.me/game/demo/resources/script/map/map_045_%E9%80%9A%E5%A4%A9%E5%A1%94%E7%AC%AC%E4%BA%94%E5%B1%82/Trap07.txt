@@ -1,0 +1,77 @@
+If ($FindNLZ== 0) @end;
+If ($Lock1 == 0) @end1;
+If ($Lock2 == 0) @end1;
+If ($Lock3 == 0) @end1;
+If ($Lock4 == 0) @end1;
+If ($Lock5 == 0) @end1;
+If ($Lock6 == 0) @end1;
+If ($Lock7 == 0) @end1;
+If ($Lock8 == 0) @end1;
+
+Talk(106680,106680);
+PlayerGoto(10,127);
+FadeOut();
+DelObj("通天塔石门");
+SetPlayerPos(8,132);
+Sleep(1000);
+Watch("杨影枫","纳兰真",0);
+FadeIn();
+
+
+Talk(106710,106720);
+FadeOut();
+StopMusic();
+	Assign($Event ,3200);
+	
+	SetPlayerState(0);
+	FullLife();
+	FullMana();
+	FullThew();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("map030_Fight_ALL.npc");
+	LoadObj("map030_obj.obj");
+	DisableNpcAI();
+	AddNpc("纳兰真.ini",56,158,0);
+	SetNpcRes("纳兰真","mpc902_纳兰真躺.ini");
+	SetPlayerPos(55,160);
+	SetPlayerDir(5);
+	ChangeMapColor(255,255,255);
+	ChangeAsfColor(255,255,255);
+	//Say("几天后");
+	FadeIn();
+	
+	
+	Talk(100812,100818);
+	SetNpcPos("管家铁云",48,157);
+	NpcGoto("管家铁云",52,167);
+	//Talk(100812,100818);
+	NpcGoto("管家铁云",54,162);
+	Watch("管家铁云","杨影枫",0);
+	Talk(100820,100820);
+	
+	Watch("杨影枫","纳兰真",1);
+	Talk(100821,100821);
+	Sleep(1000);
+	
+	
+	Assign($Event ,3185);
+	SetMapTrap(11,"trap11_KILLALL.txt");
+	SetMapTrap(5,"");
+	SetMapTrap(1,"");
+	SetMapTrap(6,"");
+	AddToMemo(24490);
+	Return;
+	
+
+Goto @end;
+
+@end1:
+Watch("杨影枫","纳兰真",0);
+Talk(106750,106760);
+PlayerGoto(11,121);
+SetMapTrap(7,"Trap07.txt");
+Goto @end;
+
+
+@end:
+Return;

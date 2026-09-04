@@ -1,0 +1,9 @@
+	FadeOut();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_017_连接地图.map");
+	LoadObj("map017_obj.obj");
+	LoadNpc("map017.npc");
+	SetPlayerPos(3, 32);
+	SetPlayerDir(6);
+	FadeIn();

@@ -1,0 +1,99 @@
+	If ($Event == 1821) @1821;//结局2求证回来
+	If ($Event == 1816) @1816;//结局2
+	If ($Event == 275) @Label3;
+	If ($Event == 301) @Label4;
+	Return;
+	
+@1821:
+	PlayerGoto(11,37);
+	Say("杨影枫：不好！真儿和眉儿不见了，她们不会出什么事吧。",4);
+	Say("蔷薇：影枫哥……她们会不会出去散步了呢？",29);
+	Say("杨影枫：不会的，真儿和眉儿都有伤在身。",2);
+	Say("蔷薇：影枫哥……那怎么办？",29);
+	Say("杨影枫：我们去禁地找找看吧。",2);
+	Assign($Event,1822);
+	SetMapTrap(3,"");
+	Return;
+
+@1816:
+	PlayerGoto(11,38);
+	SetPlayerDir(4);
+	SetNpcKind("纳兰真",1);
+	NpcGoto("纳兰真",11,37);
+	SetNpcDir("纳兰真"，4);
+	Say("纳兰真：眉儿姐，我们找到娘的书信了，你看……",9);
+	FadeOut();
+	Say("纳兰真把书信交给了月眉儿");
+	FadeIn();	
+	Say("月眉儿：想不到我们的亲爹竟然是这样的人……",24);
+	Say("纳兰真：眉儿姐，爹现在正好不在岛上，我们还是趁他回来之前离开这里吧，我不想在见到他了。",9);
+	Say("杨影枫：等眉儿的伤完全好了之后，我们就走。",2);
+	Say("月眉儿：嗯……娘的那本《武道德经》在哪里？",22);
+	Say("杨影枫：哎呀！我们刚才忘记把它一起拿回来了。",2);
+	Say("纳兰真：影枫哥……我觉得那是一本不祥之书。",12);
+	Say("杨影枫：真儿，你说得对，《武道德经》不但害的你们家破人亡，更搅得武林腥风血雨。",2);
+	Say("纳兰真：影枫哥……我去把它取回来毁掉吧。",12);
+	Say("杨影枫：好。",2);
+	Say("月眉儿：对……这本书害的我们够惨了……烧了它也不可惜。",22);
+	Say("纳兰真：眉儿姐，你和影枫哥在这里等一会儿，我去把它取回来。",9);
+	Say("杨影枫：真儿，我跟你一起去吧。",2);
+	Say("纳兰真：不用了，影枫哥，你在这里陪陪眉儿姐吧，我很快就回来。",10);
+	NpcGoto("纳兰真",17,36);
+	DelNpc("纳兰真");
+	PlayerGoto(11,37);
+	SetPlayerDir(4);
+	Say("杨影枫：眉儿，我来喂你吃药吧。",3);
+	Say("月眉儿：谁要你喂了，我自己能吃。",23);
+	FadeOut();
+	Say("杨影枫陪月眉儿待了一会儿");
+	FadeIn();
+	Say("杨影枫：真儿怎么还没回来？不会出什么事吧。",4);
+	Say("月眉儿：看你担心的样子，快去看一看吧。",23);
+	Say("杨影枫：眉儿，你在这里等着，我去看看是怎么回事。",2);
+	Assign($Event,1817);
+	SetMapTrap(3,"");
+	Return;
+	
+@Label3:
+	RunScript("事件28_2.txt");
+	Return;
+	
+@Label4:
+	PlayerGoto(13,40);
+	SetPlayerDir(3);
+	SetNpcKind("杨影枫",1);
+	NpcGoto("杨影枫",12, 39);
+	SetNpcDir("杨影枫",7);
+	Say("杨影枫：天色已经很晚了，真儿，你还是早些回家吧，可不要再到处乱逛了。", 2);
+	Say("纳兰真：嗯，我知道了。杨大哥，你也早点休息吧，明天见！",	9);
+	PlayerGoto(14,38);
+	SetPlayerDir(5);
+	FadeOut();
+//	SaveNpc();
+	SaveObj();
+	StopMusic();
+	Talk(1713, 1713);
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	LoadNpc("seashore-yangyf3.npc");
+	LoadObj("map051_obj.obj");
+	//SetPlayerPos(19, 38);
+	//SetPlayerDir(3);
+	SetPlayerPos(5, 40);
+	SetPlayerDir(4);
+	FullLife();
+	FullThew();
+	FullMana();
+	SetNpcPos("杨影枫", 3, 21);
+	SetNpcDir("杨影枫", 2);
+	//SetMapPos(8, 23);
+	SetMapPos(0, 13);
+	Sleep(500);
+	PlayMusic("mc017.mp3");
+	FadeIn();
+	RunScript("事件31_1.txt");
+	Return;
+
+@end:
+	Return;
+

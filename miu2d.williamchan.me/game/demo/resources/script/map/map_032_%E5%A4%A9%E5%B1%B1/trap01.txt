@@ -1,0 +1,606 @@
+	If ($Event == 3120) @3120;
+	If ($Event == 2101) @2101;
+	If ($Event == 2010) @2010;
+	If ($Event == 2002) @2001;
+	If ($Event == 2001) @2001;
+	If ($Event == 2000) @2000;
+	If ($Event == 1818) @1818;
+	If ($Event == 1804) @1804;
+	If ($Result == 0)   @Result0;
+	If ($Result == 1)   @Result1;
+	If ($Result == 2)   @Result2;
+	If ($Result == 3)   @Result3;
+	Return;
+
+@2010:// 带蔷薇回来看孟知秋
+	FadeOut();
+	SaveObj();
+	LoadMap("map_033_落叶谷(破坏后).map");
+	LoadNpc("map033_1.npc");
+	LoadObj("map033_destroy_obj.obj");
+	SetPlayerPos(3,138);
+	SetPlayerDir(5);
+	ShowSnow(0);
+	FadeIn();
+	SetMapTrap(3,"trap03.txt");
+	StopMusic();
+	PlayMusic("mc018.mp3");
+	Return;
+
+@2001:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_033_落叶谷(破坏后).map");
+	LoadNpc("map033_1.npc");
+	LoadObj("map033_destroy_obj.obj");
+	SetPlayerPos(3, 138);
+	SetPlayerDir(5);
+	ShowSnow(0);
+	FadeIn();
+	Return;
+
+@Result0:
+	If ($Event == 530) @Event530;
+	If ($Event == 532) @Event532;
+	If ($Event == 534) @Event534;
+	If ($Event == 537) @Event537;
+	If ($Event == 550) @Event550;
+	If ($Event == 562) @Event562;
+	If ($Event == 535) @Label;
+	If ($Event == 540) @Label;
+
+@common:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_033_落叶谷.map");
+	LoadNpc("map033.npc");
+	LoadObj("map033_obj.obj");
+	SetNpcPos("李总管", 17, 89);
+	SetNpcDir("李总管", 7);
+	SetPlayerPos(2, 139);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	ShowSnow(0);
+	FadeIn();
+	Return;
+
+@1818:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_033_落叶谷.map");
+	LoadNpc("map033.npc");
+	LoadObj("map033_obj.obj");
+	SetNpcPos("蔷薇",24,18);
+	SetNpcDir("蔷薇",5);
+	SetNpcLevel("蔷薇",47);
+	SetNpcPos("孟知秋",18,93);
+	SetNpcDir("孟知秋",1);
+	SetNpcPos("李总管",17,89);
+	SetNpcDir("李总管",7);
+	SetPlayerPos(2,139);
+	SetPlayerDir(5);
+	SetMapTrap(4,"");
+	SetMapTrap(9,"");
+	SetMapTrap(19,"trap09.txt");
+	DelObj("躺着的月眉儿");
+	DelNpc("纳兰真");
+	ShowSnow(0);
+	FadeIn();
+	Return;
+
+@Event530:
+	Talk(10492, 10492);
+	PlayerGotoDir(0, 1);
+	SetMapTrap(1, "Trap01.txt");
+	Return;
+
+@Label:
+	Talk(10494, 10494);
+	Return;
+
+@Event532:
+	If ($SelectVal == 1) @Label3;
+
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_033_落叶谷.map");
+	LoadNpc("map033.npc");
+	LoadObj("map033_obj.obj");
+	SetNpcPos("李总管", 8, 122);
+	SetNpcDir("李总管", 0);
+	SetPlayerPos(2, 139);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	SetNpcScript("李总管", "");
+	SetNpcScript("家丁阿甘", "");
+	SetNpcScript("家丁阿平", "");
+	ShowSnow(0);
+	FadeIn();
+	Return;
+
+@Event534:
+	If ($XiaoHuaSub == 10) @XiaoHuaSub10;
+	If ($XiaoHuaSub == 20) @XiaoHuaSub10;
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_033_落叶谷.map");
+	LoadNpc("map033.npc");
+	LoadObj("map033_obj.obj");
+	SetNpcPos("李总管", 8, 122);
+	SetNpcDir("李总管", 0);
+	SetPlayerPos(2, 139);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	SetNpcScript("李总管", "");
+	SetNpcScript("家丁阿甘", "");
+	SetNpcScript("家丁阿平", "");
+	ShowSnow(0);
+	FadeIn();
+	Return;
+
+	@XiaoHuaSub10:
+		Say("蔷薇：杨公子真见忘，我家可不是往这条路走噢。", 29);
+		Return;
+
+@Event537:
+	If ($SelectVal == 0) @Label3;
+
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_033_落叶谷.map");
+	LoadNpc("map033.npc");
+	LoadObj("map033_obj.obj");
+	SetNpcPos("李总管", 17, 89);
+	SetNpcDir("李总管", 7);
+	SetPlayerPos(2, 139);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	ShowSnow(0);
+	FadeIn();
+	Return;
+
+@Event550:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_033_落叶谷.map");
+	LoadNpc("map033.npc");
+	LoadObj("map033_obj.obj");
+	SetNpcPos("李总管", 8, 122);
+	SetNpcDir("李总管", 0);
+	SetPlayerPos(2, 139);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	SetNpcScript("李总管", "");
+	SetNpcScript("家丁阿甘", "");
+	SetNpcScript("家丁阿平", "");
+	ShowSnow(0);
+	FadeIn();
+	Return;
+
+@Event562:
+	Say("杨影枫：孟知秋的建议我需要仔细思量一番，此刻还是先下山吧。", 2);
+	Return;
+
+@Result1:
+	If ($Event == 570) @Event570;//提亲
+	If ($Event == 590) @Event590;//学武功
+	If ($Event == 625) @Event625;
+	If ($Event == 700) @Event700;
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_033_落叶谷.map");
+	LoadNpc("map033.npc");
+	LoadObj("map033_obj.obj");
+	SetNpcPos("李总管", 17, 89);
+	SetNpcDir("李总管", 7);
+	SetPlayerPos(2, 139);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	ShowSnow(0);
+	FadeIn();
+	Return;
+
+@Event570://提亲
+
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	
+	LoadMap("map_033_落叶谷.map");
+	LoadNpc("map033.npc");
+	LoadObj("map033_obj.obj");
+	DelNpc("孟知秋");
+	DelNpc("蔷薇");
+	AddNpc("孟知秋.ini",18,91,3);
+	SetNpcScript("孟知秋","孟知秋对话.txt");
+	SetNpcPos("李总管", 17, 89);
+	SetNpcDir("李总管", 7);
+	SetPlayerPos(2, 139);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	ShowSnow(0);
+	FadeIn();
+	Return;
+	
+	
+@Event590:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_033_落叶谷.map");
+	LoadNpc("map033.npc");
+	LoadObj("map033_obj.obj");
+	SetNpcPos("李总管", 17, 89);
+	SetNpcDir("李总管", 7);
+	DelNpc("蔷薇");
+	SetNpcPos("孟知秋", 19, 93);
+	//SetNpcScript("孟知秋","孟知秋对话.txt");
+	SetPlayerPos(2, 139);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	ShowSnow(0);
+	FadeIn();
+	Return;
+
+@Event625:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_033_落叶谷.map");
+	LoadNpc("map033.npc");
+	LoadObj("map033_obj.obj");
+	SetNpcPos("李总管", 17, 89);
+	SetNpcDir("李总管", 7);
+	AddNpc("孟知秋.ini", 19, 93, 1);
+	SetNpcScript("孟知秋","孟知秋对话.txt");
+	SetPlayerPos(2, 139);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	ShowSnow(0);
+	FadeIn();
+	Return;
+
+@Event700:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_033_落叶谷.map");
+	LoadObj("map033_obj.obj");
+	LoadNpc("Event700攻落叶谷.npc");
+	SetMapTrap(9,"");
+	SetPlayerPos(10, 118);
+	SetPlayerDir(5);
+	SetNpcKind("杨影枫",1);
+	SetNpcKind("孟知秋",2);
+	SetPlayerScn();
+	ShowSnow(0);
+	FadeIn();
+	Talk(13760,13830);
+	MoveScreen(1,150,3);
+	SetNpcKind("杨影枫",2);
+	SetNpcKind("孟知秋",1);
+	NpcGoto("杨影枫",16, 100);
+	Talk(13840,13870);
+	EnableNpcAI();
+	EnableFight();
+	GetNpcCount(1,1);
+	Assign($Event, 705);
+	Return;
+
+
+@Result2:
+	If ($Event == 770) @Event770;
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_033_落叶谷.map");
+	LoadNpc("map033.npc");
+	LoadObj("map033_obj.obj");
+	SetNpcPos("李总管", 17, 89);
+	SetNpcDir("李总管", 7);
+	SetPlayerPos(2, 139);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	ShowSnow(0);
+	FadeIn();
+	Return;
+
+@Event770:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_033_落叶谷.map");
+	LoadObj("map033_obj.obj");
+	LoadNpc("map033_MZQ_QW.npc");
+	SetNpcPos("蔷薇",15,104);
+	SetPlayerPos(2, 139);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	ShowSnow(0);
+	FadeIn();
+	SetMapTrap(1,"");
+	Return;
+
+@Result3:
+	If ($Event == 940) @Event940;
+	If ($Event == 950) @Event950;
+	If ($Event >= 880) @Label1;
+
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_033_落叶谷.map");
+
+	If ($Map033AddPeople == 0) @Map033AddPeople0;
+	If ($Map033AddPeople >> 0) @Map033AddPeople1;
+	
+@Map033AddPeople0:
+	LoadNpc("map033.npc");
+	AddNpc("蔷薇.ini", 24, 20, 1);
+	SetNpcScript("蔷薇", "蔷薇对话.txt");
+	AddNpc("孟知秋.ini", 15, 81, 1);
+	SetNpcScript("孟知秋", "孟知秋对话.txt");
+	SaveNpc("map033_addpeople.npc");
+	LoadNpc("map033_addpeople.npc");
+	Assign($Map033AddPeople, 1);
+	Goto @Map033AddPeopleEnd;
+
+@Map033AddPeople1:
+	LoadNpc("map033_addpeople.npc");
+	Goto @Map033AddPeopleEnd;
+
+@Map033AddPeopleEnd:
+	LoadObj("map033_obj.obj");
+	SetNpcPos("李总管", 17, 89);
+	SetNpcDir("李总管", 7);
+	SetPlayerPos(2, 139);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	ShowSnow(0);
+	FadeIn();
+	Return;
+	
+@Label1:
+
+	If ($Event >=900) @Label2;
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_033_落叶谷.map");
+
+	If ($Map033AddPeople == 0) @Map033AddPeople00;
+	If ($Map033AddPeople >> 0) @Map033AddPeople01;
+	
+@Map033AddPeople00:
+	LoadNpc("map033.npc");
+	AddNpc("蔷薇.ini", 24, 20, 1);
+	SetNpcScript("蔷薇", "蔷薇对话.txt");
+	AddNpc("孟知秋.ini", 15, 81, 1);
+	SetNpcScript("孟知秋", "孟知秋对话.txt");
+	SaveNpc("map033_addpeople.npc");
+	LoadNpc("map033_addpeople.npc");
+	Assign($Map033AddPeople, 1);
+	Goto @Map033AddPeopleEnd2;
+@Map033AddPeople01:
+	LoadNpc("map033_addpeople.npc");
+	Goto @Map033AddPeopleEnd2;
+@Map033AddPeopleEnd2:
+
+	LoadObj("map033_obj.obj");
+
+	SetNpcPos("李总管", 17, 89);
+	SetNpcDir("李总管", 7);
+	SetNpcPos("孟知秋", 19, 93);
+	SetNpcDir("孟知秋", 1);
+
+	SetPlayerPos(2, 139);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	ShowSnow(0);
+	FadeIn();
+	Return;
+	
+@Label2:
+	If ($Event << 940) @Map033Label1;
+	If ($Event >= 940) @Map033Label2;
+
+@Map033Label1:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_033_落叶谷.map");
+	LoadNpc("map033_addpeople.npc");
+	LoadObj("map033_obj.obj");
+	SetNpcPos("李总管", 17, 89);
+	SetNpcDir("李总管", 7);
+	SetNpcPos("孟知秋", 15, 81);
+	SetNpcDir("孟知秋", 1);
+	DelNpc("蔷薇");
+	SetPlayerPos(2, 139);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	ShowSnow(0);
+	FadeIn();
+	Return;
+	
+@Map033Label2：
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_033_落叶谷.map");
+
+	If ($Map033AddQiangWei == 0) @Map033AddQiangWei0;
+	If ($Map033AddQiangWei >> 0) @Map033AddQiangWei1;
+	
+@Map033AddQiangWei0:
+	LoadNpc("map033.npc");
+	AddNpc("蔷薇.ini", 24, 20, 1);
+	SetNpcScript("蔷薇", "蔷薇对话.txt");
+	AddNpc("孟知秋.ini", 15, 81, 1);
+	SetNpcScript("孟知秋", "孟知秋对话.txt");
+	SaveNpc("map033_addpeople.npc");
+	LoadNpc("map033_addpeople.npc");
+	Assign($Map033AddQiangWei, 1);
+	Goto @Map033AddQiangWeiEnd;
+@Map033AddQiangWei1:
+	LoadNpc("map033_addpeople.npc");
+	Goto @Map033AddQiangWeiEnd;
+@Map033AddQiangWeiEnd:
+	LoadObj("map033_obj.obj");
+
+	SetNpcPos("李总管", 17, 89);
+	SetNpcDir("李总管", 7);
+
+	SetPlayerPos(2, 139);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	ShowSnow(0);
+	FadeIn();
+	
+	Return;
+
+@Label3:
+	Talk(241, 241); 
+//	SetPlayerDir(0);
+//	PlayerGoto(30, 11);
+//	SetMapTrap(1, "Trap01.txt");
+	Return;
+        
+@Event940:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_033_落叶谷(破坏后).map");
+	LoadNpc("map033_destroy.npc");
+	LoadObj("map033_destroy_obj.obj");
+	AddNpc("Event95_孟知秋.ini", 20, 92, 1);
+	SetPlayerPos(3, 138);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	ShowSnow(0);
+	FadeIn();
+	RunScript("事件95.txt");
+	Return;
+
+@Event950:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_033_落叶谷(破坏后).map");
+	LoadNpc("map033_destroy.npc");
+	LoadObj("map033_destroy_obj.obj");
+	SetNpcPos("蔷薇", 24, 20);
+	SetNpcDir("蔷薇", 7);
+	SetNpcPos("孟知秋", 16, 80);
+	SetNpcDir("孟知秋", 1);
+	SetPlayerPos(3, 138);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	ShowSnow(0);
+	FadeIn();
+	Return;
+
+@end:
+	Return;
+
+@2000:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_033_落叶谷(破坏后).map");
+	LoadNpc("map033_1.npc");
+	LoadObj("map033_destroy_obj.obj");
+	SetPlayerPos(3, 138);
+	SetPlayerDir(5);
+	ShowSnow(0);
+	FadeIn();
+	SetMapTrap(2,"");
+	StopMusic();
+	PlayMusic("mc018.mp3");
+	PlayerRunTo(12,111);
+	SetPlayerDir(5);
+	Sleep(500);
+	SetPlayerDir(3);
+	Sleep(500);
+	SetPlayerDir(7);
+	Sleep(500);
+	SetPlayerDir(5);
+	Say("杨影枫：这是怎么回事，难道落叶谷也……",4);
+	Return;
+
+@2101:// 蔷薇死亡
+	FadeOut();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_033_落叶谷(破坏后).map");
+	LoadObj("map033_destroy_obj.obj");
+	SetPlayerPos(3, 138);
+	SetPlayerDir(5);
+	ShowSnow(0);
+	FadeIn();
+	Return;
+	
+	
+@3120:
+	FadeOut();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_033_落叶谷.map");
+	LoadNpc("map033.npc");
+	DelNpc("蔷薇");
+	SaveNpc("map033.npc");
+	SaveNpc("temp.npc");
+	LoadObj("map033_obj.obj");
+	SetNpcPos("李总管",17,93);
+	
+	SetPlayerPos(3, 138);
+	SetPlayerDir(5);
+	SetMapTrap(4,"遇管家说话.txt");
+	ShowSnow(0);
+	FadeIn();
+	Return;	
+
+@1804:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_033_落叶谷.map");
+	LoadNpc("map033.npc");
+	LoadObj("map033_obj.obj");
+	SetNpcPos("李总管", 17, 89);
+	SetNpcDir("李总管", 7);
+	DelNpc("蔷薇");
+	SetPlayerPos(2, 139);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	ShowSnow(0);
+	FadeIn();
+	SetMapTrap(9,"trap09.txt");
+	SetMapTrap(19,"");
+	Return;

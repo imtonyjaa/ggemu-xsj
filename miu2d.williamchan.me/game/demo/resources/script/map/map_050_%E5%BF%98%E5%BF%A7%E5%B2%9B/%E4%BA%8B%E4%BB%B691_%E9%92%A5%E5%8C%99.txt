@@ -1,0 +1,29 @@
+
+
+	If ($Event == 905) @Label1;
+	
+	Goto @end;
+	
+@Label1:
+	If ($Result <> 3) @end;
+	
+//	系统消息：发生事件91.2，拣到一把钥匙
+//	主角物品增加 钥匙
+
+	Talk(18050, 18050);
+	PlayerGoto(65, 75);
+	SetPlayerDir(0);
+	DelObj("钥匙");
+	NpcSpecialAction("杨影枫", "mpc240.asf");
+	Sleep(2000);
+	SetPlayerDir(5);
+	AddGoods("Goods-e06-钥匙.ini");
+	
+	Say("杨影枫：这把钥匙这么大，不会是用来开一般的门锁的，应该是用来打开大石门之类的比较笨重的大锁的，怎么会在这里出现呢？！", 7);
+
+	Assign($Event, 910);
+	
+	Goto @end;
+	
+@end:
+	Return;

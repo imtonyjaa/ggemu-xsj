@@ -1,0 +1,94 @@
+	If ($Event == 2000) @2000;//结局2去落叶谷
+	If ($Event == 2102) @2102;
+	If ($Event == 2034) @2102;
+	If ($Event == 2040) @2102;
+	If ($Event == 1818) @1818;
+	If ($Event == 592) @Event592;
+	If ($Event == 520) @Event520;
+	If ($Event == 402) @Event402;
+	If ($Event == 408) @Event408;
+
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_027_连接地图.map");
+	LoadNpc("map027.npc");
+	LoadObj("map027_obj.obj");
+	SetPlayerPos(56, 30);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event402:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_027_连接地图.map");
+	LoadNpc("map027_night.npc");
+	LoadObj("map027_obj.obj");
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	SetPlayerPos(56, 30);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event408:
+	PlayerGoto(2, 59);
+	Say("还是回忘忧岛吧！", 2);
+	Return;
+
+@2102:
+	FadeOut();
+	LoadMap("map_027_连接地图.map");
+	LoadNpc("map027_1.npc");
+	SaveNpc("temp.npc");
+	LoadObj("map027_obj.obj");
+	SetPlayerPos(56, 30);
+	SetPlayerDir(2);
+	FadeIn();
+	Return;
+
+@1818:
+	Say("杨影枫：去落叶谷找孟知秋要紧。",2);
+	Return;
+		
+@2000:
+	Say("杨影枫：先去落叶谷找孟前辈要紧。",2);
+	Return;
+
+@Event592:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_027_连接地图.map");
+	//LoadNpc("map027.npc");
+	LoadObj("map027_obj.obj");
+	SetPlayerPos(56, 30);
+	SetPlayerDir(2);
+	ChangeMapColor(152,152,165);
+	ChangeAsfColor(152,152,165);
+	SetMapTrap(4,"Trap04_Rain.txt");
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Event520:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_027_连接地图.map");
+	BeginRain("rain.ini");
+	SetPlayerPos(56, 30);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@end:
+	Return;

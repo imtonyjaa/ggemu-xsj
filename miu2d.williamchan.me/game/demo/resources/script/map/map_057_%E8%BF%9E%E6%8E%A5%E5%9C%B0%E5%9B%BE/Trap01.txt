@@ -1,0 +1,238 @@
+	If ($Event == 296) @Event296;
+	If ($Event == 301) @Label2;
+	If ($Event == 690) @Label3;
+	If ($Event == 415) @Event415;	
+	If ($Event == 3060) @Event3060;
+	If ($Result == 3) @Result3;
+	
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_050_忘忧岛.map");
+	LoadNpc("map050.npc");
+	LoadObj("map050_obj.obj");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(76, 30);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event296:
+	Say("纳兰真：赶紧去禁地，晚了天就要亮了。", 9);
+//	PlayerGoto(9, 48);
+//	SetPlayerDir(5);
+//	SetMapTrap(1, "Trap01.txt");
+	Return;	
+
+@Label3:
+//	系统消息：跟踪涟漪 need change
+	PlayerGoto(9, 48);
+	SetPlayerDir(5);
+	SetMapTrap(1, "Trap01.txt");
+	Goto(@end);	
+
+@Label2:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_050_忘忧岛.map");
+	LoadNpc("map050_night.npc");
+	LoadObj("map050_night.obj");
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	SetPlayerPos(76, 30);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Result3:
+	If ($Event == 905) @Event905;
+	If ($Event == 910) @Event910;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_050_忘忧岛.map");
+	LoadNpc("map050.npc");
+	LoadObj("map050_obj.obj");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(76, 30);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Event415:	
+	FadeOut();
+	SaveObj();
+	LoadMap("map_050_忘忧岛.map");
+	LoadNpc("map050.npc");
+	LoadObj("map050_obj.obj");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(76, 30);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	AddNpc("纳兰潜凛.ini",64,77,1);
+	SetNpcScript("纳兰潜凛","纳兰潜凛对话.txt");
+	FadeIn();
+	Return;
+
+@Event905:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_050_忘忧岛.map");
+
+	If ($Event905Go == 0) @Event905Go0;
+	If ($Event905Go >> 0) @Event905Go1;
+@Event905Go0:
+	LoadNpc("map050.npc");
+	SaveNpc("map050_del_ali.npc");
+	LoadNpc("map050_del_ali.npc");
+	DelNpc("阿里");
+	SaveNpc("map050_del_ali.npc");
+	Goto @Event905GoEnd;
+@Event905Go1:
+	LoadNpc("map050_del_ali.npc");
+	Goto @Event905GoEnd;
+@Event905GoEnd:
+
+	LoadObj("map050_obj.obj");
+	AddObj("钥匙.ini", 66, 74, 0);
+	SetObjScript("钥匙", "事件91_钥匙.txt");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(76, 30);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	
+	If ($Event905Go >> 0) @end;
+	
+	MoveScreen(0, 100, 4);
+	MoveScreen(1, 80, 4);
+	Sleep(1000);
+	MoveScreen(1, 140, 4);
+	MoveScreen(0, 60, 4);
+	Sleep(1000);
+	SetMapPos(69, 16);
+	Talk(18030, 18040);
+	Assign($Event905Go, 1);
+	Return;
+
+@Event910:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_050_忘忧岛.map");
+	LoadNpc("map050_del_ali.npc");
+	LoadObj("map050_obj.obj");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(76, 30);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Event3060:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_050_忘忧岛.map");
+	LoadNpc("map050_AfterJINGDI.npc");
+	LoadObj("map050_AfterJINGDI.obj");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(76, 29);
+	SetPlayerDir(1);
+	SetNpcPos("月眉儿",76,31);
+	SetNpcKind("月眉儿",1);
+	SetNpcDir("月眉儿",4);
+	DisableNpcAI();
+	FadeIn();
+	
+	
+	
+	
+	
+	SetPlayerDir(4);
+
+	
+	MoveScreen(4,50,1);
+		
+	Watch("杨影枫","月眉儿",0);
+	Say("杨影枫：啊？忘忧岛出了什么事？怎么会遍野横尸？",4);
+	Sleep(1000);
+	Say("王玲嫂：杨公子！你来了……快救救我们啊！",0);
+
+	SetPlayerDir(2);
+	SetNpcDir("月眉儿",2);
+	
+	NpcGotoEx("王妈",75,29);
+	NpcGotoEx("于大婶",75,30);
+	
+	NpcGoto("王妈",75,29);
+	NpcGoto("于大婶",75,30);
+	Watch("王妈","杨影枫",0);
+	Watch("王妈","月眉儿",1);
+	Watch("于大婶","杨影枫",1);
+Say("杨影枫：王玲嫂，到底发生什么事了？",4);
+Say("王玲嫂：最近忘忧岛来了一伙强盗，到处抢夺杀掠，我们都不会武功，毫无还手之力……岛上的人们，死的死，伤的伤，你快救救我们啊！",0);
+Say("杨影枫：好！你们快离开这里，找个安全的地方，这些匪贼自有我来收拾！",2);
+
+	SetPlayerDir(2);
+	SetNpcDir("月眉儿",2);
+	NpcGotoEx("王妈",78,21);
+	NpcGotoEx("于大婶",78,23);
+	
+	NpcGoto("王妈",77,21);
+	DelNpc("王妈");
+	NpcGoto("于大婶",77,23);
+	
+	DelNpc("于大婶");
+	SetMapTrap(4,"");
+	SetMapTrap(1,"");
+	SetMapTrap(2,"");
+	SetMapTrap(3,"");	
+	SetNpcKind("月眉儿",3);
+	PlayerRunTo(63,38);
+	
+	MoveScreen(2,100,1);
+	SetNpcRelation("杨影枫",0);
+	SetNpcRelation("月眉儿",0);
+	Sleep(1000);
+	SetPlayerDir(2);
+Say("杨影枫：你们这些胆大包天的匪贼，胆敢到忘忧岛撒野！",6);
+Say("神驼帮帮主：你算哪根葱？好大的口气！",0);
+Say("强盗阿淮：胆敢指点我们神驼帮的事务，你小子死定了！",0);
+Say("杨影枫：难怪！早听江湖上传言塞外神驼帮最是卑劣无耻，专门抢掠手无寸铁的百姓，今日看来竟是真的了！",6);
+Say("神驼帮帮主：哈哈，想不到我塞外神驼帮在中原武林还略有薄名！哈哈哈！",0);
+Say("杨影枫：不过，从今天起江湖上就不会再有神驼帮了！",6);	
+Say("神驼帮帮主：就看你有没有这个能耐了！",0);
+Say("强盗阿鲁：帮主，旁边那个姑娘姿色不错，哈哈……多好的身段呀！",0);
+Say("神驼帮帮主：哈哈哈，不错哦……你小子眼光倒是不错！哈哈！",0);
+Say("月眉儿：好个下三滥的东西，给我闭嘴！",26);
+Say("神驼帮帮主：这么辣！……哈哈，够味道！",0);
+Say("月眉儿：是吗？！……",26);
+
+	GetNpcCount(1,1);
+	EnableNpcAI();
+	PlayMusic("mc026.mp3");
+	SetNpcScript("月眉儿","");
+	Memo("消灭岛上全部的强盗。");
+	
+	
+	
+	
+	
+	Return;	
+	
+@end:
+	Return;

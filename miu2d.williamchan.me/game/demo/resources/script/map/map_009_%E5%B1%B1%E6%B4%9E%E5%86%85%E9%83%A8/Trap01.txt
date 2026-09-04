@@ -1,0 +1,25 @@
+	If ($Event >= 60) @Label1;
+	Talk(551, 551); 
+	Goto @end;
+
+@Label1:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("mc002.mp3");
+	LoadMap("map_008_野树林.map");
+	LoadNpc("map008.npc");
+	LoadObj("map008_obj.obj");
+	SetPlayerPos(35, 36);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();
+	Goto @end;        
+
+@end:
+	Return;
+
+	
+

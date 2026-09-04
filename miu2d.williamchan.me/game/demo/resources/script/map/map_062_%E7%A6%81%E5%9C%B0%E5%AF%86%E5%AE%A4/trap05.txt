@@ -1,0 +1,29 @@
+	If ($Event == 1815) @1815;//结局2
+	If ($Result == 0)  @Result0;
+	If ($Result == 1)  @Result1;
+	If ($Result == 2)  @Result2;
+	If ($Result == 3)  @Result3;
+	Return;
+
+@1815:
+	SetPlayerDir(3);
+	Say("杨影枫：这副画中的女子好像真儿。",2);
+	Say("杨影枫：嗯……画中的人大概就是我娘吧。",9);
+	Return;
+
+@Result0:
+	Return;
+
+@Result1:
+	Return;
+
+@Result2:
+	If ($Event == 766) Goto @Event766;
+	Return;
+@Event766:
+	Say("对白");
+	Assign($Event,767);
+	Return;
+
+@Result3:
+	Return;

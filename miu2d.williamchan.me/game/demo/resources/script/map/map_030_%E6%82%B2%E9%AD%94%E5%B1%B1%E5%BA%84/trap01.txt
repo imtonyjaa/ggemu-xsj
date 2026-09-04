@@ -1,0 +1,106 @@
+	If ($Event == 2008) @2008;//结局2
+	If ($Event == 2002) @2002;//结局2
+	If ($Event == 2000) @2000;//结局2
+	If ($Event == 1806) @1806;//结局2
+	If ($Event == 1800) @1800;//结局2
+	If ($Event == 3000) @Event3000;
+	If ($Event == 592) @Event592;
+	If ($Event == 475) @Label;
+	If ($Event == 492) @Label;
+	If ($Event == 485) @Label2;
+	If ($Event == 500) @Label2;
+	If ($Event == 510) @Label3;
+	If ($Event == 525) @Label4;
+	If ($Event == 530) @Label5;
+	If ($Event == 562) @Label6;
+	If ($Event << 530) @end;
+	
+@Common:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_065_天山古道.map");
+	LoadNpc("map_tianshangudao.npc");
+	LoadObj("map_tianshangudao.obj");
+	SetPlayerPos(3, 49);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Label5:	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_065_天山古道.map");
+	LoadNpc("map_tianshangudao.npc");
+	LoadObj("map_tianshangudao.obj");
+	SetPlayerPos(3, 49);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@2000:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_065_天山古道.map");
+	LoadNpc("map_tianshangudao.npc");
+	LoadObj("map_tianshangudao.obj");
+	SetPlayerPos(3, 49);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	ShowSnow(1);
+	FadeIn();
+	Return;
+
+@2008:
+    Say("杨影枫：这不是去龙堡救的路。",2); 
+    Return;
+
+@2002:
+	Say("杨影枫：这不是去寒波谷的路",2);
+	Return;
+	
+@Label:
+	Say("这不是去藏剑山庄的路。", 0);
+	Return;	
+	
+@Label2:	
+	Say("杨影枫：先回悲魔山庄吧，真儿还在家里等着我呢！", 2);
+	Return;	
+
+@Label3:
+	Say("杨影枫：这不是去寒波谷的路。", 2);
+	Return;	
+
+	
+@1800:
+	Say("杨影枫：我现在要去找真儿。",2);
+	Return;
+
+@1806:
+	Say("杨影枫：我要去凌绝峰赴月眉儿之约。",2);
+	Return;
+
+@Event3000:
+	Talk(102410,102410);
+	Return;
+
+@Label4:
+	Say("杨影枫：真儿还在后花园回廊上等我呢！", 2); 
+	Return;
+
+@Label6:
+	Say("杨影枫：先回悲魔山庄吧，真儿一定在等我的消息！", 2); 
+	Return;
+
+@Event592:
+	Say("杨影枫：现在时间不多了，我得赶紧去芭蕉小筑。",2);
+	PlayerGoto(75,30);
+	SetMapTrap(1,"Trap01.txt");
+	Return;
+
+@end:
+	Return;

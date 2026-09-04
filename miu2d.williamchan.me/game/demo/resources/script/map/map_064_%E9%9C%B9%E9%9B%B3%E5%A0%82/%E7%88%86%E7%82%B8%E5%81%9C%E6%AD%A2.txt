@@ -1,0 +1,25 @@
+
+	If ($Event == 217) @Event217;
+	If ($Event == 218) @Event218;
+	Return;
+@Event217:
+	DisableNpcAI();
+	CloseTimeLimit();
+	Say("霹雳堂弟子：不好了，那小子盗走雷震子时触动了机关，听雷阁就要爆炸了，快去把机关关掉！", 0);
+	EnableNpcAI();
+	SetMapTrap(3, "");
+	SetMapTrap(12, "");
+	Memo("带雷震子回药王谷救紫轩。");
+	Return;
+@Event218:
+	DisableNpcAI();
+	CloseTimeLimit();
+	Say("霹雳堂弟子：不好了，那小子盗走雷震子时触动了机关，听雷阁就要爆炸了，快去把机关关掉！", 0);
+	Say("霹雳堂弟子：那小子跑到外面去了，快开大门追！");
+	DelObj("霹雳堂大门");
+	DelObj("门类障碍");
+	EnableNpcAI();
+	SetMapTrap(3, "");
+	SetMapTrap(12, "");
+	Memo("带雷震子回药王谷救紫轩。");
+	Return;

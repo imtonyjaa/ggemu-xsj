@@ -1,0 +1,46 @@
+	If ($Event == 2102) @2102;//蔷薇死亡
+	If ($Event == 2006) @Evt2006;
+	Return;
+	
+@Evt2006:
+	PlayerGoto(27,85);
+	Watch("杨影枫","紫轩",0);
+	Say("杨影枫：你在这里安心养伤好了，等我去飞龙堡救她们出来，再回来找你。",2);
+	Say("紫轩：纳兰潜凛的武功非常厉害，你千万要小心。",20);
+	SetMapTrap(9,"");
+	Assign($Event, 2007);
+	SetNpcKind("紫轩",0);
+	PlayerGoto(32,98);
+	NpcGoto("紫轩",30,90);
+	Watch("杨影枫","紫轩",0);
+	Sleep(1000);
+	Say("紫轩：杨大哥……一定要回来。",20);
+	Say("杨影枫：紫轩……我会的。",2);
+	Memo("去飞龙堡救人");
+	Return;
+	
+@2102:
+	StopMusic();
+	SetMapTrap(9,"");
+	Say("屋子里面一片狼藉……月眉儿和紫轩倒在血泊中……");
+	PlayMusic("mc008.mp3");
+	Say("杨影枫：眉儿！紫轩！",4);
+	PlayerRunTo(28,87);
+	Say("杨影枫：眉儿！紫轩！你们不能死！",5);
+	FadeOut();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_020_樱花谷.map");
+	LoadNpc("map020-luren.npc");
+	LoadObj("map020_obj.obj");
+	AddObj("孟知秋之墓.ini",11,18,0);
+	AddObj("孟知秋之墓.ini",10,20,0);
+	SaveObj();
+	SetPlayerPos(12,22);	
+	Say("杨影枫将二人的尸体安葬在了樱花谷……");
+	FadeIn();
+	Say("杨影枫：眉儿……紫轩……都是我害了你们……",5);
+	Say("杨影枫：我一定要给你们报仇！",6);
+	Assign($Event, 2103);
+	Memo("去摘星楼报仇");
+	Return;

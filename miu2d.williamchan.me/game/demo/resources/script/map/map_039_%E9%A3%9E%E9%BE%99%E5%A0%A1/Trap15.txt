@@ -1,0 +1,7 @@
+
+	If ($Result == 3) Goto @Result3;
+	Return;
+
+@Result3:
+	Say("杨影枫：怎么现在这里一个人都没有？", 2);
+	Return;

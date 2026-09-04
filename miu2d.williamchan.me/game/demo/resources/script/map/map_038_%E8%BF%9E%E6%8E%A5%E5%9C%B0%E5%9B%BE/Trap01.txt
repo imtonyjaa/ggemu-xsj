@@ -1,0 +1,11 @@
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_037_敦煌十洞.map");
+	LoadNpc("map037.npc");
+	SaveNpc("temp.npc");
+	LoadObj("map037_obj.obj");
+	SetPlayerPos(77, 229);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();

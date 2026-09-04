@@ -1,0 +1,27 @@
+	If ($Event == 2035) @L2035; // 从樱花谷回来
+	Return;
+	
+@L2035:
+	StopMusic();
+	PlayMusic("mc013.mp3");
+	Say("杨影枫：眉儿，收拾一下，我们就出发吧。", 2);
+	Say("月眉儿：紫轩妹，你同意跟杨大哥走了？",22);
+	Say("紫轩：眉儿姐……我只是有些舍不得离开这里。",16);
+	Say("月眉儿：杨大哥的本事可是真不小。",23);
+	SetNpcKind("月眉儿",3);
+	FadeOut();
+	SetNpcLevel("月眉儿", 52);
+	SetNpcLevel("紫轩", 52);
+	Say("三人收拾好行装，离开了寒波谷。");
+	LoadMap("map_018_连接地图.map");
+	LoadNpc("map018.npc");
+	LoadObj("map018_obj.obj");
+	SetPlayerDir(6);
+	SetPlayerPos(3,35);
+	FadeIn();
+	SetNpcDeathScript("杨影枫","主角死亡.txt");
+	SetNpcDeathScript("月眉儿","主角死亡.txt");
+	SetNpcDeathScript("紫轩","主角死亡.txt");
+	Assign($Event, 2040);
+	Assign($zixuan, 1);
+	Return;

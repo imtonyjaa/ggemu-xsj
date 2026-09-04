@@ -1,0 +1,20 @@
+	If ($Event == 1813) @260;
+	If ($Event == 254) @254;
+	If ($Event == 260) @260;
+	Return;
+	
+@254:
+	SetPlayerState(0);
+	Talk(4144, 4144);
+	DelCurObj();
+    AddGoods("Goods-e12-银丝草.ini");
+    AddToMemo(90460);
+	Assign($Event, 260);
+	SetMapTrap(1, "Trap01.txt");
+	Return;	
+	
+@260:
+    AddGoods("Goods-e12-银丝草.ini");
+	DelCurObj();
+	Return;
+	

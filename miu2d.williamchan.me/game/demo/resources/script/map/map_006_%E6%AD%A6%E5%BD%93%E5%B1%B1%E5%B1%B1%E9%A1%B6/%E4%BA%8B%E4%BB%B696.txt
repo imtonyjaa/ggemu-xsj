@@ -1,0 +1,37 @@
+
+	If ($Event == 950) @Label1;
+
+	Goto @end;
+
+@Label1:
+	If ($Result <> 3) @end;
+
+	Say("杨影枫：好像出事了！", 4);
+	PlayerRunTo(3, 161);
+	SetPlayerDir(4);
+	Talk(81820, 81820);
+	PlayerRunTo(11, 166);
+	SetPlayerDir(6);
+	Say("杨影枫：这也是武当弟子。", 4);
+	PlayerRunTo(20, 148);
+	PlayerRunTo(11, 119);
+	SetPlayerDir(3);
+	Say("杨影枫：怎么死了这么多人？看来我来迟了，纳兰潜凛已经大开杀戒了，赶快进去看看。", 2);
+	PlayerRunTo(17, 98);
+	PlayerRunTo(26, 96);
+	SetPlayerDir(6);
+	MoveScreen(6, 80, 2);
+
+	Talk(81860, 81910);
+
+	SetNpcKind("杨影枫", 0);
+	DisableInput();
+	SetNpcRelation("天星道长", 0);
+	SetNpcRelation("纳兰潜凛", 1);
+
+	Assign($Event, 952);
+
+	Goto @end;
+
+@end:
+	Return;

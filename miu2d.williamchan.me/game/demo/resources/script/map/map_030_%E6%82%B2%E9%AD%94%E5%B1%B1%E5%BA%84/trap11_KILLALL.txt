@@ -1,0 +1,55 @@
+
+	If ($Event <> 3185) @end;
+	
+	
+	DisableNpcAI();
+	PlayerGoto(17,206);
+	SetPlayerDir(1);
+	MoveScreen(1,50,1);
+	
+	If ($EvilValue << 112) @GoodTalk;
+	Talk(100822,100827);
+	
+
+	Goto @Next1;
+
+@GoodTalk:
+	Say("杨影枫：各位大侠，远道而来不知有何指教？",2);
+	Say("武林人士：杨影枫！你这个灭绝人性的武林败类！看你还有何颜面在中原立足！");
+	Say("杨影枫：唉……清者自清，浊者自浊，我不想与你们辩论！",2);
+	Say("武林人士：我看你是无话可说了吧！我们大伙儿今日定要为武林除害！");
+	Say("杨影枫：我不想和你们动手，你们走吧！",2);
+	Say("武林人士：你如果怕了呢，就跪下来磕三个响头求饶！");
+	Say("杨影枫：可笑！我杨影枫一忍再忍，你们一再恶语相向，唉……",2);
+	Say("武林人士：不管怎么样，我们今天定要做个了结。");
+	Goto @Next1;
+	
+@Next1:
+	SetPlayerDir(5);
+	Say("杨影枫：你们给我把大门封住，免得弄脏了悲魔山庄。",2);
+	NpcGoto("家丁阿辉",19,200);
+	SetNpcDir("家丁阿辉",1);
+	NpcGoto("家丁阿柄",19,201);
+	SetNpcDir("家丁阿柄",1);
+	
+	SetNpcKind("家丁阿辉",5);
+	SetNpcKind("家丁阿柄",5);
+	SetNpcKind("家丁阿龙",5);
+	SetNpcKind("家丁阿虎",5);
+	
+	GetNpcCount(1,1);
+	PlayerGotoDir(1,2);
+	SetNpcRelation("杨影枫",0);
+	PlayMusic("mc014.mp3");
+	SetMapTrap(5,"");
+	EnableNpcAI();
+	Assign($Event,3210);
+	AddToMemo(24500);
+
+	
+	Goto @end;
+
+
+
+@end:
+Return;

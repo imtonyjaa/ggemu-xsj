@@ -1,0 +1,15 @@
+//这段脚本已经取消
+
+	Add($Enemy022, 1);
+	If ($Enemy022 == 3) @finished;
+    Goto @end;
+    
+@finished:
+	Talk(2701, 2701);
+	AddToMemo(90310);
+	Assign($Event, 205);   
+	SetPlayerState(0);
+	Goto @end;
+
+@end:
+	Return();

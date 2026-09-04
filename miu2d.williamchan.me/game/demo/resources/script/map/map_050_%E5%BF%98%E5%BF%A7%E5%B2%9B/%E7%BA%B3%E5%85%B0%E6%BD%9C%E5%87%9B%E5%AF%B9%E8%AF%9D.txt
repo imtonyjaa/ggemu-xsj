@@ -1,0 +1,108 @@
+	If ($Event == 350) @Event350;
+	If ($Event == 270) @Event270;
+	If ($Event == 275) @Event275;
+	If ($Event == 420) @Event420;
+	If ($Event == 412) @Event412;
+	Return;
+
+@Event420:
+	Watch("纳兰真","纳兰潜凛",1);
+	Say("纳兰真：爹，影枫哥哥回来了……", 10);
+	Talk(7280,7360);
+	SetMapTrap(1,"Trap01.txt");
+	SetMapTrap(2,"Trap02.txt");
+	SetMapTrap(3,"Trap03.txt");
+	SetMapTrap(4,"Trap04.txt");
+	Assign($Event,422);
+	RunScript("Event422.txt");
+	Return;
+
+@Event270:
+    If ($SelectVal == 1) @Label;
+	Say("纳兰真：爹！", 9);
+	Say("纳兰潜凛：真儿，听说你从海边救了个人回来？", 38);
+	Say("纳兰真：是呀，是一位姓杨的公子。",	9);
+	Say("纳兰潜凛：难怪这几日都不见你人影！", 38);
+	Say("纳兰真：他从悬崖上摔下来，又在海水里泡了很长时间，因此伤势很重，不过他看起来一点也不把伤势放在心上，这个人有点与众不同……爹，你医术精湛，能不能去给他看看伤？", 9);
+	Say("纳兰潜凛：稀罕！这是你第一次夸赞爹的医术吧？",	38);
+	Say("纳兰真：爹！你到底去不去嘛！",	121);
+	Say("纳兰潜凛：哈哈哈，好好！",	38);
+	SetNpcKind("纳兰潜凛",3);
+	Sleep(200);
+	Talk(20150, 20150);
+    Assign($Event, 275);
+    AddToMemo(90480);
+    SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(2, "Trap02.txt");
+	SetMapTrap(3, "Trap03.txt");
+	SetMapTrap(4, "Trap04.txt");
+	Goto @end;
+
+@Label:
+	Say("纳兰真：爹！", 9);
+	Say("纳兰潜凛：真儿，听说你救了一位受伤的年轻人？",	38);
+	Say("纳兰真：哼，那个人呀，一提起他我就有气！",	11);
+	Say("纳兰潜凛：怎么回事？他竟敢惹爹的宝贝女儿？爹要好好教训他一顿，为你出气！",	38);
+	Say("纳兰真：爹，他是个习武之人，现在功力尽失，说是了无生趣了呢！",	9);
+	Say("纳兰潜凛：如此颓废之人，你何必理他，就随他去罢！",	38);
+	Say("纳兰真：可是……我总觉得他十分可怜，可能他有什么难言之隐吧？爹，你去看看他的伤势如何？", 9);
+	Say("纳兰潜凛：很少见到你对一个素不相识的人这么热心，好吧，我就去看看。", 38);
+	SetNpcKind("纳兰潜凛",3);
+	
+	
+    Sleep(200);
+	Talk(20150, 20150);
+	Assign($Event, 275);
+	AddToMemo(90480);
+	SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(2, "Trap02.txt");
+	SetMapTrap(3, "Trap03.txt");
+	SetMapTrap(4, "Trap04.txt");
+	Goto @end;
+
+@Event275:
+	If ($Talknalanql == 0) @Talk0;
+	If ($Talknalanql == 1) @Talk1;
+	Say("纳兰真：爹，咱们快些走吧。", 9);
+	Say("纳兰潜凛：瞧你心急的！", 38);
+	Goto @end;
+@Talk0:
+	Say("纳兰潜凛：真儿，我很少见你对一个素不相识的人如此热心……", 38);
+	Say("纳兰真（脸红）：爹！没有啦，我只不过有点可怜他，而且……他是一个很特别的人。", 121);
+	Say("纳兰潜凛：能让我这个天不怕地不怕的女儿另眼相看的人，我倒是第一次遇到，哈哈哈……", 38);
+	Say("纳兰真（脸红）：爹！你再说我可要生气了！", 121);
+	Assign($Talknalanql, 1);
+	Goto @end;
+@Talk1:
+	Say("纳兰真：爹，咱们快些走吧。", 9);
+	Say("纳兰潜凛：瞧你心急的！", 38);
+	Goto @end;
+
+	
+
+@Event350:
+	If ($Talknalanqlb == 0) @Talk3;
+	If ($Talknalanqlb == 1) @Talk4;
+	If ($Talknalanqlb == 2) @Talk5;
+	Say("纳兰潜凛：真儿，送完杨公子以后早些回家，不要再四处乱跑了，让我担心。", 38);
+	Say("纳兰真：知道了，爹。", 15);
+	Goto @end;
+@Talk3:
+    Talk(5951, 5952); 
+	Assign($Talknalanqlb, 1);
+	Goto @end;
+@Talk4:
+    Talk(5953, 5954);
+	Assign($Talknalanqlb, 2);
+	Goto @end;
+@Talk5:
+    Say("纳兰潜凛：真儿，送完杨公子以后早些回家，不要再四处乱跑了，让我担心。", 38);
+	Say("纳兰真：知道了，爹。", 15);
+	Goto @end; 
+
+
+@end:
+	Return;
+
+
+

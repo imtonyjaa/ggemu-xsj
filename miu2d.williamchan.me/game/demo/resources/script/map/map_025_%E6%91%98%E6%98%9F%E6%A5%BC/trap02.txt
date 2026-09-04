@@ -1,0 +1,102 @@
+	If ($Event == 2005) @L2005;
+	If ($Event == 672) @Label1;
+	If ($Event == 960) @Event960;
+	If ($Event == 990) @Event990;
+	If ($Event == 822) @Event822;
+	If ($Event == 824) @Event824;
+	Goto @end;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_026_摘星楼地下.map");
+	
+	LoadObj("map026_obj.obj");
+	LoadNpc("map026.npc");
+	
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(5, 105);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+
+	Goto @end;
+	
+@Label1:
+	If ($Result <> 1) @end;
+	Say("系统消息：杨影枫：还是去找涟漪吧！", 2);
+	PlayerGoto(35, 104);
+	SetMapTrap(2, "Trap02.txt");
+	
+	Goto @end;
+	
+@Event960:
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_026_摘星楼地下.map");
+	
+	LoadNpc("Event97-1_map026.npc");
+	LoadObj("map026_event97.obj");
+	
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(5, 105);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+
+	Goto @end;
+
+@Event990:
+	PlayerGoto(35, 104);
+	SetMapTrap(2, "Trap02.txt");
+	Say("杨影枫：赶紧带真儿到惠安镇找大夫看看。", 2);
+
+	Goto @end;
+	
+	
+@Event822:
+	Talk(15860,15860);
+	Goto(@end);	
+	
+@Event824:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_026_摘星楼地下.map");
+
+	LoadNpc("map026_NNQL_VS.npc");
+	LoadObj("map026_obj.obj");
+	
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(5, 105);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+
+	Goto @end;		
+	
+@end:
+	Return;
+
+
+@L2005:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_026_摘星楼地下.map");
+	LoadNpc("map026_1.npc");
+	LoadObj("map026_obj.obj");
+	SetPlayerPos(5, 105);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	GetNpcCount(1,1);
+	SetMapTrap(1,"");
+	SetNpcScript("紫轩","紫轩对话.txt");
+	Return;
+	

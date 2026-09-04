@@ -1,0 +1,67 @@
+
+
+// 事件40 刚发生
+	If ($Event == 400) @Label1;
+	Goto(@end);
+
+@Label1:
+	
+	PlayerGoto(14,55);
+	SetPlayerDir(5);
+	Sleep(1000);
+	Talk(6950,6980);
+	
+	Select(41390, 41400, 41410, $SelectVal);
+	If ($SelectVal == 0) @Label2;
+	If ($SelectVal == 1) @Label3;
+	Goto(@end);
+
+@Label2:
+	//决定去买金创药
+	//Say("系统消息：走到另一个房间。黑屏：一夜过去");
+	Talk(7040,7050);
+	AddToMemo(45050);
+	PlayerGoto(15,68);
+	SetPlayerDir(1);
+	Talk(7060,7060);
+	// 事件402买药
+	Assign($Event,402);
+	Add($SenseVal, 40);
+	Goto(@end);	
+
+@Label3:
+	// 不买药	
+	PlayerGoto(16,68);
+	SetPlayerDir(1);
+	Talk(6990,7000);
+	Say("杨影枫：她个性如此之强，我若帮她，她知道后反而会不喜，幸好她伤势不重，好好休息一下就可以了。现在天色已晚，我不如在一旁休息，待明天再做安排。", 2);
+	PlayerGoto(13, 62);
+	SetPlayerDir(1);
+	//NpcAction("杨影枫",9,0,0)
+	Sleep(1000);
+	FadeOut();
+		
+	ChangeMapColor(255,255,255);
+	ChangeAsfColor(255,255,255);
+	DelNpc("月眉儿");
+	Say("一夜过去……");
+
+	FadeIn();
+	PlayerGoto(16,68);
+	SetPlayerDir(5);
+	PlayerRunTo(16,56);
+	SetPlayerDir(3);
+	Sleep(500);
+	SetPlayerDir(5);
+	Sleep(500);
+	SetPlayerDir(1);
+	Sleep(500);
+	SetPlayerDir(3);
+	Sleep(500);
+	Talk(7030,7030);	
+	// 事件408不买药
+	Assign($Event, 408);
+	Goto(@end);
+
+@end:
+	Return;

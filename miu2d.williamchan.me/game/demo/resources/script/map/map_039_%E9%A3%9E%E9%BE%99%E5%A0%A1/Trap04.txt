@@ -1,0 +1,39 @@
+	If ($Result == 0)  @Result0;
+	If ($Result == 1)  @Result1;
+	If ($Result == 2)  @Result2;
+	If ($Result == 3)  @Result3;
+	Return;
+
+@Result0:
+	Return;
+
+@Result1:
+	If ($Event == 655) @Event655;
+	Return;
+
+@Result2:
+	Return;
+
+@Result3:
+	Return;
+
+@Event655:
+	PlayerGoto(34,42);
+	Watch("杨影枫","卢肇灏",0);
+	SetNpcPos("杀手Z4",33,46);
+	SetNpcPos("杀手Z5",33,47);
+	SetNpcPos("杀手Z6",34,48);
+	MoveScreen(5,40,2);
+	Talk(61340,61340);
+	NpcGoto("卢肇灏",36,42);
+	FollowNpc("杀手1","卢肇灏");
+	FollowNpc("杀手2","卢肇灏");
+	FollowNpc("杀手3","卢肇灏");
+	Sleep(1000);
+	GetNpcCount(1,1);
+	EnableNpcAI();
+	EnableFight();
+
+
+	Assign($Event,658);
+	Return;

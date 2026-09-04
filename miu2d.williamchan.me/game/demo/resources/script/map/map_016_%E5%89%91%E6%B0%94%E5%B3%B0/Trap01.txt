@@ -1,0 +1,109 @@
+
+	If ($Event == 430) @end;
+	If ($Event == 492) @Label1;
+	If ($Event == 494) @Label2;
+	If ($Event == 495) @Label2;
+	If ($Event == 496) @Label3;
+	If ($Event == 498) @Label2;
+	If ($Event == 500) @Label4;
+	If ($Event >= 510) @Label7;
+	If ($Event == 235) @Label5;
+	If ($Event == 478) @Label6;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_015_藏剑山庄.map");
+	LoadNpc("cangjian2.npc");
+    LoadObj("map015-xianglu.obj");
+    ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(3, 15);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();
+	
+	Goto(@end);
+
+@Label1:
+	Talk(8941, 8941); 
+    Goto @end;
+
+@Label2:
+	Talk(241, 241); 
+    Goto @end;
+
+@Label3:
+	Talk(8942, 8942); 
+    Goto @end;	
+        
+@Label4:
+	FadeOut();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_015_藏剑山庄.map");
+	LoadNpc("map015_empty.npc");
+    LoadObj("map015-xianglu.obj");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(3, 15);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	SetMapTrap(18, "trap18.txt");
+	FadeIn();
+	Goto(@end);
+	
+@Label7:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_015_藏剑山庄.map");
+	LoadNpc("map015_empty.npc");
+    LoadObj("map015-xianglu.obj");
+	SetPlayerPos(3, 15);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+	
+@Label5:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_015_藏剑山庄.map");
+	LoadNpc("map015_empty.npc");
+    LoadObj("map015-xianglu.obj");
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	SetPlayerPos(3, 15);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();
+	Goto(@end);
+	
+@Label6:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_015_藏剑山庄.map");
+    LoadNpc("cangjian2.npc");
+    LoadObj("map015-xianglu.obj");
+	SetNpcPos("李四", 35, 59);
+	SetNpcDir("李四", 5);
+	AddNpc("卓非凡.ini",28, 53, 7);
+	AddNpc("紫轩.ini",15, 135, 0);
+	SetNpcScript("卓非凡","卓非凡对话.txt");
+	SetNpcScript("紫轩","紫轩对话.txt");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(3, 15);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();
+	Goto @end;
+        
+
+
+@end:
+	Return;

@@ -1,0 +1,16 @@
+	SetMapTrap(8, "");
+	SaveMapTrap();
+	FadeOut();
+	SetMapPos(32, 67);
+	FadeIn();
+	NpcGoto("张惟宜", 36, 81);
+	SetNpcDir("张惟宜", 5);
+    Talk(490, 500);
+	FadeOut();
+	SetPlayerPos(11, 117);
+	SetPlayerDir(1);
+	FadeIn();
+	Talk(289, 289);
+	SetMapTrap(1, "Trap01.txt");
+	Memo("下武当山。");
+	Return();

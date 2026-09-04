@@ -1,0 +1,103 @@
+	If ($Event == 2002) @2002;//结局2
+	If ($Event == 2102) @2102;//蔷薇死亡
+	If ($Event == 2034) @2102;//结局2
+	If ($Event == 2040) @2102;//结局2
+	If ($Event == 2008) @L2008;
+	If ($Event == 3000) @Evt3000;
+	If ($Event == 592) @Event592;
+	If ($Event <> 370) @Begin;
+	ClearBody();//清除368战斗中的尸体
+
+@Begin:
+	If ($Event == 390) @Event390;	
+	If ($Event == 110) @Label1;	
+	If ($Event == 475) @Label1;
+	If ($Event == 492) @Label1;
+	If ($Event == 480) @Label2;
+	If ($Event == 500) @Label2;
+	If ($Event <= 134) @end;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_017_连接地图.map");
+	LoadNpc("map017.npc");	
+	LoadObj("map017_obj.obj");
+	SetPlayerPos(15, 34);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event390:
+	Say("还是赶紧离开这里，去忘忧岛吧！");	
+	PlayerGotoDir(7,2);
+	SetMapTrap(3,"Trap03.txt");
+	Return;
+
+@Label1:
+	Talk(1284, 1284);
+	Return;
+
+@Label2:
+	Say("杨影枫：还是先回悲魔山庄吧，真儿还在等我呢！",2);	
+	Return;
+
+@end:
+	Return;
+	
+@L2008:
+	Say("杨影枫：我现在要先飞龙堡去救人。",2);
+	PlayerGotoDir(7,1);
+	SetMapTrap(3,"Trap03.txt");
+	Return;
+
+@2102:
+	FadeOut();
+	LoadMap("map_017_连接地图.map");
+	LoadNpc("map017.npc");	
+	LoadObj("map017_obj.obj");
+	SetPlayerPos(15, 34);
+	SetPlayerDir(2);
+	FadeIn();
+	Return;
+
+@Evt3000:
+	FadeOut();
+	LoadMap("map_017_连接地图.map");
+	LoadNpc("map017.npc");	
+	LoadObj("map017_obj.obj");
+	SetPlayerPos(15, 34);
+	SetPlayerDir(2);
+	SetMapTrap(2,"");
+	FadeIn();
+	Return;
+
+@2002:
+	FadeOut();
+	LoadMap("map_017_连接地图.map");
+	LoadNpc("map017.npc");	
+	LoadObj("map017_obj.obj");
+	SetPlayerPos(15, 34);
+	SetPlayerDir(2);
+	FadeIn();
+	Say("杨影枫：不知紫轩在芭蕉小筑有没有危险……",2);
+	Say("杨影枫：不行，我得先去看看紫轩。",2);
+	Memo("去寒波谷看紫轩");
+	Return;
+
+@Event592:
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_017_连接地图.map");
+
+	LoadObj("map017_obj.obj");
+	SetPlayerPos(15, 34);
+	SetPlayerDir(2);
+	BeginRain("Rain.ini");
+	SetMapTrap(3,"");
+	EnableNpcAI();
+	FadeIn();
+	Return;

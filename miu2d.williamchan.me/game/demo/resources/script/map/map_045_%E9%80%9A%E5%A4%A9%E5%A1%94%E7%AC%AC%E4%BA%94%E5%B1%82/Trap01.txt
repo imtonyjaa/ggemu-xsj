@@ -1,0 +1,64 @@
+	If ($Event == 2009) @2009;
+	If ($Event == 2010) @2009;
+	If ($Event == 3182) @Evt3182;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("MAP_044_通天塔四层.map");
+	LoadNpc("map044.npc");
+	LoadObj("map044_obj.obj");
+	SetPlayerPos(25, 7);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@2009:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("MAP_044_通天塔四层.map");
+	LoadNpc("map044_1.npc");
+	LoadObj("map044_obj.obj");
+	SetPlayerPos(25, 7);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Evt3182:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("MAP_044_通天塔四层.map");
+
+	LoadNpc("map044_FindNLZ.npc");
+//	SaveNpc("temp.npc");
+//	LoadNpc("temp.npc");
+	
+	
+	LoadObj("map044_obj.obj");
+
+
+
+	DelObj("通天塔开关");
+	AddObj("Lock_4.ini",34,30,0);
+	If ($Lock4 == 1)  @Opened;
+	Goto @Next;
+
+@Opened:
+	OpenBox("通天塔开关");
+	Goto @Next;	
+
+@Next:
+
+
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(25, 7);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;	
+	

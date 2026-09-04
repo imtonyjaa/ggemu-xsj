@@ -1,0 +1,296 @@
+	ShowSnow(0);
+
+	If ($Event == 2010) @2010;//结局2
+	If ($Event == 2002) @2002;//结局2
+	If ($Event == 2101) @2101;//结局2
+	If ($Event == 2000) @2000;//结局2
+	If ($Event == 2020) @2020;//结局2
+	If ($Event == 1085) @1085;//结局2
+	If ($Event == 592) @Event592;
+	If ($Result == 0)  @Result0;
+	If ($Result == 1)  @Result1;
+	If ($Result == 2)  @Result2;
+	If ($Result == 3)  @Result3;
+	Return;
+                              
+@2010:
+	FadeOut();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("map030_1.npc");
+	LoadObj("map030_obj.obj");
+	SetPlayerPos(75,29);
+	SetPlayerDir(2);
+	FadeIn();
+	Return;
+
+@1085:
+	FadeOut();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("beimo.npc");
+	LoadObj("map030_obj.obj");
+	SetPlayerPos(75,29);
+	SetPlayerDir(2);
+	SetMapTrap(5,"");
+	SetMapTrap(6,"");
+	FadeIn();
+	Return;
+
+@Result0:
+	If ($Event == 530) @Event530;
+	Goto @commonmap;
+                                    
+@Result1:
+	If ($Event == 574) @Event574;
+	If ($Event == 592) @Event592;
+	If ($Event == 600) @Event600;
+	//If ($Event <= 600) @AddQW;
+	//If ($Event >= 620) @UseTombMap;
+	Goto @commonmap;
+                                          
+@Result2:
+	Goto @commonmap;
+                                               
+@Result3:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("beimo.npc");
+	LoadObj("map030_obj.obj");
+	SetNpcPos("侍女可意", 40, 139);
+	SetNpcPos("侍女可心", 41, 138);
+	SetNpcDir("侍女可意", 7);
+	SetNpcDir("侍女可心", 7);
+	SetPlayerPos(75,29);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@UseTombMap:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("beimo.npc");
+	LoadObj("map030_obj.obj");
+	SetPlayerPos(75,29);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Event530:
+	Say("杨影枫：还是先去落叶谷拜访孟知秋吧！", 2);
+	Return;	
+		
+	
+@Event574:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("beimo.npc");
+	LoadObj("map030_obj.obj");
+	SetPlayerPos(75,29);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	SetNpcPos("侍女可意", 40, 139);
+	SetNpcDir("侍女可意", 7);
+	SetNpcPos("管家铁云",44,138);
+	SetNpcDir("管家铁云",1);
+	SetNpcPos("家丁阿柄",37,151);
+	SetNpcDir("家丁阿柄",7);
+	SaveNpc();
+	FadeIn();
+	Return;
+
+@Event592:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadObj("map030_obj.obj");
+	LoadNpc("beimo.npc");
+	
+	SetNpcPos("蔷薇",76,9);
+	SetNpcScript("蔷薇","蔷薇对话.txt");
+	
+	SetNpcKind("蔷薇",0);
+	SetNpcDir("蔷薇",0);
+	SetPlayerPos(76,31);
+	SetPlayerDir(2);
+	SetNpcPos("管家铁云",44,138);
+	SetNpcDir("管家铁云",0);
+	EnableNpcAI();
+	PlayerGotoEx(76,54);
+	FadeIn();
+	PlayerGoto(77,48);
+
+	Say("蔷薇：枫哥哥！你终于回来呢？",31);
+	SetPlayerDir(4);
+	MoveScreen(4,300,2);
+	SetNpcKind("杨影枫",1);
+	SetNpcKind("蔷薇",2);
+	NpcGoto("蔷薇",75,31);
+	Watch("杨影枫","蔷薇",0);
+	Say("蔷薇：枫哥哥，我都等你好半天了！怎么现在才回来！",30);
+	NpcGoto("杨影枫",75,33);
+	Watch("杨影枫","蔷薇",0);
+	Say("杨影枫：你跑到这里来作什么？",2);
+	Say("蔷薇：枫哥哥，陪我出去打猎好不好？",30);
+	Say("杨影枫：薇儿，我现在要赶快回去修炼武功，没有空陪你了。",6);
+	Say("蔷薇：整天都有事情，你总有藉口不理我！不行，今天你一定要陪，我可站在这里等你好久了！",32);
+	Say("杨影枫：你别再胡闹了！我反正这些天没有空，你等我回来后再说！",6);
+	
+	NpcGotoEx("杨影枫",76,52);
+	Sleep(2000);
+	Say("蔷薇：哼…哼！我不许你走！你老是这样！我不理你了！",30);
+	
+	Sleep(2000);
+	FadeOut();
+	Say("十天后……");
+	SetNpcKind("蔷薇",0);
+	SetNpcKind("杨影枫",2);
+	SetPlayerPos(39,153);
+	SetNpcPos("蔷薇",39,150);
+	FadeIn();
+	PlayerGoto(34,167);
+	
+	Say("杨影枫：沧海月明这套武功内劲强大，看来岳父的内功修为的确高深莫测，日后我要多多向他求救。",2);
+	Say("杨影枫：现在已是到芭蕉小筑比武的时刻了，不知那紫衫蒙面人到底与我有何过节？算了，我不用在这里猜测了，去了自然会知道。",2);
+	Say("杨影枫：现在立刻就走。",2);
+	Assign($douhao2 ,1);
+	
+	
+	
+	Return;	
+		
+	
+@Event600:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadObj("map030_obj.obj");
+	LoadNpc("beimo.npc");
+	DelNpc("纳兰真");
+	DelNpc("蔷薇");
+	AddNpc("蔷薇.ini",49,155,1);
+	SetNpcScript("蔷薇","蔷薇对话.txt");
+	SetNpcKind("蔷薇",0);
+	SetPlayerPos(75,29);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@AddQW:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadObj("map030_obj.obj");
+	LoadNpc("beimo.npc");
+	DelNpc("纳兰真");
+	DelNpc("蔷薇");
+	AddNpc("蔷薇.ini",49,155,1);
+	SetNpcScript("蔷薇","蔷薇对话.txt");
+	SetNpcKind("蔷薇",0);
+	SetPlayerPos(75,29);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+
+@AddYMR:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadObj("map030_obj.obj");
+	LoadNpc("beimo.npc");
+	AddNpc("月眉儿.ini",9,225,1);
+	SetNpcScript("月眉儿","月眉儿对话.txt");
+	SetPlayerPos(75,29);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;	
+	
+@commonmap:	
+	If ($Event == 562) @Label1;
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("beimo.npc");
+	LoadObj("map030_obj.obj");
+	SetPlayerPos(75,29);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Label1:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("beimo.npc");
+	LoadObj("map030_obj.obj");
+	//AddNpc("纳兰真.ini", 44, 144, 3)；
+	SetNpcPos("纳兰真", 43, 143);
+	SetNpcDir("纳兰真", 1);
+	SetNpcKind("纳兰真", 1);
+	SetNpcRelation("纳兰真", 2);
+	SetPlayerPos(75,29);
+	SetPlayerDir(2);
+	SetMapTrap(7, "纳兰真对话.txt");
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@2000:
+	Say("杨影枫：先找孟老前辈要紧。",2);
+	Return;
+
+@2020:
+	Say("蔷薇：你不陪我去看爹爹了？",31);
+	Say("杨影枫：没有，我只是不小心走错路了。",3);
+	Return;
+
+@2101:
+	FadeOut();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("map030_1.npc");
+	LoadObj("map030_obj.obj");
+	DelNpc("纳兰真");
+	AddNpc("纳兰真.ini",36,91,7)；
+	SetNpcPos("纳兰真",36,91);
+	SetNpcDir("纳兰真",7);
+	SetNpcRelation("纳兰真",0);
+	SetNpcScript("纳兰真","真儿对话.txt");
+	SetPlayerPos(75,29);
+	SetPlayerDir(2);
+	SetMapTrap(1,"");
+	SetMapTrap(5,"");
+	SetMapTrap(6,"");
+	FadeIn();
+	Return;
+
+@2002:
+	FadeOut();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("map030_1.npc");
+	LoadObj("map030_obj.obj");
+	SetPlayerPos(75,29);
+	SetPlayerDir(2);
+	DelNpc("纳兰真");
+	FadeIn();
+	Return;
+
+
+@end:
+	Return;	

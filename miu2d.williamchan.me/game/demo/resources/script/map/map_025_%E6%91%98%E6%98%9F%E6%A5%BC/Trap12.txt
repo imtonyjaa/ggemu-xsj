@@ -1,0 +1,12 @@
+	If ($Event <> 674) @end;
+	
+	Talk(13451,13451);
+	MoveScreen(6,200,4);
+	Talk(13452,13470);
+	SetPlayerScn();
+	PlayerGoto(3,113);
+	Assign($Event,675);
+	RunScript(1,"trap01.txt");
+	
+	@end:
+	Return;

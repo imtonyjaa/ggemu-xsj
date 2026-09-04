@@ -1,0 +1,6 @@
+	If ($Event == 500) @Label;
+	Return;
+@Label:
+	Say("杨影枫：藏剑山庄里所有的下人都走了，真是树倒猢狲散啊！", 2);
+	SetMapTrap(18, "");
+	Return;

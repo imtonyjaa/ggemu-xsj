@@ -1,0 +1,106 @@
+
+	If ($Result == 0) @Result0;
+	If ($Result == 1) @Result1;
+	If ($Result == 2) @Result2;
+	If ($Result == 3) @Result3;
+
+	Goto @end;
+
+@Result0:
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_028_连接地图.map");
+	LoadObj("map028_obj.obj");
+	LoadNpc("map028_bird.npc");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(13, 109);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+	
+	Goto @end;
+
+@Result1:
+	If ($Event == 3100) @Evt3100;
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_028_连接地图.map");
+	LoadObj("map028_obj.obj");
+	LoadNpc("map028_bird.npc");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(13, 109);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+	
+	Goto @end;
+
+@Result2:
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_028_连接地图.map");
+	LoadObj("map028_obj.obj");
+	LoadNpc("map028_bird.npc");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(13, 109);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+
+	If ($Event == 723 ) @Event723;
+
+	//Say("主角去惠安镇");
+	
+	Goto @end;
+	
+@Event723:
+
+	Assign($Event,724);
+	Say("Event == 724");
+
+	Goto @end;
+
+@Result3:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_028_连接地图.map");
+	LoadObj("map028_obj.obj");
+	LoadNpc("map028_bird.npc");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(13, 109);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+	
+	Goto @end;
+	
+@Evt3100:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_028_连接地图.map");
+	LoadObj("map028_obj.obj");
+	LoadNpc("map028_bird.npc");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(13, 109);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	FadeIn();
+	SetMapTrap(3,"");
+	SetMapTrap(2,"Trap02.txt");
+	Goto @end;			
+	
+@end:
+	Return;

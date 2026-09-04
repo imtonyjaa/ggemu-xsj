@@ -1,0 +1,66 @@
+	If ($Event == 1803) @1803;//结局2
+	If ($Event == 1801) @Label2;
+	If ($Result == 0) @end;
+	If ($Result == 1) @Label1;
+	If ($Result == 2) @Label2;
+	If ($Result == 3) @Label3;
+	Return;
+	
+@Label1:
+	If ($Event << 650) @end;
+	FadeOut();
+	SaveNpc();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_037_敦煌十洞.map");
+	LoadNpc("map037.npc");
+	SaveNpc("temp.npc");
+	LoadObj("map037_obj.obj");
+	SetPlayerPos(3, 29);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Label2:
+	FadeOut();
+	SaveNpc();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_037_敦煌十洞.map");
+	LoadNpc("map037.npc");
+	SaveNpc("temp.npc");
+	LoadObj("map037_obj.obj");
+	SetPlayerPos(3, 29);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Label3:
+	If ($Event << 925) @end;
+	If ($Event == 940) @Event940;
+	FadeOut();
+	SaveNpc();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_037_敦煌十洞.map");
+	LoadNpc("map037.npc");
+	SaveNpc("temp.npc");
+	LoadObj("map037_obj.obj");
+	SetPlayerPos(3, 29);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event940:
+	Say("杨影枫：还是先把蔷薇送回家去吧！", 2);
+	Return;
+
+@1803:
+	Say("杨影枫：还是先把蔷薇送回家去吧！", 2);
+	Return;
+
+@end:
+	Return;

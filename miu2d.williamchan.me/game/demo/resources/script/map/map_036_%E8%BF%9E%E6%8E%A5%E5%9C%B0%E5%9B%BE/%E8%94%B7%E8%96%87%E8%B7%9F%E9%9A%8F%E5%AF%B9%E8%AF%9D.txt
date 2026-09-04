@@ -1,0 +1,42 @@
+
+	If ($Event == 940) @Event940;
+	
+	Goto @end;
+	
+@Event940:
+	If ($Result <> 3) @end;
+
+	GetRandNum($QiangWeiTalk, 1, 5);
+	If ($QiangWeiTalk == 1) @QiangWeiTalk1;
+	If ($QiangWeiTalk == 2) @QiangWeiTalk2;
+	If ($QiangWeiTalk == 3) @QiangWeiTalk3;
+	If ($QiangWeiTalk == 4) @QiangWeiTalk4;
+	If ($QiangWeiTalk == 5) @QiangWeiTalk5;
+	@QiangWeiTalk1:
+		Say("蔷薇：影枫哥，让我自己回去吧，你不要送了。", 32);
+		Say("杨影枫：蔷薇，你一个人回去我不放心，还是我送你回去吧。", 2);
+		Goto @end;
+	@QiangWeiTalk2:
+		Say("蔷薇：你喜欢的人是什么样子那？", 32);
+		Say("杨影枫：她很善良，温柔。就像一朵水仙花。", 2);
+		Say("蔷薇：真想见见她。", 32);
+		Say("杨影枫：……", 5);
+		Goto @end;
+	@QiangWeiTalk3:
+		Say("蔷薇：影枫哥，我终于见到你啦！", 32);
+		Say("杨影枫：蔷薇，你怎么自己出来找我，这样很危险。", 2);
+		Say("蔷薇：影枫哥，我好想见到你！", 32);
+		Say("杨影枫：蔷薇，我理解你的心情，可是……", 2);
+		Goto @end;
+	@QiangWeiTalk4:
+		Say("杨影枫：蔷薇，你是个好姑娘，影枫哥对你就象对妹妹一样。", 2);
+		Goto @end;
+	@QiangWeiTalk5:
+		Say("蔷薇：影枫哥，让我自己回去吧，你不要送了。", 32);
+		Say("杨影枫：蔷薇，你一个人回去我不放心，还是我送你回去吧。", 2);
+		Goto @end;
+	
+	Goto @end;
+	
+@end:
+	Return;

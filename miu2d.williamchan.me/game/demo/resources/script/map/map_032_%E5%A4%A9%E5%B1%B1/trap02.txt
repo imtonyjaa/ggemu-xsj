@@ -1,0 +1,138 @@
+	If ($Event == 1808) @end;//结局2救月眉儿
+	If ($Event == 537) @Label3;
+	If ($Event == 530) @Label6;
+	If ($Event == 532) @Label1;
+	If ($Event == 534) @Label6;
+	If ($Event == 535) @Label6;
+	If ($Event == 540) @Label6;
+	If ($Event == 550) @Label6;
+	If ($Event == 562) @Label7;
+
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_031_连接地图.map");
+	LoadNpc("map031.npc");
+	LoadObj("map031_obj.obj");
+	SetPlayerPos(5, 9);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Label7:	
+	FadeOut();
+	StopMusic();
+	PlayMusic("Mc007.mp3");
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_031_连接地图.map");
+	LoadNpc("map031.npc");
+	LoadObj("map031_obj.obj");
+	SetPlayerPos(5, 9);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+	
+@Label1:
+	If ($SelectVal == 1) @Label2;
+	Say("杨影枫：还没见到孟知秋呢！", 2);
+//	Talk(10493, 10493);
+//	SetPlayerDir(4);
+//	PlayerGoto(3, 107);
+//	SetMapTrap(2, "Trap02.txt");
+	Return;	
+
+@Label2:
+	Talk(241, 241); 
+//	SetPlayerDir(4);
+//	PlayerGoto(3, 107);
+//	SetMapTrap(2, "Trap02.txt");
+	Return;
+	
+@Label3:
+	If ($SelectVal == 0) @Label4;
+
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_031_连接地图.map");
+	LoadNpc("map031.npc");
+	LoadObj("map031_obj.obj");
+	SetPlayerPos(5, 9);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Label4:
+	Talk(241, 241); 
+//	SetPlayerDir(4);
+//	PlayerGoto(3, 107);
+//	SetMapTrap(2, "Trap02.txt");
+	Return;
+
+@Label6:
+	If ($XiaoHuaSub == 10) @XiaoHuaSub10;
+	If ($XiaoHuaSub == 20) @XiaoHuaSub20;
+	If ($XiaoHuaSub == 40) @XiaoHuaSub40;
+
+	Say("杨影枫：还没见到孟知秋呢！", 2);
+//	Talk(10493, 10493);
+//	SetPlayerDir(4);
+//	PlayerGoto(3, 107);
+//	SetMapTrap(2, "Trap02.txt");
+	Return;	
+
+	@XiaoHuaSub10:
+		FadeOut();
+		ClearBody();
+		SaveNpc();
+		SaveObj();
+		LoadMap("map_031_连接地图.map");
+		LoadNpc("map031.npc");
+		LoadObj("map031_obj.obj");
+		SetPlayerPos(5, 9);
+		SetPlayerDir(0);
+
+		SetNpcKind("蔷薇", 0);
+		DisableNpcAI();
+		SetNpcPos("蔷薇", 5, 5);
+		SetNpcDir("蔷薇", 7);
+		FadeIn();
+
+		PlayerGoto(9, 16);
+		SetPlayerDir(7);
+		Sleep(500);
+		SetPlayerDir(3);
+		Sleep(500);
+		PlayerGoto(6, 7);
+		SetPlayerDir(3);
+
+		Say("杨影枫：姑娘，怎么不走了？", 4);
+		Say("紫衣姑娘：不对不对，我家好象不是在这边。", 29);
+		Say("杨影枫：姑娘在开玩笑吧，怎会不认识回家的路？", 3);
+		Say("紫衣姑娘：刚才跟你过了两招，我已经受伤很重，所以才记不清楚的。", 29);
+		Say("杨影枫：姑娘受伤了？看来是杨某的不是。", 4);
+		Say("紫衣姑娘：当然是啦！", 29);
+		Say("杨影枫：姑娘现在可曾记起家住何处？", 2);
+		Say("紫衣姑娘：让我想想，好象从我们刚才的那个地方向东走，对，是向东走！", 29);
+		Say("杨影枫：那我们快赶路吧。", 2);
+
+		EnableNpcAI();
+		SetNpcKind("蔷薇", 3);
+		Assign($XiaoHuaSub, 20);
+		Return;
+	@XiaoHuaSub20:	
+		Say("蔷薇：杨公子真见忘，我家可不是往这条路走噢。", 29);
+		Return;
+	@XiaoHuaSub40:
+		Say("杨影枫：抓紧时间去见孟知秋吧！", 2);
+		Return;
+@end:
+	Return;

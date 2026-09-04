@@ -1,0 +1,69 @@
+	If ($Event == 2010) @2009;
+	If ($Event == 2009) @2009;
+	If ($Event == 3182) @Evt3182;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_046_通天塔第六层.map");
+	LoadNpc("map046.npc");
+	LoadObj("map046_obj.obj");
+	SetPlayerPos(3, 90);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@2009:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_046_通天塔第六层.map");
+	LoadNpc("map046_1.npc");
+	LoadObj("map046_obj.obj");
+	SetPlayerPos(3, 90);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;	
+	
+@Evt3182:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_046_通天塔第六层.map");
+	LoadNpc("map046_FindNLZ.npc");
+//	SaveNpc("temp.npc");
+//	LoadNpc("temp.npc");
+	LoadObj("map046_obj.obj");
+	
+	
+	DelObj("通天塔开关A");
+	DelObj("通天塔开关B");
+	AddObj("Lock_6_1.ini",27,69,0);
+	AddObj("Lock_6_2.ini",35,86,0);
+	
+	If ($EvilValue >> 112) @ISB;
+
+	//通天塔A是真的开关
+	If ($Lock6_1 == 1)  @OpenedA;
+	Goto @Next;
+@OpenedA:
+	OpenBox("通天塔开关A");
+	Goto @Next;	
+	
+	//通天塔B是真的开关
+@ISB:
+	If ($Lock6_2 == 1)  @OpenedB;
+	Goto @Next;
+@OpenedB:
+	OpenBox("通天塔开关B");
+	Goto @Next;	
+	
+@Next:
+	
+	SetPlayerPos(3, 90);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;		

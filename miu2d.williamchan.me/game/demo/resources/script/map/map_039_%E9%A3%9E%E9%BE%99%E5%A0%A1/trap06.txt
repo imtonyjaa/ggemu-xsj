@@ -1,0 +1,10 @@
+	If ($Event == 1802) @1802;
+	Return;
+
+@1802:
+	StopMusic();
+	PlayMusic("mc014.mp3");
+	Say("杨影枫：怎么找不到真儿？难道他们把真儿关在了其它地方？",4);
+	Say("杨影枫：我还是先回悲魔山庄再做打算吧。",2);
+	SetMapTrap(1,"trap01.txt");
+	Return;

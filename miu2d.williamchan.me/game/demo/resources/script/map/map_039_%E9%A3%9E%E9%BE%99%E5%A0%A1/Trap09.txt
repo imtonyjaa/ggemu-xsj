@@ -1,0 +1,105 @@
+If ($Event == 746)  @Event746;
+If ($Event == 659) @Event659;
+Goto @end;
+
+
+
+@Event659:	
+
+//	PlayerRunTo(43,22);
+	Watch("杨影枫","涟漪",1);
+	Talk(61770,61770);
+	PlayerRunTo(44,19);
+	Watch("杨影枫","涟漪",0);
+	Sleep(2000);
+	NpcGoto("涟漪",45,17);
+	Watch("杨影枫","涟漪",0);
+	Talk(12720,12920);
+	SetNpcKind("涟漪",3);
+	Assign($Event,660);
+
+	SetMapTrap(1,"trap01.txt");
+	SetMapTrap(2,"trap02.txt");
+	
+	AddToMemo(65180);
+	
+	PlayerGotoEx(37,42);
+	Sleep(2000);
+	
+	
+	ClearBody();
+	SaveObj();
+	FadeOut();
+	LoadMap("map_012_惠安镇.map");
+
+	LoadNpc("huianzhen.npc");
+	SaveNpc("temp_huianzhen.npc");
+	LoadNpc("temp_huianzhen.npc");
+
+	LoadObj("map012_obj.obj");
+	
+	SetNpcDir("陈嫂",0);
+	SetNpcDir("胡屠夫",0);
+	SetNpcDir("赵爹爹",0);
+	SetNpcDir("温怡",0);
+	SetNpcDir("韩公子",0);
+	SetNpcDir("乞丐",0);
+	SetNpcDir("倪二哥",0);
+	SetNpcDir("刘半仙",0);
+	SetNpcDir("采玉",0);
+	SetNpcDir("涓生",0);
+	SetNpcDir("燕老板",0);
+	SetNpcDir("丹樨",0);
+	SetNpcDir("沈枞",0);
+	SetNpcDir("夏萍",0);
+	SetNpcDir("申大爷",0);
+	SetNpcDir("酒中仙",0);	
+
+	If ($QiGaiPos == 1) @QiGaiPos11;
+	If ($QiGaiPos == 2) @QiGaiPos12;
+	@QiGaiPos11:
+		SetNpcPos("乞丐", 83, 89);
+		Goto @QiGaiPos1End;
+	@QiGaiPos12:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos1End;
+	@QiGaiPos1End:
+
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(111, 221);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Watch("杨影枫","涟漪",0);
+	Say("杨影枫：我们现在到了惠安镇了，再走一会儿就要到摘星楼了，来，你跟我走吧！");
+	
+	
+	Goto @end;
+	
+	
+	
+
+
+@Event746:
+//Say("救出纳兰真。但不知为了何故，纳兰真仿佛失去记忆，不再记得杨影枫。");
+//Say("杨影枫带着纳兰真回到忘忧岛，纳兰潜凛已经不在岛上。");
+//Say("杨影枫试图唤醒纳兰真的记忆，带她到曾经去过的山洞，禁地。却无法让她回复。画面淡出");
+
+MoveScreen(5,40,2);
+
+Watch("杨影枫","纳兰真",0);
+Talk(14700,14740);
+
+SetNpcKind("纳兰真",3);
+
+Assign($Event,750);
+AddToMemo(79030);
+SetMapTrap(1,"trap01.txt");
+
+
+Goto @end;
+
+
+@end:
+Return;

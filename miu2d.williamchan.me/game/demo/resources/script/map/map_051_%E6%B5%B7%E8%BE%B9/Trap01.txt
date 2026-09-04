@@ -1,0 +1,307 @@
+	If ($Event == 1814) @1813;	
+	If ($Event == 1813) @1813;	
+	If ($Event == 285) @285;	
+	If ($Event == 294) @294;	
+	If ($Event == 296) @296;//跟踪纳兰潜凛
+	If ($Event == 301) @Label6;	
+	If ($Event == 905) @Event905910;
+	If ($Event == 910) @Event905910;
+	If ($Result == 0)  @Result0;
+	If ($Result == 1)  @Result1;
+	If ($Result == 2)  @Result2;
+	If ($Result == 3)  @Result3;
+
+	Return;
+	
+@Result0:
+	If ($Event == 270) @Label4;
+	If ($Event == 297) @Label1;
+	If ($Event == 415) @Event415;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_050_忘忧岛.map");
+	LoadNpc("map050.npc");
+	LoadObj("map050_obj.obj");
+	SetPlayerPos(5, 12);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Result1:
+	If ($Event == 3030) @Evt3030;
+	If ($Event == 690) @Event690;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_050_忘忧岛.map");
+	LoadNpc("map050.npc");
+	LoadObj("map050_obj.obj");
+	SetPlayerPos(5, 12);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Result2:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_050_忘忧岛.map");
+	LoadNpc("map050.npc");
+	LoadObj("map050_obj.obj");
+	SetPlayerPos(5, 12);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Result3:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_050_忘忧岛.map");
+	LoadNpc("map050.npc");
+	LoadObj("map050_obj.obj");
+	SetPlayerPos(5, 12);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@285:
+	Say("纳兰真：还是到海边找找吧。",9);
+	Return;
+
+@294:
+	Say("杨影枫：还是到海边找找吧。",2);
+	Return;
+
+	
+@296:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_050_忘忧岛.map");
+	LoadNpc("map050_night.npc");
+	LoadObj("map050_obj.obj");
+	SetPlayerPos(3,12);
+	SetPlayerDir(6);
+//	DelNpc("纳兰潜凛");
+//	AddNpc("纳兰潜凛.ini",6,11,6);
+//	NpcGotoEx("纳兰潜凛",11,15);
+	FadeIn();
+//	NpcGoto("纳兰潜凛",11,15);
+	DelNpc("纳兰潜凛");
+	SetMapTrap(1,"Trap01.txt");
+	SetMapTrap(2,"Trap02.txt");
+	SetMapTrap(3,"Trap03.txt");
+	SetMapTrap(4,"Trap04.txt");
+	Say("纳兰真：杨大哥，我们轻点儿，不要惊动了别人。", 9);
+	Return;
+
+@Label4:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_050_忘忧岛.map");
+	LoadNpc("map050.npc");
+	LoadObj("map050_obj.obj");
+	DelNpc("纳兰潜凛");
+	AddNpc("纳兰潜凛.ini",50,119,5);
+	SetNpcScript("纳兰潜凛","纳兰潜凛对话.txt");
+	SetPlayerPos(5, 12);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(2, "Trap02.txt");
+	SetMapTrap(3, "Trap03.txt");
+	SetMapTrap(4, "Trap04.txt");
+	Return;
+
+@Label1:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_050_忘忧岛.map");
+	LoadNpc("map050_night.npc");
+	LoadObj("map050_night.obj");
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	SetPlayerPos(3, 12);
+	SetPlayerDir(6);
+	EnableNpcAI();
+
+	DelNpc("纳兰潜凛");
+	AddNpc("纳兰潜凛.ini", 8, 14, 6);
+	SetNpcPos("纳兰潜凛", 8, 14);
+	SetNpcKind("纳兰潜凛",5);
+	NpcGotoEx("纳兰潜凛", 10, 14);
+	
+	FadeIn();
+	Return;
+
+@Event690:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_050_忘忧岛.map");
+	LoadNpc("map050_night.npc");
+	LoadObj("map050_obj.obj");
+	ChangeMapColor(128,150,200);
+	ChangeAsfColor(128,150,200);
+	EnableNpcAI();
+	SetMapTrap(1,"");
+	SetMapTrap(2,"");
+	SetMapTrap(3,"");
+	SetPlayerPos(3, 12);
+	SetPlayerDir(6);
+	DelNpc("涟漪");
+	AddNpc("涟漪.ini",6,11,6);
+	SetNpcKind("涟漪",5);
+	
+	NpcGotoEx("涟漪", 10, 14);
+	FadeIn();
+	Return;
+
+
+@Evt3030:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_050_忘忧岛.map");
+	LoadNpc("map050_night.npc");
+	LoadObj("map050_obj.obj");
+	ChangeMapColor(128,150,200);
+	ChangeAsfColor(128,150,200);
+	EnableNpcAI();
+
+	SetMapTrap(1,"");
+	SetMapTrap(2,"");
+	SetMapTrap(3,"");
+
+	SetPlayerPos(3, 12);
+	SetPlayerDir(6);
+	DelNpc("纳兰真");
+	AddNpc("纳兰真.ini",6,11,6);
+	SetNpcKind("纳兰真",5);
+	
+	NpcGotoEx("纳兰真", 14, 14);
+	FadeIn();
+	Sleep(2000);
+	Talk(98140,98150);
+	PlayerGotoEx(14,14);
+	Sleep(2000);
+	
+//	SetMapTrap(1,"Trap01.txt");
+	FadeOut();
+	SaveObj();
+	LoadMap("map_058_禁地.map");
+	LoadNpc("map058.npc");
+	LoadObj("map058_obj.obj");
+	SetPlayerPos(3, 81);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	SetPlayerPos(3, 81);
+	SetPlayerDir(5);
+	DelNpc("纳兰真");
+	AddNpc("纳兰真.ini",5,77,5);
+	SetNpcKind("纳兰真",0);
+	SetNpcKind("杨影枫",1);
+	SetNpcKind("纳兰真",2);
+	SetPlayerScn();
+	NpcGotoEx("纳兰真",12,53);
+	FadeIn();
+	
+	NpcGoto("纳兰真",12,53);
+	SetNpcKind("纳兰真",0);
+	SetNpcKind("杨影枫",2);
+	NpcGoto("纳兰真",12,49);
+	
+	DelNpc("纳兰真");
+	SetMapTrap(2,"Trap02.txt");
+	EnableRun();
+	SetPlayerScn();
+//	Say("跟进去看看！");
+	Talk(97550,97550);
+	SetMapTrap(1,"");
+	Return;
+	FadeIn();
+	Return;
+
+@Event415:
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_050_忘忧岛.map");
+	
+	LoadNpc("map050.npc");
+	LoadObj("map050_obj.obj");
+	
+	SetPlayerPos(5, 12);
+	SetPlayerDir(6);
+	EnableNpcAI();
+
+	DelNpc("纳兰潜凛");
+	AddNpc("纳兰潜凛.ini",64,77,1);
+	SetNpcScript("纳兰潜凛","纳兰潜凛对话.txt");
+
+	FadeIn();
+	Return;
+
+@Label6:
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_050_忘忧岛.map");
+	LoadNpc("map050_night.npc");
+	LoadObj("map050_night.obj");
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	SetPlayerPos(5, 12);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event905910:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_050_忘忧岛.map");
+	LoadNpc("map050_del_ali.npc");
+	LoadObj("map050_obj.obj");
+	SetPlayerPos(5, 12);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@1813:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_050_忘忧岛.map");
+	LoadNpc("map050.npc");
+	LoadObj("map050_obj.obj");
+	SetPlayerPos(5, 12);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	SetMapTrap(1,"trap01.txt");
+	SetMapTrap(2,"trap02.txt");
+	SetMapTrap(3,"trap03.txt");
+	SetMapTrap(4,"trap04.txt");
+	DelNpc("纳兰潜凛");
+	Return;
+
+@end:
+	Return;

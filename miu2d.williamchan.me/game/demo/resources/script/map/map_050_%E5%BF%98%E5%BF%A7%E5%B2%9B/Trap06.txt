@@ -1,0 +1,50 @@
+If ($Event == 758)  @Event758;
+Goto @end;
+
+
+@Event758:
+Watch("杨影枫","纳兰真",0);
+Talk(75420,75430);
+SetNpcKind("纳兰真",1);
+SetMapTrap(18,"");
+PlayerGotoEx(61,104);
+Assign($Event,760);
+Sleep(2000);
+EnableRun();
+FadeOut();
+
+ChangeMapColor(100,200,255);
+ChangeAsfColor(100,200,255);
+
+LoadMap("map_051_海边.map");
+SetPlayerPos(12,38);
+FadeIn();
+Say("夜晚。杨影枫夜不成寐，惦记纳兰真，于是去找她。");
+PlayerGotoEx(16,34);
+Sleep(1000);
+FadeOut();
+LoadMap("map_050_忘忧岛.map");
+LoadNpc("map050_night.npc");
+LoadObj("map050_obj.obj");
+SetMapTrap(7,"");
+SetMapTrap(8,"");
+SetMapTrap(9,"");
+SetPlayerPos(47, 140);
+SetPlayerDir(5);
+FadeIn();
+PlayerGoto(50,122);
+AddNpc("纳兰真.ini",44,107,5);
+NpcGotoEx("纳兰真",52,85);
+MoveScreen(4,100,2);
+Say("噫？这么晚了，她不睡觉要去哪里？");
+MoveScreen(0,100,2);
+Say("她好像向禁地的方向去了，待我跟过去看看。");
+SetMapTrap(3,"");
+SetMapTrap(2,"");
+DelNpc("纳兰真");
+Assign($Event, 762);
+Return;
+
+
+@end:
+Return;

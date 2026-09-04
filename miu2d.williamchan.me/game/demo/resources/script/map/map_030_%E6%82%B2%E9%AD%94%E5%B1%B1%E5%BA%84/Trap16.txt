@@ -1,0 +1,188 @@
+	If ($Event <> 3110) @end;
+	PlayerGoto(37,105);
+	SetPlayerDir(4);
+	MoveScreen(4,120,1);
+	Watch("侍女可心","月眉儿",1);
+	Talk(98932,98932);
+	SetNpcDir("侍女可心",1);
+	SetNpcDir("月眉儿",0);
+	Sleep(500);
+	Talk(98934,98934);
+	NpcGoto("月眉儿",40,100);
+	Watch("月眉儿","杨影枫",0);
+	PlayerGoto(39,102);
+	Watch("月眉儿","杨影枫",0);
+	Talk(98940,98970);
+	If ($EvilValue >> 112) @EvilTalk1;
+	Talk(98972,98972);
+	Goto @Next11;
+
+@EvilTalk1:
+	Talk(98980,98980);
+	Goto @Next11;
+
+@Next11:
+	
+	SetNpcKind("杨影枫",3);
+	SetNpcKind("月眉儿",2);
+	PlayerGoto(42,101);
+	PlayerGoto(51,81);
+	PlayerGoto(62,77);
+	SetNpcKind("杨影枫",2);
+	SetNpcKind("月眉儿",0);
+	Sleep(1000);
+	NpcGoto("月眉儿",62,79);
+	PlayerGoto(61,79);
+	SetNpcDir("月眉儿",0);
+	SetPlayerDir(0);
+	MoveScreen(0,130,1);
+	Talk(98990,99120);
+	Watch("杨影枫","月眉儿",0);
+	Talk(99130,99130);
+	
+	If ($EvilValue >> 112) @EvilTalk2;
+	SetNpcDir("杨影枫",0);
+	
+	Say("杨影枫：我…暂时还没有筹划。",2);
+Say("月眉儿：我倒有一计，你看如何？反正孟知秋并不知蔷薇之死你在场。不如你明日到落叶谷先骗得孟知秋的信任，之后我们约好时间，我带人埋伏在落叶谷外，你可在半夜潜入他房间先打他个出其不意，届时我带领人马杀进落叶谷，如此里应外合，不怕攻不破落叶谷！",22);
+Say("杨影枫：这个……孟知秋好歹也是我的岳父，我怎可如此行事…如此不仁不义？我作不出来！",7);
+Say("月眉儿：成大事者自然要有非常手段，昔日唐太宗弑兄逼父，方成大业，后世谁敢不服？将来你我成就大业，江湖上有谁敢说你我的不是！再说，孟知秋迟早会知道蔷薇之死与你有关联，到时他怎会放过你？！",22);
+Say("杨影枫：这……偷袭之举，未免有失厚道……",2);
+Say("月眉儿：若不先下手，恐怕合你我之力，都难制服他！",22);
+Say("杨影枫：我不会作出这种事……",2);
+Say("月眉儿：影枫，你刚才还说时刻记着你父亲的遗愿，我看你是口是心非吧！",22);
+Say("杨影枫：（是啊，如果不依计除去孟知秋，我要几时才能完成父亲的遗愿，成为武林第一霸主？！）",2);
+
+	
+	Say("杨影枫：这件事让我先想想吧。",2);
+	//Talk(99260);
+	Goto @Next2;
+
+@EvilTalk2:
+	Talk(99270,99350);
+	Goto @Next2;	
+@Next2:
+	FadeOut();
+	Say("几个时辰之后");
+	FadeIn();
+	
+	Watch("月眉儿","杨影枫",0);
+	Talk(99360,99360);
+	
+@Next0:
+	Choose("请选择","送月眉儿回房","让月眉儿独自回房",$douhao);	
+	If ($douhao == 0) @Yes;
+	Add($EvilValue,-5);
+	Talk(99380,99400);
+	NpcGotoEx("月眉儿",56,78);
+	Sleep(1000);
+	FadeOut();
+	SetNpcKind("杨影枫",2);
+	SetNpcPos("月眉儿",39,154);
+	SetPlayerPos(56,158);
+	SetPlayerScn();
+	SetPlayerDir(7);
+	SetNpcActionFile("杨影枫",0,"mpc900.asf");
+	SetNpcActionFile("杨影枫",1,"mpc900.asf");
+	FadeIn();
+	
+	Talk(99510,99510);
+	Sleep(1000);
+	Talk(99520,99520);
+	
+	NpcGotoEx("月眉儿",36,164);
+	MoveScreen(2,150,3);
+	SetNpcKind("月眉儿",2);
+	SetNpcKind("杨影枫",1);
+	SetNpcPos("杨影枫",44,142);
+	SetNpcActionFile("杨影枫",0,"npc007_st2.asf");
+	SetNpcActionFile("杨影枫",1,"npc007_sst2.asf");
+	
+	//Sleep(2000);
+	NpcGoto("杨影枫",39,153);
+	Say("杨影枫：眉儿，你怎么在这里？",2);
+	MoveScreen(1,40,1);
+	Watch("杨影枫","月眉儿",0);
+	NpcGoto("月眉儿",39,154);
+	MoveScreen(5,40,1);
+	Watch("杨影枫","月眉儿",0);
+	Talk(99530,99561);
+	SetNpcKind("月眉儿",3);
+	SetNpcKind("杨影枫",2);
+	PlayerGotoEx(42,148);
+	Sleep(1500);
+	FadeOut();
+	Say("一夜过后");
+	Goto @Next;
+	
+	
+	
+@Yes:
+	Add($EvilValue,5);
+	Talk(99420,99430);
+	SetNpcKind("月眉儿",3);
+	SetNpcKind("杨影枫",2);
+	PlayerGotoEx(56,78);
+	FadeOut();
+	SetPlayerPos(24,172);
+	PlayerGotoEx(20,172);
+	Sleep(500);
+	FadeIn();
+	Watch("杨影枫","月眉儿",0);
+	Talk(99440,99480);
+	PlayerGotoEx(14,152);
+	Sleep(2000);
+	
+	FadeOut();
+	Say("一夜过后");
+	Goto @Next;	
+	
+@Next:
+	LoadNpc("beimo.npc");
+	SetNpcKind("月眉儿",0);
+	SetNpcScript("月眉儿","月眉儿对话.txt");
+	SetNpcPos("月眉儿",43,139);
+	SaveNpc("beimo.npc");
+	SaveNpc("temp_beimo.npc");
+	LoadNpc("temp_beimo.npc");
+	ChangeMapColor(255,255,255);
+	ChangeAsfColor(255,255,255);
+	SaveObj();
+	LoadObj("map030_obj.obj");
+	SetPlayerPos(44,140);	
+	FadeIn();
+		
+	Watch("月眉儿","杨影枫",0);
+	Sleep(500);
+	If ($EvilValue >> 112) @EvilTalk3;
+	Talk(99562,99565);
+	Goto @Next3;	
+
+@EvilTalk3:
+	Talk(99570,99600);
+	Goto @Next3;
+
+@Next3:	
+	SetNpcKind("月眉儿",0);
+	Assign($Event ,3120);
+	AddToMemo(24400);
+	SetMapTrap(1,"Trap01.txt");
+	SetMapTrap(5,"Trap05.txt");
+	
+	//StopMusic();
+	//PlayMusic("mc014.mp3");
+	SetTrap("map_012_惠安镇",1,"");
+	SetTrap("map_012_惠安镇",2,"");
+	SetTrap("map_028_连接地图",3,"Trap03.txt");
+	//SetMapTrap(6,"Trap06.txt");
+	Goto @end;
+	
+	
+	
+		
+	
+	
+
+
+@end:
+	Return;

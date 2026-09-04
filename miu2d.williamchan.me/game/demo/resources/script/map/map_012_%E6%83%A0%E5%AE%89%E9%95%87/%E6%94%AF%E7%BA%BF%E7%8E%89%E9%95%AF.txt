@@ -1,0 +1,16 @@
+
+	If ($SubEvent16 <> 2) @end;
+	If ($Event << 360) @end;
+	If ($Event >> 360) @G360;
+	
+	Say("杨影枫：这里有一个玉镯。", 2);
+	DelObj("玉镯");
+	AddGoods("Goods-e19-玉镯.ini");
+	Goto @end;
+@G360:
+	SetObjScript("玉镯", "");
+	SaveObj();
+	Goto @end;
+
+@end:
+	Return;

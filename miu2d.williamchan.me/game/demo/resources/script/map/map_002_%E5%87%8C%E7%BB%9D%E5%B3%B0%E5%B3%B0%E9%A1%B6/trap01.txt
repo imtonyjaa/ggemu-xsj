@@ -1,0 +1,11 @@
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_001_凌绝峰连接地图.map");
+	LoadNpc("map001-luren.npc");
+	LoadObj("map001_obj.obj");
+	SetPlayerPos(16,8);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;

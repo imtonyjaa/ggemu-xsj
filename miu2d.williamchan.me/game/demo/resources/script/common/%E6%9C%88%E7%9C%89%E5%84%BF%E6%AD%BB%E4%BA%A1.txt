@@ -1,0 +1,10 @@
+	StopMusic();
+	PlaySound("游戏结束.wav");
+	Sleep(2000);
+	Say("月眉儿：杨大哥，我们……来世再见……", 24);
+   	FadeOut();
+	PlayMovie("die.avi");
+	FreeMap();
+	PlayMusic("mc000.mp3");
+	ReturnToTitle();
+	Return;

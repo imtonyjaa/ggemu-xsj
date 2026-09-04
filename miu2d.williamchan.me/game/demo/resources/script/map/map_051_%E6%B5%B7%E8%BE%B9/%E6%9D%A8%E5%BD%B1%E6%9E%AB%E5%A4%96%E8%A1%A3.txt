@@ -1,0 +1,28 @@
+	If ($Event <> 285) @end;
+
+	Talk(4680, 4680);
+	LoadNpc("seashore-yangyf.npc");
+	SetNpcPos("杨影枫", 24, 76);
+	SetNpcDir("杨影枫", 1);
+	
+	FadeOut();
+	Sleep(500);
+	SetMapPos(18, 60);
+	FadeIn();
+
+	Talk(4690, 4690);
+	NpcGoto("杨影枫",17,80);
+	SetNpcPos("杨影枫",12,77);
+	SetPlayerScn();
+	NpcGoto("杨影枫",10,75);
+	SetNpcDir("杨影枫",2);
+	Sleep(200);
+	Talk(4700, 4700);
+	PlayerRunTo(9,75);
+	SetPlayerDir(6);
+	Talk(4710, 4800);
+	Assign($Event, 290);
+	RunScript("事件30_1.txt");
+
+@end:
+	Return;	

@@ -1,0 +1,43 @@
+	If ($Event == 455) @Label1;
+	If ($Event == 460) @ReMapTrap;// 得到悲魔刀
+	If ($Event == 690) @Label2;
+	If ($Event == 995) @Label3;
+	Goto @ChangeMap;
+	
+@ReMapTrap:
+	SetMapTrap(2, "Trap02.txt");
+@ChangeMap:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_060_禁地二层.map");
+	LoadNpc("map060.npc");
+	LoadObj("map060_obj.obj");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(7, 33);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Label1:
+	Say("杨影枫：去看看宝箱里藏着什么吧……", 2);
+	PlayerGoto(11, 29);
+	SetMapTrap(1, "Trap01.txt");
+	Return;
+	
+@Label2:
+	PlayerGotoDir(1,2);
+	Say("杨影枫：先看看涟漪再说！");
+	SetMapTrap(1, "Trap01.txt");
+	Return;
+	
+@Label3:
+	Say("杨影枫：密室里发生了事情，赶紧进去看看。", 2);
+	PlayerGoto(11, 29);
+	SetMapTrap(1, "Trap01.txt");
+	Return;
+	
+@end:
+	Return;

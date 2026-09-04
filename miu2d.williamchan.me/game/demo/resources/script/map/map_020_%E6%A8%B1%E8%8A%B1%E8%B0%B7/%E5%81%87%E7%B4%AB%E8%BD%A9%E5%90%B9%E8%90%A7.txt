@@ -1,0 +1,26 @@
+
+
+// 事件44 刚发生
+	If ($Event == 440) @Label1;
+	
+	Goto(@end);
+	
+@Label1:
+	PlayerGoto(10, 32);
+	//Say("系统消息：发现紫轩吹萧，敌人出现，进入战斗");
+	//Say("系统消息：Event 的值变为 445");
+	Say("播放动画，看假紫轩吹萧");
+	Assign($Event, 445);
+	SetNpcRelation("紫轩",1);
+	//Say("系统消息：我砍，我砍，我砍砍砍砍砍砍砍砍砍砍砍砍砍砍砍砍");
+	//Say("系统消息：呵呵，打赢了，执行事件45.2 後半部分");
+	//Say("系统消息：Event 的值变为 450");
+	SetNpcDeathScript("紫轩","Dead.txt");
+	Assign($Pos,1);
+	OpenTimeLimit(10);
+	SetTimeScript(1,"changepos.txt");
+	Goto @end;
+	
+	
+@end:
+	Return;

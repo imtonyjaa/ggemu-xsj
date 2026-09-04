@@ -1,0 +1,261 @@
+
+	GetRandNum($QiGaiPos, 1, 2);
+
+	If ($Event == 144) @Event144;	
+	If ($Event == 150) @Event150;	
+	If ($Event << 162) @EventL162;
+	If ($Event == 162) @Event162;	
+	If ($Event == 164) @Event164;
+	If ($Event == 202) @Event202;
+	If ($Event == 370) @Event370;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_022_清平乡.map");
+
+	LoadNpc("qingpingxiang.npc");
+	LoadObj("map022_obj.obj");
+
+	SetNpcPos("贾少", 0, 0);
+	SetNpcPos("曾泼皮", 0, 0);
+	SetNpcPos("史泼皮", 0, 0);
+	SetNpcPos("高大个A", 0, 0);
+	SetNpcPos("高大个B", 0, 0);
+
+	SetNpcPos("鲁老头", 47, 90);
+	SetNpcDir("鲁老头", 1);
+	SetNpcPos("南琴", 72, 57);
+	SetNpcDir("南琴", 1);
+	SetNpcPos("胖婶子", 44, 5);
+	SetNpcDir("胖婶子", 3);
+	SetNpcPos("简梅", 34, 71);
+	SetNpcDir("简梅", 1);
+
+	If ($QiGaiPos == 1) @QiGaiPos31;
+	If ($QiGaiPos == 2) @QiGaiPos32;
+	@QiGaiPos31:
+		SetNpcPos("乞丐", 54, 62);
+		Goto @QiGaiPos3End;
+	@QiGaiPos32:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos3End;
+	@QiGaiPos3End:
+
+	SetPlayerPos(76, 18);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event144:
+	Return;
+
+@Event150:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("mc015.mp3");
+	LoadMap("map_022_清平乡.map");
+
+	LoadNpc("qingpingxiang.npc");
+	LoadObj("map022_obj.obj");
+
+	If ($QiGaiPos == 1) @QiGaiPos31;
+	If ($QiGaiPos == 2) @QiGaiPos32;
+	@QiGaiPos31:
+		SetNpcPos("乞丐", 54, 62);
+		Goto @QiGaiPos3End;
+	@QiGaiPos32:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos3End;
+	@QiGaiPos3End:
+
+	SetPlayerPos(76, 18);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@EventL162:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_022_清平乡.map");
+
+	LoadNpc("qingpingxiang.npc");
+	LoadObj("map022_obj.obj");
+
+	If ($QiGaiPos == 1) @QiGaiPos31;
+	If ($QiGaiPos == 2) @QiGaiPos32;
+	@QiGaiPos31:
+		SetNpcPos("乞丐", 54, 62);
+		Goto @QiGaiPos3End;
+	@QiGaiPos32:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos3End;
+	@QiGaiPos3End:
+
+	SetPlayerPos(76, 18);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Event162:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_022_清平乡.map");
+
+	LoadNpc("qingpingxiang.npc");
+	LoadObj("map022_obj.obj");
+	
+	SetNpcPos("紫轩", 0, 0);
+
+	If ($QiGaiPos == 1) @QiGaiPos31;
+	If ($QiGaiPos == 2) @QiGaiPos32;
+	@QiGaiPos31:
+		SetNpcPos("乞丐", 54, 62);
+		Goto @QiGaiPos3End;
+	@QiGaiPos32:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos3End;
+	@QiGaiPos3End:
+
+	SetPlayerPos(76, 18);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event164:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_022_清平乡.map");
+
+	LoadNpc("qingpingxiang.npc");
+	LoadObj("map022_obj.obj");
+
+	SetNpcPos("鲁老头", 39, 115);
+	SetNpcDir("鲁老头", 7);
+	SetNpcPos("贾少", 30, 133);
+	SetNpcDir("贾少",5);
+	SetNpcPos("曾泼皮",30,136);
+	SetNpcDir("曾泼皮",4);
+	SetNpcPos("史泼皮",29,135);
+	SetNpcDir("史泼皮",6);
+	SetNpcPos("南琴",28,145);
+	SetNpcDir("南琴",5);
+	SetNpcPos("胖婶子",29,146);
+	SetNpcDir("胖婶子",4);
+	SetNpcPos("简梅",29,145);
+	SetNpcDir("简梅",4);
+	SetNpcPos("紫轩", 31, 132);
+	SetNpcDir("紫轩", 0);
+
+	If ($QiGaiPos == 1) @QiGaiPos11;
+	If ($QiGaiPos == 2) @QiGaiPos12;
+	@QiGaiPos11:
+		SetNpcPos("乞丐", 54, 62);
+		Goto @QiGaiPos1End;
+	@QiGaiPos12:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos1End;
+	@QiGaiPos1End:
+
+	SetPlayerPos(76, 18);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event202:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_022_清平乡.map");
+
+	LoadNpc("qingpingxiang.npc");
+	LoadObj("map022_obj.obj");
+
+	SetNpcPos("高大个", 0, 0);
+	SetNpcPos("贾少", 0, 0);
+	SetNpcPos("曾泼皮", 0, 0);
+	SetNpcPos("史泼皮", 0, 0);
+
+	SetNpcPos("鲁老头", 47, 90);
+	SetNpcDir("鲁老头", 1);
+	SetNpcPos("南琴", 72, 57);
+	SetNpcDir("南琴", 1);
+	SetNpcPos("胖婶子", 44, 5);
+	SetNpcDir("胖婶子", 3);
+	SetNpcPos("简梅", 34, 71);
+	SetNpcDir("简梅", 1);
+
+	AddNpc("夺命一点金2.ini",65,83,5);
+	AddNpc("夺命一点金跟班A.ini", 64, 83, 6);
+	AddNpc("夺命一点金跟班C.ini", 65, 82, 6);
+	SetNpcDeathScript("夺命一点金", "夺命一点金死亡.txt");
+	SetNpcDeathScript("光头", "夺命一点金死亡.txt");
+	SetNpcDeathScript("大块", "夺命一点金死亡.txt");
+
+	If ($QiGaiPos == 1) @QiGaiPos21;
+	If ($QiGaiPos == 2) @QiGaiPos22;
+	@QiGaiPos21:
+		SetNpcPos("乞丐", 54, 62);
+		Goto @QiGaiPos2End;
+	@QiGaiPos22:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos2End;
+	@QiGaiPos2End:
+
+	SetPlayerPos(76, 18);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+@Event370:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_022_清平乡.map");
+
+	LoadNpc("qingpingxiang.npc");
+	LoadObj("map022_obj.obj");
+
+	SetNpcPos("贾少", 0, 0);
+	SetNpcPos("曾泼皮", 0, 0);
+	SetNpcPos("史泼皮", 0, 0);
+	SetNpcPos("高大个A", 0, 0);
+	SetNpcPos("高大个B", 0, 0);
+
+	SetNpcPos("鲁老头", 47, 90);
+	SetNpcDir("鲁老头", 1);
+	SetNpcPos("南琴", 72, 57);
+	SetNpcDir("南琴", 1);
+	SetNpcPos("胖婶子", 44, 5);
+	SetNpcDir("胖婶子", 3);
+	SetNpcPos("简梅", 34, 71);
+	SetNpcDir("简梅", 1);
+	SetNpcPos("章大爷", 0, 0);
+
+	If ($QiGaiPos == 1) @QiGaiPos31;
+	If ($QiGaiPos == 2) @QiGaiPos32;
+	@QiGaiPos31:
+		SetNpcPos("乞丐", 54, 62);
+		Goto @QiGaiPos3End;
+	@QiGaiPos32:
+		SetNpcPos("乞丐", 0, 0);
+		Goto @QiGaiPos3End;
+	@QiGaiPos3End:
+
+	SetPlayerPos(76, 18);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+@end:
+	Return;

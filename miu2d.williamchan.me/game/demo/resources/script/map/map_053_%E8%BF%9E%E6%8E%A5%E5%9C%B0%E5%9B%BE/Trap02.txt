@@ -1,0 +1,105 @@
+	If ($Event == 1813) @1813;
+	If ($Event == 285) @Label1;
+	If ($Event == 294) @Label1;
+	If ($Event == 300) @Label1;
+	If ($Event == 254) @Label2;
+	If ($Event == 302) @Label3;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_054_北山.map");
+	LoadNpc("beishan-sharenfeng.npc");
+    SaveNpc("temp.npc");
+	LoadObj("map054_obj.obj");
+	SetPlayerPos(3, 9);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Label2:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	LoadMap("map_054_北山.map");
+	LoadNpc("beishan-sharenfeng.npc");
+    SaveNpc("temp.npc");
+	LoadObj("map054_obj.obj");
+	SetPlayerPos(3, 9);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	DelObj("草药");
+	AddObj("草药.ini", 21,79,0);
+	AddObj("草药.ini", 24,76,0);	
+	AddObj("草药.ini", 23,77,0);	
+	AddObj("草药.ini", 24,78,0);	
+	AddObj("草药.ini", 24,80,0);	
+	AddObj("草药.ini", 22,79,0);	
+	AddObj("草药.ini", 22,80,0);	
+	FadeIn();
+	PlayMusic("Mc019.mp3");
+	Talk(4094, 4094);
+	Return;
+
+@Label1:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_054_北山.map");
+	LoadObj("map054_night.obj");
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	SetPlayerPos(3, 9);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@1813:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_054_北山.map");
+	LoadNpc("beishan-sharenfeng.npc");
+    SaveNpc("temp.npc");
+	LoadObj("map054_obj.obj");
+	SetPlayerPos(3, 9);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	DelObj("草药");
+	AddObj("草药.ini",1,103,0);
+	AddObj("草药.ini",1,105,0);	
+	AddObj("草药.ini",2,104,0);	
+	AddObj("草药.ini",6,102,0);	
+	AddObj("草药.ini",4,102,0);	
+	AddObj("草药.ini",24,76,0);	
+	AddObj("草药.ini",23,77,0);	
+	AddObj("草药.ini",24,81,0);	
+	AddObj("草药.ini",36,62,0);	
+	AddObj("草药.ini",37,62,0);	
+	AddObj("草药.ini",37,63,0);
+	AddObj("草药.ini",39,47,0);	
+	FadeIn();
+	Return;
+
+@Label3:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	LoadMap("map_054_北山.map");
+	LoadNpc("beishan-sharenfeng.npc");
+    SaveNpc("temp.npc");
+	LoadObj("map054_obj.obj");
+	SetPlayerPos(3, 9);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	PlayMusic("Mc019.mp3");
+	FadeIn();
+	Talk(5234, 5235);
+	Return;
+
+@end:
+	Return;

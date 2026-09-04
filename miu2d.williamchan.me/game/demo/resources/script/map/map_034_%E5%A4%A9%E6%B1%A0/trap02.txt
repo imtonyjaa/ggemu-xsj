@@ -1,0 +1,59 @@
+	GetPartnerIdx($wangwei);
+	If ($wangwei == 0) @tianchi;
+	Say("现在不能下去");
+	Return;
+	
+@tianchi:
+	Choose("是否下天池？","是","否",$wangwei);
+	If ($wangwei == 0) @yes; //是
+	If ($wangwei == 1) @no;  //否
+	Return;
+
+@no:
+	Say("杨影枫：现在先不下去。"，2);
+	PlayerGoto(17,22);
+	SetMapTrap(2,"trap02.txt");
+	Return;
+
+@yes:
+	SetPlayerDir(6);
+	NpcSpecialAction("杨影枫", "mpc114.asf");
+	Sleep(1200);
+	PlaySound("mpc114.wav");
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_035_天池内部.map");
+	LoadNpc("map035.npc");
+	SaveNpc("temp.npc");
+	LoadObj("map035_obj.obj");
+	SetPlayerPos(8,12);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	NpcSpecialAction("杨影枫", "mpc118下.asf");
+	OpenWaterEffect();
+	ChangeMapColor(150, 180, 255);
+	ChangeAsfColor(150, 180, 255);
+	FadeIn();
+
+	OpenTimeLimit(180);
+	SetTimeScript(0,"主角死亡.txt");
+
+	GetRandNum($wangwei, 0, 2);
+	If ($wangwei == 0) @000;
+	If ($wangwei == 1) @001;
+		
+	AddObj("可捡武器.ini",53,11,0);
+	SetObjScript("武器","6级武器.txt");
+	Return;
+
+@000:
+	AddObj("可捡防具.ini",7,161,0);
+	SetObjScript("防具","6级防具.txt");
+	Return;
+
+@001:	
+	AddObj("可捡药品.ini",34,15,0);
+	SetObjScript("药品","捡药品高级.txt");
+	Return;
+	

@@ -1,0 +1,189 @@
+	If ($Event == 2103) @2103;//蔷薇死亡
+	If ($Event == 2102) @2102;//蔷薇死亡
+	If ($Event == 2040) @2040;//结局2
+	If ($Event == 2034) @2034;//结局2
+	If ($Event == 2007) @2007;//结局2
+	If ($Event == 2002) @2002;
+	If ($Result == 0) @Result0;
+	If ($Result == 1) @Result1;
+	If ($Result == 2) @Result2;
+	If ($Result == 3) @Result3;
+	Return;
+	
+@2102:
+	Say("杨影枫：这不是去寒波谷的路。",2);
+	Return;
+
+@2040:
+	Say("杨影枫：这不是去悲魔山庄的路。",2);
+	Return;
+
+@2034:
+	Say("杨影枫：这不是去寒波谷的路。",2);
+	Return;
+
+@2007:	
+	Say("杨影枫：我现在要去飞龙堡救人。",6);
+	Return;
+	
+@Result0:
+	If ($Event ==370) @Event370;
+	If ($Event ==135) @Event135;
+	If ($Event ==144) @Event144;
+	If ($Event ==146) @Event146;
+	If ($Event ==185) @Event185;
+	If ($Event ==190) @Event190;
+	If ($Event ==510) @Event510;
+	If ($Event ==520) @Event520;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_023_连接地图.map");
+	LoadNpc("map023_luren.npc");
+	LoadObj("map023_obj.obj");
+	SetPlayerPos(26, 23);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+	
+@Result1:
+	If ($Event == 592) @Event592;
+	If ($Event == 630) @Event630;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_023_连接地图.map");
+	LoadNpc("map023_luren.npc");
+	LoadObj("map023_obj.obj");
+	SetPlayerPos(26, 23);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Result2:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_023_连接地图.map");
+	LoadNpc("map023_luren.npc");
+	LoadObj("map023_obj.obj");
+	SetPlayerPos(26, 23);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Result3:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_023_连接地图.map");
+	LoadNpc("map023_luren.npc");
+	LoadObj("map023_obj.obj");
+	SetPlayerPos(26, 23);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Event135:
+	Talk(1811, 1811);
+	Return;
+	
+@Event144:	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_023_连接地图.map");
+	ChangeMapColor(150, 150, 180);
+	ChangeAsfColor(150, 150, 180);
+	LoadNpc("map023_luren.npc");
+	LoadObj("map023_obj.obj");
+	SetPlayerPos(26, 23);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Event146:
+	Say("杨影枫：还是先带紫轩到惠安镇逛逛吧。", 2);
+	Return;	
+	
+@Event185:
+	Say("杨影枫：还是先到惠安镇打听一下张仲天大哥的死因吧！", 2);
+	Return;
+	
+@Event190:	
+	Say("杨影枫：还是先回芭蕉小筑查看一下张兄遗下的木匣吧！", 2);
+	Return;
+	
+@Event370:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_023_连接地图.map");
+	LoadNpc("map023_luren.npc");
+	LoadObj("map023_obj.obj");
+	SetPlayerPos(26, 23);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;	
+	
+@Event510:
+	Say("这不是去寒波谷的路。", 0);
+	Return;	
+	
+@Event520:
+	Say("杨影枫：还是先回悲魔山庄吧。", 2);
+	Return;	
+	
+@Event592:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_023_连接地图.map");
+	LoadNpc("map023.npc");
+	LoadObj("map023_obj.obj");
+	SetPlayerPos(26, 23);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;	
+	
+@Event630:	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_023_连接地图.map");
+	LoadNpc("map023.npc");
+	LoadObj("map023_obj.obj");
+	SetPlayerPos(26, 23);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;	
+
+@2002:
+	Say("杨影枫：我要先去寒波谷看看紫轩。",2);
+	Return;
+
+@2103:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_023_连接地图.map");
+	LoadNpc("map023_1.npc");
+	LoadObj("map023_obj.obj");
+	SetPlayerPos(26, 23);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@end:
+	Return;

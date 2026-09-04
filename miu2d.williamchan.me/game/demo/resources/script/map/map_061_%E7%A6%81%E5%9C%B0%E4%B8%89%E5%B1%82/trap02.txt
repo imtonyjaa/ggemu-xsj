@@ -1,0 +1,321 @@
+	If ($Event == 1822) @1822;//结局2
+	If ($Event == 1817) @1817;//结局2
+	If ($Event == 1815) @1815;//结局2
+	If ($Event == 1813) @end;
+	If ($Result == 0) @Result0;
+	If ($Result == 1) @Result1;
+	If ($Result == 2) @Result2;
+	If ($Result == 3) @Result3;
+	Return;
+	
+	
+@1822:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_062_禁地密室.map");
+	LoadNpc("map062.npc");
+	LoadObj("map062_obj.obj");
+	SetPlayerPos(14, 51);
+	SetPlayerDir(3);
+	SetMapTrap(5,"");
+	DelNpc("月眉儿");
+	AddNpc("月眉儿.ini",15,15,3);
+	DelNpc("纳兰真");
+	AddNpc("纳兰真.ini",16,14,3);
+	DelObj("受伤的纳兰真");
+//	AddObj("受伤的纳兰真.ini",16,14,0);
+//	SetObjOfs("受伤的纳兰真",-10,-10);
+	SetMapTrap(9,"trap09.txt");
+	SetMapTrap(5,"");
+	FadeIn();
+	Return;
+
+@1817:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_062_禁地密室.map");
+	LoadNpc("map062.npc");
+	LoadObj("map062_obj.obj");
+	SetPlayerPos(14, 51);
+	SetPlayerDir(3);
+	SetMapTrap(5,"");
+	DelObj("受伤的纳兰真");
+	AddObj("受伤的纳兰真.ini",16,14,0);
+	SetObjOfs("受伤的纳兰真",-10,-10);
+	SetMapTrap(9,"trap09.txt");
+	SetMapTrap(5,"");
+	FadeIn();
+	Return;
+
+@1815:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_062_禁地密室.map");
+	LoadNpc("map062.npc");
+	LoadObj("map062_obj.obj");
+	SetPlayerPos(14, 51);
+	SetPlayerDir(3);
+	FadeIn();
+	SetMapTrap(5,"trap05.txt");
+	Return;
+
+@Result0:
+	If ($Event <= 570) @Label1;
+	Return;
+	
+@Result1:
+	
+	If ($Event << 692) @end;	
+	If ($Event <<3040) @end;
+	If ($Event == 3040) @Evt3040;
+	If ($Event == 692) @Event692;
+	If ($Event == 700) @Event700;
+	FadeOut();
+	SaveObj();
+	LoadMap("map_062_禁地密室.map");
+	LoadNpc("map062.npc");
+	LoadObj("map062_obj.obj");
+	SetPlayerPos(14, 51);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;
+	
+@Result2:
+
+	If ($Event == 763) @Event763;
+	If ($Event == 816) @Event816;
+	FadeOut();
+	SaveObj();
+	LoadMap("map_062_禁地密室.map");
+	LoadNpc("map062.npc");
+	LoadObj("map062_obj.obj");
+	SetPlayerPos(14, 51);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;
+
+
+@Label1:
+
+	FadeOut();
+	SaveObj();
+	LoadMap("map_062_禁地密室.map");
+	LoadNpc("map062.npc");
+	LoadObj("map062_obj.obj");
+	SetPlayerPos(14, 51);
+	SetPlayerDir(3);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event692:
+	SetMapTrap(1,"Trap01.txt");
+	FadeOut();
+	SaveObj();
+	LoadMap("map_062_禁地密室.map");
+	//LoadNpc("map062.npc");
+	LoadObj("map062_QL.obj");
+	SetPlayerPos(14, 51);
+	SetPlayerDir(3);
+	EnableRun();
+	AddNpc("涟漪.ini",14,32,3);
+	SetNpcKind("涟漪",0);
+	EnableNpcAI();
+	FadeIn();
+	SetMapTrap(1,"");
+	Return;
+	
+@Evt3040:
+	SetMapTrap(1,"Trap01.txt");
+	FadeOut();
+	SaveObj();
+	LoadMap("map_062_禁地密室.map");
+	LoadNpc("map062.npc");
+	LoadObj("map062_obj.obj");
+	//LoadObj("map062_QL.obj");
+	AddObj("禁地木箱.ini",17,12,0);
+	DelObj("宝盒");
+	SaveObj("map062_Obj.obj");
+	
+	SetPlayerPos(14, 51);
+	SetPlayerDir(3);
+	EnableRun();
+	AddNpc("纳兰真.ini",14,32,3);
+	SetNpcKind("纳兰真",0);
+	EnableNpcAI();
+	FadeIn();
+	SetMapTrap(3,"");
+	SetMapTrap(1,"");
+	MoveScreen(4,200,3);
+	MoveScreen(2,100,3);
+	MoveScreen(6,200,3);
+	MoveScreen(0,60,2);
+	Talk(13580,13580);
+	Sleep(500);
+	NpcGoto("纳兰真",17,15);
+	PlayerGotoEx(15,34);
+	SetNpcDir("纳兰真",3);
+	NpcSpecialAction("纳兰真","mpc142-3a.asf");
+	SetNpcActionFile("纳兰真",0,"mpc142-3b.asf");
+	SetNpcActionFile("纳兰真",1,"mpc142-3b.asf");
+	Sleep(1000);
+	OpenBox("禁地木箱");
+	PlaySound("物-箱子开.wav");
+	Sleep(1300);
+	Sleep(1000);
+	Talk(98210,98220);
+	NpcSpecialAction("纳兰真","mpc142-3c.asf");
+	Sleep(1500);
+	FadeOut();
+	DelNpc("纳兰真");
+	LoadNpc("map062_VS_YMR.npc");
+	Sleep(500);
+	FadeIn();
+	Talk(98230,98230);
+	NpcGoto("月眉儿",15,15);
+	SetNpcDir("月眉儿",3);
+	Say("月眉儿：娘！",24);
+	Say("月眉儿：真儿见字如面，原谅娘带走姐姐眉儿…",24);
+	Say("月眉儿：她真的是我妹妹！",24);
+
+	Assign($Event ,3050);
+	SetPlayerScn();
+	Talk(98235,98235);
+	Return;
+	
+@Event763:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_062_禁地密室.map");
+	LoadNpc("map062.npc");
+	LoadObj("map062_obj.obj");
+	SetPlayerPos(14, 51);
+	SetPlayerDir(3);
+	EnableNpcAI();
+	AddNpc("纳兰真.ini",16,14,5);
+	FadeIn();
+	Assign($Event ,764);
+	Return;
+
+@Event816:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_062_禁地密室.map");
+	LoadNpc("map062.npc");
+	LoadObj("map062_obj.obj");
+	SetPlayerPos(14, 51);
+	SetPlayerDir(3);
+	AddNpc("月眉儿.ini",16,14,5);
+	DelObj("躺着的纳兰真");
+	AddObj("躺着的纳兰真.ini",17,12,0);
+	SetObjOfs("躺着的纳兰真",0,-20);
+	SetMapTrap(4,"Trap04.txt");
+	FadeIn();
+	Return;
+
+@Result3:
+	If ($Event == 905) @Event905;
+	If ($Event << 910) @end;
+	If ($Event == 910) @Event910;
+	If ($Event == 991) @Event991;
+	If ($Event == 995) @Event995;
+	If ($Event >> 910) @Label3;
+
+	FadeOut();
+	SaveObj();
+	LoadMap("map_062_禁地密室.map");
+	LoadNpc("map062.npc");
+	LoadObj("map062_obj.obj");
+	SetPlayerPos(14, 51);
+	SetPlayerDir(3);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Event905:
+	Say("杨影枫：这里有个石门，看来需要一把钥匙才能打开。", 2);
+	Return;
+	
+@Label3:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_062_禁地密室.map");
+	LoadNpc("map062.npc");
+	LoadObj("map062_obj.obj");
+	SetPlayerPos(14, 51);
+	SetPlayerDir(3);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event700:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_062_禁地密室.map");
+	LoadNpc("map062_YMR.npc");
+	LoadObj("map062_obj.obj");
+	SetPlayerPos(14, 51);
+	SetPlayerDir(3);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event910:
+	Talk(18060, 18060);
+	PlayerGoto(7, 26);
+	SetPlayerDir(3);
+//	去掉主角物品 钥匙
+	DelGoods("Goods-e06-钥匙.ini");
+	OpenBox("石室门");
+	Sleep(1500);
+	SaveObj();
+	Talk(18070, 18070);
+	PlayerGoto(6, 27);
+	SetPlayerDir(3);
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_062_禁地密室.map");
+
+	LoadNpc("map062.npc");
+	LoadObj("map062_obj.obj");
+
+	SetPlayerPos(14, 51);
+	SetPlayerDir(3);
+	EnableNpcAI();
+	FadeIn();
+	Talk(18071, 18071);
+	Assign($Event, 915);
+	Return;
+
+@Event991:
+	FadeOut();
+	SaveObj();
+	LoadMap("map_062_禁地密室.map");
+
+	LoadNpc("map062.npc");
+	LoadObj("map062_obj.obj");
+	SetObjScript("宝盒", "事件100_宝盒.txt");
+
+	SetPlayerPos(14, 51);
+	SetPlayerDir(3);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event995:
+
+	FadeOut();
+	LoadMap("map_062_禁地密室.map");
+	LoadNpc("map062.npc");
+	LoadObj("map062_obj.obj");
+	AddNpc("月眉儿.ini",16,24,1);
+	SetPlayerPos(14, 51);
+	SetPlayerDir(3);
+	FadeIn();
+	RunScript("事件100_3.txt");
+	Return;
+
+@end:
+	Return;

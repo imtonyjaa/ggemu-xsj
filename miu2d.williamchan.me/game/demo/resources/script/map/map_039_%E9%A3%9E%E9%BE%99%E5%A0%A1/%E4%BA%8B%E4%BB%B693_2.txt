@@ -1,0 +1,30 @@
+
+
+
+
+	If ($Event == 925) @Label1;
+	
+	Goto @end;
+	
+@Label1:
+	If ($Result <> 3) @end;
+	If ($Event925Find11 <> 1) @end;
+	If ($Event925Find12 <> 1) @end;
+	If ($Event925Find13 <> 1) @end;
+	If ($Event925Find14 <> 1) @end;
+
+//	系统消息：发生事件93.2，找遍飞龙堡，找不到俩女，往回走");
+
+	DisableNpcAI();	
+	Talk(18250, 18250);
+	Sleep(1000);
+	Talk(18251, 18251);
+	EnableNpcAI();
+	SetMapTrap(1, "Trap01.txt");
+	
+	Assign($Event, 930);
+	
+	Goto @end;
+	
+@end:
+	Return;

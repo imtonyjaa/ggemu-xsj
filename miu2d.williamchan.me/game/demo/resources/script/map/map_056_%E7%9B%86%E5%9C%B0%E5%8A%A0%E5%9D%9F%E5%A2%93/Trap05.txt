@@ -1,0 +1,27 @@
+	If ($Event == 335) @Label;
+	Goto @end;
+@Label:
+	Talk(5711, 5713);
+	Talk(5717, 5717);
+	PlayerGoto(16, 36);
+	SetPlayerDir(3);
+	SetNpcKind("纳兰真",1);
+	NpcGoto("纳兰真",16, 37);
+	SetNpcDir("纳兰真",1);
+	SetNpcActionFile("杨影枫", 0, "mpc001_跪.asf");
+	SetNpcActionFile("杨影枫", 1, "mpc001_跪.asf");
+  	NpcSpecialAction("杨影枫", "mpc001_跪下.asf");
+  	Sleep(2000);
+	Talk(5718, 5719);
+	SetNpcActionFile("杨影枫", 0, "npc006_st2.asf");
+	SetNpcActionFile("杨影枫", 1, "npc006_sst2.asf");
+	NpcSpecialAction("杨影枫", "mpc001.asf");
+	Sleep(2000);
+	Talk(5720, 5720);
+	SetNpcKind("纳兰真",3);
+	AddToMemo(90570);
+	SetMapTrap(5, "");
+	Goto @end;
+@end:
+	Return;	
+	

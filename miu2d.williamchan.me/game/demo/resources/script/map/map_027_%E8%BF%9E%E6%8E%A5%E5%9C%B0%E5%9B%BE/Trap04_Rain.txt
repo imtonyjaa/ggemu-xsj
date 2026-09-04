@@ -1,0 +1,12 @@
+	If ($Event <> 592) @end;
+	If ($RainDou == 1) @end;
+	BeginRain("rain.ini");
+	Say("杨影枫：唉呀，下雨了。",4);
+	Assign($RainDou,1);
+	SetMapTrap(1,"");
+	SetMapTrap(4,"");
+	Return;
+
+@end:
+	
+	Return;

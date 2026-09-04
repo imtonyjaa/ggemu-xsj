@@ -1,0 +1,7 @@
+	StopMusic();
+	PlaySound("游戏结束.wav");
+	Sleep(3000);
+   	FadeOut();
+	PlayMovie("death.avi");
+	ReturnToTitle();
+	Return;

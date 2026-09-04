@@ -1,0 +1,183 @@
+	If ($Event == 1821) @1821;//结局2求证回来
+	If ($Event == 1816) @1816;//结局2
+	If ($Result == 3) @Result3;
+	If ($Event == 296) @Event296;
+	If ($Event == 250) @Label7;
+	If ($Event == 252) @Label7; 
+	If ($Event == 260) @Label7;
+	If ($Event == 270) @Label7; 
+	If ($Event == 275) @Label7; 
+	If ($Event == 285) @Label5;	
+	If ($Event == 294) @Label6;
+	If ($Event == 301) @Label3; 
+	If ($Event == 690) @Label4;
+	If ($Event == 340) @Label8;
+	If ($Event == 350) @Label9;
+	If ($Event == 254) @Label10;
+	If ($Event == 412) @Event412;
+	If ($Event == 450) @end;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_051_海边.map");
+	LoadNpc("map051.npc");
+	LoadObj("map051_obj.obj");
+	SetPlayerPos(26, 18);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@1816:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_051_海边.map");
+	LoadNpc("map051.npc");
+	LoadObj("map051_obj.obj");
+	SetPlayerPos(26, 18);
+	SetPlayerDir(2);
+	FadeIn();
+	SetMapTrap(3,"trap03.txt");
+	Return;
+
+@Label3:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_051_海边.map");
+	LoadNpc("map051.npc");
+	LoadObj("map051_obj.obj");
+	DelNpc("彩蝶");
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	SetPlayerPos(26, 18);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Label5:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_051_海边.map");
+	LoadNpc("map051.npc");
+	LoadObj("map051_obj.obj");
+	DelNpc("彩蝶");
+	AddObj("杨影枫外衣.ini", 8, 74, 0);
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	SetPlayerPos(26, 18);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;	
+	
+@Label6:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_051_海边.map");
+	LoadObj("map051_obj.obj");
+	LoadNpc("seashore-nalanzhen.npc");
+	SetNpcPos("纳兰真",4,52);
+	SetNpcDir("纳兰真",2);
+	SetNpcScript("纳兰真", "纳兰真对话.txt");
+	DelNpc("彩蝶");
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	SetPlayerPos(26, 18);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;	
+
+@Label7:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_051_海边.map");
+	LoadNpc("seashore-yangyf2.npc");
+	LoadObj("map051_obj.obj");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(26, 18);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+
+@Event412:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_051_海边.map");
+	LoadNpc("Event412.npc");
+	LoadObj("map051_obj.obj");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(26, 18);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Label4:
+	Say("系统消息：跟踪涟漪");
+	PlayerGoto(3, 12);
+	SetPlayerDir(6);
+	SetMapTrap(1, "Trap01.txt");
+	Return;
+
+@Result3:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_051_海边.map");
+	LoadNpc("map051.npc");
+	LoadObj("map051_obj.obj");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(26, 18);
+	SetPlayerDir(2);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@1821:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_051_海边.map");
+	LoadNpc("map051.npc");
+	LoadObj("map051_obj.obj");
+	SetPlayerPos(26, 18);
+	SetPlayerDir(2);
+	FadeIn();
+	DelNpc("月眉儿");
+	DelObj("躺着的纳兰真");
+	SetMapTrap(3,"trap03.txt");
+	Return;
+
+@Label8:
+	Talk(6232, 6233);
+	Return;
+	
+@Label9:	
+	Say("纳兰真：影枫哥哥，你不要走了好吗？", 12);
+	Say("杨影枫：对不起，真儿，我……", 2);
+	Say("纳兰真：唉，留得住你的人，留不住你的心。我们还是去<color=Red>码头<color=Black>吧，码头在岛的<color=Red>西南边<color=Black>。", 12);
+	Return;
+	
+@Label10:
+	Say("纳兰真：还是先去东南边的离忧山上采银丝草吧！", 9);
+	Goto @end;
+
+@Event296:
+	Say("纳兰真：赶紧去禁地，晚了天就要亮了。", 9);
+	Goto @end;
+@end:
+	Return;

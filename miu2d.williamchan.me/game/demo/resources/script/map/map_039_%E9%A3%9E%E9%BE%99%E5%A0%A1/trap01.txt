@@ -1,0 +1,67 @@
+	If ($Event == 2010) @2010;//结局2救蔷薇
+	If ($Event == 1802) @Label2;//结局2救真儿
+	If ($Result == 1) @Label1;
+	If ($Result == 3) @Label3;
+	Return;
+
+@2010:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_038_连接地图.map");
+	LoadNpc("map038.npc");
+	LoadObj("map038_obj.obj");
+	SetPlayerPos(14,52);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;
+
+@Label1:
+	If ($Event << 660) @end;
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_038_连接地图.map");
+	LoadNpc("map038.npc");
+	LoadObj("map038_obj.obj");
+	SetPlayerPos(14,52);
+	SetPlayerDir(3);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Label2:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_038_连接地图.map");
+	LoadNpc("map038.npc");
+	LoadObj("map038_obj.obj");
+	SetPlayerPos(14,52);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;
+	
+@Label3:
+	If ($Event == 925) @Event925;
+	FadeOut();
+	SaveNpc();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_038_连接地图.map");
+	LoadNpc("map038.npc");
+	LoadObj("map038_obj.obj");
+	SetPlayerPos(14,52);
+	SetPlayerDir(3);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Event925:
+	PlayerGoto(2, 134);
+	SetMapTrap(1, "Trap01.txt");
+	Say("系统消息：找真儿");
+	Return;
+
+@end:
+	Return;

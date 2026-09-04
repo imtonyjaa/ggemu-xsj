@@ -1,0 +1,81 @@
+
+// 事件38 刚发生
+	If ($Event == 382) @Label1;
+//	zroc change
+//	If ($Event == 390) @Event390;
+
+	Goto(@end);
+	
+@Label1:
+	DisableInput();
+	DisableNpcAI();
+	Talk(6560,6560);
+	PlayerGoto(31, 102);
+	SetPlayerDir(7);
+	MoveScreen(7,50,2);
+	Sleep(1000);
+	Talk(6600,6610);
+	NpcGoto("紫轩",34,103);
+	Talk(6620,6650);
+	NpcGoto("紫轩",35,105);
+	Talk(6660,6670);
+	//MoveScreen(6,30,2);
+	SetPlayerScn();
+	SetPlayerDir(3);
+	//Talk(6671,6680);
+	Say("杨影枫：（啊？！这……这不可能是真的！不可能……不可能！！）", 4);
+	Say("杨影枫：（怎么会这样……紫轩，她竟然一直在骗我！！）"，4);
+	Say("杨影枫：（原来一切都是一个骗局！假的，全都是假的！！眼泪是假的，开心是假的，箫声是假的，什么海誓山盟，天长地久，但都是假的！！全是谎言！全是骗局……）",	5);
+	Say("杨影枫：（杨影枫啊杨影枫，你真是天下最大的傻瓜！！……）", 5);
+	NpcGotoEx("紫轩",35,106);
+	
+
+	Assign($Event, 390);
+	SetMapTrap(6, "");
+	SetMapTrap(8, "");
+	AddToMemo(45040);
+	EnableInput();
+	SetMapTrap(6,"事件39_1.txt");
+	
+	FadeOut();
+	SaveObj();
+	
+	LoadMap("map_027_连接地图.map");
+	LoadNpc("Event390HelpYMR.npc");
+	ChangeMapColor(128,150,200);
+	ChangeAsfColor(128,150,200);
+	SetPlayerPos(3, 159);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	BeginRain("Rain.ini");
+	FadeIn();
+	SetMapTrap(1,"");
+	Say("杨影枫：紫轩啊紫轩，我为了你连性命都可以不要，可是你……你为什么要这样对我！你太狠心了！！"，5);
+	Sleep(500);
+	Say("杨影枫：最心爱的人竟然是从头至尾欺骗我的人，我活着还有什么意思？！", 5);
+	Sleep(500);
+	Say("杨影枫：这个世界上只有真儿是真心对我好，永远不会欺骗我，我……我还是回忘忧岛吧。", 5);
+	
+	//LoadMap("map_014_连接地图.map");	
+	//LoadNpc("map014_night.npc");
+	//LoadObj("map014_night.obj");
+	//ChangeMapColor(100, 128, 150);
+	//ChangeAsfColor(100, 128, 150);
+	//SetPlayerPos(20, 110);
+	//SetPlayerDir(6);
+	//EnableNpcAI();
+	//FadeIn();
+	
+	Goto(@end);
+	
+//	zroc change
+//@Event390:
+//        PlayerRunTo(26,98);
+//        Talk(41370,41370);
+//        SetMapTrap(6,"事件39_1.txt");
+//        Return;
+	
+@end:
+	Return;
+	
+	

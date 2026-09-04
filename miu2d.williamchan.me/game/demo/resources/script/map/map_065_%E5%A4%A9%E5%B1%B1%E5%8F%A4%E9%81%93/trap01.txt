@@ -1,0 +1,10 @@
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_031_连接地图.map");
+	LoadNpc("map031.npc");
+	LoadObj("map031_obj.obj");
+	SetPlayerPos(22, 52);
+	SetPlayerDir(3);
+	EnableNpcAI();
+	FadeIn();

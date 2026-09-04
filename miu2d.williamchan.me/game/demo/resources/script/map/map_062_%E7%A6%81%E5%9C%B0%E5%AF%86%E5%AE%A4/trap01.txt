@@ -1,0 +1,84 @@
+// 事件46.2 刚发生
+	If ($Event == 1815) @1815;
+	If ($Event == 455) @Label1;
+	If ($Event == 700) @Event700;
+	If ($Event == 915) @Label2;
+	If ($Event == 767) @Event767;
+	If ($Event == 992) @Event992;
+	If ($Event == 698) @Event698;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_061_禁地三层.map");
+	LoadNpc("map061.npc");
+	LoadObj("map061_obj.obj");
+	SetPlayerPos(7, 28);
+	SetPlayerDir(7);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@1815:
+	Say("纳兰真：影枫哥，我们先找一找娘留下来的书信吧。",9);
+	Return;
+
+@Label1:
+	Say("杨影枫：这石室有点儿古怪，让我到处看看。", 2);
+	PlayerGoto(14, 51);
+	SetMapTrap(1, "Trap01.txt");
+	Return;
+	
+@Event992:
+	Say("纳兰真：先看看我娘留下的信。", 9);
+	PlayerGoto(14, 51);
+	SetMapTrap(1, "Trap01.txt");
+	
+	Return;
+	
+@Label2:
+	If ($Result <> 3) @end;
+	Talk(18072, 18072);
+	PlayerGoto(14, 51);
+	
+	SetMapTrap(1, "Trap01.txt");
+	
+	Return;
+	
+@Event767:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_061_禁地三层.map");
+	LoadNpc("map061.npc");
+	LoadObj("map061_obj.obj");
+	SetPlayerPos(7, 28);
+	SetPlayerDir(7);
+	EnableNpcAI();
+	FadeIn();
+	Return;	
+	
+@Event698:
+	PlayerGotoDir(3,2);
+	Say("杨影枫：好像我忘了拿木剑！", 2);
+	SetMapTrap(1,"Trap01.txt");
+	Return;
+	
+	
+@Event700:	
+	SaveNpc("map062_YMR.npc");
+	LoadNpc();
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_061_禁地三层.map");
+	LoadNpc("map061.npc");
+	LoadObj("map061_obj.obj");
+	SetPlayerPos(7, 28);
+	SetPlayerDir(7);
+	EnableNpcAI();
+	FadeIn();
+	Return;	
+	
+@end:
+	Return;

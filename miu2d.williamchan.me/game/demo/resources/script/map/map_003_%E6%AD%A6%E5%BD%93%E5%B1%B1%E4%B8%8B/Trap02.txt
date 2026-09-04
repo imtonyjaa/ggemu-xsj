@@ -1,0 +1,34 @@
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+
+	LoadMap("map_005_洗剑池.map");
+	LoadNpc("map005.npc");
+	LoadObj("map005_obj.obj");
+
+	If ($SubEvent02 >= 2) @SubLabel1;
+	If ($SubEvent02 << 2) @SubLabel2;
+	Goto @SubLabelEnd;
+	@SubLabel1:
+		SetObjScript("罂粟", "支线草药.txt");
+		Goto @SubLabelEnd;
+	@SubLabel2:
+		SetObjScript("罂粟", "");
+		Goto @SubLabelEnd;
+	@SubLabelEnd:
+
+	SetPlayerPos(6, 77);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	
+	If ($SubEvent01 == 2) @SubEvent01;
+	Goto @end;
+@SubEvent01:
+	Assign($SubEvent01, 0);
+	Goto @end;
+	
+@end:
+	Return;
+	

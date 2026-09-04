@@ -1,0 +1,328 @@
+	If ($Event == 2008) @2008;//结局2去飞龙堡救蔷薇
+	If ($Event == 2002) @2002;//结局2去落叶谷找孟帮忙
+	If ($Event == 2001) @2002;//结局2去落叶谷找孟帮忙
+	If ($Event == 2000) @2000;//结局2去落叶谷找孟帮忙
+	If ($Event == 1821) @1821;//结局2求证回来
+	If ($Event == 2102) @end;
+	If ($Event == 2040) @2040;
+	If ($Event == 2034) @end;
+	If ($Event == 991) @Event991;
+	If ($Event << 475) @end;
+	If ($Event == 500) @Label1;
+	If ($Event == 520) @Label2;
+	If ($Event == 562) @Event562;
+	If ($Event == 585) @Event585;
+	If ($Event == 600) @Event600;
+	If ($Event == 3100) @Event3100; 
+	If ($Result == 1) @Result1;
+	If ($Result == 3) @Result3;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadObj("map030_obj.obj");
+	LoadNpc("beimo.npc");
+	SetPlayerPos(9, 225);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@1821:
+	Say("这不是去忘忧岛的路");
+	Return;	
+
+@Result1:
+	If ($Event == 3120) @AddYMR;
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadObj("map030_obj.obj");
+	LoadNpc("beimo.npc");
+	SetPlayerPos(9, 225);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@Label1:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadObj("map030_obj.obj");
+	LoadNpc("beimo.npc");
+	SetPlayerPos(9, 225);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	SetNpcPos("纳兰真", 39, 151);
+	SetNpcDir("纳兰真", 1);
+	SetMapTrap(7, "纳兰真对话.txt");
+	FadeIn();
+	Return;
+
+@Event562:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadObj("map030_obj.obj");
+	LoadNpc("beimo.npc");
+	SetNpcPos("纳兰真", 44, 144);
+	SetNpcDir("纳兰真", 1);
+	SetNpcKind("纳兰真", 0);
+	SetNpcRelation("纳兰真", 2);
+	SetNpcScript("纳兰真","事件57.txt");
+	SetPlayerPos(9, 225);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Label2:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("beimo_night.npc");
+	LoadObj("map030_obj.obj");
+	DelNpc("纳兰真");
+	AddNpc("悲魔山庄侍女.ini", 19, 199, 1);
+	SetNpcScript("侍女","");
+	AddNpc("纳兰真.ini", 54, 79, 7);
+	SetNpcScript("纳兰真","");
+	SetPlayerPos(9, 225);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	SetMapTrap(8, "事件53_1.txt");
+	SetMapTrap(17, "事件53_2.txt");
+	FadeIn();
+	Return;
+	
+@Event640:	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄加墓加字.map");
+	LoadObj("map030_obj.obj");
+	LoadNpc("map030_QWdead.npc");
+	AddObj("紫轩尸体.ini",24,217,0);
+	SetPlayerPos(9, 225);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Event600:
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadObj("map030_obj.obj");
+	LoadNpc("beimo.npc");
+	SetNpcPos("蔷薇",49,155);
+	SetNpcScript("蔷薇","蔷薇对话.txt");
+	SetNpcKind("蔷薇",0);
+	SetPlayerPos(9, 225);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+@Result3:
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("beimo.npc");
+	LoadObj("map030_obj.obj");
+	SetNpcPos("侍女可意", 40, 139);
+	SetNpcPos("侍女可心", 41, 138);
+	SetNpcDir("侍女可意", 7);
+	SetNpcDir("侍女可心", 7);
+	SetPlayerPos(9, 225);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+
+
+@Event585:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadObj("map030_obj.obj");
+	LoadNpc("beimo.npc");
+	SetNpcPos("蔷薇",40,150);
+	SetPlayerPos(9, 225);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@AddQW:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadObj("map030_obj.obj");
+	LoadNpc("beimo.npc");
+	DelNpc("纳兰真");
+	DelNpc("蔷薇");
+	AddNpc("蔷薇.ini",49,155,1);
+	SetNpcScript("蔷薇","蔷薇对话.txt");
+	SetNpcKind("蔷薇",0);
+	SetPlayerPos(9, 225);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@UseTombMap:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("beimo.npc");
+	LoadObj("map030_obj.obj");
+	SetPlayerPos(9, 225);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@UseTomb3Map:	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("beimo.npc");
+	LoadObj("map030_obj.obj");
+	SetPlayerPos(9, 225);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	FadeIn();
+	Return;
+	
+@AddYMR:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadObj("map030_obj.obj");
+	LoadNpc("beimo.npc");
+	SetPlayerPos(9, 225);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;	
+	
+
+@Event991:
+	PlayerGoto(14, 8);
+	SetMapTrap(2, "Trap02.txt");
+	Say("杨影枫：带真儿回忘忧岛吧，对她的病情康复也许有帮助。", 2);
+	Return;
+	
+@end:
+	Return;
+
+@2040:
+	FadeOut();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("map030_1.npc");
+	LoadObj("map030_obj.obj");
+	SetPlayerPos(9, 225);
+	SetPlayerDir(5);
+	FadeIn();
+	SetMapTrap(1,"");
+	SetMapTrap(5,"");
+	SetMapTrap(6,"");
+	SetMapTrap(13,"");
+	If ($zixuan == 0) @2050;
+	RunScript("寒波谷归来3.txt");
+	Return;
+	
+@2050://没有紫轩
+	RunScript("寒波谷归来2.txt");
+	Return;
+
+@2002:
+	FadeOut();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("map030_2.npc");
+	LoadObj("map030_obj.obj");
+	SetPlayerPos(9, 225);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;
+
+@2000:
+	DisableNpcAI();
+	FadeOut();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("map030_2.npc");
+	LoadObj("map030_obj.obj");
+	SetPlayerPos(13,215);
+	SetPlayerDir(5);
+	FadeIn();
+	StopMusic();
+	PlayMusic("mc014.mp3");
+	PlayerGoto(16,209);
+	Say("丁戈：哈哈，杨少侠，老夫奉教主之命在此恭候少侠多时了。",72);
+	Say("杨影枫：哼！没想到你们霹雳堂也做了魔教的走狗。",8);
+	Say("丁戈：哈哈，少侠此言差异，无忧教统一武林乃是众望所归，老夫也只是顺天行事而已。",72);
+	Say("丁戈：教主他老人家对少侠赏识有佳，如果少侠愿意加入无忧教，以后真是前程不可限量呀。",72);
+	Say("杨影枫：呸！让我加入无忧教，没门！",8);
+	Say("丁戈：少侠不要敬酒不吃吃罚酒，我劝少侠还是多考虑考虑吧。",72);
+	Say("杨影枫：不用了，我先送你们去见阎王再说。",8);
+	SetMapTrap(1,"");
+	SetMapTrap(5,"");
+	SetMapTrap(6,"");
+	GetNpcCount(1,1);
+	EnableNpcAI();
+	Return;
+
+@2008:
+	DisableNpcAI();
+	FadeOut();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("map030_3.npc");
+	LoadObj("map030_obj.obj");
+	ClearBody();
+	SetPlayerPos(13,215);
+	SetPlayerDir(5);
+	FadeIn();
+	StopMusic();
+	PlayMusic("mc027.mp3");
+	PlayerGoto(16,209);
+	Say("辛楚：杨影枫！我大哥丁戈是不是你杀死的？",71);
+	Say("杨影枫：没错！是我杀的。",8);
+	Say("辛楚：好呀！我要杀了你给我大哥报仇！",71);
+	Say("杨影枫：哼！你杀的了我吗？",8);
+	SetMapTrap(1,"");
+	SetMapTrap(5,"");
+	SetMapTrap(6,"");
+	GetNpcCount(1,1);
+	EnableNpcAI();
+	Return;
+
+
+@Event3100:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_030_悲魔山庄.map");
+	LoadObj("map030_obj.obj");
+	LoadNpc("beimo.npc");
+	SetNpcPos("管家铁云",42,142);
+	SetPlayerPos(9, 225);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	Return;

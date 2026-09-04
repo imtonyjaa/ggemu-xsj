@@ -1,0 +1,8 @@
+
+
+	If ($SubEvent18 == 10) @Sub18;
+	Return;
+@Sub18:
+	SetObjScript("支线宝箱", "");
+	AddGoods("goods-w20-独孤剑.ini");
+	Return;

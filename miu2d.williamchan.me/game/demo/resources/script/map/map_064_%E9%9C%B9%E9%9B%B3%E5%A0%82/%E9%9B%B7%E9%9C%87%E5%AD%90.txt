@@ -1,0 +1,46 @@
+
+	If ($Event == 212) @Label1;
+	If ($Event == 213) @Label2;
+	Goto @end;
+	
+@Label1:
+	DisableNpcAI();
+	Talk(2990, 2990);
+	DelObj("雷震子");
+	Sleep(200);
+	AddGoods("Goods-e02-雷震子.ini");
+	Say("杨影枫：哎呀，不好，我好像触动了什么机关，我得赶紧离开这里！", 4);
+	Assign($Event, 217);	
+	EnableFight();
+	EnableNpcAI();
+	//AddToMemo(90340);
+	OpenTimeLimit(20);
+	SetTimeScript(0, "霹雳堂爆炸.txt");
+	SetMapTrap(3, "爆炸停止.txt");
+	SetMapTrap(12, "爆炸停止.txt");
+	Memo("触动机关，听雷阁即将爆炸，赶紧离开霹雳堂。");
+	SetMapTrap(1, "Trap01.txt");
+	Return;
+
+@Label2:
+	DisableNpcAI();
+	Talk(2990, 2990);
+	DelObj("雷震子");
+	Sleep(200);
+	AddGoods("Goods-e02-雷震子.ini");
+	Say("杨影枫：哎呀，不好，我好像触动了什么机关，我得赶紧离开这里！", 4);
+	PlayMusic("mc027.mp3");
+	Talk(3000, 3000);
+	MergeNpc("pilitang-night.npc");
+	OpenTimeLimit(60);
+	SetTimeScript(0, "霹雳堂爆炸.txt");
+	SetMapTrap(12, "爆炸停止.txt");
+	Assign($Event, 218);
+	EnableNpcAI();
+	Memo("触动机关，听雷阁即将爆炸，赶紧离开霹雳堂。");
+	SetMapTrap(1, "Trap01.txt");
+	Goto @end;
+	
+@end:
+	Return;		
+  

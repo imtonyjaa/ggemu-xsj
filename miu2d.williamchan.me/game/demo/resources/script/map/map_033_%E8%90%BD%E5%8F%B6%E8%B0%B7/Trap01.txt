@@ -1,0 +1,131 @@
+	If($Event == 555) @555;// 带蔷薇回来
+	If($Event == 558) @Label1;
+	If($Result == 0) @Result0;
+	If($Result == 1) @Result1;
+	If($Result == 2) @Result2;
+	If($Result == 3) @Result3;
+	Return;
+
+@Label1:
+	Talk(241, 241); 
+	Return;
+
+@555:
+	Say("杨影枫：先去拜见孟知秋吧。",2); 
+	Return;
+
+@Result0:
+	If ($Event == 532) @Event532;
+	If ($Event == 534) @Event532;
+	If ($Event == 550) @Event550;
+	If ($Event == 562) @Event562;// 去掉蔷薇和孟知秋
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_032_天山.map");
+	LoadNpc("map032.npc");
+	LoadObj("map032_obj.obj");
+	SetPlayerPos(30, 11);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	ShowSnow(1);
+	FadeIn();
+	Return;
+
+@Result1:
+	If ($Event == 574) @Event574;//求亲结束
+	If($Event <= 573) @UnDone;
+	FadeOut();
+	SaveObj();
+	SaveNpc();
+	LoadMap("map_032_天山.map");
+	LoadNpc("map032.npc");
+	LoadObj("map032_obj.obj");
+	SetPlayerPos(30, 11);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	ShowSnow(1);
+	FadeIn();
+	Return;
+
+@UnDone:
+	Talk(60020,60020);
+	PlayerGotoDir(5,3);
+	SetMapTrap(1,"trap01.txt");
+	Return;
+
+
+@Result2:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_032_天山.map");
+	LoadNpc("map032.npc");
+	LoadObj("map032_obj.obj");
+	SetPlayerPos(30, 11);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	ShowSnow(1);
+	FadeIn();
+	Return;
+
+@Result3:
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_032_天山.map");
+	LoadNpc("map032.npc");
+	LoadObj("map032_obj.obj");
+	SetPlayerPos(30, 11);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	ShowSnow(1);
+	FadeIn();
+	Return;
+
+@Event562:
+	FadeOut();
+	SetNpcPos("蔷薇", 0, 0);
+	SetNpcPos("孟知秋", 0, 0);
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_032_天山.map");
+	LoadNpc("map032.npc");
+	LoadObj("map032_obj.obj");
+	SetPlayerPos(30, 11);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	ShowSnow(1);
+	FadeIn();
+	Return;
+
+@Event532:
+	Say("这里就是落叶谷了。", 0);
+	Return;
+
+@Event550:
+	Say("杨影枫：还是先带蔷薇回落叶谷吧。", 2);
+	Return;
+
+
+@Event574:
+	FadeOut();
+	SaveObj();
+	//DelNpc("蔷薇");
+	SaveNpc();
+	LoadMap("map_032_天山.map");
+	LoadNpc("map032.npc");
+	LoadObj("map032_obj.obj");
+	SetPlayerPos(30, 11);
+	SetPlayerDir(0);
+	EnableNpcAI();
+	ShowSnow(1);
+	FadeIn();
+	Return;
+
+
+@end:
+	Return;
+	
+	
