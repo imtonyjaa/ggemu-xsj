@@ -48,6 +48,21 @@
 
     <style>
       body { margin: 0; padding: 0; overflow: hidden; background: #000; }
+      /* 隐藏所有游戏中的顶部菜单栏 */
+      .h-10.bg-black\/40.backdrop-blur-md { display: none !important; }
+      /* 隐藏右下角的版权信息（通过它特有的绝对定位坐标） */
+      div[style*="bottom: 4px"][style*="right: 8px"],
+      div[style*="bottom:4px"][style*="right:8px"] {
+        display: none !important;
+      }
+      /* 隐藏设置面板中的“反馈Bug”按钮 */
+      button[class*="px-2.5 py-1 text-xs text-white/40"] {
+        display: none !important;
+      }
+      /* 隐藏设置面板中的“界面风格”选项区块 */
+      div[class="flex-1 overflow-y-auto p-4 space-y-5"] > div:nth-child(2) > div:nth-child(2) {
+        display: none !important;
+      }
     </style>
     <script type="module" crossorigin src="/assets/index-D4tsONPY.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-COnpUsM8.js">
