@@ -1,0 +1,36 @@
+// 切换到临安城客栈一楼
+
+	If ($Event == 180) @Event180;
+	If ($Event == 255) @Event255;	//杀吕文才之前
+	If ($Event == 256) @Event256;	//杀吕文才之后		
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map020_临安城客栈一楼.map");
+	LoadNpc("map020.npc");
+	LoadObj("map020.obj");
+	SetPlayerPos(14, 42);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;	
+	
+@Event180:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map020_临安城客栈一楼.map");
+	LoadNpc("map020.npc");
+	LoadObj("map020.obj");
+	AddNpc("npc075_贾老实.ini", 17, 32, 7);
+	SetPlayerPos(14, 42);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;			
+	
+@Event255:
+	Return;		
+	
+@Event256:
+	Say("城内人心惶惶，所有的店面都打烊了。");
+	Return;		

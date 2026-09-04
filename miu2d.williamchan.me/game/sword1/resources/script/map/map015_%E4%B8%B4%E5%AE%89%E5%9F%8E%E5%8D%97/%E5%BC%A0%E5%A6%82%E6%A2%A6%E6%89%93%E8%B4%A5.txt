@@ -1,0 +1,70 @@
+// 打败张如梦后，红衣蒙面人（南宫彩虹）出现
+
+	FadeOut();
+	StopMusic();
+	SetPlayerPos(12, 50);
+	SetPlayerDir(6);
+	SetPlayerState(0);
+	DelNpc("张如梦");
+	ClearBody();
+	AddNpc("npc002_张如梦受伤.ini", 13, 50, 2);
+	Sleep(500);
+	ClearEffect();
+	FadeIn();
+	
+	Say("独孤剑：张大哥，小弟得罪了。", 1);
+	NpcSpecialAction("独孤剑", "mpc043.asf");
+	Sleep(1500);
+	Say("张如梦：好……好剑法！张某佩……佩服！", 11);
+	
+	PlaySound("战_箭放快.wav");   //蒙面人飘落时的音效
+	AddNpc("红衣蒙面人.ini", 13, 46, 0);    // 将红衣蒙面人作为站立的NPC载入，载入点是落在地图的位置点
+	NpcSpecialAction("红衣蒙面人", "mpc011.asf");  //飘落后袭击独孤剑
+	Sleep(500);
+	SetNpcMagicFile("红衣蒙面人","magic023_雨后彩虹.ini");
+	NpcAttack("红衣蒙面人", 12, 50); 
+	Sleep(1500);
+	PlaySound("战_男死00.wav");
+	NpcSpecialAction("独孤剑", "mpc402.asf");    // 独孤剑倒地
+	Sleep(500);
+	FadeOut();
+	Say("张琳心：不要！",25);
+	DelGoods("Goods401_血书.ini");  //从物品栏中删除“血书”
+	
+	DelNpc("张如梦");
+	DelNpc("红衣蒙面人");
+	SetNpcPos("宋兵1", 21, 26);
+	SetNpcDir("宋兵1", 7);
+	SetNpcPos("宋兵2", 22, 29);
+	SetNpcDir("宋兵2", 3);
+	SetNpcPos("妇人", 5, 44);
+	SetNpcDir("妇人", 7);
+	SetNpcPos("茶摊老板", 20, 75);
+	SetNpcDir("茶摊老板", 1);
+	SetNpcPos("卖药人", 8, 63);
+	SetNpcDir("卖药人", 0);
+	
+	SaveNpc();
+	SaveObj();
+	LoadMap("map021_临安城客栈二楼.map");
+	LoadNpc("map021.npc");
+	LoadObj("map021.obj");
+	SetPlayerPos(2, 34);
+	SetPlayerDir(7);
+	SetNpcDeathScript("张如梦", "");
+	
+	Sleep(1000);
+	Say("昏昏沉沉也不知过了多久……");
+	FadeIn();
+	PlayMusic("追缘.mp3");
+	Say("独孤剑：咦？我怎么会在客栈？我记得自己是在临安城南与张如梦决斗的呀……", 8);
+	Say("独孤剑：蒙面人！……血书！",6);
+	SetPlayerDir(3);
+	Sleep(1500);
+	SetPlayerDir(7);
+	Say("独孤剑：糟糕！血书不见了！这如何是好？", 6);
+	Say("独孤剑：是谁送我来这里的呢？", 6);
+	Assign($Event, 198);
+	Assign($Dodo, 1);
+	Memo("在临安城南，独孤剑遇到张如梦，两人因为父仇决斗了一场，刚击败张如梦，忽然出现一位红衣蒙面人打昏独孤剑救走了张如梦。独孤剑醒来后发现自己躺在客栈里，但身上的血书不翼而飞。");
+	Return;

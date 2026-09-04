@@ -1,0 +1,60 @@
+// 切换到临安城（室外）
+
+	If ($Event == 45) @Event45;
+	If ($Event == 50) @Event50;
+	If ($Talkzuilangzhong == 2) @Event60;
+		
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map016_临安城.map");
+	LoadNpc("map016.npc");
+	LoadObj("map016.obj");
+	SetPlayerPos(12, 144);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;	
+	
+@Event45:
+	Say("独孤剑：大丈夫怎能临阵逃脱？", 1);
+	Return;	
+	
+@Event50:	
+	If ($017 == 1) @017;
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map016_临安城.map");
+	LoadNpc("map016.npc");
+	LoadObj("map016.obj");
+	SetPlayerPos(12, 144);
+	SetPlayerDir(1);
+	FadeIn();
+	Say("独孤剑：我应该在街上打听打听，说不定有人看到了采花贼的行踪！", 1);
+	Assign($017, 1);
+	Return;	
+@017:	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map016_临安城.map");
+	LoadNpc("map016.npc");
+	LoadObj("map016.obj");
+	SetPlayerPos(12, 144);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;	
+	
+	
+@Event60:
+	FadeOut();
+	DelNpc("醉郎中");
+	SaveNpc();
+	SaveObj();
+	LoadMap("map016_临安城.map");
+	LoadNpc("map016.npc");
+	LoadObj("map016.obj");
+	SetPlayerPos(12, 144);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;

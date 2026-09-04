@@ -1,0 +1,21 @@
+// 切换到map064少室山下
+
+	If ($Event == 370) @Event370;
+	
+	Return;
+	
+@Event370:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("冰泉.mp3");
+	LoadMap("map064_少室山下.map");
+	LoadNpc("map064.npc");
+	LoadObj("map064.obj");
+	SetPlayerPos(2, 45);
+	SetPlayerDir(5);
+	Say("数日后……", 0);
+	FadeIn();
+	Say("独孤剑：琳儿，我们到少室山下了。", 1);
+	Return;

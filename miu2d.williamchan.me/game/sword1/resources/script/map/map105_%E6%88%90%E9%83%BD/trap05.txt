@@ -1,0 +1,18 @@
+// 切换到map110成都民居	
+
+	If ($Clue == 91) @Clue91;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map110_成都民居.map");
+	LoadNpc("map110.npc");
+	LoadObj("map110.obj");
+	SetPlayerPos(4,22);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;
+	
+@Clue91:
+ 	Say("暗影：想溜，没这么容易！", 81);
+ 	Return;

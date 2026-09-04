@@ -1,0 +1,32 @@
+//切换到map065少林寺
+
+	If ($Event == 395) @Event395;
+	If ($Event == 405) @Event395;
+	If ($Event == 410) @Event410;
+		
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map065_少林寺.map");
+	LoadNpc("map065.npc");
+	LoadObj("map065.obj");
+	SetPlayerPos(3, 14);
+	SetPlayerDir(7);
+	FadeIn();
+	Return;
+	
+@Event395:
+	Return;
+	
+@Event410:
+	FadeOut();
+	DelNpc(无虚大师);
+	SaveNpc();
+	SaveObj();
+	LoadMap("map065_少林寺.map");
+	LoadNpc("map065.npc");
+	LoadObj("map065.obj");
+	SetPlayerPos(3, 14);
+	SetPlayerDir(7);
+	FadeIn();
+	Return;

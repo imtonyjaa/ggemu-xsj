@@ -1,0 +1,19 @@
+// 切换到map086天山
+
+	If ($Event == 480) @Event480;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map086_天山.map");
+	LoadNpc("map086.npc");
+	SaveNpc("temp_map086.npc");  //有反复战斗
+	LoadObj("map086.obj");
+	SetPlayerPos(7, 14);
+	SetPlayerDir(1);
+	ShowSnow(1);
+	FadeIn();
+	Return;
+	
+@Event480:
+	Return;	

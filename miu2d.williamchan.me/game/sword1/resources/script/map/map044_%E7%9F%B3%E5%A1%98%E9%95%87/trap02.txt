@@ -1,0 +1,38 @@
+// 切换到map047长安城东
+
+	If ($Event == 280) @Event280;
+	If ($Event == 290) @Event290;
+	If ($Event == 320) @Event320;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map047_长安城东.map");
+	LoadNpc("map047.npc");
+	LoadObj("map047.obj");
+	SetPlayerPos(7, 50);
+	SetPlayerDir(4);
+	FadeIn();
+	Return;
+	
+@Event280:
+	FadeOut();
+	DelNpc("小雷");
+	DelNpc("段芙蓉");
+	SaveNpc();
+	SaveObj();
+	LoadMap("map047_长安城东.map");
+	LoadNpc("map047.npc");
+	LoadObj("map047.obj");
+	SetPlayerPos(7, 50);
+	SetPlayerDir(4);
+	FadeIn();
+	Return;
+	
+@Event290:
+	Say("独孤剑：先在镇上打听打听上华山的办法吧。", 1);
+	Return; 
+	
+@Event320:
+	Say("张琳心：独孤哥哥，事不宜迟，我们赶快上华山吧！", 21);
+	Return;		

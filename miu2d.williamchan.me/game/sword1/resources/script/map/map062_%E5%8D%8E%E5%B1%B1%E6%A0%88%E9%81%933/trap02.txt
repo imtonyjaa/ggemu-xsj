@@ -1,0 +1,55 @@
+// 切换到map061华山栈道2
+
+	If ($Event == 330) @Event330;
+	If ($Event == 340) @Event330;
+	If ($Event == 368) @Event368;
+	If ($Event == 370) @Event370;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map061_华山栈道2.map");
+	LoadNpc("map061.npc");
+	SaveNpc("temp_map061.npc");  //有反复战斗
+	LoadObj("map061.obj");
+	SetPlayerPos(2, 10);
+	SetPlayerDir(6);
+	FadeIn();
+	Return;
+	
+@Event330:
+	Say("独孤剑：赶紧去华山派大厅吧。", 1);
+	Return;	
+	
+@Event368:
+	Return;
+	
+@Event370:
+	If ($Sub == 170) @Sub170;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map061_华山栈道2.map");
+	LoadNpc("map061.npc");
+	LoadObj("map061.obj");
+	SetPlayerPos(2, 10);
+	SetPlayerDir(6);
+	FadeIn();
+	Return;
+	
+@Sub170:
+	FadeOut();
+	SaveNpc();
+	ClearBody();
+	SaveObj();
+	LoadMap("map061_华山栈道2.map");
+	LoadNpc("map061.npc");
+	AddNpc("npc080_醉郎中.ini",16,24,5);
+	SetNpcDeathScript("醉郎中","醉郎中死亡.txt");
+	SetNpcScript("醉郎中", "醉郎中对话.txt");
+	LoadObj("map061.obj");
+	SetPlayerPos(2, 10);
+	SetPlayerDir(6);
+	FadeIn();
+	Return;

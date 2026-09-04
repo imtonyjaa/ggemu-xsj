@@ -1,0 +1,2 @@
+AddRandGoods("2级武器.ini");
+DelCurObj();

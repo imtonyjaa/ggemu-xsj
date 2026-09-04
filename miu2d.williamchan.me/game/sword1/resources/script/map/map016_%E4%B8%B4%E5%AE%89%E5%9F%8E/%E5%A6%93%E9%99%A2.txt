@@ -1,0 +1,28 @@
+// 切换到妓院
+
+	If ($Event == 180) @Event180;
+	If ($Event == 255) @Event255;	//杀吕文才之前
+	If ($Event == 256) @Event256;	//杀吕文才之后	
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map023_临安城妓院.map");
+	LoadNpc("map023.npc");
+	LoadObj("map023.obj");
+	SetPlayerPos(6, 42);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;	
+	
+@Event180:
+	Say("何梅：独孤公子，这是那些坏男人来的地方，你应该不是那种人吧？", 66);
+	Say("独孤剑：啊，不好意思，我……我走错了地方。", 8);
+	Return;	
+	
+@Event255:
+	Return;		
+	
+@Event256:
+	Say("城内人心惶惶，所有的店面都打烊了。");
+	Return;		

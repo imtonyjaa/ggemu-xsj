@@ -1,0 +1,25 @@
+// 切换到map033密道
+
+	If ($Event == 265) @Event265;
+	If ($Event == 270) @Event270;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("战斗.mp3");
+	LoadMap("map033_秘道.map");
+	LoadNpc("map033_1.npc");
+	SaveNpc("temp_map033_1.npc");  //有反复战斗
+	LoadObj("map033.obj");
+	SetPlayerPos(26, 50);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;
+	
+@Event265:
+	Return;	
+	
+@Event270:
+	Say("独孤剑：先去小渔村吧！", 1);	
+	Return;

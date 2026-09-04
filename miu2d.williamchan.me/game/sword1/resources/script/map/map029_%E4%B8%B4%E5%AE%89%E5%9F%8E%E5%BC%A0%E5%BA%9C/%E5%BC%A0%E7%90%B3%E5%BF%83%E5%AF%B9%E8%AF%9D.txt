@@ -1,0 +1,33 @@
+// 张琳心同伴对话
+
+	If ($Talkmap029 == 1) @Talk1;
+	If ($Talkmap029 == 2) @Talk2;	
+	If ($Talkmap029 == 3) @Talk3;
+	If ($Talkmap029 == 4) @Talk4;		
+		
+	Say("张琳心：他们把娘的遗物都拿走了。", 26);
+	Say("独孤剑：……",1);
+	Assign($Talkmap029,1);
+	Return;
+	
+@Talk1:
+	Say("张琳心：院子里的花，爹爹每天都细心的照料……从今以后……",24);
+	Assign($Talkmap029,2);
+	
+@Talk2:
+	Say("张琳心：不知道爹爹现在……是否安然无恙？",24);
+	Assign($Talkmap029,3);
+	Return;
+	
+@Talk3:
+	Say("张琳心：我现在该怎么办……",26);
+	Say("独孤剑：张姑娘，这里已经太危险了，我们还是赶快离开临安去找你爹为好。",1);
+	Say("张琳心：独孤大哥，你不找我爹报仇……",26);
+	Say("独孤剑：……我先送你离开这里……",1);
+	Assign($Talkmap029,4);
+	Return;
+	
+@Talk4:
+	Say("张琳心：秘道就在柴房里。",21);
+	Return;
+	

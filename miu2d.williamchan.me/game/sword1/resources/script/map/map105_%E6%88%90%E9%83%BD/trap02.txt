@@ -1,0 +1,33 @@
+// 切换到map107成都杂货铺
+
+	If ($Clue >= 90) @Clue90;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map107_成都杂货铺.map");
+	LoadNpc("map107.npc");
+	LoadObj("map107.obj");
+	SetPlayerPos(4,21);
+	SetPlayerDir(4);
+	SetNpcClickScript("杂货铺老板", "杂货铺老板点击脚本.txt");
+	FadeIn();
+	Return;
+
+@Clue90:
+	If ($Clue == 91) @Clue91;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map107_成都杂货铺.map");
+	LoadObj("map107.obj");
+	SetPlayerPos(4,21);
+	SetPlayerDir(4);
+	SetNpcClickScript("杂货铺老板", "杂货铺老板点击脚本.txt");
+	FadeIn();
+	Return;
+  
+  @Clue91:
+  	Say("暗影：想溜，没那么容易！", 81);
+  	Return;

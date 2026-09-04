@@ -1,0 +1,141 @@
+//和无虚大师对话
+
+	If ($Event == 400) @Event400;
+	If ($Event >= 410) @Event410;
+	
+	Say("无虚大师：两位先去休息，待老衲细细思量一下，然后再从长计议。", 56);
+	Return;
+	
+@Event400:
+
+// 达摩堂
+
+	Say("独孤剑：无虚大师，我们适才在塔林中抓住了一个假扮僧人的五色教徒。", 1);
+	Say("无虚大师：哦？……", 56);
+	Say("张琳心：大师，我有一计，定可引出行刺之人。", 21);
+	Say("无虚大师：张姑娘请讲。", 56);
+	Say("张琳心：只须如此这般……", 21);
+	Sleep(500);
+
+// 大雄宝殿
+	
+	FadeOut();
+	LoadMap("map066_大雄宝殿.map");
+	LoadNpc("map066_event400.npc"); 
+	LoadObj("map066.obj");
+	SetPlayerPos(9, 30);
+	SetPlayerDir(7);
+	SetNpcKind("张琳心", 1);
+	SetNpcPos("张琳心", 8, 31);
+	SetNpcDir("张琳心", 7); 
+	FadeIn();
+	
+	Sleep(500);
+	Say("无虚大师：今天召集大家来是因为本派出了一件大事。", 56);
+	Say("少林弟子：啊？出了什么事了？", 0);
+	Say("元通：难道是元真竟把那件事告诉方丈了？呜呜……", 0);
+	Sleep(500);
+	Say("无虚大师：现在少林寺中已经混入了五色教的内应。相信五色教已经投靠了金国，欲对我中原武林不利。", 56);
+	Sleep(500);
+	SetNpcDir("无智", 3);
+	Say("无智：方丈师兄，五色教不是几十年前已被歼灭了吗？", 0);
+	Say("无虚大师：其中究竟，我也无从得知。不过多亏衡山派的独孤少侠和这位张姑娘，已经将混入的五色教徒擒住，现在囚于塔林之中。", 56);
+	Say("少林弟子：啊？！……", 0);
+	Sleep(500);
+	Say("无虚大师：老衲代少林合寺僧众谢过独孤少侠和张姑娘。", 56);
+	SetNpcKind("张琳心", 3);
+	PlayerGoto(11, 32);
+	SetPlayerDir(5);
+	Say("独孤剑：大师不必客气。在下亦是侥幸才擒到这个内应。既然此事已了，在下尚有要事，就此告辞！", 1);
+	Say("无虚大师：也好，二位一路保重，请恕老衲不能远送。", 56);
+	Sleep(500);
+	
+	PlayerGoto(11, 38);
+	PlayerGoto(6, 41);
+	
+// 塔林	
+	
+	FadeOut();
+	LoadMap("map069_少林寺塔林.map");
+	LoadNpc("map069.npc"); 
+	LoadObj("map069.obj");
+
+	SetPlayerPos(11, 23);
+	SetPlayerDir(1);
+	SetNpcKind("张琳心", 1);
+	SetNpcPos("张琳心", 12, 22);
+	SetNpcDir("张琳心", 1); 
+	FadeIn();
+	
+	Say("张琳心：我们就在这里躲起来。", 21);
+	Say("独孤剑：那个黄剑堂堂主会上钩吗？", 1);
+	Say("张琳心：你放心吧，他一定会来！", 21);
+	Sleep(1000);
+	Say("张琳心：他来了！", 21);
+	
+	AddNpc("npc042_无相和尚冒烟.ini", 5, 40, 5); 
+	NpcGoto("无相和尚", 9, 24);
+	SetNpcDir("无相和尚", 5);
+	
+	Say("假和尚：堂主，救……救我……", 0);
+	Say("神秘人：要怪就怪你自己太笨！", 0);
+	Say("假和尚：啊？！你？！", 0);
+	
+//	SetNpcMagicFile("无相和尚","player-magic-长剑.ini");
+	NpcAttack("无相和尚", 9, 23); 
+	Sleep(800);
+	PlaySound("战_男死01.wav");
+	SetNpcActionFile("假和尚", 0, "mpc027_2.asf");
+	SetNpcActionFile("假和尚", 1, "mpc027_2.asf");
+	NpcSpecialAction("假和尚", "mpc027_1.asf");
+	Sleep(1500);
+	DelNpc("假和尚"); 	//对存盘的处理
+	AddNpc("npc074_死亡假和尚.ini", 9, 23, 0);
+	SaveNpc();
+	Sleep(500);
+	Say("独孤剑：原来黄剑堂堂主竟然是你！", 6);
+	Sleep(500);
+	SetNpcDir("无相和尚", 6);
+	SetNpcKind("张琳心", 3);
+	PlayerGoto(9, 27);
+	SetPlayerDir(4);
+	SetNpcDir("无相和尚", 7);
+	
+	Say("神秘人：原来你们……", 0);
+	Say("张琳心：我们当然没走，不这样，怎么能引你出来呢？", 21);
+	
+	Sleep(1000);
+	AddNpc("npc013_无虚大师.ini", 5, 37, 5); 
+	AddNpc("npc182_少林寺一代弟子.ini", 6, 40, 5); 
+	AddNpc("npc183_少林寺二代弟子.ini", 5, 40, 5); 
+	
+	NpcGotoEx("无虚大师", 8, 25);
+	NpcGotoEx("少林一代弟子", 8, 27);
+	NpcGoto("少林二代弟子", 8, 28);
+	Sleep(1000);
+	SetNpcDir("无虚大师", 5);
+	SetNpcDir("少林一代弟子", 5);
+	SetNpcDir("少林二代弟子", 5);
+	SetNpcDir("无相和尚", 1);
+	
+	Say("无虚大师：阿弥陀佛！善哉善哉！无相，放下屠刀，立地成佛。上次放你离去，你还不觉悟！", 56);
+	Say("无相和尚：哼！师兄，你尊为掌门，统领武林，当然四大皆空，可是师弟我却不甘区区一个戒律院首座。时至今日，有死而已，你们上吧。", 0);
+	Say("无虚大师：阿弥陀佛！", 56);
+	Say("独孤剑：哼！对付你这样的少林叛徒，何需大师动手？", 9);
+	
+	StopMusic();
+	PlayMusic("沙场.mp3");
+	SetNpcRelation("无相和尚", 1);
+	SetNpcDeathScript("无相和尚", "无相和尚死亡.txt");
+//	SetNpcActionFile("无相和尚", 11, "浓烟.asf");
+	SetPlayerState(1);
+    EnableFight();
+	EnableNpcAI();
+	SetNpcRelation("张琳心", 0);
+	SetNpcScript("张琳心", "");
+	Assign($Event, 405);
+	Return;
+	
+@Event410:
+	Say("无虚大师：前途艰险，两位要多加小心！下了少室山，往东走，经过朱仙镇就可到达宋军大营了。", 56);	
+	Return;

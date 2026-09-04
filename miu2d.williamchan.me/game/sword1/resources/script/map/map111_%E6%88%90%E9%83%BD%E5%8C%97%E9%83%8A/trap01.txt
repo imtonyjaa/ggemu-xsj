@@ -1,0 +1,131 @@
+//切换map105成都
+
+	If ($Clue == 36) @Clue36;
+	If ($Clue == 40) @Clue40;
+	If ($Clue == 90) @Clue90;
+	If ($Clue == 110) @Clue110;
+	If ($Clue >> 120) @Clue120;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map105_成都.map");
+	LoadNpc("map105.npc");
+	LoadObj("map105.obj");
+	SetPlayerPos(27,15);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;
+	
+@Clue36:
+	Say("杀手：哈哈，独孤剑，想溜——没那么容易！", 81);
+	Return;
+	
+@Clue40:
+	FadeOut();
+	StopMusic();
+	PlayMusic("前途.mp3");
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map105_成都.map");
+	LoadNpc("map105.npc");
+	LoadObj("map105.obj");
+	SetPlayerPos(27,15);
+	SetPlayerDir(1);
+	SetNpcKind("杨瑛",1);
+	SetNpcPos("杨瑛",28,16);
+	SetNpcDir("杨瑛",3);
+	SetNpcKind("杨瑛",3);
+	FadeIn();
+	
+	Say("杨瑛：独孤大哥，我觉得这里有些蹊跷……你认为谁最可疑？", 39);
+	Choose("独孤剑：我怀疑……","A 贺老四","B 吕掌柜",$Choose);
+	If ($Choose == 0) @Choose0;
+	If ($Choose == 1) @Choose1;
+	
+  @Choose0:
+  	Say("杨瑛：贺老四？……他哪里可疑呢？", 39);
+  	Choose("独孤剑：他的……","A 言语","B 表情",$Choose);
+    	If ($Choose == 0) @Choose2;
+	If ($Choose == 1) @Choose3;
+    @Choose2:
+    	Say("杨瑛：言语？……对了！我扮成男装之事一般教众根本就不知道，而我换回女子装束也只是在刚刚离开总堂前。贺老四他如何一见到我们，便已知道我便是换回女装的帮主……", 42);
+    	Say("独孤剑：而索七是最先离开总堂来到成都的帮中兄弟……", 1);
+    	Say("杨瑛：他不可能在我们之前就见过贺老四，也就是说……", 42);
+    	Say("独孤剑：贺老四一开始就知道杨姑娘的底细。", 1);
+    	Say("杨瑛：对，我们快去找他！", 39);
+    	Assign($Clue, 45);
+    	Memo("独孤剑发现贺老四的破绽，两人决定调查贺老四。");
+    	Return;
+    @Choose3:
+    	Say("杨瑛：表情？……贺老四一贯寡言少语，其实为人很精明，是帮中的一个得力兄弟。", 39);
+    	Say("独孤剑：看来，我们还得另找线索。", 9);
+    	Say("杨瑛：独孤大哥，不必着急。如果你有什么发现，就告诉我。", 39);
+    	Assign($Clue, 41);
+    	Return;
+  
+  @Choose1:
+  	Say("杨瑛：吕掌柜……他哪里可疑呢？", 39);
+  	Choose("独孤剑：他的……","A 言语","B 表情",$Choose);
+    	If ($Choose == 0) @Choose4;
+	If ($Choose == 1) @Choose5;
+    @Choose4:
+    	Say("杨瑛：贺老四说见过张姑娘在客栈投宿，可是这个吕掌柜却始终推说不知道。但他的话却没有什么矛盾之处啊……", 39);
+    	Say("独孤剑：看来，我们得另想办法。", 9);
+    	Say("杨瑛：独孤大哥，不必着急。如果你有什么发现，就告诉我。", 39);
+    	Assign($Clue, 41);
+    	Return;
+    @Choose5:
+    	Say("杨瑛：吕掌柜神色确实有些古怪，不过倒是看不出什么破绽。店小二又莫名其妙的死了……", 39);
+    	Say("独孤剑：我们应该留意这个吕掌柜。", 1);
+    	Say("杨瑛：嗯。对了，独孤大哥，如果有什么发现，就告诉我。", 39);
+    	Assign($Clue, 41);
+    	Return;
+    	
+@Clue90:
+	StopMusic();
+	PlayMusic("黑影.mp3");
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map105_成都.map");
+	LoadNpc("map105-1.npc");
+	LoadObj("map105.obj");
+	DelObj("吕掌柜尸体");
+	SetPlayerPos(27,15);
+	SetPlayerDir(1);
+	FadeIn();
+	
+	Say("独孤剑：咦……", 6);
+	MoveScreen(1,280,1); 
+	Sleep(500);
+	MoveScreen(5,280,1); 
+	SetPlayerScn();
+	Sleep(500);
+	Return;
+
+@Clue110:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map105_成都.map");
+	LoadNpc("map105-1.npc");
+	LoadObj("map105.obj");
+	SetPlayerPos(27,15);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;
+
+@Clue120:	
+	If ($Event == 660) @Event660;
+	Return;
+	
+@Event660:
+	Say("男子：啊——");
+	Say("远处传来一声惨叫。");
+	SetPlayerDir(5);
+	Say("独孤剑：琳儿！",6);
+	StopMusic();
+	PlayMusic("杀机.mp3");
+	Return;

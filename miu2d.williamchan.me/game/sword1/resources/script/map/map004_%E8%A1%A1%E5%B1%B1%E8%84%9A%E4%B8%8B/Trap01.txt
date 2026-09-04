@@ -1,0 +1,53 @@
+// 切换到衡山
+
+	If ($Event == 20) @Event20;  
+	If ($Event == 25) @Event25;  
+	If ($Event == 30) @Event30;  		
+		
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map001_衡山.map");
+	LoadNpc("map001.npc");
+	LoadObj("map001.obj");
+	SetPlayerPos(34, 76);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;	
+	
+@Event20:	
+	If ($Rain == 1) @Rain;  
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map001_衡山.map");
+	LoadNpc("map001.npc");
+	LoadObj("map001.obj");
+	SetPlayerPos(34, 76);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;	
+@Rain:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map001_衡山.map");
+	LoadNpc("map001.npc");
+	LoadObj("map001.obj");
+	SetPlayerPos(34, 76);
+	SetPlayerDir(3);
+	BeginRain("Rain.ini");
+	FadeIn();
+	Return;	
+
+@Event25:
+	Say("独孤剑：大丈夫岂能临阵脱逃？", 1);
+	Return;	
+	
+@Event30:	
+	Say("独孤剑：还是先上武夷山把血书交给柳中原吧。", 1);
+	Return;
+
+
+
+	

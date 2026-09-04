@@ -1,0 +1,308 @@
+//方勉第二次死亡
+
+	AddGoods("Goods054_巨阙剑.ini");
+	FadeOut();
+	StopMusic();
+	PlayMusic("情缘音乐.mp3");
+	Assign($Event,800);
+	ClearBody();
+	DelNpc("方勉");
+	AddObj("方勉尸体.ini",14,27,7);
+	SetPlayerPos(15,26);
+	SetPlayerDir(1);
+	SetNpcKind("杨瑛", 1);
+	SetNpcPos("杨瑛",13,25);
+	SetNpcDir("杨瑛",7); 
+	SetNpcRelation("杨瑛",  2);
+	SetNpcKind("杨瑛", 3);
+	ClearEffect();
+	SetNpcKind("杨瑛", 1);
+	FadeIn();
+	
+	//NpcSpecialAction("独孤剑", "mpc050.asf");
+	SetNpcMagicFile("独孤剑", "player-magic-长剑.ini");
+	NpcAttack("独孤剑", 14, 27);
+	Sleep(500);
+	NpcAttack("独孤剑", 14, 27);	
+	Sleep(500);
+	Say("独孤剑：我要杀了你！杀了你！……", 5);
+
+	NpcGoto("杨瑛",14,25);
+	SetNpcDir("杨瑛",7);
+	Say("杨瑛：独孤大哥！他已经死了——", 41);
+	Say("杨瑛：他死了——", 41);
+	Sleep(1000); 
+	
+	PlayerRunTo(18,28);
+	SetPlayerDir(6);
+	Sleep(500);
+	SetNpcActionFile("独孤剑",0,"mpc051_2.asf");
+	SetNpcActionFile("独孤剑",1,"mpc051_2.asf");
+	NpcSpecialAction("独孤剑","mpc051_1.asf");
+	Sleep(1500);
+	
+	Say("独孤剑：琳——儿——", 7);
+	Say("杨瑛：……", 41);
+	NpcGoto("杨瑛",17,27);
+	SetNpcDir(7);
+	Say("独孤剑：琳儿……", 7);
+	Sleep(1000);
+	FadeOut();
+	StopMusic();
+	PlayMovie("memory.avi", 1, 0, 0);
+	SetNpcActionFile("独孤剑", 0, "npc001_st2.asf");
+	SetNpcActionFile("独孤剑", 1, "mpc001_sst2.asf");
+	NpcSpecialAction("独孤剑", "mpc051_3.asf");
+	Sleep(1500);
+		
+	//临安酒楼
+//	SaveNpc();
+//	SaveObj();
+//	LoadMap("map017_临安城酒楼.map");
+//	ChangeMapColor(0, 0, 0);
+//	ChangeAsfColor(0, 0, 0);
+//	SetPlayerPos(5, 17);
+//	SetPlayerDir(3);
+//	AddNpc("npc004_张琳心.ini", 6, 18, 3);
+//	FadeIn();
+//	NpcSpecialAction("张琳心",""); //张琳心从背后打了一下独孤剑
+//	Say("张琳心：哥哥，你又喝了多少酒了？到了临安怎么不回家看我？", 21);
+//	SetPlayerDir(7);
+//	Say("独孤剑眼前一亮，一个漂亮的绿衣女孩站在他前面，一股淡淡的幽香已沁入他的心间。");
+//	Sleep(200);
+//	Say("绿衣女孩：你……你……你怎么不是我哥？", 22);
+//	Say("绿衣女孩：这……你把我要当成了你的哥哥？", 2);
+//	Say("绿衣女孩：我哥哥经常在这个地方喝酒，从背后看你们俩的样子差不多，所以我才误以为你是我……", 22);
+//	Say("绿衣女孩：实在对不起，我……我没有打痛你吧？", 22);
+//	Say("独孤剑：没有，没有，真的没有，姑娘不必放在心上的。", 2);
+//	FadeOut();
+//	FadeIn();
+//	Say("独孤剑：岂只是投机，我们还结伙和人打了一架。", 2);
+//	Say("绿衣女孩：真的？我要是早来一点看你们打架就好了，我就喜欢看别人打架，可惜，可惜……", 21);
+//	Say("绿衣女孩：哎呀，我得去找他了……", 21);
+//	Say("绿衣女孩：后会有期！", 21);
+//	NpcGotoEx("张琳心", 8, 26);
+//	Sleep(600);
+//	Say("独孤剑：啊……后会有……", 4);
+//	NpcGoto("张琳心", 9, 37);
+//	DelNpc("张琳心");
+//	Sleep(1000);
+//	FadeOut();
+//	Sleep(2000);
+	
+	//碧霞岛
+	//LoadMap("map038_碧霞岛山洞.map");
+	//LoadNpc("map038_event130.npc");
+	//'LoadObj("map038_event130.obj");
+	//DelNpc("采花贼");
+	//SetPlayerPos(7, 24);
+	//SetPlayerDir(3);
+	//FadeIn();
+	//SetNpcActionFile("张琳心", 0, "npc004_st.asf");  
+	//SetNpcActionFile("张琳心", 1, "npc004_st.asf");
+	//NpcSpecialAction("张琳心", "mpc005.asf");
+	//Sleep(1000);
+	//DelNpc("张琳心");
+	//AddNpc("npc004_张琳心.ini", 6, 23, 7);
+	//PlayerGoto(7, 24);
+	//SetPlayerDir(3);
+	//Say("独孤剑：张姑娘醒了？", 1);
+	//Say("张琳心：我这是在哪里？", 28);
+	//Say("独孤剑：姑娘刚才与贼人搏斗受了伤，我本想尽早赶回临安，但是天色已黑，所以只能等到天亮以后才能回去。", 1);
+	//Say("张琳心：是……是你救了我。", 22);
+	
+	//FadeOut();
+	//FadeIn();
+	//Sleep(800);
+	//Say("张琳心：……，你一定很恨我爹。", 24);
+	//Say("独孤剑：他是我的杀父仇人。", 5);
+	//Say("张琳心：那你为什么不杀了我？", 28);
+	//Say("独孤剑：这是我和你父亲的恩怨，和你无关。", 5);
+	//Say("张琳心：你要杀我父亲，如何与我无关？如果你杀了我父亲，我一定要杀你为我父亲报仇……你还不如现在就杀了我，以绝后患。", 26);
+	//Say("独孤剑：那是以后的事。", 10);
+	//Sleep(1000);
+	//FadeOut();
+	//Sleep(2000);
+	
+	
+	//朱仙镇客栈
+	//LoadMap("map080_朱仙镇客栈.map");
+	//LoadNpc("map080.npc");
+	//LoadObj("map080.obj");
+	//SetPlayerPos(0,0);
+	//AddNpc("npc001_受伤昏迷的独孤剑.ini", 8, 12, 0);
+
+	//AddNpc("张琳心.ini",7,17,0);
+	
+	//SetNpcActionFile("张琳心", 0, "mpc032.asf");
+	//SetNpcActionFile("张琳心", 1, "mpc032.asf");
+	//NpcSpecialAction("张琳心", "mpc032.asf");
+	//Sleep(500);
+	
+	//SetNpcActionFile("独孤剑", 0, "mpc033_2.asf");	
+	//SetNpcActionFile("独孤剑", 1, "mpc033_2.asf");
+	//NpcSpecialAction("独孤剑", "mpc033_1.asf");
+	//Sleep(1000);
+	//FadeIn();
+	
+	//Say("独孤剑：琳儿……你瘦了。", 7);
+	//Say("张琳心：……", 24);
+	//Say("张琳心：独孤大哥——我真的好害怕，真的……", 26);
+	//Say("张琳心：我好怕失去你，我好怕你再也醒不过来，我……", 26);
+	//Say("独孤剑：琳儿，没事了……琳儿，我知道你一定受了很多苦。", 2);
+	//Sleep(2000);
+	//Say("张琳心：独孤大哥……只要你不嫌弃，琳儿愿意一辈子跟着你，陪着你……", 95);
+	//Say("独孤剑：琳儿……咳咳——", 4);
+	//Say("张琳心：独孤大哥，快躺下，你伤还没有痊愈，好好休息吧！", 21);
+	//Sleep(1000);
+	//FadeOut();
+	//Sleep(2000);
+	
+	//朱仙镇
+	//LoadMap("map071_朱仙镇.map");
+	//LoadNpc("map071.npc");
+	//LoadObj("map071.obj");
+	//SetPlayerPos(5,73);
+	//SetPlayerDir(3);
+	//AddNpc("npc004_张琳心.ini",5,72,7);
+	//FadeIn();
+	//Sleep(600);
+	//Say("独孤剑：琳儿，除了你，独孤剑此生谁也不会爱——", 2);
+	//Say("张琳心：倘若琳儿有一天先你而去……", 24);
+	//Say("独孤剑：琳儿，不许胡说！……", 1);
+	//Sleep(1000);
+	//FadeOut();
+	//Sleep(2000);
+	
+//	ChangeMapColor(255, 255, 255);
+//	ChangeAsfColor(255, 255, 255);
+//	LoadMap("map081_凤凰山.map");
+//	LoadNpc("map081.npc");
+//	LoadObj("map081.obj");
+//	SetPlayerPos(18,28);
+//	SetPlayerDir(6);
+//	AddNpc("npc008_杨瑛.ini",17,27,7);
+
+
+	PlayMusic("满江红.mp3"); 
+	FadeIn();
+	Sleep(1000);
+	Say("杨瑛：独孤大哥，你在这站了一天一夜了。", 41);
+	Say("杨瑛：就算是再站下去，张姑娘也不会活过来……", 41);
+	Say("独孤剑：不要再说了！", 7);
+	Say("杨瑛：……", 42);
+	SetPlayerDir(2);
+	Say("独孤剑：对不起，杨姑娘，我……", 7);
+	Sleep(1000);
+
+	SetNpcDir("杨瑛",5);
+	SetPlayerDir(4);
+	Say("杨瑛：怒发冲冠，凭阑处，潇潇雨歇。抬望眼，仰天长啸，壮怀激烈。三十功名尘与土，八千里路云和月。莫等闲、白了少年头，空悲切。", 39);
+	Say("独孤剑：……", 7);
+	Say("杨瑛：靖康耻，犹未雪。臣子恨，何时灭！驾长车，踏破贺兰山缺。壮志饥餐胡虏肉，笑谈渴饮匈奴血。待从头收拾旧山河，朝天阙。", 39);
+	Say("杨瑛：这是岳元帅的词——", 39);
+	Say("独孤剑：杨姑娘，你……", 6);
+	Watch("杨瑛","独孤剑",0);
+	Sleep(1000);
+	Say("杨瑛：独孤大哥……",39);
+	Say("杨瑛：能写出这样一首词的人，一定是一个真正的英雄！杨瑛虽不识大体，但也决不会加害一个堂堂正正、光明磊落的英雄好汉……", 39);
+	Say("杨瑛：如今岳元帅直捣黄龙、收复河山，指日可待，正是有志之士干一番轰轰烈烈的事业之际……", 39);
+	Say("杨瑛：我想，张姑娘若是泉下有知……",39);
+	Say("杨瑛：也一定希望看到独孤大哥做一个象岳元帅那样顶天立地的大英雄！",39);
+	Say("独孤剑：……", 1);
+	Say("杨瑛：独孤大哥，我此来正是要告诉你，天下群雄将聚集泰山，推举一位盟主领导群雄进行抗金大业。杨瑛以为……", 39);
+	Say("杨瑛：大哥是最佳人选，所以……",39);
+	Say("独孤剑：江湖中的虚名，我不想再管了……", 1);
+	Say("杨瑛：……",41);
+	Say("杨瑛：盟主虽是虚名，但抗击外侮却是大宋子民义不容辞的责任。这也是令尊、令师和张风大人他们毕生的夙愿……", 39);
+	Say("杨瑛：独孤大哥，我希望你暂时抛下个人的感情，重新振作。率领武林同道，和岳元帅一起……", 39);
+	Say("杨瑛：——重头收拾旧山河！", 39);
+		
+	Sleep(1000);
+	Choose("独孤剑：这……","A 答应","B 回绝", $Choose);
+	If ($Choose == 0) @Choose0;
+	If ($Choose == 1) @Choose1;
+
+@Choose0:
+	Say("独孤剑：杨姑娘，你说的对，我……", 1);
+	Sleep(1000);
+	Say("独孤剑：只是琳儿——", 7);
+	Say("杨瑛：大哥如此，张姑娘在天之灵也会高兴的……", 39);
+	Say("独孤剑：……", 7);
+	
+	Sleep(1000);
+	FadeOut();
+	StopMusic();
+	PlayMusic("前途.mp3");
+	Memo("张琳心被方勉打下山崖，独孤剑顿时万念俱灰。幸得此时杨瑛赶到，怀着满腔怒火，独孤剑和杨瑛联手杀死了方勉……失魂落魄的独孤剑在凤凰山顶站立了一天一夜。杨瑛晓以大义，终于劝说独孤剑前往泰山群雄会，夺武林盟主，团结中原武林共抗金国。");
+	Say("两人默默告别。<enter>凤凰顶上，杨瑛黯然注视着那个单薄的黄衫背影，寂寞远去……<enter>不知是对，是错……");
+	LoadMap("map118_泰山.map");
+	LoadNpc("map118.npc");
+	LoadObj("map118.obj");
+	SetPlayerPos(17,81);
+	SetPlayerDir(3);
+	Assign($Event, 800);
+	Sleep(1000);
+	Say("独孤剑孤零零一路北行。<enter>待到入山东地界，已是秋寒时节。");
+	Sleep(1000);
+	FadeIn();
+	Return;
+	
+@Choose1:
+	Say("独孤剑：我曾答应张世伯……", 7);
+	Say("独孤剑：好好照顾琳儿，可是……", 7);
+	Say("独孤剑：独孤剑连琳儿都照顾不了，还去做什么盟主……", 7);
+	Say("杨瑛：独孤大哥……", 41);
+	Say("杨瑛：杨瑛就要回天王岛了……今后，你有何打算……", 41);
+	Say("独孤剑：我答应过琳儿，带她回衡山，好好陪伴她……", 41);
+	Say("一生一世……",1);
+	
+	
+	//进入结局
+	If ($End <> 222) @End2;
+	If ($End == 222) @222;	//不杀张风；战成平手；归还红玉
+	
+@222:
+	If ($NoEnd == 1) @End2;		//两个支线中只要有一个没完成
+	Goto @End3;					//两个支线全部完成
+		
+@End2:
+	Sleep(1000);
+	FadeOut();
+	StopMusic();
+	Say("张琳心死后，独孤剑心灰意冷，独自离去，从此不再过问江湖中事，后隐退江湖，终生未娶。");
+	PlayMovie("End_2.avi", 0, 0, 0);
+	PlayMovie("over.avi", 0, 0, 0);
+	FreeMap();
+	ReturnToTitle();
+	Return;
+
+@End3:
+	Sleep(1000);
+	FadeOut();
+	StopMusic();
+	PlayMusic("前途.mp3");
+	Say("张琳心死后，独孤剑心灰意冷，不愿再过问江湖中事，独自离去。");
+	Say("凤凰山顶，两人黯然分别。杨瑛黯然注视着那个单薄的黄衫背影，寂寞远去……");
+	Say("一年以后，岳家军与其他几路宋军分兵合击，眼看中原战事胜局已定，直捣黄龙指日可待。而此时，临安城中的秦桧则坐立不安。老奸巨猾的秦桧利用宋高宗的迟疑，终以“莫须有”的罪名将岳飞治狱，并暗地准备在风波亭将岳飞置于死地。消息传开，天下人莫不切齿仇恨，独孤剑毅然赶赴风波亭，营救岳飞。");
+	SetNpcKind("杨瑛", 1);
+	
+	LoadMap("map029_临安城张府.map");
+	LoadNpc("map029-1.npc");
+	LoadObj("map029-1.obj");
+	SetPlayerPos(4, 43);
+	SetPlayerDir(5);
+	FadeIn();
+	
+	Say("护卫：大胆刁民！胆敢擅闯相府。");
+	Say("独孤剑：秦贼在哪？",5);
+	Say("护卫：反了！给我抓起来！");
+	Say("独孤剑：找死！",5);
+	StopMusic();
+	PlayMusic("沙场.mp3");
+	SetNpcRelation("宋兵", 1);
+	SetNpcDeathScript("宋兵","护卫死亡.txt");
+	SetNpcDeathScript("独孤剑", "主角死亡.txt");
+	Assign($Result,3);
+	Return;
+	

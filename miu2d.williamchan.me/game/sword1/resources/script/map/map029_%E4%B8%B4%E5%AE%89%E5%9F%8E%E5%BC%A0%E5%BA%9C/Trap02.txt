@@ -1,0 +1,29 @@
+// 切换到map033密道
+
+	If ($Event == 256) @Event256;	//杀吕文才之后	
+	If ($Event == 260) @Event260;	
+	Return;
+	
+@Event256:
+	Return;
+	
+@Event260:	
+	Say("张琳心：秘道的入口就在这里。", 21);
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("战斗.mp3");
+	LoadMap("map033_秘道.map");
+	LoadNpc("map033.npc");
+	SaveNpc("temp_map033.npc");  //有反复战斗
+	LoadObj("map033.obj");
+	SetPlayerPos(4, 19);
+	SetPlayerDir(0);
+	SetNpcScript("张琳心", "");
+	FadeIn();
+	Say("张琳心：小时候爹爹把我们关在屋里，我和哥哥就从这条秘道偷偷溜到海边去玩。有一次被爹爹发现了，罚我们一天不许吃饭……",24);
+	Say("张琳心：可没想到哥哥偷偷藏了两个馒头……",24);
+	Say("张琳心：后来听娘说，才知道两个馒头，是爹偷偷放在那里的……",21);
+	Say("张琳心：想不到，现在……",21);
+	Return;

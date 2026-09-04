@@ -1,0 +1,82 @@
+//切换搭配map106成都客栈一楼
+
+	If ($Clue == 25) @Clue25;
+	If ($Clue == 60) @Clue60;
+	If ($Clue >> 60) @Clue70;
+
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map106_成都客栈一楼.map");
+	LoadNpc("map106.npc");
+	LoadObj("map106.obj");
+	SetPlayerPos(12,40);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;
+	
+@Clue25:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map106_成都客栈一楼.map");
+	LoadNpc("map106.npc");
+	LoadObj("map106.obj");
+	DelNpc("店小二");
+	SetNpcPos("店小三",10,37);
+	SetNpcDir("店小三",3);
+	SetNpcPos("房客男",9,40); 
+	SetNpcDir("房客男",4); 
+	SetNpcPos("房客女",9,41); 
+	SetNpcDir("房客女",4); 
+	SetNpcPos("吕掌柜",10,38); 
+	SetNpcDir("吕掌柜",4); 
+	
+	AddObj("店小二尸体.ini", 9, 37, 0);
+	
+	SaveNpc();
+	SaveObj();
+	SetPlayerPos(12,40);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;
+	
+@Clue60:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map106_成都客栈一楼.map");
+	LoadNpc("map106.npc");
+	DelNpc("吕掌柜");
+	LoadObj("map106.obj");
+	SetPlayerPos(12,40);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;
+	
+@Clue70:
+	If ($Clue >= 90) @Clue90;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map106_成都客栈一楼.map");
+	LoadNpc("map106.npc");
+	DelNpc("吕掌柜");
+	LoadObj("map106.obj");
+	SetPlayerPos(12,40);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;
+	
+@Clue90:
+	If ($Clue == 91) @Clue91;
+	
+	Say("独孤剑：客栈已经打烊了。", 1);
+	PlayerGotoDir(7,2);
+	SetMapTrap(01,"trap01.txt");
+	Return;
+	
+  @Clue91:
+ 	Return;

@@ -1,0 +1,36 @@
+// 切换到衡山脚下
+
+	If ($Event == 40) @Event40; 
+	If ($Event == 210) @Event210;
+	If ($Event == 240) @Event240;
+	If ($Event == 250) @Event250;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map004_衡山脚下.map");
+	LoadNpc("map004.npc");
+	LoadObj("map004.obj");
+	SetPlayerPos(25, 77);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;	
+	
+@Event40:
+	Say("独孤剑：还是先去临安城找柳中原老前辈吧。", 1);
+	Return;	
+
+@Event210:
+	Say("独孤剑：还是赶紧上武夷山吧！", 9);
+	Return;	
+	
+@Event240:
+	Say("独孤剑：如今情况紧迫，我得赶紧找到血书上华山，以后再回衡山不迟。", 1);
+	Return;	
+	
+@Event250:
+	Say("张琳心：不知临安发生了什么变故……", 24);
+	Say("独孤剑（暗想）：看她如此担心，我还是先陪她去临安吧。", 1);
+	Return;	
+	
+	

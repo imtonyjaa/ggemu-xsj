@@ -1,0 +1,58 @@
+// 切换到武夷山九猴洞
+
+	If ($Event == 215) @Event215;
+	If ($Event == 220) @Event220;
+	If ($Event == 230) @Event230;
+	// zroc add
+	If ($Event >> 200) @GEvent200;
+		
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("战斗.mp3");
+	LoadMap("map007_武夷山九猴洞.map");
+	LoadNpc("map007.npc");
+	SaveNpc("temp_map007.npc");  //有反复战斗
+	LoadObj("map007.obj");
+	SetPlayerPos(15, 17);
+	SetPlayerDir(1);
+	SetNpcScript("张琳心", "");
+	FadeIn();
+	Return;	
+	
+
+@Event215:
+	Return;
+	
+@Event220:
+	Say("独孤剑：先去大厅看看吧。", 1);
+	Return;	
+	
+@Event230:	
+	Say("独孤剑：此刻怎能下山？还没有救出柳中原前辈呢！", 1);
+	Return;
+
+@GEvent200:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("战斗.mp3");
+	LoadMap("map007_武夷山九猴洞.map");
+	LoadNpc("map007_escape.npc");
+	LoadObj("map007.obj");
+	SetPlayerPos(15, 17);
+	SetPlayerDir(1);
+	SetNpcScript("张琳心", "张琳心对话.txt");
+	FadeIn();
+	Return;
+
+
+
+
+
+
+
+
+

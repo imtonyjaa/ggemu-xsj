@@ -1,0 +1,43 @@
+// 切换到map037碧霞岛
+
+	If ($Event == 130) @Event130;
+	If ($Event == 140) @Event140;
+	If ($Event == 150) @Event150;
+	If ($Event == 160) @Event160;	
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map037_碧霞岛.map");
+	LoadNpc("map037.npc");
+	LoadObj("map037.obj");
+	SetPlayerPos(28, 12);
+	SetPlayerDir(0);
+	FadeIn();
+	Return;
+
+@Event130:
+	Say("独孤剑：咦？洞里好像有人说话，进去看看。", 1);
+	Return;
+
+@Event140:
+	Say("独孤剑：大丈夫岂能临阵脱逃？", 1);
+	Return;
+	
+@Event150:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	LoadMap("map037_碧霞岛.map");
+	LoadNpc("map037.npc");
+	LoadObj("map037.obj");
+	SetPlayerPos(28, 12);
+	SetPlayerDir(0);
+	FadeIn();
+	Return;
+
+@Event160:
+	Say("张琳心：独孤公子，我们先去营救被抓的姑娘吧。", 24);
+	Return;

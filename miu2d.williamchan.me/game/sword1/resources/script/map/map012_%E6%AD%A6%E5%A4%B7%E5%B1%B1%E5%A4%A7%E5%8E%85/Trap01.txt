@@ -1,0 +1,44 @@
+// 切换到武夷山顶
+
+	If ($Event == 220) @Event220;
+	If ($Event == 230) @Event230;
+	If ($Event == 240) @Event240;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map011_武夷山顶.map");  
+	LoadNpc("map011.npc");
+	LoadObj("map011.obj");
+	SetPlayerPos(31, 15);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;	
+	
+@Event220:
+	Return;	
+	
+@Event230:	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map011_武夷山顶.map");  
+	LoadNpc("map011_event210.npc"); 
+	LoadObj("map011_event210.obj");
+	SetPlayerPos(31, 15);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;	
+	
+@Event240:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map011_武夷山顶.map");  
+	LoadNpc("map011_event210.npc"); 
+	LoadObj("map011_event210.obj");
+	SetPlayerPos(31, 15);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;
+	

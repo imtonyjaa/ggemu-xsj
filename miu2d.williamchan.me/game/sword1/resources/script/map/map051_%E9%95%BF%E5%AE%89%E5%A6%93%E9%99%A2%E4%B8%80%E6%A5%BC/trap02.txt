@@ -1,0 +1,36 @@
+// 切换到map051_1长春楼二楼
+
+	If ($Event == 306) @Event306;
+	If ($Event == 307) @Event307;
+	If ($Event == 360) @Event360;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map051_1_长安妓院二楼.map");
+	LoadNpc("map051_1.npc");
+	LoadObj("map051_1.obj");
+	SetPlayerPos(8, 28);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;
+	
+@Event306:
+	Return;
+	
+@Event307:
+	Say("张琳心：独孤大哥，楼上有什么好逛的？", 23);
+	Say("独孤剑：我，我走错了，我们出去吧。", 8);
+	Return;		
+	
+@Event360:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map051_1_长安妓院二楼.map");
+	LoadNpc("map051_1.npc");
+	LoadObj("map051_1.obj");
+	SetPlayerPos(8, 28);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;

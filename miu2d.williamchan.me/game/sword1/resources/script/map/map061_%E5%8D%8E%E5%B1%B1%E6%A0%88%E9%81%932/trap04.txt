@@ -1,0 +1,22 @@
+// 一失足成千古恨
+
+   FadeOut();
+   ClearBody();
+   SaveObj();
+   LoadNpc("map061.npc");
+   SaveNpc("temp_map061.npc");  //有反复战斗
+   LoadObj("map061.obj");
+   Say("独孤剑：啊——", 6);
+   SetNpcKind("张琳心", 1);
+   SetPlayerPos(8, 137);
+   SetPlayerDir(4);
+   SetNpcPos(8, 138);
+   SetNpcDir("张琳心", 4);
+   SetNpcKind("张琳心", 3);
+   PlayMovie("华山堕崖+.avi", 0, 0, 0);
+   FadeIn();
+   Say("独孤剑：好险！", 1);
+   Say("张琳心：幸好我们有轻功在身，否则肯定会粉身碎骨！", 21);
+   Say("独孤剑：我们重新上山吧，这次要小心点。", 1);
+   SetMapTrap(4, "trap04.txt");
+   Return;

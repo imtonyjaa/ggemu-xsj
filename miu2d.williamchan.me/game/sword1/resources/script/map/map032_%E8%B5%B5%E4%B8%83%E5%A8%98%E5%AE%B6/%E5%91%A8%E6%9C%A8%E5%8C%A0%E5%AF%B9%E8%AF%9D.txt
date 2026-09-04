@@ -1,0 +1,8 @@
+// 与周木匠的对话
+
+	If ($Eventzhaoqi == 3) @Eventzhaoqi3;
+	
+@Eventzhaoqi3:
+	Say("周木匠：公子，多谢你成全。", 0);
+	Return;			
+	

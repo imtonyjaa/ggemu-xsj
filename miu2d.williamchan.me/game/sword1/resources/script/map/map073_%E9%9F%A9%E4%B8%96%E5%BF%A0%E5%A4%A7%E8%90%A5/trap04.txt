@@ -1,0 +1,67 @@
+// 和营门的守卫对话
+
+	If ($Event == 420) @Event420;
+	If ($Event == 440) @Event440;
+	Return;
+	
+@Event420:
+	If ($Talkliang == 0) @Eventliang0;
+	Return;
+@Eventliang0:
+	Say("卫兵：站住！这里是韩世忠元帅的军营，不得擅入！", 0);
+	Say("独孤剑：烦劳向韩元帅通报一声，衡山独孤剑有要事要向韩元帅禀报。", 1);
+	Say("卫兵：韩元帅不在营中，二位请回吧。", 0);
+	Say("独孤剑：事情紧迫，不知还有哪位将军在营内？", 9);
+	Say("卫兵：将军们都和韩元帅到阵前去了，不过夫人尚在营中。", 0);
+	Say("张琳心：韩夫人梁红玉？我和夫人见过两次面，想必夫人还记得我。请你向夫人通禀一声，就说临安都指挥使张风之女有要事求见。", 21);
+	Say("卫兵：张将军之女？原来是大帅的世交，两位请进，夫人就在大帐中。", 0);
+	Say("独孤剑：多谢！", 2);
+	PlayerGoto(11, 35);
+	SetPlayerDir(5);
+	SetNpcScript("守卫1", "宋兵对话1.txt");
+	SetNpcScript("守卫2", "宋兵对话1.txt");
+	SetMapTrap(4, "trap04.txt");
+	Assign($Talkliang, 1);
+	Return;
+
+	
+@Event440:
+	If ($Talkliuyun == 0) @Eventliuyun0;
+	If ($Talkliuyun == 1) @Eventliuyun1;
+	
+ @Eventliuyun0:
+	Say("卫兵：对不起，这里是韩世忠元帅的军营，寻常人等不得擅入！", 0);
+	AddNpc("npc023_刘云.ini", 17, 34, 1);
+	NpcGoto("刘云", 11, 35);
+	SetNpcDir("刘云", 1);
+	Watch("独孤剑", "刘云", 0);
+	Say("宋将：在下是韩元帅帐下的副都统刘云，你们有什么事？", 0);
+	
+	GetGoodsNum("Goods402_红玉.ini");
+	If ($GoodsNum == 0) @hongyu0;	//没有红玉
+	If ($GoodsNum == 1) @hongyu1;	//有红玉
+  @hongyu0: 
+  	Say("独孤剑：在下独孤剑，这位张姑娘是韩夫人的义女，能否让我们见见韩元帅？", 1);
+	Say("刘云：这几日战事吃紧，大营内外加强了戒备。如果二位没有什么要紧的事，就别打扰元帅和夫人了，还是请回吧。", 0);
+	Say("独孤剑：既然如此，那我们告辞了。", 1);
+	Assign($Talkliuyun, 1);
+	PlayerGotoDir(1, 2);
+	Return;
+	
+  @hongyu1:
+	Say("独孤剑：原来你就是刘云将军？将军可否认识这块红玉？", 1);
+	Say("刘云：这是我家传宝物，应在我姐姐手中，怎么到了你们手里？", 0);
+	Say("独孤剑：这是将军的外甥女秋雨所赠，秋雨姑娘现寄身临安青楼，曾委托我们打探将军的消息，能在这里碰见将军真是机缘，还请将军派人到临安将秋雨姑娘救出苦海。", 1);
+	Say("刘云：原来二位是从临安来的，多谢你们捎信给我，我也正打探外甥女的消息呢。还没有请教少侠大名？", 0);
+	Say("独孤剑：大名不敢当，在下衡山独孤剑，这位张姑娘是韩夫人的义女，能否让我们见见韩元帅？", 1);
+	Say("刘云：既是夫人的义女，二位请进！", 0);
+	NpcGoto("刘云", 11, 31);
+	SetNpcDir("刘云", 7);
+	DelGoods("Goods402_红玉.ini"); 
+	Add($End,1);
+	Assign($Talkliuyun,1);
+	Return;
+ 
+ @Eventliuyun1:
+ 	Return;	
+ 	

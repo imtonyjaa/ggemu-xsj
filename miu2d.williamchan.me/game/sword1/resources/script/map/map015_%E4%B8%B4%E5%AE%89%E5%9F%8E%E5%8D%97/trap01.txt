@@ -1,0 +1,63 @@
+// 切换到临安城
+
+	If ($Event == 30) @Event30; 
+	If ($Event == 40) @Event40; 
+	If ($Event == 195) @Event195;
+	If ($Event == 210) @Event210;
+	If ($Event == 250) @Event250;   //段铁匠与吕文才一段
+		
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map016_临安城.map");
+	LoadNpc("map016.npc");
+	LoadObj("map016.obj");
+	SetPlayerPos(3, 138);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;	
+
+@Event30:
+	Return;	
+	
+@Event40:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("闲步.mp3");
+	LoadMap("map016_临安城.map");
+	LoadNpc("map016.npc");
+	LoadObj("map016.obj");
+	SetPlayerPos(3, 138);
+	SetPlayerDir(5);
+	FadeIn();
+	Say("独孤剑：这里就是京城了，到哪儿去找柳老前辈呢？还是先去酒楼、客栈打听打听吧！", 1);
+	Memo("来到京城临安。京肆繁华，四处逛逛，找城里所有的人聊聊天，会有不少收获哦。");
+	Return;	
+	
+@Event195:
+	Return;
+
+@Event210:
+	Say("独孤剑：还是赶紧上武夷山吧！", 1);
+	Return;	
+	
+@Event250:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("杀机.mp3");
+	LoadMap("map016_临安城.map");
+	LoadNpc("map016_event250.npc"); 
+	LoadObj("map016.obj");
+	SetPlayerPos(3, 137);
+	SetPlayerDir(5);
+	SetNpcKind("张琳心", 1);
+	SetNpcPos("张琳心", 3, 136);
+	SetNpcDir("张琳心", 5);
+	SetNpcKind("张琳心", 3);
+	FadeIn();
+	RunScript("段铁匠遇害.txt");
+	Return;		

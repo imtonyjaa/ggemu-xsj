@@ -1,0 +1,32 @@
+// 遇到五色教杀手，对话后战斗
+
+	PlayerGoto(5, 109);
+	SetPlayerDir(5);
+	Say("独孤剑：哼！又是你们，你们到底是什么人！？", 5);
+	Say("红衣杀手：杀手！", 80);
+	Say("独孤剑：你们来这里干什么？", 5);
+	Say("红衣杀手：杀人！", 80);
+	Say("张琳心：你们说话都是两个字吗？", 21);
+	Say("红衣杀手：不错。", 80);
+	SetNpcKind("张琳心", 1);
+	NpcGoto("张琳心", 6, 108);
+	SetNpcDir("张琳心", 5);
+	Say("张琳心：那我也有两个字想对你说。", 21);
+	Say("红衣杀手：什么？", 80);
+	Say("张琳心：去死！", 21);
+	SetNpcKind("张琳心", 3);
+	
+	StopMusic();
+	PlayMusic("沙场.mp3");
+	SetNpcRelation("红衣杀手",1);
+	SetNpcRelation("黑衣杀手",1);
+	SetPlayerState(1);
+    EnableFight();
+	EnableNpcAI();
+	
+	SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(2, "Trap02.txt");
+	SetMapTrap(3, "Trap03.txt");
+	Assign($Event, 215);
+	Return;
+	

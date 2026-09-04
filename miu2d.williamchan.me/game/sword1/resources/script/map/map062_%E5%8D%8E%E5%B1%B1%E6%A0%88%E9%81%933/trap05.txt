@@ -1,0 +1,37 @@
+// 遇见林对儿
+
+	If ($Event == 330) @Event330;
+	Return;
+	
+@Event330:	
+	StopMusic();
+	MoveScreen(3, 50, 2); 
+	MoveScreen(2, 40, 2);
+	Say("华山弟子：林师兄，恭喜，恭喜！", 0);
+	Say("林师兄：同喜同喜，嘿嘿。", 98);
+	Say("华山弟子：如今你叔叔做了华山掌门，以后小弟还要靠林师兄多多提携。", 0);
+	Say("林师兄：好说，好说！怎么样，陪兄弟去春花秋月楼，找如花姑娘快活快活……如何？", 98);
+	Say("华山弟子：林师兄真是风流雅致呀，坐享美女佳酿，人生夫复何求？妙哉、妙哉！", 0);
+	Say("林师兄：哈哈哈，走——如花，等着爷们！", 98);
+	Sleep(500);
+	NpcGotoEx("林对儿", 9, 63);
+	NpcGotoEx("华山派弟子", 10, 64); 
+	Watch("独孤剑", "张琳心", 0);
+	MoveScreen(7, 50, 2);
+	MoveScreen(6, 40, 2);
+	//SetPlayerScn();
+	DelNpc("林对儿");
+	DelNpc("华山派弟子");
+	SaveNpc();	
+	Say("张琳心：想不到华山派弟子中竟有这样的败类，哼！", 27);
+	Say("独孤剑：听他们刚才的谈话，好像比武大会已有了结果，不知发生了什么变故，我们赶快去看看！", 9);
+	Say("张琳心：好！", 21);
+	SetMapTrap(1, "trap01.txt");
+	SetMapTrap(2, "trap02.txt");
+	SetMapTrap(3, "trap03.txt");
+	SetMapTrap(4, "trap04.txt");
+	SetMapTrap(5,"");
+	Assign($Event, 340);
+	PlayMusic("追缘.mp3");
+	Memo("在李三的帮助下，独孤剑和张琳心从小路上山，来到华山顶，从华山派弟子口中得知比武大会发生了变故。");
+	Return;

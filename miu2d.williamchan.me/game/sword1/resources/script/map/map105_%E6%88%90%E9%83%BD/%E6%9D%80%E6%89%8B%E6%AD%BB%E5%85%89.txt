@@ -1,0 +1,37 @@
+//杀手死光
+	
+	Add($fight105, 1);
+	If ($fight105 == 6) @finished;
+    Return;
+	
+@finished:
+	SetNpcActionFile("独孤剑",0,"npc001_st2.asf");
+	SetNpcActionFile("独孤剑",1,"npc001_sst2.asf");
+	StopMusic();
+	PlayMusic("黑影.mp3");
+	Assign($Clue, 100);
+	SetMapTrap(01,"trap01.txt");
+	SetMapTrap(02,"trap02.txt");
+	SetMapTrap(03,"trap03.txt");
+	SetMapTrap(04,"trap04.txt");
+	SetMapTrap(05,"trap05.txt");
+	SetMapTrap(06,"trap06.txt");
+
+	Sleep(800);
+	Say("独孤剑：尸体上有一股很呛鼻的味道。", 8);
+	Say("独孤剑：这是什么味道呢？", 8);
+	Choose("独孤剑：这像是……","A 硝石","B 辣椒",$Choose);
+	If ($Choose == 0) @Choose0;
+	If ($Choose == 1) @Choose1;
+@Choose0:
+  	Say("独孤剑：像是一种硝石的味道……他们身上怎么会带有这种味道？", 1);
+   	Assign($Clue, 105);
+  	Memo("杀掉黑衣人后，独孤剑在他们身上闻到一种古怪的味道。");
+	Memo("独孤剑猜测这可能是一种硝石的味道。");
+	Return;
+	
+@Choose1:
+  	Say("独孤剑：辣椒的味道？古怪！", 8);
+   	Assign($Clue, 105);
+  	Memo("杀掉黑衣人后，独孤剑在他们身上闻到一种古怪的味道。");
+  	Return;

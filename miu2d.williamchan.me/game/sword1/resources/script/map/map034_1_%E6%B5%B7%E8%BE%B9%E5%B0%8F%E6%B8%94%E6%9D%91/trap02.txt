@@ -1,0 +1,46 @@
+//地图切换至渔夫家
+
+	If ($Event == 270) @Event270;
+	If ($Event >> 125) @Eventmore125;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map036_渔夫家.map");
+	LoadNpc("map036.npc");
+	LoadObj("map036.obj");
+	SetPlayerPos(5, 22);
+	SetPlayerDir(4);
+	FadeIn();
+	Return;
+
+@Event270:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map036_渔夫家.map");
+	LoadNpc("map036_event270.npc");
+	LoadObj("map036.obj");
+	SetPlayerPos(5, 22);
+	SetPlayerDir(4);
+	SetNpcKind("张琳心", 1);
+	SetNpcPos("张琳心", 5, 23);
+	SetNpcDir("张琳心", 4);
+	SetNpcKind("张琳心", 3);
+	SetNpcScript("张琳心", "");
+	FadeIn();
+	SetMapTrap(2, "trap02.txt");
+	Return;
+	
+@Eventmore125:	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map036_渔夫家.map");
+	LoadNpc("map036.npc");
+	LoadObj("map036.obj");
+	DelNpc("贾老实");
+	SetPlayerPos(5, 22);
+	SetPlayerDir(4);
+	FadeIn();
+	Return;

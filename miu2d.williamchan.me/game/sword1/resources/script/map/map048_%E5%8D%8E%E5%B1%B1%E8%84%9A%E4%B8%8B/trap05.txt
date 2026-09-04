@@ -1,0 +1,12 @@
+// 遇到李三前是不应该知道小栈道的
+
+	If ($Event << 320) @EventLess320;
+		
+	SetMapTrap(5, "");
+	Return;
+	
+@EventLess320:
+	Say("这里好像已经没路了。");
+	PlayerGotoDir(0, 4);
+	SetMapTrap(5, "trap05.txt");
+	Return;

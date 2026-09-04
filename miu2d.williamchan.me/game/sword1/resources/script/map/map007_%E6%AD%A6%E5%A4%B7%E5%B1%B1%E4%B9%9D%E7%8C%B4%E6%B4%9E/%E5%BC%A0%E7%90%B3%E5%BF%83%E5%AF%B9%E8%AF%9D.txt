@@ -1,0 +1,25 @@
+// 与张琳心的同伴对话
+
+	If ($Event == 240) @Event240;
+	If ($Event >= 210) @Event210;
+	
+	Return;
+	
+@Event240:
+	Say("独孤剑：张姑娘，这洞里阴森潮湿，你当心一点，跟着我走。", 1);	
+	Say("张琳心：嗯！", 21);
+	Return;
+	
+@Event210:
+	If ($Talkmap007 == 0) @Talk0;
+	If ($Talkmap007 == 1) @Talk1;
+@Talk0:	
+	Say("张琳心：这九猴洞阴森森的，好吓人！", 25);
+	Say("独孤剑：别怕！跟着我！", 2);
+	Say("张琳心：嗯！", 21);
+	Assign($Talkmap007, 1);
+	Return;		
+@Talk1:
+	Say("独孤剑：跟着我，别害怕！", 2);
+	Say("张琳心：嗯！", 21);
+	Return;

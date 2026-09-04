@@ -1,0 +1,25 @@
+//切换到map111成都北郊
+
+	If ($Clue == 80) @Clue80;
+	
+	FadeOut();
+	SaveNpc();
+	ClearBody();
+	SaveObj();
+	LoadMap("map111_成都北郊.map");
+	LoadNpc("map111.npc");
+	LoadObj("map111.obj");
+	SetPlayerPos(3,8);
+	SetPlayerDir(7);
+	FadeIn();
+	Return;
+
+@Clue80:
+	If ($Shashousw == 1) @Clue90;
+	
+	Say("独孤剑：男子汉大丈夫，岂能临阵退缩！", 5);
+	Return;
+	
+@Clue90:
+	Say("杨瑛：独孤大哥，我们先进去查看一番。",39);
+	Return;

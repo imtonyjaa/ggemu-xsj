@@ -1,0 +1,33 @@
+
+	If ($Event == 120) @Event120;
+	If ($Event == 270) @Event270;
+	Return;
+	
+@Event120:
+	SetNpcKind("贾老实", 0);		
+	NpcGoto("贾老实", 3, 17);
+	PlayerGoto(4, 16);
+	SetNpcDir("贾老实", 3);
+	SetNpcDir("渔夫老王", 7);
+	SetPlayerDir(2);
+	Say("贾老实：老王，麻烦你送这位公子去一下碧霞岛。", 207);
+	Say("渔夫老王：既然贾大爷这么吩咐，那……好吧！我在码头等这位公子。", 65);
+	NpcGoto("渔夫老王", 5, 24);
+	DelNpc("渔夫老王");  
+	
+	SetNpcDir("贾老实", 5);
+	SetPlayerDir(1);
+	//Watch("独孤剑", "贾老实", 0);
+	Say("独孤剑：为什么他这么听你的话？", 8);
+	Say("贾老实：当年金兵来犯中原，他来临安讨饭，我见他快饿死，便将我家中唯一的一只鸡蛋借给他吃，他说将来一定要还。", 207);
+	Say("贾老实：现在算来，蛋孵鸡，鸡生蛋，那只鸡蛋可以孵出上万只鸡，他这辈子都无法偿还了，哈哈……", 207);
+	Say("独孤剑：……", 1);
+	Memo("和贾老实一起来到老王家，老王终于答应出海。");	
+	SetMapTrap(1, "trap01.txt");
+	SetMapTrap(2, "");
+	Assign($Event, 125);	
+	Return;
+	
+@Event270:
+	RunScript("段芙蓉对话.txt");
+	Return;	

@@ -1,0 +1,12 @@
+// 泰山比武失败
+
+	StopMusic();
+	PlaySound("主角死亡.wav");
+	Sleep(1000);
+   	FadeOut();
+	Say("武林至尊的位置可不是那么容易得到的，你不会轻言放弃吧？读取进度再打一次吧！");
+	FreeMap();
+	ReturnToTitle();
+	Return;
+	
+	

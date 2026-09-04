@@ -1,0 +1,53 @@
+// 切换到map073韩世忠大营
+
+	If ($Event == 420) @Event420;
+	If ($Event == 440) @Event440;		//只能是与刘云对过话，而且有红玉
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map073_韩世忠大营.map");
+	LoadNpc("map073.npc");
+	LoadObj("map073.obj");
+	SetPlayerPos(16, 19);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;
+	
+@Event420:
+	If ($Talkliang == 1) @Talkliang1;
+	If ($Talkliang == 2) @Talkliang2;
+@Talkliang1:	
+	Say("张琳心：先去拜访韩夫人梁红玉吧！", 21);
+	Return;
+@Talkliang2:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map073_韩世忠大营.map");
+	LoadNpc("map073.npc");
+	LoadObj("map073.obj");
+	SetPlayerPos(16, 19);
+	SetPlayerDir(1);
+	Assign($Event, 421);
+	FadeIn();
+	Return;
+	
+@Event440:
+	If ($Talkhan == 0) @Talkhan0;	//没有与韩元帅对话
+	If ($Talkhan == 1) @Talkhan1;	//已经与韩元帅对话
+	Return;
+@Talkhan0:
+	Say("张琳心：那不是韩世忠将军吗？", 21);
+	Return;	
+@Talkhan1:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map073_韩世忠大营.map");
+	LoadNpc("map073.npc");
+	LoadObj("map073.obj");
+	SetPlayerPos(16, 19);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;	

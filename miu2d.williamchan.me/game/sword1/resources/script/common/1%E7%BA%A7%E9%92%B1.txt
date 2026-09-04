@@ -1,0 +1,3 @@
+PlaySound("物-银子.wav");
+AddRandMoney(1,50);
+DelCurObj();

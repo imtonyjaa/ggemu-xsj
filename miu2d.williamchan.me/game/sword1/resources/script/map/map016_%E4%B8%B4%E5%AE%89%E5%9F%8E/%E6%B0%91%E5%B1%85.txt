@@ -1,0 +1,26 @@
+// 切换到王老五家
+
+	If ($Event == 255) @Event255;	//杀吕文才之前
+	If ($Event == 256) @Event256;	//杀吕文才之后	
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map032_1_临安城民居.map");
+	LoadNpc("map032_1.npc");
+	LoadObj("map032_1.obj");
+	SetPlayerPos(7, 21);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;	
+	
+@Event255:
+	Return;		
+	
+@Event256:
+	Say("城内人心惶惶，家家户户都关上了门，老百姓躲在家里不敢出来。");
+	Return;	
+	
+	
+	
+	

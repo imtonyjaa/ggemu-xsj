@@ -1,0 +1,47 @@
+// 地图切换到衡山
+
+	If ($Event == 20) @Event20; 
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map001_衡山.map");
+	LoadNpc("map001.npc");
+	LoadObj("map001.obj");
+	SetPlayerPos(10, 13);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;	
+	
+@Event20:	
+	If ($Rain == 1) @Rain;  
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map001_衡山.map");
+	LoadNpc("map001.npc");
+	LoadObj("map001.obj");
+	SetPlayerPos(10, 13);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;	
+@Rain:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map001_衡山.map");
+	LoadNpc("map001.npc");
+	LoadObj("map001.obj");
+	SetPlayerPos(10, 13);
+	SetPlayerDir(1);
+	BeginRain("Rain.ini");	
+	FadeIn();
+	Return;	
+
+	
+		
+
+
+	
+	
+	

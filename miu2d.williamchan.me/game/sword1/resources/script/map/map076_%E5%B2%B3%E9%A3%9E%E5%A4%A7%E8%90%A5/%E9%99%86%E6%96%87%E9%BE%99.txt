@@ -1,0 +1,29 @@
+//和陆文龙对话
+
+	If ($Event == 695) @Event695;
+	If ($Event == 700) @Event700;
+	
+@Event695:	
+	
+	If ($Talkluwenlong == 0) @Talkluwenlong0;
+	If ($Talkluwenlong == 1) @Talkluwenlong1;
+	
+@Talkluwenlong0:
+	Say("陆文龙：原来是独孤大哥和张姐姐，文龙还没向两位道谢呢。", 97);
+	Say("独孤剑：陆将军不必客气。对了，岳元帅呢？", 2);
+	Say("陆文龙：元帅出营探察军情去了，云大哥在大帐内，有什么事可以去大帐。", 97);
+	Assign($Talkluwenlong, 1);
+	Return;
+	
+@Talkluwenlong1:
+	Say("陆文龙：云大哥在大帐，独孤大哥可以去找他。", 97);
+	Return;
+	
+	
+@Event700:
+	Say("陆文龙：我听云大哥说元帅有危险，我要同你们一起去救他！", 97);
+	Say("独孤剑：我和张姑娘先去，你和岳云将军随后赶来吧！", 1);
+	Say("陆文龙：好！", 97);
+	Return;
+	
+	

@@ -1,0 +1,43 @@
+//切换到海边小渔村
+
+	If ($Event == 90) @Event90;
+	If ($Event == 125) @Event125;
+		
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map034_1_海边小渔村.map");
+	LoadNpc("map034_1.npc");
+	LoadObj("map034_1.obj");
+	SetPlayerPos(29, 16);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;
+
+@Event90:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map034_1_海边小渔村.map");
+	LoadNpc("map034_1.npc");
+	SetNpcPos("浪里白挑", 21, 44);
+	SetNpcDir("浪里白挑", 0); 
+	LoadObj("map034_1.obj");
+	SetPlayerPos(29, 16);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;
+
+@Event125:	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map034_1_海边小渔村.map");
+	LoadNpc("map034_1_event125.npc");
+	LoadObj("map034_1.obj");
+	SetPlayerPos(29, 16);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;
+
+

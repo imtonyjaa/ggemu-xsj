@@ -1,0 +1,53 @@
+// 切换到map048华山脚下
+
+	If ($Event == 280) @Event280;
+	If ($Event == 300) @Event300;
+	If ($Event == 310) @Event310;
+	If ($Event == 320) @Event320;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map048_华山脚下.map");
+	LoadNpc("map048.npc");
+	LoadObj("map048.obj");
+	SetPlayerPos(2, 78);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;
+	
+@Event280:
+	FadeOut();
+	DelNpc("小雷");
+	DelNpc("段芙蓉");
+	SaveNpc();
+	SaveObj();
+	LoadMap("map048_华山脚下.map");
+	LoadNpc("map048.npc");
+	LoadObj("map048.obj");
+	SetPlayerPos(2, 78);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;
+	
+@Event300:
+	Say("张琳心：独孤哥哥，我们快去长安找李三吧，这不是去长安的路。", 21);
+	Say("独孤剑：哦，我弄错了。", 1);
+	Return;	
+	
+@Event310:
+	Say("独孤剑：先找李三再想办法上华山吧！", 1);
+	Return;	
+
+@Event320:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map048_华山脚下.map");
+	LoadNpc("map048.npc");
+	LoadObj("map048.obj");
+	SetPlayerPos(2, 78);
+	SetPlayerDir(5);
+	FadeIn();
+	Say("李三：上山的小路就在山路右面的岔道上。", 70);
+	Return;

@@ -1,0 +1,28 @@
+// 切换到map101天王帮大殿
+
+	If ($Event == 580) @Event580;
+	If ($Event == 600) @Event600;
+	If ($Event == 605) @Event605;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map101_天王帮大殿.map");
+	LoadNpc("map101.npc");
+	LoadObj("map101.obj");
+	SetPlayerPos(13, 15);
+	SetPlayerDir(7);
+	FadeIn();
+	Return;
+
+@Event580:
+	Say("独孤剑：杨帮主还在后花园等我呢。", 1);
+	Return;
+
+@Event600:
+	Say("独孤剑：去向杨帮……杨姑娘解释清楚吧。", 4);
+	Return;
+		
+@Event605:
+	Say("杨瑛：独孤公子，这是去大殿的路。", 39);
+	Return;

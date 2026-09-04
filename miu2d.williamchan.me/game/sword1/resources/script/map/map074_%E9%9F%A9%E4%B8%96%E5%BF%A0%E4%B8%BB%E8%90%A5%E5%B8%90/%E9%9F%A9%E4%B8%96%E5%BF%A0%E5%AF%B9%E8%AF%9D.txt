@@ -1,0 +1,18 @@
+// 与韩世忠的对话
+
+	If ($Event == 440) @Event440;		//只能是与刘云对过话，而且有红玉
+	Return;
+	
+@Event440:
+	If ($Talkhan == 0) @Talkhan0;	//没有与韩元帅对话
+	If ($Talkhan == 1) @Talkhan1;	//已经与韩元帅对话
+	Return;
+@Talkhan0:
+	Say("韩世忠：原来是独孤公子和张姑娘，夫人已经将你们的事告诉我了，多谢你们的好意，你们可以去库房随意取用一些对你们有用的东西。", 59);
+	Say("独孤剑：多谢元帅！", 2);
+	Assign($Talkhan, 1);
+	SetMapTrap(1, "trap01.txt"); 
+	Return;	
+@Talkhan1:
+	Say("韩世忠：本帅正在处理军务，无暇陪你们，十分抱歉，以后有机会我们再好好聊一聊。", 59);
+	Return;	

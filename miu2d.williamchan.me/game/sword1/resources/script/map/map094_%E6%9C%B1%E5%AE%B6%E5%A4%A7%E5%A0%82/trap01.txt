@@ -1,0 +1,35 @@
+// 切换到map093长白山东
+	
+	If ($Zhujiarenshen == 0) @Load0;
+	If ($Zhujiarenshen == 1) @Load1;
+	Return;
+	
+@Load0:	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map093_长白山东.map");
+	LoadNpc("map093.npc");
+	LoadObj("map093.obj");
+	SetPlayerPos(2, 15);
+	SetPlayerDir(7);
+	ShowSnow(1);
+	FadeIn();
+	Return;
+	
+@Load1:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("夜色.mp3");
+	LoadMap("map093_长白山东.map");
+	LoadNpc("map093_event520.npc");
+	LoadObj("map093.obj");
+	SetPlayerPos(2, 15);
+	SetPlayerDir(7);
+	ShowSnow(1);
+	FadeIn();
+	Return;	
+	
+ 

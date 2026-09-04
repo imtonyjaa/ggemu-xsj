@@ -1,0 +1,40 @@
+// 切换到临安城南
+
+	If ($Event == 30) @Event30; 
+	If ($Event ==250) @Event250;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map015_临安城南.map");
+	LoadNpc("map015.npc");
+	LoadObj("map015.obj");
+	SetPlayerPos(8, 80);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;	
+	
+@Event30:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map015_临安城南.map");
+	LoadNpc("map015_closed.npc");
+	LoadObj("map015.obj");
+	SetPlayerPos(8, 80);
+	SetPlayerDir(5);
+	FadeIn();
+	Say("独孤剑：咦？我怎么到临安城来了？还是先去武夷山吧！", 1);
+	Return;	
+
+@Event250:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map015_临安城南.map");
+	LoadNpc("map015.npc");   //新的人物设置
+	LoadObj("map015.obj");
+	SetPlayerPos(8, 80);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;	

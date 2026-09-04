@@ -1,0 +1,36 @@
+// 切换到map049长安城
+
+	If ($Event == 306) @Event306;
+	If ($Event == 307) @Event307;
+	If ($Event == 360) @Event360;
+		
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map049_长安城.map");
+	LoadNpc("map049.npc");
+	LoadObj("map049.obj");
+	SetPlayerPos(32, 125);
+	SetPlayerDir(7);
+	FadeIn();
+	Return;
+	
+@Event306:
+	Return;
+
+@Event307:
+	FadeOut();
+	DelNpc("张如梦");
+	SaveNpc();
+	SaveObj();
+	LoadMap("map049_长安城.map");
+	LoadNpc("map049.npc");
+	LoadObj("map049.obj");
+	SetPlayerPos(32, 125);
+	SetPlayerDir(7);
+	FadeIn();
+	Return;
+	
+@Event360:
+	Say("独孤剑：还没有找到那个华山派弟子呢！", 1);
+	Return;	

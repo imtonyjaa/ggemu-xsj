@@ -1,0 +1,25 @@
+// 切换到杂货铺
+
+	If ($Event == 255) @Event255;	//杀吕文才之前
+	If ($Event == 256) @Event256;	//杀吕文才之后	
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map022_临安城杂货店.map");
+	LoadNpc("map022.npc");
+	LoadObj("map022.obj");
+	SetPlayerPos(4, 22);
+	SetPlayerDir(5);
+	SetNpcClickScript("杂货店老板", "杂货店老板点击脚本.txt");
+	FadeIn();
+	Return;	
+	
+@Event255:
+	Return;		
+	
+@Event256:
+	Say("城内人心惶惶，所有的店面都打烊了。");
+	Return;		
+	
+	

@@ -1,0 +1,31 @@
+// 切换到map109成都药店
+
+	If ($Clue >= 90) @Clue90;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map109_成都药店.map");
+	LoadNpc("map109.npc");
+	LoadObj("map109.obj");
+	SetPlayerPos(5,19);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;
+	
+@Clue90:
+	If ($Clue == 91) @Clue91;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map109_成都药店.map");
+	LoadObj("map109.obj");
+	SetPlayerPos(5,19);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;
+
+@Clue91:
+ 	Say("暗影：想溜，没这么容易！", 81);
+ 	Return;

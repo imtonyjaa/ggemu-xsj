@@ -1,0 +1,112 @@
+// 切换到map108成都铁匠铺
+
+	If ($Inroom == 0) @Inroom0;
+	If ($Inroom == 1) @Inroom1;
+	If ($Inroom == 2) @Inroom2;
+
+@Inroom0:
+	If ($Clue >= 90) @Cluemore90;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map108_成都铁匠铺.map");
+	LoadNpc("map108.npc");
+	LoadObj("map108.obj");
+	SetPlayerPos(4,18);
+	SetPlayerDir(5);
+	SetNpcKind("杨瑛",1);
+	SetNpcPos("杨瑛",3,17);
+	SetNpcDir("杨瑛",5);
+	SetNpcKind("杨瑛",3);
+	FadeIn();
+	Say("杨瑛：咳咳……", 39);
+	SetPlayerDir(3);
+	Say("独孤剑：杨姑娘，你没事吧？", 1);
+	Say("杨瑛：这里的味道好呛鼻……",40);
+	Assign($Inroom, 1);
+	Return;
+	
+  @Cluemore90:
+	If ($Clue == 91) @Clue91;
+	If ($Clue == 105) @Clue105;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map108_成都铁匠铺.map");
+	LoadNpc("map108.npc");
+	LoadObj("map108.obj");
+	DelNpc("铁匠铺老板");
+	SetPlayerPos(4,18);
+	SetPlayerDir(5);
+	FadeIn();
+	Say("独孤剑：咳咳，好呛鼻的味道！咦，怎么会没有人？", 8);
+	Assign($Inroom, 1);
+	Return;
+	
+@Inroom1:
+	If ($Clue >= 90) @Clue90;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map108_成都铁匠铺.map");
+	LoadNpc("map108.npc");
+	LoadObj("map108.obj");
+	SetPlayerPos(4,18);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;
+	
+  @Clue90:
+	If ($Clue == 91) @Clue91;
+	If ($Clue == 105) @Clue105;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map108_成都铁匠铺.map");
+	LoadNpc("map108.npc");
+	LoadObj("map108.obj");
+	DelNpc("铁匠铺老板");
+	SetPlayerPos(4,18);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;
+	
+   @Clue91:
+  	Say("暗影：想溜，没那么容易！", 81);
+  	Return;
+  	
+   @Clue105:
+   	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map108_成都铁匠铺.map");
+	LoadNpc("map108.npc");
+	LoadObj("map108.obj");
+	DelNpc("铁匠铺老板");
+	DelObj("木柜");
+	AddObj("木柜关.ini",7,14);
+	SetPlayerPos(4,18);
+	SetPlayerDir(5);
+	FadeIn();
+   	Say("独孤剑：咳咳……这味道——", 8);
+   	Say("独孤剑：不错，正是刚才尸体上留下的硝石气味。", 1);
+   	Say("独孤剑：莫非，他们来过这里……", 1);
+   	Assign($Inroom, 2);
+   	Memo("在城内铁匠铺发现和黑衣人身上相似的味道，莫非他们事前曾来过这里？");
+   	Return;
+   	
+@Inroom2:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map108_成都铁匠铺.map");
+	LoadNpc("map108.npc");
+	LoadObj("map108.obj");
+	SetPlayerPos(4,18);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;

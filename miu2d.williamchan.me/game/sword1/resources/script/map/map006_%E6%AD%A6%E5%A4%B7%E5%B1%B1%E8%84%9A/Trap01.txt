@@ -1,0 +1,20 @@
+// 切换到林间小道
+
+	If ($Event == 30) @Event30; 
+	If ($Event == 210) @Event30;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map005_林间小道.map");
+	LoadNpc("map005.npc");
+	LoadObj("map005.obj");
+	SetPlayerPos(14, 49);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;	
+
+@Event30:
+	Say("独孤剑：赶紧上山吧！", 9);
+	Return;
+

@@ -1,0 +1,10 @@
+//和独孤剑说话
+
+	If ($Event == 304) @Event304;
+	If ($Event == 305) @Event304;
+	Return;
+	
+@Event304:	
+	Say("独孤剑：张兄有何事？不如小弟陪你同去？", 1);
+	Say("张如梦：不，不必……", 20);
+	Return;

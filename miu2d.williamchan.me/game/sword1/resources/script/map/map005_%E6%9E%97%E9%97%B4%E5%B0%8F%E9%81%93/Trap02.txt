@@ -1,0 +1,52 @@
+// 切换到武夷山脚
+
+	If ($Event == 30) @Event30; 
+	If ($Event == 40) @Event40; 
+	If ($Event == 210) @Event210;	
+	If ($Event == 250) @Event250;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map006_武夷山脚.map");
+	LoadNpc("map006.npc");
+	LoadObj("map006.obj");
+	SetPlayerPos(3, 45);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;	
+	
+@Event30:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map006_武夷山脚.map");
+	LoadNpc("map006.npc");
+	LoadObj("map006.obj");
+	SetPlayerPos(3, 45);
+	SetPlayerDir(5);
+	FadeIn();
+	Say("独孤剑：这里就是武夷山了吧？俊峰秀谷、碧树葱茏，与衡山相比，果然别有一番景致。", 1);
+	Return;	
+	
+@Event40:
+	Say("独孤剑：还是先去临安城找柳中原老前辈吧。", 1);
+	Return;
+
+@Event210:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map006_武夷山脚.map");
+	LoadNpc("map006.npc");
+	LoadObj("map006_event210.obj");
+	SetPlayerPos(3, 45);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;	
+	
+@Event250:
+	Say("张琳心：不知临安发生了什么变故……", 24);
+	Say("独孤剑（暗想）：看她如此担心，我还是先陪她去临安吧。", 1);
+	Return;		
+	

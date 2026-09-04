@@ -1,0 +1,19 @@
+// 切换到map034-1海边小渔村
+
+	If ($Event == 265) @Event265;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("长路.mp3");
+	LoadMap("map034_1_海边小渔村.map");
+	LoadNpc("map034_1.npc");
+	LoadObj("map034_1.obj");
+	SetPlayerPos(2, 45);
+	SetPlayerDir(6);
+	FadeIn();
+	Return;
+
+@Event265:
+	Return;

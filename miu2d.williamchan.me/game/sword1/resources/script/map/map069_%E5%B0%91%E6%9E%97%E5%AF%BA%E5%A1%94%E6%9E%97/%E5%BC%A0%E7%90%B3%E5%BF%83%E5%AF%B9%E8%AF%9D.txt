@@ -1,0 +1,24 @@
+// 与张琳心的同伴对话
+
+	If ($Event == 390) @Event390;
+	If ($Event == 400) @Event400;
+	If ($Event == 410) @Event410;
+	If ($Event == 420) @Event420;
+	Return;
+	
+@Event390:
+	Say("独孤剑：这塔林里好生肃穆。", 1);
+	Say("张琳心：少林寺塔林是少林寺历代高僧的坟茔。高僧圆寂后将其尸骨安放地宫，上面建塔，以示功德。", 1);
+	Return;
+	
+@Event400:
+	Say("独孤剑：我们去找无虚大师吧。", 1);		
+	Return;
+	
+@Event410:
+	Say("张琳心：我们也走吧。", 21);
+	Return;	
+	
+@Event420:
+	Say("张琳心：我们下山吧！", 21);
+	Return;		

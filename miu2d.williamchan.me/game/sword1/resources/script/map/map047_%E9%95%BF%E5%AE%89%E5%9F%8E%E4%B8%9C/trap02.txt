@@ -1,0 +1,60 @@
+// 切换到map049长安城
+
+	If ($Event == 280) @Event280;
+	If ($Event == 300) @Event300;
+	If ($Event == 304) @Event304;
+	If ($Event == 310) @Event310;
+	If ($Event == 370) @Event370;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map049_长安城.map");
+	LoadNpc("map049.npc");
+	LoadObj("map049.obj");
+	SetPlayerPos(46, 123);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;
+	
+@Event280:
+	Say("张琳心：独孤哥哥，事情紧迫，我们还是先上华山吧。", 21);
+	Say("独孤剑：好。", 2);
+	Return;
+
+@Event300:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("春潮.mp3");
+	LoadMap("map049_长安城.map");
+	LoadNpc("map049.npc");
+	LoadObj("map049.obj");
+	SetPlayerPos(46, 123);
+	SetPlayerDir(3);
+	FadeIn();
+	Say("张琳心：长安城这么大，上哪里去找李三呢？", 21);
+	Say("独孤剑：我们四处打听打听吧。", 1);
+	Return;	
+	Return;
+
+@Event304:
+	Return;
+	
+@Event310:
+	Say("张琳心：独孤哥哥，我们快去石塘镇找李三吧！", 21);
+	Return;	
+	
+@Event370:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map049_长安城.map");
+	LoadNpc("map049.npc");
+	DelNpc("张琳心.ini",*,*);
+	LoadObj("map049.obj");
+	SetPlayerPos(46, 123);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;

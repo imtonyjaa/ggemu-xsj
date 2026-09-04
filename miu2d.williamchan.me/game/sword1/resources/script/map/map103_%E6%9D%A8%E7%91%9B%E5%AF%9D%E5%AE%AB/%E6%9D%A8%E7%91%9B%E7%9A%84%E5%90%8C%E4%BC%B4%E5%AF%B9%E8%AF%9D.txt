@@ -1,0 +1,12 @@
+// 杨瑛的同伴对话
+
+	If ($Event == 605) @Event605;
+	If ($Event == 610) @Event610;
+	
+@Event605:
+	Say("杨瑛：山河社稷图就放在我的书房里。", 39);
+	Return;
+	
+@Event610:	
+	Say("杨瑛：我们走吧。", 39);
+	Return;

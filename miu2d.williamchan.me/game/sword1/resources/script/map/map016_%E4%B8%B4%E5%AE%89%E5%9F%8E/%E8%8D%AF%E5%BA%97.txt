@@ -1,0 +1,24 @@
+// 切换到药店
+
+	If ($Event == 255) @Event255;	//杀吕文才之前
+	If ($Event == 256) @Event256;	//杀吕文才之后	
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map028_临安城药店.map");
+	LoadNpc("map028.npc");
+	LoadObj("map028.obj");
+	SetPlayerPos(3, 21);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;	
+	
+@Event255:
+	Return;		
+	
+@Event256:
+	Say("城内人心惶惶，所有的店面都打烊了。");
+	Return;		
+	
+	

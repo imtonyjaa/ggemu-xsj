@@ -1,0 +1,18 @@
+// 切换到map038碧霞岛山洞
+
+	If ($Event >= 170) @Event170;
+
+	Say("独孤剑：还没有救出被抓的少女呢。", 1);
+	Return;
+
+@Event170:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map038_碧霞岛山洞");
+	LoadNpc("map038.npc");
+	LoadObj("map038.obj");
+	SetPlayerPos(17, 8);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;

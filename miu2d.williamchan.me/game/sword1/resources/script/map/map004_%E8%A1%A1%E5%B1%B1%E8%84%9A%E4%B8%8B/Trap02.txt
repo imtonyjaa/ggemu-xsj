@@ -1,0 +1,55 @@
+// 切换到林间小道
+
+	If ($Event == 20) @Event20;  
+	If ($Event == 25) @Event25;  
+	If ($Event == 30) @Event30;  	
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map005_林间小道.map");
+	LoadNpc("map005.npc");
+	LoadObj("map005.obj");
+	SetPlayerPos(2, 11);
+	SetPlayerDir(7);
+	FadeIn();
+	Return;	
+	
+@Event20:
+	Say("独孤剑：师傅所说的那封血书还没找到呢。", 1);
+	Return;	
+	
+@Event25:
+	Say("独孤剑：大丈夫岂能临阵脱逃？", 1);
+	Return;	
+	
+@Event30:	
+	If ($StopRain == 1) @StopRain;  	
+	FadeOut();
+	SaveNpc();
+	ClearBody();
+	SaveObj();
+	LoadMap("map005_林间小道.map");
+	LoadNpc("map005.npc");
+	LoadObj("map005.obj");
+	SetPlayerPos(2, 11);
+	SetPlayerDir(7);
+	EndRain();
+	PlayMusic("长路.mp3");
+	FadeIn();
+	Assign($StopRain, 1);
+	Return;		
+	
+@StopRain:	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map005_林间小道.map");
+	LoadNpc("map005.npc");
+	LoadObj("map005.obj");
+	SetPlayerPos(2, 11);
+	SetPlayerDir(7);
+	FadeIn();
+	Return;	
+	
+		

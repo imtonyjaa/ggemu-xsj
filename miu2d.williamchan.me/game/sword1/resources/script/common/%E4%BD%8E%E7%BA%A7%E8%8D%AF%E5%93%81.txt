@@ -1,0 +1,2 @@
+AddRandGoods("低级药品.ini");
+DelCurObj();

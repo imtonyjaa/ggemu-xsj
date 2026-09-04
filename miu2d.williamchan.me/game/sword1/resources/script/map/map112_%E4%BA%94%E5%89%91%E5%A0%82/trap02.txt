@@ -1,0 +1,88 @@
+//切换到map113五剑堂正厅
+
+	If ($Clue == 80) @Clue80;
+	If ($Clue == 90) @Clue90;
+	If ($Clue == 110) @Clue110;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map113_五剑堂正厅-1.map");
+	LoadNpc("map113.npc");
+	LoadObj("map113-1.obj");
+	SetPlayerPos(25,50);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;
+
+@Clue80:
+	If ($shashousw == 1) @Clue85;
+	
+	Say("五色教杀手：不能放他进去！", 80);
+	Return;
+	
+@Clue85:
+	StopMusic();
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map113_五剑堂正厅-1.map");
+	LoadNpc("map113.npc");
+	LoadObj("map113-1.obj");
+	SetPlayerPos(24,49);
+	SetPlayerDir(3);
+	SetNpcKind("杨瑛",1);
+	SetNpcPos("杨瑛", 26, 50);
+	SetNpcDir("杨瑛",3);
+	FadeIn();
+	
+	PlaySound("特_开关.wav");
+	AddObj("一团毒烟.ini", 26, 50, 0);
+	Sleep(800);
+	DelObj("一团毒烟");
+	
+	SetNpcActionFile("杨瑛",0, "mpc035_2.asf");
+	SetNpcActionFile("杨瑛",1, "mpc035_2.asf");
+	NpcSpecialAction("杨瑛", "mpc035_1.asf");
+	Sleep(1500);
+	SaveNpc();
+	DelNpc("杨瑛");	//对存盘的处理
+	AddNpc("npc008_中毒的杨瑛.ini", 26, 50, 3);
+	SaveNpc();
+	SetPlayerDir(7);
+	Say("独孤剑：杨姑娘！", 6);
+	
+	PlayMusic("追缘.mp3");
+	PlayerRunTo(25,50);
+	SetPlayerDir(5);
+	Sleep(500);
+	Say("杨瑛：啊——不，不要靠近我，是，是……是剧毒！快……回城找索七取……取圣药……", 42);
+	Say("独孤剑：我马上去取！杨姑娘，你要坚持住！", 9);
+	SetNpcKind("杨瑛", 0); 
+	Assign($Clue, 90);
+	Memo("一进五剑堂口，杨瑛便中了机关，身中剧毒。独孤剑只得赶回城找索七取解药。");
+	Return;
+	
+@Clue90:
+	Say("独孤剑：还是尽快取到圣药罢……", 9);
+	Return;
+
+@Clue110:
+	FadeOut();
+	StopMusic();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map113_五剑堂正厅-1.map");
+	LoadNpc("map113.npc");
+	DelNpc("杨瑛");
+	SaveNpc();
+	LoadObj("map113-1.obj");
+	ChangeMapColor(255,255,255);
+	ChangeAsfColor(255,255,255);
+	SetPlayerPos(25,50);
+	SetPlayerDir(3);
+	PlayMusic("黑影.mp3");
+	FadeIn();
+	Say("独孤剑：糟了！杨姑娘呢……", 6);
+	Memo("独孤剑赶回五剑堂，遇到一群五色教杀手，心中暗叫不妙。进入五剑堂后，杨瑛果然不知去向。");
+	Return;

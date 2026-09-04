@@ -1,0 +1,18 @@
+// 切换到临安城（室外）
+
+	If ($Event == 65) @Event65; 
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map016_临安城.map");
+	LoadNpc("map016.npc");
+	LoadObj("map016.obj");
+	SetPlayerPos(12, 26);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;	
+	
+@Event65:	
+	Say("独孤剑：还没有拿到出城的令牌呢！", 1);
+	Return;

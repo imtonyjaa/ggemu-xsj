@@ -1,0 +1,71 @@
+// 切换到赵七娘家
+
+	If ($Event == 255) @Event255;	//杀吕文才之前
+	If ($Event == 256) @Event256;	//杀吕文才之后	
+
+	If ($Eventzhaoqi == 0) @Eventzhaoqi0;
+	If ($Eventzhaoqi == 1) @Eventzhaoqi1;
+	If ($Eventzhaoqi == 2) @Eventzhaoqi2;
+	If ($Eventzhaoqi == 3) @Eventzhaoqi3;
+
+@Eventzhaoqi0:	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map032_赵七娘家.map");
+	LoadNpc("map032.npc");
+	LoadObj("map032.obj");
+	SetNpcPos("赵七娘", 10, 31);
+	SetPlayerPos(12, 39);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;	
+	
+@Eventzhaoqi1:	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map032_赵七娘家.map");
+	LoadNpc("map032.npc");
+	LoadObj("map032.obj");
+	SetNpcPos("赵七娘", 14, 31);
+	SetNpcDir("赵七娘", 5);
+	SetPlayerPos(12, 39);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;	
+	
+@Eventzhaoqi2:	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map032_赵七娘家.map");
+	LoadNpc("map032.npc");
+	LoadObj("map032.obj");
+	SetNpcPos("赵七娘", 10, 25);
+	SetNpcDir("赵七娘", 1);
+	AddNpc("map016周木匠.ini", 10, 26, 5);
+	SaveNpc();
+	SetPlayerPos(12, 39);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;		
+	
+@Eventzhaoqi3:		
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map032_赵七娘家.map");
+	LoadNpc("map032.npc");
+	LoadObj("map032.obj");
+	SetPlayerPos(12, 39);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;	
+	
+@Event255:
+	Return;		
+
+@Event256:
+	Say("城内人心惶惶，家家户户都关上了门，老百姓躲在家里不敢出来。");
+	Return;	

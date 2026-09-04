@@ -1,0 +1,40 @@
+// 桌上留下的书信
+
+	SetNpcKind("杨瑛", 1);
+	PlayerGoto(4, 18);
+	SetPlayerDir(5);
+	Say("独孤剑：杨姑娘，这里有一张留条！", 1);
+	NpcGoto("杨瑛", 4, 20);
+	SetNpcDir("杨瑛", 4);
+	DelCurObj();
+	AddGoods("Goods405_书信.ini");
+	Say("桌上的留条：<enter>    “情况有异，速来成都！ <enter>             梦”");
+	Watch("独孤剑", "杨瑛", 0);
+	Say("独孤剑：张兄和琳儿一定发现了什么，五色教的总舵据说就在川蜀一带！", 1);
+	Say("杨瑛：好，我们马上启程！", 39);
+	SetNpcKind("杨瑛", 3);
+	
+	FadeOut();
+	StopMusic();
+	PlayMusic("春潮.mp3");
+	LoadMap("map105_成都.map");
+	LoadNpc("map105.npc");
+	LoadObj("map105.obj");
+	SetPlayerPos(2,73);
+	SetPlayerDir(5);
+	SetNpcKind("杨瑛",1);
+	SetNpcPos("杨瑛", 2, 72);
+	SetNpcDir("杨瑛", 5);
+	Say("十多天后……");
+	FadeIn();
+	Say("杨瑛：独孤大哥，这里便是成都府了。", 39);
+	Say("独孤剑：中原万里兵戈，山河破碎……想不到这里却是如此繁华。", 1);
+	Say("杨瑛：春风十里扬州路，卷上珠帘总不如……", 41);
+	Say("独孤剑：我们先去客栈打听琳儿和张兄的下落。", 1);
+	SetNpcKind("杨瑛",3);
+	SetNpcRelation("杨瑛", 2);
+	SetNpcScript("杨瑛", "杨瑛的同伴对话.txt");
+	Assign($Event, 620);
+	Assign($Clue, 0);
+	Memo("独孤剑和杨瑛回到湖口村茶馆，发现老板龚楷已经被杀，找到张如梦留下的书信，得知张氏兄妹已经去了成都。两人立即乘船赶赴成都。");
+	Return;

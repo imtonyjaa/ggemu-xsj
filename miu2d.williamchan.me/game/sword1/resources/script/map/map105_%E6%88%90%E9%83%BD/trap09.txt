@@ -1,0 +1,54 @@
+//采到尸体旁边
+
+	If ($Clue >= 100) @Clue100;
+	
+	Return;
+	
+@Clue100:
+	Say("独孤剑：尸体上有一股很呛鼻的味道。", 8);
+	
+	If ($Clue == 100) @Cluemore100;
+	If ($Clue == 105) @Clue105;
+	If ($Clue >= 110) @Clue110;
+	
+@Cluemore100:
+	Say("独孤剑：这是什么味道呢？", 8);
+	Choose("独孤剑：这像是……","A 一种硝石","B 一种辣椒",$Choose);
+	If ($Choose == 0) @Choose0;
+	If ($Choose == 1) @Choose1;
+  @Choose0:
+  	Say("独孤剑：像是一种硝石的味道……他们身上怎么会带有这种味道？", 8);
+  	PlayerGotoDir(*,*);
+  	SetMapTrap(09,"trap09.txt");
+  	Assign($Clue, 105);
+  	Memo("杀掉黑衣人后，独孤剑在他们身上闻到一种古怪的味道。");
+	Memo("独孤剑忽然想起这可能是一种硝石的味道。");
+	Return;
+  @Choose1:
+  	Say("独孤剑：辣椒的味道？真古怪！", 8);
+  	PlayerGotoDir(*,*);
+  	SetMapTrap(09,"trap09.txt");
+  	Memo("杀掉黑衣人后，独孤剑在他们身上闻到一种古怪的味道。");
+  	Return;
+  	
+@Clue105:
+	Say("独孤剑：这是什么味道呢？", 8);
+	Choose("独孤剑：这像是……","A 一种硝石","B 一种辣椒",$Choose);
+	If ($Choose == 0) @Choose0;
+	If ($Choose == 1) @Choose1;
+  @Choose0:
+  	Say("独孤剑：像是一种硝石的味道……他们身上怎么会带有这种味道？", 8);
+  	PlayerGotoDir(*,*);
+  	SetMapTrap(09,"trap09.txt");
+  	Return;
+  @Choose1:
+  	Say("独孤剑：辣椒的味道？真古怪！", 8);
+  	PlayerGotoDir(*,*);
+  	SetMapTrap(09,"trap09.txt");
+  	Return;
+	
+@Clue110:
+	Say("独孤剑：尸体上有一股很呛鼻的焰硝味道。", 1);
+	PlayerGotoDir(*,*);
+	SetMapTrap(09,"trap09.txt");
+	Return; 

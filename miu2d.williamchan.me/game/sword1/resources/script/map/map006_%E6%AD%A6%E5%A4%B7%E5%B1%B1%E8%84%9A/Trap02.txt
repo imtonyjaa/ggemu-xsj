@@ -1,0 +1,83 @@
+// 切换到九猴洞
+
+	If ($Event == 30) @Event30; 
+	If ($Event == 210) @Event210;			//主角等级与敌人等级差别太大时，没必要再练级了
+	// zroc add
+	If ($Event >> 210) @GEvent210;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("战斗.mp3");
+	LoadMap("map007_武夷山九猴洞.map");
+	LoadNpc("map007.npc");
+	SaveNpc("temp_map007.npc");  //有反复战斗
+	LoadObj("map007.obj");
+	SetPlayerPos(3, 80);
+	SetPlayerDir(4);
+	SetNpcScript("张琳心", "");
+	FadeIn();
+	Return;	
+
+@Event30:
+	If ($Say == 1) @Say; 
+	Say("独孤剑：这洞黑漆漆的，里面不知有什么古怪。", 1);
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("战斗.mp3");
+	LoadMap("map007_武夷山九猴洞.map");  
+	LoadNpc("map007.npc");
+	SaveNpc("temp_map007.npc");  //有反复战斗
+	LoadObj("map007.obj");
+	SetPlayerPos(3, 80);
+	SetPlayerDir(4);
+	Assign($Say, 1);
+	FadeIn();
+	Return;	
+@Say:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("战斗.mp3");
+	LoadMap("map007_武夷山九猴洞.map");  
+	LoadNpc("map007.npc");
+	SaveNpc("temp_map007.npc");  //有反复战斗
+	LoadObj("map007.obj");
+	SetPlayerPos(3, 80);
+	SetPlayerDir(4);
+	FadeIn();
+	Return;	
+		
+	
+	
+@Event210:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map007_武夷山九猴洞.map");
+	LoadNpc("map007_escape.npc");
+	LoadObj("map007_event210.obj");
+	SetPlayerPos(3, 80);
+	SetPlayerDir(4);
+	SetNpcScript("张琳心", "张琳心对话.txt");
+	FadeIn();
+	Return;
+
+@GEvent210:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("战斗.mp3");
+	LoadMap("map007_武夷山九猴洞.map");
+	LoadNpc("map007_escape.npc");
+	LoadObj("map007.obj");
+	SetPlayerPos(3, 80);
+	SetPlayerDir(4);
+	SetNpcScript("张琳心", "张琳心对话.txt");
+	FadeIn();
+	Return;	

@@ -1,0 +1,34 @@
+//和假和尚对话
+
+	If ($Event == 390) @Event390;
+	If ($Event == 400) @Event400;
+	
+	Return;
+		
+@Event390:		
+	Say("张琳心：好啊，原来是个狗肉和尚——躲在这里吃狗肉。", 21);
+	Say("狗肉和尚：你，你们是谁！敢管老子的……呃，贫道，呃——贫僧的闲事。", 0);
+	Sleep(500);
+	Say("张琳心（悄声地）：独孤哥哥，这和尚有些古怪。", 21);
+	Say("独孤剑：嗯。", 1);
+	Sleep(500);
+	Say("狗肉和尚：哼！你们是从哪里来的，孤男寡女，竟然跑到少林寺来撒野！", 0);
+	Say("张琳心（故作神秘）：不好，独孤左使，我们的行踪被这个臭和尚发现了。先制住他再说。", 27);
+	Say("独孤剑：啊？", 8);
+	SetNpcRes("假和尚", "npcres074_假和尚.ini");
+	StopMusic();
+	PlayMusic("激战.mp3");
+	SetNpcRelation("假和尚", 1);
+	SetNpcDeathScript("假和尚", "假和尚死亡.txt");
+	SetPlayerState(1);
+    EnableFight();
+	EnableNpcAI();
+	SetNpcRelation("张琳心", 0);
+	SetNpcScript("张琳心", "");
+	Assign($Event, 395);
+	Return;
+	
+@Event400:	
+	Say("假和尚：两位饶命啊，小的只是跑腿的。", 0);
+	Return;
+	

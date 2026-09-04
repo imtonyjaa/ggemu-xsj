@@ -1,0 +1,47 @@
+// 切换到map111成都北郊
+
+	If ($Clue == 90) @Clue90;
+	If ($Clue == 91) @Clue91;
+	If ($Clue == 100) @Clue100;
+	If ($Clue == 105) @Clue105;
+	If ($Clue == 110) @Clue110;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map111_成都北郊.map");
+	LoadNpc("map111.npc");
+	LoadObj("map111.obj");
+	SetPlayerPos(3,52);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;
+
+@Clue90:
+	Say("独孤剑：要赶快找到解药！",9);
+	Return;
+
+@Clue91:
+ 	Say("暗影：想溜，没这么容易！", 81);
+ 	Return;
+ 	
+@Clue100:
+	Say("独孤剑：要赶快找到解药！",9);
+	Return;
+	
+@Clue105:
+	Say("独孤剑：要赶快找到解药！",9);
+	Return;
+	
+@Clue110:
+	FadeOut();
+	SaveNpc();
+	ClearBody();
+	SaveObj();
+	LoadMap("map111_成都北郊.map");
+	LoadNpc("map111.npc");
+	LoadObj("map111.obj");
+	SetPlayerPos(3,52);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;	

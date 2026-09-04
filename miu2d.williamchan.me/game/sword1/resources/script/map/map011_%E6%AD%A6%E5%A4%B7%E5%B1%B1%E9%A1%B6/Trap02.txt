@@ -1,0 +1,59 @@
+// 切换到武夷派大厅
+
+	If ($Event == 215) @Event215;
+	If ($Event == 220) @Event220;
+	If ($Event == 230) @Event230;	
+	If ($Event == 240) @Event240;	
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map012_武夷山大厅.map");
+	LoadNpc("map012.npc");
+	LoadObj("map012.obj");
+	SetPlayerPos(6, 40);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;	
+
+@Event215:
+	Return;	
+	
+@Event220:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map012_武夷山大厅.map");
+	LoadNpc("map012_event220.npc");
+	LoadObj("map012_event220.obj");
+	SetPlayerPos(6, 40);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;	
+	
+@Event230:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map012_武夷山大厅.map");
+	LoadNpc("map012_event220.npc");
+	LoadObj("map012_event220.obj");
+	SetPlayerPos(6, 40);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;	
+	
+@Event240:	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map012_武夷山大厅.map");
+	LoadNpc("map012_event220.npc");
+	LoadObj("map012_event220.obj");
+	SetPlayerPos(6, 40);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;	
+	
+
+		

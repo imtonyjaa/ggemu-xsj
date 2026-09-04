@@ -1,0 +1,109 @@
+//切换map105成都
+
+	If ($Clue == 10) @Clue10;
+	If ($Clue == 25) @Clue25;
+	If ($Clue == 31) @Clue31;
+	If ($Clue == 60) @Clue60;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map105_成都.map");
+	LoadNpc("map105.npc");
+	LoadObj("map105.obj");
+	SetPlayerPos(14,42);
+	SetPlayerDir(7);
+	SetNpcKind("杨瑛",1);
+	SetNpcPos("杨瑛",15,42); //注意位置
+	SetNpcDir("杨瑛",2); 
+	SetNpcKind("杨瑛",3);
+	FadeIn();
+	Return;
+	
+@Clue10:
+	If ($Talklv == 0) @Lable0;
+	If ($Talklv == 1) @Lable1;
+  @Lable0:
+  	Say("杨瑛：我们再向掌柜打听打听罢。", 39);
+  	Return;
+  @Lable1:	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map105_成都.map");
+	LoadNpc("map105.npc");
+	LoadObj("map105.obj");
+	SetPlayerPos(14,42);
+	SetPlayerDir(6);
+	SetNpcKind("杨瑛",1);
+	SetNpcPos("杨瑛",15,42); //注意位置
+	SetNpcDir("杨瑛",2); 
+	SetNpcKind("杨瑛",3);
+	FadeIn();
+	
+	Say("杨瑛：对了，我记得我们在成都有个暗口，负责接应的人叫“贺老四”——我们不妨去找他。", 39);
+	Say("独孤剑：那好，我们走！", 1);
+	Assign($Clue, 15);
+	Memo("杨瑛想起天王帮在成都有个接应的密探，叫“贺老四”。两人决定去找他。");
+	Return;
+	
+@Clue25:
+	Say("杨瑛：独孤大哥，我们在客栈再找找线索吧。",39);
+	Return;
+
+@Clue31:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map105_成都.map");
+	LoadNpc("map105.npc");
+	AddNpc("map105居民11索七.ini",11,48,5); //增加天王帮使者
+	LoadObj("map105.obj");
+	SetPlayerPos(14, 42);
+	SetPlayerDir(7);
+	SetNpcKind("杨瑛",1);
+	SetNpcPos("杨瑛",13, 43); //注意位置
+	SetNpcDir("杨瑛", 7); 
+	SetNpcPos("苏宇",15, 38);
+	SetNpcDir("苏宇",6);
+	SetNpcPos("春姨",16, 38);
+	SetNpcDir("春姨",2);
+	FadeIn();
+	NpcGoto("索七",13, 44);
+	SetNpcDir("索七", 5);
+	SetPlayerDir(1);
+	SetNpcDir("杨瑛", 1);
+	Say("“急如风”索七：属下参见帮……");
+	Say("杨瑛：这里不必多礼，杨右使他们呢？", 39);
+	Say("“急如风”索七：杨右使他们半个月前已经出发，属下脚快，所以派属下最先赶来。今早刚到这里，打听到帮……姑娘的下落，就赶来客栈了。");
+	Say("杨瑛：好，你就先到附近打探消息。一有情况，就通知我。", 39);
+	Say("“急如风”索七：属下遵命。");
+	NpcGoto("索七", 8, 44);
+	Watch("独孤剑", "杨瑛", 0);
+	Say("杨瑛：独孤大哥，我们去找张姑娘和张少侠吧。", 39);
+	SaveNpc();
+	SetNpcKind("杨瑛", 3);
+	Assign($Clue, 35);
+	Memo("一早出客栈，天王帮的先头使者前来通知杨瑛，杨湖正率众赶往成都。");
+	Return;
+
+@Clue60:
+	Say("杨瑛：吕掌柜也失踪了，五色教看来处处占着先机。", 39);
+	Say("独孤剑：我们再到处找找看，这是我们现在唯一的线索。", 1);
+	Assign($Clue, 65);
+	Memo("回到客栈发现吕掌柜也神秘失踪。");
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map105_成都.map");
+	LoadNpc("map105.npc");
+	LoadObj("map105.obj");
+	SetPlayerPos(14,42);
+	SetPlayerDir(7);
+	SetNpcKind("杨瑛",1);
+	SetNpcPos("杨瑛",15,42); //注意位置
+	SetNpcDir("杨瑛",2); 
+	SetNpcKind("杨瑛",3);
+	FadeIn();
+	Return;

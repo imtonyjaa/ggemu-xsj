@@ -1,0 +1,19 @@
+// 通往map098天王帮秘道的暗门
+
+	If ($Event == 560) @Event560;
+	
+	Return;
+	
+@Event560:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map098_天王帮秘道.map");
+	LoadNpc("map098.npc");
+	SaveNpc("temp_map098.npc");  //有反复战斗
+	LoadObj("map098.obj");
+	SetPlayerPos(2, 23);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;
+	

@@ -1,0 +1,17 @@
+//切换到map051长春楼一楼
+
+	If ($Event == 365) @Event365;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map051_长安妓院一楼.map");
+	LoadNpc("map051.npc");
+	LoadObj("map051.obj");
+	SetPlayerPos(7, 25);
+	SetPlayerDir(7);
+	FadeIn();
+	Return;
+	
+@Event365:
+	Return;

@@ -1,0 +1,36 @@
+// 切换到map048华山脚下
+
+	If ($Event << 350) @Eventless350;
+	If ($Event == 368) @Event368;
+	If ($Event == 370) @Event370;
+		
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map048_华山脚下.map");
+	LoadNpc("map048.npc");
+	LoadObj("map048.obj");
+	SetPlayerPos(15, 16);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;
+	
+@Eventless350:
+	Say("张琳心：此刻怎能下山？赶紧去华山派大厅见顾大侠吧。", 21);
+	Return;
+	
+@Event368:
+	Return;
+	
+@Event370:	
+	FadeOut();
+	SaveNpc();
+	ClearBody();
+	SaveObj();
+	LoadMap("map048_华山脚下.map");
+	LoadNpc("map048.npc");
+	LoadObj("map048.obj");
+	SetPlayerPos(15, 16);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;

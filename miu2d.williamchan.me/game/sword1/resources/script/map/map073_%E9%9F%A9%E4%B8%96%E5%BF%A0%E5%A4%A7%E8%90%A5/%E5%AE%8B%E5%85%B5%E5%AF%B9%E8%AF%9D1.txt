@@ -1,0 +1,21 @@
+// 与宋兵的对话1
+
+	If ($Event == 440) @Event440;
+	
+	Say("宋兵：不得泄露我军机密，否则按汉奸论处，格杀勿论！", 0);
+	Return;
+	
+@Event440:
+	If ($Talkliuyun == 0) @Eventliuyun0;	// 未和刘云对话
+	If ($Talkliuyun == 1) @Eventliuyun1;	// 已经和刘云对话
+@Eventliuyun0:
+	Return;	
+@Eventliuyun1:
+	If ($GoodsNum == 0) @hongyu0;	//没有红玉
+	If ($GoodsNum == 1) @hongyu1;	//有红玉
+@hongyu0:	
+	Say("宋兵：元帅很忙，二位还是请回吧！", 0);
+	Return;	
+@hongyu1:
+	Say("宋兵：两位请进吧！", 0);
+	Return;	

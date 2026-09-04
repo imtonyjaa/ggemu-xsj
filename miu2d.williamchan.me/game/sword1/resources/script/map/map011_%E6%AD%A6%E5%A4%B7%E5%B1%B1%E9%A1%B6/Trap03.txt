@@ -1,0 +1,49 @@
+// 切换到禁地外洞
+
+	If ($Event == 220) @Event220;
+	If ($Event == 230) @Event230;
+	If ($Event << 230) @EventLess230; 
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map014_武夷山禁地外洞.map");
+	LoadNpc("map014.npc");
+	SaveNpc("temp_map014.npc");  //有反复战斗
+	LoadObj("map014.obj");
+	SetPlayerPos(2, 69);
+	SetPlayerDir(5);
+	SetNpcScript("张琳心", "");
+	FadeIn();
+	Return;	
+	
+@Event220:
+	Say("独孤剑：先去大厅看看吧。", 1);
+	Return;	
+	
+@Event230:	
+	Watch("独孤剑", "张琳心", 0);
+	Say("张琳心：这里应该就是禁地入口了。", 21);
+	Say("独孤剑：嗯，里面不知有多少敌人，你……要多加小心。", 1);
+	Say("张琳心：独孤……大哥，你不恨我啦？……", 21);
+	Say("独孤剑：不管你爹做了什么，都与你无关……", 1);
+	Say("张琳心：……", 21);
+	Say("张琳心：你也要多加小心！", 21);
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("战斗.mp3");
+	LoadMap("map014_武夷山禁地外洞.map");
+	LoadNpc("map014.npc");
+	SaveNpc("temp_map014.npc");  //有反复战斗
+	LoadObj("map014.obj");
+	SetPlayerPos(2, 69);
+	SetPlayerDir(5);
+	SetNpcScript("张琳心", "");
+	FadeIn();
+	Return;		
+	
+@EventLess230:
+	Return;
+

@@ -1,0 +1,18 @@
+//切换到map088长白山
+
+	If ($Talktufei == 1) @Talktufei1;
+	
+	FadeOut();
+	SaveNpc();
+	ClearBody();
+	SaveObj();
+	LoadMap("map088_长白山.map");
+	LoadNpc("map088.npc");
+	LoadObj("map088.obj");
+	SetPlayerPos(16, 8);
+	SetPlayerDir(0);
+	FadeIn();
+	Return;
+	
+@Talktufei1:
+	Return;	

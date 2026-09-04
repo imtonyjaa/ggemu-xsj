@@ -1,0 +1,8 @@
+// 杨湖的对话
+
+	If ($Event == 610) @Event610;
+	Return;
+	
+@Event610:	
+	Say("杨湖：属下马上就去部署。", 100);
+	Return;

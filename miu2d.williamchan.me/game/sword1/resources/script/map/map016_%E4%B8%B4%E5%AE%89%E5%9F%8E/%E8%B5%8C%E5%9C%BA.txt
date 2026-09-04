@@ -1,0 +1,52 @@
+// 切换到赌场
+
+	If ($Suba == 220) @Sub220;
+	If ($Suba <> 220) @Subno220;
+	
+@Subno220:
+	If ($Event == 255) @Event255;	//杀吕文才之前
+	If ($Event == 256) @Event256;	//杀吕文才之后	
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map027_临安城赌坊.map");
+	LoadNpc("map027.npc");
+	LoadObj("map027.obj");
+	SetPlayerPos(6, 39);
+	SetPlayerDir(5);
+	SetNpcClickScript("赌坊老板", "赌坊老板点击脚本.txt");
+	FadeIn();
+	Return;	
+
+ @Event255:
+	Return;	
+
+ @Event256:
+	Say("城内人心惶惶，所有的店面都打烊了。");
+	Return;	
+	
+@Sub220:
+	If ($Event == 255) @Event255;	//杀吕文才之前
+	If ($Event == 256) @Event256;	//杀吕文才之后	
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map027_临安城赌坊.map");
+	LoadNpc("map027.npc");
+	LoadObj("map027.obj");
+	SetNpcPos("吴来",15,32);
+	SetNpcDir("吴来",1);
+	SetPlayerPos(6, 39);
+	SetPlayerDir(5);
+	SetNpcClickScript("赌坊老板", "赌坊老板点击脚本.txt");
+	FadeIn();
+	Return;	
+
+ @Event255:
+	Return;	
+
+ @Event256:
+	Say("城内人心惶惶，所有的店面都打烊了。");
+	Return;	

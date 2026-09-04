@@ -1,0 +1,38 @@
+// 切换到酒楼
+
+	If ($Event == 40) @Event40; 
+	If ($Event == 255) @Event255;	//杀吕文才之前
+	If ($Event == 256) @Event256;	//杀吕文才之后	
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map017_临安城酒楼.map");
+	LoadNpc("map017.npc");
+	LoadObj("map017.obj");
+	SetPlayerPos(10, 44);
+	SetPlayerDir(5);
+	SetNpcClickScript("酒店掌柜", "酒馆掌柜点击脚本.txt");
+	FadeIn();
+	Return;	
+	
+@Event40:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map017_临安城酒楼.map");
+	LoadNpc("map017_event40.npc");
+	LoadObj("map017_event40.obj");
+	SetPlayerPos(10, 44);
+	SetPlayerDir(5);
+	SetNpcClickScript("酒店掌柜", "酒馆掌柜点击脚本.txt");
+	FadeIn();
+	Return;	
+	
+@Event255:
+	Return;		
+	
+@Event256:
+	Say("城内人心惶惶，所有的店面都打烊了。");
+	Return;		
+	

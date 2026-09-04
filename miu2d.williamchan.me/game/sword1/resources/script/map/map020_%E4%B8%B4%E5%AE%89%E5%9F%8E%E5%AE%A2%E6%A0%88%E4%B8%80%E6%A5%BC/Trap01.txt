@@ -1,0 +1,32 @@
+// 切换到临安城（室外）
+
+	If ($Event == 198) @Event198; 
+	If ($Event == 200) @Event200; 
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map016_临安城.map");
+	LoadNpc("map016.npc");
+	LoadObj("map016.obj");
+	SetPlayerPos(9, 82);
+	SetPlayerDir(7);
+	FadeIn();
+	Return;	
+	
+@Event198:
+	Say("独孤剑：也许掌柜知道是谁送我来这里的，不如去问问他。", 1);
+	Return;	
+	
+@Event200:	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map016_临安城.map");
+	LoadNpc("map016.npc");
+	LoadObj("map016.obj");
+	SetPlayerPos(9, 82);
+	SetPlayerDir(7);
+	FadeIn();
+	Say("独孤剑：不如……去张府问问。", 1);
+	Return;	

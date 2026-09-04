@@ -1,0 +1,103 @@
+// 切换到临安城南
+
+	If ($Event == 40) @Event40; 
+	If ($Event == 50) @Event50; 
+	If ($Event == 60) @Event60; 
+	If ($Event == 70) @Event7080; 
+	If ($Event == 80) @Event7080; 
+	If ($Event == 95) @Event95; 
+	If ($Event == 100) @Event100; 
+	If ($Event == 105) @Event105;
+	If ($Event == 110) @Event110; 
+	If ($Event == 120) @Event120; 
+	If ($Event == 180) @Event180;
+	If ($Event == 190) @Event190;
+	If ($Event == 200) @Event200;		
+	If ($Event == 255) @Event255;	//杀吕文才之前
+	If ($Event == 256) @Event256;	//杀吕文才之后
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map015_临安城南.map");
+	LoadNpc("map015.npc");
+	LoadObj("map015.obj");
+	SetPlayerPos(19, 31);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;	
+	
+@Event40:
+	Say("独孤剑：还是先在临安城里找一找柳中原老前辈吧。", 1);
+	Return;		
+	
+@Event50:
+	Say("独孤剑：那位绿衣少女被强人所掳，生死不明，要赶紧找出她的下落才行，先在城里打听打听吧！", 1);
+	Return;		
+	
+@Event60:
+	Say("独孤剑：那个小叫化不是告诉我出城的方法了吗？我应该先去找吕文才。", 1);
+	Return;	
+
+@Event7080:
+	Say("独孤剑：采花贼好像没有去南边。", 1);
+	Return;
+	
+@Event95:
+	Say("独孤剑：还没找到贾老实呢！", 1);
+	Return;
+	
+@Event100:
+	Say("独孤剑：先去怡春院找南宫彩虹吧！", 1);
+	Return;
+
+@Event105:
+	Say("独孤剑：还没有见到南宫彩虹呢！", 1);
+	Return;
+
+@Event110:
+	Say("独孤剑：快去客栈找贾老实吧！", 1);
+	Return;
+	
+@Event120:
+	Say("贾老实：怎么？不是要去海边小渔村找老王吗？", 0);
+	Say("独孤剑：哦，我弄错了，应该去东门。", 1);
+	Return;	
+
+@Event180:
+	Say("独孤剑：先送何姑娘回家吧。", 1);
+	Return;
+	
+@Event190:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map015_临安城南.map");
+	LoadNpc("map015.npc");
+	LoadObj("map015.obj");
+	AddNpc("npc002_张如梦_event190.ini", 14, 38, 1);
+	SetPlayerPos(19, 31);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;	
+
+@Event200:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map015_临安城南.map");
+	LoadNpc("map015.npc");
+	LoadObj("map015.obj");
+	AddNpc("npc004_张琳心.ini", 19, 47, 2);
+	SetPlayerPos(19, 31);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;	
+
+@Event255:
+	Return;
+	
+@Event256:
+	Say("张琳心：独孤大哥，先回我家看看好吗？", 21);
+	Say("独孤剑：好的。", 1);
+	Return;	

@@ -1,0 +1,46 @@
+//切换到朱仙镇
+
+	If ($Event == 440) @Event440;
+	If ($Event == 530) @Event530;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map071_朱仙镇.map");
+	LoadNpc("map071.npc");
+	LoadObj("map071.obj");
+	SetPlayerPos(10, 24);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;
+
+@Event440:
+	If ($zhang == 0) @zhang;
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map071_朱仙镇.map");
+	LoadNpc("map071.npc");
+	LoadObj("map071.obj");
+	SetPlayerPos(10, 24);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;
+@zhang:	
+	Say("独孤剑：哎唷，忘了叫琳儿了。", 1);
+	Return;
+	
+	
+@Event530:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map071_朱仙镇.map");
+	LoadNpc("map071.npc");
+	LoadObj("map071.obj");
+	AddNpc("npc021_王佐.ini", 4, 71, 1); 
+	SetNpcScript("王佐", "王佐对话.txt");
+	SetPlayerPos(10, 24);
+	SetPlayerDir(1);
+	FadeIn();
+	Return;

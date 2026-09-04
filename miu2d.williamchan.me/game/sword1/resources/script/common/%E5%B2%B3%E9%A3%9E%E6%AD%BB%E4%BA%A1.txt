@@ -1,0 +1,14 @@
+//凤凰山岳飞死亡
+
+	CloseTimeLimit();
+	Say("独孤剑：糟了！岳元帅！", 6);
+	FadeOut();
+	StopMusic();
+	Say("方勉：哈哈哈哈——杀了岳飞，大宋江山指日可得了！哈哈哈哈——", 51);
+	Say("岳飞一死，收复之势已成瓦解，万里河山尽落金人之手……");
+	Say("英雄，大错既已铸成，有何面目苟活于世——你自裁罢！");
+	PlayMovie("Die.avi", 0, 0, 0);
+	FreeMap();
+	ReturnToTitle();
+	Return;
+	

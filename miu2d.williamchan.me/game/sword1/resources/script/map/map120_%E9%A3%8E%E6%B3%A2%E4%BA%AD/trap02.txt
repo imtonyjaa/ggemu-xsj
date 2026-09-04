@@ -1,0 +1,15 @@
+// 营救岳飞
+
+	If ($Result == 3) @End3;
+
+	SetMapTrap(2,"");
+	Return;
+
+@End3:
+	DisableNpcAI();
+	Watch("万俟亵", "独孤剑", 0);
+	Say("万俟勰：相爷果然英明，这次将你等草寇一网成擒！哈哈哈哈……");
+	SetNpcRelation("万俟亵", 1);
+	EnableNpcAI();
+	SetMapTrap(2,"");
+	Return;

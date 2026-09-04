@@ -1,0 +1,34 @@
+// 与张琳心的同伴对话
+
+	If ($Event == 420) @Event420;
+	If ($Event == 430) @Event430;	
+	If ($Event == 440) @Event440;
+	If ($Event == 530) @Event530;
+	If ($Event >= 695) @Event695;
+
+	Return;
+	
+@Event420:	
+	Say("张琳心：我们赶快去宋军大营吧。", 21);
+	Return;
+	
+@Event430:
+	Say("张琳心：独孤哥哥，我渴了，我们去茶馆喝茶吧。", 21);
+	Say("独孤剑：好。", 2);
+	Return;		
+
+@Event440:
+	Say("独孤剑：琳儿，休息得好吗？", 1);
+	Say("张琳心：嗯，还不错！独孤哥哥，我们现在就去军营吧。", 21);
+	SetNpcKind("张琳心", 3);
+	SetMapTrap(1, "trap01.txt");
+	Assign($zhang, 1);
+	Return;
+
+@Event530:
+	Say("张琳心：我陪你出去走走吧。", 21);
+	Return;
+	
+@Event695:
+	Say("张琳心：独孤哥哥，我们快去岳飞大营。",21);
+	Return;

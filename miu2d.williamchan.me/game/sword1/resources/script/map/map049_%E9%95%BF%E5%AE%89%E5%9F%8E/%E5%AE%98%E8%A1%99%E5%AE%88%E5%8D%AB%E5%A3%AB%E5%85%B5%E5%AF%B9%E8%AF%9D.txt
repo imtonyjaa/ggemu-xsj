@@ -1,0 +1,29 @@
+// 与官衙门口卫兵的对话，通过踩Trap10点实现，不带在NPC上
+
+	If ($Event == 307) @Event307;
+	
+	Say("士兵：去去去！衙门也敢闯，简直是吃了熊心豹子胆！", 0);
+	PlayerGotoDir(7, 3);
+	SetMapTrap(10, "官衙守卫士兵对话.txt");
+	Return;
+	
+@Event307:
+	If ($yamen == 0) @yamen0;
+	If ($yamen == 1) @yamen1;
+@yamen0:	
+	SetNpcKind("姚公子", 1);
+	PlayerGoto(8, 84);
+	SetPlayerDir(3);
+	NpcGoto("姚公子", 7, 85);
+	SetNpcDir("姚公子", 3);
+	Say("士兵：姚公子！", 0);
+	Say("姚公子：嗯，本公子来……提审要犯。", 71);
+	Say("士兵：是，公子请进！", 0);
+	SetNpcKind("姚公子", 3);
+	Assign($yamen, 1);
+	SetNpcScript("大牢卫兵", "大牢门口士兵对话.txt");
+	SetNpcScript("衙门卫兵1", "衙门门口士兵对话.txt");
+	SetNpcScript("衙门卫兵2", "衙门门口士兵对话.txt");
+	Return;
+@yamen1:
+	Return;	

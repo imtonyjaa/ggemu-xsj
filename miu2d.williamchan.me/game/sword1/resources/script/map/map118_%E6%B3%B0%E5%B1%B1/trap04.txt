@@ -1,0 +1,15 @@
+// 封比武场地
+
+	If ($Event == 800) @Event800;
+	If ($Event << 820) @Eventless820;
+	Return;
+
+@Event800:
+	PlayerGotoDir(5, 1);
+	SetMapTrap(4, "trap04.txt");
+	Return;	
+		
+@Eventless820:
+	PlayerGotoDir(1, 1);
+	SetMapTrap(4, "trap04.txt");
+	Return;	

@@ -1,0 +1,11 @@
+// 封住战斗路口
+
+	If ($Event == 695) @Event695;
+	
+	Return;
+	
+@Event695:
+	PlayerGotoDir(4, 1);
+	SetMapTrap(2, "trap02.txt");
+	Return;
+		

@@ -1,0 +1,18 @@
+//切换到map076岳飞大营
+
+	If ($Event == 440) @Event440;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map076_岳飞大营.map");
+	LoadNpc("map076.npc");
+	LoadObj("map076.obj");
+	SetPlayerPos(16, 43);
+	SetPlayerDir(7);
+	FadeIn();
+	Return;
+	
+@Event440:
+	Say("张琳心：那个不就是岳元帅吗？", 21);
+	Return;		

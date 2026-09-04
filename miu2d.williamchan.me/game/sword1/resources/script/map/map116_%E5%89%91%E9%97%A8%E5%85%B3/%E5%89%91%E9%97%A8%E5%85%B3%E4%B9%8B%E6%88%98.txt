@@ -1,0 +1,93 @@
+//剑门关之战结束
+
+	CloseTimeLimit();
+	SetNpcRelation("南宫彩虹", 0);
+	SetPlayerState(0);
+	StopMusic();
+	PlayMusic("情缘音乐.mp3");
+	Watch("张如梦", "南宫彩虹", 0);
+	Say("张如梦：不要再打了！我……我实在是不想再打下去了……", 17);
+	Say("南宫彩虹：呜呜——", 33);
+	
+	FadeOut();
+	SetPlayerPos(15, 20);
+	SetPlayerDir(6);
+	SetNpcPos("南宫彩虹", 16, 20); 
+	SetNpcDir("南宫彩虹", 1);
+	FadeIn();
+	Say("南宫彩虹：如梦！你说得对，我们离开这里，离开中原，离开这所有的恩恩怨怨……", 32);
+	Say("张如梦：彩虹！", 12);
+	
+	Sleep(1000);
+	Say("大汉：哎呀，你小心点肚里的孩子……");
+	Say("村姑：俺知道！");
+	SetPlayerDir(2);
+	SetNpcDir("南宫彩虹", 2);
+	AddNpc("map116村姑.ini", 4, 35, 3); 
+	AddNpc("map116大汉.ini", 4, 36, 5); 
+	MoveScreen(1, 120, 2);
+ 	Say("村姑：你看，咱娃多乖，一点都不闹腾，一定是个妞儿。");
+	Say("大汉：胡说！一定是个娃！我生的我还不知道……");
+	Say("村姑：没个正经！呵呵……");
+	NpcGotoEx("村姑", 4, 30);
+	NpcGotoEx("大汉", 3, 31);
+	MoveScreen(5, 120, 2); 
+	
+	SetPlayerDir(6);
+	Say("南宫彩虹：如梦，要是我们也能像那对农家夫妻……该有多好！", 30);
+	Say("张如梦：我们一定能的……", 12);
+	Say("南宫彩虹：那时……你说孩子该起个什么名字好？", 30);
+	Say("张如梦：你来起吧……", 12);
+	Say("南宫彩虹：还是你来起好……", 30);
+	Sleep(500);
+	SetNpcDir("南宫彩虹", 4);
+	SetPlayerDir(4);
+	Sleep(500);
+	Say("南宫彩虹：你看那边，那片红云多美……", 30);
+	Sleep(1000);
+	
+	FadeOut();
+	ClearBody();
+	DelNpc("南宫彩虹");
+	SetPlayerPos(0, 0);
+	SetMapPos(9, 5);
+	ChangeMapColor(255,230,150);
+	ChangeAsfColor(255,230,150);
+	LoadNpc("nobodydie.npc");
+	Sleep(1000);
+	HideInterface();
+	FadeIn();
+	PlaySound("背_风.wav");
+	PlaySound("背_风.wav");
+	Sleep(3000);
+	Say("从此，两人远赴塞外，遁迹江湖……");
+	Say("多年后，江湖中出现了一对神仙侠侣，仗剑江湖，行侠仗义，传下了一段佳话……");
+	Add($End, 200);  //设置结局参数
+	Sleep(8000);
+	
+	FadeOut();
+	PlayerChange(0);
+	LoadMap("map071_朱仙镇.map");
+	LoadNpc("map071.npc");
+	LoadObj("map071.obj");
+	SetPlayerPos(5, 71);
+	SetPlayerDir(7);
+	ChangeMapColor(255,255,255);
+	ChangeAsfColor(255,255,255);
+	SetNpcRelation("独孤剑", 0);
+	AddNpc("npc004_张琳心.ini", 6, 72, 3);
+	Say("而在此时的朱仙镇……");
+	StopMusic();
+	PlayMusic("长路.mp3");
+	ShowInterface();
+	FadeIn();
+	
+	Say("张琳心：原来杨姑娘便是当日的黑衣人……独孤哥哥，杨姑娘对你也是一往情深……", 22);
+	Say("独孤剑：琳儿，我对你的心，难道你还不明白——", 2);
+	Say("张琳心：倘若，琳儿有一天先你而去……", 24);
+	Say("独孤剑：琳儿，别胡思乱想了，我们快去岳元帅大营罢。", 1);
+	SetNpcKind("张琳心", 3);
+	SetNpcRelation("张琳心", 2);
+	SetNpcScript("张琳心", "张琳心对话.txt");
+	Return;
+	

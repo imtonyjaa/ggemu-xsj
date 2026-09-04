@@ -1,0 +1,66 @@
+//发现真贺老四的尸体
+
+	If ($Clue == 50) @Clue50;
+	
+	Return;
+	
+@Clue50:
+	Say("独孤剑：杨姑娘，这里有血迹……", 6);
+	
+	FadeOut();
+	AddObj("贺老四尸体.ini",5,11,5);
+	SetPlayerPos(5,13);
+	SetPlayerDir(3);
+	SetNpcPos("杨瑛",5,14);
+	SetNpcDir(4);
+	SetMapTrap(02,"");
+	Assign($Clue, 60);
+	FadeIn();
+	
+	Say("杨瑛：真的贺老四早就死了……", 39);
+	Say("独孤剑：看来我们的行踪早在五色教的意料之中。", 1);
+	Sleep(2000);
+	Say("杨瑛：独孤大哥，你看他手上……", 42);
+	SetNpcActionFile("独孤剑", 0, "mpc007_2.asf");
+	SetNpcActionFile("独孤剑", 1, "mpc007_2.asf");
+	NpcSpecialAction("独孤剑", "mpc007_1.asf");
+	Sleep(1500);
+	
+	Say("独孤剑：……血迹写的，像是一个“口”字。", 8);
+	Say("杨瑛：贺老四临死时写下的，一定是想告诉我们什么线索……", 39);
+	Say("杨瑛：“口”，独孤大哥，你认为这指的是什么呢？", 39);
+	
+	SetNpcActionFile("独孤剑", 0, "npc001_st2.asf");
+	SetNpcActionFile("独孤剑", 1, "npc001_sst2.asf");
+	NpcSpecialActionEx("独孤剑", "mpc007_3.asf");
+	Sleep(1000);
+	SetPlayerDir(1);
+	SetNpcDir("杨瑛",5);
+	Choose("独孤剑：这可能指的是……","A 一个地名","B 一个人名",$Choose);
+	If ($Choose == 0) @Choose0;
+	If ($Choose == 1) @Choose1;
+
+@Choose0:
+	Say("杨瑛：地名？这附近没有与“口”有关的地名……", 39);
+	Say("独孤剑：的确让人费解。", 1);
+	Say("杨瑛：我们再打听打听。独孤大哥，如果有什么发现，就告诉我。", 39);
+	Memo("在房间中发现了真的贺老四的尸体，尸体上留下了一个神秘的“口”字，应该是贺老四临死时留下的线索。");
+	Return;
+	
+@Choose1:
+	Say("杨瑛：如果是人名，这个“口”字却未免古怪了……", 39);
+	Say("独孤剑：贺老四临死之前想给我们留下线索，那……", 1);
+	Say("杨瑛：不错，他临死之前也许只写了字的一部分……那会是谁呢？客栈有个吕掌柜，街上的麻婆四……", 39);
+	Choose("独孤剑：我想应该是","A 吕掌柜","B 麻婆四", $Choose);
+	If ($Choose == 0) @Choose2;
+	If ($Choose == 1) @Choose3;
+	
+@Choose2:
+	Say("杨瑛：不错，这个吕掌柜一直很可疑。不过他一直吞吞吐吐，怎样才能逼他说出真相呢？", 39);
+	Memo("在房间中发现了真的贺老四的尸体，尸体上留下了一个神秘的“口”字，应该是贺老四临死时留下的线索。");
+	Return;
+	
+@Choose3:
+	Say("杨瑛：麻婆四，我们一直忽略了这个人。对，我们应该调查一下她的底细。", 39);
+	Memo("在房间中发现了真的贺老四的尸体，尸体上留下了一个神秘的“口”字，应该是贺老四临死时留下的线索。");
+	Return;

@@ -1,0 +1,31 @@
+// 切换到张府
+
+	If ($Event == 255) @Event255;	//杀吕文才之前
+	If ($Event == 256) @Event256;	//杀吕文才之后	
+
+	Return;	
+	
+@Event255:
+	Return;		
+
+@Event256:	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map029_临安城张府.map");
+	LoadNpc("map029.npc");
+	LoadObj("map029.obj");
+	SetPlayerPos(4, 43);
+	SetPlayerDir(5);
+	SetNpcScript("张琳心", "");
+	FadeIn();
+	Say("宋兵：哈哈，你们竟然自投罗网！哼！天堂有路你不走，地狱无门你闯进来！上！抓活的！", 0);
+	StopMusic();
+	PlayMusic("沙场.mp3");
+	SetNpcRelation("宋兵", 1);
+    SetPlayerState(1);
+    EnableFight();
+	EnableNpcAI(); 
+	SetNpcDeathScript("独孤剑", "主角死亡.txt");
+	SetNpcDeathScript("张琳心", "主角死亡.txt");
+	Return;	

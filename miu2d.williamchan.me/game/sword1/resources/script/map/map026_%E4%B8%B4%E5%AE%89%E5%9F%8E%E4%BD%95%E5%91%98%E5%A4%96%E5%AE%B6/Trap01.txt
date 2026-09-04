@@ -1,0 +1,51 @@
+// 切换到临安城（室外）
+
+	If ($Event == 180) @Event180;
+	If ($Event == 190) @Event190;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map016_临安城.map");
+	LoadNpc("map016.npc");
+	LoadObj("map016.obj");
+	SetPlayerPos(42, 35);
+	SetPlayerDir(7);
+	FadeIn();
+	Return;	
+	
+@Event180:
+	Say("何梅：这里就是我的家，爹爹在大厅，我们去见他吧。", 66);
+	Say("独孤剑：好的。", 1);
+	Return;
+	
+@Event190:
+	If ($190 == 0) @label0;
+	If ($190 == 1) @label1;
+@label0:	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map016_临安城.map");
+	LoadNpc("map016.npc");
+	LoadObj("map016.obj");
+	SetPlayerPos(42, 35);
+	SetPlayerDir(7);
+	FadeIn();
+	Say("独孤剑：不知张姑娘到家了没有……以后……唉！不想也罢！我还是去武夷山拜访柳中原吧！", 1);
+	StopMusic();
+	PlayMusic("长路.mp3");
+	Memo("事情已经办完，独孤剑决定二上武夷山拜访柳中原。");
+	Assign($190, 1);
+	Return;	
+@label1:	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map016_临安城.map");
+	LoadNpc("map016.npc");
+	LoadObj("map016.obj");
+	SetPlayerPos(42, 35);
+	SetPlayerDir(7);
+	FadeIn();
+	Return;	

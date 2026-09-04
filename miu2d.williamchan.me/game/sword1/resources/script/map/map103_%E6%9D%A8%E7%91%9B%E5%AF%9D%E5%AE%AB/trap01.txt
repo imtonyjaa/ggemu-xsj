@@ -1,0 +1,32 @@
+// 切换到map102后花园和湖边小树林
+
+	If ($Event == 605) @Event605;
+	If ($Event == 610) @Event610;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map102_后花园和小树林.map");
+	LoadNpc("map102.npc");
+	LoadObj("map102.obj");
+	SetPlayerPos(4, 48);
+	SetPlayerDir(7);
+	FadeIn();
+	Return;
+	
+@Event605:
+	Return;
+	
+@Event610:	
+	FadeOut();
+	DelNpc("路云远");
+	DelNpc("杨湖");
+	SaveNpc();
+	SaveObj();
+	LoadMap("map102_后花园和小树林.map");
+	LoadNpc("map102.npc");
+	LoadObj("map102.obj");
+	SetPlayerPos(4, 48);
+	SetPlayerDir(7);
+	FadeIn();
+	Return;

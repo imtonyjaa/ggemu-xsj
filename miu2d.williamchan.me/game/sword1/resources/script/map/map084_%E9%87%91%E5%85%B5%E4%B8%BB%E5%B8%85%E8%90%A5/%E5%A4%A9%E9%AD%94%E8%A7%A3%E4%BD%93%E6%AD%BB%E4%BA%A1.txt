@@ -1,0 +1,143 @@
+// 主角特殊死亡：天魔解体
+
+	If ($die == 1) @end;
+
+	FadeOut();
+	StopMusic();
+	DisableNpcAI();
+	Say("南宫灭：哈哈哈哈，自不量力就只有死路一条！", 47);
+	Say("独孤剑：事到如今，看来我只有用……", 10);
+	Say("张琳心：不要！独孤哥哥！", 25);
+	Say("南宫灭：啊——你……你竟然学会了“天魔解体大法”？！", 46);
+	DelNpc("南宫灭");
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	PlayMovie("Fight.avi", 0, 0, 0);
+	Memo("独孤剑和张琳心一路杀到金兵主帅营，金兀术前往布置铁浮陀，留下南宫灭对付独孤剑和张琳心，双方大战一场，最后独孤剑使用“天魔解体大法”杀了南宫灭，但自己全身经脉被震断，生命危在旦夕。这时出现一个蒙面人，将独孤剑救出了金兵大营。");
+	SetNpcDeathScript("独孤剑", "主角死亡.txt");
+	EnableNpcAI();
+	LoadMap("map085_朱仙镇客栈.map");
+	LoadNpc("map085.npc");
+	LoadObj("map085.obj");
+	PlayMusic("前途.mp3");
+
+	FullLife();
+	SetNpcKind("张琳心", 1);
+	DelNpc("张琳心");
+	PlayerChange(1);
+	SetPlayerPos(7, 17);
+	SetPlayerDir(7);
+	SetNpcRelation("张琳心", 0);
+	SetNpcKind("张琳心", 2);
+	SetNpcDeathScript("张琳心", "主角死亡.txt");
+
+	AddNpc("npc021_王佐.ini", 6, 33, 3);
+	AddNpc("npc001_受伤昏迷的独孤剑.ini", 8, 12, 0);
+	SetNpcPos("客栈掌柜", 8, 18);
+	SetNpcDir("客栈掌柜", 3);
+	SetNpcDeathScript("独孤剑", "主角死亡.txt");
+	ClearEffect();
+	FadeIn();
+	
+	Say("独孤剑昏迷不醒。");
+	Sleep(500);
+	Say("张琳心：把独孤哥哥送到这里的那位蒙面人呢？", 21);
+	Say("客栈掌柜：那人把这位公子放到这里后就走了，他说有位姑娘会来照顾这位公子，说的就是你了？", 86);
+	Say("张琳心：是的，你知道那人是谁吗？", 21);
+	Say("客栈掌柜：不知道，他说这位公子是被金国高手打伤的，既然如此你们想在这住多久就可以住多久，我老陈不会收你们的房钱的。", 86);
+	
+	NpcGoto("王佐", 4, 25);
+	NpcGoto("王佐", 7, 19);
+	SetNpcDir("王佐", 4);
+	SetPlayerDir(0);
+	SetNpcDir("客栈掌柜", 1);
+	Say("张琳心：王将军，你怎么来了？", 24);
+	Say("王佐：岳元帅得知独孤公子力敌南宫灭身受重伤，特地派我前来看望。南宫灭一死，金国阵脚大乱，独孤公子可算是立了头功。岳元帅目前正在加紧部署以对付金国的“铁浮砣”，暂时无法分身，稍后会来探望。", 63);
+	Say("张琳心：多谢岳元帅的关心……王将军，独孤哥哥他……还有救吗？", 26);
+	Say("王佐：我带来了一些治疗内伤的良药，不妨一试。", 63);
+	Say("客栈掌柜：这位公子已经经脉尽断，气若游丝，大约只有两个时辰的寿命……寻常药物恐怕回天无术！", 86);
+	Say("王佐：这……如何是好？", 63);
+	Say("张琳心：这位掌柜一定是位隐居的前辈高人，还望前辈援手救我独孤哥哥一命……呜呜……", 26);
+	Say("客栈掌柜：这位姑娘不要着急，活命的圣药也不是没有，只是非常难得……", 86);
+	Say("张琳心：是什么药？您告诉我，哪怕上刀山、下火海我也要找到！", 26);
+	Say("客栈掌柜：要想救活这位公子，非长白山的千年双头人参和天山绝顶的雪莲王不可，将这两种绝世宝物融合在一起后服下，或许还可救他一命。只是，这两种宝物有人一生一世去寻找也未必能找到其中的一种，要在两个时辰内找齐这两种，根本就是不可能的。", 86);
+	Say("张琳心：那……如何是好？", 26);
+	Say("客栈掌柜：老夫这里有一粒续命奇药“回回丹”，可将这公子的生命延续一个月，只是姑娘能在这一个月内前去长白山和天山两个地方吗？纵然姑娘轻功高超，能在一个月内去一个地方找回一样就很不容易了。", 86);
+	Say("王佐：不如这样，待我回营禀报岳元帅，派两位得力人手去取双头人参或雪莲王其中的一样，姑娘自去取一样，如何？", 63);
+	Say("客栈掌柜：看来也只能如此了。听说双头人参生长在长白山千年朽木形成的洞窟里，极难发现；天山上则住着一位性情古怪的旷世高人，名唤雪莲姥姥，专门守护天山雪莲，没有人知道她的武功，因为与她交过手的人没有一个能回得来的。", 86);
+	Say("客栈掌柜：张姑娘，你选择一个地方吧，是去长白山还是去天山？", 86);
+
+	Memo("只有长白山的双头人参和天山的千年雪莲才能救独孤剑一命。岳元帅会派人去找其中的一种，另一种将由张琳心去找。");
+	
+	Choose("张琳心：我去……", "A 长白山", "B 天山", $Chooseyao);
+	If ($Chooseyao == 0) @Choose0;
+	If ($Chooseyao == 1) @Choose1;
+	
+@Choose0:
+	Say("客栈掌柜：姑娘放心去找药罢，这位公子我会好好照顾的。", 86);
+	Say("张琳心：多谢您了。", 21);
+	Say("客栈掌柜：在下略通医理，姑娘找到灵药就交给我来熬制好了。", 86);
+	FadeOut();
+	StopMusic();
+	PlayMusic("夜色.mp3");
+	SaveNpc();
+	SaveObj();
+	LoadMap("map088_长白山.map");
+	LoadNpc("map088.npc");
+	LoadObj("map088.obj");
+	SetPlayerPos(9, 81);
+	SetPlayerDir(6);
+
+	GetPlayerLevel($PlayerLevel);
+	If ($PlayerLevel >= 35) @PlayerLevelGE35;
+	SetNpcLevel("张琳心", 35);
+	@PlayerLevelGE35:
+
+	SetNpcDeathScript("张琳心", "主角死亡.txt");
+	Say("十多天后，张琳心来到了长白山麓……");
+	ShowSnow(1);
+	FadeIn();
+	Say("您开始控制张琳心");
+	Assign($Event, 480);
+	Assign($Selyao, 0);  //设置结局参数
+	Assign($die, 1);     //为避免同时触发多个脚本
+	Return;
+	
+@Choose1:
+	Say("客栈掌柜：姑娘放心去找药罢，这位公子我会好好照顾的。", 86);
+	Say("张琳心：多谢您了。", 21);
+	Say("客栈掌柜：在下略通医理，姑娘找到灵药就交给我来熬制好了。", 86);
+	FadeOut();
+	StopMusic();
+	PlayMusic("夜色.mp3");
+	SaveNpc();
+	SaveObj();
+	LoadMap("map086_天山.map");
+	LoadNpc("map086.npc");
+//	SaveNpc("temp_map086.npc");  //有反复战斗
+	LoadObj("map086.obj");
+	SetPlayerPos(15, 83);
+	SetPlayerDir(4);
+
+	GetPlayerLevel($PlayerLevel);
+	If ($PlayerLevel >= 35) @PlayerLevelGE35;
+	SetNpcLevel("张琳心", 35);
+	@PlayerLevelGE35:
+
+	SetNpcDeathScript("张琳心", "主角死亡.txt");
+	Say("十多天后，张琳心来到了天山雪疆……");
+	ShowSnow(1);
+	FadeIn();
+	Say("您开始控制张琳心");
+	PlaySound("背_风.wav");
+	PlaySound("背_风.wav");
+	Assign($Event, 480);
+	Assign($Selyao, 1);  //设置结局参数
+	Assign($die, 1);     //为避免同时触发多个脚本
+	Return;	
+	
+@end:
+	Return;		
+	
+	

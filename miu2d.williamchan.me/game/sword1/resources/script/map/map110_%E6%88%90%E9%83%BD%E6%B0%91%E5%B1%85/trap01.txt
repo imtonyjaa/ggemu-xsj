@@ -1,0 +1,73 @@
+//切换map105成都
+
+	If ($Clue == 20) @Clue20;
+	If ($Clue == 46) @Clue46;
+	If ($Clue == 60) @Clue60;
+	If ($Clue >= 90) @Clue90;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map105_成都.map");
+	LoadNpc("map105.npc");
+	LoadObj("map105.obj");
+	SetPlayerPos(1,30);
+	SetPlayerDir(0);
+	FadeIn();
+	Return;
+	
+@Clue20:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map105_成都.map");
+	LoadNpc("map105.npc");
+	LoadObj("map105.obj");
+	SetPlayerPos(1,30);
+	SetPlayerDir(0);
+	FadeIn();
+	
+	Say("杨瑛：独孤大哥，真是奇怪，为什么客栈的掌柜和小二都说不知道呢？我觉得很可疑，现在去调查谁呢？", 39);
+	Choose("独孤剑：我觉得应该查问……","A 店小二","B 吕掌柜", $Choose);
+	If ($Choose == 0) @Choose0;
+	If ($Choose == 1) @Choose1;
+	
+  @Choose0:	
+	Say("杨瑛：我也觉得是，刚才这个小二就有点支支吾吾……如果独孤大哥想到什么线索，就马上跟我说！", 39);
+	Assign($Clue, 25);
+	Memo("独孤剑觉得店小二很可以，提议再去询问小二。杨瑛提醒独孤剑要时刻注意多和同伴对话。");
+	Return;
+  @Choose1:
+  	Say("杨瑛：这个吕掌柜倒也有些古怪，不过我觉得……独孤大哥，如果你想到什么线索，就马上跟我说。", 39);
+	Assign($Clue, 25);
+	Memo("独孤剑觉得吕掌柜有些可疑，提议再去询问吕掌柜。杨瑛提醒独孤剑要时刻注意多和同伴对话。");
+	Return;
+	
+@Clue46:
+	Return;
+
+@Clue60:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map105_成都.map");
+	LoadNpc("map105.npc");
+	LoadObj("map105.obj");
+	AddObj("吕掌柜尸体.ini", 22, 83, 1);
+	SetPlayerPos(1,30);
+	SetPlayerDir(0);
+	FadeIn();
+	Return;
+	
+@Clue90:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map105_成都.map");
+	LoadNpc("map105-1.npc");
+	LoadObj("map105.obj");
+	SetPlayerPos(1,30);
+	SetPlayerDir(0);
+	FadeIn();
+	Return;	

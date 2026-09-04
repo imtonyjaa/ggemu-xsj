@@ -1,0 +1,43 @@
+// 切换到碧霞岛秘道
+
+	If ($Event << 160) @Eventless160;
+	If ($Event == 160) @Event160;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map039_碧霞岛山洞秘道.map");
+	LoadNpc("map039.npc");
+	SaveNpc("temp_map039.npc");  //有反复战斗
+	LoadObj("map039.obj");
+	SetPlayerPos(9, 52);
+	SetPlayerDir(4);
+	FadeIn();
+	Return;
+
+@Eventless160:
+	Return;
+	
+@Event160:
+	Say("独孤剑：咦？声音好像是从这里面传出来的。", 1);	
+	Say("张琳心：我们进去看看吧！", 21);
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map039_碧霞岛山洞秘道.map");
+	LoadNpc("map039.npc");
+	SaveNpc("temp_map039.npc");  //有反复战斗
+	LoadObj("map039.obj");
+	SetPlayerPos(9, 52);
+	SetPlayerDir(4);
+	SetNpcPos("张琳心", 8, 53);
+	SetNpcDir("张琳心", 4);
+	FadeIn();
+	Say("独孤剑：原来这里面还有一条秘道！", 1);
+	Say("张琳心：这里面黑漆漆的，不知有什么古怪，咱们要小心点。", 21);
+	Say("独孤剑：嗯，你刚受了伤，如果遇到什么敌人，让我来应付好了。", 1);
+	Say("张琳心：……", 21);
+	SetNpcScript("张琳心", "");
+	SetNpcDeathScript("独孤剑", "主角死亡.txt");
+	SetNpcDeathScript("张琳心", "主角死亡.txt");
+	Return;

@@ -1,0 +1,51 @@
+//切换到临安城东
+
+	If ($Event == 80) @Event80;
+	If ($Event == 90) @Event90;
+	If ($Event == 120) @Event120;
+	If ($Event == 125) @Event125;
+	If ($Event == 180) @Event180;
+	If ($Event == 270) @Event270;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map035_临安城东.map");
+	LoadNpc("map035.npc");
+	LoadObj("map035.obj");
+	SetPlayerPos(15, 45);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;
+
+@Event80:
+	Say("独孤剑：那位绿衣姑娘生死未卜，还是救人要紧！", 1);
+	Return;
+	
+@Event90:	
+	Say("独孤剑：有什么办法说服老王出海呢？不如向其他人打听打听。", 1);
+	Return;
+	
+@Event120:
+	Say("独孤剑：先带贾老实去见老王吧。", 1);
+	Return;	
+	
+@Event125:
+	Say("独孤剑：老王还在码头上等我出海呢。", 1);
+	Return;	
+
+@Event180:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map035_临安城东.map");
+	LoadNpc("map035.npc");
+	LoadObj("map035.obj");
+	SetPlayerPos(15, 45);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;
+	
+@Event270:
+	Say("张琳心：现在怎么能进城呢？还是快去找段姑娘吧。", 21);
+	Return;	

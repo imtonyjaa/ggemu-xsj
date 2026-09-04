@@ -1,0 +1,60 @@
+// 切换到map092土匪窝
+
+	If ($Talktufei == 0) @Talktufei0;
+	If ($Talktufei == 1) @Talktufei1;
+	
+	FadeOut();
+	SaveNpc();
+	ClearBody();
+	SaveObj();
+	LoadMap("map092_土匪窝.map");
+	LoadObj("map092.obj");
+	SetPlayerPos(6, 25);
+	SetPlayerDir(4);
+	ShowSnow(0);
+	FadeIn();
+	Return;	
+
+@Talktufei0:	
+	FadeOut();
+	SaveNpc();
+	ClearBody();
+	SaveObj();
+	LoadMap("map092_土匪窝.map");
+	LoadNpc("map092.npc");
+	LoadObj("map092.obj");
+	SetPlayerPos(6, 25);
+	SetPlayerDir(4);
+	ShowSnow(0);
+	FadeIn();
+	
+	Say("许大马棒：什么人？", 74);
+	Say("土匪：老大，是个娘们！咦，模样还挺俏……", 0);
+	Say("许大马棒：我说今儿个怎么眼皮老跳，原来是有个美人送上门来了……小的们这下可以开开荤了，哈哈！", 74);
+	Say("张琳心：一窝鼠辈！", 107);
+	Say("许大马棒：哈哈哈，我许大马棒就喜欢这样的娘儿们，够辣！", 74);
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("激战.mp3");
+	LoadMap("map091_长白山北.map");
+	LoadNpc("map091_fight.npc");
+	LoadObj("map091.obj");
+	SetPlayerPos(12, 24);
+	SetPlayerDir(5);
+	ShowSnow(1);
+	FadeIn();
+	SetNpcRelation("许大马棒", 1);
+	SetNpcRelation("土匪", 1); 
+	SetPlayerState(1);
+    EnableFight();
+	EnableNpcAI();
+	SetMapTrap(1, "trap01.txt");
+	SetMapTrap(2, "trap02.txt");
+	Assign($Talktufei, 1);
+	Return;
+	
+@Talktufei1:
+	Return;

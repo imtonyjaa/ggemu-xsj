@@ -1,0 +1,82 @@
+// 切换到临安城东
+
+	If ($Event == 80) @Event80; 
+	If ($Event == 100) @Event100; 
+	If ($Event == 105) @Event105;
+	If ($Event == 110) @Event110; 
+	If ($Event == 200) @Event200;  // 血书丢失后找张琳心
+	If ($Event == 255) @Event255;	//杀吕文才之前
+	If ($Event == 256) @Event256;	//杀吕文才之后
+	If ($Event >= 70) @Eventmore70; 
+	
+	Return;
+
+@Eventmore70:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("西山.mp3");
+	LoadMap("map035_临安城东.map");
+	LoadNpc("map035.npc");
+	LoadObj("map035.obj");
+	SetPlayerPos(5, 20);
+	SetPlayerDir(7);
+	FadeIn();
+	Return;	
+	
+@Event80:	
+	FadeOut();
+	SetNpcPos("东门卫兵1", 40, 140);
+	SetNpcPos("东门卫兵2", 40, 141);
+	SetNpcPos("东门卫兵3", 41, 135);
+	SetNpcPos("东门卫兵4", 42, 136);
+	SetNpcDir("东门卫兵1", 5);
+	SetNpcDir("东门卫兵2", 5);
+	SetNpcDir("东门卫兵3", 1);
+	SetNpcDir("东门卫兵4", 1);
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("西山.mp3");
+	LoadMap("map035_临安城东.map");
+	LoadNpc("map035.npc");
+	LoadObj("map035.obj");
+	SetPlayerPos(5, 20);
+	SetPlayerDir(7);
+	FadeIn();
+	Return;	
+
+
+@Event100:
+	Say("独孤剑：先去怡春院找南宫彩虹吧！", 1);
+	Return;
+
+@Event105:
+	Say("独孤剑：还没有见到南宫彩虹呢！", 1);
+	Return;
+
+@Event110:
+	Say("独孤剑：快去客栈找贾老实吧！", 1);
+	Return;	
+	
+@Event200:	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map035_临安城东.map");
+	LoadNpc("map035.npc");
+	LoadObj("map035.obj");
+	SetPlayerPos(5, 20);
+	SetPlayerDir(7);
+	FadeIn();
+	Return;	
+	
+@Event255:
+	Return;
+	
+@Event256:
+	Say("张琳心：独孤大哥，先回我家看看好吗？", 21);
+	Say("独孤剑：好的。", 1);
+	Return;		
+	

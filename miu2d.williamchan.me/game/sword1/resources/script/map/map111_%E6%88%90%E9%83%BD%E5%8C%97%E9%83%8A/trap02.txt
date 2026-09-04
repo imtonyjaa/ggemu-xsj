@@ -1,0 +1,43 @@
+//切换到map112五剑堂
+
+	If ($Clue == 36) @Clue36;
+	If ($Clue == 90) @Clue90;
+	If ($Clue == 100) @Clue90;
+	If ($Clue == 105) @Clue90;
+	If ($Clue == 110) @Clue110;
+	If ($Clue >> 120) @Event660;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map112_五剑堂.map");
+	LoadNpc("map112.npc");
+	LoadObj("map112.obj");
+	SetPlayerPos(17,53);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;
+	
+@Clue36:
+	Say("杀手：哈哈，独孤剑，想溜——没那么容易！", 81);
+	Return;
+	
+@Clue90:
+	Say("独孤剑：先回城取解药要紧！", 9);
+	Return;
+	
+@Clue110:
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map112_五剑堂.map");
+	LoadNpc("map112_1.npc");
+	LoadObj("map112.obj");
+	SetPlayerPos(17,53);
+	SetPlayerDir(3);
+	FadeIn();
+	Return;
+	
+@Event660:
+	Say("独孤剑：五色教总堂已被铲除，今后不会再为祸江湖了。", 1);
+	Return;

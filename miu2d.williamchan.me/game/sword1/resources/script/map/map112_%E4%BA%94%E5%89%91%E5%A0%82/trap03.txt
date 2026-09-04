@@ -1,0 +1,46 @@
+//和五剑堂守卫对话
+
+	If ($Clue == 71) @Clue71;
+	If ($Clue == 75) @Clue75;
+	
+	Say("庄园守卫：去去去，这里是方员外的山庄。");
+	NpcGotoEx("杨瑛",18,52);
+	PlayerGotoDir(7,2);
+	Assign($Talkfangzhang, 1);
+	SetMapTrap(03,"trap03.txt");
+	Return;
+	
+@Clue71:
+	Say("庄园守卫：去去去，这里是方员外的山庄。");
+	PlayerGotoDir(7,2);
+	Say("杨瑛：方员外山庄……", 39);
+	Say("杨瑛：“方”——正正方方。独孤大哥，这“口”不正可以解作“方”吗！", 42);
+	Say("独孤剑：不错，果然如此！", 6);
+	Say("杨瑛：江湖传言，方勉就是五色教的教主，莫非这山庄便是五色教的总坛？", 39);
+	Say("独孤剑：好！我们进去瞧瞧！", 1);
+	Assign($Clue, 75);
+	SetMapTrap(02,"trap02.txt");
+	SetMapTrap(03,"trap03.txt");
+	Memo("方氏山庄门外，杨瑛突然想到“口”可能指的就是“方”字。两人决定进去瞧瞧。");
+	Return;
+	
+@Clue75:
+	Say("庄园守卫：去去去，这里是方员外的山庄。");
+	Say("独孤剑：五彩闪华轮，圣色照乾坤——", 1);
+	Say("庄园守卫：——摩尼教千岁，万世奉王灯。两位是哪一堂的？");
+	Say("独孤剑：果然是五色教的巢穴！", 2);
+	StopMusic();
+	Say("庄园守卫：啊——不好！");
+
+	PlayMusic("杀机.mp3");
+	NpcGotoEx("庄丁1",14,44); //五色教守卫
+	NpcGoto("庄丁2",15,39);
+	DelNpc("庄丁1");
+	DelNpc("庄丁2");
+	
+	Say("杨瑛：我们杀进去！", 39);
+	Say("独孤剑：杨姑娘，小心！", 1);
+	Say("杨瑛：嗯。", 39);
+	SetMapTrap(03,"");
+	Assign($Clue,80);
+	Return;

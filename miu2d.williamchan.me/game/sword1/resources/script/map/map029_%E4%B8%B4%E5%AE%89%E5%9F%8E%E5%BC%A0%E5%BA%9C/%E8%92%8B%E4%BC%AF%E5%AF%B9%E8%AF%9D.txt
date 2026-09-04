@@ -1,0 +1,26 @@
+// 蒋伯对话
+
+	If ($Talkjiangbo == 1) @Talk1;
+	If ($Talkjiangbo == 2) @Talk2;
+	If ($Talkjiangbo == 3) @Talk3;
+	
+	Say("蒋伯：小姐，你……放心走吧！", 68);
+	Say("蒋伯：老爷的花，蒋伯会好好照料的。",68);
+	Assign($Talkjiangbo,1);
+	Return;
+	
+@Talk1:
+	Say("蒋伯：少爷千万不要现在回来啊！", 68);
+	Assign($Talkjiangbo,2);
+	Return;
+	
+@Talk2:
+	Say("蒋伯：老天有眼，老爷的冤情一定会昭雪的。", 68);
+	Say("蒋伯：小姐，蒋伯等着小姐、老爷和少爷一起回来的那一天。",68);
+	Say("张琳心：蒋伯……",26);
+	Say("蒋伯：小姐……你们赶紧走吧！赶紧走！",68);
+	Return;
+	
+@Talk3:
+	Say("蒋伯：呜呜……小姐，你要保重！",68);
+	Return;

@@ -1,0 +1,18 @@
+// 切换到map044石塘镇
+
+	If ($Event == 305) @Event305;
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map044_石塘镇.map");
+	LoadNpc("map044.npc");
+	LoadObj("map044.obj");
+	SetPlayerPos(7, 8);
+	SetPlayerDir(0);
+	FadeIn();
+	Return;
+	
+@Event305:
+	Say("张如梦：我真的喝醉了，这条好像不是进城的路……", 20);
+	Return;

@@ -1,0 +1,17 @@
+// 切换到海边小树林
+
+	If ($Event << 270 ) @Eventless270;
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map034_海边小树林.map");
+	LoadNpc("map034.npc");
+	LoadObj("map034.obj");
+	SetPlayerPos(16, 11);
+	SetPlayerDir(2);
+	FadeIn();
+	Return;
+
+@Eventless270:
+	Return;
