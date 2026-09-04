@@ -1,0 +1,5 @@
+
+	Talk(38250,38250);
+	PlayerGotoDir(5,2);
+	SetMapTrap(1,"离开.txt");
+	Return

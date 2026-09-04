@@ -1,0 +1,12 @@
+		NpcGotoDir("南宫飞云",5,2);
+		SetPlayerDir(5);
+		If ($FengChiFight == 1) @Label1;
+			
+		Talk(29160,29160);
+		SetMapTrap(1,"Trap1.txt");
+		Return;
+
+@Label1:	
+		Talk(29170,29170);
+		SetMapTrap(1,"Trap1.txt");
+		Return;

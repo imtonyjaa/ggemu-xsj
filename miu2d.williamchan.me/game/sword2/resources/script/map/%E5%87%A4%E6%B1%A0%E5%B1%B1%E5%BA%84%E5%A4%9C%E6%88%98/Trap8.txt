@@ -1,0 +1,25 @@
+			SetMapTrap(7,"Trap7.txt");
+			SaveMapTrap();
+			NpcGotoEx("柴嵩",110,123);	
+			PlayMusic("ks74.wav");
+			PlayerGoto(111,125);
+			SetPlayerDir(5);
+			SetNpcDir("柴嵩",5);
+			MoveScreen(5,200);
+			Talk(29340,29480);
+			SetPlayerScn();
+			Talk(29490,29520);
+			EnableFight();
+			SetNpcRelation("凤池家丁",1);
+			SetNpcRelation("凤池家丁1",1);
+			SetNpcRelation("邵骑风",1);
+			SetNpcRelation("敖管家",1);
+			Assign($FengChiFight,1);
+			EnableNpcAI();
+			Talk(29530,29530);
+			SetNpcKind("柴嵩",1);
+			NpcGotoEx("柴嵩",113,117);
+			EnableJump();
+			EnableRun();	
+			Return;	
+	

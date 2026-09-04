@@ -1,0 +1,293 @@
+//柴嵩
+
+	If ($LinAnChaiSong == 1) @Lable1;
+	If ($FromFengChi == 1) @Lable0;
+	If ($LinAnChaiSong == 2) @Lable2;
+	If ($LinAnChaiSong == 3) @Lable3;
+
+	Talk(17310,17390);
+	Assign($LinAnYanRuoXue,2);
+	Assign($LinAnChaiSong,3);
+	Return;
+@Lable3:
+	Talk(17400,17400);
+	Return;
+@Lable0:
+	Talk(17780,17910);
+	Assign($LinAnChaiSong,1);
+	AddMagic("player-magic-梦蝶神功.ini");
+	Assign($FromFengChi,2);
+	Assign($LinAnYanRuoXue,14);
+	Return;
+@Lable1:
+	Talk(17920,17920);
+	Return; 
+@Lable2:
+	Talk(18390,18410);
+	SetNpcDir("柴嵩",1);
+	PlayerGoto(180,190);
+	SetPlayerDir(1);
+	Talk(18420,18420);
+	NpcGoto("柴嵩",180,189);
+	SetNpcDir("柴嵩",1);
+	SetPlayerDir(5);
+	Talk(18430,18540);
+	NpcGoto("柴嵩",181,191);
+	SetNpcDir("柴嵩",5);
+	Talk(18550,18550);
+	PlayerGoto(181,190);
+	SetPlayerDir(5);
+	Talk(18560,18730);
+	SetNpcPos("婕儿",176,180);
+	NpcGoto("婕儿",180,191);
+	SetNpcDir("婕儿",5);
+	SetNpcDir("柴嵩",2);
+	SetPlayerDir(1);
+	Talk(18740,18770);
+	FadeOut();
+	SetNpcPos("燕若雪",154,104);
+	SetNpcDir("燕若雪",7);
+	AddNpc("z12-唐影.ini",155,104,1);
+	AddNpc("z14-秋依水.ini",155,106,3);	
+	SetPlayerPos(146,129);
+	SetPlayerDir(5);
+	SetNpcPos("婕儿",143,134);
+	SetNpcDir("婕儿",1);
+	PlayMusic("ks69.wav");
+	FadeIn();
+
+	NpcGotoEx("唐影",152,114);
+	NpcGotoEx("秋依水",152,116);
+	NpcGotoEx("南宫飞云",150,119);
+	NpcGoto("燕若雪",150,116);
+	SetNpcDir("唐影",1);
+	SetNpcDir("秋依水",1);
+	SetNpcDir("燕若雪",7);
+	SetPlayerDir(5);
+	Talk(18780,18810);
+	NpcGoto("秋依水",149,117);
+	SetNpcDir("秋依水",5);
+	SetNpcDir("秋依水",7);
+	Talk(18820,18820);
+	SetPlayerDir(4);
+	Talk(18830,18830);
+	SetNpcDir("秋依水",6);
+	Talk(18840,18900);
+	SetNpcPos("婕儿",147,136);
+	NpcGoto("婕儿",149,121);
+	SetNpcDir("婕儿",5);
+	Talk(18910,18910);
+	SetPlayerDir(1);
+	SetNpcDir("秋依水",0);
+	SetNpcDir("燕若雪",0);
+	Talk(18920,18920);
+	AddNpc("z08-赵无双.ini",147,136);
+	NpcGoto("赵无双",147,125);
+	NpcGotoEx("婕儿",150,123);
+	NpcGotoEx("南宫飞云",149,121);
+	NpcGoto("赵无双",149,122);
+	SetNpcDir("赵无双",5);
+	SetPlayerDir(7);
+	SetNpcDir("婕儿",3);
+	Talk(18930,18940);
+	SetPlayerDir(1);
+	NpcGotoEx("婕儿",143,134);
+	SetNpcDir("婕儿",1);
+	NpcGotoEx("秋依水",149,120);
+	NpcGoto("唐影",150,121);
+	SetNpcDir("秋依水",0);
+	Talk(18950,18990);	
+	SetNpcPos("柴嵩",147,136);
+	NpcGoto("柴嵩",147,125);
+	
+	Talk(19000,19000);
+	SetNpcDir("赵无双",1);
+	SetNpcDir("燕若雪",0);
+	SetNpcDir("唐影",2);
+	Talk(19010,19010);
+	NpcGoto(148,120);
+	NpcGotoEx("赵无双",148,123);
+	NpcGotoEx("柴嵩",148,124);
+	Talk(19020,19050);
+	NpcGoto("唐影",149,125);
+	SetNpcDir("唐影",2);
+	Talk(19060,19060);
+	SetNpcDir("柴嵩",6);
+	Talk(19070,19070);
+	NpcGotoEx("燕若雪",149,119);
+	PlayerGoto(149,123);
+	SetNpcDir("燕若雪",1);
+	SetPlayerDir(1);
+	Talk(19080,19100);
+	SetNpcDir("赵无双",6);
+	Talk(19110,19130);
+	FadeOut();
+	
+	NpcGotoEx("柴嵩",147,126);
+	NpcGotoEx("赵无双",147,124);
+	NpcGotoEx("唐影",148,128);
+	NpcGotoEx("秋依水",147,127);
+	NpcGotoEx("燕若雪",148,125);
+	PlayerGoto(148,124);
+	// 第三次游西湖
+	HideBottomWnd();
+	PlayMovie("xihu3.avi");
+	ShowBottomWnd();
+	
+	DelNpc("赵无双");
+	DelNpc("柴嵩");
+	DelNpc("唐影");
+	DelNpc("秋依水");
+	SetNpcPos("燕若雪",147,84);
+	SetNpcDir("燕若雪",0);
+	SetPlayerPos(143,94);
+	SetPlayerDir(5);
+	Talk(20590,20590);
+	PlayMusic("Ks66.wav");
+	FadeIn();
+	
+	NpcGoto("燕若雪",143,93);
+	SetNpcDir("燕若雪",1);
+	Talk(19140,19210);
+	PlayerGoto(141,109);
+
+	// 比武大会
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("凤池山庄.map");
+	LoadNpc("Fengci1.npc");
+	LoadObj("Fengci.obj");
+	SetPlayerPos(63,232);
+	SetPlayerDir(5);
+	Assign($FromFengChi,10);
+	Assign($FenCiDaMenJiaDin,2);
+	FadeIn();
+	PlayerGoto(64,227);
+	SetPlayerDir(5);
+	Talk(24990,24990);
+	NpcGoto("守门家丁",66,223);
+	PlayerGoto(66,224);
+	NpcGotoEx("守门家丁",66,217);
+	Assign($FenCiDaMenJiaDin,3);
+	FadeOut();
+	// 大会
+	SetPlayerPos(113,118);
+	SetPlayerDir(5);
+	PlayMusic("ks69.wav");
+	FadeIn();
+	NpcGotoEx("赵无双",114,121);
+	NpcGoto("柴嵩",114,119);
+	SetNpcDir("柴嵩",2);
+	SetNpcDir("赵无双",3);
+	SetPlayerDir(6);
+	Talk(25580,25610);
+
+	NpcGotoEx("秋依水",113,123);
+	Sleep(1000);
+	NpcGoto("唐影",114,122);
+	
+	SetNpcDir("唐影",3);
+	SetNpcDir("秋依水",4);
+	Talk(25620,25650);
+	Talk(25660,25660);
+	SetPlayerDir(4);
+	NpcGotoEx("赵无双",115,120);
+	NpcGoto("秋依水",114,123);
+	SetNpcDir("赵无双",5);
+	SetNpcDir("秋依水",5);
+	SetNpcDir("柴嵩",5);
+	SetNpcDir("唐影",5);
+	Talk(25670,25670);
+	Talk(25680,25690);
+	Talk(25700,25740);
+	SetPlayerDir(6);
+	Talk(25750,25750);
+	SetNpcDir("唐萧",3);
+
+	Talk(25760,25800);
+	SetPlayerDir(4);
+	MoveScreen(4,80);
+	Talk(25810,25810);
+	MoveScreen(6,100);
+	SetPlayerDir(5);
+	Talk(25820,25830);
+	MoveScreen(7,100);
+	SetPlayerDir(6);
+	Talk(25840,25840);
+	SetPlayerDir(5);
+	Talk(25850,25920);
+	MoveScreen(2,200);
+
+	PlayerGoto(114,115);
+	Talk(25930,25930);
+	SetPlayerDir(5);
+	Talk(25940,25940);
+
+//** 后加一段比武 **
+	PlayerGoto(108,118);
+	SetPlayerDir(5);
+	Talk(26930,26930);
+	PlayerGoto(110,115);
+	SetPlayerDir(5);
+	MoveScreen(5,200);
+	Talk(26940,27020);
+	MoveScreen(1,200);
+	PlayerGoto(113,112);
+	Talk(27030,27090);
+	PlayerGoto(115,110);
+	Talk(27100,27100);
+	NpcGoto("秦奎",113,113);
+	SetNpcDir("秦奎",5);
+	Talk(27110,27110);
+	SetPlayerDir(1);
+	Sleep(1000);
+	PlayerGoto(114,112);
+	DisableNpcAI();
+	SetNpcRelation("秦奎",1);
+	NpcAttack("南宫飞云",113,113);
+	SetNpcRelation("秦奎",0);
+	Sleep(500);
+	SetNpcAction("秦奎",11);
+	Sleep(1000);
+	EnableNpcAI();
+
+	FadeOut();
+	Sleep(1000);
+	ClearBody();
+	AddNpc("秦奎.ini",113,113,6);	
+	FadeIn();
+
+	SetPlayerDir(5);
+	Talk(27120,27150);
+	
+	NpcGoto("柴嵩",115,114);
+	SetNpcdir("柴嵩",3);
+	SetPlayerDir(7);
+	Talk(27160,27180);
+	
+	NpcGoto("孟廷威",115,106)
+	SetnpcDir("孟廷威",0);
+	SetPlayerDir(4);
+	SetNpcDir("柴嵩",3);
+	Talk(27190,27210);
+	
+	SetNpcDir("孟廷威",6);
+	SetNpcDir("柴嵩",5);
+	SetPlayerDir(5);
+	Talk(27220,27240);
+	Sleep(1000);
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("凤池山庄-比武场.map");
+	LoadNpc("FengChiBW.npc");
+	LoadObj("FengChiBW.obj");
+	EnableFight();
+	SetPlayerPos(14,73);
+	SetPlayerDir(5);
+	PlayMusic("ks71.wav");
+	FadeIn();
+	RunScript("比武开始.txt");
+	Return;
+

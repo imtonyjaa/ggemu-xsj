@@ -1,0 +1,23 @@
+		
+		If($ZDBiWu == 1) @Lable1;
+		DisableNpcAI();
+		PlayerGoto(121,175);
+		SetPlayerDir(3);
+		Talk(13610,13630);
+		Sleep(500);
+		SetPlayerDir(5);
+		MoveScreen(5,200);
+		Talk(13640,13690);
+		MoveScreen(1,200);
+		Sleep(500);
+		Talk(13710,13710);
+		Assign($ZDBiWu,1);
+		SetMapTrap(11,"地图陷阱11.txt");
+		SaveMapTrap();
+		Return;
+@Lable1:
+		PlayerGotoDir(5,3);
+		SetPlayerDir(5);
+		Talk(13700,13700);
+		SetMapTrap(11,"地图陷阱11.txt");
+		Return;

@@ -1,0 +1,6 @@
+//长安－龙门客栈－长安
+	
+	Talk(43920,43920);
+	PlayerGotoDir(7,2);
+	SetMapTrap(1,"Trap-1.txt");
+	Return;

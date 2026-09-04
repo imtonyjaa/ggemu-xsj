@@ -1,0 +1,26 @@
+	
+	If ($FromFengChi == 5) @Lable1;
+	
+	SetPlayerState(0);
+	SetPlayerDir(3);
+	SetNpcDir("燕若雪",7);	
+	Talk(17180,17190);
+	NpcGotoEx("南宫飞云",146,101);
+	NpcGoto("燕若雪",146,100);
+	SetNpcDir("燕若雪",7);
+	SetNpcDir("南宫飞云",3);
+	Talk(17200,17280);
+	Assign($LinAnYanRuoXue,1);
+	AddNpc("z03-许若冰.ini",164,117,7);
+	SetNpcScript("柴嵩","柴嵩.txt");
+	Assign($NoFindChaisong,1);
+	SetMapTrap(4,"");
+	SaveMapTrap();
+	Return;
+	
+@Lable1:
+	SetPlayerDir(3);
+	Talk(17930,17930);
+	SetMapTrap(4,"");
+	SaveMapTrap();
+	Return;

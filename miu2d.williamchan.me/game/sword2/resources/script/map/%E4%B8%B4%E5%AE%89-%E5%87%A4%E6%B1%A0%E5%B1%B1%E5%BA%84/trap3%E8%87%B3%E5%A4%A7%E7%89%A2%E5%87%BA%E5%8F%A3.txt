@@ -1,0 +1,8 @@
+		FadeOut();
+		LoadMap("大牢出口1.map");
+		LoadObj("DaLaoChuKou.obj");
+		SetPlayerPos(25,31);
+		SetPlayerDir(3);
+		FadeIn();
+		ShowMessage("荒郊");
+		Return;

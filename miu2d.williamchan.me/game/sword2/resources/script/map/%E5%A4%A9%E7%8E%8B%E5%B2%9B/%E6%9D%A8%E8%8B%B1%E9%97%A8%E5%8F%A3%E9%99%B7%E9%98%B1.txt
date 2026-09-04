@@ -1,0 +1,5 @@
+
+	Talk(35180,35180);
+	NpcGotoDir("南宫飞云",7,1);
+	SetMapTrap(1,"杨英门口陷阱.txt");
+	Return;

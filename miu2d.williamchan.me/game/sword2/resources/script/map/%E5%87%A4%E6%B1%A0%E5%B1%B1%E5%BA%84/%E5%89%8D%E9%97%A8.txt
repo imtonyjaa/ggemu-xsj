@@ -1,0 +1,4 @@
+	Talk(25030,25030);
+	PlayerGoto(60,237);
+	SetMapTrap(2,"前门.txt");
+	Return;

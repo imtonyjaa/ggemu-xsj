@@ -1,0 +1,4 @@
+	AddNpc("z02-燕若雪.ini",184,196,5);
+	SetNpcScript("燕若雪","燕若雪.txt");
+	SaveMapTrap();
+	Return;

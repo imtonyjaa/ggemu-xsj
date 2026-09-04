@@ -1,0 +1,6 @@
+// 官府
+	Talk(47020,47020);
+	PlayerGotoDir(3,2);
+	SetMapTrap(6,"Trap-6.txt");
+	Return;
+		

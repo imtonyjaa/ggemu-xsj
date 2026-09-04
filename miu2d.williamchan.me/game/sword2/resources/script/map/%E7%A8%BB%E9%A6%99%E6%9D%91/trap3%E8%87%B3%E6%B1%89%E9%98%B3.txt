@@ -1,0 +1,21 @@
+		If ($FromFengChi >= 14) @Lable1;
+		Talk(42360,42360);
+		PlayerGotoDir(5,2);
+		SetMapTrap(3,"Trap3至汉阳.txt");
+		Return;
+@Lable1:
+		FadeOut();
+		SetMainLum(31);
+		SetMapTime(0);
+		SaveNpc();
+		SaveObj();
+		LoadMap("汉阳.map");
+		LoadNpc("HanYan.npc");
+		LoadObj("HanYan.obj");
+		SetPlayerPos(77,173);
+		SetPlayerDir(3);
+		DelNpc("孟廷威");
+		DelNpc("史忠良");
+		DelNpc("旁观者");
+		FadeIn();
+		Return;			

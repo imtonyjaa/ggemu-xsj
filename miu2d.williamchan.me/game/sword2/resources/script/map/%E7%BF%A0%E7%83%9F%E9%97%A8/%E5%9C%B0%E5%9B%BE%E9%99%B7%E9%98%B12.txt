@@ -1,0 +1,8 @@
+// 翠烟门
+
+	Talk(42380,42380);
+	PlayerGotoDir(5,2);
+	SetMapTrap(2,"地图陷阱2.txt");
+	Return;
+	
+	

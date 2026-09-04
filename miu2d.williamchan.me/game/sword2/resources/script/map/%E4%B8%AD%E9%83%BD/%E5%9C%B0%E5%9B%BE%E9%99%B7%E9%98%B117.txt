@@ -1,0 +1,7 @@
+    	
+        
+        PlayerGoto(51,49);
+        PlayerGoto(55,44);
+        Talk(14270,14270);
+	Return;
+

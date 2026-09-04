@@ -1,0 +1,8 @@
+//
+        Talk(51250,51300);
+        SetNpcKind("燕若雪",3);
+        DisableJump();
+	DisableRun();
+        SetNpcScript("燕若雪","燕若雪Talk.txt");
+        Assign($LMKZOZhanMaGang,0);
+    	Return;

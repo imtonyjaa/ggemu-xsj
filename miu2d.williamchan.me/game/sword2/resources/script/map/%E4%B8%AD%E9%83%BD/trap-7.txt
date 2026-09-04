@@ -1,0 +1,40 @@
+//地图陷阱7
+       If($ZhongDuHouHuaYuan==6) @Talk4;
+       If($FromFengChi==20) @Talk3;
+       If($ZhongDuHouHuaYuan==5) @Talk2;
+       If($ZhongDuZhuangYuanDoor==2) @Talk1;
+       Talk(11070,11080);
+       PlayerGoto(139,266);
+       SetMapTrap(7,"Trap-7.txt");
+       Talk(11090,11090);
+       Return;
+       
+@Talk1:
+      Talk(11330,11340); 
+      PlayerGoto(139,266);
+      SetMapTrap(7,"Trap-7.txt");
+      Return;
+      
+@Talk2:
+      Return;
+      
+@Talk3:
+      Talk(13100,13100);  
+      PlayMusic("ks75.wav");	
+      PlayerRunTo(146,261);
+      PlayerRunTo(150,242);
+      PlayerGoto(153,236);
+      Talk(13110,13110);
+      PlayerGoto(154,228);
+      Talk(13120,13120);
+      PlayerGoto(156,223);
+      Talk(13120,13120);
+      Assign($ZhongDuHouHuaYuan,6);
+      SetMapTrap(7,"Trap-7.txt");
+      SetMapTrap(5,"龙音寺门口地图陷阱5.txt");      
+      SaveMapTrap();
+      Return;
+      
+@Talk4:
+      Talk(13130,13130);
+      Return;

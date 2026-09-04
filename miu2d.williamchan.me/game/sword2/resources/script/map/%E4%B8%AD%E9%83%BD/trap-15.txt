@@ -1,0 +1,4 @@
+	PlayerGotoDir(1,1);
+	Talk(14100,14100);
+	SetMapTrap(15,"Trap-15.txt");
+	Return;

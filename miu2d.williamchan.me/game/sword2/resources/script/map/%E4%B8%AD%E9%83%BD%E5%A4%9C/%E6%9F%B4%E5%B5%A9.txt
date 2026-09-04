@@ -1,0 +1,19 @@
+//柴嵩
+
+     If($ZhongDuTroublesRoom==4) @Talk3;
+     Talk(15980,16300);
+     Assign($ZhongDuTroublesRoom,4);
+     StopMusic(0);
+     FadeOut();
+     SetPlayerPos(142,326);
+     SetNpcPos("柴嵩",142,327);
+     SetNpcKind("柴嵩",3);
+     DisableRun();
+     DisableJump();
+     
+     FadeIn();
+     Return;
+     
+@Talk3:
+     Talk(16430,16430);
+     Return;

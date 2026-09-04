@@ -1,0 +1,4 @@
+//离开地图
+       Talk(10150,10150);
+       SaveMapTrap();	
+       Return;

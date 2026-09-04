@@ -1,0 +1,14 @@
+    	Talk(13260,13290);
+	PlayerGoto(134,77);
+	SetNpcDir("无赖2",6);
+	SetNpcDir("无赖1",0);
+	Talk(13300,13410);
+	FadeOut();
+	DelNpc("无赖1");
+	DelNpc("无赖2");
+	Assign($JieTouXiaoFan,1);
+	AddToMemo("天忍教在中都的东北方向，翻过一座山梁就到了。");
+	PlayMusic("ks67.wav");    
+	SaveMapTrap();
+	FadeIn();
+	Return;

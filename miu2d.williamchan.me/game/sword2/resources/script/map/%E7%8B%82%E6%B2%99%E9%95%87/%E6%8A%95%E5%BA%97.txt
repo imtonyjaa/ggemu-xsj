@@ -1,0 +1,46 @@
+//与燕若雪一起投店
+
+	PlayerGoto(98,189);
+	SetPlayerDir(5);
+	Talk(38790,38820);
+	FadeOut();
+	SetPlayerPos(72,213);
+	SetPlayerDir(6);
+	SetNpcPos("燕若雪",73,211);
+	SetNpcDir("燕若雪",1);
+	SetNpcKind("燕若雪",0);
+	FadeIn();
+	Talk(39010,39050);
+	PlayerGoto(73,200);
+	PlayerGoto(77,193);
+	PlayerGoto(80,200);
+	Talk(39060,39060);
+	PlayerGoto(78,203);
+	PlayerGoto(80,206);
+	Talk(39070,39070);
+	PlayerGoto(82,202);
+	PlayerGoto(80,200);
+	Talk(39080,39080);
+	FadeOut();
+	StopMusic();
+	Talk(38870,38890);
+	FullLife();
+	FullThew();
+	FullMana();
+	PlayMusic("ks71.wav");
+	FadeIn();
+	Talk(39090,39090);
+	PlayerGoto(79,198);
+	Talk(39100,39100);
+	PlayerGoto(75,197);
+	PlayerGoto(72,203);
+	PlayerGoto(72,213);
+	SetPlayerDir(5);
+	Talk(39110,39320);
+	SetNpcKind("燕若雪",3);
+	SetMapTrap(4,"");
+	SaveMapTrap();
+	Assign($KsOQieHuan,3);
+	AddToMemo("把女孩送到长安去。");
+	Return;
+	

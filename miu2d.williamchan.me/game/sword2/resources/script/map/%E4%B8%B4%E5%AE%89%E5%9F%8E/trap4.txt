@@ -1,0 +1,30 @@
+
+	If($FromFengChi == 5) @Lable1;
+
+	SetPlayerState(0); 	
+	SetPlayerDir(5);
+	SetNpcDir("燕若雪",1);
+	Talk(17180,17190);
+
+	NpcGotoEx("燕若雪",145,99);
+	NpcGoto("南宫飞云",145,100);
+	SetNpcDir("燕若雪",1);
+	SetNpcDir("南宫飞云",5);
+	Talk(17200,17280);
+
+	Assign($LinAnYanRuoXue,1);
+	
+	AddNpc("z03-许若冰.ini",164,117,7);
+	SetNpcScript("柴嵩","柴嵩.txt");
+	Assign($NoFindChaisong,1);
+	SetMapTrap(5,"");
+	SaveMapTrap();
+	Return;
+	
+@Lable1:
+	PlayMusic("ks71.wav");
+	SetPlayerDir(5);
+	Talk(17930,17930);
+	SetMapTrap(5,"");
+	SaveMapTrap();
+	Return;

@@ -1,0 +1,6 @@
+//地图陷阱8
+
+      Talk(16500,16500);
+      PlayerGotoDir(1,1);
+      SetMapTrap(8,"Trap-8.txt");
+      Return;

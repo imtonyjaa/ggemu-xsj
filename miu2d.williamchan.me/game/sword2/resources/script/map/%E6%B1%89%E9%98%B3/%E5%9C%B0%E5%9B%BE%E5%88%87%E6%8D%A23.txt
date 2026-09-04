@@ -1,0 +1,34 @@
+//汉阳－临安
+
+	If($ZhongDuHouHuaYuan==5) @Talk1;
+	Talk(37690,37690);
+	NpcGotoDir("南宫飞云",3,2);
+	SetMapTrap(3,"地图切换3.txt");
+	Return;
+	
+@Talk1:
+	FadeOut();
+	LoadMap("稻香村.map");
+	LoadNpc("DaoXiang.npc");
+	LoadObj("DaoXiang.Obj");
+	SetPlayerPos(33,350);
+	SetPlayerDir(5);
+	ShowMessage("稻香村");
+	PlayMusic("ks71.wav");
+	FadeIn();
+	If ($DaoXiangFirstEnter==0) @Talk2;
+	Return;
+	
+@Talk2:
+//	PlayerGoto(32,351);
+	MoveScreen(5,120);
+	Talk(41550,41550);
+	Talk(41560,41610);
+	MoveScreen(1,120);
+	PlayerGoto(37,340);
+	Talk(41620,41800);
+	SetNpcRelation("洪七",1);
+	SetNpcRelation("王重阳",1);
+	SetNpcRelation("欧阳锋",1);
+	Assign($DaoXiangFirstEnter,1);
+	Return;

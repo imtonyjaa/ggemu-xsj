@@ -1,0 +1,46 @@
+//燕若雪卧房
+	
+	If ($ChangAnYangQiYe==2) @Talk1;
+	Talk(44240,44240);
+	PlayerGotoDir(3,2);
+	SetMapTrap(5,"Trap-5.txt");
+	SaveMapTrap();
+	Return;
+	
+@Talk1:
+	If ($ChangAnYanRuoXue==2) @Talk3;
+	Talk(44260,44260);
+	PlayerGotoDir(3,2);
+	AddNpc("z03-许若冰.ini",100,241,1);
+	SetNpcScript("柴嵩","柴嵩.txt");
+	SetMapTrap(5,"Trap-5.txt");
+	SaveMapTrap();
+	Return;
+	
+@Talk3:
+	Talk(44270,44270);
+	PlayerGoto(93,105);
+	Talk(44280,44280);
+	SetPlayerDir(1);
+	Sleep(500);
+	SetPlayerDir(0);
+	Sleep(500);
+	SetPlayerDir(7);
+	Sleep(500);
+	SetPlayerDir(0);
+	Talk(44310,44310);
+	FadeOut();
+	SetPlayerPos(63,104);
+	SetPlayerDir(2);
+	StopMusic();
+	FadeIn();
+	Talk(44640,44770);
+	PlayMusic("ks67.wav");
+	PlayerGoto(62,120);
+	Talk(44780,44780);
+	AddToMemo("到酒店找柴嵩帮你找小仙女。");
+	Assign($ChangAnCaiSong,2);
+	SetMapTrap(5,"");
+	SaveMapTrap();
+	Return;
+	

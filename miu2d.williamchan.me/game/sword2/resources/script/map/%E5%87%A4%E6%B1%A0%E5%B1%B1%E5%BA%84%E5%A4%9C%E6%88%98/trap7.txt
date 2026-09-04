@@ -1,0 +1,27 @@
+	If($FengChiFight == 1) @Lable1;
+	DisableNpcAI();
+	AddNpc("z09-独孤剑.ini",110,173,3);
+	SetNpcRelation("独孤剑",1);
+	Talk(29220,29220);
+	NpcGotoEx("独孤剑",105,167);
+	PlayerGoto(103,163);
+	SetPlayerDir(7);
+	SetNpcDir("独孤剑",3);
+	Talk(29230,29330);
+	Sleep(500);
+	NpcAttack("独孤剑",103,163);
+	Sleep(2000);
+	FadeOut();
+	Talk(26750,26750);	
+	SaveNpc();
+	SaveObj();
+	RunScript("DaLao.txt");
+	Return;
+@Lable1:
+	FadeOut();
+	SetPlayerPos(102,150);
+	SetPlayerDir(5);
+	FadeIn();
+	Talk(29170,29170);
+	SetMapTrap(7,"Trap7.txt");
+	Return;
