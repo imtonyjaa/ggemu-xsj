@@ -1,0 +1,70 @@
+	If ($Event == 2104) @2104;//蔷薇死亡
+	If ($Event == 3060) @Evt3060;
+	Return;
+	
+@2104:
+	StopMusic();
+	DisableNpcAI();
+	Sleep(1000);
+	Say("纳兰潜凛：不可能……",39);
+	Sleep(1000);
+	FadeOut();
+	LoadNpc("");
+	ClearBody();
+	AddObj("纳兰潜凛尸体.ini",8,101);
+	SetPlayerPos(7,103);
+	SetPlayerDir(5);
+	AddNpc("纳兰真.ini",2,113);
+	FadeIn();
+	Say("纳兰真：影枫哥！",9);
+	SetPlayerDir(1);
+	Sleep(500);
+	Say("杨影枫：真儿！",4);
+	NpcGotoEx("纳兰真",5,108);
+	PlayerGoto(5,107);
+	Say("杨影枫：真儿...我...",7);
+	Say("纳兰真：...",12);
+	NpcGoto("纳兰真",7,103);
+	SetNpcDir("纳兰真",5);
+	FadeOut();
+	DelObj("纳兰潜凛尸体");
+	SetNpcPos("纳兰真",8,101);
+	SetNpcRes("纳兰真","npc013-纳兰真抱父.ini");
+	SetPlayerPos(7,103);
+	SetPlayerDir(5);
+	FadeIn();
+	Say("纳兰真：爹……你不要死……",14);
+	Say("纳兰潜凛：真儿……这是我咎由自取……你不要难过了……",38);
+	Say("杨影枫：……",5);
+	Say("纳兰潜凛：杨影枫……你要好好待我的女儿……否则我……",38);
+	Say("杨影枫：你放心，我会的。",5);
+	Say("纳兰真：……爹……",14);
+	FadeOut();
+	Say("旁白：杨影枫和纳兰真将纳兰潜凛的尸体埋葬之后，双双回到了忘忧岛，从此隐居世外……");
+	PlayMovie("end2.avi");
+	EnableNpcAI();
+	FreeMap();
+	PlayMusic("mc000.mp3");
+	ReturnToTitle();
+	Return;
+	
+@Evt3060:	
+	StopMusic();
+	FadeOut();
+	SetNpcKind("月眉儿",3);
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_057_连接地图.map");
+	ShowNpc("杨影枫",1);
+	ShowNpc("月眉儿",1);
+	LoadNpc("map057.npc");
+	LoadObj("map057_night.obj");
+	SetPlayerPos(16, 6);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	FadeIn();
+	SetMapTrap(2,"");
+	Return;
+	
+@end:
+	Return;

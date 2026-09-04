@@ -1,0 +1,37 @@
+// 28个红衣杀手和黑衣杀手死亡
+
+	Add($fight008, 1);
+	If ($fight008 == 28) @finished;
+    Return;
+    
+@finished:
+	StopMusic();
+	FadeOut();
+	SetPlayerPos(13, 64);
+	SetPlayerDir(6);
+	SetNpcKind("张琳心", 1);
+	SetNpcPos("张琳心", 12, 63);
+	SetNpcDir("张琳心", 6);
+	SetNpcKind("张琳心", 3);
+	SetNpcPos("杀手头目", 14, 64);
+	SetNpcDir("杀手头目", 2);
+	Sleep(500);
+	ClearEffect();
+	FadeIn();
+	
+	Say("杀手头目：好小子！果真有两下子，难怪能够一路闯到这里来。",  111);
+	Say("独孤剑：你们是五色教的杀手？", 5);
+	Say("杀手头目：不错！", 111);
+	Say("张琳心：你们为什么要血洗武夷山？", 27);
+	Say("杀手头目：我们做杀手的，有钱就是娘，你要怪就怪我们教主方勉，是他接下这桩生意让我们来杀你的。", 111);
+	Say("独孤剑：胡说！方、方大侠不会做出这样的事。", 9);
+	Say("杀手头目：嘿，你已死到临头了，我又何必骗你，教主就是五色教的第一把剑，不信你去问阎王吧。", 111); 
+	PlayMusic("激战.mp3");
+	SetNpcRelation("杀手头目", 1);
+	SetNpcDeathScript("杀手头目", "杀手头目死亡.txt");
+	SetPlayerState(1);
+    EnableFight();
+	EnableNpcAI();
+	SetMapTrap(1, "Trap01.txt");
+	Assign($Event, 235);
+	Return;

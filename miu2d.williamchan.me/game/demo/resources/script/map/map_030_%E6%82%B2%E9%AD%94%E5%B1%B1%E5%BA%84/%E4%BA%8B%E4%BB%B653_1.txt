@@ -1,0 +1,24 @@
+
+	If ($Event == 520) @Label1;
+	Goto @end;
+	
+@Label1:
+	Say("侍女可心：公子，你回来啦？", 0);
+	PlayerGoto(19,200);
+	SetPlayerDir(5);
+	Say("杨影枫：可心，为什么这么晚了还不休息，有什么事吗？", 2);
+	Say("侍女可心：公子，纳兰姑娘此刻正在后花园的回廊上等你。", 0);
+	Say("杨影枫：…… 发生了什么吗？", 2);
+	Say("侍女可心：我也不清楚。公子走后不久，纳兰姑娘也出去了，回来的时候脸色很难看，也不知发生了什么事。", 0);
+	Say("杨影枫：…… 好，我知道了，你去休息吧。", 2);
+	NpcGoto("侍女", 19, 191);
+	DelNpc("侍女");
+	Assign($Event, 525);
+	SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(5, "Trap05.txt");
+	SetMapTrap(6, "Trap06.txt");
+	SetMapTrap(8, "Event585.txt");
+	Goto @end;
+	
+@end:
+	Return;

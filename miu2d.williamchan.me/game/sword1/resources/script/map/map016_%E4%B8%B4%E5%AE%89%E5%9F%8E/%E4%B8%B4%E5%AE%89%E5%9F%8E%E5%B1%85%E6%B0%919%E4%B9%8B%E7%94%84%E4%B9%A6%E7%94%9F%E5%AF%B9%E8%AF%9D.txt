@@ -1,0 +1,68 @@
+// 与临安城居民甄书生的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	If ($Event == 180) @Event180;
+	
+	If ($Talkshusheng1 == 0) @Talk0;
+	If ($Talkshusheng1 == 1) @Talk1;
+	If ($Talkshusheng1 == 2) @Talk2;
+	If ($Talkshusheng1 == 3) @Talk3;
+	If ($Talkshusheng1 == 4) @Talk4;
+	
+@Talk0:
+	Say("甄书生：这位师傅果然有些功夫，不知为何不去投军抗金却在此卖艺？", 0);
+	Assign($Talkshusheng1, 1);
+	Return;
+@Talk1:	
+	Say("甄书生：公子，看你身背长剑，应该是武林中人，你看这位朋友练得如何？", 0);
+	Assign($Talkshusheng1, 2);
+	Return;
+@Talk2:	
+	Say("甄书生：这位师傅果然有些功夫，不知为何不去投军抗金却在此卖艺？", 0);
+	Assign($Talkshusheng1, 3);
+	Return;	
+@Talk3:	
+	Say("甄书生：公子，看你身背长剑，应该是武林中人，你看这位朋友练得如何？", 0);
+	Assign($Talkshusheng1, 4);
+	Return;		
+@Talk4:	
+	Say("甄书生：好！", 0);
+	Return;		
+	
+@Event180:
+	Say("甄书生：这师傅功夫了得，莫不是他除掉了碧霞岛上的恶贼？", 0);
+	Return;	
+
+	
+@YuanDan:	
+
+	If ($Event == 180) @Event180YD;
+	
+	If ($Talkshusheng1 == 0) @Talk0YD;
+	If ($Talkshusheng1 == 1) @Talk1YD;
+	If ($Talkshusheng1 == 2) @Talk2YD;
+	
+@Talk0YD:
+	Say("甄书生：看你是个有福相的人，我祝你新的一年百尺竿头 更进一步！送你一个红包吧。", 0);
+	Say("独孤剑：啊，多谢！", 2);
+	Say("得到四十两银子。");
+	AddMoney(40);
+	Assign($Talkshusheng1, 1);
+	Return;
+@Talk1YD:	
+	Say("甄书生：公子，看你身背长剑，应该是武林中人，你看这位朋友练得如何？", 0);
+	Assign($Talkshusheng1, 2);
+	Return;
+@Talk2YD:	
+	Say("甄书生：这位师傅果然有些功夫，不知为何不去投军抗金却在此卖艺？", 0);
+	Return;	
+		
+@Event180YD:
+	Say("甄书生：这师傅功夫了得，莫不是他除掉了碧霞岛上的恶贼？", 0);
+	Return;	
+	

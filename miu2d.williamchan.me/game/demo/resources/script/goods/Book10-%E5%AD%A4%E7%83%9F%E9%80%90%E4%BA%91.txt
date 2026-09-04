@@ -1,0 +1,6 @@
+//Book10-孤烟逐云.ini
+	AddMagic("player-magic-孤烟逐云.ini");
+	PlaySound("学会武功.wav");
+	DelGoods();
+	Add($EvilVal, -25);
+	Return;

@@ -1,0 +1,6 @@
+	If($TianWangPiEr == 2) Goto @Lable1;
+	Talk(35230,35240);
+	Return;
+@Lable1:
+	Talk(34870,34870);
+	Return;

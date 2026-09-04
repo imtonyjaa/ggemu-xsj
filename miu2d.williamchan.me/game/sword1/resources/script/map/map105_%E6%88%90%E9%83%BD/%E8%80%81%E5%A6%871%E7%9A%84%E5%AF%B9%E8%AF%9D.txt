@@ -1,0 +1,45 @@
+//和老妇对话
+
+	GetRandNum($Talklaoshaofu,1,7);
+	If ($Talklaoshaofu == 1) @Talk1;
+	If ($Talklaoshaofu == 2) @Talk2;
+	If ($Talklaoshaofu == 3) @Talk3;
+	If ($Talklaoshaofu == 4) @Talk4;
+	If ($Talklaoshaofu == 5) @Talk5;
+	If ($Talklaoshaofu == 6) @Talk6;
+	If ($Talklaoshaofu == 7) @Talk7;
+
+@Talk1:	
+	Say("老妇：听说没有，窦家的男人在外面沾花惹草，两口子闹得凶了。");
+	Say("少妇：听说是和城南的菱珠……好端端个丫头，唉！");
+	Return;
+
+@Talk2:	
+	Say("老妇：听说那窦家的婆娘也不是什么省油的灯。平素里就不知道什么三从四德，哪有妇道人家的模样。");
+	Say("少妇：还不是仗着娘家的势力……嘘！");
+	Return;
+
+@Talk3:	
+	Say("少妇：你看看，那四婆子成天神神秘秘，不就是能做手豆腐嘛？");
+	Say("老妇：还不是守着什么祖传的宝贝……");
+	Return;
+	
+@Talk4:
+	Say("少妇：我说那城里头一个不要脸面的，就是街头那个春姨，都丢尽了咱女人的脸。");
+	Say("老妇：呸！");
+	Return;
+	
+@Talk5:
+	Say("老妇：自从窑子和赌场一夜间给烧了后，那些不干净的东西倒消失的利索。");
+	Say("少妇：家里的男人倒是让人省心了许多。");
+	Return;
+	
+@Talk6:
+	Say("少妇：城里老来些神神秘秘的人，尤其是最近几天……");
+	Say("老妇：逢事少问两三句，麻烦不会找上身。");
+	Return;
+	
+@Talk7:
+	Say("少妇：城北的方员外的宅院好大的派头……听说最近挺热闹的。");
+	Say("老妇：贫居闹市无人问，富在深山有远亲啊——");
+	Return;

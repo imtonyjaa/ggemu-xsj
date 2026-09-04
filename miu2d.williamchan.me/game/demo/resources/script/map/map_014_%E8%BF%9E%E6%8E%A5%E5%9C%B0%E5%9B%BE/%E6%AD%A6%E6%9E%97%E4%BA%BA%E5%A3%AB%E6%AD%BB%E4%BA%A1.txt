@@ -1,0 +1,29 @@
+	Add($NpcCount,-1);
+	If ($NpcCount ==0) @ClearEnemy;
+	Return;
+
+@ClearEnemy:
+	StopMusic();
+	FadeOut();
+	SaveObj();
+	Assign($DeathCount ,0);
+	Assign($Event,370);
+	SetPlayerPos(12,76);
+	Watch("姑娘","杨影枫",0);
+	FadeIn();
+	PlayMusic("Mc006.mp3");
+	Sleep(1000);
+	NpcSpecialAction("姑娘","mpc086.asf");
+	Sleep(1000);
+	Say("姑娘：多谢公子出手相助，只是我还有要事在身，就此别过了。日后若是有缘再见，必当相报！",22);
+	Say("杨影枫：姑娘，你我都是江湖中人，不必多礼。",2);
+	Say("姑娘：后会有期！",22);
+	//Talk(6420,6430);
+	Sleep(1000);
+	NpcGoto("姑娘",18,67);
+	DelNpc("姑娘");
+	Say("杨影枫：江湖险恶，本该送她一程，但这位姑娘似乎不愿别人相助。我还是先去见紫轩吧！",2);
+	SetMapTrap(1,"Trap01.txt");
+	SetMapTrap(2,"Trap02.txt");
+	SetMapTrap(3,"Trap03.txt");
+	Return;

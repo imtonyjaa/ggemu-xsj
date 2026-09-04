@@ -1,0 +1,19 @@
+    Add($Enemy006, 1);
+	If ($Enemy006 == 8) @finished;
+    Return;
+    
+@finished:
+    Assign($Event, 43);
+	Talk(250, 250);
+	Talk(260, 260);
+	StopMusic();
+	FadeOut();
+	ClearBody();
+	SetPlayerPos(32,92);
+	SetPlayerDir(5);
+	LoadNpc("wudangshanding1.npc");
+	SaveNpc("temp.npc");
+	PlayMusic("mc014.mp3");
+	FadeIn();
+	RunScript("挑战武当.txt");
+	

@@ -1,0 +1,26 @@
+// 何家丫环对话
+
+	If ($Event == 180) @Event180;
+	If ($Event << 180) @Eventlessthan180; 
+	If ($Event == 190) @Event190;
+	If ($Event >> 190) @Eventmorethan190;
+	
+@Event180:
+	Watch("何府丫环", "何梅", 0);
+	Say("丫环小珠：小姐，你回来啦，我好想你呀！", 0);
+	Return;
+		
+@Eventlessthan180:
+	Say("丫环小珠：我们老爷是临安城里数得着的大财主，我们小姐不仅人长得漂亮，而且知书达理……", 0);
+	Return;	
+	
+@Event190:
+	Say("丫环小珠：公子为什么不愿娶小姐呢？小姐她才貌双全，不知有多少年轻人倾慕呢，我真替公子感到可惜呀。", 0);
+	Return;
+			
+@Eventmorethan190:	
+	Say("丫环小珠：原来是独孤公子。公子，自从你走后，我们小姐就茶饭不思，整日闷闷不乐，你快去看看她吧？", 0);
+	Return;		
+	
+	
+	

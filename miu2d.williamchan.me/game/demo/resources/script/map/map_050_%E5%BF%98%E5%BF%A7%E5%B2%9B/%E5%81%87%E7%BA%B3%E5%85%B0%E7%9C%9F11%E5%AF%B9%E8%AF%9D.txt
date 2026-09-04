@@ -1,0 +1,4 @@
+	Talk(41280,41300);
+	SetNpcScript("","");
+	SetNpcRelation("",1);
+	Return;

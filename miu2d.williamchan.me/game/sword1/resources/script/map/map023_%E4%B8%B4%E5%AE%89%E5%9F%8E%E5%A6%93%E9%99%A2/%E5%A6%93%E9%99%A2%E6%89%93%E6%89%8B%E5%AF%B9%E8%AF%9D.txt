@@ -1,0 +1,48 @@
+//和妓院打手的对话
+
+	If ($Event << 100) @Eventlessthan100;
+	If ($Event == 100) @Event100;
+	If ($Event >> 100) @Eventmorethan100;
+	
+	Return;
+
+@Eventlessthan100:
+	If($TalkDashou == 0) @TalkDashou0;
+	If($TalkDashou == 1) @TalkDashou1;
+@TalkDashou0:
+	Say("打手蓝老大：想见南宫姑娘？五百两银子一看，只许看，不许动。", 0);
+	Say("独孤剑：在下……", 4);
+	Say("打手蓝老大：在什么下？看你这穷酸样，谅你也没有五百两银子。下楼去找个便宜点的算了吧。", 0);
+	Say("独孤剑：在下并非寻花问柳之辈……", 1);
+	Say("打手蓝老大：哈哈！跑这儿来不是寻花问柳，难道是来读四书五经不成？假正经。", 0);
+	Assign($TalkDashou, 1);
+	Return;
+@TalkDashou1:	
+	Say("打手蓝老大：假正经。", 0);
+	Return;
+
+
+@Event100:
+	If($TalkDashou == 0) @TalkDashou2;
+	If($TalkDashou == 1) @TalkDashou3;
+@TalkDashou2:
+	Say("打手蓝老大：想见南宫姑娘？五百两银子一看，只许看，不许动。", 0);
+	Say("独孤剑：在下找南宫姑娘有要事相求。", 1);
+	Say("打手蓝老大：我也有要事相求……求她陪我睡一晚。臭小子，少来这一套，滚！", 0);
+	Assign($Event, 105);
+	Memo("来到妓院，但门口的打手不让见南宫彩虹，看来只能另想办法。");
+	Return;
+	
+@TalkDashou3:	
+	Say("打手蓝老大：你又来干什么？有钱了？", 0);
+	Say("独孤剑：在下找南宫姑娘有要事相求。", 1);
+	Say("打手蓝老大：我也有要事相求……求她陪我睡一晚。臭小子，少来这一套，滚！", 0);
+	Assign($Event, 105);
+	Memo("来到妓院，但门口的打手不让见南宫彩虹，看来只能另想办法。");
+	Return;
+
+@Eventmorethan100:	
+	Say("打手蓝老大：喂，小子，乱闯什么呢？", 0);
+	Return;
+	
+	

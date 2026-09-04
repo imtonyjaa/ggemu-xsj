@@ -1,0 +1,117 @@
+    Add($Enemyblack, 1);
+	If ($Enemyblack >= 5) @finished;
+	Return;
+
+@finished:
+	FadeOut();
+	StopMusic();
+	// 风紧，扯呼
+	Talk(1040, 1040);
+	Say("杨影枫：想跑，没那么容易！", 2);
+	SetPlayerPos(43, 75);
+	SetPlayerDir(7);
+	SetPlayerScn();
+	ClearBody();
+	SaveObj();
+	LoadNpc("catch-heiyiren.npc");
+	SetNpcPos("黑衣人", 44,76);
+	SetNpcDir("黑衣人",3);
+	Sleep(300);
+	SetPlayerState(0);
+	FadeIn();
+	SetNpcActionFile("杨影枫", 0, "mpc019_主角-1.asf");
+	SetNpcActionFile("杨影枫", 1, "mpc019_主角-1.asf");
+	NpcSpecialAction("杨影枫", "mpc019_主角.asf");
+	Sleep(1000);
+	Say("杨影枫：你这炭头，你跑不出本公子的手掌心。老实交待，你们是什么人？来这儿干什么？谁指示你们来的？快说！", 6);
+	Say("黑衣人：我们有我们的规矩，我不能告诉你任何东西。", 65);
+	Say("杨影枫：难道你不想要命了吗？本公子杀人可是不眨眼的。", 6);
+	Say("黑衣人：这……好吧，我告诉你，你放我走，不能说是我讲的。", 65);
+	Say("杨影枫：好……", 2);
+	PlaySound("特-暗器.wav");
+	Sleep(500);
+	PlaySound("攻-男死08.wav");
+	NpcSpecialAction("黑衣人", "npc083_die.asf");
+	Sleep(1200);
+	DelNpc("黑衣人");
+	ClearBody();
+	SaveObj();
+	LoadObj("map012-deathofcike.obj");
+	SetNpcActionFile("杨影枫", 0, "npc006_st2.asf");
+	SetNpcActionFile("杨影枫", 1, "npc006_sst2.asf");
+//	FadeIn();
+	Say("杨影枫：什么人？竟敢偷袭？", 4);
+	PlayerRunTo(45, 78);
+	SetPlayerDir(7);
+	Say("杨影枫：跑得好快。", 2);
+	PlayerGoto(43, 77);
+	SetPlayerDir(5);
+	Say("杨影枫：这人下手好快。喂，炭头，这么快就死干净了？你还没回答我问话呢！", 2);
+	Say("杨影枫：咦，这是什么东西？", 4);
+
+//	Talk(1061, 1061);
+	PlayerGoto(43, 75);
+	SetPlayerDir(0);
+	NpcSpecialActionEx("杨影枫", "mpc020.asf");
+	DelObj("银针");
+	SetPlayerDir(5);
+	
+	Say("杨影枫：<color=Red>银针<color=Black>？好厉害的银针，竟要了这炭头的命。咦，这银针上的古怪图案好邪气！", 4);
+//	Talk(1070, 1070);
+	AddGoods("Goods-e01-银针.ini");
+	Assign($Event, 90);
+	SetMapTrap(7, "Trap07.txt");
+	PlayerGoto(43, 75);
+	SetPlayerDir(5);
+	Sleep(300);
+	Say("杨影枫：你这炭头，死哪儿不好，三更半夜的死在这里，还要你家少爷亲手把你丢到荒郊野外去，真是岂有此理！", 6);
+
+	GetGoodsNum("Goods-e00-木匣.ini");
+	If ($GoodsNum == 0) @AddBox;
+		Goto @AddBoxEnd;
+	@AddBox:
+		Say("杨影枫：还有东西？", 4);
+		SetPlayerDir(0);
+		NpcSpecialActionEx("杨影枫", "mpc020.asf");
+		SetPlayerDir(5);
+		Say("杨影枫：是一个木匣子。这不是白天张兄的那个木匣子吗？奇怪！", 4);
+		AddGoods("Goods-e00-木匣.ini");
+		AddToMemo(90130);
+		Goto @AddBoxEnd;
+	@AddBoxEnd:
+
+	FadeOut();
+	Talk(1713, 1713);
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	LoadNpc("huianzhen.npc");
+	LoadObj("map012_obj.obj");
+	DelObj("惠安镇大门");
+	DelObj("大门");
+	AddObj("踢破大门.ini", 52, 66, 0);
+	AddObj("长剑.ini", 55, 74, 0);
+	AddObj("张仲天尸体.ini", 54, 72, 0);
+	DelNpc("张仲天");
+	SetNpcPos("何小妹", 55, 71);
+	SetNpcDir("何小妹",1);
+	SetNpcPos("陈大勇", 55, 73);
+	SetNpcDir("陈大勇",2);
+	SetNpcPos("柳彩姑", 55, 70);
+	SetNpcDir("柳彩姑",0);
+	SetNpcPos("小叁子",48, 70);
+	SetNpcDir("小叁子",1);
+	SetPlayerPos(45, 50);
+	SetPlayerDir(0);
+	SetPlayerScn();
+	SetPlayerState(0);
+	FullLife();
+	FullThew();
+	FullMana();
+	FadeIn();
+	Say("杨影枫：该去向张兄请个安了。不知昨晚的事情有没有打扰张兄休息。", 2);
+//	Talk(1080, 1080);
+	Return;
+
+@end:
+	Return;
+	

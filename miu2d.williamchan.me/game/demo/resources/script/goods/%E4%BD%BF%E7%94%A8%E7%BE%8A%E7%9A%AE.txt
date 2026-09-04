@@ -1,0 +1,16 @@
+
+
+	If ($YangPiNo == 7) @UseYangPi;
+
+	Return;
+@UseYangPi:
+	Say("杨影枫：这些羊皮凑在一起好像组成了一幅什么图案……啊，这是一种武功。", 3);
+	AddMagic("player-magic-镇狱破天劲.ini");
+	DelGoods("Goods-e22-羊皮.ini");
+	DelGoods("Goods-e22-羊皮.ini");
+	DelGoods("Goods-e22-羊皮.ini");
+	DelGoods("Goods-e22-羊皮.ini");
+	DelGoods("Goods-e22-羊皮.ini");
+	DelGoods("Goods-e22-羊皮.ini");
+	DelGoods("Goods-e22-羊皮.ini");
+	Return;

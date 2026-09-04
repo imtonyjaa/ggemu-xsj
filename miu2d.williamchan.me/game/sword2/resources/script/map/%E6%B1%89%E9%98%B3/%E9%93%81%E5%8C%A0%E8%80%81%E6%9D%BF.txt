@@ -1,0 +1,3 @@
+		Talk(37740,37740);
+		BuyGoods("4-汉阳-铁匠老板.ini");
+		Return;

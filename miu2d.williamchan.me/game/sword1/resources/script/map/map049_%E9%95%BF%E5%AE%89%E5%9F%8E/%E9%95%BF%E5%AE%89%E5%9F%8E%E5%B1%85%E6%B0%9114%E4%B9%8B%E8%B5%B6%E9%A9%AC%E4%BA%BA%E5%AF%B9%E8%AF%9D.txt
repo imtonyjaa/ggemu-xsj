@@ -1,0 +1,16 @@
+// 与长安城居民赶马人的对话
+
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	Say("闵殊：赶了一个多月的路来到长安，没想到昔日的繁华之地如今竟变得如此萧条！", 0);
+	Return;
+	
+@YuanDan:		
+	Say("闵殊：赶了一个多月的路来到长安，没想到昔日的繁华之地如今竟变得如此萧条！想当初长安城里过新年多热闹！", 0);
+	Return;
+

@@ -1,0 +1,10 @@
+If ($Result == 1) @Result1;
+Talk(22260, 22261);
+Return;
+
+@Result1:
+	Watch("葛婷","滕龙",0);
+	Talk(22260,22261);
+	Watch("葛婷","杨影枫",0);
+	Talk(22262,22262);
+	Return;

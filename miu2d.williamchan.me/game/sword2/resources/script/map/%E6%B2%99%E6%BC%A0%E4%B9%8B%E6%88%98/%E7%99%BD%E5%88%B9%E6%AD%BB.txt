@@ -1,0 +1,26 @@
+
+
+	DisableNpcAI();
+	DelNpc("白刹");
+	Sleep(200);
+	Talk(38210,38210);
+	EnableNpcAI();
+	
+	If($ShaMoFirst==1) @Talk1;
+	Assign($ShaMoFirst,1);
+	Return;
+	
+	@Talk1:
+	Talk(38220,38220);
+	FadeOut();
+	FullLife();
+	FullThew();
+	FullMana();
+	Talk(38240,38240);
+	LoadMap("主角家.map");
+	LoadNpc("home.npc");
+	LoadObj("home.obj");
+	SetPlayerPos(20,64);
+	SetPlayerState(0);
+	RunScript("开始游戏.txt");
+	Return;

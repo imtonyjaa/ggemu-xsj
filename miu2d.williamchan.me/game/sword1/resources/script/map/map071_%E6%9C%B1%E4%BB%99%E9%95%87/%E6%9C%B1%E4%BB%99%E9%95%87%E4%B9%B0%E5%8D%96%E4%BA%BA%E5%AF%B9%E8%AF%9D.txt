@@ -1,0 +1,93 @@
+// 此人买卖药品、武器、防具
+
+	Say("钟放：公子要买些什么？买一点药品吧！", 0);
+	GetPlayerLevel($PlayerLevel);
+	If ($PlayerLevel << 16) @PlayerLevelYaoL16;
+	If ($PlayerLevel << 31) @PlayerLevelYaoL31;
+	Goto @PlayerLevelYaoG30;
+	Goto @wuqi;
+
+@PlayerLevelYaoL16:
+	SellGoods("低级药品.ini");
+	Goto @wuqi;
+@PlayerLevelYaoL31:
+	SellGoods("中级药品.ini");
+	Goto @wuqi;
+@PlayerLevelYaoG30:
+	SellGoods("高级药品.ini");
+	Goto @wuqi;
+
+
+	
+@wuqi:
+	Say("钟放：人在江湖，总要买些武器防身吧？", 0);
+	GetPlayerLevel($PlayerLevel);
+	If ($PlayerLevel << 10) @PlayerLevelwuqiL10;
+	If ($PlayerLevel << 16) @PlayerLevelwuqiL16;
+	If ($PlayerLevel << 22) @PlayerLevelwuqiL22;
+	If ($PlayerLevel << 28) @PlayerLevelwuqiL28;
+	If ($PlayerLevel << 34) @PlayerLevelwuqiL34;
+	If ($PlayerLevel << 40) @PlayerLevelwuqiL40;
+	Goto @PlayerLevelwuqiG40;
+	Goto @fangju;
+
+@PlayerLevelwuqiL10:
+	SellGoods("buy1级武器.ini");
+	Goto @fangju;
+@PlayerLevelwuqiL16:
+	SellGoods("buy2级武器.ini");
+	Goto @fangju;
+@PlayerLevelwuqiL22:
+	SellGoods("buy3级武器.ini");
+	Goto @fangju;
+@PlayerLevelwuqiL28:
+	SellGoods("buy4级武器.ini");
+	Goto @fangju;
+@PlayerLevelwuqiL34:
+	SellGoods("buy5级武器.ini");
+	Goto @fangju;
+@PlayerLevelwuqiL40:
+	SellGoods("buy6级武器.ini");
+	Goto @fangju;
+@PlayerLevelwuqiG40:
+	SellGoods("buy7级武器.ini");
+	Goto @fangju;
+
+
+	 	
+@fangju:
+	Say("钟放：再来看看我这里的南北杂货吧！", 0);
+	GetPlayerLevel($PlayerLevel);
+	If ($PlayerLevel << 10) @PlayerLevelL10;
+	If ($PlayerLevel << 16) @PlayerLevelL16;
+	If ($PlayerLevel << 22) @PlayerLevelL22;
+	If ($PlayerLevel << 28) @PlayerLevelL28;
+	If ($PlayerLevel << 34) @PlayerLevelL34;
+	If ($PlayerLevel << 40) @PlayerLevelL40;
+	Goto @PlayerLevelG40;
+	Return;
+
+@PlayerLevelL10:
+	SellGoods("buy1级防具.ini");
+	Return;
+@PlayerLevelL16:
+	SellGoods("buy2级防具.ini");
+	Return;
+@PlayerLevelL22:
+	SellGoods("buy3级防具.ini");
+	Return;
+@PlayerLevelL28:
+	SellGoods("buy4级防具.ini");
+	Return;
+@PlayerLevelL34:
+	SellGoods("buy5级防具.ini");
+	Return;
+@PlayerLevelL40:
+	SellGoods("buy6级防具.ini");
+	Return;
+@PlayerLevelG40:
+	SellGoods("buy7级防具.ini");
+	Return;
+
+
+

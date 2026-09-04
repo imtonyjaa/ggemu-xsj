@@ -1,0 +1,14 @@
+// 与赵七娘的对话
+
+	If ($Eventzhaoqi == 1) @Eventzhaoqi1;
+	If ($Eventzhaoqi == 3) @Eventzhaoqi3;
+	
+@Eventzhaoqi1:
+	Say("赵七娘：怎么，又不想走了？", 0);
+	Return;	
+	
+@Eventzhaoqi3:
+	Say("赵七娘：公子，多谢你成全。", 0);
+	Return;	
+	
+	

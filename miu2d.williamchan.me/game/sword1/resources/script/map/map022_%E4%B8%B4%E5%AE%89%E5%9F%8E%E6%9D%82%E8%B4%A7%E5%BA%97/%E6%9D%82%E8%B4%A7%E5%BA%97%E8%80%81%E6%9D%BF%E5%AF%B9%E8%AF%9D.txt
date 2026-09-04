@@ -1,0 +1,76 @@
+// 与杂货店老板的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	Say("杂货店老板：我这里南北杂货应有尽有，公子要买点什么吗？", 88);
+	GetPlayerLevel($PlayerLevel);
+	If ($PlayerLevel << 10) @PlayerLevelL10;
+	If ($PlayerLevel << 16) @PlayerLevelL16;
+	If ($PlayerLevel << 22) @PlayerLevelL22;
+	If ($PlayerLevel << 28) @PlayerLevelL28;
+	If ($PlayerLevel << 34) @PlayerLevelL34;
+	If ($PlayerLevel << 40) @PlayerLevelL40;
+	Goto @PlayerLevelG40;
+	Return;
+
+@PlayerLevelL10:
+	SellGoods("buy1级防具.ini");
+	Return;
+@PlayerLevelL16:
+	SellGoods("buy2级防具.ini");
+	Return;
+@PlayerLevelL22:
+	SellGoods("buy3级防具.ini");
+	Return;
+@PlayerLevelL28:
+	SellGoods("buy4级防具.ini");
+	Return;
+@PlayerLevelL34:
+	SellGoods("buy5级防具.ini");
+	Return;
+@PlayerLevelL40:
+	SellGoods("buy6级防具.ini");
+	Return;
+@PlayerLevelG40:
+	SellGoods("buy7级防具.ini");
+	Return;
+
+
+@YuanDan:
+
+	Say("杂货店老板：新年大吉！我这里南北杂货应有尽有，公子要买点什么吗？", 88);
+	GetPlayerLevel($PlayerLevel);
+	If ($PlayerLevel << 10) @PlayerLevelL10YD;
+	If ($PlayerLevel << 16) @PlayerLevelL16YD;
+	If ($PlayerLevel << 22) @PlayerLevelL22YD;
+	If ($PlayerLevel << 28) @PlayerLevelL28YD;
+	If ($PlayerLevel << 34) @PlayerLevelL34YD;
+	If ($PlayerLevel << 40) @PlayerLevelL40YD;
+	Goto @PlayerLevelG40YD;
+	Return;
+
+@PlayerLevelL10YD:
+	SellGoods("buy1级防具.ini", 1);
+	Return;
+@PlayerLevelL16YD:
+	SellGoods("buy2级防具.ini", 1);
+	Return;
+@PlayerLevelL22YD:
+	SellGoods("buy3级防具.ini", 1);
+	Return;
+@PlayerLevelL28YD:
+	SellGoods("buy4级防具.ini", 1);
+	Return;
+@PlayerLevelL34YD:
+	SellGoods("buy5级防具.ini", 1);
+	Return;
+@PlayerLevelL40YD:
+	SellGoods("buy6级防具.ini", 1);
+	Return;
+@PlayerLevelG40YD:
+	SellGoods("buy7级防具.ini", 1);
+	Return;

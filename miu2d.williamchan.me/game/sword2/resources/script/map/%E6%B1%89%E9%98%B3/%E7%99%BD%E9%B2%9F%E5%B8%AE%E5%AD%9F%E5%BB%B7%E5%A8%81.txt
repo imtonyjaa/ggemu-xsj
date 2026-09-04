@@ -1,0 +1,39 @@
+	
+	
+	If($HanYanBXBMTW==1) @Talk1;
+	Talk(37340,37510);
+	Assign($HanYanBXBMTW,1);
+	StopMusic();
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	DisableNpcAI();
+	LoadMap("汉阳小屋.map");
+	LoadNpc("HanYangHouse.npc");
+	SaveNpc("HanYangHouse1.npc");
+	SetPlayerPos(12,26);
+	SetPlayerDir(4);
+	SetPlayerState(1);
+	FadeIn();
+	Talk(38090,38090);
+	EnableNpcAI();
+	Return;
+	
+@Talk1:
+
+	Talk(37520,37540);
+	StopMusic();
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	DisableNpcAI();
+	LoadMap("汉阳小屋.map");
+	LoadNpc("HanYangHouse.npc");
+	SaveNpc("HanYangHouse1.npc");
+	SetPlayerPos(12,26);
+	SetPlayerDir(4);
+	SetPlayerState(1);
+	FadeIn();
+	Talk(38090,38090);
+	EnableNpcAI();
+	Return;

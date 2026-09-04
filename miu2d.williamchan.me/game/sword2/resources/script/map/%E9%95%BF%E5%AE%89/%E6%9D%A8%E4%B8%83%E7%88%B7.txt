@@ -1,0 +1,44 @@
+//和杨七爷谈话
+
+	If ($ChangAnXiaofan==1) @Talk1;
+	Talk(45400,45410);
+	Return;
+	
+@Talk1:
+	//已和小贩谈过话
+	If ($ChangAnYangQiYe>=1) @Talk2;
+	Talk(45420,45500);
+	PlayerGoto(62,181);
+	Talk(45510,45510);
+	PlayerGoto(64,178);
+	Talk(45520,45590);
+	PlayerGoto(61,183);
+	SetPlayerDir(1);
+	SetNpcDir("杨七爷",5);
+	Talk(45600,45680);
+	PlayerGoto(69,167);
+	Talk(45710,45710);
+	AddToMemo("到城东的上官豹那里去帮杨七爷把祖传的玉圭拿回来。");
+	Assign($ChangAnYangQiYe,1);
+	Return;
+		
+@Talk2:
+	If ($ChangAnYuGuiFinish==1) @Talk3;
+	Talk(45690,45690);
+	Return;
+	
+@Talk3:
+	If ($ChangAnYangQiYe>=2) @Talk4;
+	Talk(45720,45780);
+	DelGoods("goods-sj-5-玉圭.ini");
+	AddGoods("goods-sj-6-夜明珠.ini");
+	PlayerGoto(69,167);
+	Talk(45790,45860);
+	AddToMemo("你从杨七爷手里得到了夜明珠，还不赶快回客栈献宝去。");
+	Assign($ChangAnYangQiYe,2);
+	Return;
+	
+@Talk4:
+	Talk(45700,45700);
+	Return;
+	

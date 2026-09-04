@@ -1,0 +1,115 @@
+
+	//StopMusic();
+	//ChangeMapColor(255, 255, 255);
+	//ChangeAsfColor(255, 255, 255);
+	
+	//LoadMap("map118_泰山.map");
+	//LoadNpc("map118.npc");
+	//LoadObj("map118.obj");
+	//SetPlayerPos(17,81);
+	//SetPlayerDir(3);
+	
+	
+	LoadNpc("map001.npc");
+	LoadObj("map001.obj");
+	SetPlayerPos(34, 20);
+	SetPlayerDir(6);
+	SetPlayerState(1);
+	FadeIn();
+	Say("这天，衡山派大弟子独孤剑正在练武场独自练剑……");
+			
+	PlayerRunTo(34,14);
+	SetPlayerDir(4);
+	SetNpcMagicFile("独孤剑","magic001_衡山有雪.ini");
+	NpcAttack("独孤剑", 35,20);
+	Sleep(750);
+	PlayerRunTo(36,15);
+	SetNpcMagicFile("独孤剑","magic002_南岳支天.ini");
+	NpcAttack("独孤剑", 35,20);
+	Sleep(750);
+	PlayerRunTo(34, 20);
+	SetNpcMagicFile("独孤剑","magic003_牧野流星.ini");
+	NpcAttack("独孤剑", 35,20);
+	Sleep(1000);
+	PlayerRunTo(34, 22);
+	Sleep(750);
+	SetNpcMagicFile("独孤剑","magic001_衡山有雪.ini");
+	NpcAttack("独孤剑", 34,24);
+	Sleep(350);
+	SetNpcMagicFile("独孤剑","magic001_衡山有雪.ini");
+	NpcAttack("独孤剑", 34,24);
+	Sleep(2500);
+	SetPlayerState(0);
+	Sleep(600);
+	Say("独孤剑：师傅已经下山这么久了，不知……", 1);
+	PlayMusic("尘丝.mp3");
+	FadeOut();
+	LoadMap("map003_衡山派大厅.map");
+	ChangeMapColor(0, 0, 0);
+	ChangeAsfColor(0, 0, 0);
+	SetPlayerPos(7, 35);
+	SetPlayerDir(5);
+	AddNpc("npc012_刘轻舟.ini",8,34,1);
+	FadeIn();
+	
+	Say("刘轻舟：为师这次下山，是有一件要事要办，生死难以预料。你一直问我你的父亲是怎么死的，我现在就告诉你。", 55);
+	Say("你父亲，是当年名震江湖的“天心飞仙”四剑客中的“仙剑客”独孤云，十年前他和“飞剑客”张风一起去金国想救出徽钦二帝，结果张风被金国高手“天剑客”南宫灭收买，你父亲也因此惨死他乡。", 55);
+	Say("数年前，张风护送秦桧回国，现官拜殿前都指挥使。江湖同道怀疑张风是个金国奸细，但一直没有证据。此次为师如果有命回来，自然和你一起调查此事；若我遭遇不幸，你得肩负起衡山剑派掌门的重担。记住，千万不要轻举妄动，凭你的武功，根本不是他的对手，切记……", 55);
+  
+	FadeOut();
+	DelNpc("刘轻舟");
+	SaveNpc();
+	LoadMap("map001_衡山.map");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	LoadNpc("map001.npc");
+	LoadObj("map001.obj");
+	SetPlayerPos(34, 20);
+	SetPlayerDir(5);
+	AddNpc("npc100_卢青.ini",28 ,29 ,5);
+	FadeIn();
+	
+	Sleep(500);
+	Say("独孤剑：张风狗贼，国仇家恨，不共戴天，我是一定不会放过你的！", 9);
+	SetNpcMagicFile("独孤剑", "player-magic-长剑.ini");
+	NpcAttack("独孤剑", 34, 19);
+	Sleep(500);
+	NpcAttack("独孤剑", 34, 19);	
+	Sleep(2000);
+	Say("卢青：大师兄！", 83);
+	SetPlayerDir(1);
+	Sleep(500);
+	PlayerGotoEx(31, 25); 
+	NpcGoto("卢青", 30, 27);
+	SetNpcDir("卢青", 5);
+	Say("独孤剑：师弟，发生了什么事？", 1);
+	Say("卢青：不好了！师傅回来了，他受了重伤，叫你快去见他。", 83);
+	Say("独孤剑：什么？！我这就去。", 6);
+	SetNpcKind("卢青", 3);
+	SetNpcRelation("卢青",2);
+	
+	Memo("南宋初期，朝廷昏庸，国衰民怨，奸佞弄权，陷害忠良，金人南侵，生灵涂炭。");
+	Memo("正所谓乱世出英雄，在国运岌岌可危的背景下，江湖上一时间豪杰辈出，为保卫家园，捍卫河山，上演了一幕幕可歌可泣的诗篇。");
+	Memo("公元1139年，金国宰相鞑懒被刺的消息传来，我们的故事就从这里开始……");
+	Memo("这天，衡山派大弟子独孤剑正在烟庐旁回忆着师傅刘轻舟下山前说的话。");
+	Memo("从师傅口中，他得知杀死父亲“仙剑客”独孤云的凶手是与父亲齐名的“飞剑客”张风。");
+	Memo("这时，师弟卢青赶来告知师傅回山受了重伤，独孤剑急忙和卢青一起去衡山派大厅见师傅。");
+	
+	Assign($Event, 10);
+	Assign($End, 1);
+
+	
+ 游戏难易选择
+	
+	EquipGoods(*, *);
+	Choose("请选择游戏的难度：", "普通", "困难", $Level);
+	If ($Level == 1) @Level;
+	SetLevelFile("Level-easy.ini");
+	SetNpcLevel("独孤剑", 1);
+	Goto @end;
+@Level:
+	SetLevelFile("Level-hard.ini");
+	Goto @end;
+@end:	
+	Return;
+

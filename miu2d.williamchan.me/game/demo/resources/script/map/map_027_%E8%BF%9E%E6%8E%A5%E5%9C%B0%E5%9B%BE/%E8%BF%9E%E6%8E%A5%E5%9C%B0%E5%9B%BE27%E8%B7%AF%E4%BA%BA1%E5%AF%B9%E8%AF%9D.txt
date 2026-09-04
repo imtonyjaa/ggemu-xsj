@@ -1,0 +1,41 @@
+//一对情人
+If ($Result == 0) @Result0;
+If ($Result == 1) @Result1;
+If ($Result == 2) @Result2;
+If ($Result == 3) @Result3;
+Goto @end;
+
+@Result0:
+If ($Event << 360 ) @Talk1;
+If ($Event >= 360 ) @Talk2;
+Goto @end; 
+
+@Result1:
+Talk(40060,40070);
+Goto @end;
+
+
+@Result2:
+Talk(40060,40070);
+Goto @end;
+
+@Result3:
+Talk(40060,40070);
+Goto @end;
+
+
+@Talk1:
+Talk(21840, 21850);
+Goto @end;
+
+
+@Talk2:
+Talk(40060,40070);
+//Say("郝槁杭：诗经上说，死生契阔，与子相悦；执子之手，与子偕老。逸竹，我们一生一世都不要离开，好吗？");
+//Say("逸竹：真的吗？等我门老了以后，也会象现在一样相拥在一起，对吗?");
+Goto @end;
+
+
+
+@end:
+Return;

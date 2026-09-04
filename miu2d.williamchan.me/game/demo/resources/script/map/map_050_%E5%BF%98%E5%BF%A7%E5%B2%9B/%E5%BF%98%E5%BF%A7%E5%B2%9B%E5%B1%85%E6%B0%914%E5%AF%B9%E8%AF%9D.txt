@@ -1,0 +1,71 @@
+	//福婆婆
+	If ($Event == 1818) @1813;
+	If ($Event == 1817) @1813;
+	If ($Event == 1813) @1813;
+//	If ($Result == 2) @Result2;
+	If ($Event == 260) @Talk260;
+	If ($Event == 340) @Talk340;
+	If ($Event == 412) @Talk412;
+	If ($Event == 415) @Talk415;
+	If ($Event == 350) @Talk350;
+	If ($Event == 700) @TalkE700;
+	If ($Event >= 302) @Label;
+	Talk(21150, 21150);
+	Goto @end;
+
+@1813:
+	Say("福婆婆：年轻人，要懂得珍惜身边的人，否则将来后悔的时候就晚了。", 0);
+	Return;
+
+@Label:
+	Talk(21151, 21151);
+	Goto @end;
+	
+@Talk260:
+	Talk(21152, 21152);
+	Goto @end;	
+	
+@Talk340:
+	If ($Talkfupopo == 0) @Talk0;
+	If ($Talkfupopo == 1) @Talk1;
+	Goto @end;
+@Talk0:
+   	Say("福婆婆：真儿，你又跑到哪里去这么久？我早就跟你说过，女孩子家不要跑来跑去。你爹爹派人到处找不到你，他可担心了！", 0);
+	Assign($Talkfupopo, 1);
+	Goto @end;
+@Talk1:
+   	Say("福婆婆：你还不快去看看你爹爹！我看他这阵子瘦了不少。", 0);
+	Say("纳兰真：婆婆，我这就去。", 9);
+	Goto @end;	
+
+
+@Talk412:
+	Talk(40930,40930);
+	Goto @end;
+
+@Talk415:
+	Talk(40940,40950);
+	Goto @end;
+
+@TalkE700:
+	Talk(61510,61510);
+	Goto @end;
+	
+@Result2:
+	If ($Event >= 750) @TalkA750;
+	Talk(21150,21150);
+	Goto @end;		
+
+@TalkA750:
+	Talk(71530,71530);
+	Goto @end;
+	
+@Talk350:
+	Sleep(500);
+	Watch("福婆婆" , "杨影枫", 0);
+	Say("福婆婆：年轻人，要懂得珍惜身边的人，否则将来后悔的时候就晚了。", 0);
+	Say("杨影枫：……", 2);
+	Return;	
+	
+@end:
+	Return;

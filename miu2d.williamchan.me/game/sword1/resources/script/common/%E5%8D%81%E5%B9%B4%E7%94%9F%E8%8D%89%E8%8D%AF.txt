@@ -1,0 +1,6 @@
+//捡到物品
+
+	PlaySound("特_捡到特殊物品.wav");
+	AddGoods("Goods203_十年生草药.ini");
+	DelCurObj();
+	Return;

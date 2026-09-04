@@ -1,0 +1,54 @@
+	If ($Event == 124) @end;
+	If ($Event == 110) @Label1;
+	If ($Event == 120) @Label2;
+	If ($Event == 130) @Label3;
+	If ($Event == 135) @Label4;
+	If ($Event == 480) @Label5;
+	If ($Event == 475) @Label6;
+	If ($Event == 478) @Label7;
+		
+	Talk(21331, 21331);
+	Return;
+	
+@Label1:
+	Talk(21330, 21330);
+	Return;
+	
+@Label2:
+	Talk(21332, 21332);
+	Return;
+	
+@Label3:
+	Talk(21333, 21333);
+	Return;
+	
+@Label4:
+	Talk(21334, 21334);
+	Return;		
+	
+@Label5:
+	Talk(21335, 21335);
+	Return;
+	
+@Label6:
+	If ($Talkabian == 0) @Talk0;
+	If ($Talkabian == 1) @Talk1;
+	Say("家丁阿扁：……", 0);
+	Return;
+@Talk0:
+	Say("家丁阿扁：啊！杨公子，你……你来了！", 0);
+	Say("杨影枫：我们可真是久违了！你们庄主在吗？", 2);
+	Say("家丁阿扁：庄主在……在大厅，容我去通报一声。", 0);
+	Say("杨影枫：凭我跟你们庄主的交情，就不必了！", 2);
+	Assign($Talkabian, 1);
+	Return;
+@Talk1:
+	Say("家丁阿扁：……", 0);
+	Return;
+			
+@Label7:			
+	Say("家丁阿扁：……", 0);
+	Return;
+
+@end:
+	Return;

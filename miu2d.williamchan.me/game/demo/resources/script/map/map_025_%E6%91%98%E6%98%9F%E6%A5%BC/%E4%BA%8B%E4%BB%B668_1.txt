@@ -1,0 +1,22 @@
+
+
+	If ($Event == 670) @Label1;
+	
+	Goto @end;
+	
+@Label1:
+	If ($Result <> 1) @end;
+	Say("系统消息：发生事件68.1，大批武林人士前来攻打摘星楼，去找涟漪（涟漪在里面）");
+	Say("系统消息：Event 的值变为 672");
+	Assign($Event, 672);
+	
+	Say("系统消息：这一段放在npc涟漪身上，带涟漪走");
+	Say("系统消息：Event 的值变为 674");
+	Assign($Event, 674);
+	
+	SetMapTrap(6, "事件68_2.txt");
+	
+	Goto @end;
+	
+@end:
+	Return;

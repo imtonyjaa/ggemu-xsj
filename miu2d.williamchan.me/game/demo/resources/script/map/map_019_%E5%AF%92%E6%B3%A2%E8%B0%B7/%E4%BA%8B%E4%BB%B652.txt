@@ -1,0 +1,89 @@
+
+	If ($Event == 510) @Label1;
+	
+	Goto @end;
+	
+@Label1:
+	PlayerGoto(24, 51);
+	SetPlayerDir(2);
+	SetNpcDir("紫轩", 6);
+	Talk(9120, 9180);
+	Select(9181, 9182, 9242, $SelectVal);
+// 不相信紫轩所言，翻脸
+	If ($SelectVal == 0) @Label2;
+// 心情极度复杂，不愿重提往事
+	If ($SelectVal == 1) @Label3;
+		
+@Label2:
+	Say("杨影枫：怎么？你还想再欺骗我一次吗？是不是因为卓非凡这个靠山倒了，所以才来找我？我不会再相信你了！", 2);
+	Say("紫轩：不，杨大哥，你误会我了。虽然我曾经骗过你，但那是因为受人摆布，身不由己，我对你的感情并不是假的，我真的…", 17);
+	Say("杨影枫：你不必再说了，我…不想听。", 2);
+	Say("紫轩：难道…你对我一点感情也没有了吗？", 17);
+	Say("杨影枫：我这次来的目的，就是要告诉你，我们之间已经恩断情绝了！", 2);
+	Say("紫轩：杨大哥，你，你真的这么恨我吗？", 20);
+	Say("杨影枫：我要说的话都说了，你如果没有别的事，在下就告辞了！", 2);
+	Say("紫轩：杨大哥，你不要走！不要离开我……", 20);
+	Say("杨影枫：实不相瞒，我已经找到了一个真心喜欢的人，她对我可是真心真意的，从不会欺骗我、利用我！",	2);
+	Say("紫轩：啊！…", 20);
+	SetNpcKind("杨影枫",1);
+    PlayerGoto(30, 60);
+    SetPlayerDir(7);
+	SetNpcKind("杨影枫",2);
+	Say("紫轩：他对我竟然这么绝情，我活在这个世界上还有什么意思…", 20);
+	Assign($Event, 520);
+	Add($SenseVal, -20);
+	Goto @Label4;
+@Label3:
+	Say("杨影枫：覆水难收的故事，想必你也听说过吧？", 2);
+	Say("紫轩：杨大哥……", 17);
+	Say("杨影枫：紫轩，你我之间的感情就像那流水一样无法再回头，过去的恩恩怨怨已经随着卓非凡的死作了了结，我不愿再提了！",	2);
+	Say("紫轩：与杨大哥初相识的日子，是紫轩这一生中最美好的时光，紫轩永远都不会忘记，难道大哥都忘了吗？", 17);
+	Say("杨影枫：我并没有忘……但是……", 2);
+	Say("紫轩：杨大哥，我知道你还是在乎我的，对吗？否则，你不会深夜来芭蕉小筑赴约。",	17);
+	Say("杨影枫：你误会了，我来这里只是为了和你说清楚，我们之间已经结束了。", 2);
+	Say("紫轩：不，我不信！", 17);
+	Say("杨影枫：紫轩，你自己保重吧！我要走了！", 2);
+	Say("紫轩：杨大哥，你不要走！不要离开我……", 20);
+	Say("杨影枫：实不相瞒，我已经找到了一个真心喜欢的人，她对我情深一片，我万万不能辜负她。", 2);
+	Say("紫轩：啊！…",	20);
+	SetNpcKind("杨影枫",1);
+    PlayerGoto(30, 60);
+    SetPlayerDir(7);
+	SetNpcKind("杨影枫",2);
+	Say("紫轩：他对我竟然这么绝情，我活在这个世界上还有什么意思…", 20);
+	Assign($Event, 520);
+	Add($SenseVal, 20);
+	Goto @Label4;
+
+@Label4:
+	FadeOut();
+	Sleep(200);
+	StopMusic();
+    PlayMovie("zx-die.avi");    
+	//LoadMap("map_020_樱花谷.map");
+	//ChangeMapColor(128, 150, 200);
+	//ChangeAsfColor(128, 150, 200);
+	//SetMapPos(3, 0);
+	//LoadNpc("yinghuagu-zixuanyuemei.npc");
+	//FadeIn();
+	//Talk(9350, 9410);
+	Say("紫轩：你为什么要救我？", 17);
+	Say("神秘人：跟我来吧！", 115);
+	//FadeOut();
+	PlayMusic("mc006.mp3");
+	LoadMap("map_018_连接地图.map");
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	LoadNpc("map018.npc");
+	LoadObj("map018_obj.obj");
+	SetPlayerPos(3, 35);
+	SetPlayerDir(6);
+	SetPlayerScn();
+	EnableNpcAI();
+	AddToMemo(90710);
+	FadeIn();
+		
+	Goto @end;
+	
+@end:
+	Return;

@@ -1,0 +1,72 @@
+	Add($NpcCount,-1);
+	If ($NpcCount == 0) @Clear;
+	Return;
+
+@Clear:
+	SetMapTrap(1,"Trap01.txt");
+	SetMapTrap(2,"Trap02.txt");
+	FadeOut();
+	SetNpcKind("紫轩",0);
+	SetNpcRelation("紫轩",2);
+	SetNpcActionFile("紫轩",1,"npc010_st.asf");
+	SetNpcActionFile("紫轩",0,"npc010_st.asf");
+	SetPlayerPos(33,66);
+	SetNpcPos("紫轩",32,66);
+	Sleep(500);
+	FadeIn();
+	Watch("杨影枫","紫轩",0);
+	Sleep(1000);
+	Talk(7660,7661);
+	Select(41238,41240,41250,$Sel);
+	EndRain();
+	If ($Sel == 1) @No;
+
+@Yes:	
+	BeginRain("Rain1.ini");
+	Watch("杨影枫","紫轩",0);
+	Sleep(1000);
+	Talk(7662,7670);
+	NpcAttack("杨影枫",32, 66);//mpc098.asf" 杨影枫攻击3a.asf"
+	//Sleep(6000);
+	SetNpcDir("紫轩",0);
+	NpcSpecialAction("紫轩","mpc099.asf");
+	Sleep(2000);
+	DelNpc("紫轩");
+	Assign($Event ,450);
+	Add($SenseVal, -40);
+	StopMusic();
+	FadeOut();
+	EndRain();
+	LoadMap("map_060_禁地二层.map");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(14, 28);
+	SetPlayerDir(1);
+	FadeIn();
+	Talk(41660,41660);
+	Return;
+
+
+@No:
+	Watch("杨影枫","紫轩",0);
+	Sleep(1000);
+	Talk(7671,7674);
+	SetNpcDir("紫轩",0);
+	NpcSpecialAction("紫轩","mpc099.asf");
+	Sleep(2000);
+	DelNpc("紫轩");
+	Assign($Event,450);
+	Add($SenseVal, 20);
+	StopMusic();
+	FadeOut();
+	LoadMap("map_060_禁地二层.map");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(14, 28);
+	SetPlayerDir(1);
+	FadeIn();
+	Talk(41660,41660);
+	Return;
+	
+@end:
+	Return;

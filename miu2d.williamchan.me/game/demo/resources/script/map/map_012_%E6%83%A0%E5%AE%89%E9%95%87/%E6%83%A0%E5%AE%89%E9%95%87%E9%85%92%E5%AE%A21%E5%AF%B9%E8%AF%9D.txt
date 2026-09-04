@@ -1,0 +1,25 @@
+If ($Event == 3145) @Talk3145;
+If ($Event == 3175) @Talk3175;
+Talk(22400, 22410);
+Return;
+
+@Talk3145:
+	GetRandNum($Rand,0,1);
+	If ($Rand == 1) @Talk3145_1;
+	Talk(103460,103520);
+	Return;
+@Talk3145_1:
+	Talk(103590,103630);
+	Return;	
+	
+@Talk3175:
+	GetRandNum($Rand,0,5);
+	If ($Rand == 4) @Talk3175_1;
+	Talk(103640,103680);
+	Return;
+
+@Talk3175_1:
+	Talk(103690,103730);
+	Return;		
+
+	

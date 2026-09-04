@@ -1,0 +1,102 @@
+	If ($Event == 1801) @1801;//结局2救纳兰真
+	If ($Result == 1)  @Result1;
+	Return;
+
+@Result1:
+	If ($Event == 650) @Event650;
+	If ($Event == 658) @Event658;
+	Return;
+
+@1801:
+	Add($NpcCount,-1);
+	If($NpcCount == 0) @AllDead;
+	Return;
+
+@AllDead:
+	Sleep(1000);
+	FadeOut();
+	LoadNpc("map039_AfterFight.npc");
+	LoadObj("map039_obj.obj");
+	DelNpc("纳兰真");
+	SetPlayerPos(31,74);
+	Watch("杨影枫","卢肇灏",0);
+	FadeIn();
+	MoveScreen(1,60,2);
+//	Talk(75140,75140);
+	Say("卢肇颢：杨影枫，算你厉害，好汉不吃眼前亏，等我们少堡主回来再找你算帐。",46);
+	NpcGotoEx("杀手1",8,116);
+	NpcGotoEx("杀手2",8,116);
+	NpcGotoEx("杀手3",8,116);
+	NpcGotoEx("杀手4",8,116);
+	NpcGotoEx("杀手5",8,116);
+	NpcGotoEx("杀手6",8,116);
+	NpcGotoEx("杀手7",8,116);
+	NpcGotoEx("杀手8",8,116);
+	NpcGotoEx("卢肇灏",8,116);
+	Sleep(2000);
+	MoveScreen(5,60,2);
+	DelNpc("卢肇灏");
+	DelNpc("杀手1");
+	DelNpc("杀手2");
+	DelNpc("杀手3");
+	DelNpc("杀手4");
+	DelNpc("杀手5");
+	DelNpc("杀手6");
+	DelNpc("杀手7");
+	DelNpc("杀手8");
+	AddToMemo(79020);
+	Say("杨影枫：不知到真儿被关在哪里，让我四处找找看。",2);
+	Assign($Event, 1802);
+	SetMapTrap(1,"trap01.txt");
+	SetMapTrap(6,"trap06.txt");
+	Return;
+
+@Event650:
+	Add($NpcCount,-1);
+	If ($NpcCount >> 0) @end;
+	Talk(61760,61760);
+	Assign($Event, 655);
+	DelNpc("纳兰真");
+	DelNpc("涟漪");
+	AddNpc("涟漪.ini",41,27,1);
+	SetNpcKind("涟漪",0);
+	DelNpc("杀手Z1");
+	DelNpc("杀手Z2");
+	DelNpc("杀手Z3");
+	DelNpc("杀手Z4");
+	DisableNpcAI();
+	
+	LoadNpc("map039_QL.npc");
+	GetNpcCount(1,1);
+	ShowNpc("杀手Z1",0);
+	ShowNpc("杀手Z2",0);
+	ShowNpc("杀手Z3",0);
+	ShowNpc("杀手Z4",0);
+	ShowNpc("杀手Z5",0);
+	ShowNpc("杀手Z6",0);
+		
+	SetMapTrap(4,"Trap04.txt");
+	DisableNpcAI();
+	
+	
+	Return;
+
+@Event658:
+	Add($NpcCount ,-1);
+	If ($NpcCount >>0) @end;
+
+	DelNpc("杀手Z1");
+	DelNpc("杀手Z2");
+	DelNpc("杀手Z3");
+	DelNpc("杀手Z4");
+	DelNpc("杀手Z5");
+	DelNpc("杀手Z6");
+	SetMapTrap(9,"Trap09.txt");
+	Say("进去看看！");
+	Assign($Event ,659);
+	Return;
+
+
+@end:
+	Return;
+

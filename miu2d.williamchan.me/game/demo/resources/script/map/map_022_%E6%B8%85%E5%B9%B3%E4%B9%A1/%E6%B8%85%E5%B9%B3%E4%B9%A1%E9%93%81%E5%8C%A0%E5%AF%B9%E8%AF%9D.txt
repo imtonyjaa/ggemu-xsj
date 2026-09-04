@@ -1,0 +1,33 @@
+//曹铁匠
+	If ($Event == 164) @Label1;
+	If ($Event == 166) @Label1;
+	If ($Event == 168) @Label1;
+        If ($Event == 170) @Label1;
+        If ($Event >= 202) @Label2;
+		
+	Talk(20840, 20840);
+	Goto @Buy;
+	
+@Label1:
+	Talk(20841, 20841);
+	Goto @Buy;
+	
+@Label2:
+	If ($Event == 360 ) @TalkE360;
+	Talk(20842, 20842);
+	Goto @Buy;
+
+@TalkE360:
+	Talk(40090,40090);
+	Goto @Buy;
+		
+@Buy:
+	Say("曹铁匠：看看我打的兵刃。", 86);
+	If ($Event >= 180) @Buy2;
+	BuyGoods("铁2级物品.ini");
+	Goto @end;
+@Buy2:
+	BuyGoods("铁3级物品.ini");
+	Goto @end;
+@end:
+	Return;

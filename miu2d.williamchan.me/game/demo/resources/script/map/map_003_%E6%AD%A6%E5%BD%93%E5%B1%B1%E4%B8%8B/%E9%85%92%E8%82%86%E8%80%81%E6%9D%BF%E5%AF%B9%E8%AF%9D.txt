@@ -1,0 +1,132 @@
+	If ($SubEvent01 == 5) @end;
+
+	If ($Event << 20) @end;
+	If ($SubEvent01 <> 10) @NoSub02;
+	If ($SubEvent02 >= 20) @NoSub02;
+	If ($SubEvent02 == 0) @Sub0200;
+	If ($SubEvent02 == 2) @Sub02246;
+	If ($SubEvent02 == 4) @Sub02246;
+	If ($SubEvent02 == 6) @Sub02246;
+	If ($SubEvent02 == 8) @Sub028;
+	If ($SubEvent02 == 10) @Sub0210;
+	Talk(40,40);
+	Return;
+
+@Sub0200:
+	GetRandNum($Sub02Rand, 3, 4);
+	If ($Sub02Rand == 3) @Sub02Rand3;
+	If ($Sub02Rand == 4) @Sub02Rand4;
+	@Sub02Rand3:
+		If ($Event == 20) @Event20Talk3;
+		If ($Event == 46) @Event46Talk3;
+		Say("酒肆老板：公子爷，坐下喝点酒，歇会儿？");
+		Say("杨影枫：不了。", 2);
+		Return;
+		@Event20Talk3:
+			Say("杨影枫：请问去<color=Red>武当山<color=Black>怎么走？", 2);
+			Say("酒肆老板：<color=Red>东北方向<color=Black>的路口通往武当山。客官是要上武当么？那可不能带着宝剑，听说武当派不许陌生人带剑上山，必须要先在洗剑池解下剑才行！");
+			Say("杨影枫：多谢，我知道了！", 2);
+			Goto @end;
+		@Event46Talk3:
+			Say("杨影枫：请问去<color=Red>惠安镇<color=Black>怎么走？", 2);
+			Say("酒肆老板：往<color=Red>东南方向<color=Black>走有一个路口，穿过一片<color=Red>野树林<color=Black>就离<color=Red>惠安镇<color=Black>不远了。");
+			Say("杨影枫：多谢！", 2);
+			Goto @end;
+		Goto @end;
+	@Sub02Rand4:
+		Say("酒肆老板：敢问这位公子可否帮老朽一个忙？");
+		Say("杨影枫：不知店家有何事相求？", 2);
+		Say("酒肆老板：老朽想让公子帮我找三样东西。");
+		Say("杨影枫：不知是哪三样东西？", 2);
+		Say("酒肆老板：老朽开这酒店已有多年，靠的就是几个可口的小菜配方。不巧最近缺了三味调料，我这里有客脱不开身。");
+		Say("杨影枫：好说，店家尽管开口，包在我身上。", 2);
+		Say("酒肆老板：先谢过公子！这三味调料分别是野姜、草葱和罂粟，这武当山附近应该就可以找到。");
+		Say("酒肆老板：烦劳公子啦。");
+		Memo("帮武当山下酒肆老板寻找野姜、草葱和罂粟。");
+		Assign($SubEvent02, 2);
+		Goto @end;
+	Goto @end;
+@Sub02246:
+	GetRandNum($Sub02Rand, 1, 2);
+	If ($Sub02Rand == 1) @Sub02Rand1;
+	If ($Sub02Rand == 2) @Sub02Rand2;
+	@Sub02Rand1:
+		If ($Event == 20) @Event20Talk2;
+		If ($Event == 46) @Event46Talk2;
+		Say("酒肆老板：公子爷，坐下喝点酒，歇会儿？");
+		Say("杨影枫：不了。", 2);
+		Return;
+		@Event20Talk2:
+			Say("杨影枫：请问去<color=Red>武当山<color=Black>怎么走？", 2);
+			Say("酒肆老板：<color=Red>东北方向<color=Black>的路口通往武当山。客官是要上武当么？那可不能带着宝剑，听说武当派不许陌生人带剑上山，必须要先在洗剑池解下剑才行！");
+			Say("杨影枫：多谢，我知道了！", 2);
+			Goto @end;
+		@Event46Talk2:
+			Say("杨影枫：请问去<color=Red>惠安镇<color=Black>怎么走？", 2);
+			Say("酒肆老板：往<color=Red>东南方向<color=Black>走有一个路口，穿过一片<color=Red>野树林<color=Black>就离<color=Red>惠安镇<color=Black>不远了。");
+			Say("杨影枫：多谢！", 2);
+			Goto @end;
+		Goto @end;
+	@Sub02Rand2:
+		Say("酒肆老板：公子，你答应我的野姜、草葱和罂粟，找到没有啊？");
+		Say("杨影枫：老板不要急，我还在找呢！", 2);
+		Goto @end;
+		
+	Goto @end;
+@Sub028:
+	Say("酒肆老板：公子可否找到？");
+	Say("杨影枫：店家，你看，可是这三样物品？", 2);
+	Say("酒肆老板：正是，真是多谢公子。");
+	Say("酒肆老板：公子，坐下喝杯酒吧。");
+	Say("杨影枫：多谢店家，在下有事在身，就不讨扰啦。", 2);
+	DelGoods("Goods-e15-草葱.ini");
+	DelGoods("Goods-e16-罂粟.ini");
+	DelGoods("Goods-e17-野姜.ini");
+	Add($EvilVal, 10);
+	Assign($SubEvent02, 10);
+	Goto @end;
+@Sub0210:
+	Say("酒肆老板：哎呀，公子，老朽劳烦你办事，还没来得及感谢呢！");
+	Say("杨影枫：小事，举手之劳，不用客气。", 2);
+	Say("酒肆老板：那坐下喝碗酒吧。");
+	Say("杨影枫：多谢店家，在下有事在身，不便久留。", 2);
+	Say("酒肆老板：这真让老朽过意不去，我这里有２００两银子，还望公子收下。");
+	Say("杨影枫：店家不用客气，在下不能收。", 2);
+	Say("酒肆老板：请公子不要辜负了老朽的一片诚意，出门在外，身上总是带些银子好。");
+	Choose("杨影枫：", "那多谢店家啦，在下告辞啦。", "快请收起，我一定不会要的。", $GetMoney);	
+//	Choose("是否接受酒肆老板给的银子？", "接受。", "不接受。", $GetMoney);
+	If ($GetMoney == 0) @GetMoneyYes;
+	If ($GetMoney == 1) @GetMoneyNo;
+	@GetMoneyYes:
+//		Say("杨影枫：嗯，那就多谢店家啦，在下告辞啦。", 2);
+		Say("酒肆老板：公子，走好。");
+		AddMoney(200);
+		Add($EvilVal, -10);
+		Assign($SubEvent02, 20);
+		Goto @end;
+	@GetMoneyNo:
+//		Say("杨影枫：一点儿小事情，怎么能要点家的银子呢！店家快请收起，我一定不会要的。", 2);
+		Say("杨影枫：一点儿小事情，怎么能要店家的银子呢！", 2);
+		Say("酒肆老板：公子施恩不忘报，果然是个好人呐！");
+		Add($EvilVal, 10);
+		Assign($SubEvent02, 20);
+		Goto @end;
+@NoSub02:
+	If ($Event == 20) @Event20Talk1;
+	If ($Event == 46) @Event46Talk1;
+	Say("酒肆老板：客官，要点什么酒菜？");
+	Goto @end;
+	@Event20Talk1:
+		Say("杨影枫：请问去<color=Red>武当山<color=Black>怎么走？", 2);
+		Say("酒肆老板：<color=Red>东北方向<color=Black>的路口通往武当山。客官是要上武当么？那可不能带着宝剑，听说武当派不许陌生人带剑上山，必须要先在洗剑池解下剑才行！");
+		Say("杨影枫：多谢，我知道了！", 2);
+		Goto @end;
+	@Event46Talk1:
+		Say("杨影枫：请问去<color=Red>惠安镇<color=Black>怎么走？", 2);
+		Say("酒肆老板：往<color=Red>东南方向<color=Black>走有一个路口，穿过一片<color=Red>野树林<color=Black>就离<color=Red>惠安镇<color=Black>不远了。");
+		Say("杨影枫：多谢！", 2);
+		Goto @end;
+	
+	Goto @end;
+@end:
+	Return;

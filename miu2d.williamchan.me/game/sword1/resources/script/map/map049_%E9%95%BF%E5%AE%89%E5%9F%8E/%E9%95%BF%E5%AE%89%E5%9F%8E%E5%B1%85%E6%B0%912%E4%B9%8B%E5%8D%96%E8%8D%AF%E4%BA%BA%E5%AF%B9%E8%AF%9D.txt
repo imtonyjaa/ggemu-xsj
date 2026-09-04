@@ -1,0 +1,45 @@
+// 与长安城居民卖药人的对话
+
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	Say("卖药人：宫廷密方，祖传绝技！有病治病，无病健身！快来买呀，无效不要钱哪。", 0);
+	GetPlayerLevel($PlayerLevel);
+	If ($PlayerLevel << 16) @PlayerLevelL16;
+	If ($PlayerLevel << 31) @PlayerLevelL31;
+	Goto @PlayerLevelG30;
+	Return;
+
+@PlayerLevelL16:
+	SellGoods("低级药品.ini");
+	Return;
+@PlayerLevelL31:
+	SellGoods("中级药品.ini");
+	Return;
+@PlayerLevelG30:
+	SellGoods("高级药品.ini");
+	Return;
+	
+	
+@YuanDan:	
+
+	Say("卖药人：祝您新的一年万事如意，顺顺利利！我这可是宫廷密方，祖传绝技！无效不要钱哪。", 0);
+	GetPlayerLevel($PlayerLevel);
+	If ($PlayerLevel << 16) @PlayerLevelL16YD;
+	If ($PlayerLevel << 31) @PlayerLevelL31YD;
+	Goto @PlayerLevelG30YD;
+	Return;
+
+@PlayerLevelL16YD:
+	SellGoods("低级药品.ini", 1);
+	Return;
+@PlayerLevelL31YD:
+	SellGoods("中级药品.ini", 1);
+	Return;
+@PlayerLevelG30YD:
+	SellGoods("高级药品.ini", 1);
+	Return;		

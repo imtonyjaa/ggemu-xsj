@@ -1,0 +1,18 @@
+	GetRandNum($XieHaiKeTalk,0,1);
+
+	If ($XieHaiKeTalk == 0) @Label1;
+	If ($XieHaiKeTalk == 1) @Label2;
+
+	Goto @end;
+	
+@Label1:
+	Talk(20290,20290);
+	Goto @end;
+	
+@Label2:
+	//Talk(20300,20300);
+	Say("游人谢海客：在下素来不喜功名利禄，诚以为走遍天下名山大川，方不枉此生。", 0);
+	Goto @end;
+	
+@end:
+	Return;		

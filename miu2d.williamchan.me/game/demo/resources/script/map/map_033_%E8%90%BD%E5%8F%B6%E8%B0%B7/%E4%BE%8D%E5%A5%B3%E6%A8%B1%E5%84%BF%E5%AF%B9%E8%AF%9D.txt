@@ -1,0 +1,87 @@
+	If ($Event == 3120) @TalkE3120;
+	If ($Event == 3122) @TalkE3122;
+	If ($Result == 0)  @Result0;
+	If ($Result == 1)  @Result1;
+	If ($Event == 1819) @1819;//结局2求证
+	If ($Event == 1812) @1812;//结局2救月眉儿
+	If ($Event == 1811) @1811;//结局2救月眉儿
+	If ($Event >= 1810) @1810;//结局2救月眉儿
+	If ($Event >= 1805) @1800;//结局2救月眉儿
+	If ($Result == 2)  @Result2;
+	If ($Result == 3)  @Result3;
+    Return;
+
+@1819:
+	Say("侍女樱儿：公子，你真有福气，我们小姐最喜欢的就是你了。");
+	Return;
+
+@1812:
+	Say("侍女樱儿：老爷说他需要闭关修炼一段时间，你们要走就不必向他告辞了。");
+	Say("杨影枫：我知道了。");
+	Return;
+
+@1811:
+	Say("侍女樱儿：杨公子，老爷说月姑娘已经没事了，要你们早点用银丝草给她进行治疗。");
+	Say("杨影枫：那你们老爷呢？");
+	Say("侍女樱儿：老爷说他需要闭关修炼一段时间，如果你们要走就不必向他告辞了。");
+	Assign($Event, 1812);	
+	Return;
+
+@1810:
+	Say("侍女樱儿：为什么上天这么不公平，让我生在穷人家，又长的没别人漂亮！");
+	Return;
+
+@1800:
+	Say("侍女樱儿：唉，我的命真苦，为什么我不是生在富人家呐。");
+	Return;
+
+@Result0:
+	Talk(22130,22130);
+     Return;
+                                  
+@Result1:
+	If ($Event == 574) @TalkA574; 
+	If($Event == 591) @TalkA591;
+	If ($Event == 592) @Talk592;
+Talk(22130,22130);
+     Return;
+
+@Result2:
+Talk(22130,22130);
+      Return;
+      
+@Result3:
+Talk(22130,22130);
+      Return;
+
+
+@TalkA574:
+
+	
+	Talk(60030,60040);
+	Goto @end;	
+
+@TalkA591:
+	GetRandNum($RandTalk,0,1);
+	If ($RandTalk == 0) @TalkA591_0;
+	Talk(60460,60460);
+	Goto @end;
+
+@TalkA591_0:
+	Talk(60700,60700);
+	Goto @end;
+
+@TalkE3120:
+@TalkE3122:
+	Talk(103290,103290);
+	Return;
+
+
+@Talk592:
+	Say("侍女樱儿：杨公子，我家小姐平时比较调皮，可有得你受了。");
+	Say("杨影枫：哈。",3);
+	Return;
+
+@end:
+Return;
+

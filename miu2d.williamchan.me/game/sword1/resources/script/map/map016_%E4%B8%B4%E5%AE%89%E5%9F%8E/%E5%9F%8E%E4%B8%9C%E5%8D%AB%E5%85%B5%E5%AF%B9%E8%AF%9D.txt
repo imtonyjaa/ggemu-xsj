@@ -1,0 +1,38 @@
+// 城东卫兵对话
+
+	If ($Event == 50) @Event5060; 
+	If ($Event == 60) @Event5060; 
+	If ($Event == 70) @Event70; 
+	If ($Event >= 80) @Eventmore80; 
+
+	GetRandNum($Talkguarder,0,1);
+	If ($Talkguarder == 0) @Talk0;
+	If ($Talkguarder == 1) @Talk1;
+@Talk0:
+	Say("城门守卫：好几天戒严，都没有好好谁过一觉，真是累死了。", 0);
+	Return;
+@Talk1:	
+	Say("城门守卫：走开！", 0);
+	Return;	
+	
+@Event5060:	
+	Say("城门守卫：刚才眼前一花，好象是什么人从墙头飞过，看来是去了东边的碧霞岛渡口。", 0);
+	Return;
+	
+@Event70:
+	Say("城门守卫：哦，这是吕将军的令牌，你可以通行了。	", 0);
+	//NpcGoto("东门卫兵1", 41, 142);
+	NpcGotoEx("东门卫兵2", 41, 141);
+	NpcGoto("东门卫兵3", 42, 140);
+	//NpcGoto("东门卫兵4", 42, 139);
+	//SetNpcPos("东门卫兵1", 0, 0);
+	SetNpcPos("东门卫兵2", 0, 0);
+	SetNpcPos("东门卫兵3", 0, 0);
+	//SetNpcPos("东门卫兵4", 0, 0);
+	Assign($Event, 80);
+	Memo("出示令牌后，独孤剑出了东门，一路向东找寻采花贼的踪迹。");
+	Return;
+	
+@Eventmore80:
+	Say("城门卫兵：为避免金国奸细混进城，没有吕将军的令牌，一般人是不可以通行的。", 0):
+	Return;	

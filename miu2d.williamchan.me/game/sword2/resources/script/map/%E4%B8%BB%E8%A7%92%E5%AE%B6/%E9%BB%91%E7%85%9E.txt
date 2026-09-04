@@ -1,0 +1,35 @@
+// 黑煞
+	
+	If ($HeiSha == 1) @talk2;
+	Talk(23210,23330);
+	SetNpcDir("黑煞",5);
+	NpcGotoEx("黑煞",23,59);
+	Sleep(1000);
+	PlayerGoto(24,58);
+	SetNpcDir("黑煞",5);
+	Talk(23340,23340);
+	SetNpcDir("黑煞",7);
+	SetPlayerDir(7);
+	DisableNpcAI();
+	SetNpcRelation("石头",1);
+	NpcAttack("黑煞",26,64);
+	Sleep(2000);
+	EnableNpcAI();
+	SetNpcDir("黑煞",5);
+	SetPlayerDir(1);
+	Talk(23350,23380);
+	FadeOut();
+	AddMagic("player-magic-寒霜掌.ini");
+	Sleep(1000);
+	FadeIn();
+	Talk(23400,23400);
+	NpcGoto("黑煞",23,63);
+	NpcGotoEx("黑煞",31,78);
+	Assign($HeiSha, 1);
+	SetObjKind("碎石头",0);
+	Return;
+
+@talk2:
+	Talk(23390,23390);
+	SetNpcDir("黑煞",5);
+	Return;

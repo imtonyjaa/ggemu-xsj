@@ -1,0 +1,10 @@
+	Add($NpcCount,-1);
+	If ($NpcCount == 0) @Killed;
+	Return;	
+	
+@Killed:
+	Say("终于干掉了所有的敌人。");
+	SetMapTrap(2,"trap02.txt");
+	Assign($Event,2009);
+	DelObj("铁门");
+	Return;

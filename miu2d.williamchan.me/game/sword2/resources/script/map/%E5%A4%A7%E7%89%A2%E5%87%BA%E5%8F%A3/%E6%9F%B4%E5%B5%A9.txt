@@ -1,0 +1,13 @@
+        Talk(32680,32680);
+
+        Assign($TanHua,1);
+        FadeOut();
+	Assign($AnZang,1);
+        LoadMap("大牢出口1.map");
+	LoadObj("DaLaoChuKou.obj");
+        LoadNpc("None.npc")
+	SetPlayerPos(18,14);
+	FadeIn();
+	PlayerGoto(17,13);
+	Talk(32780,32780);
+	Return;

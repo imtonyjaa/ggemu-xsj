@@ -1,0 +1,39 @@
+//韩公子
+	If ($Result == 0) @Result0;
+	If ($Result == 1) @Result1;
+	If ($Result == 2) @Result2;
+
+	Return;
+
+@Result0:
+	If ($Event << 360 ) @Talk1;
+	If ($Event >= 360 ) @Talk2;
+	Return;
+	@Talk1:
+		Say("韩公子：知道我是谁吗？我就是卓庄主的仆人的邻居的表妹…的亲戚，怎么样，怕了吧？还不快走远些，别妨碍本公子和佳人赏鱼！");
+		Return;
+	@Talk2:
+		If($Event >=380 ) @TalkA380;
+		Say("钟敏：公子，我漂亮吗？");
+		Say("韩公子：妹子，在我眼里，这个世界上再也没有比你更漂亮的姑娘啦！");
+		Say("钟敏：公子，你待我真好。");
+		Return;
+	@TalkA380:
+		Talk(40640,40650);
+		Return;
+
+@Result1:
+	Say("钟敏：公子，我漂亮吗？");
+	Say("韩公子：妹子，在我眼里，这个世界上再也没有比你更漂亮的姑娘啦！");
+	Say("钟敏：公子，你待我真好。");
+	Return;
+
+
+@Result2:
+	Say("钟敏：公子，我漂亮吗？");
+	Say("韩公子：妹子，在我眼里，这个世界上再也没有比你更漂亮的姑娘啦！");
+	Say("钟敏：公子，你待我真好。");
+	Return;
+
+@end:
+	Return;

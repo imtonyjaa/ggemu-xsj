@@ -1,0 +1,56 @@
+//伍佑生
+	If ($Event == 1818) @1818;
+	If ($Event == 1817) @1817;
+	If ($Event == 1813) @1813;
+	If ($Event == 350) @Talk350;
+	If ($Event >= 302) @Label;
+
+	Talk(21130, 21130);
+	Return;
+
+@1818:
+	Say("伍佑生：你可别打我们家娘子的注意啊！");
+	Return;
+
+@1817:
+	Say("杨影枫：看到真儿了吗？");
+	Say("伍佑生：没有。");
+	Return;
+
+@1813:
+	Say("伍佑生：探头探脑的干什么？走开！");
+	Return;
+	
+@Label:
+	If ($Event == 340) @Label2;
+	If ($Event == 415) @Talk415;
+	If ($Event == 700) @TalkE700;
+	Talk(21131, 21131);
+	Return;
+
+@Label2:
+	Talk(21660, 21660);
+	Return;
+
+
+@Talk415:
+	Talk(40890,40910);
+	Return;	
+	
+@TalkE700:
+	Talk(61490,61490);
+	Return;	
+
+@TalkA750:
+	Talk(71500,71500);
+	Return;
+
+@Talk350:
+	Sleep(500);
+	Watch("伍佑生" , "杨影枫", 0);
+	Say("伍佑生：杨公子，真儿是一个好姑娘，你如果辜负了她，我可不饶你！", 0);
+	Say("杨影枫：……", 2);
+	Return;
+
+@end:
+	Return;

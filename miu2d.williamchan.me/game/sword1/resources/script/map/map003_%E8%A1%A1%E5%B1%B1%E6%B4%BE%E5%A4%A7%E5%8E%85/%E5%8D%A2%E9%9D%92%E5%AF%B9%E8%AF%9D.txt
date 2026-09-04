@@ -1,0 +1,30 @@
+// 卢青对话
+
+	If ($Event == 10) @Event10;  //同伴
+	If ($Event >= 20) @Event20;  //非同伴
+
+@Event10:
+	Say("卢青：大师兄，我们快去看看师傅吧。", 83);
+	Say("独孤剑：好的。", 1);
+	Return;
+	
+@Event20:
+	If ($Talkluqin == 0) @Talk0;
+	If ($Talkluqin == 1) @Talk1;
+	If ($Talkluqin == 2) @Talk2;
+
+@Talk0:
+	Say("卢青：杀害师傅的凶手会不会真是五色教的刺客？", 83);
+	Say("独孤剑：师傅说凶手象是五色教这个暗杀组织的人，但听说这个组织早就从武林中消失了。", 1);
+	Say("卢青：难道是这个组织死灰复燃了？掌门师兄，你一定要把这件事搞个水落石出，为师傅报仇。", 83);
+	Assign($Talkluqin, 1);
+	Return;
+@Talk1:	
+	Say("卢青：师兄，你一路上要多加小心！", 83);
+	Assign($Talkluqin, 2);
+	Return;
+@Talk2:	
+	Say("卢青：师兄，你办完事后快些回来。", 83);
+	Return;
+
+	

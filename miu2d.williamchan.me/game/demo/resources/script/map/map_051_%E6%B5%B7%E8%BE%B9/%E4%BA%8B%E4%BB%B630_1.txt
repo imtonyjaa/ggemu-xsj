@@ -1,0 +1,72 @@
+	FadeOut();
+	StopMusic();
+	ChangeMapColor(128, 150, 200);
+	ChangeAsfColor(128, 150, 200);
+	SetPlayerPos(19, 38);
+	SetPlayerDir(3);
+	SetNpcPos("杨影枫",12,38);
+	SetNpcDir("杨影枫",7);
+	DelNpc("彩蝶");
+	DelObj("杨影枫外衣");
+	SetMapPos(8, 23);
+	Talk(4801, 4801);
+	Sleep(200);
+	Talk(4802, 4802);
+	Sleep(500);
+	PlayMusic("Mc018.mp3");
+	FadeIn();
+
+	SetNpcKind("纳兰真",1);
+	PlayerGoto(12,39);
+	SetPlayerDir(3);
+	SetNpcKind("纳兰真",2);
+	Talk(4810, 4830);
+	Assign($Event, 292);
+	Select(4890, 4840, 4900, $SelectVal);
+	
+	If ($SelectVal == 0) @Label1;
+	If ($SelectVal == 1) @Label2;
+	
+	
+@Label1:
+	Add($EvilVal, -40);
+	Talk(4850, 4880);
+	Say("纳兰真：我们悄悄的去，谁都不会知道的。", 9);
+	Assign($Event, 296);
+	SetNpcKind("杨影枫",3);
+    
+	
+	RunScript("事件30_a.txt");
+	Return;
+	
+@Label2:
+	FadeOut();
+	DelNpc("杨影枫");
+	PlayerChange(0);
+	SetPlayerPos(12,38);
+	SetPlayerDir(7);
+	FullLife();
+	FullThew();
+	LoadNpc("seashore-nalanzhen.npc");
+	SetNpcPos("纳兰真",12, 39);
+	SetNpcDir("纳兰真",3);
+	FadeIn();
+	Talk(4910, 4940);
+	NpcGoto("纳兰真",19, 38);
+	SetNpcPos("纳兰真",4,52);
+	SetNpcDir("纳兰真",2);
+	SetNpcScript("纳兰真", "纳兰真对话.txt");
+	PlayerRunTo(16,36);
+	SetPlayerDir(7);
+	Talk(4950, 4950);
+	Sleep(200);
+	Talk(20200, 20200);
+	Assign($Event, 294);
+	Add($EvilVal, 20);
+	AddToMemo(90491);
+	SetMapTrap(1, "Trap01.txt");
+	SetNpcKind("纳兰真", 0);
+	Return;
+	
+@end:
+	Return;

@@ -1,0 +1,66 @@
+//于大婶
+	If ($Event == 1818) @1813;
+	If ($Event == 1817) @1813;
+	If ($Event == 1813) @1813;
+	If ($Event == 350) @Talk350;
+//	If ($Result == 2) @Result2;
+	If ($Event >= 302) @Label;
+	
+	Talk(21140, 21140);
+	Return;
+	
+@1813:
+	Say("于大婶：杨公子，我是看着真儿长大的，我看出来她很喜欢你，你可要好好珍惜她呀！");
+	Return;
+
+@Result2:
+	If ($Event >= 750) @TalkA750;
+	Talk(21140,21140);	
+	Return;
+
+@Label:
+	If ($Event == 340) @Label2;
+	If ($Event == 412) @Talk412;
+	If ($Event ==415) @Talk415;
+	If ($Event == 700 ) @TalkE700;
+	
+	Talk(21141, 21141);
+	Return;
+	
+@Label2:
+	Say("于大婶：你可回来了，真儿，快去看看你爹吧，他天天都在念着你，已经在岛上来回找过几十遍了。", 0);
+	Say("纳兰真：我爹……他还好吧！", 9);
+	Say("于大婶：真儿，出了什么事吗？我看你的气色不太好。", 0);
+	Say("纳兰真：大婶，我没事，我这就回去看爹爹。", 9);
+	Return;
+
+@Talk412:
+	Talk(40860,40860);
+	Return;
+@Talk415:
+	Talk(40870,40880);
+	Return;	
+
+@TalkE700:
+	Talk(61500,61500);
+	Return;
+
+
+@TalkA750:
+	Talk(71510,71510);
+	Return;
+
+@TalkA750:
+	Talk(71500,71500);
+	Return;
+
+@Talk350:
+	Sleep(500);
+	Watch("于大婶" , "杨影枫", 0);
+	Say("于大婶：杨公子，我是看着真儿长大的，她从来没有像最近这段时间这么开心过，这全是因为你，你可要好好珍惜她呀！", 0);
+	Say("杨影枫：……", 2);
+	Return;
+
+@end:
+	Return;
+

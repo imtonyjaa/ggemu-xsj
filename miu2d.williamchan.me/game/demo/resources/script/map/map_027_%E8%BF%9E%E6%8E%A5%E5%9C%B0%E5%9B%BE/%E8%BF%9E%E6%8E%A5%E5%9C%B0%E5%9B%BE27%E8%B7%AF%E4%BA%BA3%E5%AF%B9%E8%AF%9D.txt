@@ -1,0 +1,44 @@
+If ($Result == 0) @Result0;
+If ($Result == 1) @Result1;
+If ($Result == 2) @Result2;
+If ($Result == 3) @Result3;
+Goto @end;
+
+@Result0:
+If ($Event << 360 ) @Talk1;
+If ($Event >= 360 ) @Talk2;
+Goto @end; 
+
+@Result1:
+Goto @Talk2;
+Goto @end;
+
+
+@Result2:
+Goto @Talk2;
+Goto @end;
+
+@Result3:
+Goto @Talk2;
+Goto @end;
+
+
+@Talk1:
+Talk(21810,21811);
+Goto @end;
+
+
+@Talk2:
+GetRandNum($RandNum,1,2);
+If ($RandNum == 2) @Talk2s1;
+Talk(40010,40020);
+Goto @end;
+
+
+@Talk2s1:
+Talk(40030,40050);
+Goto @end;
+
+@end:
+Return;
+

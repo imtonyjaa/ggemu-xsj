@@ -1,0 +1,56 @@
+// 与临安城居民米玄生的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	If ($Talkmixuansheng1 == 0) @Talk0;
+	If ($Talkmixuansheng1 == 1) @Talk1;
+	If ($Talkmixuansheng1 == 2) @Talk2;
+	If ($Talkmixuansheng1 == 3) @Talk3;
+		
+@Talk0:
+	Say("米玄生：临安的东北是泰山，西北是朱仙镇。", 0);
+	Assign($Talkmixuansheng1, 1);
+	Return;
+@Talk1:	
+	Say("米玄生：临安的东边是碧霞岛。", 0);
+	Assign($Talkmixuansheng1, 2);
+	Return;
+@Talk2:	
+	Say("米玄生：临安的南边是武夷山和衡山。", 0);
+	Assign($Talkmixuansheng1, 3);
+	Return;	
+@Talk3:	
+	Say("米玄生：东南西北中，你从哪里来？要到哪里去？家在何方？", 0);
+	Return;		
+
+
+	
+@YuanDan:	
+
+	If ($Talkmixuansheng1 == 0) @Talk0YD;
+	If ($Talkmixuansheng1 == 1) @Talk1YD;
+	If ($Talkmixuansheng1 == 2) @Talk2YD;
+	If ($Talkmixuansheng1 == 3) @Talk3YD;
+		
+@Talk0YD:
+	Say("米玄生：新年新气象，人爽精神爽！送你一个红包，祝你万事如意，心想事成！", 0);
+	Say("独孤剑：谢谢！", 2);
+	Say("得到五十两银子。");
+	AddMoney(50);
+	Assign($Talkmixuansheng1, 1);
+	Return;
+@Talk1YD:	
+	Say("米玄生：临安的东北是泰山，西北是朱仙镇。", 0);
+	Assign($Talkmixuansheng1, 2);
+	Return;
+@Talk2YD:	
+	Say("米玄生：临安的东边是碧霞岛，南边是武夷山和衡山。", 0);
+	Assign($Talkmixuansheng1, 3);
+	Return;	
+@Talk3YD:	
+	Say("米玄生：东南西北中，你从哪里来？要到哪里去？家在何方？", 0);
+	Return;		

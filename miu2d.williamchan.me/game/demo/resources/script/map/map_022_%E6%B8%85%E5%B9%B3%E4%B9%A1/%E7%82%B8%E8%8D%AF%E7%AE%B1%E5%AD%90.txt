@@ -1,0 +1,16 @@
+	SetObjScript("","");
+	GetRandNum($Temp, 0, 1);
+	If ($Temp == 1) @Bomb;
+	PlaySound("物-箱子开.wav");
+	OpenBox();
+	AddRandGoods("2级物品.ini");
+	Return;
+@Bomb:
+	AddNpc("爆炸.ini", 9, 30, 0);
+	PlaySound("魔-爆02.wav");
+	NpcSpecialAction("爆炸", "Npc243.asf");
+	DelObj("宝箱爆");
+	AddLife(-500);
+	ShowMessage(63180);
+	DelNpc(爆炸);
+	Return;

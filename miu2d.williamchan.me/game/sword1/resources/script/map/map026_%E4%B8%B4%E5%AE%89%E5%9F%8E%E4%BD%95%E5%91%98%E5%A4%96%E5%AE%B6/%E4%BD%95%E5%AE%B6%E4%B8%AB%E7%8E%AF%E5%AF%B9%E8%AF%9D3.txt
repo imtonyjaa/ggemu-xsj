@@ -1,0 +1,27 @@
+// 何家丫环对话
+
+	If ($Event == 180) @Event180;
+	If ($Event << 180) @Eventlessthan180; 
+	If ($Event == 190) @Event190;
+	If ($Event >> 190) @Eventmorethan190;
+	
+@Event180:
+	Watch("何府丫环", "何梅", 0);
+	Say("丫环小菊：小姐，我还以为再也见不到你了，呜呜……", 0);
+	Return;
+		
+@Eventlessthan180:
+	Say("丫环小菊：你是谁？怎么在别人家里乱闯？", 0);
+	Return;	
+	
+@Event190:
+	Say("丫环小菊：公子，你将来一定会后悔的。", 0);
+	Return;
+		
+@Eventmorethan190:	
+	Say("丫环小菊：你这个负心人，还有脸来见我们小姐！", 0);
+	Say("独孤剑：我……", 8);
+	Return;		
+	
+	
+	

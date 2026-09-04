@@ -1,0 +1,22 @@
+	Add($NpcCount, -1);
+	If ($NpcCount == 0) @AllClear;
+	Return;
+
+@AllClear:
+	If ($Event == 1822) @1822;
+	If ($Event == 1823) @1823;
+	Return;
+
+@1822:
+	StopMusic();
+	Watch("杨影枫","蔷薇",0);
+	Say("好不容易干掉了所有的敌人，赶快进去看看纳兰真吧。");
+	SetMapTrap(2,"trap02.txt");
+	PlayMusic("mc018.mp3");
+	Return;
+
+@1823:
+	Say("经过一场恶战，蔷薇等人还是被无忧教擒获了。");
+	RunScript("同伴死亡.txt");
+	Return;
+	

@@ -1,0 +1,7 @@
+//打开宝箱
+
+	PlaySound("物_箱子开.wav");
+	OpenBox();
+	AddGoods("Goods039_子义之痕.ini");
+	SetObjScript("","");
+	Return;

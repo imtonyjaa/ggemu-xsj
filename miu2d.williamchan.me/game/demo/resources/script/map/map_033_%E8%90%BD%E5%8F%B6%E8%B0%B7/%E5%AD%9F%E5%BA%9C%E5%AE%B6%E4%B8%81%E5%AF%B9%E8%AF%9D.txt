@@ -1,0 +1,90 @@
+	GetRandNum($JiaDingTalk, 1, 3);
+
+	If ($Event >= 1800) @1800;//结局2救月眉儿
+	If ($Result == 0)  @Result0;
+	If ($Result == 1)  @Result1;
+	If ($Result == 2)  @Result2;
+	If ($Result == 3)  @Result3;
+	Return;
+
+@1800:
+	Say("孟府家丁：我们落叶谷在江湖上的名气可大啦。");
+	Return;
+
+@Result0:
+	Talk(22120, 22120);
+	Return;
+
+@Result1:
+
+	If ($Event == 572) @Event572;
+	If ($Event == 574) @Event574;
+	If ($Event == 592) @Event592;
+
+	Say("孟府家丁：我们落叶谷在江湖上的名气可大啦。");
+	Return;
+
+@Result2:
+	Return;
+
+@Result3:
+
+	GetRandNum($JiaDing, 1, 3);
+	
+	If ($JiaDing == 1) @JiaDing31;
+	If ($JiaDing == 2) @JiaDing32;
+	If ($JiaDing == 3) @JiaDing33;
+	@JiaDing31:
+		Talk(22120, 22120);
+		Return;
+	@JiaDing32:
+		Talk(22121, 22121);
+		Return;
+	@JiaDing33:
+		Say("家丁：我们经常陪老爷练功，学到不少东西，以后肯定可以名扬天下。");
+		Return;
+		
+	Return;
+
+
+@Event570:
+Return;
+
+@Event592:
+Say("家丁：杨公子，我们老爷刚才向你授传的这套武功是我们落叶谷的绝学武功。");
+Return;
+
+@Event625:
+Return;
+
+@Event572:
+	If ($JiaDingTalk == 1) @JiaDingTalk01;
+	If ($JiaDingTalk == 2) @JiaDingTalk02;
+	If ($JiaDingTalk == 3) @JiaDingTalk03;
+	@JiaDingTalk01:
+		Say("家丁：我们经常陪老爷练功，学到不少东西，以后肯定可以名扬天下。", 0);
+		Return;
+	@JiaDingTalk02:
+		Say("家丁：瞧公子气宇不凡，想必是武林高手了，不知比我家老爷子如何！", 0);
+		Return;
+	@JiaDingTalk03:
+		Say("家丁：每天在这里站岗，也挺无聊的，什么时候能出去闯一下江湖啊，那种日子一定很惬意。", 0);
+		Return;
+	Return;
+@Event574:
+	If ($JiaDingTalk == 1) @JiaDingTalk11;
+	If ($JiaDingTalk == 2) @JiaDingTalk12;
+	If ($JiaDingTalk == 3) @JiaDingTalk13;
+	@JiaDingTalk11:
+		Say("家丁：公子，听说你要当我家姑爷了，恭喜恭喜！", 0);
+		Return;
+	@JiaDingTalk12:
+		Say("家丁：公子，以后我们就是一家人了，你可要时常指点我们功夫啊！", 0);
+		Return;
+	@JiaDingTalk13:
+		Say("家丁：公子，你成了我们落叶谷的姑爷，落叶谷的名声就更大了。", 0);
+		Return;
+	Return;
+
+@end:
+	Return;

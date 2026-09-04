@@ -1,0 +1,72 @@
+// 赌场老板对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	If ($Event == 304) @zhang;
+	If ($Event == 305) @zhang;
+
+	Say("赌场老板：公子来试试手气吧，怎么样？小赌怡情、大赌养性！", 91);
+	Choose("赌场老板：要不要赌一盘？", "A 赌", "B 不赌", $ChooseDu);
+	If($ChooseDu == 0) @Choose0;
+	If($ChooseDu == 1) @Choose1;
+@Choose0:
+	GetMoneyNum();
+	If($MoneyNum << 100) @NotenoughMon;
+	If($MoneyNum >= 100) @EnoughMon;
+@NotenoughMon:
+	Say("独孤剑：哎呀，我身上的银子不够了……", 1);
+	Say("赌场老板：穷鬼！", 91);
+	Return;
+@EnoughMon:
+	Gamble(100, 1, $map056laoban); 
+	If ($map056laoban == 1) @duwin;
+	Say("赌场老板：你输了，还赌吗？", 91);
+	Return;
+@duwin:
+	Say("赌场老板：小子，运气不错嘛！再来一盘吧？", 91);
+	Return;	
+@Choose1:	
+	Say("赌场老板：不赌就别在这里瞎晃悠！", 91);
+	Return;
+	
+@zhang:
+	Say("赌场老板：去去去！醉鬼！别来搅我的场子！", 91);
+	Return;	
+	
+	
+@YuanDan:	
+
+	If ($Event == 304) @zhangYD;
+	If ($Event == 305) @zhangYD;
+
+	Say("赌场老板：新年转大运！公子来试试手气吧，怎么样？", 91);
+	Choose("赌场老板：要不要赌一盘？", "A 赌", "B 不赌", $ChooseDu);
+	If($ChooseDu == 0) @Choose0YD;
+	If($ChooseDu == 1) @Choose1YD;
+@Choose0YD:
+	GetMoneyNum();
+	If($MoneyNum << 100) @NotenoughMonYD;
+	If($MoneyNum >= 100) @EnoughMonYD;
+@NotenoughMonYD:
+	Say("独孤剑：哎呀，我身上的银子不够了……", 1);
+	Say("赌场老板：穷鬼！", 91);
+	Return;
+@EnoughMonYD:
+	Gamble(100, 1, $map056laoban); 
+	If ($map056laoban == 1) @duwinYD;
+	Say("赌场老板：你输了，还赌吗？", 91);
+	Return;
+@duwinYD:
+	Say("赌场老板：小子，运气不错嘛！再来一盘吧？", 91);
+	Return;	
+@Choose1YD:	
+	Say("赌场老板：不赌就别在这里瞎晃悠！", 91);
+	Return;
+	
+@zhangYD:
+	Say("赌场老板：去去去！醉鬼！别来搅我的场子！", 91);
+	Return;		

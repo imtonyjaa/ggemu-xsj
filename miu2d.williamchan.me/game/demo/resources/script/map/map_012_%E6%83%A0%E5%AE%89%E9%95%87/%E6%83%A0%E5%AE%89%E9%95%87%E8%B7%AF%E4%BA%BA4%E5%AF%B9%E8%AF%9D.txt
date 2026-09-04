@@ -1,0 +1,59 @@
+
+//滕龙
+If ($Result == 0) @Result0;
+If ($Result == 1) @Result1;
+If ($Result == 2) @Result2;
+If ($Result == 3) @Result3;
+Goto @end;
+
+@Result0:
+If ($Event == 110 ) @Talk3;
+If ($Event << 360 ) @Talk1;
+If ($Event >= 360 ) @Talk2;
+Goto @end; 
+
+@Result1:
+Talk(20500, 20501);
+Talk(20503, 20503);
+Goto @end;
+
+
+@Result2:
+Talk(20500, 20502);
+Goto @end;
+
+@Result3:
+Talk(20500, 20502);
+Goto @end;
+
+
+@Talk1:
+Talk(20500, 20502);
+Goto @end;
+
+
+@Talk2:
+If ($Event >= 380) @TalkA380;
+//Talk(40410,40410);
+Say("滕龙：听说紫轩姑娘是清平乡人，奇怪，清平乡怎么会出那样标致的姑娘！", 0);
+Goto @end;
+
+@TalkA380:
+Talk(40560,40560);
+Goto @end;
+
+@Talk3:
+	Say("滕龙：我打小住在这惠安镇，哪里有块缺角的石头我都清清楚楚。");
+	Say("杨影枫：请问我要去藏剑山庄应该走哪条路？", 2);
+	Say("滕龙：你问我算是问对人了。从这座桥出惠安镇，再走不远就是藏剑山庄了。");
+	Say("杨影枫：看来你对这一带真的是很熟悉呀！", 2);
+	Say("滕龙：那当然。");
+//Talk(20481, 20485);
+Goto @end;
+
+
+@end:
+Return;
+
+
+

@@ -1,0 +1,145 @@
+// 与铁匠学徒的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	Say("徒弟（悄悄地）：告诉你，师傅的女儿芙蓉姐姐好漂亮耶，而且她还会变相，一下子就可以变得你认不出来。可惜你来的不是时候，她出门去了。你没这个眼福，怪不得别人喔。", 0);
+	Say("徒弟：你要买点什么？我们这里打造的兵刃全京城都很有名的喔！", 0);
+
+	GetPlayerLevel($PlayerLevel);
+	If ($PlayerLevel << 10) @PlayerLevelL10;
+	If ($PlayerLevel << 16) @PlayerLevelL16;
+	If ($PlayerLevel << 22) @PlayerLevelL22;
+	If ($PlayerLevel << 28) @PlayerLevelL28;
+	If ($PlayerLevel << 34) @PlayerLevelL34;
+	If ($PlayerLevel << 40) @PlayerLevelL40;
+	Goto @PlayerLevelG40;
+	Goto @BuyEnd;
+
+@PlayerLevelL10:
+	SellGoods("buy1级武器.ini");
+	Goto @BuyEnd;
+@PlayerLevelL16:
+	SellGoods("buy2级武器.ini");
+	Goto @BuyEnd;
+@PlayerLevelL22:
+	SellGoods("buy3级武器.ini");
+	Goto @BuyEnd;
+@PlayerLevelL28:
+	SellGoods("buy4级武器.ini");
+	Goto @BuyEnd;
+@PlayerLevelL34:
+	SellGoods("buy5级武器.ini");
+	Goto @BuyEnd;
+@PlayerLevelL40:
+	SellGoods("buy6级武器.ini");
+	Goto @BuyEnd;
+@PlayerLevelG40:
+	SellGoods("buy7级武器.ini");
+	Goto @BuyEnd;
+@BuyEnd:
+
+	If($Bixue == 0) @Bixue0;
+	If($Bixue == 1) @Bixue1;		
+@Bixue0:
+	Sleep(600);
+	Say("徒弟：前些日子我师父得了一把宝刀，叫做碧潮宝刃，锋锐异常，就是价格比较贵，要两千五百两银子，你买不买？", 0);	
+	Choose("独孤剑：我……","A 不买","B 买",$Choose);
+	If ($Choose == 0) @Choose0;
+	If ($Choose == 1) @Choose1;
+	
+@Choose0:
+	Say("独孤剑：多谢，在下暂时不需要。",1);
+	Return;
+	
+@Choose1:
+	GetMoneyNum();
+	If($MoneyNum << 2500) @NotenoughMon;
+	If($MoneyNum >= 2500) @EnoughMon;
+@NotenoughMon:
+	Say("独孤剑：哎呀，银子不够了。", 9);
+	Say("徒弟：这可是一把好刀，你凑够了银子再来吧。", 86);
+	Return;
+@EnoughMon:
+	Say("独孤剑：好，我买了。", 1);
+	AddMoney(-2500);
+	AddGoods("Goods051_碧潮宝刃.ini");
+	Assign($Bixue, 1);
+	Return;
+@Bixue1:
+	Return;	
+	
+	
+@YuanDan:		
+	
+	Say("徒弟：恭喜发财！", 0);
+	Say("徒弟（悄悄地）：告诉你，师傅的女儿芙蓉姐姐好漂亮耶，而且她还会变相，一下子就可以变得你认不出来。可惜你来的不是时候，她出门去了。你没这个眼福，怪不得别人喔。", 0);
+	Say("徒弟：你要买点什么？我们这里打造的兵刃全京城都很有名的喔！为迎接新年，今天我们这里所有的兵刃都半价销售！", 0);
+
+	GetPlayerLevel($PlayerLevel);
+	If ($PlayerLevel << 10) @PlayerLevelL10YD;
+	If ($PlayerLevel << 16) @PlayerLevelL16YD;
+	If ($PlayerLevel << 22) @PlayerLevelL22YD;
+	If ($PlayerLevel << 28) @PlayerLevelL28YD;
+	If ($PlayerLevel << 34) @PlayerLevelL34YD;
+	If ($PlayerLevel << 40) @PlayerLevelL40YD;
+	Goto @PlayerLevelG40YD;
+	Goto @BuyEndYD;
+
+@PlayerLevelL10YD:
+	SellGoods("buy过年1级武器.ini");
+	Goto @BuyEndYD;
+@PlayerLevelL16YD:
+	SellGoods("buy过年2级武器.ini");
+	Goto @BuyEndYD;
+@PlayerLevelL22YD:
+	SellGoods("buy过年3级武器.ini");
+	Goto @BuyEndYD;
+@PlayerLevelL28YD:
+	SellGoods("buy过年4级武器.ini");
+	Goto @BuyEndYD;
+@PlayerLevelL34YD:
+	SellGoods("buy过年5级武器.ini");
+	Goto @BuyEndYD;
+@PlayerLevelL40YD:
+	SellGoods("buy过年6级武器.ini");
+	Goto @BuyEndYD;
+@PlayerLevelG40YD:
+	SellGoods("buy过年7级武器.ini");
+	Goto @BuyEndYD;
+@BuyEndYD:
+
+	If($Bixue == 0) @Bixue0YD;
+	If($Bixue == 1) @Bixue1YD;		
+@Bixue0YD:
+	Sleep(600);
+	Say("徒弟：前些日子我师父得了一把宝刀，叫做碧潮宝刃，锋锐异常，就是价格比较贵，要两千五百两银子，你买不买？", 0);	
+	Choose("独孤剑：我……","A 不买","B 买",$Choose);
+	If ($Choose == 0) @Choose0YD;
+	If ($Choose == 1) @Choose1YD;
+	
+@Choose0YD:
+	Say("独孤剑：多谢，在下暂时不需要。",1);
+	Return;
+	
+@Choose1YD:
+	GetMoneyNum();
+	If($MoneyNum << 2500) @NotenoughMon;
+	If($MoneyNum >= 2500) @EnoughMon;
+@NotenoughMon:
+	Say("独孤剑：哎呀，银子不够了。", 9);
+	Say("徒弟：这可是一把好刀，你凑够了银子再来吧。", 86);
+	Return;
+@EnoughMon:
+	Say("独孤剑：好，我买了。", 1);
+	AddMoney(-2500);
+	AddGoods("Goods051_碧潮宝刃.ini");
+	Assign($Bixue, 1);
+	Return;
+	
+	
+@Bixue1YD:
+	Return;	

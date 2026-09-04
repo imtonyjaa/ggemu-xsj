@@ -1,0 +1,29 @@
+// 采花贼死亡
+
+	FadeOut();
+	DelNpc("采花贼");
+	SaveNpc();
+	StopMusic();
+	Say("采花贼：小子，算你运气好，老子今天肚子有点不舒服，下次碰上给我小心点！", 202);
+	PlayMusic("情缘音乐.mp3");
+	ClearBody();
+	Assign($Event, 150);   
+	SetMapTrap(1, "trap01.txt");
+	SetMapTrap(2, "trap02.txt");
+	SetNpcActionFile("独孤剑", 0, "mpc007_2.asf");
+	SetNpcActionFile("独孤剑", 1, "mpc007_2.asf");
+	SetPlayerPos(7, 24);
+	SetPlayerDir(4);
+	ClearEffect();
+	FadeIn();
+	Sleep(1000);
+	Say("独孤剑：张姑娘！张姑娘！", 6);
+	Sleep(500);
+	Say("独孤剑：她受了伤昏迷不醒，还是尽快回临安比较好，赶紧去找老王吧！", 6);
+	SetNpcActionFile("独孤剑", 0, "npc001_st2.asf");
+	SetNpcActionFile("独孤剑", 1, "npc001_sst2.asf");
+	NpcSpecialAction("独孤剑", "mpc007_3.asf");
+	Sleep(1000);
+	Memo("碧霞岛上有无数的蒙面杀手，独孤剑勇创虎穴，在山洞中找到了绿衣女孩和采花贼，一场苦战，独孤剑击退了采花贼。");
+	Memo("绿衣女孩受伤昏迷，独孤剑决定先去找老王。");
+	Return;

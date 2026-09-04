@@ -1,0 +1,9 @@
+	StopMusic();
+	PlaySound("主角死亡.wav");
+	Sleep(1000);
+   	FadeOut();
+	PlayMovie("Die.avi", 0, 0, 0);
+	FreeMap();
+	ReturnToTitle();
+	Return;
+	

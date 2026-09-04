@@ -1,0 +1,38 @@
+//站在炉旁的人
+If ($Result == 0) @Result0;
+If ($Result == 1) @Result1;
+If ($Result == 2) @Result2;
+If ($Result == 3) @Result3;
+Goto @end;
+
+@Result0:
+If ($Event << 360 ) @Talk1;
+If ($Event >= 360 ) @Talk2;
+Goto @end; 
+
+@Result1:
+Talk(40080,40080);
+Goto @end;
+
+
+@Result2:
+Talk(40080,40080);
+Goto @end;
+
+@Result3:
+Talk(40080,40080);
+Goto @end;
+
+
+@Talk1:
+Talk(40080,40080);
+Goto @end;
+
+
+@Talk2:
+Talk(21830, 21830);
+Goto @end;
+
+
+@end:
+Return;

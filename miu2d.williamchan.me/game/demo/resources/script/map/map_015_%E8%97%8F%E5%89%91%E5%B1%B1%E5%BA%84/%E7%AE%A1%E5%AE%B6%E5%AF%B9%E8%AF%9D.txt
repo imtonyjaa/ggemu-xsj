@@ -1,0 +1,40 @@
+
+	If ($Event == 124) @end;
+	If ($Event == 120) @Label2;
+	If ($Event == 130) @Label3;
+	If ($Event == 135) @Label4;
+//	If ($Event == 232) @Label5;
+	If ($Event == 234) @Label6;
+	If ($Event == 478) @Label7;
+	If ($Event == 480) @Label8;
+	
+	Talk(21336, 21336);
+	Return;
+
+@Label2:
+	Talk(21337, 21337);
+	Return;
+	
+@Label3:
+	Talk(21338, 21338);
+	Return;
+	
+@Label4:
+	Talk(21339, 21339);
+	Return;	
+	
+	
+@Label6:
+	Say("李四：杨公子，庄主此刻正在剑气峰。", 98);
+	Return;	
+
+@Label7:
+	Talk(8394, 8394);
+	Return;	
+
+@Label8:
+	Talk(21521, 21521);
+	Return;	
+	
+@end:
+	Return;

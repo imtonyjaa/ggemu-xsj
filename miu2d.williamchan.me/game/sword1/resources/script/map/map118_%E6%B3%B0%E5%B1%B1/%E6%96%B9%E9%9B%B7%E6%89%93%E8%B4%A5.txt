@@ -1,0 +1,58 @@
+//方雷被打败
+
+	FadeOut();
+	StopMusic();
+	ClearBody();
+	DelNpc("小雷");
+	AddNpc("npc036_小叫化小雷.ini", 7, 22, 5);
+	SetNpcRelation("小雷", 2);
+	SetNpcScript("小雷", "方雷.txt");
+	SetPlayerPos(8, 20);
+	SetPlayerDir(1);
+	SetPlayerState(0);
+	DelObj("门类障碍2");
+	DelObj("门类障碍3");
+	DelObj("门类障碍4");
+	ClearEffect();
+	FadeIn();
+	
+	Say("小雷：哈哈，独孤大哥，你太厉害了，我打不过你，小叫化认输！", 69);
+	NpcGoto("小雷", 11, 30);
+	NpcGotoEx("小雷", 12, 26);
+	Say("无虚大师：阿弥陀佛！独孤少侠果然日进千里，已和当日在少林之时不可同日而语了。", 56);
+	SetNpcDir("小雷", 3);
+	NpcGoto("无虚大师", 5, 25);
+	NpcGoto("无虚大师", 7, 22);
+	SetNpcDir("无虚大师", 5);
+	Sleep(500);
+	
+	Say("独孤剑：当日多蒙大师教诲……", 1);
+	Say("无虚大师：少侠不必客套。呵呵，老衲今日也想和少侠过两招，少侠可准备好了？", 56);
+	Assign($Event, 810);
+	
+	Choose("独孤剑：大师你……","A 请大师赐教","B 请大师稍候",$Choose);
+	If ($Choose == 0) @Choose0;
+	If ($Choose == 1) @Choose1;
+
+@Choose0:
+	Say("无虚大师：好，少侠小心了！", 56);
+	SetNpcRelation("无虚大师", 1);
+	SetPlayerState(1);
+	SetNpcDeathScript("独孤剑", "比武失败.txt");
+	SetNpcScript("无虚大师", "");
+	PlayMusic("沙场.mp3");
+	AddObj("门类障碍2.ini", 10, 26, 0);
+	AddObj("门类障碍3.ini", 5, 27, 0);
+	AddObj("门类障碍4.ini", 5, 26, 0);
+	Return;
+	
+@Choose1:
+	Say("无虚大师：少侠已连胜三场，想必已经疲乏，不妨休息一会。", 56);
+	Say("独孤剑：多谢大师。", 1);
+	AddObj("门类障碍2.ini", 10, 26, 0);
+	AddObj("门类障碍3.ini", 5, 27, 0);
+	AddObj("门类障碍4.ini", 5, 26, 0);
+	Return;
+	
+	
+	

@@ -1,0 +1,86 @@
+If ($Event == 696 ) @Event696;
+If ($Event == 3050) @Evt3050;
+Goto @end;
+
+@Event696:
+	FadeOut();
+	StopMusic();
+	DelObj("杨影枫尸体");
+	SetPlayerState(0);
+	FullLife();
+	FullThew();
+	FullMana();
+	Say("中了魔");
+	SetNpcPos("涟漪",7,29);
+	SetPlayerPos(9,28);
+	Say("主角增加了刀一把！");
+	SetNpcRelation("涟漪",2);
+	SetMapTrap(1,"Trap01.txt");
+Assign($Event,700);
+Goto @end;
+
+@Evt3050:
+	FadeOut();
+	StopMusic();
+	DelObj("杨影枫尸体");
+	DelNpc("月眉儿");
+	LoadNpc("map062_VS_YMR.npc");
+	Sleep(3000);
+	ClearBody();
+	SetNpcDeathScript("杨影枫","主角死亡.txt");
+	SetPlayerState(0);
+	FullLife();
+	FullThew();
+	FullMana();
+	SetNpcPos("月眉儿",7,29);
+	SetPlayerPos(9,28);
+	SetNpcRelation("月眉儿",0);
+	Watch("杨影枫","月眉儿",0);
+	FadeIn();
+	
+	
+	Talk(98320,98440);
+	
+	Choose("加入飞龙堡？","同意加入","拒绝加入",$douhao);
+	If ($douhao == 0) @Yes;
+	Add($EvilValue,-5);
+	
+		
+	Talk(98442,98442);
+	Choose("加入飞龙堡？","同意加入","拒绝加入",$douhao);
+	If ($douhao == 0) @Yes;
+	Talk(98460,98510);
+	//FadeOut();
+	//RunScript("主角死亡.txt");
+	SetNpcRelation("月眉儿",1);
+	NpcAttack("月眉儿", 9, 28);
+	FadeOut();
+	RunScript("主角死亡.txt");
+	Return;
+	Goto @end;
+	
+@Yes:
+	Add(EvilValue,10);
+	AddToMemo(24370);
+	Talk(98540,98590);
+	SetNpcKind("月眉儿",3);
+	SetNpcScript("月眉儿","月眉儿跟随对话.txt");
+	SetNpcRelation("月眉儿",0);
+	SetNpcRelation("杨影枫",0);
+	SetMapTrap(1,"Trap01.txt");
+	FullLife();
+	FullThew();
+	FullMana();
+	SetNpcDeathScript("月眉儿","主角死亡.txt");
+	//Memo("带月眉儿回悲魔山庄");
+	AddToMemo(24380);
+	Assign($Event, 3060);
+	Goto @end;
+	
+	
+
+@end:
+Return;
+
+
+	

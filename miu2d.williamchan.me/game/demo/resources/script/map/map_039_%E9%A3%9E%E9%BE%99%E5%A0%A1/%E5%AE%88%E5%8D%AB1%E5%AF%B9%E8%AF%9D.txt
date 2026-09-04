@@ -1,0 +1,16 @@
+If ($Event <> 3180) @end;
+Talk(100710,100760);
+NpcGoto("大门守卫",42,19);
+SetNpcDir("大门守卫",6);
+Assign($Event, 3182);
+
+Goto @end;
+
+
+@end:
+Return;
+
+
+
+
+

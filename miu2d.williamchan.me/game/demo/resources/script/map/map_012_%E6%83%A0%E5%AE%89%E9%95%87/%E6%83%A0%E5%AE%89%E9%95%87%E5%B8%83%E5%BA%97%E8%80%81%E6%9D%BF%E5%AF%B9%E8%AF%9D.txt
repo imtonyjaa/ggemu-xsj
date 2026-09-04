@@ -1,0 +1,32 @@
+	GetRandNum($Temp,0,1);
+
+	If ($Temp == 0) @Label1;
+	If ($Temp == 1) @Label2;
+
+	Goto @BUY;
+	
+@Label1:
+	Talk(20420, 20420);
+	Goto @BUY;
+	
+@Label2:
+	Talk(22210, 22210);
+	Goto @BUY;
+	
+@BUY:
+	If ($Event << 180) @Buy1;
+	If ($Event << 260) @Buy2;
+	BuyGoods("衣3级.ini");
+	Goto @end;
+
+@Buy1:
+	BuyGoods("衣1级.ini");
+	Goto @end;
+
+@Buy2:
+	BuyGoods("衣2级.ini");
+	Goto @end;
+
+@end:
+	Return;		
+

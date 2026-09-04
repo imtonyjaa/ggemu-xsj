@@ -1,0 +1,19 @@
+//守门的弟子
+
+	If ($TianWanShouMenDiZi==1) @Talk1;
+	Talk(34170,34170);
+	Return;
+	
+@Talk1:
+	Talk(34180,34180);
+	StopMusic();
+	FadeOut();
+	LoadMap("汉阳.map");
+	LoadNpc("HanYan.npc");
+	LoadObj("HanYan.obj");
+	SetPlayerPos(40,40);
+	SetPlayerDir(7);
+	ShowMessage("汉阳");
+	PlayMusic("ks69.wav");
+	FadeIn();
+	Return;

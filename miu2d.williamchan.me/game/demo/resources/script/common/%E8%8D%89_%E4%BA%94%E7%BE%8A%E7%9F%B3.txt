@@ -1,0 +1,3 @@
+AddGoods("Goods-m17-五羊石.ini");
+DelCurObj();
+Return;

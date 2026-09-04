@@ -1,0 +1,69 @@
+	If ($Event == 3120) @TalkE3120;
+	If ($Event == 3122) @TalkE3122;
+	If ($Event == 1810)  @1810;//结局2救月眉儿
+	If ($Result == 0)  @Result0;
+	If ($Result == 1)  @Result1;
+	If ($Event >= 1800)  @1800;//结局2救月眉儿
+	If ($Event >= 1811)  @1811;//结局2救月眉儿
+	If ($Result == 2)  @Result2;
+	If ($Result == 3)  @Result3;
+	Return;
+
+@1811:
+	Say("侍女嫣儿：杨公子，一大早急着上哪儿去呀？");
+	Return;
+
+@1810:
+	Say("侍女嫣儿：杨公子，这么晚啦还没有休息，有什么吩咐的吗？");
+	Say("杨影枫：哦，没有，睡不着，随便走走。");
+	Say("侍女嫣儿：我陪你？");
+	Say("杨影枫：哦，不用，谢谢啦。");
+	Return;
+
+@1800:
+	Say("侍女嫣儿：杨公子，你还记得我吗？自从上次见了公子，我就一直忘不了公子……");
+	Return;
+
+@Result0:
+	Talk(22160, 22160);
+	Return;
+
+@Result1:
+	If ($Event ==574) @TalkA574;
+	If ($Event == 591) @TalkA591;
+	Talk(22160, 22160);
+	Return;
+
+@Result2:
+	Talk(22160, 22160);
+	Return;
+
+@Result3:
+	Talk(22160, 22160);
+	Return;
+
+@TalkA574:
+	
+	Talk(60070,60071);
+	Return;
+	
+@TalkA591:
+	GetRandNum($RandTalk,0,1);
+	If ($RandTalk == 0) @TalkA591_0;
+	Talk(60490,60491);
+	Return;
+
+@TalkA591_0:
+	Talk(60730,60730);
+	Return;		
+
+
+@TalkE3120:
+@TalkE3122:
+	Talk(103350,103350);
+	Return;
+
+@end:
+
+Return;
+

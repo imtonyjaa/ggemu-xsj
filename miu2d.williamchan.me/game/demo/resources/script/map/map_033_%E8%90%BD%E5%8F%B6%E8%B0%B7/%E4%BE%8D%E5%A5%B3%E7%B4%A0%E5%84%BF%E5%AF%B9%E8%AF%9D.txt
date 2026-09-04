@@ -1,0 +1,64 @@
+	
+	If ($Event == 3120) @TalkE3120;
+	If ($Event == 3122) @TalkE3122;
+	If ($Result == 0)  @Result0;
+	If ($Result == 1)  @Result1;
+	If ($Event >= 1810) @1810;//结局2救月眉儿
+	If ($Event >= 1800) @1800;//结局2救月眉儿
+	If ($Result == 2)  @Result2;
+	If ($Result == 3)  @Result3;
+	Return;
+
+@1810:
+	Say("侍女素儿：我昨天去求小姐让我回家一趟，小姐答应啦，太好啦，小姐真是个好人！");
+	Return;
+
+@1800:
+	Say("侍女素儿：到这里做侍女已经一年多了，一直都没有回家，不知什么时候才能回去！");
+	Return;
+	
+@Result0:
+	Talk(22190, 22190);
+	Return;
+
+@Result1:
+	If ($Event ==574) @TalkA574;
+	If ($Event ==591 ) @TalkA591;
+	Talk(22190, 22190);
+	Return;
+
+@Result2:
+	Talk(22190, 22190);
+	Return;
+
+@Result3:
+	Talk(22190, 22190);
+	Return;
+
+
+@TalkA574:
+	
+	Say("侍女素儿：杨公子好胆识！竟敢迎娶我们家小姐，她的脾气…呵呵，可不好侍侯啊！");
+	Say("侍女素儿：小姐出阁以后，我就清闲多了！");
+//	Talk(60100,60110);
+	Return;
+
+@TalkA591:
+	GetRandNum($RandTalk,0,1);
+	If ($RandTalk == 0) @TalkA591_0;
+	Talk(60520,60520);
+	Return;
+
+@TalkA591_0:
+	Talk(60760,60760);
+	Return;	
+	
+	
+@TalkE3120:
+@TalkE3122:
+	Talk(103380,103380);
+	Return;	
+
+@end:
+	Return;
+

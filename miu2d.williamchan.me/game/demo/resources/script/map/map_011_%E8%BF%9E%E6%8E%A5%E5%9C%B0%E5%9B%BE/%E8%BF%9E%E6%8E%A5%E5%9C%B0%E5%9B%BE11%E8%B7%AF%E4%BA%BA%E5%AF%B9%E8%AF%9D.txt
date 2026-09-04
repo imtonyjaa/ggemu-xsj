@@ -1,0 +1,20 @@
+	If ($Event == 60 ) @Label;
+	Talk(21239, 21239);
+	Goto @end;
+	
+@Label:
+	If ($Talkxiaocui == 0) @Talk0;
+	If ($Talkxiaocui == 1) @Talk1;
+	Talk(21239, 21239); 
+	Goto @end;
+@Talk0:
+    Talk(21230, 21230);
+	Talk(21236, 21238);
+	Assign($Talkxiaocui, 1);
+	Goto @end;
+@Talk1:
+	Talk(21239, 21239);
+	Goto @end;
+
+@end:
+	Return;

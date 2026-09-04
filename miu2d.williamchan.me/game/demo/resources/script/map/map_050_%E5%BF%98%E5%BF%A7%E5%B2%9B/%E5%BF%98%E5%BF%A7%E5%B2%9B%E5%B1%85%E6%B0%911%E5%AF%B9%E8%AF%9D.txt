@@ -1,0 +1,80 @@
+//于大叔
+	If ($Event == 250) @Talk250;
+	If ($Event == 254) @Talk254;
+	If ($Event == 260) @Talk260;
+	If ($Event == 340) @Talk340;
+	If ($Event == 412) @Talk412;
+	If ($Event == 350) @Talk350;
+	If ($Event == 700 ) @TalkE700;
+	If ($Event >= 302) @Label;
+
+	Talk(21120, 21120);
+	Return;
+
+
+@Label:
+	Talk(21121, 21121);
+	Goto @end;
+
+
+@Talk250:
+	If ($Talkyushu250 == 0) @Talk0;
+	If ($Talkyushu250 == 1) @Talk1;
+	Talk(21123, 21123);
+	Goto @end;
+@Talk0:
+   	Talk(21122, 21124);
+	Assign($Talkyushu250, 1);
+	Goto @end;
+@Talk1:
+   	Talk(21123, 21123);
+	Goto @end;
+	
+	
+@Talk254:
+	If ($Talkyushu254 == 0) @Talk2;
+	If ($Talkyushu254 == 1) @Talk3;
+	Talk(21127, 21128);
+	Goto @end;
+@Talk2:
+   	Talk(21125, 21128);
+	Assign($Talkyushu254, 1);
+	Goto @end;
+@Talk3:
+   	Talk(21127, 21128);
+	Goto @end;	
+	
+	
+@Talk260:
+	Talk(21129, 21129);
+	Goto @end;
+	
+@Talk340:
+	Say("于大叔：真儿，你没出什么事吧？很久没有看到你，我们都惦记着你，怕你出事。", 0);
+	Say("纳兰真：谢谢大叔关心，我没事。", 9);
+	Say("于大叔：可是你爹爹最近可不太好，我看他到处找你，都快急死了。", 0);
+	Goto @end;
+
+@Talk412:
+	Talk(40830,40830);
+	Goto @end;
+		
+@TalkE700:
+	Talk(61460,61480);
+	Goto @end;
+	
+@TalkA750:
+	Talk(71490,71490);
+	Goto @end;
+
+@Talk350:
+	Sleep(500);
+	Watch("于大叔" , "杨影枫", 0);
+	Say("于大叔：杨公子，真儿是一个好姑娘，你可不要辜负她呀。", 0);
+	Say("杨影枫：……", 2);
+	Return;
+
+@end:
+	Return;
+
+

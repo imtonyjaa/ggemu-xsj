@@ -1,0 +1,85 @@
+	If ($Event == 1819) @1819;
+	If ($Event == 1818) @1800;
+	If ($Event == 1806) @1800;
+	If ($Event == 1805) @1800;
+	If ($Event == 1804) @1800;
+	If ($Event == 1803) @1800;
+	If ($Event == 1802) @1800;
+	If ($Event == 1801) @1800;
+	If ($Event == 1800) @1800;//结局2
+	If ($Result == 0) @Result0;
+	If ($Result == 1) @Result1;
+	If ($Result == 2) @Result2;
+	If ($Result == 3) @Result3;
+	Return;
+		
+@1819:
+	Say("侍女可真：公子，我做的菜你很少吃，是不是我做的不好呀？");
+	Say("杨影枫：不是，我主要是想减肥。");
+	Say("侍女可真：那我以后不做饭给你了。");
+	Return;
+
+@1800:
+	Say("侍女可真：公子，最近我又学会了一道新菜，要不要做给你尝尝？");
+	Say("杨影枫：谢谢，我还有事要办，回来再说吧。");
+	Say("侍女可真：那我做好了等你回来。");
+	Return;
+
+@Result0:
+
+	If ($Event == 475) @Label1;
+	If ($Event == 485) @Label2;
+	If ($Event == 490) @Label3;
+	If ($Event == 492) @Label4;
+	If ($Event == 500) @Label5;
+	If ($Event == 530) @Label6;
+	If ($Event == 562) @Label2;
+
+	Say("侍女可真：今天天气真好，好想到外面去放风筝啊！");
+	Return;
+@Label1:
+	Say("侍女可真：今天天气真好，好想到外面去放风筝啊！");
+	Return;
+@Label2:
+	Say("侍女可真：公子回来了？");
+	Return;
+@Label3:
+	Say("侍女可真：公子早上好！");
+	Return;
+@Label4:
+	Say("侍女可真：祝公子马到成功！得偿宿愿！");
+	Return;
+@Label5:
+	Say("侍女可真：恭喜公子打败卓非凡，威震江湖！");
+	Return;
+@Label6:
+	Talk(21765, 21765);
+	Return;
+
+@Result1:
+//If ($Event == 700) @Talk700;
+//If ($Event >= 650) @TalkA650;
+If ($Event == 600) @TalkE600;
+	Say("侍女可真：今天天气真好，好想到外面去放风筝啊！");
+	Return;
+	
+@Result2:
+	Say("侍女可真：今天天气真好，好想到外面去放风筝啊！");
+	Return;
+	
+@Result3:
+	Say("侍女可真：今天天气真好，好想到外面去放风筝啊！");
+	Return;		
+
+@TalkE600:
+	Talk(60640,60640);
+	Return;
+
+@TalkA650:
+	Talk(61200,61200);
+	Return;	
+@Talk700:
+	Talk(61600,61600);
+	Return;
+@end:
+	Return;

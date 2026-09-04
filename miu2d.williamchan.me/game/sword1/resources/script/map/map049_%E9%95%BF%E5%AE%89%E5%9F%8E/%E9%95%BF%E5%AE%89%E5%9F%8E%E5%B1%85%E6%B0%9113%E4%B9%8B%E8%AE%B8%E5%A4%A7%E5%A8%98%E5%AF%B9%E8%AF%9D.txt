@@ -1,0 +1,17 @@
+// 与长安城居民许大娘的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	Say("许泰娘：我每天都会来龙王庙求菩萨保佑我从军的相公平平安安，早点回家。", 0);
+	Return;
+
+
+@YuanDan:
+	Say("许泰娘：恭贺新禧！但愿我相公今年能从战场上平平安安地回来，送你们个红包，讨点喜气！", 0);
+	Say("得到一百两银子。");
+	AddMoney(100);
+	Return;

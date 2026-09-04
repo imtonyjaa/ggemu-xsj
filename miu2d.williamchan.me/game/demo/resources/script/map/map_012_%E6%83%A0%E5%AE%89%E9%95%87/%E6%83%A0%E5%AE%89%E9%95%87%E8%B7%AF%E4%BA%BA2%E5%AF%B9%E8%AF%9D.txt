@@ -1,0 +1,63 @@
+
+//沈三石
+	If ($Result == 0) @Result0;
+	If ($Result == 1) @Result1;
+	If ($Result == 2) @Result2;
+	If ($Result == 3) @Result3;
+	Goto @end;
+
+@Result0:
+	If ($Event == 185) @Event185;	
+	If ($Event << 360 ) @Talk1;
+	If ($Event >= 360 ) @Talk2;
+	Goto @end; 
+
+@Result1:
+     Talk(20480, 20480); 
+	Goto @end;
+
+
+@Result2:
+    Talk(20480, 20480); 
+	Goto @end;
+
+@Result3:
+    Talk(20480, 20480); 
+	Goto @end;
+
+@Talk1:
+    Talk(20480, 20480); 
+	Goto @end;
+
+@Talk2:
+	If ($Event >= 380 ) @TalkA380; 
+	Talk(40391,40392);	
+	Goto @end;
+
+@TalkA380:
+	Talk（40530,40540);
+	Goto @end;
+
+@Event185:        
+	Watch("任冬", "沈三石", 0);
+    Talk(2510, 2570);
+    Sleep(500);
+    PlayerGoto(49, 213);
+    Talk(2580, 2590);
+    Assign($Event, 190);
+    AddToMemo(90290);
+    PlayMusic("mc014.mp3");
+    SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(2, "Trap02.txt");
+	SetMapTrap(3, "Trap03.txt");
+    Goto @end;
+     
+
+@end:
+	  Return;
+
+
+
+
+
+       

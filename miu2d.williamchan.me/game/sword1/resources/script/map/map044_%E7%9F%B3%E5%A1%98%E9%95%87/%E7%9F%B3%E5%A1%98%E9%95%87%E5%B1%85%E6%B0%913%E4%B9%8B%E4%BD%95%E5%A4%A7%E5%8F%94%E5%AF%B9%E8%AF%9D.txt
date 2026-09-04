@@ -1,0 +1,40 @@
+// 和何大叔的对话
+
+	If ($Event == 280) @Event280;
+	If ($Event == 290) @Event290;
+	If ($Event == 300) @Event290;
+	If ($Event == 310) @Event290;
+	If ($Event == 360) @Event360;
+	
+	Return;
+
+@Event280:
+	DelNpc("小雷");
+	DelNpc("段芙蓉");
+	SaveNpc();
+	GetRandNum($Talkheshu280,0,1);
+	If ($Talkheshu280 == 0) @Talk0;
+	If ($Talkheshu280 == 1) @Talk1;	
+@Talk0:	
+	Say("何大叔：听说华山上顾枫和林海两个人为一个华山掌门要大打出手，真不知这些人是怎么想的，难道这个位子就这么好，值得兄弟俩自相残杀？", 0);
+	Return;
+@Talk1:
+	Say("何大叔：你们也去华山看顾枫和林海争夺掌门的比武大会？", 0);
+	Return;
+	
+	
+@Event290:
+	GetRandNum($Talkheshu290,0,1);
+	If ($Talkheshu290 == 0) @Talk2;
+	If ($Talkheshu290 == 1) @Talk3;	
+@Talk2:	
+	Say("何大叔：听说华山上顾枫和林海两个人为一个华山掌门要大打出手，真不知这些人是怎么想的，难道这个位子就这么好，值得兄弟俩自相残杀？", 0);
+	Return;
+@Talk3:
+	Say("何大叔：最近来了很多江湖中人，都是为了上华山看顾枫和林海争夺掌门的比武大会，也不知有什么好看，都是唯恐天下不乱！", 0);
+	Return;	
+
+	
+@Event360:
+	Say("何大叔：听说华山派的林海在比武大会上把他师兄顾枫给打死了，唉！本是同根生，相煎何太急？", 0);
+	Return;	

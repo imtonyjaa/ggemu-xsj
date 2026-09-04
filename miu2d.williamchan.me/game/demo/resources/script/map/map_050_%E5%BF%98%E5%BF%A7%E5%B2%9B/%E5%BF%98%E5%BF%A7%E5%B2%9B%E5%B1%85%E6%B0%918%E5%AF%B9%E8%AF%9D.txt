@@ -1,0 +1,22 @@
+//玖儿	
+	If ($Event == 350) @Talk350;
+	If ($Event >= 302) @Label;
+
+	Talk(21190, 21190);
+	Goto @end;
+	
+@Label:
+	Talk(21190, 21190);
+	Goto @end;
+	
+@Talk350:
+	Sleep(500);
+	Watch("玖儿" , "杨影枫", 0);
+	Say("玖儿：杨公子，你要到中原去吗？带我去好不好？", 0);
+	Say("杨影枫：……", 2);
+	Return;	
+
+@end:
+	Return;
+
+

@@ -1,0 +1,32 @@
+	If ($Event >= 46) @end;
+	If ($Event <= 40) @end;
+	If ($Event <= 43) @Label1;
+
+@Label1:
+	PlayerGoto(35, 86);
+	SetMapTrap(8,"Trap08.txt");
+
+// 软的
+	If ($Event <> 42) @second;
+	Talk(300,410);
+	EnableFight();
+	EnableNpcAI();
+	Assign($Event, 44);
+	SetNpcScript("天星道长","天星道长对话.txt");
+	Goto @end;	
+
+// 硬的
+@second:
+	If ($Event <> 43) @end;
+	Talk(300, 410);
+	EnableFight();
+	EnableNpcAI();
+	Assign($Event, 44);
+	SetNpcScript("天星道长","天星道长对话.txt");
+	Goto @end;
+	
+@Event950:
+	Goto @end;
+
+@end:	   
+	Return;

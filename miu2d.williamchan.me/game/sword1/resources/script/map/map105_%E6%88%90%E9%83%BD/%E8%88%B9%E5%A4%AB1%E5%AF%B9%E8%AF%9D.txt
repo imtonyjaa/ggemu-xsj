@@ -1,0 +1,16 @@
+//和船夫对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	Say("船夫：最近生意可真难做。");
+	Return;
+	
+	
+@YuanDan:	
+
+	Say("船夫：新年好！公子，照顾一下生意吧？");
+	Return;

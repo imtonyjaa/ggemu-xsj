@@ -1,0 +1,140 @@
+	If ($Event == 3185) @3185;
+	If ($Event == 1819) @1819;
+	If ($Event == 1818) @1818;
+	If ($Event == 1806) @1806;
+	If ($Event == 1805) @1803;
+	If ($Event == 1804) @1803;
+	If ($Event == 1803) @1803;
+	If ($Event == 1802) @1803;
+	If ($Event == 1800) @1800;
+	If ($Event == 3120) @Evt3120;
+	If ($Result == 0) @Result0;
+	If ($Result == 1) @Result1;
+	If ($Result == 2) @Result2;
+	If ($Result == 3) @Result3;
+	Return;
+
+@1819:
+	Say("侍女可含：公子，你不在时，我不知道有多担心呢。现在你回来了，我就放心了。");
+	Return;
+
+@1818:
+	Say("侍女可含：公子，我昨儿给你做了一个扇坠儿，要不要拿给你看看。");
+	Say("杨影枫：谢谢，我现在要去落叶谷，回来再说吧。");
+	Return;
+
+@1806:
+	Say("侍女可含：公子，早上好。");
+	Return;
+
+@1803:
+	Say("侍女可含：菩萨保佑，真儿小姐千万别出事。");
+	Return;
+
+@1800:
+	Say("杨影枫：可含，看到真儿姑娘了吗？",2);
+	Say("侍女可含：真儿小姐昨晚跟我说她睡不着，要出去散散心，于是整个晚上都没回来。");
+	Say("杨影枫：你知道她去哪里了吗？",4);
+	Say("侍女可含：真儿小姐在公子不在时，常从偏门去东面的树林散步，公子可以去那儿找找看。");
+	SetMapTrap(1,"trap01.txt");
+	SetMapTrap(5,"trap05.txt");
+	SetMapTrap(6,"trap06.txt");
+	Return;
+
+@Result0:
+	If ($Event == 475) @Label1;
+	If ($Event == 485) @Label2;
+	If ($Event == 490) @Label3;
+	If ($Event == 492) @Label4;
+	If ($Event == 500) @Label5;
+	If ($Event == 530) @Label6;
+	If ($Event == 562) @Label2;
+
+	Talk(21760, 21760);
+	Return;
+@Label1:
+	Talk(21760, 21760);
+	Return;
+@Label2:
+	Talk(21761, 21761);
+	Return;
+@Label3:
+	Talk(21762, 21762);
+	Return;
+@Label4:
+	Talk(21763, 21763);
+	Return;
+@Label5:
+	Talk(21764, 21764);
+	Return;
+@Label6:
+	Talk(21765, 21765);
+	Return;
+
+@Result1:
+//If ($Event == 700) @Talk700;
+//If ($Event >= 650) @TalkA650;
+If ($Event == 591) @TalkE600;
+Talk(21760, 21760);
+	Return;
+	
+@Result2:
+	If ($Event == 767) @TalkE767;
+	If ($Event >= 750) @TalkA750;
+	If ($Event >= 720) @TalkA720;
+	Talk(21760, 21760);
+	Return;
+	
+@Result3:
+	If ($Event >= 990) @Event990;
+	
+	GetRandNum($KehanTalk, 1, 2);
+	If ($KehanTalk == 1) @KehanTalk31;
+	If ($KehanTalk == 2) @KehanTalk32;
+	@KehanTalk31:
+		Talk(80150, 80160);
+		Return;
+	@KehanTalk32:
+		Talk(21760, 21760);
+		Return;
+	
+	@Event990:
+		Talk(21760, 21760);
+		Return;
+	
+	Return;		
+
+@TalkE600:
+	Talk(60640,60640);
+	Return;
+
+@TalkA650:
+	Talk(61200,61200);
+	Return;	
+@Talk700:
+	Talk(61600,61600);
+	Return;
+	
+@TalkA720:
+	Talk(71050,71060);
+	Return;
+	
+@TalkA750:
+	Talk(71920,71920);
+	Return;	
+	
+@TalkE767:
+	Talk(72030,72030);
+	Return;	
+
+
+@Evt3120:
+	Talk(103070,103070);
+	Return;
+	
+@3185:
+	Talk(103940,103940);
+	Return;	
+	
+@end:
+	Return;

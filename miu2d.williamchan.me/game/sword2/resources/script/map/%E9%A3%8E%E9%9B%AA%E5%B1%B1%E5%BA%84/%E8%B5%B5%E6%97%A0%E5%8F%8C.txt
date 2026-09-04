@@ -1,0 +1,4 @@
+
+	Talk(49730,49730);
+	SetNpcDir("赵无双",1);
+	Return;

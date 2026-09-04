@@ -1,0 +1,17 @@
+// 与普通弟子的对话
+
+	If ($Event >= 410) @Event410;
+	
+	Say("和尚：阿弥陀佛，我们正在念经修行，请施主不要打扰。", 0);
+	Return;
+	
+@Event410:
+	GetRandNum($Talkheshang,0,1);
+	If ($Talkheshang == 0) @Talk0;
+	If ($Talkheshang == 1) @Talk1;
+@Talk0:
+	Say("和尚：阿弥陀佛，多谢施主替少林化解了一场无妄之灾。", 0);
+	Return;
+@Talk1:	
+	Say("和尚：无相师叔居然是五色教的奸细，真是没想到！", 0);
+	Return;	

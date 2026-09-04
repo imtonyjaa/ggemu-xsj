@@ -1,0 +1,56 @@
+// 事件43.1 刚发生
+	If ($Event == 425) @Event425;
+	
+	Goto(@end);
+	
+@Event425:
+	Say("纳兰潜凛：这里进去便是无忧教的心魔阵。此阵凶险无比，百年来能闯过者寥寥无几。", 38);
+	Say("纳兰真：爹爹，不过心魔阵可以吗？", 9);
+	Say("纳兰潜凛：万物在心，魔由心出；心神所至，万事可成。心魔阵虽然凶险，但却极能历炼心智。", 38);
+	Say("杨影枫：心神所至，万事可成。晚辈明白了。", 2);
+	Say("纳兰潜凛：这本《逆转心经》是无忧教的心法精髓，它能助你一臂之力。", 38);
+	Say("杨影枫：多谢纳兰前辈相助！", 2);
+	AddMagic("Player-magic-逆转心经.ini");
+	Sleep(500);
+	Say("杨影枫：多谢前辈指点。", 2);
+	Say("纳兰潜凛：好了，去吧。", 38);
+	Assign($Event, 430);
+	SetNpcKind("纳兰真",1);
+	PlayerGoto(11, 51);
+	
+	Talk(7502,7502);
+	Watch("杨影枫","纳兰真",1);
+	NpcGoto("纳兰真",11,55);
+	Watch("杨影枫","纳兰真",0);
+	Watch("纳兰潜凛","纳兰真",1);
+	Talk(7503,7503);
+	Say("纳兰真：你一定要小心！",12);
+	Say("杨影枫：真儿，别为我担心！",2);
+	//PlayerGotoEx(12,50);
+	//Watch("杨影枫","ALLNPC",0);
+	//PlayerGoto(12,50);
+	AddToMemo(45110);
+	
+	StopMusic();
+	FadeOut();
+	SaveNpc("Event425saved.npc");
+	SaveObj();
+	LoadMap("map_016_剑气峰.map");
+	OpenWaterEffect();
+	ChangeMapColor(0, 0, 0);//128,150,200
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(12, 47);
+	SetPlayerDir(6);
+	DisableNpcAI();
+	
+	LoadNpc("Event430.npc");
+	SetNpcActionFile("卓非凡",11,"mpc097.asf");
+	SetMapTrap(1,"");
+	
+	
+	FadeIn();
+	PlayMusic("Mc016.mp3");
+	Goto(@end);
+	
+@end:
+	Return;

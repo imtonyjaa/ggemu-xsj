@@ -1,0 +1,83 @@
+
+	If ($Event << 120) @EventL120;
+//	If ($Event >= 250) @EventG250;
+
+	If ($SubEvent19 == 0) @Sub19Talk3;
+	If ($SubEvent19 == 5) @Sub19Talk4;
+	If ($SubEvent19 == 10) @Sub19Talk5;
+
+	Say("刀客：在下的配刀丢了，请问阁下可有见到我的屠龙刀？猪肉强说我没有屠龙刀，怎么也不肯教我屠龙刀法。");
+//	Say("杨影枫：我会帮你留意的。", 2);
+//	Memo("帮刀客找回屠龙刀。");
+	Return;
+	@Sub19Talk3:
+		Say("刀客：在下的配刀丢了请问阁下可有见到我的屠龙刀？猪肉强说我没有屠龙刀，怎么也不肯教我屠龙刀法。");
+
+		If ($DaoKeAddMemo == 1) @DaoKeAddMemoEnd;
+			Memo("帮刀客找回屠龙刀。");
+		@DaoKeAddMemoEnd:
+
+		GetGoodsNum("goods-w19-土龙刀.ini");
+		If ($GoodsNum << 1) @HaveNoDao;
+		Select(85000, 85010, 85020, $GiveDao);
+		If ($GiveDao == 0) @GiveDaoYes;
+		If ($GiveDao == 1) @GiveDaoNo;
+		@GiveDaoYes:
+			Say("杨影枫：兄台，这是不是你的屠龙刀？是就拿去。", 3);
+			Say("刀客：是呀，正是。你是那里找到的，还好找到啦，不然猪肉强就不教我屠刀法了！多谢，多谢！");
+			DelGoods("goods-w19-土龙刀.ini");
+			Say("杨影枫：这本来就是兄台的嘛，不用客气。", 3);
+			Say("刀客：兄弟真是好人呐！我拿什么报答你呢？哦，对啦，我昨天在我家后院井边的狗窝前面的老鼠洞上头的鸟窝里找到的一本书，反正我也不识字，也不知道是什么东西，就送给你吧，也许对你有用。");
+			Say("杨影枫：多谢，我看看是什么？《漫天花雨》！一本武功秘笈！好，多谢了！", 2);
+			AddGoods("Book09-漫天花雨.ini");
+			Assign($SubEvent19, 5);
+			Add($EvilVal, -50);
+			Return;
+		@GiveDaoNo:
+			Say("杨影枫：这把刀既然对兄台这么重要，我一定留意，一定留意。", 3);
+			Return;
+		@HaveNoDao:
+			Say("杨影枫：屠龙刀？别是土龙刀吧！", 2);
+			Return;
+		Return;
+	@Sub19Talk4:
+		Say("刀客：多谢兄弟帮我找回了屠龙刀，这下猪肉强一定可以教我屠龙刀法了，太好了。");
+		Return;
+	@Sub19Talk5:
+		If ($XiaoHuaTalk == 0) @XiaoHuaTalk0;
+		If ($XiaoHuaTalk == 1) @XiaoHuaTalk1;
+		If ($XiaoHuaTalk == 2) @XiaoHuaTalk2;
+		If ($XiaoHuaTalk == 3) @XiaoHuaTalk3;
+		@XiaoHuaTalk0:
+			Say("刀客：上回被那小子骗了，可惜我这人记性不好。如果被我再看到他，哼哼，我要叫他有来无回。");
+			Add($XiaoHuaTalk, 1);
+			Return;
+		@XiaoHuaTalk1:
+			Say("刀客：看什么看，小子你活得不耐烦了是不是？咦，我怎么觉得你面熟呀！我什么时候见过你吗？");
+			Say("杨影枫：你记错了，我不认识你。", 120);
+			Add($XiaoHuaTalk, 1);
+			Return;
+		@XiaoHuaTalk2:
+			Say("刀客：不认识就站远一点。大爷我今天不高兴。");
+			Add($XiaoHuaTalk, 1);
+			Return;
+		@XiaoHuaTalk3:
+			Say("刀客：在下的配刀丢了，请问阁下可有见到我的屠龙刀？猪肉强说我上次拿过去的刀不是屠龙刀，还是不肯教我屠龙刀法。");
+			Return;
+		Return;
+	Return;
+@EventL120:
+	Say("刀客：听说那猪肉强新学会了一套叫什么屠龙的刀法。我一定要让他教我。");
+	Return;
+	
+//@EventG250:
+//	If ($SubEvent19 == 0) @Sub19Talk1;
+//	If ($SubEvent19 == 10) @Sub19Talk2;
+//	Say("刀客：在下的配刀丢了，请问阁下可有见到我的屠龙刀？");
+//	Return;
+//	@Sub19Talk1:
+//		Say("刀客：在下的配刀丢了，请问阁下可有见到我的屠龙刀？猪肉强说我没有屠龙刀，怎么也不肯教我屠龙刀法。");
+//		Return;
+//	@Sub19Talk2：
+//		Say("刀客：在下的配刀丢了，请问阁下可有见到我的屠龙刀？猪肉强说我上次拿过去的刀不是屠龙刀，还是不肯教我屠龙刀法。");
+//		Return;

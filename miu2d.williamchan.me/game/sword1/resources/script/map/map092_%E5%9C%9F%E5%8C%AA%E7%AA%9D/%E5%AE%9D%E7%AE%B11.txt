@@ -1,0 +1,9 @@
+//打开宝箱
+
+	PlaySound("物_箱子开.wav");
+	OpenBox();
+	AddGoods("Goods030_芙蓉金丝镯.ini");
+	Sleep(600);
+	AddGoods("Goods076_飞燕靴.ini");
+	SetObjScript("","");
+	Return;

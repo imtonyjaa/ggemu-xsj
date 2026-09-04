@@ -1,0 +1,6 @@
+	
+	Talk(2991, 2991);
+	SetNpcRelation("段峥", 1);
+	EnableFight();
+	EnableNpcAI();
+	Return;

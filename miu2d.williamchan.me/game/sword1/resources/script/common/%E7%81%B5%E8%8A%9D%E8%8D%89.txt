@@ -1,0 +1,6 @@
+//捡到物品
+
+	PlaySound("特_捡到特殊物品.wav");
+	AddGoods("Goods214_灵芝草.ini");
+	DelCurObj();
+	Return;

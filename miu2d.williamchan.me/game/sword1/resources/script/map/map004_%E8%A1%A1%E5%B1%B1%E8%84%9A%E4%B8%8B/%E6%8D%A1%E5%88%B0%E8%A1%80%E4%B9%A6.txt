@@ -1,0 +1,57 @@
+// 点击石头捡到血书
+
+	If ($Event == 20) @Event20;  
+	
+@Event20:
+	PlayerGoto(25, 19);
+	SetPlayerDir(0);
+	SetNpcActionFile("独孤剑", 0, "mpc024_2.asf");		//独孤剑弯腰
+	SetNpcActionFile("独孤剑", 1, "mpc024_2.asf");
+	NpcSpecialAction("独孤剑", "mpc024_1.asf");
+	Sleep(1000);
+	Say("独孤剑：噫！这里果然有封信！", 1);
+	AddGoods("Goods401_血书.ini");
+	SetNpcActionFile("独孤剑", 0, "mpc024_4.asf");		//独孤剑站起来读信
+	SetNpcActionFile("独孤剑", 1, "mpc024_4.asf");
+	NpcSpecialAction("独孤剑", "mpc024_3.asf");
+	Sleep(800);
+	Say("独孤剑：原来是一张名单：柳中原、顾枫、无虚、韩……咦？名单被撕去了一角，“韩”后面的字和另外一个人的名字看不到了，会是谁呢？", 1);
+	Say("独孤剑：这份名单有什么特别的含义呢？看来还是赶快去找柳前辈吧……", 1); 
+	SetNpcActionFile("独孤剑", 0, "npc001_st2.asf");		//独孤剑读完信抬起头
+	SetNpcActionFile("独孤剑", 1, "npc001_sst2.asf");
+	NpcSpecialAction("独孤剑", "mpc024_5.asf");
+	Sleep(800);
+	
+	LoadNpc("map004_killer.npc");
+	Sleep(500);
+	Say("杀手头目：哈哈，真是踏破铁鞋没找到，得来全不费功夫！", 111);
+	PlayerRunTo(24, 29);
+	SetPlayerDir(0);
+	Say("独孤剑：什么人？！", 6);
+	NpcGotoDir("杀手头目", 4, 2);
+	SetNpcDir("杀手头目", 4);
+	PlayMusic("沙场.mp3");
+	Say("杀手头目：原来那老家伙将东西藏在这里！小子，乖乖地把信交出来，说不定我还会放你一马。", 111);
+	Say("独孤剑：就是你们害死了我师傅？", 5);
+	Say("杀手头目：不错，不过老家伙两条腿还跑得挺快的，不知你这小子有几条腿跑？", 111);
+	Say("独孤剑：你们是五色教的杀手？", 5);
+	Say("杀手头目：怎么，脚开始发抖了？", 111);
+	Say("独孤剑：为什么要杀我师傅？", 5);
+	Say("杀手头目：哼！你想知道答案的话，我可以送你去问问你师傅，快把信拿来！", 111);
+	Say("独孤剑：你休想！", 5);
+	Say("杀手头目：不识抬举的小子，活得不耐烦了！", 111);
+	SetNpcRelation("杀手头目", 1);
+    SetNpcRelation("红衣杀手", 1);
+    SetNpcRelation("黑衣杀手", 1);
+	SetPlayerState(1);
+    EnableFight();
+	EnableNpcAI();
+		
+	SetObjScript("石头", "");
+	SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(2, "Trap02.txt");
+	
+	Memo("独孤剑在山下找到了血书，血书原来是一份名单。这时突然窜出来几个五色教杀手，威协独孤剑交出血书。");
+	
+	Assign($Event, 25);
+	Return;	

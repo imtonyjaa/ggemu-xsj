@@ -1,0 +1,8 @@
+	If ($Event == 480) @Label;
+	Talk(21500, 21500);
+	Goto @end;
+@Label:
+	Talk(21527, 21527);
+	Goto @end;
+@end:
+	Return;

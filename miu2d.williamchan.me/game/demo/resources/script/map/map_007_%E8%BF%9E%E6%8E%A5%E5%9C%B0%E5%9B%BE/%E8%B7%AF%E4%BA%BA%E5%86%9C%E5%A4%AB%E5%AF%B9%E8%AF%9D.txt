@@ -1,0 +1,19 @@
+
+
+	If ($SubEvent02 << 2) @NormalTalk;
+	If ($SubEvent02 >= 8) @NormalTalk;
+	If ($Map007GetSubObj >> 0) @NormalTalk;
+	
+	Say("农夫：这一带长有不少野姜，我经常弄一些回去。");
+	Say("杨影枫：老丈，在下一位友人托在下寻找一些菜肴的佐料，其中一味正是野姜，老丈能否卖给我一点儿？", 2);
+	Say("农夫：你需要就拿些去吧，这东西又不是自家种的，不用给钱。");
+	Say("杨影枫：如此多谢老丈了。", 3);
+	AddGoods("Goods-e17-野姜.ini");
+	Assign($Map007GetSubObj, 1);
+	Add($SubEvent02, 2);
+	Goto @end;
+@NormalTalk:
+	Say("农夫：野姜用于菜肴佐料非常不错，这一带长有不少，我经常弄一些回去。");
+	Goto @end;
+@end:
+	Return;

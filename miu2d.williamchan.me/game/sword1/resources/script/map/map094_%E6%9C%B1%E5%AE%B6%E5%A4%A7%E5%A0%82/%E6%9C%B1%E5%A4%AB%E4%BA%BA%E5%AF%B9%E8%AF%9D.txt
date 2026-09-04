@@ -1,0 +1,76 @@
+//和朱夫人对话
+
+	If ($Zhujiarenshen == 0) @Load0;
+	If ($Zhujiarenshen == 1) @Load1;
+	Return;
+	
+@Load0:	
+
+	If ($Talkzhufuren == 0) @Talk0;
+	If ($Talkzhufuren == 1) @Talk1;
+	
+@Talk0:	
+	Say("朱夫人：丫头，你一个女孩子，怎么孤身一人在外闯荡？", 0);
+	Say("张琳心：夫人，我独孤哥哥命在旦夕，需要长白山的双头人参活命。听说贵府上藏有一支……", 101);
+	Say("朱夫人：独孤哥哥？原来是为了情郎呀，现在的丫头真是越来越没有家教了，为了一个男人到处东癫西跑的。", 0);
+	Say("张琳心：你！…… 夫人，你说我什么都好，只求你发发慈悲……", 106);
+	Say("朱夫人：双头人参乃稀世珍宝，怎能随便给人？", 0);
+	Say("张琳心：夫人，求求您，救人一命，胜造七级浮屠啊！", 106);
+	Say("朱夫人：少废话，不给就是不给，你还是回去陪你那个小情郎吧！", 0);
+	
+	Choose("抢不抢人参", "A 抢", "B 不抢", $qiang);
+	If ($qiang == 0) @Choose0;
+	If ($qiang == 1) @Choose1;
+
+@Choose0:
+	
+	Say("张琳心：想不到为富不仁者竟这样冷血！既如此，为了救独孤哥哥，我只有冒犯了！", 107);
+	StopMusic();
+	PlayMusic("沙场.mp3");
+	SetNpcRelation("朱海",1);
+	SetNpcRelation("朱夫人",1);
+	SetNpcRelation("朱府家丁",1); 
+	SetPlayerState(1);
+    EnableFight();
+	EnableNpcAI();
+	SetNpcScript("朱海", "");
+	SetNpcScript("朱夫人", "");
+	SetNpcScript("朱府家丁", "");
+	Assign($Talkzhufuren, 1);
+	Return;		
+	
+@Choose1:
+	Assign($Talkzhufuren, 1);
+	Return;	
+
+	
+@Talk1:		
+	Say("朱夫人：少废话，不给就是不给，你还是回去陪你那个小情郎吧！", 0);
+	
+	Choose("抢不抢人参", "A 抢", "B 不抢", $qiangmore);
+	If ($qiangmore == 0) @Choose2;
+	If ($qiangmore == 1) @Choose3;
+
+@Choose2:
+	
+	Say("张琳心：想不到为富不仁者竟这样冷血！既如此，为了救独孤哥哥，我只有冒犯了！", 107);
+	StopMusic();
+	PlayMusic("沙场.mp3");
+	SetNpcRelation("朱海",1);
+	SetNpcRelation("朱夫人",1);
+	SetNpcRelation("朱府家丁",1); 
+	SetPlayerState(1);
+    EnableFight();
+	EnableNpcAI();
+	SetNpcScript("朱海", "");
+	SetNpcScript("朱夫人", "");
+	SetNpcScript("朱府家丁", "");
+	Return;		
+	
+@Choose3:
+	Return;	
+
+
+	
+@Load1:
+	Return;		

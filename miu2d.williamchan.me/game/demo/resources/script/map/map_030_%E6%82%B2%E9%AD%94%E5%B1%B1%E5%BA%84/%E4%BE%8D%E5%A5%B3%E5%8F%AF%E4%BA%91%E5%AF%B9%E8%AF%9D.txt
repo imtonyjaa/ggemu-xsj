@@ -1,0 +1,84 @@
+	If ($Event == 1818) @1818;
+	If ($Event == 1804) @1804;
+	If ($Event == 1803) @1800;
+	If ($Event == 1802) @1800;
+	If ($Event == 1801) @1800;
+	If ($Event == 1800) @1800;
+	If ($Result == 0) @Result0;
+	If ($Result == 1) @Result1;
+	If ($Result == 2) @Result2;
+	If ($Result == 3) @Result3;
+	Return;
+		
+@1818:
+	Say("侍女可云：公子，你如果饿了的话，我去准备饭菜。");
+	Say("杨影枫：我不饿。");
+	Return;
+
+@1804:
+	Say("侍女可云：公子，吃过饭了吗？要不要我去准备一桌饭菜。");
+	Say("杨影枫：不必了。");
+	Return;
+
+@1800:
+	Say("侍女可云：公子，下个月我想请假回清平乡看看爹和娘。");
+	Say("杨影枫：可云，你真是个孝顺的女儿！");
+	Return;
+
+@Result0:
+	If ($Event == 475) @Label1;
+	If ($Event == 485) @Label2;
+	If ($Event == 490) @Label3;
+	If ($Event == 492) @Label4;
+	If ($Event == 500) @Label5;
+	If ($Event == 530) @Label6;
+	If ($Event == 562) @Label2;
+
+	Say("侍女可云：公子，有何吩咐？");
+	Return;
+@Label1:
+	Say("侍女可云：公子，有何吩咐？");
+	Return;
+@Label2:
+	Say("侍女可云：公子回来了？");
+	Return;
+@Label3:
+	Say("侍女可云：公子早上好！");
+	Return;
+@Label4:
+	Say("侍女可云：祝公子马到成功！得偿宿愿！");
+	Return;
+@Label5:
+	Say("侍女可云：恭喜公子打败卓非凡，威震江湖！");
+	Return;
+@Label6:
+	Say("侍女可云：无论公子做什么，我都会站在公子一边！");
+	Return;
+
+@Result1:
+//If ($Event == 700) @Talk700;
+//If ($Event >= 650) @TalkA650;
+If ($Event == 600) @TalkE600;
+	Say("侍女可云：公子，有何吩咐？");
+	Return;
+	
+@Result2:
+	Say("侍女可云：公子，有何吩咐？");
+	Return;
+	
+@Result3:
+	Say("侍女可云：公子，有何吩咐？");
+	Return;		
+
+@TalkE600:
+	Talk(60640,60640);
+	Return;
+
+@TalkA650:
+	Talk(61200,61200);
+	Return;	
+@Talk700:
+	Talk(61600,61600);
+	Return;
+@end:
+	Return;

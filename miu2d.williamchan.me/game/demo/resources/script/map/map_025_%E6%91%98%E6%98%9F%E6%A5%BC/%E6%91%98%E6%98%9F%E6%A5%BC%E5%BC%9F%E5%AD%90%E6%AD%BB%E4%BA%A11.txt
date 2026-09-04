@@ -1,0 +1,11 @@
+Add($NpcCount ,-1);
+If ($NpcCount == 0) @AllDead;
+Return;
+
+
+@AllDead:
+	FadeOut();
+	Say("一场恶斗之后，杨影枫最终还是落败了。");
+	RunScript("杨影枫死亡.txt");
+	Return;
+	

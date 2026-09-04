@@ -1,0 +1,11 @@
+	Add($NpcCount, -1);
+	If ($NpcCount == 0) @AllDead;
+	Return;
+
+@AllDead:
+	Sleep(1000);
+	SetMapTrap(2,"trap02.txt");
+	Say("杨影枫：不知到真儿她们被关在哪里，待我四处搜搜。",6);
+	Assign($Event, 2005);
+	Return;
+	

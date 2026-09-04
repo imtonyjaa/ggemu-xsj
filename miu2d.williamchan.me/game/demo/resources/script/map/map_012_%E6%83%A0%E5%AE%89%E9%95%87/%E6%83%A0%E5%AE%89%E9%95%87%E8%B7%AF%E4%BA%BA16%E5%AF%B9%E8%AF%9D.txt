@@ -1,0 +1,231 @@
+
+//	问是打听消息还是算卦
+	Say("算命先生：请问少侠是要打听消息还是要算卦？", 83);
+	Choose("请选择：", "打听消息。", "算卦。", $SuanMing);
+	If ($SuanMing == 0) @SuanMing0;
+	If ($SuanMing == 1) @SuanMing1;
+	
+@SuanMing0:
+	Say("算命先生：少侠，我的消息来源可靠，收费低廉，每次只收２０两。", 83);
+	Choose("要给２０两打听消息吗？", "要。", "不要。", $XiaoXi);
+	If ($XiaoXi == 0) @XiaoXi0;
+	If ($XiaoXi == 1) @XiaoXi1;
+	@XiaoXi0:
+		//系统消息：你选择了给钱
+		GetMoneyNum();
+		If ($MoneyNum >= 10) @GetMessage;
+		Say("算命先生：对不起，少侠，你的钱不够。", 83);
+		Goto @end;
+		@GetMessage:
+			AddMoney(-10);
+			Goto @RandMessage;
+			Goto @end;
+		Goto @end;
+	@XiaoXi1:
+		Say("算命先生：少侠，我收费不高啊，你要不要再考虑一下？", 83);
+		Goto @end;
+
+	Goto @end;
+	
+@SuanMing1:
+	//系统消息：你选择了算卦
+	Say("算命先生：少侠，小人算命，从无不准，不知少侠是算前程还是算姻缘？", 83);
+	Choose("请选择：", "前程。", "姻缘。", $SuanSelect);
+	If ($SuanSelect == 0) @QianCheng;
+	If ($SuanSelect == 1) @YinYuan;
+	@QianCheng:
+		Say("算命先生：少侠，算前程一次５０两。", 83);
+		Choose("给５０两算前程？", "给。", "不给。", $QianChengMoney);
+		If ($QianChengMoney == 0) @QianChengMoneyYes;
+		If ($QianChengMoney == 1) @QianChengMoneyNo;
+		@QianChengMoneyYes:
+			GetMoneyNum();
+			If ($MoneyNum >= 50) @BeginQianCheng;
+				Say("算命先生：对不起，少侠，你的钱不够。", 83);
+				Goto @end;
+			@BeginQianCheng:
+				// 开始算前程
+
+				If ($Event << 160) @QEventL160;
+				If ($Event << 380) @QEventL380;
+				If ($Event << 430) @QEventL430;
+				If ($Event << 490) @QEventL490;
+				If ($Event >= 490) @QEventG490;
+				@QEventL160:
+					Say("算命先生：少侠的前程可以说是无量呀，少侠想成就的大事必定可成，而且还有贵人相助，少侠的前程可以说是极佳之态呀！", 83);
+					Goto @QEnd;
+				@QEventL380:
+					Say("算命先生：少侠的前程可以说是无量呀，少侠想成就的大事必定可成，而且还有贵人相助，少侠的前程可以说是极佳之态呀！", 83);
+					Goto @QEnd;
+				@QEventL430:
+					Say("算命先生：嗯，少侠前程甚好，可要想成就大事，这其中必要历经艰险，经历磨难。少侠一定要有定力，不畏险阻，契而不舍，方能成就大事。少侠切记。", 83);
+					Goto @QEnd;
+				@QEventL490:
+					Say("算命先生：嗯，少侠前程甚好，可要想成就大事，这其中必要历经艰险，经历磨难。少侠一定要有定力，不畏险阻，契而不舍，方能成就大事。少侠切记。", 83);
+					Goto @QEnd;
+				@QEventG490:
+					Say("算命先生：嗯，少侠，人生事事无常，凡事要想开，万事不能两全，有得必有失。前程与姻缘取一必舍一，认准了想走的路就不要回头，不要后悔，终究会有善果。", 83);
+					Goto @QEnd;
+				@QEnd:
+
+				AddMoney(-50);
+				Goto @end;
+			Goto @end;
+		@QianChengMoneyNo:
+			Say("算命先生：少侠，我收费不高啊，你要不要再考虑一下？", 83);
+			Goto @end;
+		Goto @end;
+	@YinYuan:
+		Say("算命先生：少侠，算姻缘一次２００两。", 83);
+		Choose("给２００两算姻缘？", "给。", "不给。", $YinYuanMoney);
+		If ($YinYuanMoney == 0) @YinYuanMoneyYes;
+		If ($YinYuanMoney == 1) @YinYuanMoneyNo;
+		@YinYuanMoneyYes:
+			GetMoneyNum();
+			If ($MoneyNum >= 200) @BeginYinYuan;
+				Say("算命先生：对不起，少侠，你的钱不够。", 83);
+				Goto @end;
+			@BeginYinYuan:
+				// 开始算姻缘
+
+				If ($Event << 160) @YEventL160;
+				If ($Event << 380) @YEventL380;
+				If ($Event << 430) @YEventL430;
+				If ($Event << 490) @YEventL490;
+				If ($Event >= 490) @YEventG490;
+				@YEventL160:
+					Say("算命先生：少侠可以说是命中注定有桃花运，总有女子随行。但当中变故甚多，一路上也颇为曲折，在下劝少侠行事还是多为善好，最后能否赢得好的结果，全看少侠的造化啦。", 83);
+					Goto @YEnd;
+				@YEventL380:
+					Say("算命先生：少侠可以说是命中注定有桃花运，总有女子随行。但当中变故甚多，一路上也颇为曲折，在下劝少侠行事还是多为善好，最后能否赢得好的结果，全看少侠的造化啦。", 83);
+					Goto @YEnd;
+				@YEventL430:
+					Say("算命先生：少侠一生会有很多女子爱慕倾情，此生不乏女子。可少侠也注定命范桃花劫，最好小心为妙。", 83);
+					Goto @YEnd;
+				@YEventL490:
+					Say("算命先生：少侠一生会有很多女子爱慕倾情，此生不乏女子。可少侠也注定命范桃花劫，最好小心为妙。", 83);
+					Goto @YEnd;
+				@YEventG490:
+					Say("算命先生：嗯，少侠，人生事事无常，凡事要想开，万事不能两全，有得必有失。前程与姻缘取一必舍一，认准了想走的路就不要回头，不要后悔，终究会有善果。", 83);
+					Goto @YEnd;
+				@YEnd:
+				If ($YinyuanSense >= 30) @YinYuanSenseEnd;
+					Add($YinyuanSense, 5);
+					Add($SenseVal, 5);
+					Goto @YinYuanSenseEnd;
+				@YinYuanSenseEnd:
+				AddMoney(-200);
+				Goto @end;
+			Goto @end;
+		@YinYuanMoneyNo:
+			Say("算命先生：少侠，我收费不高啊，你要不要再考虑一下？", 83);
+			Goto @end;
+		Goto @end;
+	Goto @end;
+
+@RandMessage:
+	GetRandNum($RandMessage, 1, 25);
+	If ($RandMessage == 1) @RandMessage01;
+	If ($RandMessage == 2) @RandMessage02;
+	If ($RandMessage == 3) @RandMessage03;
+	If ($RandMessage == 4) @RandMessage04;
+	If ($RandMessage == 5) @RandMessage05;
+	If ($RandMessage == 6) @RandMessage06;
+	If ($RandMessage == 7) @RandMessage07;
+	If ($RandMessage == 8) @RandMessage08;
+	If ($RandMessage == 9) @RandMessage09;
+	If ($RandMessage == 10) @RandMessage10;
+	If ($RandMessage == 11) @RandMessage11;
+	If ($RandMessage == 12) @RandMessage12;
+	If ($RandMessage == 13) @RandMessage13;
+	If ($RandMessage == 14) @RandMessage14;
+	If ($RandMessage == 15) @RandMessage15;
+	If ($RandMessage == 16) @RandMessage16;
+	If ($RandMessage == 17) @RandMessage17;
+	If ($RandMessage == 18) @RandMessage18;
+	If ($RandMessage == 19) @RandMessage19;
+	If ($RandMessage == 20) @RandMessage20;
+	If ($RandMessage == 21) @RandMessage21;
+	If ($RandMessage == 22) @RandMessage22;
+	If ($RandMessage == 23) @RandMessage23;
+	If ($RandMessage == 24) @RandMessage24;
+	If ($RandMessage == 25) @RandMessage25;
+	@RandMessage01:
+		Say("算命先生：不知道少侠是否爱听笑话？这惠安镇东有个爱讲笑话的胖子。整日里笑呵呵乐不停，俗语说，笑一笑，十年少！", 83);
+		Return;
+	@RandMessage02:
+		Say("算命先生：相传上古有两位铸剑名师，用血肉之躯铸就两把名剑，分别各以其名称之。一把称干将剑，另一把称莫邪剑。", 83);
+		Return;
+	@RandMessage03:
+		Say("算命先生：据说干将剑和莫邪剑除精利无比，吹发断玉、削铁如泥外，还各有一特异属性。", 83);
+		Return;
+	@RandMessage04:
+		Say("算命先生：传说中莫邪剑据有克敌制胜，石化对手的奇异功能。", 83);
+		Return;
+	@RandMessage05:
+		Say("算命先生：传说中干将剑据有克敌制胜，冰冻对手的奇异功能。", 83);
+		Return;
+	@RandMessage06:
+		Say("算命先生：武林中有一双人所共求的奇异之靴，名为烈焰之靴。传说中穿上这双靴子，便可永脱行路之苦，不会消耗体力。", 83);
+		Return;
+	@RandMessage07:
+		Say("算命先生：听说江湖中有个叫摘星楼的奇派，它的独门武功“镇狱破天劲”是个阴气沉重的绝招，以将对手冰冻为制胜手段。", 83);
+		Return;
+	@RandMessage08:
+		Say("算命先生：西域大漠有个称为飞龙堡的异派，它的独门武功“孤烟逐云”令武林人闻风丧胆，这一招以“毒”著称，此“毒”有异于四川唐门之“毒”，对手中招若无解药，便血流不止，直至流尽而卒。", 83);
+		Return;
+	@RandMessage09:
+		Say("算命先生：这惠安镇南有个藏剑山庄，庄主卓非凡以一招“绝情断意剑”称著江湖，在中原难寻对手。卓非凡所创的《灭绝剑法》就藏在庄内，运气好的话就可得此书。少侠，多跑几趟吧，值呀！", 83);
+		Return;
+	@RandMessage10:
+		Say("算命先生：以火药闻名武林的霹雳堂内有一本《霹雳神功》，以其火爆、猛烈而称霸江湖。少侠有幸入得霹雳堂便有机会得此神功，切记切记。", 83);
+		Return;
+	@RandMessage11:
+		Say("算命先生：大漠中有座通天塔，传闻藏有摘星楼的独门秘籍《破天全书》。此秘籍分七部，囊括拳、剑、点穴及种种神出鬼没的武艺。分别以羊皮记载，藏于通天塔七层内。", 83);
+		Return;
+	@RandMessage12:
+		Say("算命先生：在江湖上凡碰见僧、尼、道士、乞丐、残疾人之类要十分小心，万万惹不得。多行善事必能积德化怨。", 83);
+		Return;
+	@RandMessage13:
+		Say("算命先生：听说有乞帮弟子不知从何得到一本《潮月剑法》。此书为武林盟主孟知秋所著。孟盟主的武功在江湖上有口皆碑，此书是他集毕生武功心德之大成精心撰著。", 83);
+		Return;
+	@RandMessage14:
+		Say("算命先生：听说最近常有异人在中原武林出没。", 83);
+		Return;
+	@RandMessage15:
+		Say("算命先生：惠安镇外常有一位须发老者河边垂钓。有人说他是四十年前的一位武林异客，现在退隐江湖，身份一直无人知晓。但据可靠消息说，他藏有少林寺《金钟秘籍》一卷。", 83);
+		Return;
+	@RandMessage16:
+		Say("算命先生：南海花仙所著的一部《花雨天书》近来在惠安镇出现。听说是被一位刀客得到，但此人并不知晓这部秘籍记载着唐门所创“漫天花雨”。", 83);
+		Return;
+	@RandMessage17:
+		Say("算命先生：忘忧岛上有一本江湖中失传巳久的秘籍《醉花分身诀》。少侠如果有心的话，可以从一位书生处得到此书。", 83);
+		Return;
+	@RandMessage18:
+		Say("算命先生：少侠行走江湖，如果因为无心错过了一些重要消息，不知道如何继续下面的游戏时，就可以查探界面框上方的消息栏。在这里会有必要的提示。", 83);
+		Return;
+	@RandMessage19:
+		Say("算命先生：在游戏中，得到武功书籍后，在物品栏中按滑鼠右键使用书籍，便可学会此书内容。", 83);
+		Return;
+	@RandMessage20:
+		Say("算命先生：在游戏中，若要提高某种武功的等级，可将其放在修炼栏中修炼。这种方法可最快提高武功等级。", 83);
+		Return;
+	@RandMessage21:
+		Say("算命先生：在游戏中，武功招式修炼的等级越高，发出的威力将愈来愈强，攻击敌人的范围也会随之变大。", 83);
+		Return;
+	@RandMessage22:
+		Say("算命先生：游戏中，武功招式修炼的等级越高，发出的威力将愈来愈强，攻击敌人的范围也会随之变大。", 83);
+		Return;
+	@RandMessage23:
+		Say("算命先生：多做善事就会有好的结局。反之亦然。人生如此，游戏亦不例外。", 83);
+		Return;
+	@RandMessage24:
+		Say("算命先生：少侠你可是知情识趣之人？这惠安镇里有个卖花姑娘，如果常给心上的姑娘买朵花，美人一笑，姻缘福来呀！", 83);
+		Return;
+	@RandMessage25:
+		Say("算命先生：行走江湖，很多事情往往在一念之间。少侠行事做人要三思而后行！你的做的每一件事都将影响你今后的结局。", 83);
+		Return;
+	Goto @end;
+
+@end:
+	Return;

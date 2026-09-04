@@ -1,0 +1,485 @@
+	If ($Event == 3210) @Event3210;
+	If ($Event == 3220) @Event3220;
+	Return;	
+
+@Event3210:
+	Add($NpcCount,-1);
+	If ($NpcCount == 0) @AllDead;
+	Return;
+
+@Event3220:	
+	Add($NpcCount,-1);
+	If ($NpcCount ==0 ) @AllDead1;
+	Return;
+	
+
+@AllDead:
+ 	PlayMusic("Mc018.mp3");
+ 	PlayerGotoEx(18,202);
+ 	Talk(100830,100830);
+ 	Sleep(1000);
+ 	
+ 	FadeOut();
+ 	SetPlayerState(0);
+ 	FullLife();
+ 	FullThew();
+ 	FullMana();
+ 	SetNpcPos("纳兰真",56,158);
+ 	SetNpcActionFile("纳兰真",0,"mpc902.asf");
+	SetNpcActionFile("纳兰真",1,"mpc902.asf");
+ 	SetNpcPos("管家铁云",55,162);
+ 	Watch("管家铁云","纳兰真",1);
+ 	SetPlayerPos(51,164);
+ 	PlayerGotoEx(55,160);
+ 	FadeIn();
+ 	PlayerGoto(55,160);
+ 	Watch("杨影枫","纳兰真",0);
+ 	Talk(100840,100970);
+ 	
+ 	
+ 	FadeOut();
+ 	ChangeMapColor(128,180,200);
+ 	ChangeAsfColor(128,180,200);
+ 	SetNpcPos("管家铁云",46,142);
+ 	SetNpcDir("管家铁云",3);
+ 	SetNpcDir("纳兰真",7);
+ 	SetNpcPos("纳兰真",56,158);
+ 	SetNpcActionFile("纳兰真",0,"mpc杨抱纳-2.asf");
+ 	SetNpcActionFile("纳兰真",1,"mpc杨抱纳-2.asf");
+ 	ShowNpc("杨影枫",0);
+ 	//SetNpcActionFile("纳兰真",0,"mpc159.asf");
+	//SetNpcActionFile("纳兰真",1,"mpc159.asf");
+	FadeIn();
+	
+ 	Talk(100980,101013);
+ 	Sleep(2000);
+ 	 	
+ 	FadeOut();
+ 	Talk(101020,101020);
+ 	ShowNpc("杨影枫",1);
+ 	LoadNpc("map030_YMR_NLZ.npc");
+ 	ChangeMapColor(128,180,200);
+ 	ChangeAsfColor(128,180,200);
+ 
+ 	SetPlayerPos(16,38);
+ 	SetNpcKind("杨影枫",1);
+ 	SetNpcKind("纳兰真",2);
+ 	SetPlayerScn();
+ 	//NpcGotoEx("侍女可容",55,162);
+ 	Sleep(500);
+ 	FadeIn();
+ 
+ 	Talk(101040,101040);
+ 	
+ 	NpcGotoEx("侍女可容",52,165);
+ 	Sleep(500);
+ 	PlayerGotoEx(54,162);
+ 	Sleep(1000);
+ 	PlayerGoto(53,164);
+ 	Watch("纳兰真","侍女可容",1);
+ 	Talk(101050,101050);
+ 	
+ 	NpcGoto("侍女可容",52,165);
+ 	Watch("纳兰真","侍女可容",0);
+ 	Sleep(500);
+ 	Talk(101052,101052) 	;
+ 	NpcSpecialAction("侍女可容","mpc月眉儿变脸.asf"); 	
+ 	Sleep(1000);
+ 	 	
+ 	FadeOut();
+ 	SetNpcPos("侍女可容",47,153);
+ 	SetNpcPos("月眉儿",52,165);
+ 	Watch("纳兰真","月眉儿",0);
+ 	FadeIn();
+ 	
+ 	//Talk(101060,101300);
+ 	
+Say("月眉儿：没有……",22);
+Say("纳兰真：月眉儿！你怎么会在这里？！我去告诉枫哥哥！",13);
+Say("月眉儿：你先看看这封信再去找他不迟！",22);
+Say("纳兰真：？？？",15);
+FadeOut();
+Sleep(2000);
+FadeIn();
+Say("纳兰真：你是我的姐姐？……",15);
+Say("月眉儿：难道你没有发现我们俩在相貌上又许多相似的地方？你看到我是否有似曾相识的感觉，而且这个玉佩你总该认得吧？",22);
+Say("纳兰真：你真的是我姐姐！",15);
+Say("月眉儿：真儿妹妹……",22);
+Say("纳兰真：你……唉，真想不到啊！",15);
+Say("月眉儿：妹妹，你这几个月一直和杨影枫在一起吗？",22);
+Say("纳兰真：是呀，枫哥哥他很好，对我又关心体贴，他……",9);
+Say("月眉儿：哼，他是个伪君子！",22);
+Say("纳兰真：你……你怎么可以这样说他！",11);
+Say("月眉儿：唉，现在的杨影枫，早已被权势蒙蔽了心智，再不是以前的杨影枫了！",22);
+Say("纳兰真：这不可能！……",11);
+Say("月眉儿：数月之前，我找到杨影枫，告诉他你在我这里，叫他接你回去，可是到了飞龙堡之后，他看中了我的基业，将我打伤，霸占了飞龙堡，为了扫除称霸武林的障碍，他还鼓动父亲杀死蔷薇，挑起孟知秋和父亲的纷争，使父亲身死，更利用孟知秋对他的信任，杀死孟知秋。",22);
+Say("纳兰真：（难过地）他怎么会变成这样？！",11);
+Say("月眉儿：他的恶行远远不止这些，最近他还灭掉了武当，他怕你知道他的丑事，所以直到最近才放你出来。",22);
+Say("纳兰真：这……这不是真的！",14);
+Say("月眉儿：他就是这样的阴险小人呀，他当初既然肯为了权势而抛弃你，你还不应该了解他是个什么样的人吗？这几个月你和他在一起，难道看不出什么端倪吗？",22);
+Say("纳兰真：……那，我不相信！枫哥哥不会做下这些事情的，我要去找他问个明白！",14);
+Say("月眉儿：哈！真儿姐姐你真得是心地善良，纯朴幼稚呀！他干了这些坏事，又怎么可能把真相告诉你了！你切不可听信他的鬼话！你一定要相信我！",23);
+Say("纳兰真：你？…我为什么又要相信你呢？",14);
+Say("月眉儿：我是你的姐姐，我不会再骗你的！",22);
+Say("月眉儿：嗯……既然这样，我倒是有个主意，能让你知道，到底我说的是真的还是他说的是真的！",22);
+Say("纳兰真：什么办法？",15);
+Say("月眉儿：我这里有包除诈归魂散，这个药可以使人暂时昏迷，当他昏迷时如果你问他话，他一定不会向你撒谎。今晚将它放到你为他熬的参汤中去，然后你再问他一问，你就知道到底是谁欺骗你了！",22);
+Say("纳兰真：真的？有这个药效？",15);
+Say("月眉儿：是的，除诈归魂散就是有此功效。",22);
+Say("纳兰真：枫哥哥不会这个样子的……",15);
+Say("月眉儿：试一下你就知道了。",22);
+Sleep(2500);
+Say("纳兰真：……那好吧",15);
+ 	
+ 	
+ 	
+ 	
+ 	
+  	Sleep(1500);
+ 	
+	
+ 	
+ 	//	LoadNpc("map030_YMR_NLZ.npc");
+ 	
+      	FadeOut();
+ 	SetNpcKind("杨影枫",2);
+ 	SetNpcKind("纳兰真",1);
+ 	SetNpcPos("月眉儿",49,161);
+ 	SetNpcPos("纳兰真",51,163);
+ 	SetNpcActionFile("纳兰真",2,"mpc902-1.asf");
+ 	NpcGotoEx("纳兰真",53,163);
+ 	SetPlayerPos(48,156);      
+ 	PlayerGotoEx(52,165);     
+      FadeIn();
+
+	
+ 	NpcGoto("纳兰真",53,163);
+ 	SetNpcDir("纳兰真",3);
+ 	
+ 	NpcSpecialAction("纳兰真","mpc902-2.asf");
+ 	Sleep(1000);
+ 	
+ 	//FadeOut();
+ 	AddObj("参汤.ini",53,163,3);
+ 	SetNpcRes("纳兰真","npc013-纳兰真.ini");
+ 	//FadeIn();
+ 	
+ 	PlayerGoto(52,165);     
+ 	Watch("杨影枫","纳兰真",0);
+ 	Talk(101320,101350);
+      	PlayerGoto(52,163);
+      	SetPlayerDir(5);
+      	Sleep(500);
+      	
+      	FadeOut();
+
+      	Watch("杨影枫","纳兰真",0);
+      	SetNpcActionFile("杨影枫",0,"mpc杨影枫中毒.asf");
+      	SetNpcActionFile("杨影枫",1,"mpc杨影枫中毒.asf");
+ 	SetNpcPos("月眉儿",49,161);
+      	PlaySound("攻-男伤00.wav");
+      	FadeIn();
+      	
+ 	Talk(101360,101390);
+ 	NpcGotoEx("月眉儿",52,165);
+ 	NpcSpecialAction("杨影枫","mpc杨影枫中毒-1.asf");
+ 	SetNpcActionFile("杨影枫",0,"mpc杨影枫中毒-2.asf");
+ 	SetNpcActionFile("杨影枫",1,"mpc杨影枫中毒-2.asf");
+ 	Sleep(500);
+ 	Talk(101400,101400);
+ 	//Watch("杨影枫","月眉儿",1);
+ 	Watch("纳兰真","月眉儿",1);
+ 	
+ 	NpcGoto("月眉儿",53,166);
+ 	Watch("杨影枫","月眉儿",0);
+ 	Watch("纳兰真","月眉儿",1);
+ 	//SetNpcDir("月眉儿",5);
+ 	Talk(101410,101410);
+ 	NpcGoto("纳兰真",53,164);
+ 	Watch("纳兰真","月眉儿",0);
+ 	Talk(101420,101420);
+ 	//NpcGoto("月眉儿",55,162);
+ 	Watch("月眉儿","杨影枫",0);
+ 	Watch("纳兰真","月眉儿",1);
+ 	Talk(101430,101440);
+ 	Watch("纳兰真","月眉儿",1);
+ 	
+ 	Say("纳兰真：姐姐，你……你为什么……你不是我的亲姐姐吗？",13);
+ 	Watch("纳兰真","月眉儿",0);
+ 	Talk(101460,101470);
+ 	
+ 	If ($EvilValue >> 118) @EvilResult;
+ 	PlayerGoto(52,165);
+ 	Watch("杨影枫","月眉儿",0);
+ 	Talk(101490,101500);
+ 	Watch("纳兰真","杨影枫",0);
+ 	Talk(101510,101520);
+ 	Sleep(1000);
+ 	Watch("月眉儿","杨影枫",1);
+ 	Talk(101530,101530);
+ 	Watch("月眉儿","杨影枫",0);
+ 	Say("杨影枫：月眉儿……在这个世界上，杀任何人我都不会皱一下眉头，但除了真儿！她是我最喜欢的人，从前我已经作错了太多，也伤害了她太多了。",6);
+ 	Say("杨影枫：现在我是再也不会为了自已利益、为了自已的安危来牺牲自已喜欢的人！永远不会……永远也不会了！",6);
+ 	Say("杨影枫：如果你真得要我选择，我宁愿选择死来作为补偿，来作为对从前所作的一切的了结！",6);
+ 	Say("杨影枫：你现在就可以杀了我！但你要放过真儿！否则我绝不会挠过你！",6);
+ 	Watch("杨影枫","纳兰真",0);
+	Say("纳兰真：影枫哥……不要啊！",14);
+	Say("杨影枫：真儿，你赶紧离开这里！我根本就没有怪过你，要怪的人是我！",5);
+	Say("纳兰真：不！",14);
+	Say("杨影枫：真儿，你知道吗？我害死了许多的人，他们也都走了！",2);
+	Say("纳兰真：不要，影枫哥，是真儿害了你，真儿要死，真儿作错了……",14);
+	Say("杨影枫：不怪你……",14);
+ 	Watch("纳兰真","月眉儿",0);
+ 	Say("纳兰真：眉儿，你快救救影枫哥哥！求求你了，你想要我死，你就亲手杀了我吧！求求你了,姐姐！",14);
+ 	Sleep(1000);
+ 	Talk(101570,101570);
+ 	Watch("杨影枫","月眉儿",0);
+ 	
+	Say("月眉儿：啊……慢着！你们……",24);
+	Say("月眉儿：（啊！怎么会变成这样？我费尽心机到后来……）",24);
+	Say("月眉儿：（原来她与真儿之间的感情是如此的……）",24);
+	Say("月眉儿：（他最爱的人并不是我……，哈…我真是空欢喜一场了。唉……）",24);
+	Say("月眉儿：我真是没想到父母的感情挫折竟然也会在我们这一代重现，哈…",24);
+	
+	Say("月眉儿：杨影枫，你可知道我的感受？你可知道我的感受！",24);
+	Say("杨影枫：眉儿……我…，我作错了太多，你还是杀了我吧，这样我也会好受些！",2);
+	Say("纳兰真：眉儿……，不要，你杀了我吧，过去枫哥哥欠你的，我来补偿吧！"，14);
+	Say("月眉儿：（为什么我这么心碎？难道……）",24);
+	Say("月眉儿：补偿？……哈哈…补偿",24);
+	Say("月眉儿：杨影枫！我真后悔当初没有杀了你……如果我下得了手那就好了！",22);
+	Say("月眉儿：杨影枫！我今天也决不饶你了！",24);
+	FadeOut();
+	PlaySound("攻-女01.wav");
+	FadeIn();
+
+Say("月眉儿：唉……算了！（我又怎忍心杀死我最心爱的男人？）纳兰真毕竟是我亲妹妹，我就此成全了你们罢！",22);
+Watch("纳兰真","月眉儿",0);
+Say("月眉儿：妹妹……给你解药，让他服了解药吧。虽然他生命暂无大碍，但他的武功已然尽失。",22);
+
+ 	//SetNpcDir("月眉儿",1);
+ 	//Talk(101590,101590);
+ //	Watch("月眉儿","纳兰真",0);
+ 	//Talk(101604,101604);
+ 	SetNpcKind("杨影枫",0);
+ 	SetNpcKind("月眉儿",2);
+ 	NpcGotoEx("月眉儿",50,160);
+ 	Sleep(500);
+ 	Watch("杨影枫","月眉儿",1);
+ 	Watch("纳兰真","月眉儿",1);
+ 	Talk(101620,101630);
+ 	NpcGotoEx("月眉儿",47,156);
+ 	Sleep(1000);
+ 	Say("月眉儿：什么都别说了，你们好自为之！我走了！",22);
+ 	SetNpcKind("杨影枫",2);
+ 	SetNpcKind("月眉儿",0);
+ 	
+ 	
+ 	
+ 	FadeOut();
+ 	Sleep(2000);
+ 	StopMusic();
+	PlayMovie("End2.avi");
+ 	Say("五年后……");
+ 	//PlayMovie("End2.avi");
+ 	PlayMusic("Mc011.mp3");
+ 	Sleep(3000);
+ 	ChangeMapColor(255,255,255);
+ 	ChangeAsfColor(255,255,255);
+ 	
+ 	LoadMap("map_051_海边.map");
+ 	LoadNpc("map051.npc");
+ 	
+ 	DisableInput();
+ 	SetPlayerPos(4,21);
+ 	SetPlayerDir(0);
+ 	SetNpcActionFile("杨影枫",0,"mpc海边.asf");
+ 	SetNpcActionFile("杨影枫",1,"mpc海边.asf");
+ 	AddNpc("清平乡村民4.ini",5,41,0);
+ 	FadeIn();
+ 	SetPlayerScn();
+ 	Talk(105260,105350);
+ 	Sleep(3000);
+ 	NpcGoto("顺子",3,19);
+ 	SetNpcDir("顺子",7);
+ 	Talk(105360,105400);
+ 	//StopMusic();
+	FadeOut();
+	Sleep(2000);
+	Say("………… 剧终 …………");
+	StopMusic();
+	//PlayMovie("End2.avi");
+	ReturnToTitle();
+	Return;
+	
+ 	
+ 	 	
+ 		
+ 	
+
+@EvilResult:
+	Watch("杨影枫","纳兰真",0);
+	Talk(101700,101710);
+	NpcAttack("杨影枫",53, 164);
+	//Sleep(500);
+	
+	Sleep(1000);
+	//SetNpcAction("纳兰真",11,53,164);
+	FadeOut();
+	PlaySound("攻-女死01.wav");
+	
+	DelNpc("纳兰真");
+	AddObj("纳兰真尸体.ini",53,163,0);
+	Sleep(200);
+	FadeIn();
+ 	Watch("杨影枫","月眉儿",0);
+ 	Talk(101720,101730);
+ 	FadeOut();
+ 	SetNpcRes("杨影枫","z-杨影枫2.ini");
+ 	FadeIn();
+ 	//Watch("杨影枫","月眉儿",0);
+ 	SetNpcDir("月眉儿",3);
+ 	SetPlayerDir(7);
+ 	Talk(101740,101750);
+ 	PlayerGoto(53,166);
+ 	Watch("杨影枫","月眉儿",0);
+ 	Talk(101760,101760);
+ 	NpcAttack("杨影枫",53,166);
+ 	Sleep(1000);
+ 	
+ 	FadeOut();
+ 	PlaySound("攻-女死01.wav");
+ 	DelNpc("月眉儿");
+ 	AddObj("月眉儿尸体.ini",53,166,0);
+ 	
+ 	Talk(101761,101771);
+ 	//FadeOut();
+ 	DelObj("纳兰真尸体");
+ 	SetNpcActionFile("杨影枫",0,"mpc杨抱纳-0.asf");
+ 	SetNpcActionFile("杨影枫",1,"mpc杨抱纳-0.asf");
+ 	FadeIn();
+ 	
+ 	Talk(105000,105010);
+ 	SetNpcActionFile("杨影枫",2,"mpc杨抱纳-1.asf");
+ 	Talk(105040,105050);
+ 	PlayerGotoEx(47,152);
+ 	
+ 	
+ 	
+ 	//Talk(101780,101780);
+ 	Sleep(1500);
+ 	
+ 	FadeOut();
+ 	
+ 	LoadNpc("beimo.npc");
+
+ 	AddObj("蔷薇之墓.ini",63,5,0);
+ 	AddObj("蔷薇之墓.ini",66,4,0);
+ 	SetNpcRes("杨影枫","z-杨影枫2.ini");
+ 	SetPlayerPos(65,8);
+ 	SetPlayerDir(4);
+ 	FadeIn();
+ 	
+ 	Talk(105090,105100);
+ 	Sleep(2000);
+ 	
+ 	FadeOut();
+	
+	ChangeMapColor(128,150,200);
+	ChangeAsfColor(128,150,200);
+	LoadNpc("map030_Evt3110.npc");
+	LoadObj("map030_obj.obj");
+	SetPlayerPos(56,158);
+	SetPlayerDir(7);
+	SetNpcActionFile("杨影枫",0,"mpc900.asf");
+	SetNpcActionFile("杨影枫",1,"mpc900.asf");
+	FadeIn();
+	PlayMusic("mc018.mp3");
+	Sleep(3000);
+	Say("杨影枫：真儿………",4);
+	Sleep(2000);
+	Say("杨影枫：真儿………",4);
+	
+	FadeOut();
+	LoadNpc("map030_Dream.npc");
+	LoadObj("");
+	DisableNpcAI();
+	SetNpcRes("杨影枫","z-杨影枫2.ini");
+	ChangeMapColor(0,0,0);
+	ChangeAsfColor(0,0,0);
+	SetPlayerPos(12,96);
+	SetPlayerDir(3);
+	FadeIn();
+ 	
+ 	Say("神秘人：杨影枫……");
+ 	PlayerGoto(8,79);
+ 	Sleep(1500);
+ 	Say("神秘人：杨影枫……");
+ 	Say("杨影枫：嗯？谁在喊我？…",117);
+ 	PlayerGoto(6,58);
+ 	Sleep(1500);
+ 	Say("神秘人：杨影枫……");
+ 	PlayerGoto(12,44);
+ 	Sleep(1500);
+ 	Say("神秘人：杨影枫……");
+ 	PlayerGoto(15,39);
+ 	SetPlayerDir(5);
+ 	Talk(105130,105230);
+ 	Assign($Event,3220);
+ 	GetNpcCount(1,1);
+ 	SetNpcDeathScript("杨影枫","杨影枫死亡.txt");
+ 	EnableNpcAI();
+ 	
+ 	
+ 	Return;
+ 	
+ 	
+ 	
+ 	Goto @EndIt;
+ 	
+ 	
+ 	
+@EndIt:
+	
+//	Say("本结局结束，欢迎观看！谢谢");
+	Say("………… 剧终 …………");
+	StopMusic();
+	FadeOut();
+	PlayMovie("End1.avi");
+	ReturnToTitle();
+	Return;
+	Goto @end;
+ 	
+
+
+@AllDead1:
+ 	//梦中杀死了四个女人
+ 	FadeOut();
+	Say("杨影枫：唉……，原来又是一场恶梦…");
+	
+	LoadMap("map_002_凌绝峰峰顶.map");
+	LoadObj("map002_obj.obj");
+	ChangeMapColor(255,255,255);
+	ChangeAsfColor(255,255,255);
+	SetPlayerState(0);
+	FullLife();
+	FullMana();
+	FullThew();
+	SetPlayerPos(24,39);
+	SetPlayerDir(3);
+	FadeIn();
+	Say("爹爹，孩儿已经是天下第一了，你现在终于可以入土为安！可……孩儿仍然不明白，当年你为了它失去了性命；如今我为了它失去了心爱之人，这一切，真的值得吗？或许……或许……这一切全是个错……",2);
+	Say("………… 剧终 …………");
+	FadeOut();
+	StopMusic();
+	PlayMovie("End1.avi");
+	ReturnToTitle();
+	Return;
+	Goto @end;
+ 	
+ 	
+@end:
+	Return; 	
+
+
+
+

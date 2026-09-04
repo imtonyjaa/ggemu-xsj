@@ -1,0 +1,3 @@
+AddGoods("Goods-m02-玄参.ini");
+DelCurObj();
+Return;

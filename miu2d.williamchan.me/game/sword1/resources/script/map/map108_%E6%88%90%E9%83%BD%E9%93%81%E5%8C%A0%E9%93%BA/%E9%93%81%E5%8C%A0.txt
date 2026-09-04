@@ -1,0 +1,105 @@
+//和铁匠对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+
+	If ($Talktiej == 1) @Talktiej1;
+	
+	Say("铁匠：两位客官，小店的刀具都是用新近的焰硝法淬制，其利断金……不过就是气味怪了点……", 89);
+	Say("铁匠：两位要不要看看？", 89);
+	Assign($Talktiej, 1);
+	Goto @BuyEquip;
+	Return;
+	
+@Talktiej1:
+	Say("铁匠：两位客官，出门在外总得带几件家伙防身，来看看小店的货色？", 89);
+	Goto @BuyEquip;
+	Return;
+
+@BuyEquip:
+	GetPlayerLevel($PlayerLevel);
+	If ($PlayerLevel << 10) @PlayerLevelL10;
+	If ($PlayerLevel << 16) @PlayerLevelL16;
+	If ($PlayerLevel << 22) @PlayerLevelL22;
+	If ($PlayerLevel << 28) @PlayerLevelL28;
+	If ($PlayerLevel << 34) @PlayerLevelL34;
+	If ($PlayerLevel << 40) @PlayerLevelL40;
+	Goto @PlayerLevelG40;
+	Goto @BuyEnd;
+@PlayerLevelL10:
+	SellGoods("buy1级武器.ini");
+	Goto @BuyEnd;
+@PlayerLevelL16:
+	SellGoods("buy2级武器.ini");
+	Goto @BuyEnd;
+@PlayerLevelL22:
+	SellGoods("buy3级武器.ini");
+	Goto @BuyEnd;
+@PlayerLevelL28:
+	SellGoods("buy4级武器.ini");
+	Goto @BuyEnd;
+@PlayerLevelL34:
+	SellGoods("buy5级武器.ini");
+	Goto @BuyEnd;
+@PlayerLevelL40:
+	SellGoods("buy6级武器.ini");
+	Goto @BuyEnd;
+@PlayerLevelG40:
+	SellGoods("buy7级武器.ini");
+	Goto @BuyEnd;
+@BuyEnd:
+	Return;
+	
+	
+@YuanDan:			
+
+	If ($Talktiej == 1) @Talktiej1YD;
+	
+	Say("铁匠：两位客官，小店的刀具都是用新近的焰硝法淬制，其利断金……不过就是气味怪了点……", 89);
+	Say("铁匠：两位要不要看看？", 89);
+	Assign($Talktiej, 1);
+	Goto @BuyEquipYD;
+	Return;
+	
+@Talktiej1YD:
+	Say("铁匠：两位客官，出门在外总得带几件家伙防身，来看看小店的货色？", 89);
+	Goto @BuyEquipYD;
+	Return;
+
+@BuyEquipYD:
+	GetPlayerLevel($PlayerLevel);
+	If ($PlayerLevel << 10) @PlayerLevelL10YD;
+	If ($PlayerLevel << 16) @PlayerLevelL16YD;
+	If ($PlayerLevel << 22) @PlayerLevelL22YD;
+	If ($PlayerLevel << 28) @PlayerLevelL28YD;
+	If ($PlayerLevel << 34) @PlayerLevelL34YD;
+	If ($PlayerLevel << 40) @PlayerLevelL40YD;
+	Goto @PlayerLevelG40YD;
+	Goto @BuyEndYD;
+@PlayerLevelL10YD:
+	SellGoods("buy过年1级武器.ini");
+	Goto @BuyEndYD;
+@PlayerLevelL16YD:
+	SellGoods("buy过年2级武器.ini");
+	Goto @BuyEndYD;
+@PlayerLevelL22YD:
+	SellGoods("buy过年3级武器.ini");
+	Goto @BuyEndYD;
+@PlayerLevelL28YD:
+	SellGoods("buy过年4级武器.ini");
+	Goto @BuyEndYD;
+@PlayerLevelL34YD:
+	SellGoods("buy过年5级武器.ini");
+	Goto @BuyEndYD;
+@PlayerLevelL40YD:
+	SellGoods("buy过年6级武器.ini");
+	Goto @BuyEndYD;
+@PlayerLevelG40YD:
+	SellGoods("buy过年7级武器.ini");
+	Goto @BuyEndYD;
+@BuyEndYD:
+	Return;

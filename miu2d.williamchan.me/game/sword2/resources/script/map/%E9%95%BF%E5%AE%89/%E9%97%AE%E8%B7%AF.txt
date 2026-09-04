@@ -1,0 +1,9 @@
+//问路
+	
+	If ($ChangAnYanRuoXueXiaoShi==1) @Talk1;
+	Talk(45000,45000);
+	Return;
+
+@Talk1:
+	Talk(44920,44990);
+	Return;

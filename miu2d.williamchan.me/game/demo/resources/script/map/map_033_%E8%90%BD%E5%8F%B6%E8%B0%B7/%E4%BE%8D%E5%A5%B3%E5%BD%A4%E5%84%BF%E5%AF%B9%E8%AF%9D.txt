@@ -1,0 +1,66 @@
+	If ($Event == 3120) @TalkE3120;
+	If ($Event == 3122) @TalkE3122;
+	If ($Event == 3130) @TalkE3130;
+	If ($Result == 0)  @Result0;
+	If ($Result == 1)  @Result1;
+	
+	If ($Event >= 1810)  @1810;//结局2救月眉儿
+	If ($Event >= 1800)  @1800;//结局2救月眉儿
+	
+	If ($Result == 2)  @Result2;
+	If ($Result == 3)  @Result3;
+	Return;
+
+@1810:
+	Say("侍女彤儿：我听说小姐要嫁人啦，真是太好啦，这回不用受气啦，我是绝对不会陪嫁过去的！");
+	Return;
+
+@1800:
+	Say("侍女彤儿：我们家小姐心地很善良的，就是脾气坏了点。");
+	Return;
+
+@Result0:
+	Talk(22150, 22151);
+	Return;
+
+@Result1:
+	If ($Event ==574) @TalkA574;
+	If ($Event ==591) @TalkA591;
+	Talk(22150, 22151);
+	Return;
+
+@Result2:
+	Talk(22150, 22151);
+	Return;
+
+@Result3:
+	Talk(22150, 22151);
+	Return;
+
+@TalkA574:
+	
+	Talk(60060,60061);
+	Return;
+
+@TalkA591:
+	GetRandNum($RandTalk,0,1);
+	If ($RandTalk == 0) @TalkA591_0;
+	Talk(60480,60480);
+	Return;
+
+@TalkA591_0:
+	Talk(60720,60720);
+	Return;
+	
+@TalkE3120:
+@TalkE3122:
+	Talk(103330,103340);
+	Return;	
+	
+@TalkE3130:
+	Talk(102290,102290);
+	Return;
+
+@end:
+	Return;
+

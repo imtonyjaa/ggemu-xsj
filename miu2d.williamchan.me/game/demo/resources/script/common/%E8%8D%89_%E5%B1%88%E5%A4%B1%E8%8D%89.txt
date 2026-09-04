@@ -1,0 +1,3 @@
+AddGoods("Goods-m15-屈失草.ini");
+DelCurObj();
+Return;

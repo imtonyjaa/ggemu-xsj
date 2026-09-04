@@ -1,0 +1,32 @@
+	If ($Event == 1802)  @1802;
+	Return;
+
+@1802:
+	SetMapTrap(1,"trap01.txt");
+	SetNpcKind("纳兰真",3);
+	Talk(14700,14740);
+	PlayerGotoEx(33,47);
+	Sleep(1000);
+	FadeOut();
+	Say("杨影枫带着纳兰真来到了惠安镇的王大夫处……");
+	LoadMap("map_012_惠安镇.map");
+	LoadObj("map012_nlz.obj");
+	LoadNpc("map012_nlz.npc");
+	SetPlayerPos(80,32);
+	SetPlayerDir(3);
+	SetNpcKind("纳兰真",1);
+	SetNpcPos("纳兰真",0,0);
+	FadeIn();
+	Talk(14750,14790);
+	FadeOut();
+	Say("杨影枫带着纳兰真回到了忘忧岛……");
+	SetNpcKind("纳兰真",3);
+	LoadMap("map_052_码头.map");
+	LoadNpc("map052.npc");
+	LoadObj("map052.obj");
+	SetPlayerPos(10,30);
+	SetPlayerDir(5);
+	FadeIn();
+	Assign($Event,750);
+	AddToMemo(79030);
+	Return;

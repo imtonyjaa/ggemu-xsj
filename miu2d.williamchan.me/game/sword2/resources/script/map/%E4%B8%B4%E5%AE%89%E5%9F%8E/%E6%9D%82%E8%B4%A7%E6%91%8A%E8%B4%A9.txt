@@ -1,0 +1,8 @@
+		If($FromFengChi == 16) @Lable1;
+		Talk(20660,20660);
+		BuyGoods("7-临安-杂货摊贩.ini");
+		Return;	
+@Lable1:
+		Talk(19720,19750);
+		BuyGoods("7-临安-杂货摊贩.ini");
+		Return;

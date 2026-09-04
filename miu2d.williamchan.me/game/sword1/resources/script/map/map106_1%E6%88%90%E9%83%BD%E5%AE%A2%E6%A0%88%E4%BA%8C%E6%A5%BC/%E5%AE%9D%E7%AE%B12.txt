@@ -1,0 +1,17 @@
+//打开宝箱
+
+	PlaySound("物_箱子开.wav");
+	OpenBox();
+	AddGoods("Goods211_千金藤.ini");
+	Sleep(600);
+	AddGoods("Goods213_仙人茶.ini");
+	Sleep(600);
+	AddGoods("Goods214_灵芝草.ini");
+	Sleep(600);
+	AddGoods("Goods211_千金藤.ini");
+	Sleep(600);
+	AddGoods("Goods213_仙人茶.ini");
+	Sleep(600);
+	AddGoods("Goods214_灵芝草.ini");
+	SetObjScript("","");
+	Return;

@@ -1,0 +1,117 @@
+	If ($Event == 1818) @1818;
+	If ($Event == 3120) @TalkE3120;
+	If ($Event == 3122) @TalkE3122;
+	If ($Result == 0)  @Result0;
+	If ($Result == 1)  @Result1;
+	If ($Event >= 1810) @1810;
+	If ($Event == 1806) @1806;
+	If ($Event >= 1800) @1800;//结局2救月眉儿
+	If ($Result == 2)  @Result2;
+	If ($Result == 3)  @Result3;
+	Goto @end;
+
+@1818:
+	Say("家丁小黑：杨公子，又见到你了，有机会帮我在老爷面前美言几句好吗？");
+	Say("杨影枫：对不起，我还有事。");
+	Return;
+
+@1810:
+	Say("家丁小黑：老爷为什么要救那个女子，非亲非故的，奇怪！");
+	Say("杨影枫：怎能如此讲话，救人一命胜造七级浮屠。");
+	Say("家丁小黑：我怎么说与你何干？");
+	Return;
+
+@1806:
+	Say("家丁小黑：杨公子，你是不是不喜欢我们家小姐？");
+	Say("杨影枫：……");
+	Say("家丁小黑：你真是太没眼光了。");
+	Return;
+
+@1800:
+	Say("家丁小黑：杨公子，你救了我们家小姐，盟主怎么感谢你的，有没有赏你点什么？");
+	Return;
+
+@Result0:
+	Talk(22100, 22100);
+	Goto @end;
+
+@Result1:
+	If ($Event ==574) @TalkE574;
+	If ($Event==591 ) @TalkA591;
+	Say("家丁小黑：小白那小子，整天就知道偷懒，我从不理他，哼哼！");
+//	Talk(22100, 22100);
+	Goto @end;
+
+@Result2:
+	Talk(22100, 22100);
+	Goto @end;
+
+@Result3:
+	If ($Event <= 870) @EventL870;
+	If ($Event <= 930) @EventL930;
+
+	GetRandNum($GanTalk, 5, 6);
+	If ($GanTalk == 5) @GanTalk35;
+	If ($GanTalk == 6) @GanTalk36;
+	@GanTalk35:
+		Say("小黑：公子，最近你在武林中闯下好大的名头，不愧是大侠之后啊！");
+		Goto @end;
+	@GanTalk36:
+		Say("小黑：公子年纪轻轻，便有如此功力，武功天下第一这个名头，迟早是公子的哦！");
+		Say("杨影枫：过奖！", 2);
+		Goto @end;
+	Goto @end;
+	
+	@EventL870:
+		GetRandNum($GanTalk, 1, 2);
+		If ($GanTalk == 1) @GanTalk31;
+		If ($GanTalk == 2) @GanTalk32;
+		@GanTalk31:
+			Talk(22100, 22100);
+			Goto @end;
+		@GanTalk32:
+			Say("小黑：小姐平时很喜欢舞枪弄棒，公子，你可以送一些小刀小剑之类的东西给小姐，小姐一定会很高兴。");
+			Goto @end;
+		Goto @end;
+
+	@EventL930:
+		GetRandNum($GanTalk, 3, 4);
+		If ($GanTalk == 3) @GanTalk33;
+		If ($GanTalk == 4) @GanTalk34;
+		@GanTalk33:
+			Say("小黑：小姐这两天不在，公子有什么事，我可以代为传禀，呵呵，我不会让别人知道的。");
+			Goto @end;
+		@GanTalk34:
+			Say("小黑：小白那小子，整天就知道偷懒，公子你不用理他，哼哼！");
+			Goto @end;
+		Goto @end;
+
+	Goto @end;
+
+@TalkE574:
+	
+	
+	Talk(60150,60160);
+	Goto @end;
+
+@TalkA591:
+	GetRandNum($RandTalk,0,1);
+	If ($RandTalk == 0) @TalkA591_0;
+
+	Talk(60570,60570);
+	Goto @end;
+
+	@TalkA591_0:
+		Talk(60810,60812);
+		Goto @end;
+
+
+
+@TalkE3120:
+@TalkE3122:
+	Talk(103430,103430);
+	Return;	
+
+@end:
+	Return;
+

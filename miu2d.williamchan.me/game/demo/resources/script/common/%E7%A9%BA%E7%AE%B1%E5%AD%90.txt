@@ -1,0 +1,5 @@
+PlaySound("物-箱子开.wav");
+OpenBox();
+ShowMessage(94400);
+SetObjScript("","");
+Return;

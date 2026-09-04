@@ -1,0 +1,23 @@
+// 杀手死亡
+
+	Add($fight001, 1);
+	If ($fight001 == 11) @finished;
+    Return;
+    
+@finished:
+	StopMusic();
+	Sleep(500);
+	ClearEffect();
+	Say("独孤剑：为免生枝节，我还是尽快上武夷山把血书交给柳中原吧。", 1);
+	
+	SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(2, "Trap02.txt");
+	
+	Memo("打败敌人后独孤剑决定去东南方向的武夷山拜访柳中原。");
+	
+	Assign($Event, 30);
+	Assign($Result, 0);
+//	Assign($EvilVal, *);
+//	Assign($SenseVal, *);
+
+	Return;

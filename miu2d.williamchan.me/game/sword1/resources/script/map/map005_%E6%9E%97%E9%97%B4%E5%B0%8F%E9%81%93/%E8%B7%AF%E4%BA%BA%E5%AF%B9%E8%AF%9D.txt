@@ -1,0 +1,31 @@
+// 路人对话：指路
+
+	If ($Event == 30) @Event30; 
+
+	Say("农夫：最近咋老有问路的……", 0);
+	Return;
+	
+@Event30:
+	If ($Talkmap005luren == 0) @Talk0;
+	If ($Talkmap005luren == 1) @Talk1;
+  	If ($Talkmap005luren == 2) @Talk2;
+  	
+@Talk0:
+	Say("独孤剑：这位大叔，请问去武夷山怎么走？", 1);
+	Say("农夫：又是一位！呐，我告诉你：东北方向的路呢，是通往临安的；如果你要去武夷山，就往东南方向走。武夷山上有个九猴洞，九猴洞里有很多恶猴，记好了没有？", 0);
+	Say("独孤剑：噢，多谢这位大叔了。", 2);
+	Assign($Talkmap005luren, 1);
+	Return;
+  
+@Talk1:	
+	Say("农夫：前面不远就是武夷山。", 0);
+	Assign($Talkmap005luren, 2);
+	Return;
+	
+@Talk2:
+	Say("农夫：最近怎么老有问路的？", 0);
+	Return;
+	
+
+	
+

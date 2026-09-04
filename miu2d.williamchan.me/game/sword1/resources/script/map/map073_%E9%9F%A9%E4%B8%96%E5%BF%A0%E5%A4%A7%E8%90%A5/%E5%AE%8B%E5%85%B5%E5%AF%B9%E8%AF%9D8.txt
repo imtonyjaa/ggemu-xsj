@@ -1,0 +1,21 @@
+// 与宋兵的对话8
+
+	If ($Event == 420) @Event420;
+	If ($Event == 421) @Event420;
+	If ($Event == 430) @Event420;
+	If ($Event == 440) @Event440;	//只能是与刘云对过话，而且有红玉
+	
+	Return;
+	
+@Event420:	
+	Say("宋兵：库房重地，闲人免进！", 0);
+	Return;
+	
+@Event440:	
+	If ($Talkhan == 0) @Talkhan0;	//没有与韩元帅对话
+	If ($Talkhan == 1) @Talkhan1;	//已经与韩元帅对话
+	Return;
+@Talkhan0:
+	Say("宋兵：库房重地，闲人免进！", 0);
+@Talkhan1:
+	Return;	

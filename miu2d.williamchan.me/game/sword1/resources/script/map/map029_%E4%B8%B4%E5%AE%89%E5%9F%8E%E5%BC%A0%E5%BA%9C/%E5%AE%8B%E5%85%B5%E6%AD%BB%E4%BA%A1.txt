@@ -1,0 +1,55 @@
+// 宋兵死亡
+
+	Add($fight029, 1);
+	If ($fight029 == 10) @finished;
+    Return;
+    
+@finished:
+	StopMusic();
+	FadeOut();
+	PlayMusic("前途.mp3");
+	AddNpc("npc035_蒋伯.ini", 12, 20, 1);
+	SetNpcKind("张琳心", 1);
+	SetPlayerPos(12, 22);
+	SetPlayerDir(4);
+	SetPlayerState(0);
+	SetNpcPos("张琳心", 11, 21);
+	SetNpcDir("张琳心", 5);
+	FadeIn();
+	Say("蒋伯：小姐，你可回来了，老爷这么好的人，怎么会有罪呢？就是打死我也不信！", 68);
+	Say("张琳心：爹爹没罪，是奸人陷害他！爹爹现在何处？", 24);
+	Say("蒋伯：老爷从厨房的秘道离开了。小姐还记得吗？就是你小时候和少爷常偷偷溜出去的那条……", 68);
+	Say("张琳心：……蒋伯，真难为你了。", 24);		
+	Say("张琳心：我这还有点银子，你拿着回乡下养老去吧。", 24);
+	Say("蒋伯：老爷对老奴恩重如山，蒋伯怎么能在老爷落难的时候离开呢？老奴就一个人守着这房子，等老爷昭雪后再回来住！", 68);
+	Say("张琳心：……", 24);
+	Say("蒋伯：小姐，老爷前些天写了一首诗，要我碰见小姐和少爷后就交给你们。", 68);
+	Say("张琳心：一首诗？", 21);
+	
+	SetNpcActionFile("张琳心", 0, "mpc013_3.asf");
+	SetNpcActionFile("张琳心", 1, "mpc013_3.asf");
+	NpcSpecialAction("蒋伯", "mpc013_1.asf");
+	NpcSpecialAction("张琳心", "mpc013_2.asf");
+	Sleep(1500);
+	
+	Say("<color=Red>秋幕雨后屋生苔，", 68);
+	Say("<color=Red>残红满地道难开。", 68);
+	Say("<color=Red>庭院幽深向阳晚，", 68);
+	Say("<color=Red>烟云逐海浪潮来。<color=Black>", 68);
+	
+	SetNpcActionFile("张琳心", 0, "npc004_st.asf");
+	SetNpcActionFile("张琳心", 1, "npc004_pst.asf");
+	NpcSpecialAction("张琳心", "mpc013_4.asf");
+	
+	Say("蒋伯：老爷的意思是……", 68);
+	Say("张琳心：爹爹已经先去办一件重要的事情了……", 21);
+	Say("蒋伯：小姐你们赶快离开这里，官兵马上又要来了。", 68);
+	Say("张琳心：蒋伯，你也要保重！",24);
+	SetNpcKind("张琳心", 3);
+	SetNpcScript("张琳心", "张琳心对话.txt");
+	SetNpcScript("蒋伯", "蒋伯对话.txt");
+	Assign($Event, 260);
+	SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(2, "Trap02.txt");
+	Memo("两人再次来到张府，遇到大量宋兵，消灭所有的敌人后，老管家蒋伯告诉两人张风进了后面厨房的秘道。");
+	Return;

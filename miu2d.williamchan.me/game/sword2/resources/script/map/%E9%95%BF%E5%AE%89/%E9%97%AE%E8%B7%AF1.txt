@@ -1,0 +1,10 @@
+//问路
+
+	If ($ChangAnYanRuoXueXiaoShi==1) @Talk1;
+	Talk(45200,45200);
+	Assign($FXSZZhaoRen,1);
+	Return;
+	
+@Talk1:
+	Talk(45010,45190);
+	Return;

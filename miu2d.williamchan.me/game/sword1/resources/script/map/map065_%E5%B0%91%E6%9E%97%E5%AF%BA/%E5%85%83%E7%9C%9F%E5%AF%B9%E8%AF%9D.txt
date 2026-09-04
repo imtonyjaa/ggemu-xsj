@@ -1,0 +1,42 @@
+//和元真对话
+	
+	If ($Talkyuantong == 0) @TalkyuanzhenA;
+	If ($Talkyuantong == 1) @TalkyuanzhenB;
+		
+@TalkyuanzhenA:
+	If ($Talkyuanzhen == 0) @Talkyuanzhen0;
+	If ($Talkyuanzhen == 1) @Talkyuanzhen1;
+ @Talkyuanzhen0:
+	Say("元真：你们别来捣乱，小心弄伤了我的徒弟。", 0);
+	Say("独孤剑：徒弟？大师年纪轻轻就有徒弟了？", 1);
+	Say("元真：你没看见地上吗？这就是我的二徒弟猪悟能，这是三徒弟沙悟净，你们不要踩到他们了。", 0);
+	Say("独孤剑：大师便是唐僧了？", 2);
+	Say("元真：贫僧法号“三藏”。", 0);
+	Say("张琳心：咦，三藏大师，你的大徒弟孙悟空呢？", 21);
+	Say("元真：你们不要气我好不好？我的大徒弟孙行者被师兄元通抢走了。我又打不过他，以后遇到妖怪谁来救我……", 0);
+	Say("张琳心：独孤大哥，我们帮他把大徒弟拿回来好不好？", 21);
+	Say("独孤剑：好吧！", 2);
+	Assign($Talkyuanzhen, 1);
+	Memo("独孤剑和张琳心来到少林寺，遇到和尚元真，得知元真的泥人被师兄元通抢走，决定帮他夺回。");
+	Return;
+	
+ @Talkyuanzhen1:	
+	Say("元真：八戒，沙僧，给我拿下这两个妖精。", 0);
+	Return;
+	
+@TalkyuanzhenB:
+	If ($Talkyuanzhen == 2) @TalkyuanzhenC;
+	
+	Say("独孤剑：大师，这个可是你的大徒弟？", 1);
+	Say("元真：行者？你们给我把行者找回来了。太好了！", 0);
+	Say("张琳心：小师父，知道在哪儿可以找到无虚大师吗？", 21);
+	Say("元真：你们找师叔祖啊？看在你们替我找回行者的份上，我就告诉你们吧。师叔祖在达摩堂后面的密室里闭关练功，不准人去打扰他，你们可别说是我说的哟。……密室外面还有他的诗。", 0);
+	DelGoods("Goods407_泥人.ini"); 
+	Assign($Talkyuanzhen, 2);
+	Assign($Event, 380);
+	Memo("从元通那里找回泥人，还给元真，元真告诉二人，无虚大师在达摩堂。");
+	Return;
+	
+@TalkyuanzhenC:
+	Say("元通：取西经，打妖精，牛头马怪，现原形……", 0);
+	Return;

@@ -1,0 +1,9 @@
+			DisableNpcAI();
+			Sleep(3000);
+			Talk(16870,16990);
+			Assign($FromFengChi,19);
+			Assign($ToZhongDu,1);
+			SetMapTrap(8,"Trap8.txt");
+			SaveMapTrap();
+			EnableNpcAI();
+			Return;

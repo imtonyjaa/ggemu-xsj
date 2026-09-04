@@ -1,0 +1,56 @@
+//
+    
+    If($1ZMG==1) @Lable2;
+    If($GotoZMG==1) @Lable1;
+    Talk(50950,51070);
+    SetPlayerDir(7);
+    Talk(51080,51090);
+    Assign($GotoZMG,1);
+    SetMapTrap(4,"地图切换4.txt");
+    SaveMapTrap();
+    SetMapTrap(5,"地图切换5.txt");
+    AddMoney(-100);
+    SetNpcKind("燕若雪",0);
+    NpcGoto("燕若雪",46,54);
+    SetNpcDir("燕若雪",7);
+    PlayerGoto(46,55);
+    SetPlayerDir(3);
+    Talk(51100,51120);
+    SetNpcScript("燕若雪","燕若雪Talk2.txt");
+    EnableJump();
+    EnableRun();
+    Assign($LMKZOZhanMaGang,1);
+    AddToMemo("寻找葬马岗，并料理里面的盗贼。");
+    Return;
+
+@Lable1:
+    Talk(51170,51180);
+    Return;
+
+@Lable2:
+    If($2ZMG==2) @Lable3;
+    Talk(51170,51180);
+    Return;
+
+@Lable3:
+    If($3ZMG==3) @Lable4;
+    Talk(51190,51200);
+    Return;
+
+@Lable4:
+    If($4ZMG==4) @Lable5;
+    Talk(51190,51200);
+    Return;
+
+@Lable5:
+    If($5ZMG==5) @Lable7;
+    Talk(51210,51220);
+    Return;
+
+@Lable7:
+    Talk(51230,51240);
+    SetNpcScript("燕若雪","燕若雪Talk1.txt");
+    FadeOut();
+    DelNpc("无赖1");
+    FadeIn();
+    Return;

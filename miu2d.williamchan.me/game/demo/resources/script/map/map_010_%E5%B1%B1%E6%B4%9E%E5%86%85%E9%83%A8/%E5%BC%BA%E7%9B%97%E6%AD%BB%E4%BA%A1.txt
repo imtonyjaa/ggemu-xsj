@@ -1,0 +1,44 @@
+	Add($DeadRobber, 1);
+	If ($DeadRobber >= 25) @talk;
+	Goto @end;
+
+@talk:
+	StopMusic();
+	FadeOut();
+	SetPlayerPos(18, 48);
+	SetPlayerDir(0);
+	Sleep(200);
+	FadeIn();
+	Say("杨影枫：哈哈哈，这群强盗真没用，还没打两下，怎么一个会动的都没了？待我看看这个强盗窝。", 3);
+	PlayerRunTo(15, 51);
+	SetPlayerDir(7);
+	Talk(700, 700);
+	PlaySound("铁笼1.wav");
+	NpcSpecialAction("杨影枫", "mpc014.asf");
+	Sleep(2500);
+	FadeOut();
+	LoadNpc("map010-qiangdao.npc");
+	ClearBody();
+	DisableNpcAI();
+	SetPlayerPos(15, 58);
+	SetPlayerDir(0);
+	SetNpcActionFile("杨影枫", 0, "mpc015.asf");
+	SetNpcActionFile("杨影枫", 1, "mpc015.asf");
+	FullLife();
+	FadeIn();
+	Talk(710, 770);
+	SetPlayerDir(0);
+	NpcSpecialAction("杨影枫", "mpc016.asf");
+	Sleep(1000);
+	SetNpcActionFile("杨影枫", 0, "npc006_st2.asf");
+	SetNpcActionFile("杨影枫", 1, "npc006_sst2.asf");
+	SetPlayerDir(5);
+    Say("杨影枫：哼，这么简陋的机关也想困住我？简直是痴心妄想！", 8);
+	SetPlayerState(1);
+	EnableFight();
+	EnableNpcAI();
+	PlayMusic("mc028.mp3");
+    Assign($Event, 55);
+    
+@end:
+	Return();

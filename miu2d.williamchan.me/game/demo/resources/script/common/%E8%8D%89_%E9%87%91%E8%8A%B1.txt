@@ -1,0 +1,3 @@
+AddGoods("Goods-m00-金花.ini");
+DelCurObj();
+Return;

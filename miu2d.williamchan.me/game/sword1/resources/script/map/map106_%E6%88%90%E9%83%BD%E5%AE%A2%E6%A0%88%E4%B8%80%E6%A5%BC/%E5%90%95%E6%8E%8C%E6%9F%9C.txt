@@ -1,0 +1,238 @@
+//和吕掌柜对话
+
+	If ($Clue == 0) @Talklvzhanggui0;
+	If ($Clue == 10) @Talklvzhanggui10;
+	If ($Clue == 25) @Talklvzhanggui25;
+	If ($Clue == 30) @Talklvzhanggui30;
+	If ($Clue == 31) @Talklvzhanggui31;
+	If ($Clue == 41) @Talklvzhanggui41;
+	
+	Say("吕掌柜：两位要住店吗？", 85);
+	Choose("独孤剑：我们……","A 不住","B 住",$Choose);
+	If ($Choose == 0) @Choose0;
+	If ($Choose == 1) @Choose1;
+    @Choose0:
+	Return;
+    @Choose1:
+    	GetMoneyNum();
+	If($MoneyNum << 10) @NotenoughMon0;
+	If($MoneyNum >= 10) @EnoughMon1;
+     @NotenoughMon0:
+    	Say("吕掌柜：你拿我寻开心哪，这么点银子就想住店？", 85);
+    	Return;
+     @EnoughMon1:	
+    	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map106_成都客栈一楼.map");
+	LoadNpc("map106.npc");
+	LoadObj("map106.obj");
+	SetPlayerPos(13,17); //床边
+	SetPlayerDir(0);
+	SetNpcPos("杨瑛",13,25); //客栈房门口
+	SetNpcDir("杨瑛",4);
+	AddMoney(-10);
+	SetPlayerScn();
+	FullLife();
+	FullThew();
+	FullMana();
+	FadeIn();
+	Sleep(1000);
+	NpcGoto("杨瑛",13,19); 
+	SetNpcDir("杨瑛",4);
+	Say("杨瑛：独孤大哥，你起来了。我们走吧！", 39);
+	Return;
+	
+@Talklvzhanggui0:
+	If ($Talklv == 0) @Talklv0;
+	If ($Talklv == 1) @Talklv1;
+  @Talklv0:
+	Say("吕掌柜：我是这里的掌柜，免贵姓吕，两位要住店吗？", 85);
+	Say("独孤剑：掌柜，我们想打听两个人。最近贵店是否住过两兄妹，京城口音，大约二十上下？", 1);
+	Say("吕掌柜：哎呀，客官。我这客栈虽不是什么大号，可每天来来走走也有百十号人，哪里记得住这么多啊？", 85);
+	Say("独孤剑：麻烦掌柜再想一想，我们……", 1);
+	Say("吕掌柜：客官，你们没看我很忙吗？你们去问问那边的小二吧，他这几天负责招呼客人。", 85);
+	Assign($Talklv, 1);
+	Return;
+  @Talklv1:
+	Say("吕掌柜：两位要住店吗？", 85);
+	Choose("独孤剑：我们……","A 不住","B 住",$Choose);
+	If ($Choose == 0) @Choose2;
+	If ($Choose == 1) @Choose3;
+    @Choose2:
+    	Say("吕掌柜：那拜托两位不要打扰在下的生意。", 85);
+	Return;
+    @Choose3:
+    	GetMoneyNum();
+	If($MoneyNum << 10) @NotenoughMon2;
+	If($MoneyNum >= 10) @EnoughMon3;
+     @NotenoughMon2:
+    	Say("吕掌柜：你拿我寻开心哪，这么点银子就想住店？", 85);
+    	Return;
+     @EnoughMon3:
+    	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map106_成都客栈一楼.map");
+	LoadNpc("map106.npc");
+	LoadObj("map106.obj");
+	SetPlayerPos(13,17); //床边
+	SetPlayerDir(0);
+	SetNpcPos("杨瑛",13,25); //客栈房门口
+	SetNpcDir("杨瑛",4);
+	AddMoney(-10);
+	SetPlayerScn();
+	FullLife();
+	FullThew();
+	FullMana();
+	FadeIn();
+	Sleep(500);
+	NpcGoto("杨瑛",13,19); 
+	SetNpcDir("杨瑛",4);
+	Say("杨瑛：独孤大哥，你起来了？我们走吧！", 39);
+	Return;
+	
+@Talklvzhanggui10:
+	If ($Talklv == 0) @Talklv10;
+	If ($Talklv == 1) @Talklv11;
+ 
+  @Talklv10:
+ 	Say("吕掌柜：我是这里的掌柜，免贵姓吕，两位要住店吗？", 85);
+	Say("独孤剑：掌柜，我们想打听两个人。最近贵店是否住过两兄妹，京城口音，大约二十上下？", 1);
+	Say("吕掌柜：哎呀，客官。我这客栈虽不是什么大号，可每天来来走走也有百十号人，哪里记得住这么多啊？", 85);
+	Say("独孤剑：麻烦掌柜再想一想，我们……", 1);
+	Say("吕掌柜：客官，你们没看我很忙吗？你们去问问那边的小二吧，他这几天负责招呼客人。", 85);
+	SetMapTrap(01,"trap01.txt");
+	Assign($Talklv, 1);
+	Return;
+	
+  @Talklv11:
+  	Say("吕掌柜：两位怎么又来了，我说过我不记得了吗！", 85);	
+	Say("吕掌柜：两位要住店吗？", 85);
+	
+	Choose("独孤剑：我们……","A 不住","B 住",$Choose);
+	If ($Choose == 0) @Choose4;
+	If ($Choose == 1) @Choose5;
+    @Choose4:
+    	Say("吕掌柜：那拜托两位不要打扰在下的生意。", 85);
+	Return;
+    @Choose5:
+    	GetMoneyNum();
+	If($MoneyNum << 10) @NotenoughMon4;
+	If($MoneyNum >= 10) @EnoughMon5;
+     @NotenoughMon4:
+    	Say("吕掌柜：你拿我寻开心哪，这么点银子就想住店？", 85);
+    	Return;
+     @EnoughMon5:
+     	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map106_成都客栈一楼.map");
+	LoadNpc("map106.npc");
+	LoadObj("map106.obj");
+	SetPlayerPos(13,17); //床边
+	SetPlayerDir(0);
+	SetNpcPos("杨瑛",13,25); //客栈房门口
+	SetNpcDir("杨瑛",4);
+	AddMoney(-10);
+	SetPlayerScn();
+	FullLife();
+	FullThew();
+	FullMana();
+	NpcGotoEx("杨瑛",13,19); 
+	FadeIn();
+	SetNpcDir("杨瑛",4);
+	Say("杨瑛：独孤大哥，你起来了。我们走吧！", 39);
+	Return;
+	
+@Talklvzhanggui25:
+	If ($Talklv == 1) @Talklv21;
+	If ($Talklv == 2) @Talklv22;
+	
+   @Talklv21:
+	Say("独孤剑：吕掌柜，小二是怎么死的？", 6);
+	Say("吕掌柜：我，我也不知道，这个伙计向来很壮实，怎么……", 85);
+	Say("杨瑛：有人见过兄妹两人昨天傍晚就在你的客栈投宿，你真的记不得了？", 39);
+	Say("吕掌柜：昨天晚上我不在，客栈只有小二在打点……两位，我真的不知道，不要再问了。", 85);
+	Assign($Talklv, 2);
+	Memo("回到客栈，发现店小二离奇死亡，吕掌柜说自己也不知道怎么回事。");
+	Return;
+	
+  @Talklv22:
+	Say("吕掌柜：这下要我上哪里去找这样的老实伙计……", 85);
+	Return;
+	
+@Talklvzhanggui30:
+	If ($Talklv == 1) @Talklv31;
+	If ($Talklv == 2) @Talklv32;
+  @Talklv31:
+  	Say("独孤剑：吕掌柜，小二是怎么死的？", 6);
+	Say("吕掌柜：我，我也不知道，这个伙计向来很壮实，怎么……", 85);
+	Say("杨瑛：有人见过兄妹两人昨天傍晚就在你的客栈投宿，你真的记不得了？", 39);
+	Say("吕掌柜：昨天晚上我不在，客栈只有小二在打点……两位，我真的不知道，不要再问了。", 85);
+	Assign($Talklv, 2)；
+	Memo("回到客栈，发现店小二离奇死亡，吕掌柜说自己也不知道怎么回事。");
+	Return;
+	
+  @Talklv32:
+  	Say("吕掌柜：两位要住店吗？", 85);
+	
+	Choose("独孤剑：我们……","A 不住","B 住",$Choose);
+	If ($Choose == 0) @Choose8;
+	If ($Choose == 1) @Choose9;
+    @Choose8:
+    	Say("吕掌柜：那拜托两位不要打扰在下的生意。", 85);
+	Return;
+    @Choose9:
+    	GetMoneyNum();
+	If($MoneyNum << 10) @NotenoughMon8;
+	If($MoneyNum >= 10) @EnoughMon9;
+     @NotenoughMon8:
+    	Say("吕掌柜：你拿我寻开心哪，这么点银子就想住店？", 85);
+    	Return;
+     @EnoughMon9:
+    	FadeOut();
+	StopMusic();
+	PlayMusic("追缘.mp3");
+	SetNpcPos("店小三",15,29);
+	SetNpcDir("店小三",0);
+	SetNpcPos("吕掌柜",14,29); 
+	SetNpcDir("吕掌柜",0);
+	SetNpcPos("房客男",3,37); 
+	SetNpcDir("房客男",7);  
+	SetNpcPos("房客女",4,38);  
+	SetNpcDir("房客女",3);  
+	DelObj("店小二尸体");
+	SetPlayerPos(13,17); 
+	SetPlayerDir(0);
+	SetNpcPos("杨瑛",13,25); //客栈房门口
+	SetNpcDir("杨瑛",4);
+	AddMoney(-10);
+	SetPlayerScn();
+	FullLife();
+	FullThew();
+	FullMana();
+	ChangeLife("杨瑛", 100);
+	ChangeThew("杨瑛", 100); 
+	ChangeMana("杨瑛", 100); 
+	Say("休息了一夜");
+	FadeIn();
+	Sleep(1500);
+	SetNpcDir("杨瑛",4);
+	NpcGoto("杨瑛",13,19); 
+	SetNpcDir("杨瑛",4);
+	Say("杨瑛：独孤大哥，你起来了。我们走吧！", 39);
+	Assign($Clue, 31);
+	Return;	
+	
+@Talklvzhanggui31:
+	Say("吕掌柜：两位要住店吗？", 85);
+	Say("杨瑛：独孤大哥，我们去城北找张姑娘吧。", 39);
+	Say("独孤剑，我们还有事，不住了。", 1);
+	Return;
+	
+@Talklvzhanggui41:
+	Say("独孤剑：这封留书是在贵店客房中发现的，掌柜，你怎么会不知道有什么客人住过呢？", 9);
+	Say("吕掌柜：两位我真的不知道，也不晓得你们说的什么留书……如果两位还要无礼纠缠，莫怪我报官了。", 85);
+	Say("杨瑛：独孤大哥，算了，看来这里是问不出什么的。我们先走吧。", 39);
+	Return;

@@ -1,0 +1,41 @@
+// 打败罗天强
+
+	FadeOut();
+	StopMusic();
+	ClearBody();
+	DelNpc("罗天强");
+	AddNpc("npc049_罗天强.ini", 8, 20, 1);
+	SetNpcRelation("罗天强", 2);
+	SetNpcScript("罗天强", "罗天强.txt");
+	SetPlayerPos(7, 22);
+	SetPlayerDir(5);
+	SetPlayerState(0);
+	DelObj("门类障碍1");
+	DelObj("门类障碍2");
+	ClearEffect();
+	FadeIn();
+	
+	Say("罗天强：独孤少侠果然名不虚传，在下自愧不如。", 77);
+	Say("独孤剑：承让！", 2);
+	NpcGoto("罗天强", 9, 25);
+	NpcGotoEx("罗天强", 11, 32);
+	NpcGoto("李啸", 10, 16);
+	NpcGoto("李啸", 8, 20);
+	SetNpcDir("李啸", 1);
+	SetNpcPos("罗天强", 9, 33);
+	SetNpcDir("罗天强", 3);
+	
+	
+	Say("池先秋：上一场，衡山独孤少侠胜。下一场，衡山独孤剑对梁山好汉李啸。", 79);
+	Say("“九纹豹”史初：原来是梁山的后人……");
+	Say("李啸：在下献丑了！", 78);
+	Say("独孤剑：请多指教！", 1);
+	SetNpcRelation("李啸", 1);
+	SetNpcScript("李啸", "");
+	PlayMusic("战斗.mp3");
+	SetPlayerState(1);
+	SetNpcDeathScript("独孤剑", "比武失败.txt");
+	AddObj("门类障碍1.ini", 10, 16, 0);
+	AddObj("门类障碍2.ini", 10, 26, 0);
+	Return;
+	

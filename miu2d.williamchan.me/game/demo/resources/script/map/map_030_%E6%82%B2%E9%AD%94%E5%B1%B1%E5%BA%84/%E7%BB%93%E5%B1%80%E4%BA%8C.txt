@@ -1,0 +1,17 @@
+	Assign($Result,2);
+	Assign($Event,1800);
+	PlayMusic("mc014.mp3");
+	Say("杨影枫：不行，我不能为了自己的武林地位而辜负真儿……我要去找她表明我的心意。",2);
+	DelNpc("纳兰真");
+	SetNpcPos("侍女可意",40,139);
+	SetMapTrap(1,"");
+	SetMapTrap(2,"");
+	SetMapTrap(3,"");
+	SetMapTrap(5,"");
+	SetMapTrap(6,"Trap06.txt");
+	SetMapTrap(7,"");
+	SetMapTrap(9,"");
+	SetMapTrap(12,"");
+	SetMapTrap(15,"");
+	SetMapTrap(19,"");
+	Return;

@@ -1,0 +1,10 @@
+
+
+	If ($SubEvent02 << 2) @end;
+	
+	Say("杨影枫：这不是罂粟嘛。", 2);
+	DelObj("罂粟");
+	AddGoods("Goods-e16-罂粟.ini");
+	
+	Add($SubEvent02, 2);
+	SaveObj();

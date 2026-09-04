@@ -1,0 +1,6 @@
+//Book08-云生结海.ini
+	AddMagic("player-magic-云生结海.ini");
+	PlaySound("学会武功.wav");
+	DelGoods();
+	Add($EvilVal, 20);
+	Return;

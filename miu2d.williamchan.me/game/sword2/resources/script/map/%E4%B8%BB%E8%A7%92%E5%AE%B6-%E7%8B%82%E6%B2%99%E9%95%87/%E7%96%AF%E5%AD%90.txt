@@ -1,0 +1,14 @@
+// 疯子
+
+	If ($ksOshushen1 == 0) @talk1;
+	If ($ksOshushen1 == 1) @talk2;
+	Return;
+
+@talk1:
+	Talk(23840,23870);
+	Assign($ksOshushen1, 1);
+	Return;
+
+@talk2:
+	Talk(23880,23880);
+	Return;

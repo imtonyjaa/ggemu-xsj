@@ -1,0 +1,17 @@
+//和乞丐对话
+
+	If ($Talkqigai1 == 1) @Talk1;
+	If ($Talkqigai1 == 2) @Talk2;
+	
+	Say("乞丐：呼——");
+	Assign($Talkqigai1, 1);
+	Return;
+	
+@Talk1:
+	Say("乞丐：呼——");
+	Assign($Talkqigai1, 2);
+	Return;
+	
+@Talk2:
+	Say("乞丐：两位莫非想打我乞丐的主意，几次三番的骚扰我……");
+	Return;

@@ -1,0 +1,5 @@
+//Book14-金钟罩.ini
+	AddMagic("player-magic-金钟罩.ini");
+	PlaySound("学会武功.wav");
+	DelGoods();
+	Return;

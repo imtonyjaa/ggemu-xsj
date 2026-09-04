@@ -1,0 +1,68 @@
+//鲁老头
+	If ($Event == 164) @Label1;
+	If ($Event == 166) @Label2;
+	If ($Event == 168) @Label3;
+	If ($Event == 170) @Label4;
+	If ($Event == 202) @Label5;
+	If ($Event == 203) @Label5;
+	If ($Event == 205) @Label5;
+	If ($Event == 230) @Label6;
+	If ($Event >= 185) @Label7;
+	
+	Talk(20990, 20990);
+	Goto @end;
+	
+@Label1:	
+ 	DelNpc("紫轩");
+    AddNpc("紫轩哭.ini", 31, 132, 0);
+	SetNpcKind("紫轩",1);
+	SetNpcRelation("紫轩", 2);
+	Say("鲁老头：哼！真是没有王法了！光天化日之下竟敢强抢良家女子。");
+	Say("杨影枫：老伯，发生了什么事？你为何如此愤慨？", 2);
+	Say("鲁老头：唉，公子有所不知，咱这村子里臭名远扬的贾少缠上了紫轩姑娘，三天两头上门调戏不成，今日竟带人上门抢亲来了！");
+	Say("杨影枫：啊？！紫轩真的出了事！", 4);
+	NpcGoto("鲁老头", 38, 117);
+	SetNpcDir("鲁老头",0);
+    PlayerRunTo(41, 122);
+    Assign($Event, 166);
+    AddToMemo(90250);
+	PlayerRunTo(37, 140);
+	SetPlayerDir(1);
+	//AddObj("紫轩哭.ini", 32, 131, 0);
+	SetMapTrap(4, "");
+	RunScript("Trap04.txt");
+	Goto @end;     
+        
+@Label2:
+	Talk(2170, 2170);        
+	Goto @end;  
+	
+@Label3:
+	Talk(20991, 20991);        
+	Goto @end;  
+	
+@Label4:
+	Talk(21000, 21000);        
+	Goto @end;  
+	
+@Label5:	
+	Talk(21001, 21004);        
+	Goto @end; 
+	
+@Label6:	
+	Talk(21005, 21006);        
+	Goto @end; 	
+	
+@Label7:	
+	If ($Event >= 360 ) @TalkA360;
+	Talk(21007, 21007);        
+	Goto @end; 	
+
+@TalkA360:
+	//Talk(40250,40250);
+	Say("鲁老头：唉，我年轻的时候怎么就没有遇上紫轩这般才貌出众的姑娘呢！");
+	Goto @end;
+	
+			
+@end:
+	Return;

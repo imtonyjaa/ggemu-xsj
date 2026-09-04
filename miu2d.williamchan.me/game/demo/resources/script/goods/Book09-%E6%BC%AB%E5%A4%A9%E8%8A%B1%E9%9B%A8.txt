@@ -1,0 +1,5 @@
+//Book09-漫天花雨.ini
+	AddMagic("player-magic-漫天花雨.ini");
+	PlaySound("学会武功.wav");
+	DelGoods();
+	Return;

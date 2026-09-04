@@ -1,0 +1,126 @@
+	If ($Event == 1819) @1800;
+	If ($Event == 1818) @1818;
+	If ($Event == 1806) @1800;
+	If ($Event == 1805) @1800;
+	If ($Event == 1804) @1800;
+	If ($Event == 1803) @1800;
+	If ($Event == 1802) @1800;
+	If ($Event == 1801) @1800;
+	If ($Event == 1800) @1800;//结局2
+	If ($Event == 3185) @Talk3185;	
+	If ($Event == 3210) @Talk3210;
+	If ($Result == 0) @Result0;
+	If ($Result == 1) @Result1;
+	If ($Result == 2) @Result2;
+	If ($Result == 3) @Result3;
+	Return;
+		
+@1818:
+	Say("家丁阿龙：庄主，你可回来了。");
+	Return;
+
+@1800:
+	Say("家丁阿龙：庄主，有什么吩咐？");
+	Return;
+
+@Result0:
+
+	If ($Event == 475) @Label1;
+	If ($Event == 485) @Label2;
+	If ($Event == 520) @Label2;
+	If ($Event == 490) @Label3;
+	If ($Event == 492) @Label4;
+	If ($Event == 500) @Label5;
+	If ($Event == 530) @Label6;
+	If ($Event == 562) @Label2;
+
+	Talk(21790, 21790);
+	Return;
+@Label1:
+	Talk(21790, 21790);
+	Return;
+@Label2:
+	Talk(21791, 21791);
+	Return;
+@Label3:
+	Talk(21792, 21792);
+	Return;
+@Label4:
+	Talk(21793, 21793);
+	Return;
+@Label5:
+	Talk(21794, 21794);
+	Return;
+@Label6:
+	Talk(21795, 21795);
+	Return;
+
+@Result1:
+	//If ($Event >= 650) @TalkA650;
+	If ($Event == 600) @TalkE600;
+	Talk(21790, 21790);
+	Return;
+	
+@Result2:
+	If ($Event ==	767) @TalkE767;
+
+	If ($Event >= 750) @TalkA750;
+	If ($Event >= 720) @TalkA720;
+	Talk(21790, 21790);	
+	Return;
+
+@Result3:
+	If ($Event >= 990) @Event990;
+
+	GetRandNum($AlongTalk, 1, 2);
+	If ($AlongTalk == 1) @AlongTalk31;
+	If ($AlongTalk == 2) @AlongTalk32;
+	@AlongTalk31:
+		Talk(80180, 80180);
+		Return;
+	@AlongTalk32:
+		Talk(21790, 21790);	
+		Return;
+
+	@Event990:
+		Talk(21790, 21790);	
+		Return;
+
+	Return;
+	
+@TalkE600:
+	Talk(60660,60660);
+	Return;
+	
+	
+@TalkA650:
+	Talk(61220,61220);
+	Return;
+
+@Talk700:
+	Talk(61620,61620);
+	Return;
+
+
+@TalkA720:
+	Talk(71080,71080);
+	Return;	
+
+
+@TalkA750:
+	Talk(71940,71940);
+	Return;
+		
+@TalkE767:
+	Talk(72050,72050);
+	Return;
+	
+@Talk3185:
+	Talk(103960,103960);
+	Return;	
+	
+@Talk3210:
+	Return;	
+	
+@end:
+	Return;

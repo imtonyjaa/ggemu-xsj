@@ -1,0 +1,158 @@
+	If ($Event == 1819) @1819;//结局2求证
+	If ($Event == 1810) @1810;//结局2送蔷薇回来
+	If ($Event == 1805) @1805;//结局2送蔷薇回来
+	If ($Result == 3) @Result3;
+	If ($Event == 535) @Label3;
+	If ($Event == 540) @Label3;
+	If ($Event == 574) @TalkE574;
+	If ($Event == 780) @Event780;
+	If ($Event ==591 ) @TalkA591;
+	Talk(22090, 22090);
+	Return;
+
+@1819:
+	Say("李总管：杨公子，我们家老爷为人正直，从不做伤天害理的事，你错怪他了。");
+	Say("杨影枫：我也知道，不过我还是想去找天星道长证实一下。");
+	Return;
+
+@1810:
+	Say("李总管：杨公子，还没有休息呐，小姐在西厢房，你去找她聊聊？");
+	Say("杨影枫：嗯，多谢。");
+	Return;
+
+@1805:
+	Say("李总管：这次多亏杨少侠帮忙我们小姐才得以平安回来，杨少侠真是我们落叶谷的大恩人那。");
+	Say("杨影枫：不敢当……我只是碰巧赶上而已");
+	Return;
+
+@Label3:
+	Talk(22091, 22091);
+	Return;
+
+@Event780:
+
+	Watch("李总管","ALLPLAYER",0);
+	Sleep(500);
+	Talk(15570,15680);
+//	NpcGotoEx("李总管",14,102);
+	AddNpc("孟知秋.ini",11,111,5);
+	SetNpcScript("孟知秋","孟知秋对话.txt");
+//	NpcGoto("李总管",16,99);
+//	NpcGotoEx("孟知秋",16,97);
+//	MoveScreen(1,50,2);
+	Watch("孟知秋","ALLPLAYER",1);
+	NpcGoto("孟知秋",20,93);
+	FollowNpc("李总管","孟知秋");
+	SetNpcKind("蔷薇",0);
+	NpcGotoEx("蔷薇",20,94);
+	SetNpcDir("孟知秋",2);
+	PlayerGoto(19,91);
+	Sleep(2000);
+	NpcGotoEx("李总管",15,91);
+	Sleep(1000);
+	Watch("孟知秋","ALLPLAYER",1);
+	Watch("蔷薇","杨影枫",1);
+	Watch("李总管","杨影枫",1);
+	Watch("孟知秋","杨影枫",1);
+	
+	Talk(15690,15690);
+//	SetPlayerScn();
+	Watch("孟知秋","ALLPLAYER",0);
+	SetNpcDir("李总管",7);
+	Watch("月眉儿","孟知秋",0);
+	Sleep(500);
+	Talk(15700,15740);
+	Watch("孟知秋","杨影枫",0);
+	Sleep(500);
+	Talk(15750,15760);
+	Watch("月眉儿","孟知秋",0);
+	
+	Sleep(500);
+	Talk(15770,15770);
+	Watch("蔷薇","月眉儿",0);
+	Sleep(500);
+	Talk(15780,15800);
+	Watch("孟知秋","蔷薇",1);
+	Talk(15810,15850);
+	Watch("月眉儿","杨影枫",0);
+	Talk(15860,15890);
+	
+	SetNpcKind("月眉儿",0);
+	SetNpcKind("蔷薇",1);
+	NpcGotoEx("月眉儿",11,115);
+	Sleep(1000);
+	Watch("杨影枫","月眉儿",1);
+	Sleep(1000);
+	PlayerGoto("杨影枫",17,100);
+	Watch("杨影枫","月眉儿",1);
+	Talk(15900,15900);
+//	MoveScreen(5,50,2);
+	Sleep(1000);
+//	PlayerGoto(16,98);
+	PlayerGoto(19,92);
+	Watch("孟知秋","杨影枫",0);
+	Watch("蔷薇","孟知秋",1);
+	Sleep(1000);
+	Talk(75650,75660);
+	Watch("蔷薇","杨影枫",0);
+	Sleep(500);
+	Talk(75670,75680);
+	DelNpc("月眉儿");
+	SetNpcKind("蔷薇",3);
+	Assign($Event ,790);
+	AddToMemo(79270);
+	SetMapTrap(1,"trap01.txt");
+	Return;
+	
+	
+@TalkE574:
+	
+	Talk(60140,60140);
+	Return;
+
+@TalkA591:
+	Talk(60560,60561);
+	Return;
+
+@Result3:
+	If ($Event <= 870) @EventL870;
+	If ($Event <= 930) @EventL930;
+
+	GetRandNum($GanTalk, 5, 6);
+	If ($GanTalk == 5) @GanTalk35;
+	If ($GanTalk == 6) @GanTalk36;
+	@GanTalk35:
+		Say("李总管：最近我们落叶谷的影响好像没以前那么大了。", 74);
+		Return;
+	@GanTalk36:
+		Say("李总管：我得帮我们老爷重振落叶谷雄风。", 74);
+		Return;
+	Return;
+	
+	@EventL870:
+		GetRandNum($GanTalk, 1, 2);
+		If ($GanTalk == 1) @GanTalk31;
+		If ($GanTalk == 2) @GanTalk32;
+		@GanTalk31:
+			Talk(22090, 22090);
+			Return;
+		@GanTalk32:
+			Say("李总管：真希望蔷薇小姐嫁个好人家啊，也不枉我服侍孟家这么多年。", 74);
+			Return;
+		Return;
+
+	@EventL930:
+		GetRandNum($GanTalk, 3, 4);
+		If ($GanTalk == 3) @GanTalk33;
+		If ($GanTalk == 4) @GanTalk34;
+		@GanTalk33:
+			Say("李总管：蔷薇小姐真不听话，都这么大人了还到处跑，这两天不知跑哪里去了。", 74);
+			Return;
+		@GanTalk34:
+			Say("李总管：我得好好安排一下，让家丁出去找小姐。这两天老爷可急死了。", 74);
+			Return;
+		Return;
+	
+	Return;
+@end:
+	Return;

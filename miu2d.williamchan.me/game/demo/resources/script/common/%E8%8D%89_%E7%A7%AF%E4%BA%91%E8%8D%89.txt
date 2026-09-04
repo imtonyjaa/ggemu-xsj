@@ -1,0 +1,3 @@
+AddGoods("Goods-m08-积云草.ini");
+DelCurObj();
+Return;

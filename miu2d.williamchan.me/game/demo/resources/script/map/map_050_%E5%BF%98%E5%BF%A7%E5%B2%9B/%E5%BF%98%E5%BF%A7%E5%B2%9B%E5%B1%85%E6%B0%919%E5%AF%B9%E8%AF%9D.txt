@@ -1,0 +1,52 @@
+//鲍世和
+	If ($Event == 1818) @1813;
+	If ($Event == 1817) @1813;
+	If ($Event == 1813) @1813;
+	If ($Event == 350) @Talk350;
+//	If ($Result == 2) @Result2;
+	If ($Event >= 302) @Label;
+
+	Talk(21210, 21210);
+	Goto @end;
+
+@1813:
+	Say("鲍世和：杨公子，我年轻的时候和你一样，也向往浪迹江湖的生活，直到遇到了我娘子，为了她，我在这个岛上定居了下来，现在日子过得和和美美。所以你也要珍惜身边真正对你好的人，免得将来后悔。");
+	Return;
+
+@Result2:
+	If ($Event >= 750) @TalkA750;
+	Talk(21210,21210);
+	Goto @end;
+		
+@Label:
+	If ($Event == 340) @Label2;
+	If ($Event == 412) @Talk412;
+	If ($Event == 415) @Talk415;
+	Talk(21220, 21220);
+	Goto @end;
+
+@Label2:
+	Talk(21630, 21630);
+	Goto @end;
+
+@Talk412:
+	Talk(41060,41060);
+	Goto @end;
+	
+@Talk415:
+	Talk(41070,41070);
+	Goto @end;	
+
+@TalkA750:
+	Talk(71570,71580);
+	Goto @end;	
+
+@Talk350:
+	Sleep(500);
+	Watch("鲍世和" , "杨影枫", 0);
+	Say("鲍世和：杨公子，我年轻的时候和你一样，也向往浪迹江湖的生活，直到遇到了我娘子，为了她，我在这个岛上定居了下来，现在日子过得和和美美。所以你也要珍惜身边真正对你好的人，免得将来后悔。", 0);
+	Say("杨影枫：……", 2);
+	Return;
+
+@end:
+	Return;

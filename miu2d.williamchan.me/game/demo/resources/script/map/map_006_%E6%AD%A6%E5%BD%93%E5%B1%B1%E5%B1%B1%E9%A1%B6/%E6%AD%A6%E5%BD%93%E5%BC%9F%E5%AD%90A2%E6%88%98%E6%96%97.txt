@@ -1,0 +1,6 @@
+		Say("杨影枫：这位小师父，就让我领教领教你的功夫！", 2);
+//        Talk(411, 411);
+        SetNpcRelation("清水", 1);
+        EnableFight();
+	EnableNpcAI();
+        Return;

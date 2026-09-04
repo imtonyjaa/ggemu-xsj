@@ -1,0 +1,8 @@
+    If($1KuangShan==1) @Lable1;
+    Talk(14200,14230);
+    Assign($1KuangShan,1);
+    Return;
+
+@Lable1:
+    Talk(14240,14240);
+    Return;

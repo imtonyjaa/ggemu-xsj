@@ -1,0 +1,82 @@
+	If ($Event == 1818) @1817;
+	If ($Event == 1818) @1817;
+	If ($Event == 1817) @1817;
+	If ($Event == 1816) @1814;
+	If ($Event == 1814) @1814;
+	If ($Event == 1813) @1813;
+	If ($Event >= 302) @Label;
+	Talk(21221, 21221);
+	Return;
+	
+@1817:
+	Say("章妈：洗呀……洗呀……");
+	Say("章妈：受苦的命呀……");
+	Return;
+
+@1814:
+	Say("章妈：真儿小姐，你回来了！");
+	Return;
+
+@1813:
+	Say("章妈：杨公子，你回来了！怎么没看到真儿呢？");	
+	Say("杨影枫：她在海边。");
+	Say("章妈：回来就好，以后不再走了吧。");	
+	Say("杨影枫：可能……");
+	Return;
+
+@Label:
+	If ($Event == 340) @Label2;
+	If ($Event == 412) @Talk412;
+	If ($Event == 415) @Talk415;
+	If ($Event == 350) @Talk350;
+	Say("章妈：洗呀……洗呀……");
+	Say("章妈：受苦的命呀……");
+//  这句缺省对话不好
+//	Talk(21228, 21228);
+	Return;
+	
+@Label2:
+	If ($Talkzhangma == 0) @Talk0;
+	If ($Talkzhangma == 1) @Talk1;
+	If ($Talkzhangma == 2) @Talk2;
+	If ($Talkzhangma == 3) @Talk3;
+	Goto @end;
+@Talk0:
+   	Say("章妈：小姐回来啦！小姐回来啦！我快去告诉老爷……", 0);
+	Say("纳兰真：不用了章妈，我自己会去找爹爹。", 9);
+	Say("章妈：小姐你这么长时间都没有回家，我们真担心你出事……", 0);
+	Assign($Talkzhangma, 1);
+	Goto @end;
+@Talk1:
+   	Say("章妈：你以前出去玩，最多只是两三天不回来，这次太久了。真让大家操心！", 0);
+	Assign($Talkzhangma, 2);
+	Goto @end;	
+@Talk2:
+   	Say("章妈：快去看看你爹爹，他天天都派人出去找你。", 0);
+	Assign($Talkzhangma, 3);
+	Goto @end;	
+@Talk3:
+   	Say("章妈：老爷最近的脾气很大，我们都明白，那是因为他没找到你担心成这样的。", 0);
+	Goto @end;
+	
+	
+
+@Talk412:
+	Talk(41160,41160);
+	Return;
+	
+@Talk415:
+	//Talk(41170,41180);
+	Say("章妈：真儿，你爹已经回家了。");
+	Say("纳兰真：是吗？我正好要找他呢！", 9);
+	Return;
+		
+@Talk350:
+	Sleep(500);
+	Say("章妈：唉，杨公子，你真的要走吗？我们家小姐可要伤心了！",	0);	
+	Return;
+
+@end:
+	Return;
+
+

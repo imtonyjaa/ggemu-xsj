@@ -1,0 +1,39 @@
+
+
+	If ($Event == 952) @Label1;
+	
+	Goto @end;
+	
+@Label1:
+	If ($Result <> 3) @end;
+
+	Talk(81920, 81940);	
+	//住手，纳兰潜凛，我来对付你
+	
+	SetNpcDir("纳兰潜凛", 1);
+	FadeOut();
+	DelObj("天星道长尸体");
+	AddNpc("天星道长.ini", 34, 105, 3);
+	SetNpcKind("天星道长", 0);
+	SetNpcPos("杨影枫", 29, 97);
+	SetNpcDir("杨影枫", 5);
+	FadeIn();
+	
+	Talk(81950, 81980);
+	//Say("跟我打，动手吧");
+	
+	SetNpcRelation("纳兰潜凛", 0);
+	SetNpcKind("杨影枫", 2);
+	EnableInput();
+
+	SetNpcRelation("纳兰潜凛", 1);
+
+	Assign($Event, 955);
+	
+	SetNpcScript("天星道长", "天星道长对话.txt");
+	SetMapTrap(1, "");
+
+	Goto @end;
+	
+@end:
+	Return;

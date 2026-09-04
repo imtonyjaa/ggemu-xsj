@@ -1,0 +1,24 @@
+// 和妓女夏荷的对话
+
+	If ($Talkxiahe == 0) @Talk0;
+	If ($Talkxiahe == 1) @Talk1;
+	If ($Talkxiahe == 2) @Talk2;
+	If ($Talkxiahe == 3) @Talk3;
+	
+@Talk0:
+	Say("夏荷：有人老说自己有闭月羞花之容，我说她闭的是残月，羞的是残花，哥哥你说呢？", 0);
+	Assign($Talkxiahe, 1);
+	Return;
+@Talk1:	
+	Say("夏荷：相公，你看我如何？漂不漂亮？", 0);
+	Assign($Talkxiahe, 2);
+	Return;
+@Talk2:	
+	Say("夏荷：我很会疼人的，你信不信啊？", 0);
+	Assign($Talkxiahe, 3);
+	Return;
+@Talk3:	
+	Say("夏荷：哎哟，公子，你老是找我说话，莫非你是喜欢上我了？", 0);
+	Return;	
+		
+	

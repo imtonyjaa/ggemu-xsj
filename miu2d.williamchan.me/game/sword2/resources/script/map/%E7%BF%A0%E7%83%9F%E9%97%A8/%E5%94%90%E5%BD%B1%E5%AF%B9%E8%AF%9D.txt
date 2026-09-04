@@ -1,0 +1,13 @@
+//完事后的唐影
+
+	If ($CuiYanMen2QiuYiShui==1) @Talk3;
+	If ($CuiYanMen2DiZi >= 5) @Talk2;
+	Talk(43170,43190);
+	Return;
+@Talk2:
+	Talk(43440,43440);
+	Return;
+	
+@Talk3:
+	Talk(43120,43130);
+	Return;

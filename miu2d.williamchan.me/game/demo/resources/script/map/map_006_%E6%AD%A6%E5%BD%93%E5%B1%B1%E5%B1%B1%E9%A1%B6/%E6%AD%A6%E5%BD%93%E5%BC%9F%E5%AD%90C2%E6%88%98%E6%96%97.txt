@@ -1,0 +1,5 @@
+        Talk(415, 415);
+        SetNpcRelation("清越", 1);
+        EnableFight();
+	EnableNpcAI();
+        Return;

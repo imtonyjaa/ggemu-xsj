@@ -1,0 +1,11 @@
+	If ($Event == 492) @Label1;
+	If ($Event == 496) @Label2;
+	Goto @end;
+@Label1:
+	Talk(21960, 21960);
+	Goto @end;
+@Label2:
+	Talk(21961, 21961);
+	Goto @end;
+@end:
+	Return;

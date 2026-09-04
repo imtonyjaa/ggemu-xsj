@@ -1,0 +1,34 @@
+// 与小男孩小武的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	Say("郝亮：山外青山楼外楼，西湖歌舞几时休？暖风熏得游人醉，只把杭州作汴州！", 0);
+	Say("独孤剑：唉，那些朝廷官员还不如一个孩子……", 2);
+	Return;
+	
+@YuanDan:		
+
+	Say("郝亮：新年到，新年到，穿新衣，带花帽，家家户户放鞭炮！", 0);
+	Choose("给不给红包", "A 给", "B 不给", $hongbao);
+	If ($hongbao == 0) @Choose0;
+	If ($hongbao == 1) @Choose1;
+@Choose0:
+	GetMoneyNum();
+	If($MoneyNum << 5) @NotenoughMon;
+	If($MoneyNum >= 5) @EnoughMon;
+@NotenoughMon:
+	Say("独孤剑：哎呀，哥哥身上的银子不够了……", 8);
+	Return;
+@EnoughMon:
+	Say("独孤剑：小弟弟真可爱，哥哥送你一个红包吧。", 2);
+	Say("郝亮：谢谢哥哥！", 0);
+	AddMoney(-5);
+	Return;
+@Choose1:	
+	Return;		
+	
+	

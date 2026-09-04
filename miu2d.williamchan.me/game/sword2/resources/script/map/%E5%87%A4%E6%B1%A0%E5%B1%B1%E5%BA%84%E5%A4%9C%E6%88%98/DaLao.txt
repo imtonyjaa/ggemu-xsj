@@ -1,0 +1,50 @@
+	FadeOut();
+	LoadMap("临安大牢.map");
+	LoadNpc("LinAnDaLao11.npc");
+	LoadObj("LinAnDaLao11.obj");
+	SetMainLum(16);
+	SetPlayerState(0);
+	SetPlayerPos(45,147);
+	SetPlayerDir(7);
+//	SaveGoods("\save\game\Goods1.ini");
+//	ClearGoods();
+	ShowMessage("大牢");
+	PlayMusic("Ks66.wav");
+	FadeIn();
+	
+//大牢内
+	DisableNpcAI()
+	SetPlayerDir(3);
+	Sleep(500);
+	SetPlayerDir(7);
+	Sleep(500);
+	Talk(20720,20720);
+	Sleep(500);
+
+	PlayerGoto(47,148);
+	Sleep(500);
+	SetPlayerDir(5);
+	Sleep(500);
+	PlayerGoto(49,151);
+	Sleep(500);
+	SetPlayerDir(5);
+	Sleep(500);
+	PlayerGoto(47,147);
+	SetPlayerDir(5);
+	Talk(20730,20730);
+
+
+	Sleep(500);
+	SetPlayerDir(7);
+	Sleep(500);
+	SetPlayerDir(4);
+	PlayerGoto(46,149);
+	SetPlayerDir(5);
+	Talk(20740,20740);
+	PlayerGoto(46,146);
+	Talk(21740,21780);
+
+	PlayerGoto(46,150);
+        SetPlayerDir(5);
+	Talk(20750,20750);
+	Return;

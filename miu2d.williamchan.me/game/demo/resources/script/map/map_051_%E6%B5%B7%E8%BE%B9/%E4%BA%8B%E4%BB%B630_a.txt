@@ -1,0 +1,19 @@
+	If ($Event <> 296) @end;
+
+//	DelNpc("纳兰潜凛");
+//	AddNpc("纳兰潜凛.ini",20,25,5);
+//	PlayerGoto(16, 36);
+//	SetPlayerDir(5);
+//	Talk(4991, 4992);
+//	PlayerGoto(16, 35);
+//	SetPlayerDir(5);
+//	Talk(5000, 5010);
+//	Sleep(200);
+	Talk(20170, 20170);
+//	NpcGoto("纳兰潜凛",27,17);
+//	DelNpc("纳兰潜凛");
+	Memo("去无忧教禁地。");
+	SetMapTrap(1, "Trap01.txt");
+	
+@end:
+	Return;

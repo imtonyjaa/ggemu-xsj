@@ -1,0 +1,132 @@
+	If ($Event == 452) @Event452;
+	Return;
+
+
+@Event452:
+	FadeOut();
+	SetPlayerPos(58,42);
+	AddNpc("纳兰真.ini", 60, 42, 1);
+	SetNpcKind("纳兰真",1);
+	FadeIn();
+	Watch("杨影枫","纳兰真",0);
+	Say("杨影枫：真儿，怎么是你？不要过来！", 4);
+	Talk(7830,7890);
+	Select(41258,41260,41270,$Sel);
+	EndRain();
+	If ($Sel == 0) @Yes;
+	Goto @No;
+	
+@Yes:
+	ChangeMapColor(130,130,130);
+	ShowSnow(1);
+	Assign($TalkNa, 0);
+	Talk(7900,7900);
+	Sleep(1000);
+	
+	AddNpc("纳兰真.ini",60,46,3);
+	SetPlayerDir(7);
+	Sleep(500);
+	
+	AddNpc("纳兰真.ini",59,49,3);
+	SetPlayerDir(7);
+	Sleep(500);
+	
+	AddNpc("纳兰真.ini",58,50,4);
+	SetPlayerDir(0);
+	Sleep(500);
+	
+	AddNpc("纳兰真.ini",56,49,5);
+	SetPlayerDir(1);
+	Sleep(500);
+	
+	AddNpc("纳兰真.ini",56,46,5);
+	SetPlayerDir(1);
+	Sleep(500);
+	
+	AddNpc("纳兰真.ini",56,42,6);
+	SetPlayerDir(2);
+	Sleep(500);
+	
+	AddNpc("纳兰真.ini",56,39,7);
+	SetPlayerDir(3);
+	Sleep(500);
+	
+	AddNpc("纳兰真.ini",57,37,0);
+	SetPlayerDir(4);
+	Sleep(500);
+	
+	AddNpc("纳兰真.ini",58,37,0);
+	SetPlayerDir(4);
+	Sleep(500);
+	
+	AddNpc("纳兰真.ini",59,39,1);
+	SetPlayerDir(5);
+	Sleep(500);
+	
+	LoadNpc("");
+	Sleep(1000);
+	AddNpc("纳兰真.ini",60,42,2);
+	AddNpc("纳兰真.ini",60,46,3);
+	AddNpc("纳兰真.ini",59,49,3);
+	AddNpc("纳兰真.ini",58,50,4);
+	AddNpc("纳兰真.ini",56,49,5);
+	SetPlayerDir(7);
+	AddNpc("纳兰真.ini",56,46,5);
+	AddNpc("纳兰真.ini",56,42,6);
+	AddNpc("纳兰真.ini",56,39,7);
+	AddNpc("纳兰真.ini",57,37,0);
+	AddNpc("纳兰真.ini",58,37,0);
+	AddNpc("纳兰真.ini",59,39,1);
+	SetPlayerDir(0);
+	Sleep(1000);
+	
+	LoadNpc("");
+	Sleep(1000);
+	AddNpc("纳兰真.ini",60,42,2);
+	AddNpc("纳兰真.ini",60,46,3);
+	AddNpc("纳兰真.ini",59,49,3);
+	AddNpc("纳兰真.ini",58,50,4);
+	AddNpc("纳兰真.ini",56,49,5);
+	AddNpc("纳兰真.ini",56,46,5);
+	SetPlayerDir(1);
+	AddNpc("纳兰真.ini",56,42,6);
+	AddNpc("纳兰真.ini",56,39,7);
+	AddNpc("纳兰真.ini",57,37,0);
+	AddNpc("纳兰真.ini",58,37,0);
+	AddNpc("纳兰真.ini",59,39,1);
+	SetPlayerDir(4);
+	Sleep(1000);
+	
+	LoadNpc("map050-heart3-NLZ.npc");
+	Say("都到哪里去了？", 2);
+	Assign($NaDead,0);
+	Assign($Event,454);
+	Add($SenseVal, -40);
+	Return;
+
+@No:
+	Sleep(1000);
+	Talk(7940,7950);
+	NpcGoto("纳兰真",64,36);
+	DelNpc("纳兰真");
+	Assign($Event, 455);
+	Add($SenseVal, 20);
+	StopMusic();
+	FadeOut();
+	LoadMap("map_061_禁地三层.map");
+	LoadObj("map061_getsword.obj");
+	AddExp(10000);
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(11,26);
+	SetPlayerDir(1);
+	SetMapTrap(1,"");
+	SetMapTrap(2,"");
+	EnableNpcAI();
+	FadeIn();
+	PlayMusic("Mc021.mp3");
+	Talk(41460,41460);
+	Return;	
+	
+@end:
+	Return;	

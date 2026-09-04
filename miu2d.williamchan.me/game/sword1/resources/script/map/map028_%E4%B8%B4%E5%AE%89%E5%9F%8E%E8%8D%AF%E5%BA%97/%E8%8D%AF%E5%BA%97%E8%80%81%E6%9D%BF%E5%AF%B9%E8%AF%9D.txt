@@ -1,0 +1,206 @@
+// 与药店老板的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	If ($Sub == 130) @Sub130;
+	If ($Sub == 140) @Sub140;
+	
+	Say("药店老板：公子，要买什么药吗？有病治病，无病健身。", 90);
+	GetPlayerLevel($PlayerLevel);
+	If ($PlayerLevel << 16) @PlayerLevelL16;
+	If ($PlayerLevel << 31) @PlayerLevelL31;
+	Goto @PlayerLevelG30;
+	Return;
+	
+@Sub130:
+	Say("药店老板：公子，要买什么药吗？有病治病，无病健身。", 90);
+	
+	Choose("独孤剑：掌柜，在下……", "A 要买药", "B 有事相求", $Choose);
+	If ($Choose == 0) @Choose0;
+	If ($Choose == 1) @Choose1;
+	
+@Choose0:
+	Say("药店老板：公子看看货色罢！", 90);
+	GetPlayerLevel($PlayerLevel);
+	If ($PlayerLevel << 16) @PlayerLevelL16;
+	If ($PlayerLevel << 31) @PlayerLevelL31;
+	Goto @PlayerLevelG30;
+	Return;
+	
+@Choose1:
+	Say("药店老板：公子来小店，无非是求药了，来看看小铺的货色……", 90);
+	Say("独孤剑：在下是来求一个方！", 1);
+	Say("药店老板：哦——公子求得是什么方？", 90);
+	Say("独孤剑：就是陆掌柜刚买来的一张怪方。", 1);
+	Say("药店老板：那张方啊——公子对天下奇方也有兴趣？", 90);
+	Say("独孤剑：这倒不是，只是这张方可能是酒店里那位郎中遗失的，在下看看能否相助。", 1);
+	Say("药店老板：酒店突然来的郎中？此人行迹诡异，我看也不像什么正经大夫，公子何必多管闲事呢！", 90);
+	Say("独孤剑：行义救难乃是好事，陆掌柜也是济世之人，可否行个方便？", 1);
+	Say("药店老板：公子要这方子原是不难，不过这可是在下花钱买来的……", 90);
+	Say("独孤剑：掌柜要多少银子？", 1);
+	Say("药店老板：可惜在下又不缺银子花……不过，小店最近急缺一种叫“千金藤”的药材，如果阁下能用……", 90);
+	
+	GetGoodsNum("Goods211_千金藤.ini")；
+	If ($GoodsNum == 0) @Lable0;
+	If ($GoodsNum >> 0) @Lable1;
+	
+  @Lable0:
+	Say("独孤剑：在哪能找到这种药材……", 1);
+	Say("药店老板：碧霞岛！", 90);
+	Assign($Sub, 140);
+	Return;
+
+  @Lable1:
+  	Say("药店老板：公子已经采到了？", 90);
+  	Say("药店老板：太好了，正是解了在下燃眉之急。", 90);
+  	Say("独孤剑：那……", 2);
+  	Say("药店老板：对了，药方！……方子就在这里，公子拿走吧。", 90);
+  	Say("得到古怪的药方：<enter>“首乌三钱，罗汉果三钱，景天五钱，另加尾叶六两。午时汤服，十剂痊愈。”");
+  	Say("药店老板：老夫行医这么多年，也没有见过如此怪异的药方。要不是此人根本不通医理，便是开方者乃是绝代神医……不解！不解！", 90);
+  	DelGoods("Goods211_千金藤.ini");
+  	AddGoods("Goods411_一张药方.ini");
+  	Assign($Sub,150);
+  	Return;
+	
+@Sub140:
+	GetGoodsNum("Goods211_千金藤.ini")；
+	If ($GoodsNum == 0) @Lable2;
+	If ($GoodsNum >> 0) @Lable3;
+	
+ @Lable2:
+	Say("药店老板：公子找到千金藤了？", 90);
+	Say("独孤剑：暂时还没有。", 1);
+	Say("药店老板：那公子是来买药咯！", 90);
+	SellGoods("低级药品.ini");
+	Return;
+	
+ @Lable3:
+ 	Say("药店老板：公子已经采到了？", 90);
+  	Say("药店老板：太好了，正是解了在下燃眉之急。", 90);
+  	Say("独孤剑：那……", 2);
+  	Say("药店老板：对了，药方！……方子就在这里，公子拿走吧。", 90);
+  	Say("得到古怪的药方。<Enter>“首乌三钱，罗汉果三钱，景天五钱，另加尾叶六两。午时汤服，十剂痊愈。”");
+  	Say("药店老板：老夫行医这么多年，也没有见过如此怪异的药方。要不是此人根本不通医理，便是开方者乃是绝代神医……不解！不解！", 90);
+  	DelGoods("Goods211_千金藤.ini");
+  	AddGoods("Goods411_一张药方.ini");
+  	Assign($Sub,150);
+  	Return;
+
+
+@PlayerLevelL16:
+	SellGoods("低级药品.ini");
+	Return;
+@PlayerLevelL31:
+	SellGoods("中级药品.ini");
+	Return;
+@PlayerLevelG30:
+	SellGoods("高级药品.ini");
+	Return;
+
+
+
+
+@YuanDan:
+
+
+	If ($Sub == 130) @Sub130YD;
+	If ($Sub == 140) @Sub140YD;
+	
+	Say("药店老板：新的一年里，祝公子百尺竿头，更进一步！要买点什么药吗？有病治病，无病健身。", 90);
+	GetPlayerLevel($PlayerLevel);
+	If ($PlayerLevel << 16) @PlayerLevelL16YD;
+	If ($PlayerLevel << 31) @PlayerLevelL31YD;
+	Goto @PlayerLevelG30YD;
+	Return;
+	
+@Sub130YD:
+	Say("药店老板：新的一年里，祝公子百尺竿头，更进一步！要买点什么药吗？有病治病，无病健身。", 90);
+	
+	Choose("独孤剑：掌柜，在下……", "A 要买药", "B 有事相求", $Choose);
+	If ($Choose == 0) @Choose0YD;
+	If ($Choose == 1) @Choose1YD;
+	
+@Choose0YD:
+	Say("药店老板：公子看看货色罢！", 90);
+	GetPlayerLevel($PlayerLevel);
+	If ($PlayerLevel << 16) @PlayerLevelL16YD;
+	If ($PlayerLevel << 31) @PlayerLevelL31YD;
+	Goto @PlayerLevelG30YD;
+	Return;
+	
+@Choose1YD:
+	Say("药店老板：公子来小店，无非是求药了，来看看小铺的货色……", 90);
+	Say("独孤剑：在下是来求一个方！", 1);
+	Say("药店老板：哦——公子求得是什么方？", 90);
+	Say("独孤剑：就是陆掌柜刚买来的一张怪方。", 1);
+	Say("药店老板：那张方啊——公子对天下奇方也有兴趣？", 90);
+	Say("独孤剑：这倒不是，只是这张方可能是酒店里那位郎中遗失的，在下看看能否相助。", 1);
+	Say("药店老板：酒店突然来的郎中？此人行迹诡异，我看也不像什么正经大夫，公子何必多管闲事呢！", 90);
+	Say("独孤剑：行义救难乃是好事，陆掌柜也是济世之人，可否行个方便？", 1);
+	Say("药店老板：公子要这方子原是不难，不过这可是在下花钱买来的……", 90);
+	Say("独孤剑：掌柜要多少银子？", 1);
+	Say("药店老板：可惜在下又不缺银子花……不过，小店最近急缺一种叫“千金藤”的药材，如果阁下能用……", 90);
+	
+	GetGoodsNum("Goods211_千金藤.ini")；
+	If ($GoodsNum == 0) @Lable0YD;
+	If ($GoodsNum >> 0) @Lable1YD;
+	
+  @Lable0YD:
+	Say("独孤剑：在哪能找到这种药材……", 1);
+	Say("药店老板：碧霞岛！", 90);
+	Assign($Sub, 140);
+	Return;
+
+  @Lable1YD:
+  	Say("药店老板：公子已经采到了？", 90);
+  	Say("药店老板：太好了，正是解了在下燃眉之急。", 90);
+  	Say("独孤剑：那……", 2);
+  	Say("药店老板：对了，药方！……方子就在这里，公子拿走吧。", 90);
+  	Say("得到古怪的药方：<enter>“首乌三钱，罗汉果三钱，景天五钱，另加尾叶六两。午时汤服，十剂痊愈。”");
+  	Say("药店老板：老夫行医这么多年，也没有见过如此怪异的药方。要不是此人根本不通医理，便是开方者乃是绝代神医……不解！不解！", 90);
+  	DelGoods("Goods211_千金藤.ini");
+  	AddGoods("Goods411_一张药方.ini");
+  	Assign($Sub,150);
+  	Return;
+	
+@Sub140YD:
+	GetGoodsNum("Goods211_千金藤.ini")；
+	If ($GoodsNum == 0) @Lable2YD;
+	If ($GoodsNum >> 0) @Lable3YD;
+	
+ @Lable2YD:
+	Say("药店老板：公子找到千金藤了？", 90);
+	Say("独孤剑：暂时还没有。", 1);
+	Say("药店老板：那公子是来买药咯！", 90);
+	SellGoods("低级药品.ini");
+	Return;
+	
+ @Lable3YD:
+ 	Say("药店老板：公子已经采到了？", 90);
+  	Say("药店老板：太好了，正是解了在下燃眉之急。", 90);
+  	Say("独孤剑：那……", 2);
+  	Say("药店老板：对了，药方！……方子就在这里，公子拿走吧。", 90);
+  	Say("得到古怪的药方。<Enter>“首乌三钱，罗汉果三钱，景天五钱，另加尾叶六两。午时汤服，十剂痊愈。”");
+  	Say("药店老板：老夫行医这么多年，也没有见过如此怪异的药方。要不是此人根本不通医理，便是开方者乃是绝代神医……不解！不解！", 90);
+  	DelGoods("Goods211_千金藤.ini");
+  	AddGoods("Goods411_一张药方.ini");
+  	Assign($Sub,150);
+  	Return;
+
+
+@PlayerLevelL16YD:
+	SellGoods("低级药品.ini", 1);
+	Return;
+@PlayerLevelL31YD:
+	SellGoods("中级药品.ini", 1);
+	Return;
+@PlayerLevelG30YD:
+	SellGoods("高级药品.ini", 1);
+	Return;
+
+
+

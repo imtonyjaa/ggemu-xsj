@@ -1,0 +1,12 @@
+	Add($NpcCount,-1);
+	If ($NpcCount == 0) @finished;
+    Return;
+
+@finished:
+	StopMusic();
+	Talk(8450, 8450);
+	SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(2, "Trap02.txt");
+	PlayMusic("mc006.mp3");
+	Return;
+	

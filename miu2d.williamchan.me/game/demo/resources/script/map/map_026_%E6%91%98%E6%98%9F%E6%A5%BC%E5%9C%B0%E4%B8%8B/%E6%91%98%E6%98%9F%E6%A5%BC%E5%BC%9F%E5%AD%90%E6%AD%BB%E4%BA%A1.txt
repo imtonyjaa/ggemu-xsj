@@ -1,0 +1,9 @@
+	Add($NpcCount, -1);
+	If ($NpcCount == 0) @AllDead;
+	Return;
+
+@AllDead:
+	Sleep(1000);
+	Say("终于干掉了所有的敌人",6);
+	Return;
+	

@@ -1,0 +1,61 @@
+
+
+	If ($Event == 110 ) @Talk;
+	If ($Event >= 370) @EventGE370;
+
+	Talk(20750, 20750);
+	Goto @end;
+@Talk:
+	If ($Talkgaolin == 0) @Talk0;
+	Talk(20750, 20750);
+	Goto @end;
+@Talk0:
+   	Talk(20751, 20755);
+   	Assign($Talkgaolin, 1);
+	Goto @end;
+
+@EventGE370:
+	If ($SubEvent14 == 0) @Sub1400;
+	If ($SubEvent14 == 2) @Sub1402;
+	If ($SubEvent14 == 5) @Sub1405;
+	If ($SubEvent14 == 10) @Sub1410;
+	Say("钓叟高林：年轻人，何事？",93);
+	Goto @end;
+	@Sub1400:
+		Say("钓叟高林：公子，可懂垂钓呀？", 93);
+		Say("杨影枫：这有何不懂，闲坐江边，拿一钓竿，岂不就可！", 4);
+		Say("钓叟高林：年轻人，凡事不要只看表面。", 93);
+		Say("杨影枫：咦？你的钓竿下为何没有钓钩？", 4);
+		Say("钓叟高林：来时掉了，那就劳烦公子为老朽去找陈渔夫买一个，如何？", 93);
+		Say("杨影枫：嗯，好吧。", 2);
+		Assign($SubEvent14, 2);
+		Add($EvilVal, -10);
+		Memo("去惠安镇买鱼钩");
+		Goto @end;
+	@Sub1402:
+		Say("钓叟高林：公子可有买来鱼钩？", 93);
+		Say("杨影枫：在下这就去买。", 2);
+		Goto @end;
+	@Sub1405:
+		Say("杨影枫：长者，可是这个？", 2);
+		DelGoods("Goods-e14-鱼钩.ini");
+		Say("钓叟高林：嗯，正是。年轻人，我看你心地善良，才思机敏，只是少了些定性。", 93);
+		Say("杨影枫：嗯？", 4);
+		Say("钓叟高林：年轻人，万事不要强求，珍惜身边拥有的。万事回头一场空，莫让心魔缠了身，莫为红尘迷了心。", 93);
+		Say("杨影枫：多谢长者教诲。", 4);
+		Say("钓叟高林：我这里有一本书，对我已经没有用了，你拿去吧！不要推辞。", 93);
+		Say("杨影枫：是，晚辈收下了。多谢长者！", 2);
+		AddGoods("Book14-金钟罩.ini");
+//		AddMagic("player-magic-金钟罩.ini");
+		Assign($SubEvent14, 10);
+		Add($EvilVal, 20);
+		Goto @end;
+	@Sub1410:
+		Say("钓叟高林：年轻人，万事不要强求，珍惜身边拥有的。万事回头一场空，莫让心魔缠了身，莫为红尘迷了心。", 93);
+		Say("杨影枫：多谢长者教诲。", 4);
+		Goto @end;
+	Goto @end;
+
+@end:
+	Return;
+

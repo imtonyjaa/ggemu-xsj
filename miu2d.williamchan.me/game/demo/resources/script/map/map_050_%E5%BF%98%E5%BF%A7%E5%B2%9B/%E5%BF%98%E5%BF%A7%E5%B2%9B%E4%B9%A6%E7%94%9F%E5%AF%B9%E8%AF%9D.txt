@@ -1,0 +1,90 @@
+	If ($Event == 350) @Talk350;
+	GetRandNum($ShuShengTalk, 1, 3);
+
+	If ($Event >= 420) @EventGE420;
+
+	If ($ShuShengTalk == 1) @ShuShengTalk1;
+	If ($ShuShengTalk == 2) @ShuShengTalk2;
+	If ($ShuShengTalk == 3) @ShuShengTalk3;
+	@ShuShengTalk1:
+		Say("书生：此地景色优美，在此吟诗作对，诚人生一大快事。", 94);
+		Goto @end;
+	@ShuShengTalk2:
+		Say("书生：在下最喜吟诗作对，此间少有对手。", 94);
+		Goto @end;
+	@ShuShengTalk3:
+		Say("书生：此地百姓安乐，民风淳朴，实是修身养性的好地方。", 94);
+		Goto @end;
+
+@EventGE420:
+	If ($SubEvent20 == 0) @Sub2000;
+	If ($SubEvent20 == 2) @Sub2002;
+	If ($SubEvent20 == 5) @Sub2005;
+	If ($SubEvent20 == 10) @Sub2010;
+	@Sub2000:
+		Say("书生：这位公子，可否帮在下一个忙？", 94);
+		Say("杨影枫：不知兄台有何事？", 2);
+		Say("书生：我有一难题，思量以久，仍没有答案。", 94);
+		Say("杨影枫：说来听听。", 2);
+		Say("书生：我师父临走时给我留下一联，让我对其下联，可是我一直想不出来。上联是：<enter>一群游鱼逐波去。", 94);
+		Say("杨影枫：让我想想。", 2);
+		Memo("帮书生对下联。");
+		Assign($SubEvent20, 2);
+		Goto @end;
+	@Sub2002:
+		Say("书生：公子，可有对出下联？", 94);
+		Say("杨影枫：我还在想。", 2);
+		Say("书生：我觉得应该可以用上这里的蝴蝶，可还是怎么也想不出来。", 94);
+		Goto @end;
+	@Sub2005:
+		Say("杨影枫：兄台，在下偶得一句下联，不知合不合适，兄台听听。", 2);
+		Say("杨影枫：你的上联是：<enter>一群游鱼逐波去。", 2);
+		Say("杨影枫：我的下联是：", 2);
+		Select(85030, 85040, 85050 , $DuiLian);
+		If ($DuiLian == 0) @DuiLian0;
+		If ($DuiLian == 1) @DuiLian1;
+		@DuiLian0:
+			Say("书生：公子真是才高八斗，八窍通了七窍，佩服佩服，不过，好像不是很通啊！", 94);
+			Say("杨影枫：啊，这个，这个……", 7);
+			Assign($SubEvent20, 10);
+			Goto @end;
+		@DuiLian1:
+			Say("书生：啊，好，太好了，公子果然学富五车，文武全才，佩服啊，佩服！", 94);
+			Say("杨影枫：见笑，见笑。", 3);
+			Say("书生：公子，我这里有一本师父留下的书，我也看不懂；既然公子如此高的才学，不如就送给公子吧！", 94);
+			Say("杨影枫：这个……不太好吧！", 3);
+			Say("书生：宝剑赠英雄，这个书嘛，我也看不懂，公子不要推辞了", 94);
+			Say("杨影枫：既然如此，那我就收下了，真是多谢兄台！", 3);
+			AddGoods("Book03-醉花诀.ini");
+//			AddMagic("player-magic-醉蝶狂舞.ini");
+			Assign($SubEvent20, 10);
+			Goto @end;
+		Goto @end;
+	@Sub2010:
+		If ($ShuShengTalk == 1) @ShuShengTalk1;
+		If ($ShuShengTalk == 2) @ShuShengTalk2;
+		If ($ShuShengTalk == 3) @ShuShengTalk3;
+		@ShuShengTalk1:
+			Say("书生：此地景色优美，在此吟诗作对，诚人生一大快事。", 94);
+			Goto @end;
+		@ShuShengTalk2:
+			Say("书生：在下最喜吟诗作对，此间少有对手。", 94);
+			Goto @end;
+		@ShuShengTalk3:
+			Say("书生：此地百姓安乐，民风淳朴，实是修身养性的好去处。", 94);
+			Goto @end;
+	Goto @end;
+
+@Talk350:
+	Sleep(500);
+	Watch("书生" , "杨影枫", 0);
+	Say("书生：此地景色如此优美，何不多留几日？", 94);
+	Say("杨影枫：……", 2);
+	Return;
+
+@end:
+	Return;
+
+
+
+

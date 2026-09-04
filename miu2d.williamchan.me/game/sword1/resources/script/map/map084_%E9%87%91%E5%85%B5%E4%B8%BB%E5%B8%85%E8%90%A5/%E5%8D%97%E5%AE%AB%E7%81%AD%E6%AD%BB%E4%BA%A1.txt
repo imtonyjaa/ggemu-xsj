@@ -1,0 +1,16 @@
+// 南宫灭的死亡脚本
+
+	If ($die == 1) @end;
+	
+	FadeOut();
+	DisableNpcAI();
+	Say("南宫灭：你这个骗子，用出老千的手法打赢我南宫灭算什么英雄好汉！你会受到惩罚的！", 46);
+	StopMusic();
+	Assign($die, 1);     //为避免同时触发多个脚本
+	EnableNpcAI();
+	FreeMap();
+	ReturnToTitle();
+	Return;
+		
+@end:
+	Return;		

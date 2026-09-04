@@ -1,0 +1,39 @@
+// 与酒店店小二对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+	
+	If ($Event == 304) @Event304;
+	If ($Event == 305) @Event305;
+	
+	Say("店小二：客官请！这位公子来点什么酒？", 0);
+	Return;
+	
+@Event304:
+	Say("店小二：公子有空再来呀。", 0);
+	Return;
+	
+@Event305:
+	Say("店小二：公子又来了？要来点什么酒？", 0);
+	Return;	
+	
+		
+@YuanDan:		
+
+	If ($Event == 304) @Event304YD;
+	If ($Event == 305) @Event305YD;
+	
+	Say("店小二：恭喜发财！客官请！这位公子来点什么酒？", 0);
+	Return;
+	
+@Event304YD:
+	Say("店小二：公子有空再来呀。", 0);
+	Return;
+	
+@Event305YD:
+	Say("店小二：公子又来了？要来点什么酒？", 0);
+	Return;	
+	

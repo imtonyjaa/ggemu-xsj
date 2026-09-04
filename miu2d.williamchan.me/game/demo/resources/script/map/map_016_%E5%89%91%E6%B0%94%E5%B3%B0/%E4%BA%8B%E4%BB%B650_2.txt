@@ -1,0 +1,42 @@
+
+	If ($Event == 492) @Label1;
+	Goto @end;
+	
+@Label1:
+	StopMusic();
+	PlayerGoto(13, 40);
+	SetPlayerDir(4);
+	NpcSpecialAction("杨影枫", "mpc108.asf");
+	Sleep(2000);
+	Say("杨影枫：诸位早！各位朋友远道而来，实在是给杨某面子，在下感激之至！", 2);
+	Sleep(200);
+	Say("紫轩：（他…终于还是来了，他…到底还是不肯放过我们。）", 17);
+	PlayerGoto(13, 34);
+	SetPlayerDir(4);
+	Say("杨影枫：卓庄主，早啊，昨晚睡得怎样？你的气色看起来不怎么好啊。", 3);
+	Say("卓非凡：废话少说，各位朋友已经等候多时，我们即刻开始吧！", 34);
+	Say("杨影枫：哈哈哈，卓庄主何必这么着急，难道怕我把你的丑事抖出来吗？",	3);
+	Say("卓非凡：闭…闭嘴！我有什么丑事，你…你不要胡说！", 34);
+	Say("杨影枫：哼！你不用再装了！你的所作所为，我早已告之天下武林同道，你已经身败名裂了！你大概做梦也想不到，今日会有这么多武林同道来观战吧？哈哈哈哈！", 3);
+	Say("卓非凡：你！你好狠！我今天就和你决一死战，看招！", 34);
+	FadeOut();
+	PlayMusic("mc027.mp3");
+	SetPlayerPos(24, 18);
+	SetPlayerDir(6);
+	SetNpcPos("卓非凡",25, 18);
+	SetNpcDir("卓非凡"，2);
+	
+	SetMapPos(20, 4);
+	Sleep(200);
+	Watch("杨影枫","ALLNPC",X);
+	FadeIn();
+    SetNpcRelation("卓非凡", 1);
+    EnableFight();
+	EnableNpcAI();
+	Assign($Event, 494);
+
+	Goto @end;
+	
+@end:
+	Return;
+

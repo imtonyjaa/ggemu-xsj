@@ -1,0 +1,39 @@
+
+
+	If ($SubEvent15 == 0) @SubEvent1500;
+	If ($SubEvent15 == 2) @SubEvent1502;
+	If ($SubEvent15 == 5) @SubEvent1505;
+	If ($SubEvent15 == 10) @SubEvent1510;
+	Return;
+
+@SubEvent1500:
+	Say("章大爷：呃……哦……");
+	Say("杨影枫：这位老丈，怎么啦？", 2);
+	Say("章大爷：我……我好像中毒啦……我……");
+	Say("杨影枫：啊！你不要急，我这就去找大夫，你在这里等着，我去去就回。", 8);
+	Memo("去惠安镇找大夫给中毒者治病。");
+	Assign($SubEvent15, 2);
+	Add($EvilVal, -20);
+	Return;
+
+@SubEvent1502:
+	Say("章大爷：我……我好像中毒啦……我……");
+	Say("杨影枫：啊！你不要急，我这就去找大夫，你在这里等着，我去去就回。", 8);
+	Return;
+
+@SubEvent1505:
+	Say("杨影枫：兄台，怎么样，这是药，“金山毒霸”，服下吧！", 2);
+	Say("章大爷：嗯……谢谢公子！");
+	Say("杨影枫：好些了吗？", 2);
+	Say("章大爷：嗯，好些了，真是多谢公子！");
+	Say("杨影枫：不用谢我，应该多谢大夫，多谢“金山毒霸”。", 3);
+	DelGoods("Goods-e18-金山毒霸.ini");
+	Assign($SubEvent15, 10);
+	Add($EvilVal, 40);
+	Return;
+
+@SubEvent1510:
+	Say("章大爷：“金山毒霸”真是好药啊！");
+	Return;
+
+

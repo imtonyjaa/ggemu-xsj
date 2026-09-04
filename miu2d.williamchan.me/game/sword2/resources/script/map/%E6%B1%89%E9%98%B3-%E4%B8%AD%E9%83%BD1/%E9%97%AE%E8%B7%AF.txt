@@ -1,0 +1,4 @@
+	Talk(37830,37970);
+	NpcGoto("老人",0,8);
+	DelNpc("老人");
+	Return;

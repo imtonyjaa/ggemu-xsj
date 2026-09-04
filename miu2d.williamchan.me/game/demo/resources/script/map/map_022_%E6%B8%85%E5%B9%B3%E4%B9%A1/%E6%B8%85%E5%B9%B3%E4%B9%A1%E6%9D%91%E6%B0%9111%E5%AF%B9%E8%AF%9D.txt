@@ -1,0 +1,33 @@
+
+//裘元
+	If ($Event == 164) @Label1;
+	If ($Event == 166) @Label1;
+	If ($Event == 168) @Label1;
+    If ($Event == 170) @Label2;
+    If ($Event == 202) @Label3;
+	If ($Event == 203) @Label3;
+	If ($Event == 205) @Label3;
+	If ($Event == 360) @TalkE360;
+	
+	Talk(21020, 21020);
+	Goto @end;
+	
+@Label1:
+	Talk(21021, 21021);
+	Goto @end;
+
+@Label2:
+	Talk(21022, 21022);
+	Goto @end;
+	
+@Label3:	
+	Talk(21023, 21023);
+	Goto @end;
+
+@TalkE360:
+Talk(40280,40280);
+Goto @end;
+
+		
+@end:
+	Return;	

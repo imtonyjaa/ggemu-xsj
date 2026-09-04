@@ -1,0 +1,4 @@
+
+	Talk(49790,49790);
+	SetNpcDir("书院罚站",5);
+	Return;

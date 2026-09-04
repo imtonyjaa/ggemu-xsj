@@ -1,0 +1,8 @@
+//
+      Talk(41170,41190);
+      FadeOut();
+      DelNpc("矿工2");
+      DelNpc("矿工1");
+      Assign($KuangGongZouLe,1);
+      FadeIn();
+      Return;

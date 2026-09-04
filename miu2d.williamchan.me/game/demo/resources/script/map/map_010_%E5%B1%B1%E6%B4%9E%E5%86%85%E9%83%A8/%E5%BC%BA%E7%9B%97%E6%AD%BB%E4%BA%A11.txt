@@ -1,0 +1,13 @@
+	Add($DeadRobber1, 1);
+	If ($DeadRobber1 >= 25) @talk;
+	Goto @end;
+
+@talk:
+	StopMusic();
+	Talk(780, 780);
+	SetPlayerState(0);
+	Assign($Event, 60);
+	SetMapTrap(1,"trap01.txt");
+	
+@end:
+	Return();

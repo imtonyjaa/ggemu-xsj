@@ -1,0 +1,29 @@
+//酒店老板
+       
+      If($ZhongDuTroublesRoom==2) @Talk3;
+      If($ZhongDuTroublesRoom==1) @Talk2;
+      If($ZhongDuLYS==1) @Talk3;
+      If($ZhongDuJiuDianLaoBan==1) @Talk1;
+      Talk(10040,10120);
+      Assign($ZhongDuJiuDianLaoBan,1);
+      SetMapTrap(4,"地图陷阱4.txt");
+      SaveMapTrap();
+      Return;
+      
+@Talk1:
+      Talk(10130,10140);
+      Return;      
+      
+@Talk2:
+      Talk(10640,10710);
+      PlayMusic("ks69.wav");
+      AddGoods("goods-sj-10-长安好酒.ini");
+      Assign($ZhongDuTroublesRoom,2);
+      AddNpc("z03-许若冰.ini",79,31,3);
+      SetNpcScript("柴嵩","柴嵩.txt");      
+      Return;
+      
+@Talk3:
+      Talk(11490,11490);
+
+      Return;

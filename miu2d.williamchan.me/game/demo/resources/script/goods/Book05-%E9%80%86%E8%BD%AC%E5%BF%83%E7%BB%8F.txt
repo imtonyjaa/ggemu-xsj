@@ -1,0 +1,6 @@
+//Book05-逆转心经.ini
+	AddMagic("player-magic-逆转心经.ini");
+	PlaySound("学会武功.wav");
+	DelGoods();
+	Add($EvilVal, -25);
+	Return;

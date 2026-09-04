@@ -1,0 +1,37 @@
+// 李啸被打败
+
+	FadeOut();
+	ClearBody();
+	DelNpc("李啸");
+	AddNpc("npc050_李啸.ini", 8, 22, 3);
+	SetNpcRelation("李啸", 2);
+	SetNpcScript("李啸", "李啸.txt");
+	SetPlayerPos(7, 20);
+	SetPlayerDir(7);
+	SetPlayerState(0);
+	DelObj("门类障碍1");
+	DelObj("门类障碍2");
+	ClearEffect();
+	FadeIn();
+	
+	Say("李啸：好功夫！今日李啸大开眼界。", 78);
+	Say("独孤剑：客气！", 2);
+	Say("小雷：不要争！不要争！该我了——", 69);
+	NpcGotoEx("李啸", 10, 16);
+	NpcGoto("小雷", 11, 30);
+	NpcGoto("小雷", 8, 22);	
+	SetNpcDir("小雷", 3);
+	NpcGoto("李啸", 11, 17); 
+	SetNpcDir("李啸", 1);
+	
+	Say("小雷：独孤少侠，小雷也不想做什么武林盟主，小叫化子不过想向天下英雄讨教讨教……大哥，你留点力气……", 69);
+	Say("小雷：咳，独孤少侠小心咯！", 69);
+	Say("独孤剑：好！", 2);
+	Say("段芙蓉：……", 67);
+	SetNpcRelation("小雷", 1);
+	SetPlayerState(1);
+	SetNpcDeathScript("独孤剑", "比武失败.txt");
+	SetNpcScript("小雷", "");
+	AddObj("门类障碍1.ini", 10, 16, 0);
+	AddObj("门类障碍2.ini", 10, 26, 0);
+	Return;

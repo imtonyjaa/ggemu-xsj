@@ -1,0 +1,12 @@
+
+
+	If ($Event <> 234) @Label1;
+	RunScript("trap02.txt");
+@Label1:
+	If ($Event <> 235) @Label2;
+	RunScript("trap03.txt");
+@Label2:
+	If ($Event <> 492) @end;
+	RunScript("事件50_2.txt");
+@end:
+	Return;

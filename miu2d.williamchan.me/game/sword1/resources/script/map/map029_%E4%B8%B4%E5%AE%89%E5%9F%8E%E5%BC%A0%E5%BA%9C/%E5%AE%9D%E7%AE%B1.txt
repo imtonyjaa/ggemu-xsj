@@ -1,0 +1,9 @@
+//打开宝箱
+
+	PlaySound("物_箱子开.wav");
+	OpenBox();
+	AddGoods("Goods023_金刚护手.ini");
+	Sleep(600);
+	AddGoods("Goods029_茉莉花扣.ini");
+	SetObjScript("","");
+	Return;

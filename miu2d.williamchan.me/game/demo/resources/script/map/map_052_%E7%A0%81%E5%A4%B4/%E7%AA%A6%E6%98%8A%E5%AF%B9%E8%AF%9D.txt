@@ -1,0 +1,231 @@
+// 事件35 刚发生
+	If ($Event == 350) @Event350;
+	If ($Event == 700) @Event700;
+	If ($Event == 767) @Event767;
+	If ($Event == 820) @Event820;
+	If ($Event == 880) @Event880;
+	If ($Event == 920) @Event920;
+	If ($Event == 1000) @Event1000;
+	If ($Event == 1818) @1818;//结局2去落叶谷报仇
+	If ($Event == 2000) @2000;//结局2去落叶谷找孟知秋帮忙
+	
+	Talk(21600, 21600);
+	Return;
+	
+@1818://结局2去落叶谷报仇
+	Say("杨影枫：船家，送我去惠安镇。",2);
+	FadeOut();
+	SaveObj();
+	LoadMap("map_029_码头.map");
+	LoadNpc("map029.npc");
+	LoadObj("map029_obj.obj");
+	SetPlayerPos(9,109);
+	SetPlayerDir(5);
+	FadeIn();
+	Return;
+
+@2000://结局2去落叶谷
+	Say("杨影枫：船家，快送我去惠安镇。",2);
+	FadeOut();
+	SaveObj();
+	LoadMap("map_029_码头.map");
+	LoadNpc("map029.npc");
+	LoadObj("map029_obj.obj");
+	SetPlayerPos(9,109);
+	SetPlayerDir(5);
+	AddNpc("悲魔山庄管家.ini",15,91,1);
+	FadeIn();
+
+	NpcGotoEx("铁云",12,97);
+	PlayerGoto(12,98);
+	SetPlayerDir(5);
+	Say("杨影枫：铁云！你怎么会在这里？", 2);
+	Say("管家铁云：庄主，你可回来了，庄里出了大事了！", 92);
+	Say("杨影枫：什么事？", 2);
+	Say("管家铁云：魔教在你离开的时候占领了悲魔山庄，庄里的人都逃走了，我逃到这里，没想到遇到了庄主。", 92);
+	Say("杨影枫：魔教真是欺人太甚！", 2);
+	Say("管家铁云：庄主，我们现在该怎么办呢？",92);
+	Say("杨影枫：铁云，你先离开吧，魔教那边我自己会解决的，等事情平息之后，我再通知你。", 2);
+	Say("管家铁云：魔教势力庞大，而且心黑手辣，庄主可要多小心啊。",92);
+	Say("杨影枫：我会注意的，你快走吧。", 2);
+	Say("管家铁云：庄主，你多保重，我走了。",92);
+	NpcGoto("铁云",19,103);
+	DelNpc("铁云");
+	Return;
+
+@Label350:
+	SetNpcKind("杨影枫",1);
+	EnableRun();
+	NpcGoto("杨影枫",8,34);
+	SetNpcDir("杨影枫",5);
+	PlayerGoto(8,33);
+	SetPlayerDir(1);
+	Talk(6240, 6250);
+	Select(6251, 6252, 6261, $SelectVal);
+	// 一口答应
+	If ($SelectVal == 0) @Select0;
+	// 保持沉默
+	If ($SelectVal == 1) @Select1;
+	@Select0:
+		Talk(6260, 6260);
+		Goto(@Label4);
+	@Select1:
+		Talk(6262, 6262);
+		Goto(@Label4);
+	@Label4:
+		Talk(6270, 6300);
+		NpcGoto("杨影枫",7,36);
+		SetNpcDir("杨影枫",5);
+		PlayerGoto(7,35);
+		SetPlayerDir(1);
+		Talk(6310, 6320);
+		Assign($Event, 360);
+	
+		FadeOut();
+		SaveNpc();
+		SaveObj();
+		PlayerChange(0);
+		LoadMap("map_029_码头.map");
+	
+		LoadNpc("map029.npc");
+		LoadObj("map029_obj.obj");
+	
+		ChangeMapColor(255, 255, 255);
+		ChangeAsfColor(255, 255, 255);
+		SetPlayerPos(10, 105);
+		SetPlayerDir(6);
+		EnableNpcAI();
+		FadeIn();
+		
+		RunScript("事件37_1.txt");
+	
+		Return;
+
+@Event700:
+	Talk(61350,61380);
+	FadeOut();
+	SaveObj();
+	LoadMap("map_029_码头.map");
+
+	LoadNpc("map029.npc");
+	LoadObj("map029_obj.obj");
+
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(10, 105);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	Talk(61390,61420);
+	FadeIn();
+	Return;
+
+@Event767:
+	Watch("渔夫窦昊","ALLPLAYER",0);
+	Sleep(1000);
+	Talk(75520,75530);
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_029_码头.map");
+
+	LoadNpc("map029.npc");
+	LoadObj("map029_obj.obj");
+
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(10, 105);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	Talk(75540,75550);
+	FadeIn();
+	Return;
+
+@Event820:
+	Talk(75520,75530);
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_029_码头.map");
+
+	LoadNpc("map029.npc");
+	LoadObj("map029_obj.obj");
+
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(10, 105);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	Talk(75540,75550);
+	FadeIn();
+	Return;	
+	
+@Event880:
+	If ($Result <> 3) @end;
+
+//	系统消息：去找孟知秋，坐船走喽
+	
+	Talk(75520,75530);
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_029_码头.map");
+
+	LoadNpc("map029.npc");
+	LoadObj("map029_obj.obj");
+
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(10, 105);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	Talk(75540,75550);
+	FadeIn();
+
+	Return;
+	
+@Event920:
+	If ($Result <> 3) @end;
+
+//	系统消息：去飞龙堡救纳兰真
+	Talk(75520,75530);
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_029_码头.map");
+
+	LoadNpc("map029.npc");
+	LoadObj("map029_obj.obj");
+
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(10, 105);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	Talk(75540,75550);
+	FadeIn();
+
+	Return;
+
+@Event1000:
+	If ($Result <> 3) @end;
+	//系统消息：去飞龙堡救纳兰真
+	Talk(75520,75530);
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_029_码头.map");
+
+	LoadNpc("map029.npc");
+	LoadObj("map029_obj.obj");
+
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(10, 105);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	Talk(75540,75550);
+	FadeIn();
+	Return;
+
+@end:
+	Return;

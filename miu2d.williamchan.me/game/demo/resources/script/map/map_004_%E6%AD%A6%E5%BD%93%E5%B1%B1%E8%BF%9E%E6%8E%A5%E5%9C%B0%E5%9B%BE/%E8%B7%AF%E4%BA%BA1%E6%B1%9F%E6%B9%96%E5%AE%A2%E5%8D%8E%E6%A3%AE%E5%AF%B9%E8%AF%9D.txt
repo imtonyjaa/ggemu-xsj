@@ -1,0 +1,35 @@
+
+	GetRandNum($HuaSenTalk,0,1);
+
+	If ($Event == 40) @Event40;
+	If ($Event == 46) @Event46;
+
+	Say("华森：我何时才能击败天星道长？我一直想向他挑战，可又估计打不过他，哎，看来这辈子是没希望了。");
+	Goto @end;
+@Event40:
+	If ($HuaSenTalk == 0) @Talk3;
+	If ($HuaSenTalk == 1) @Talk4;
+	@Talk3:
+		Say("华森：武当派弟子个个内力深厚、武功高强，尤其是武当大弟子<color=Red>张惟宜<color=Black>，已将武当的内功心法练到了第八层，除了天星道长，武当派功夫最强的就属他了！",	0);
+		Goto @end;
+	@Talk4:
+		Talk(20311, 20312);
+		Goto @end;
+	Goto @end;
+@Event46:
+	If ($HuaSenTalk == 0) @Talk1;
+	If ($HuaSenTalk == 1) @Talk2;
+	@Talk1:
+		Talk(20313, 20316);
+		Goto @end;
+	@Talk2:
+		Say("华森：武当那掌门老儿一天到晚的闭关，都不知道在搞些什么东西，难道他想成仙？");
+		Goto @end;
+	Goto @end;
+@end:
+	Return;
+
+
+
+
+

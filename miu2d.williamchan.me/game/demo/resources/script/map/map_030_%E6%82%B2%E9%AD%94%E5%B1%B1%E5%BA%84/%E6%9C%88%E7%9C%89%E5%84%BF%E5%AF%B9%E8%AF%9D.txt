@@ -1,0 +1,61 @@
+If ($Event == 3120) @Evt3120;
+If ($Event == 3145) @Evt3145;
+
+Goto @end;
+
+@Evt3120:
+	Talk(102800,102800);
+	Goto @end;
+
+
+@Evt3145:
+	Choose("准备好去打武当了吗？","是","否",$douhao);
+	If ($douhao == 0) @Yes;
+	Talk(100210,100210);
+	Goto @end;
+	
+	
+@Yes:
+	
+	AddToMemo(24440);
+	Assign($Event ,3150);
+	SaveNpc();
+	SaveObj();
+	FadeOut();
+	StopMusic();
+	LoadMap("map_006_武当山山顶.map");
+	DisableNpcAI();
+	LoadNpc("map006_KILL_TX.npc");
+	LoadObj("map006_obj.obj");
+	DisableNpcAI();
+	SetPlayerPos(31,97);
+	SetPlayerDir(5);
+	FadeIn();
+	MoveScreen(5,100,2);
+	MoveScreen(2,100,2);
+	MoveScreen(6,100,2);
+	MoveScreen(1,100,2);
+	Say("武当弟子甲：师父！他杀了多少江湖义士，我们今天和他们拼了！");
+	Say("武当弟子乙：对！师父，我们不怕他们，铲除这些武林败类！");
+	Say("武当弟子丙：我们武当派不怕你们！你有本事就过来吧，谁怕谁！");
+	Say("武当众弟子：我们誓死保卫武当山！");
+	PlayMusic("Mc021.mp3");
+	PlayerGotoDir(5,1);
+	Watch("杨影枫","天星道长",0);
+	
+	Talk(100220,100250);
+	
+	GetNpcCount(1,1);
+	SetMapTrap(1,"");
+	SetNpcRelation("杨影枫",0);
+	
+	EnableFight();
+	EnableNpcAI();
+	PlaySound("背-多把剑砍的声音.wav");
+
+		
+	Goto @end;
+	
+	
+@end:
+Return;	

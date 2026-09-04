@@ -1,0 +1,41 @@
+
+//
+//江少斌
+If ($Result == 0) @Result0;
+If ($Result == 1) @Result1;
+If ($Result == 2) @Result2;
+If ($Result == 3) @Result3;
+Goto @end;
+
+@Result0:
+If ($Event << 360 ) @Talk1;
+If ($Event >= 360 ) @Talk2;
+Goto @end; 
+
+@Result1:
+Talk(20490, 20490);
+Goto @end;
+
+
+@Result2:
+Talk(20490, 20490);
+Goto @end;
+
+@Result3:
+Talk(20490, 20490);
+Goto @end;
+
+
+@Talk1:
+Talk(20490, 20490);
+Goto @end;
+
+
+@Talk2:
+Talk(40400, 40400);
+Goto @end;
+
+@end:
+Return;
+
+

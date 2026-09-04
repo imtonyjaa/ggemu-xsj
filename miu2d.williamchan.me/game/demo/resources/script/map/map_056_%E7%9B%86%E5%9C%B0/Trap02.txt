@@ -1,0 +1,38 @@
+
+
+// 事件32 刚发生
+	If ($Event == 320) @Label1;
+	
+	Goto(@end);
+	
+@Label1:
+	PlayerGoto(2, 54);
+	SetPlayerDir(5);
+	SetNpcKind("纳兰真",1);
+	EnableRun();
+	EnableJump();
+	NpcGoto("纳兰真",3,54);
+	SetNpcDir("纳兰真",4);
+	Talk(5480, 5510);
+	SetNpcKind("纳兰真",3);
+	
+	
+	PlayerGoto(5,41);
+	SetPlayerDir(5);
+	SetNpcKind("纳兰真",1);
+	EnableRun();
+	EnableJump();
+	NpcGoto("纳兰真",6,42);
+	SetNpcDir("纳兰真",4);
+	Say("纳兰真：啊！<color=Red>骷髅<color=Black>……",	14);
+	Talk(5530, 5530);
+	SetNpcKind("纳兰真",3);
+	
+	
+	Assign($Event, 322);
+	AddToMemo(90541);
+	SetMapTrap(1, "Trap01.txt");
+	Goto(@end);
+	
+@end:
+	Return;

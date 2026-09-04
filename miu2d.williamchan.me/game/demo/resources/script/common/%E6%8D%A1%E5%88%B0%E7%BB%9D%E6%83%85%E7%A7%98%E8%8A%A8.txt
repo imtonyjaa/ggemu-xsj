@@ -1,0 +1,5 @@
+PlaySound("物-箱子开.wav");
+OpenBox();
+AddGoods("Book02-灭绝剑法.ini");
+SetObjScript("","关宝箱.txt");
+Return;

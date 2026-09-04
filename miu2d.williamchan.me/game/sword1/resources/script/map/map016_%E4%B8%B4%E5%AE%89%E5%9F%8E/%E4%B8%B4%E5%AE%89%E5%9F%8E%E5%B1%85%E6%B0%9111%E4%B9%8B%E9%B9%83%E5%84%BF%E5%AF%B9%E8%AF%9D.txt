@@ -1,0 +1,61 @@
+// 与临安城居民鹃儿的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	If ($Talkjuaner1 == 0) @Talk0;
+	If ($Talkjuaner1 == 1) @Talk1;
+	If ($Talkjuaner1 == 2) @Talk2;
+	
+@Talk0:
+	Say("鹃儿：好看，好看，真好看，比唱大戏还好看。", 0);
+	Assign($Talkjuaner1, 1);
+	Return;
+@Talk1:	
+	Say("鹃儿：这招是什么，是不是苏武背剑？", 0);
+	Assign($Talkjuaner1, 2);
+	Return;
+@Talk2:	
+	Say("鹃儿：好看，好看，真好看，比唱大戏还好看。", 0);
+	Return;		
+	
+@YuanDan:	
+
+	If ($Talkjuaner1 == 0) @Talk0YD;
+	If ($Talkjuaner1 == 1) @Talk1YD;
+	If ($Talkjuaner1 == 2) @Talk2YD;
+	
+@Talk0YD:
+	Say("鹃儿：大哥哥，新年好！", 0);
+	Choose("给不给红包", "A 给", "B 不给", $hongbao);
+	If ($hongbao == 0) @Choose0;
+	If ($hongbao == 1) @Choose1;
+@Choose0:
+	GetMoneyNum();
+	If($MoneyNum << 5) @NotenoughMon;
+	If($MoneyNum >= 5) @EnoughMon;
+@NotenoughMon:
+	Say("独孤剑：哎呀，我身上的银子不够了……", 8);
+	Assign($Talkjuaner1, 1);	
+	Return;
+@EnoughMon:
+	Say("独孤剑：小妹妹真乖，哥哥送给你一个红包。", 2);
+	Say("鹃儿：谢谢大哥哥！", 0);
+	AddMoney(-5);
+	Assign($Talkjuaner1, 1);
+	Return;
+@Choose1:	
+	Assign($Talkjuaner1, 1);
+	Return;		
+	
+@Talk1YD:	
+	Say("鹃儿：好看，好看，真好看，比唱大戏还好看。", 0);
+	Assign($Talkjuaner1, 2);
+	Return;
+	
+@Talk2YD:	
+	Say("鹃儿：这招是什么，是不是苏武背剑？", 0);
+	Return;		

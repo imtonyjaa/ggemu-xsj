@@ -1,0 +1,22 @@
+//NaDead为假兰真死亡次数
+
+If ($Event == 452) @Event452;
+
+If ($Event == 454) @Event454;
+	Goto @end;
+
+@Event452:
+	Goto @end;
+
+@Event454:
+	Add($NaDead ,1);
+	If($NaDead == 10) @AllDead;
+	Goto @end;
+
+@AllDead:
+	LoadNpc("map050-heart3-NLZ2.npc");
+	Return;
+
+
+@end:
+	Return;

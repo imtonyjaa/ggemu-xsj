@@ -1,0 +1,85 @@
+
+	If ($Event == 260) @Label1;
+
+	Goto(@end);
+
+@Label1:
+	StopMusic();
+	PlayerGoto(11, 37);
+    SetPlayerDir(4);
+	Say("纳兰真：杨大哥，你看，我采到银丝草了！这种草药对治疗内伤可有效啦，你等等，我马上就熬了给你喝。",	9);
+	DelGoods("Goods-e12-银丝草.ini");
+	DelGoods("Goods-e12-银丝草.ini");
+	DelGoods("Goods-e12-银丝草.ini");
+	DelGoods("Goods-e12-银丝草.ini");
+	DelGoods("Goods-e12-银丝草.ini");
+	DelGoods("Goods-e12-银丝草.ini");
+	DelGoods("Goods-e12-银丝草.ini");
+	FadeOut();
+	Sleep(500);
+	Say("草药熬好后。");
+	FadeIn();
+	SetNpcActionFile("纳兰真", 0, "mpc058-3.asf");
+	SetNpcActionFile("纳兰真", 1, "mpc058-3.asf");
+	NpcSpecialAction("纳兰真", "mpc058-2.asf");
+	Sleep(2000);
+	Say("纳兰真：草药熬得好浓啊，快趁热喝了吧！", 9);
+//	FadeOut();
+	Sleep(1000);
+//	Say("杨影枫喝下了纳兰真熬制的浓浓的药汤。"), 0;
+//	FadeIn();
+	SetNpcActionFile("纳兰真", 0, "mpc058-5.asf");
+	SetNpcActionFile("纳兰真", 1, "mpc058-5.asf");
+	NpcSpecialAction("纳兰真", "mpc058-5.asf");
+	Sleep(1000);
+    Say("杨影枫：姑娘，我听说有银丝草的地方必定有杀人蜂聚集！你……", 2);
+	Say("纳兰真：杀人蜂？我没见到呀，倒是有一群乖乖蜂在那里，我陪它们玩了半天呢。",	9);
+	Select(4171, 4180, 4260, $SelectVal);
+	
+	If ($SelectVal == 0) @Label2;
+	If ($SelectVal == 1) @Label3;
+
+@Label2:
+	Say("杨影枫：你不要骗我了，看，你都受伤了！",	4);
+	Say("纳兰真：哦，那是跟乖乖蜂玩的时候不小心被它咬的，没什么啦！", 9);
+	Say("杨影枫：姑娘，对你而言，我只不过是一个萍水相逢的陌生人，可你却为我去冒险采药，在下真是过意不去。",	2);
+	Say("纳兰真：不必客气，我觉得你这个人很特别呀。", 9);
+	Say("杨影枫：特别？", 4);
+	Say("纳兰真：是呀，一般人如果受了这么重的伤，只会躺在床上呼天喊地了，可你却丝毫不介意自己身体上的疼痛，甚至连哼都不哼一下，我为你做这些事又算得了什么？",	10);
+	Say("杨影枫：你真是一个心地善良的姑娘！", 3);
+	Say("纳兰真：……", 121);	
+	SetNpcActionFile("纳兰真", 0, "npc013_st.asf");
+	SetNpcActionFile("纳兰真", 1, "npc013_pst.asf");
+	NpcSpecialAction("纳兰真", "mpc058-4.asf");
+	Sleep(2000);
+    PlayerGoto(13,39);
+    SetPlayerDir(5);
+    Say("纳兰真：也许爹爹能治好杨大哥的伤，我还是回家找<color=Red>爹爹<color=Black>吧。", 9);
+	Assign($Event, 270);
+	Add($SenseVal, 40);
+	AddToMemo(90470);
+	PlayMusic("mc017.mp3");
+	Goto(@end);
+
+@Label3:
+	//Talk(4280, 4310);
+	Say("杨影枫：姑娘不必为在下如此费心了，没有用的，我已经是一个废人了。", 5);
+	Say("纳兰真：杨大哥，不要那么难过，喝了药你很快就会好的！",	9);
+	Say("杨影枫：在下如今已经功力全失，即使伤势恢复，活在世上也毫无意义，倒不如现在就死掉，免得日后徒增烦恼！", 5);
+	Say("纳兰真：你……唉！看你气度不凡，原本以为你不是平庸之辈，没想到你遭遇到一点挫折就如此自暴自弃，我当初真是白救你了！", 11);
+	Say("杨影枫：……", 5);
+	SetNpcActionFile("纳兰真", 0, "npc013_st.asf");
+	SetNpcActionFile("纳兰真", 1, "npc013_pst.asf");
+	NpcSpecialAction("纳兰真", "mpc058-4.asf");
+	Sleep(2000);
+    PlayerGoto(13,39);
+    SetPlayerDir(5);
+    Say("纳兰真：虽然他自暴自弃，可是我不能弃他不顾，还是回家找<color=Red>爹爹<color=Black>，看看他有什么办法治杨大哥的伤。", 9);
+	Assign($Event, 270);
+	Add($SenseVal, -20);
+	AddToMemo(90470);
+	PlayMusic("mc017.mp3");
+	Goto(@end);
+
+@end:
+	Return;

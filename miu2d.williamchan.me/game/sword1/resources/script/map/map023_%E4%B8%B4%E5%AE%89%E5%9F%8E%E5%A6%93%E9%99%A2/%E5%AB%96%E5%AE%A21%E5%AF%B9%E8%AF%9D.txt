@@ -1,0 +1,13 @@
+// 和站立的嫖客1的对话
+
+	GetRandNum($Talkpiaoke1,0,1);
+	If ($Talkpiaoke1 == 0) @Talk0;
+	If ($Talkpiaoke1 == 1) @Talk1;
+@Talk0:
+	Say("嫖客：这怡春院的生意也太霸道了，居然不许赊帐。", 0);
+	Return;
+@Talk1:	
+	Say("嫖客：想当初，凭我这英俊潇洒的模样，许多姑娘宁愿倒贴呢，唉——", 0);
+	Return;
+	
+	

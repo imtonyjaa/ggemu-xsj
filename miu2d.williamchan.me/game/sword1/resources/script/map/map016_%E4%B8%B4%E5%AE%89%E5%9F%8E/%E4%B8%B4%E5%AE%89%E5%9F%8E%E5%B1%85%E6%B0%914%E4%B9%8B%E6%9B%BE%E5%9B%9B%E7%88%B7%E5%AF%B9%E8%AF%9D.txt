@@ -1,0 +1,64 @@
+// 与临安城居民曾四爷的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	If ($Talkzengsiye1 == 0) @Talk0;
+	If ($Talkzengsiye1 == 1) @Talk1;
+	If ($Talkzengsiye1 == 2) @Talk2;
+	If ($Talkzengsiye1 == 3) @Talk3;
+	If ($Talkzengsiye1 == 4) @Talk4;
+	
+@Talk0:
+	Say("曾四爷：吕文才是侍卫司的一个什么将军，他是秦大人的老婆的弟弟的姨妈的堂弟的表侄子，和秦大人也算是个亲戚。", 0);
+	Assign($Talkzengsiye1, 1);
+	Return;
+@Talk1:	
+	Say("曾四爷：吕将军是个超级大赌鬼，听说他曾经连老婆都输过。", 0);
+	Assign($Talkzengsiye1, 2);
+	Return;
+@Talk2:	
+	Say("曾四爷：吕将军整天在赌场里泡着，这种人怎么带兵打仗？看看人家岳元帅和韩元帅……", 0);
+	Assign($Talkzengsiye1, 3);
+	Return;	
+@Talk3:	
+	Say("曾四爷：张大人是个好官，可秦大人……", 0);
+	Assign($Talkzengsiye1, 4);
+	Return;		
+@Talk4:	
+	Say("曾四爷：这世道越来越没道理了。", 0);
+	Return;		
+
+	
+@YuanDan:	
+
+	If ($Talkzengsiye1 == 0) @Talk0YD;
+	If ($Talkzengsiye1 == 1) @Talk1YD;
+	If ($Talkzengsiye1 == 2) @Talk2YD;
+	If ($Talkzengsiye1 == 3) @Talk3YD;
+	If ($Talkzengsiye1 == 4) @Talk4YD;
+	
+@Talk0YD:
+	Say("曾四爷：我的运气好，开年第一赌就赢了钱，我是一个大方的人，就封一个红包给你吧！", 0);
+	Say("得到一百两银子。");
+	AddMoney(100);
+	Assign($Talkzengsiye1, 1);
+	Return;
+@Talk1YD:	
+	Say("曾四爷：吕文才是侍卫司的一个什么将军，他是秦大人的老婆的弟弟的姨妈的堂弟的表侄子，和秦大人也算是个亲戚。", 0);
+	Assign($Talkzengsiye1, 2);
+	Return;
+@Talk2YD:	
+	Say("曾四爷：吕将军是个超级大赌鬼，听说他曾经连老婆都输过。这种人怎么带兵打仗？看看人家岳元帅和韩元帅……", 0);
+	Assign($Talkzengsiye1, 3);
+	Return;	
+@Talk3YD:	
+	Say("曾四爷：张大人是个好官，可秦大人……", 0);
+	Assign($Talkzengsiye1, 4);
+	Return;		
+@Talk4YD:	
+	Say("曾四爷：这世道越来越没道理了。", 0);
+	Return;			

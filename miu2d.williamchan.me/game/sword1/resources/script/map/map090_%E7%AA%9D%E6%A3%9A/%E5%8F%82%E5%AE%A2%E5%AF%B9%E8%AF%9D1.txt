@@ -1,0 +1,21 @@
+// 与参客的对话
+
+	Say("参客：奇怪奇怪真奇怪，怎么钻出个姑娘来。", 0);
+	Say("参客：姑娘，我这里有一些药材，要不要看看？", 0);
+	
+	GetPlayerLevel($PlayerLevel);
+	If ($PlayerLevel << 16) @PlayerLevelL16;
+	If ($PlayerLevel << 31) @PlayerLevelL31;
+	Goto @PlayerLevelG30;
+	Return;
+
+@PlayerLevelL16:
+	SellGoods("低级药品.ini");
+	Return;
+@PlayerLevelL31:
+	SellGoods("中级药品.ini");
+	Return;
+@PlayerLevelG30:
+	SellGoods("高级药品.ini");
+	
+	Return;

@@ -1,0 +1,33 @@
+//和渔夫的对话
+
+	If($Event == 80) @Event80;
+	If($Event == 180) @Event180;
+
+	Say("渔夫：年成这么差，官府又要加渔税，唉，眼见日子一天难似一天。", 0);
+	Return;
+
+@Event80:
+	If($TalkYufu == 0) @TalkYufu0;
+	If($TalkYufu == 1) @TalkYufu1;
+ @TalkYufu0:
+	Say("渔夫：刚才有两个灰衣人带着一个绿衣少女，驾船去碧霞岛了。", 0);	
+	Say("独孤剑：老伯，能否租条船上碧霞岛一趟？", 1);
+	Say("渔夫：这么大的雾，很难啊。只有老王才有这本事。", 0);
+	Say("独孤剑：老王是谁？", 1);
+	Say("渔夫：前面房子里的老汉，刚出海回来。不过他的怪脾气谁都知道，一天只出海一次。", 0);
+	Memo("得知采花贼去往碧霞岛，须找一个叫老王的渔夫才能前往。");
+	Assign($TalkYufu, 1);
+	SetMapTrap(01,"trap01.txt");
+	SetMapTrap(02,"trap02.txt");
+	SetMapTrap(03,"trap03.txt");	
+	Return;
+ @TalkYufu1:
+	Say("渔夫：去找找老王吧。", 0);
+	SetMapTrap(01,"trap01.txt");
+	SetMapTrap(02,"trap02.txt");
+	SetMapTrap(03,"trap03.txt");	
+	Return;
+
+@Event180:
+	Say("渔民：是你救出了这些女孩？真是英雄出少年啊.", 0);
+	Return;

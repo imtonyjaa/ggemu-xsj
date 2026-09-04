@@ -1,0 +1,17 @@
+//打开宝箱
+
+	PlaySound("物_箱子开.wav");
+	OpenBox();
+	AddGoods("Goods063_蚊须针.ini");
+	Sleep(600);
+	AddGoods("Goods063_蚊须针.ini");
+	Sleep(600);
+	AddGoods("Goods063_蚊须针.ini");
+	Sleep(600);
+	AddGoods("Goods063_蚊须针.ini");
+	Sleep(600);
+	AddGoods("Goods063_蚊须针.ini");
+	Sleep(600);
+	AddGoods("Goods063_蚊须针.ini");
+	SetObjScript("","");
+	Return;

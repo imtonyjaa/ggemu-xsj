@@ -1,0 +1,17 @@
+
+
+	If ($Event == 935) @Label1;
+	
+	Goto @end;
+	
+@Label1:
+	If ($Result <> 3) @end;
+	Add($Event94Val, 1);
+	If ($Event94Val <> 2) @end;
+	
+	RunScript("事件94_战斗胜利.txt");
+	
+	Goto @end;
+	
+@end:
+	Return;

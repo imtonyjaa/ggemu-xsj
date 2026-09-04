@@ -1,0 +1,13 @@
+
+	GetRandNum($TalkFight, 1, 2);
+	If ($TalkFight == 1) @TalkFight31;
+	If ($TalkFight == 2) @TalkFight32;
+	
+	@TalkFight31:
+		Talk(80840, 80840);
+		Goto @end;
+	@TalkFight32:
+		Say("阿甘：我们老爷不愧是武林盟主啊，小小无忧教竟敢向我们进攻，那不是拿鸡蛋碰石头嘛。");
+		Goto @end;
+@end:
+	Return;

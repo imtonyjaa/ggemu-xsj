@@ -1,0 +1,13 @@
+
+	GetRandNum($TalkFight, 1, 2);
+	If ($TalkFight == 1) @TalkFight31;
+	If ($TalkFight == 2) @TalkFight32;
+	
+	@TalkFight31:
+		Talk(80850, 80850);
+		Goto @end;
+	@TalkFight32:
+		Say("阿平：幸亏我平时练功勤快，要不然肯定要吃无忧教的亏。");
+		Goto @end;
+@end:
+	Return;

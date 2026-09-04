@@ -1,0 +1,31 @@
+// 与客栈掌柜的对话
+	
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+	
+	If ($Event == 304) @zhang;
+	If ($Event == 305) @zhang;
+
+	Say("店小二：客人这么少，看来这客栈关门是早晚的事，我还是赶快另谋出路吧！", 0):
+	Return;
+
+@zhang:
+	Say("店小二：以我的经验，一个人喝醉了酒就会闹事，拜托你还是到别处逛去吧！", 0);
+	Return;	
+	
+	
+	
+@YuanDan:	
+
+	If ($Event == 304) @zhangYD;
+	If ($Event == 305) @zhangYD;
+
+	Say("店小二：新年好！客官要住店吗？", 0):
+	Return;
+
+@zhangYD:
+	Say("店小二：以我的经验，一个人喝醉了酒就会闹事，拜托你还是到别处逛去吧！", 0);
+	Return;		

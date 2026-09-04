@@ -1,0 +1,48 @@
+
+	If ($TongBanDeath == 1) @end;
+	Assign($TongBanDeath, 1);
+	DisableNpcAI();
+	StopMusic();
+	FadeOut();
+	SetNpcKind("纳兰真", 0);
+	SetNpcKind("月眉儿", 0);
+	SetNpcKind("蔷薇", 0);
+	DelNpc("纳兰真");
+	DelNpc("月眉儿");
+	DelNpc("蔷薇");
+	ClearBody();
+	Say("纳兰真，月眉儿，蔷薇都被无忧教擒获。");
+	LoadNpc("map058_2.npc");
+	SetPlayerPos(5,79);
+	SetPlayerDir(1);
+	FadeIn();
+	PlayMusic("mc024.mp3");
+	Sleep(1000);
+	Say("无忧教头目：杨影枫！你再往前我就先杀了蔷薇。",75);
+	Sleep(1000);
+	Say("杨影枫：你想怎么样？",6);
+	Say("无忧教头目：乖乖的束手就擒，回去等候教主发落。",75);
+	Say("蔷薇：不要……，别管我，去找我爹给我报仇吧。",32);
+	Say("纳兰真：影枫哥，快走！我爹不会放过你的。",12);
+	Say("月眉儿：影枫哥，你快逃吧……",24);
+	Sleep(1000);
+	Say("杨影枫：真儿，眉儿，蔷薇……我一定要救你们出来！",5);
+	SetNpcDir("无忧教头目",1);	
+	Say("无忧教头目：把她们先带回摘星楼。",75);
+	Sleep(500);
+	SetNpcDir("无忧教头目",5);
+	Say("无忧教头目：想救她们的话就来摘星楼吧。",75);
+
+	FadeOut();
+	LoadNpc("map058.npc");
+	SetMapTrap(1,"trap01.txt");
+	SetMapTrap(2,"trap02.txt");
+	EnableNpcAI();
+	FadeIn();
+	Memo("去落叶谷找孟知秋");
+	Say("杨影枫：我还是先去落叶谷找孟老前辈帮忙吧。",5);
+	Assign($Event, 2000);
+	Return;
+
+@end:
+	Return;

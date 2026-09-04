@@ -1,0 +1,73 @@
+//护卫死亡
+
+	Add($fight029huwei, 1);
+	If ($fight029huwei == 7) @finished;
+    Return;
+    
+@finished:
+
+	Say("护卫：啊——");
+	FadeOut();
+	StopMusic();
+	PlayMusic("前途.mp3");
+	SetPlayerPos(7,15);
+	SetPlayerDir(4);
+	SetPlayerState(0);
+	AddNpc("npc008_杨瑛.ini",13,28,7);
+	AddNpc("npc021_王佐.ini",13,29,3);
+	AddNpc("npc025_杨湖.ini",13,30,4);
+	FadeIn();
+	
+	Say("独孤剑：糟糕！秦老贼不见了！", 9);
+	Sleep(500);
+	PlayerGoto(10,23);
+	SetPlayerDir(7);
+	MoveScreen(7, 50, 1);
+	Say("王佐：帮主，秦老贼跑掉了。",63);
+	Say("杨湖：不知风波亭的兄弟进行得怎样？",100);
+	SetNpcDir("杨瑛",3);
+	SetNpcDir("杨湖",3);
+	SetNpcDir("王佐",3);
+	SetPlayerScn();
+	Say("杨瑛：独……独孤大哥！",42);
+	NpcGoto("杨瑛",11,25);
+	NpcGotoEx("杨湖",12,28);
+	NpcGoto("王佐",12，27);
+	Sleep(800);
+	SetNpcDir("杨瑛",3);
+	SetNpcDir("杨湖",3);
+	SetNpcDir("王佐",3);
+	
+	Say("杨湖：原来这些朝廷的鹰爪都是独孤兄弟你收拾的啊！",100);
+	Say("独孤剑：只可惜，秦老贼跑掉了！",5);
+	Say("王佐：岳元帅已被解往风波亭，其他将军被关在大牢之中……",63);
+	Say("独孤剑：我赶去风波亭，你们救其他将军！",5);
+	PlayerGoto(9, 31);
+	SetPlayerDir(1);
+	SetNpcDir("杨瑛",1);
+	SetNpcDir("杨湖",1);
+	SetNpcDir("王佐",1);
+	
+	Say("杨瑛：你，一向可好！",41);
+	Sleep(700);
+	Say("独孤剑：我很好……多谢杨姑娘挂念！",1);
+	Sleep(500);
+	Say("独孤剑：你们小心！",1);
+	PlayerGoto(8, 28);
+	PlayerGotoEx(4, 35);
+	Sleep(500);
+	FadeOut();
+	
+	LoadMap("map120_风波亭.map");
+	LoadNpc("map120-1.npc");
+	LoadObj("map120-1.obj");
+	SetPlayerPos(14,64);
+	SetPlayerDir(3);
+	FadeIn();
+	StopMusic();
+	PlayMusic("追缘.mp3");
+	Say("独孤剑：让开！",5);
+	Say("宋将：岳飞果然勾结这些江湖草寇！这一次，要一网打尽！");
+	Say("独孤剑：再不让开，休怪剑下无情！",5);
+	SetNpcRelation("宋兵",1);
+	Return;

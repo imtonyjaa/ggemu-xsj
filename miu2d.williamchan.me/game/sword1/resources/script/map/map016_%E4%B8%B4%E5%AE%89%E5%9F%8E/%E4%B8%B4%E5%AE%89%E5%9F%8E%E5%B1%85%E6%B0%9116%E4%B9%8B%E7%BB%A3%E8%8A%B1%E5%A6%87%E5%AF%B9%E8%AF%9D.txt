@@ -1,0 +1,15 @@
+// 与绣花妇的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	Say("郝亮他妈：小孩子长得就是快，刚做的新衣又小了，还得再做一件！", 0);
+	Return; 
+	
+@YuanDan:	
+
+	Say("郝亮他妈：新的一年又到了，全家老小都要备置新衣新裤，真是忙死我了！", 0);
+	Return; 

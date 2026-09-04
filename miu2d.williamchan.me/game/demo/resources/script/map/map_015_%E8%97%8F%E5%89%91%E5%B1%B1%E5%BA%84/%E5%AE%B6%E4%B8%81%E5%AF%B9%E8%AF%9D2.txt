@@ -1,0 +1,26 @@
+	If ($Event == 120) @Label1;
+	If ($Event == 130) @Label2;
+	If ($Event == 135) @Label3;
+	
+	Goto @end;
+	
+@Label1:
+
+	GetRandNum($result,0,1);
+	If ($result <> 0) @Label4;
+	Talk(21455, 21455);
+	Goto @end;
+@Label4:
+	Talk(21456, 21456);
+	Goto @end;	
+	
+@Label2:
+	Talk(21510, 21510);
+	Goto @end;
+	
+@Label3:
+	Talk(21520, 21520);
+	Goto @end;
+
+@end:
+	Return;

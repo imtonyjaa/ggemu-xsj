@@ -1,0 +1,24 @@
+//顾月娘
+
+	If ($Event == 164) @Label1;
+	If ($Event == 166) @Label1;
+	If ($Event == 168) @Label1;
+    If ($Event == 170) @Label2;
+    If ($Event >= 360) @TalkA360;
+	
+	Talk(21030, 21030);
+	Goto @end;
+	
+@Label1:
+	Talk(21031, 21031);
+	Goto @end;
+
+@Label2:
+	Talk(21032, 21032);
+	Goto @end;
+	
+@TalkA360:
+	Talk(40290,40290);	
+	Goto @end;
+@end:
+	Return;

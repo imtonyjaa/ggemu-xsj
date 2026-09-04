@@ -1,0 +1,45 @@
+// 与临安城居民福二娘的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	If ($Talkfuerniang1 == 0) @Talk0;
+	If ($Talkfuerniang1 == 1) @Talk1;
+	If ($Talkfuerniang1 == 2) @Talk2;
+	If ($Talkfuerniang1 == 3) @Talk3;
+	
+@Talk0:
+	Say("福二娘：你挡着人家啦。", 0);
+	Assign($Talkfuerniang1, 1);
+	Return;
+@Talk1:	
+	Say("福二娘：我说你挡着人家啦。", 0);
+	Assign($Talkfuerniang1, 2);
+	Return;
+@Talk2:	
+	Say("福二娘：我说你挡着人家啦，你没有听见吗？", 0);
+	Assign($Talkfuerniang1, 3);
+	Return;	
+@Talk3:	
+	Say("福二娘：我已经有婆家了，你别老纠缠我好不好？", 0);
+	Return;		
+
+	
+@YuanDan:	
+
+	If ($Talkfuerniang1 == 0) @Talk0YD;
+	If ($Talkfuerniang1 == 1) @Talk1YD;
+	
+@Talk0YD:
+	Say("福二娘：哎呀，你是奴家新年里看到的第一个帅哥！奴家送你一个大大的红包吧！", 0);
+	Say("独孤剑：多谢！", 2);
+	Say("得到一百两银子。");
+	AddMoney(100);
+	Assign($Talkfuerniang1, 1);
+	Return;
+@Talk1YD:	
+	Say("福二娘：虽然你很帅，可是我已经有婆家了，你别老纠缠我好不好？", 0);
+	Return;		

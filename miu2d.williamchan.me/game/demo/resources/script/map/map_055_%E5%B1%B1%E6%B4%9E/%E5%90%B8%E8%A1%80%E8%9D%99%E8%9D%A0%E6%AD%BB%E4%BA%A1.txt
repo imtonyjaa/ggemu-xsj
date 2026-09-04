@@ -1,0 +1,17 @@
+	Add($Deadbat, 1);
+	If ($Deadbat <> 14) @end;
+	If ($Event <> 304) @end;
+	Sleep(500);
+	SetPlayerState(0);
+	Talk(5290, 5321);
+	SetNpcKind("纳兰真", 1);
+	SetNpcKind("杨影枫", 2);
+	FullLife();
+	SetNpcKind("杨影枫", 3);
+	SetNpcKind("纳兰真", 2);
+	FullLife();
+	Assign($Event, 305);
+	SetMapTrap(2, "Trap02.txt");
+	Goto @end;
+@end:
+	Return;

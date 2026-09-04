@@ -1,0 +1,121 @@
+//浪里白挑的对话
+
+	If ($Event == 80) @Event80;
+	If ($Event == 90) @Event90;
+	If ($Event == 95) @Event95;
+
+	Say("浪里白挑：这世道人心好比狼虎，我们这些打渔的天天拼了命地出海，也养不起那些官府的奴才。", 0);
+	Return;
+	
+@Event80:
+
+	If ($TalkLang80 == 0) @TalkLang800;
+	If ($TalkLang80 == 1) @TalkLang801;
+
+@TalkLang800:	
+	Say("独孤剑：这位仁兄，可否带我上碧霞岛一趟？"，2);
+	Say("浪里白挑：碧霞岛？！那可是个鸟不生蛋的鬼地方！嘿嘿，我虽然厌世，可不厌生哪。", 0);
+	Say("独孤剑：我的一位朋友身陷险境，我赶着去救人！", 1);
+	Say("浪里白挑：这样的话……如果有十两银子，又另当别论了。", 0);
+        
+	Choose("独孤剑：给不给呢？","A 给","B 不给",$Choose);
+	If($Choose == 0) @Choose0;
+	If($Choose == 1) @Choose1;
+	
+@Choose0:
+	GetMoneyNum();
+	If($MoneyNum << 10) @NotenoughMon;
+	If($MoneyNum >= 10) @EnoughMon;
+@NotenoughMon:
+	Say("独孤剑：这位大哥，我没有足够的银子，你能行个方便吗？", 2);
+	Say("浪里白挑：行个方便？我拼了老命，你却连十两碎银都不肯给。我上有八十老母，下有未出世的婴孩，难道在你们这些游手好闲的富贵人眼里，我们的命就这么贱？", 0);
+	Assign($TalkLang80, 1);
+	Assign($TalkLang90, 0);
+	Return;
+@EnoughMon:
+	Say("独孤剑：这有十两银子，我们此刻就启程去碧霞岛吧。", 1);
+	Say("浪里白挑：银子么，我收下了，至于碧霞岛么……那个鬼地方，我可不去！嘿嘿，所谓人无横财不富，兄弟别怨我，要怪就怪这个世道吧，再见！", 0);
+  	Say("独孤剑：你！……", 5);
+	AddMoney(-10);
+	NpcGotoEx("浪里白挑", 12, 43);
+	SetPlayerDir(1);
+	Say("独孤剑：别跑……唉，算了，还是救人要紧。", 1);
+	SetNpcPos("浪里白挑", 0, 0);
+	Assign($TalkLang80, 1);
+	Assign($TalkLang90, 1);
+	Return;
+@Choose1:
+	Say("浪里白挑：这位朋友看钱比朋友还重要，果然是同道中人。既然如此，那我也无可奉告。", 0);
+	Assign($TalkLang80, 1);
+	Assign($TalkLang90, 0);
+	Return;
+  
+@TalkLang801:
+	Say("浪里白挑：你到底给不给？", 0);   
+	
+	Choose("独孤剑：给不给呢？","A 给","B 不给",$Choose);
+	If($Choose == 0) @Choose0;
+	If($Choose == 1) @Choose1;
+	
+@Choose0:
+	GetMoneyNum();
+	If($MoneyNum << 10) @NotenoughMon;
+	If($MoneyNum >= 10) @EnoughMon;
+@NotenoughMon:
+	Say("独孤剑：这位大哥，我没有足够的银子，你能行个方便吗？", 2);
+	Say("浪里白挑：行个方便？我拼了老命，你却连十两碎银都不肯给。我上有八十老母，下有未出世的婴孩，难道在你们这些游手好闲的富贵人眼里，我们的命就这么贱？", 0);
+	Assign($TalkLang90, 0);
+	Return;
+@EnoughMon:
+	Say("独孤剑：这有十两银子，我们此刻就启程去碧霞岛吧。", 1);
+	Say("浪里白挑：银子么，我收下了，至于碧霞岛么……那个鬼地方，我可不去！嘿嘿，所谓人无横财不富，兄弟别怨我，要怪就怪这个世道吧，再见！", 0);
+    Say("独孤剑：你！……", 5);
+    AddMoney(-10);
+	NpcGotoEx("浪里白挑", 12, 43);
+	SetPlayerDir(1);
+	Say("独孤剑：别跑……唉，算了，还是救人要紧。", 1);
+	SetNpcPos("浪里白挑", 0, 0);
+	Assign($TalkLang90, 1);
+	Return;
+@Choose1:
+	Say("浪里白挑：这位朋友看钱比朋友还重要，果然是同道中人。既然如此，那我也无可奉告。", 0);
+	Assign($TalkLang90, 0);
+	Return;
+
+
+
+@Event90:
+	If ($TalkLang90 == 0) @TalkLang900;
+	If ($TalkLang90 == 1) @TalkLang901;
+
+@TalkLang900:
+	Say("浪里白挑：看你急成这样，一定是老王不肯出海吧？嘿嘿，早就被我猜中了！唉，看你救人心切，小哥我一向义薄云天，就帮你个小忙吧，京城里有个叫贾老实的人对老王有救命之恩，老王对他有求必应。想要老王出海，你可去找那个人试试看。", 0);
+	Say("独孤剑：多谢小哥！", 2);
+	Memo("从村民处得知临安城里一个叫贾老实的人对老王有恩，于是回临安找贾老实。");
+	Assign($Event, 95);
+	SetMapTrap(1, "trap01.txt");
+	Return;
+
+@TalkLang901:
+	Say("浪里白挑：嘿嘿，老兄，咱们又见面了。", 0);
+	Say("独孤剑：……", 5);
+	Say("浪里白挑：看你目露凶光，脸藏杀机，不是来杀我的吧？不就拿你几两银子嘛，这世道不行骗能有饭吃？开个玩笑，拿人钱财，替人消灾，我现在就给你一条信息。十两银子一条信息，很合算，是不是？", 0);
+	Say("浪里白挑：整个村子就只有老王才有本事在这种鬼天气出海。京城里有个叫贾老实的人对老王有救命之恩，老王对他有求必应。想要老王出海，你可去找找那个人试试看。", 0);
+	Say("独孤剑：那么多谢了。", 2);
+	Memo("从村民处得知临安城里一个叫贾老实的人对老王有恩，于是回临安找贾老实。");
+	Assign($Event, 95);
+	SetMapTrap(1, "trap01.txt");
+	Return;
+
+
+
+@Event95: 
+	If ($TalkLang90 == 0) @TalkLang902;
+	If ($TalkLang90 == 1) @TalkLang903;
+@TalkLang902:	
+	Say("浪里白挑：这世道人心好比狼虎，我们这些打渔的天天拼了命地出海，也养不起那些官府的奴才。", 0);
+	Return;
+@TalkLang903:	
+	Say("浪里白挑：那个人叫贾老实。", 0);
+	Say("浪里白挑：喂，赚了你几两银子，也不用老跟着我吧。");
+	Return;

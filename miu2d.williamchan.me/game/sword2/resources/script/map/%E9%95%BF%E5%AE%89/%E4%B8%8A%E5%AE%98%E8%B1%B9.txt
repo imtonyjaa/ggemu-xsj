@@ -1,0 +1,17 @@
+//上官豹的话，无事件
+	If ($ShangGuan == 1) @Lable1;
+	If ($ShangGuan == 2) @Label2;
+	If ($CAFight == 1) @Fight;
+	Talk(46310,46310);
+	Return;
+@Lable1:
+	Assign($ShangGuan,2);
+	Talk(47620,47620);
+	AddRandGoods("4级物品.ini");
+	Return;
+@Label2:
+	Talk(47660,47660);
+	Return;
+@Fight:
+	Talk(47670,47670);
+	Return;

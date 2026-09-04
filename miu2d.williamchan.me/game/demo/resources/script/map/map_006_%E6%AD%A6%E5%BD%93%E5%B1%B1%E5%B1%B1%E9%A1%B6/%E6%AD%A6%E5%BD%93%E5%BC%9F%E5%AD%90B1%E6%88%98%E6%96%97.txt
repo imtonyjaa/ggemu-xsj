@@ -1,0 +1,5 @@
+        Talk(413, 413);
+        SetNpcRelation("清霄", 1);
+        EnableFight();
+	EnableNpcAI();
+        Return;

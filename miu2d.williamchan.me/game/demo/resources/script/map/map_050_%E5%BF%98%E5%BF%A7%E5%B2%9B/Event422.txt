@@ -1,0 +1,81 @@
+	If($Event == 422) @Event422;
+	Return;
+
+@Event422:
+	SaveObj();
+	FadeOut();
+	SetNpcKind("纳兰真", 0);
+	LoadMap("map_051_海边.map");
+
+//PlayerChange(0);
+	SetPlayerPos(12,39);
+	LoadNpc("partner-na.npc");
+	SetNpcPos("纳兰真",20,28);
+	SetNpcDir("纳兰真",1);
+	SetPlayerDir(7);
+	FadeIn();
+
+	Talk(7370,7370);
+	AddExp(7520);
+	Sleep(1000);
+	PlayerGoto(14, 38);
+	Say("杨影枫：好像是真儿！", 2);
+	MoveScreenEx(20, 28, 4);
+	Sleep(500);
+	SetPlayerScn();
+	Sleep(500);
+	PlayerRunTo(19，29);
+	
+	Watch("纳兰真","杨影枫",0);
+	Talk(41580,41590);
+	SetNpcKind("纳兰真",2);
+	SetNpcKind("杨影枫",3);
+	PlayerGoto(4，20);
+	Sleep(1000);
+	Watch("纳兰真","杨影枫",0);
+	Talk(7380,7430);
+	
+	AddNpc("纳兰潜凛.ini",13,18,1);
+	Talk(7440,7440);
+	SetNpcKind("杨影枫",0);
+	Watch("纳兰真","纳兰潜凛",1);
+	Watch("杨影枫","纳兰潜凛",1);
+	MoveScreen(6,30,2);
+	NpcGoto("纳兰潜凛",6,22);
+	Watch("纳兰潜凛","杨影枫",0);
+	SetPlayerScn();
+	Talk(7450,7492);
+	Say("纳兰潜禀：你既有如此决心，我也不好拦你，随我来禁地吧！", 38);
+	
+	//FadeOut();
+	NpcGoto("纳兰潜凛",15,17);
+	DelNpc("纳兰潜凛");
+	SetNpcKind("纳兰真",3);
+	SetNpcKind("杨影枫",2);
+	
+	Assign($Event, 425);
+	Watch("杨影枫","纳兰真",0);
+	Sleep(1000);
+	Say("杨影枫：真儿，我们去禁地吧！", 2);
+	AddToMemo(45090);
+	
+	
+	//LoadMap("map_058_禁地.map");
+	//LoadObj("map058_obj.obj");
+	//SetPlayerPos(3, 81);
+	//SetPlayerDir(5);
+	//EnableNpcAI();
+	//LoadNpc("Event425.npc");
+	//SetPlayerPos(10, 62);
+	//SetNpcPos(9, 63);
+	//SetPlayerDir(3);
+	//SetNpcDir("纳兰潜凛", 6);
+	//FadeIn();
+	
+	//RunScript("纳兰潜凛对话.txt");
+	
+	Return;
+
+@end:
+	Return;
+

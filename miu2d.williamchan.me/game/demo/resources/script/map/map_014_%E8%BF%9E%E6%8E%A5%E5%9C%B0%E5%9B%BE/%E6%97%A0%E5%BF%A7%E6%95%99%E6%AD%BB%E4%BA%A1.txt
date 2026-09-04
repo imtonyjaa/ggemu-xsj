@@ -1,0 +1,7 @@
+	Add($NpcCount,-1);
+	If ($NpcCount == 0) @Killed;
+	Return;	
+	
+@Killed:
+	RunScript("月眉儿对话.txt");
+	Return;

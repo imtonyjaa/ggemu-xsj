@@ -1,0 +1,77 @@
+// 与临安城居民田昊的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+	
+	If ($Event == 180) @Event180;	
+	
+	If ($Talktianhao1 == 0) @Talk0;
+	If ($Talktianhao1 == 1) @Talk1;
+	If ($Talktianhao1 == 2) @Talk2;
+	If ($Talktianhao1 == 3) @Talk3;
+	If ($Talktianhao1 == 4) @Talk4;
+	
+@Talk0:
+	Say("田昊：听说这几天好几个少女无缘无故地失踪，殿前都指挥使张大人今天去南边巡视了。", 0);
+	Assign($Talktianhao1, 1);
+	Return;
+@Talk1:	
+	Say("田昊：告诉你一件奇怪的事，那些失踪的女孩子都是穿绿色衣服的，别再烦我了。", 0);
+	Assign($Talktianhao1, 2);
+	Return;
+@Talk2:	
+	Say("田昊：没什么可说的了。", 0);
+	Assign($Talktianhao1, 3);
+	Return;	
+@Talk3:	
+	Say("田昊：官府也不知是干什么吃的，那些采花大盗一点线索都没有。", 0);
+	Assign($Talktianhao1, 4);
+	Return;		
+@Talk4:	
+	Say("田昊：别老是打听别人的事，多管闲事！", 0);
+	Return;		
+	
+@Event180:
+	Say("田昊：采花大盗终于被除掉啦，听说除掉采花大盗的大侠就象你这么年轻，不知你认不认识他？", 0);
+	Return;	
+
+	
+@YuanDan:	
+
+	If ($Event == 180) @Event180YD;	
+	
+	If ($Talktianhao1 == 0) @Talk0YD;
+	If ($Talktianhao1 == 1) @Talk1YD;
+	If ($Talktianhao1 == 2) @Talk2YD;
+	If ($Talktianhao1 == 3) @Talk3YD;
+	If ($Talktianhao1 == 4) @Talk4YD;
+	
+@Talk0YD:
+	Say("田昊：新年好！送你一个红包。", 0);
+	Say("独孤剑：谢谢！", 2);
+	Say("得到五十两银子。");
+	AddMoney(50);
+	Assign($Talktianhao1, 1);
+	Return;
+@Talk1YD:	
+	Say("田昊：新年好！听说这几天好几个少女无缘无故地失踪，殿前都指挥使张大人今天去南边巡视了。", 0);
+	Assign($Talktianhao1, 2);
+	Return;
+@Talk2YD:	
+	Say("田昊：新年好！告诉你一件奇怪的事，那些失踪的女孩子都是穿绿色衣服的。", 0);
+	Assign($Talktianhao1, 3);
+	Return;	
+@Talk3YD:	
+	Say("田昊：新年好！祝你今年发大财！", 0);
+	Assign($Talktianhao1, 4);
+	Return;		
+@Talk4YD:	
+	Say("田昊：新年好！官府也不知是干什么吃的，那些采花大盗一点线索都没有。", 0);
+	Return;		
+	
+@Event180YD:
+	Say("田昊：新年好！开年就有好事！采花大盗终于被除掉啦，听说除掉采花大盗的大侠就象你这么年轻，不知你认不认识他？", 0);
+	Return;	

@@ -1,0 +1,42 @@
+
+
+	If ($Event == 992) @Label1;
+	
+	Goto @end;
+	
+@Label1:
+	If ($Result <> 3) @end;
+
+	OpenBox("宝盒");
+	Sleep(2000);
+
+	Say("纳兰真：……原谅娘带走妹妹眉儿，你们姐妹俩各有半块玉佩。日后可凭着这两块玉佩相认……", 12);
+	Say("纳兰真：<color=Red>这么说，纳兰真就是我亲生姐姐了，那纳兰潜凛……，为什么是这样？娘！你告诉我这是怎么回事？！");
+	Say("纳兰真：<color=Red>……我杀了亲生的爹！……纳兰潜凛是我亲生的爹……不，为什么会是这样，不可能，啊…………", 13);
+
+	Assign($Event, 995);
+	
+	FadeOut();
+	
+	PlayerChange(0);
+
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_061_禁地三层.map");
+
+	LoadNpc("map061.npc");
+	LoadObj("map061_obj.obj");
+
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(7, 28);
+	SetPlayerDir(7);
+	EnableNpcAI();
+	FadeIn();
+	
+	Say("杨影枫：什么声音？里面发生什么事情了？赶紧进去看看。", 4);
+	
+	Goto @end;
+	
+@end:
+	Return;

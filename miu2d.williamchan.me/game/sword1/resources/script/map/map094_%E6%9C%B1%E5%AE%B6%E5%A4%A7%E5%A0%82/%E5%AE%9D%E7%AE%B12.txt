@@ -1,0 +1,11 @@
+//打开宝箱
+
+	PlaySound("物_箱子开.wav");
+	OpenBox();
+	AddGoods("Goods216_双头人参.ini");
+	SetObjScript("","");
+	Assign($Zhujiarenshen, 1);
+	Assign($Event, 520);
+	Memo("张琳心来到朱大户家，逼不得已抢走了双头人参。");
+	SetMapTrap(1, "trap01.txt");
+	Return;

@@ -1,0 +1,75 @@
+//清清
+If ($Result == 0) @Result0;
+If ($Result == 1) @Result1;
+If ($Result == 2) @Result2;
+If ($Result == 3) @Result3;
+Goto @end;
+
+@Result0:
+If ($Event << 360 ) @Talk1;
+If ($Event == 360 ) @Talk3;
+If ($Event >= 360 ) @Talk2;
+Goto @end; 
+
+@Result1:
+Talk(20560, 20560);
+Goto @end;
+
+
+@Result2:
+Talk(20560, 20560);
+Goto @end;
+
+@Result3:
+Talk(20560, 20560);
+Goto @end;
+
+
+@Talk1:
+Talk(20560, 20560);
+Goto @end;
+
+@Talk3:
+	If ($SubEvent16 == 0) @Sub1600;
+	If ($SubEvent16 == 2) @Sub1602;
+	If ($SubEvent16 == 5) @Sub1605;
+	If ($SubEvent16 == 10) @Sub1610;
+	@Sub1600:
+		Say("清清：哎呀，我的玉镯不见啦，刚才还戴在手上。公子，可否帮我找一找？");
+		Say("杨影枫：好，姑娘别急，我帮你找寻。", 2);
+		Say("清清：那我就多谢公子啦，公子你真是个好人。");
+		Memo("帮清清找玉镯。");
+		Assign($SubEvent16, 2);
+		AddObj("玉镯.ini", 76, 185, 0);
+		SetObjScript("玉镯", "支线玉镯.txt");
+		Add($EvilVal, -10);
+		Goto @end;
+	@Sub1602:
+		Say("清清：公子，我的玉镯还没找到，怎么办呀！");
+		Say("杨影枫：姑娘别急，我正在找寻。", 2);
+		Goto @end;
+	@Sub1605:
+		Say("杨影枫：姑娘，你看，可是这个玉镯？", 2);
+		Say("清清：啊，正是。多谢公子！");
+		DelGoods("Goods-e19-玉镯.ini");
+		Say("清清：公子，你真是个好人。奴家叫清清。");
+		Assign($SubEvent16, 10);
+		Add($EvilVal, 20);
+		Goto @end;
+	@Sub1610:
+		Talk(40480, 40480);
+		Goto @end;
+	Goto @end;
+@Talk2:
+If ($Event >= 380) @TalkA380;
+Talk(40480, 40480);
+Goto @end;
+
+@TalkA380:
+Talk(40610,40610);
+Goto @end;
+
+
+@end:
+Return;
+

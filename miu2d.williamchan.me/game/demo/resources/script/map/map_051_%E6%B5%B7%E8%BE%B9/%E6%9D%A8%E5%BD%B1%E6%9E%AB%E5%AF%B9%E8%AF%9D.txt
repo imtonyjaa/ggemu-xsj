@@ -1,0 +1,103 @@
+	If ($Event == 250) @Label1;
+	If ($Event == 254) @Label1;
+	If ($Event == 260) @Label2;
+//	If ($Event == 275) @Label3;
+	If ($Event == 270) @Label4;
+	If ($Event == 285) @Event285;
+	If ($Event == 296) @Talk;
+	If ($Event == 297) @Talk;
+	If ($Event == 302) @Label5;
+	If ($Event == 340) @Label6;
+	If ($Event == 301) @Label7;
+	Goto(@end);
+
+@Label1:
+	Talk(4091, 4091);
+	Goto @end;
+	
+@Label2:
+	RunScript("事件27.txt");
+	Goto @end;
+	
+//@Label3:
+//	RunScript("事件28_2.txt");
+//	Goto @end;
+
+@Label4:
+	Talk(4320, 4320);
+	Goto @end;	
+	
+@Label5:
+	If ($NaLanZhenSense >= 20) @AddSenseEnd3;
+	Add($SenseVal, 5);
+	Add($NaLanZhenSense, 5);
+@AddSenseEnd3:
+	Talk(5211, 5212);
+	Goto @end;
+	
+@Label6:
+	If ($NaLanZhenSense >= 20) @AddSenseEnd4;
+	Add($SenseVal, 5);
+	Add($NaLanZhenSense, 5);
+@AddSenseEnd4:
+	Talk(6232, 6233);
+	Goto @end;	
+	
+@Talk:
+	If ($NaLanZhenSense >= 20) @AddSenseEnd;
+	Add($SenseVal, 5);
+	Add($NaLanZhenSense, 5);
+@AddSenseEnd:
+	Say("杨影枫：无忧教的禁地在什么地方？", 2);
+	Say("纳兰真：禁地在忘忧岛的东面，平时只有无忧教的弟子才允许进入，否则格杀勿论。我好几次想去玩，爹爹都不让我去。", 9);
+	Say("杨影枫：那……我们私自进入禁地，不太好吧？", 2);
+	Say("纳兰真：没关系啦，我们偷偷地去，没有人知道的。", 9); 
+	Goto @end;	
+	
+@Label7:
+	If ($NaLanZhenSense >= 20) @AddSenseEnd2;
+	Add($SenseVal, 5);
+	Add($NaLanZhenSense, 5);
+@AddSenseEnd2:
+	Say("杨影枫：真儿，不要到处乱逛了，我们回去吧！", 2);
+	Goto @end;		
+
+@Event285:
+	SetNpcDir("杨影枫", 1);
+	Say("纳兰真：杨大哥！", 9);
+	Sleep(500);
+	Say("杨影枫：这儿的夜色真好！", 2);
+	Sleep(300);
+	Watch("杨影枫", "纳兰真", 0);
+	Say("杨影枫：真儿！", 2);
+	Say("纳兰真：杨大哥，晚上天气很凉，你怎么一个人跑到外面来了。伤还没痊愈，当心着凉。", 9);
+	Say("杨影枫：真儿，我心情不好，所以出来走走，没想到会让你担心。", 2);
+	Say("纳兰真：我醒来发现你不在屋里，还以为……", 10);
+	Say("杨影枫：真儿，其实你不必为我担心！", 3);
+	SetNpcDir("杨影枫", 1);
+	Say("杨影枫：你可知我因何流落此地？", 2);
+	Say("纳兰真：杨大哥……", 9);
+	Sleep(500);
+	Watch("杨影枫", "纳兰真", 0);
+	Say("杨影枫：真儿，你是不是觉得我很怪？", 2);
+	Sleep(1000);
+	Say("杨影枫：我初涉江湖，认识了一个卓非凡的人，原以为志同道合，便结为异姓兄弟。谁知，因为一件偶然之事，我发现这位义兄竟是一个道貌岸然的伪君子。", 2);
+	Say("纳兰真：啊？怎么会这样……", 9);
+	SetNpcDir("杨影枫", 1);
+	Say("杨影枫：我这位义兄，身为藏剑山庄的庄主，在中原武林声名显赫，可他为了得到一本武林秘笈，不择手段，害死人命，我找他当面对质，他为了掩盖自己的丑行，竟然把我打落悬崖灭口。", 6);
+	Say("纳兰真：竟有这种事！", 9);
+	Watch("杨影枫", "纳兰真", 0);
+	Say("杨影枫：后来，我大难不死，被你救到这里，总算拣回来一条小命。", 3);
+	Say("杨影枫：我爹爹希望我成为天下第一高手。为了这个目标，我十年苦练，总算小有成就，出道以来，闯出了一点名气，本指望再接再厉，勤修苦练，早日实现天下第一的目标，可没想到如今，我已经是功力尽失，哎！还谈什么天下第一呢。", 2);
+	Say("纳兰真：（杨大哥真可怜，先是遭受义兄的背叛，然后又功力尽失，难怪会如此失意郁闷，要怎么安慰他才好呢！）杨大哥，你不要灰心，天将降大任于斯人也，必先苦其心智，我相信上天不会让你白白吃苦的。", 9);
+	Say("杨影枫：真儿，谢谢你！", 3);
+	
+	Assign($Event, 290);
+	SetNpcKind("杨影枫", 1);
+	RunScript("事件30_1.txt");
+	Goto @end;
+@end:
+	Return;
+
+
+	

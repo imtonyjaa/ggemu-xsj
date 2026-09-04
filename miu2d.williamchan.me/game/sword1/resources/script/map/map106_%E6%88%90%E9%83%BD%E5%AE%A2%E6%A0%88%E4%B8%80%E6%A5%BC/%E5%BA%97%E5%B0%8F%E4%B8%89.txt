@@ -1,0 +1,48 @@
+//和店小三对话
+
+	If ($Clue == 25) @Clue25;
+	If ($Clue == 41) @Clue41;
+	If ($Clue >= 60) @Clue60;
+	
+	Say("店小三：小的是新来的，叫小三，客官请多包涵。");
+	Return;
+	
+@Clue25:
+	If ($Talkxiaosan == 1) @Talkxiaosan1;
+	
+	Say("店小三：小二哥，他、他，突然就死掉了……");
+	Say("杨瑛：他是怎么死的？", 42);
+	Say("店小三：我、我不知道……他好端端的，就、就死了……", );
+	Say("杨瑛：刚有一点线索，又断了……", 39);
+	Say("独孤剑：杨姑娘，我们找找有没有张姑娘留下的线索。", 1);
+	Assign($Talkxiaosan, 1);
+	Return;
+	
+  @Talkxiaosan1:
+  	Say("店小三：他突然就死掉了……");
+  	Return;
+	
+@Clue41:
+	Say("店小三：两位客官，我是新来的小三，两位有什么吩咐？");
+	Say("独孤剑：小三，你知道这封信是谁留在客栈房间里的吗？", 1);
+	Say("店小三：小的在这只管端茶送水，客官们的东西，小的从不敢过问。两位客官，没有别的吩咐，小的忙去了。");
+	Return;
+	
+@Clue60:
+	If ($Talkxiaosan == 1) @Talkxiaosan2;
+	If ($Talkxiaosan == 2) @Talkxiaosan3;
+	
+  @Talkxiaosan2:
+	If ($Clue >= 71) @Talkxiaosan3;
+	
+	Say("杨瑛：小三，你们掌柜呢？", 39);
+	Say("店小三：掌柜出去好几个时辰了，到现在还没有回来……");
+	Say("杨瑛：出去了，他临走时没有说什么吗？", 39);
+	Say("店小三：什么也没说，不过、不过掌柜好像很紧张的……");
+	Say("独孤剑：难道……", 9);
+	Assign($Talkxiaosan, 2);
+	Return;
+
+  @Talkxiaosan3:
+	Say("店小三：掌柜怎么还不回来，店里都乱了套了……我看还是关门算了。");
+	Return;

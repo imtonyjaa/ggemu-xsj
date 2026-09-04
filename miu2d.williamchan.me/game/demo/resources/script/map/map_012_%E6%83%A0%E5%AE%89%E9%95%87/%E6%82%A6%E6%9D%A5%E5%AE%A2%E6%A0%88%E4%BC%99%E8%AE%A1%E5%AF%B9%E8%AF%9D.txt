@@ -1,0 +1,127 @@
+	If ($Event == 70) @Label1;
+	If ($Event == 100) @Label2;
+	If ($Event == 110) @Label3;
+	If ($Event == 146) @Event146;
+	If ($Event == 185) @Label4;
+	If ($Event == 957) @Event957;
+	If ($Event == 960) @Event960;
+
+
+//	if (375 < Event && Event <= 570) 
+//	{switch(SubEvent25)
+//		{case 0:Goto Sub2500;
+//		 case 2:goto Sub2502;
+//		 case 5:goto Sub2505;
+//		 case 10:goto Sub25Check;
+//		 default:goto Sub25Check}}
+	If ($Event >> 375) @EventG375;
+	Goto @Sub25Check;
+	@EventG375:
+		If ($Event <= 570) @EventLE570;
+		Goto @Sub25Check;
+		@EventLE570:
+			If ($SubEvent25 == 0) @Sub2500;
+			If ($SubEvent25 == 2) @Sub2502;
+			If ($SubEvent25 == 5) @Sub2505;
+			If ($SubEvent25 == 10) Sub25Check;
+			Goto @Sub25Check;
+	@Sub25Check:
+	
+	Talk(20340, 20340);
+	Goto @end;
+	  	
+@Label1:
+	If ($Talkhuoji == 0) @Talk0;
+	If ($Talkhuoji == 1) @Talk1;
+	Talk(20345, 20345); 
+	Goto @end;
+@Talk0:
+    Talk(20341, 20344); 
+	Assign($Talkhuoji, 1);
+	Goto @end;
+@Talk1:
+	Talk(20345, 20345); 
+	Goto @end;
+
+@Label2:
+	Talk(1242, 1242); 
+	Goto @end;
+
+@Label3:
+	Talk(20346, 20349); 
+	Goto @end;
+	
+@Label4:
+	If ($Talkhuoji2 == 0) @Talk2;
+	If ($Talkhuoji2 == 1) @Talk3;
+	Goto @end;
+@Talk2:
+    Say("杨影枫：小叁子，好久不见！我上次托你打听的事情怎样了？有没有听到什么相关的消息或线索？",  2);
+	Say("小叁子：哦，杨公子，你托我办的事情，我当然忘不了啦，近来镇上突然出现了许多关于他的传闻，好像是说张客官的死与他随身带的什么宝贝有关……", 64);
+	Say("杨影枫：宝贝？！", 4);
+	Say("小叁子：是啊，人为财死，鸟为食亡嘛，张客官是一位商人，身上带的值钱的玩意肯定不少，估计是什么人红了眼，谋财害命，唉！", 64);
+	Say("杨影枫：还有什么别的消息吗？", 2);
+	Say("小叁子：还有的人说和什么书有关，谁知道呢？一本书有什么好抢的，真搞不懂。不过杨公子，你可以去向镇上的人打听打听，说不定会有什么收获。", 64);
+	Say("杨影枫：好的，多谢！",  2);
+	Say("小叁子：对了，你可以到镇上的醉仙楼去打听打听，以前张仲天住店的时候经常去那里喝酒。", 64);
+	Say("杨影枫：小叁子，你真是一个热心肠的人，咱们有缘再见！",  2);
+	Assign($Talkhuoji2, 1);
+	SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(2, "Trap02.txt");
+	SetMapTrap(3, "Trap03.txt");
+	Goto @end;
+@Talk3:
+	Say("小叁子：杨公子，你可以到镇上的醉仙楼去打听打听，以前张仲天住店的时候经常去那里喝酒。", 64);
+	Goto @end;
+
+
+@Event957:
+	Talk(82300, 82350);
+//	Say("小叁子：前些天有群江湖人物在我们这儿住店，后来我有时候回家，在路上常碰到那群人中的人物，不知他们在倚天山那一带干什么，难道是那一带有什么宝贝？我有机会得问问我娘。", 64);
+//	Assign($Event96GetMsg3, 1);
+//	If ($Event96GetMsg1 <> 1) @end;
+//	If ($Event96GetMsg2 <> 1) @end;
+	Assign($Event, 960);
+	Goto @end;
+
+@Event960:
+	Talk(82360, 82370);
+//	Say("小叁子：前些天有群江湖人物在我们这儿住店，后来我有时候回家，在路上常碰到那群人中的人物，不知他们在倚天山那一带干什么，难道是那一带有什么宝贝？我有机会得问问我娘。", 64);
+	Goto @end;
+@Sub2500:
+	Say("小叁子：去去去！离我远点，我都快烦死啦！", 64);
+	Say("杨影枫：怎么如此讲话！", 2);
+	Say("小叁子：哦，公子，过意不去。我确实有烦事，不知公子可否帮我？", 64);
+	Say("杨影枫：嗯，好吧，请说。", 2);
+	Say("小叁子：我昨日和表妹因一小事吵翻啦，想去和她道歉，又怕她不理我。想劳烦公子帮我把这封信送予她。不知可否？", 64);
+	Say("杨影枫：好，不知如何送到？", 2);
+	Say("小叁子：我表妹住在清平乡。劳烦公子啦，多谢！", 64);
+	Say("杨影枫：不必言谢。", 2);
+	AddGoods("Goods-e20-书信.ini");
+	Assign($SubEvent25, 2);
+	Add($EvilVal, -20);
+	Goto @end;
+@Sub2502:
+	Say("小叁子：公子，我表妹看到我给她的信了吗？", 64);
+	Say("杨影枫：……啊，这个，在下还未送到。我这就去送。", 2);
+	Goto @end;
+@Sub2505:
+	Say("小叁子：公子，我表妹看到我给她的信了吗？", 64);
+	Say("杨影枫：信已经送到了，她看没看我就不知道了。", 3);
+	Say("小叁子：不知道表妹看了我的信会不会原谅我？！", 64);
+	Assign($SubEvent25, 10);
+	Goto @end;
+	
+@Event146:
+	If ($Zixuan == 30) @sub30;	
+	Talk(20340, 20340); 
+	Goto @end;
+@sub30:
+	Say("小叁子：有消息我自然会告诉你。", 64);	
+	Say("杨影枫：多谢！", 2);
+	Return;
+	
+@end:
+	Return;
+
+

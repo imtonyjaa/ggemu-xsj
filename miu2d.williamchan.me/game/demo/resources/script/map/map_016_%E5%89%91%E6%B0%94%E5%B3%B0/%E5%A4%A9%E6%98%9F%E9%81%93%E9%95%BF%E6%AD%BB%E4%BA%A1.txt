@@ -1,0 +1,72 @@
+
+	If ($Event == 498) @Label1;
+
+	Goto @end;
+	
+@Label1:
+	FadeOut();
+	StopMusic();
+	DelNpc("天星道长");
+	AddNpc("天星道长.ini", 12, 37, 6);
+    SetPlayerPos(13,37);
+	SetPlayerDir(2);
+	SetPlayerState(0);
+	SetPlayerScn();
+	SetNpcKind("杨影枫", 1);
+	SetNpcKind("天星道长", 2);
+	FullLife();
+	SetNpcKind("天星道长", 1);
+	SetNpcKind("杨影枫", 2);
+	
+	Sleep(200);
+	DelObj("天星道长尸体.ini");
+	SetNpcRelation("天星道长", 2);
+	SetNpcScript("天星道长", "天星道长对话.txt");
+	Watch("杨影枫","ALLNPC",X);
+	FadeIn();
+
+	Talk(8810, 8870);
+	NpcSpecialAction("杨影枫", "mpc108.asf");
+	Sleep(2000);
+	NpcGoto("天星道长", 10, 47);  
+	NpcGotoEx("天星道长", 6, 52);  
+    NpcGotoEx("张惟宜", 6, 53);     
+    NpcGotoEx("武当弟子5", 6, 56); 
+    NpcGotoEx("武当弟子4", 6, 57); 
+    NpcGotoEx("武当弟子3", 6, 55); 
+    NpcGotoEx("武当弟子2", 7, 55); 
+	NpcGoto("武当弟子1", 8, 54);
+	DelNpc("天星道长");
+	DelNpc("张惟宜");
+	DelNpc("武当弟子5");
+	DelNpc("武当弟子4");
+	DelNpc("武当弟子3");
+	DelNpc("武当弟子2");
+	DelNpc("武当弟子1");	
+	Sleep(200);
+
+	PlayerGotoEx(15, 37);
+	SetPlayerDir(5);
+	SetPlayerScn();
+	NpcGotoEx("银面佛小叶", 14, 37);
+	SetNpcDir("银面佛小叶", 6);
+	NpcGotoEx("游一飘", 14, 35);
+	SetNpcDir("游一飘", 7);
+	NpcGotoEx("丁一梵", 15, 40);
+	SetNpcDir("丁一梵", 5);
+	NpcGoto("邓潮", 15, 32);
+	SetNpcDir("邓潮", 7);
+	
+
+	Talk(8880, 8940);
+	NpcSpecialAction("杨影枫", "mpc108.asf");
+	Sleep(2000);
+	PlayMusic("Mc003.mp3");
+	EnableJump();
+	Assign($Event, 500);
+	AddToMemo(90710);
+	SetMapTrap(1, "Trap01.txt");
+	Goto @end;
+	
+@end:
+	Return;

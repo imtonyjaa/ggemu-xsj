@@ -1,0 +1,62 @@
+	If ($Event <> 166) @end;
+
+	StopMusic();
+	PlayMusic("Mc005.mp3");
+    PlayerRunTo(30,144);
+    SetPlayerDir(4);
+    PlaySound("mpc039.wav");
+    MoveScreen(4, 80, 2);
+    Talk(2210, 2230);
+    Sleep(200);
+    MoveScreen(0, 80, 2);
+    PlayerRunTo(30,138);
+    Sleep(200);
+    Talk(2240, 2240);
+    Sleep(200);
+    NpcGoto("曾泼皮", 30, 137);
+    SetNpcDir("曾泼皮", 1);
+    NpcGoto("贾少", 30, 136);
+    SetNpcDir("贾少", 0);
+    SetNpcDir("史泼皮", 7);
+    Sleep(200);
+    Talk(2250, 2290);
+         
+    NpcGotoEx("南琴", 23, 139);  
+    NpcGotoEx("胖婶子", 23, 149);     
+    NpcGoto("简梅", 22, 141); 
+    SetNpcPos("南琴",72,57);
+	SetNpcDir("南琴",1);
+    SetNpcPos("胖婶子",44,5);
+	SetNpcDir("胖婶子",3); 
+    SetNpcPos("简梅",34,71);
+	SetNpcDir("简梅",1);
+    SetNpcPos("鲁老头",47,90);
+	SetNpcDir("鲁老头",1);
+
+	FadeOut();  
+	SetPlayerPos(28, 146);
+	SetPlayerDir(6);
+	SetNpcPos("贾少", 29, 144);
+    SetNpcPos("曾泼皮", 29, 148);
+	SetNpcPos("史泼皮", 28, 144);
+	SetNpcDir("贾少", 1);
+	SetNpcDir("曾泼皮", 3);
+	SetNpcDir("史泼皮", 0);
+	//DelObj("紫轩哭");
+	//SaveObj();
+	FadeIn();
+
+	SetNpcRelation("贾少", 1);
+    SetNpcRelation("曾泼皮", 1);
+    SetNpcRelation("史泼皮", 1);
+	SetNpcDeathScript("贾少","清平乡无赖死亡脚本.txt");
+	SetNpcDeathScript("曾泼皮","清平乡无赖死亡脚本.txt");
+    SetNpcDeathScript("史泼皮","清平乡无赖死亡脚本.txt");
+    EnableFight();
+	EnableNpcAI();
+	AddToMemo(90251);
+	SetMapTrap(1, "Trap01.txt");
+    Assign($Event, 168);
+
+@end:
+	Return;

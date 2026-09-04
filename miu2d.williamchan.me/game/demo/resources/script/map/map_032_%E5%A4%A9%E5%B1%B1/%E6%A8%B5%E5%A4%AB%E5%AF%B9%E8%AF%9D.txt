@@ -1,0 +1,11 @@
+	GetRandNum($Rand,0,4);
+	If ($Rand == 4) @Talk1;
+	Talk(22610,22610);
+	Goto @end;
+
+@Talk1:
+	Talk(22620,22620);
+	Goto @end;
+	
+@end:
+	Return;

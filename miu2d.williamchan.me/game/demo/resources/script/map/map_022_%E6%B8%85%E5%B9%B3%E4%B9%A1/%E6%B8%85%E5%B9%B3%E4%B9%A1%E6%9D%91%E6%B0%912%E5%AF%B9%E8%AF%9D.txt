@@ -1,0 +1,127 @@
+	
+	If ($Event == 164) @Label1;
+	If ($Event == 166) @Label1;
+	If ($Event == 168) @Label1;
+	If ($Event == 170) @Label2;
+	If ($Event == 375) @Event375;
+	If ($Event == 202) @Label3;
+	If ($Event == 203) @Label3;
+	If ($Event == 205) @Label3;
+	If ($Event == 230) @Label3;
+	If ($Event == 232) @Label4;
+
+//	if (375 < Event && Event <= 570) 
+//	{switch(SubEvent25)
+//		{case 0:Goto Sub2500;
+//		 case 2:goto Sub2502;
+//		 case 5:goto Sub2505;
+//		 case 10:goto @Sub2510;
+//		 default:goto Sub25Check}}
+	If ($Event >> 375) @EventG375;
+	Goto @Sub25Check;
+	@EventG375:
+		If ($Event <= 570) @EventLE570;
+		Goto @Sub25Check;
+		@EventLE570:
+			If ($SubEvent25 == 2) @Sub2502;
+			If ($SubEvent25 == 5) @Sub250510;
+			If ($SubEvent25 == 10) @Sub250510;
+			Goto @Sub25Check;
+	@Sub25Check:
+
+	Say("阿婉：我的表哥在惠安镇悦来客栈当差，他说过这几日会来看我，可是为什么还不来呢？我……我真的好想他。", 109);
+//	Talk(20860, 20860);
+	Goto @end;
+	
+@Label1:
+	Say("阿婉：表哥什么时候来呢？我真是望眼欲穿啊！", 109);
+//	Talk(20861, 20861);
+	Goto @end;
+
+@Label2:
+	Say("阿婉：谢谢你教训了贾少，他以前老是来纠缠我，我好害怕，现在可好了！", 109);
+//	Talk(20862, 20862);
+	Goto @end;
+
+@Event375:
+	Say("杨影枫：这位姑娘，请问你家东边那户人家的主人哪里去了？", 2);
+	Say("阿婉：你说的可是紫轩姑娘？她搬走了！", 109);
+	Say("杨影枫：搬走了？那姑娘可知她搬往何处？", 4);
+	Say("阿婉：这紫轩姑娘好生奇怪，几个月前突然搬来清平乡，前后不过几日，随后又匆匆搬走。", 109);
+	Say("杨影枫：紫轩姑娘不是清平乡人吗？", 4);
+	Say("阿婉：当然不是。说不定是来清平乡避难的。", 109);
+	Say("杨影枫：多谢。", 2);
+//	Talk(6450,6510);
+	PlayerGoto(2,146);
+	Talk(6520,6530);
+	AddToMemo(45020);
+	Assign($Event,380);
+	
+	StopMusic();
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_015_藏剑山庄.map");
+    LoadNpc("map015_visterZFF_night.npc");
+    LoadObj("map015-xianglu.obj");
+    ChangeMapColor(128,150,200);
+	ChangeAsfColor(128,150,200);
+	SetPlayerPos(46, 17);
+	SetPlayerDir(1);
+	EnableNpcAI();
+	
+	SetNpcActionFile("藏剑山庄家丁A", 0, "mpc_家丁睡1.asf");
+	SetNpcActionFile("藏剑山庄家丁A", 1, "mpc_家丁睡1.asf");
+	SetNpcActionFile("藏剑山庄家丁B", 0, "mpc_家丁睡2.asf");
+	SetNpcActionFile("藏剑山庄家丁B", 1, "mpc_家丁睡2.asf");
+	
+	FadeIn();
+	PlayMusic("Mc013.mp3");
+	
+	Say("当杨影枫来到藏剑山庄时，天色已晚下来了");	
+	Goto @end;
+	
+@Label3:
+	Say("阿婉：如果表哥再不来，我就永远也不要理他了！", 109);
+	Talk(20863, 20863);
+	Goto @end;	
+	
+@Label4:
+	If ($AWANtalk == 1) @Talk;   
+	Say("阿婉：你这个人好讨厌，我有好多话想和表哥说，你干嘛赖着不走？", 109);
+	Return;
+@Talk:
+	Say("阿婉：唉，表哥每次都来去匆匆，也不知下次什么时候再来，他……到底喜不喜欢我呢？", 109);
+	Return;	
+	
+@Sub2502:
+	Say("杨影枫：敢问这位姑娘可是惠安镇悦来客栈店小儿小叁子的表妹？", 2);
+	Say("小叁子表妹：正是。公子，有何事？",109);
+	Say("杨影枫：有人托我将信交予你。", 2);
+	Say("小叁子表妹：多谢公子。",109);
+	DelGoods("Goods-e20-书信.ini");
+	Assign($SubEvent25, 5);
+	Add($EvilVal, 20);
+	Add($SenseVal, 10);
+	Goto @end;	
+@Sub250510:
+	GetRandNum($BiaoMeiTalk, 1, 4);
+	If ($BiaoMeiTalk == 1) @BiaoMeiTalk11;
+	If ($BiaoMeiTalk == 2) @BiaoMeiTalk12;
+	If ($BiaoMeiTalk == 3) @BiaoMeiTalk13;
+	If ($BiaoMeiTalk == 4) @BiaoMeiTalk14;
+	@BiaoMeiTalk11:
+		Say("小叁子表妹：多谢公子送信，我和表哥已经和好啦！",109);
+		Return;
+	@BiaoMeiTalk12:
+		Say("小叁子表妹：我祈求菩萨让我和表哥能够终成眷属！",109);
+		Return;
+	@BiaoMeiTalk13:
+		Say("小叁子表妹：公子，真是多谢啦，你有何事？我可以帮你吗？",109);
+		Return;
+	@BiaoMeiTalk14:
+		Say("阿婉：我的表哥在惠安镇悦来客栈当差，他说过这几日会来看我，可是为什么还不来呢？我……我真的好想他。", 109);
+		Return;
+	Goto @end;
+@end:
+	Return;

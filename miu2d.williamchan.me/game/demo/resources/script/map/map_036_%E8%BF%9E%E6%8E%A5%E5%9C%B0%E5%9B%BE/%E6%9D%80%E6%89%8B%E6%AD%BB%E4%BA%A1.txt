@@ -1,0 +1,39 @@
+	Add($NpcCount,-1);
+	If ($NpcCount == 0) @killed;
+	Return;
+	
+@killed:
+	StopMusic();
+	Say("杨影枫：快去看看麻袋里面是不是蔷薇吧！",2);
+	FadeOut();
+	PlayMusic("mc013.mp3");
+	DelNpc("麻袋");
+	SetPlayerPos(47,38);
+	SetPlayerDir(7);
+	NpcSpecialAction("杨影枫","mpc241.asf");
+	FadeIn();
+	Sleep(2000);
+	SetNpcActionFile("杨影枫", 0, "mpc241-1.asf");
+	SetNpcActionFile("杨影枫", 1, "mpc241-1.asf");
+	Sleep(2000);
+	Say("杨影枫：蔷薇！？",4);
+	Say("蔷薇：（痛哭）杨大哥！……",32);
+	Say("杨影枫：到底是怎么回事？你快告诉我。",4);
+	Say("蔷薇：（抽泣）杨大哥……自从你那天离开落叶谷……我就一直盼着你回来……那天……我一个人去天池玩，没想到遇到一群蒙面人……",32);
+	Say("杨影枫：又是飞龙堡的人，他们为什么要绑架你呢？",4);
+	Say("蔷薇：（抽泣）杨大哥……要不是你救了我，我就再见不到你了……",32);
+	Say("杨影枫：蔷薇，先别哭了，你失踪了这么久，你爹一定很着急，我送你回落叶谷吧。",2);
+	Say("蔷薇：（抽泣）杨大哥……回去了以后，你向我爹求亲吧，好吗？",30);
+	Say("杨影枫：……蔷薇姑娘……我们先回去再说吧。",2);
+	FadeOut();
+	SetNpcActionFile("杨影枫", 0, "npc007_st2.asf");
+	SetNpcActionFile("杨影枫", 1, "npc007_st2.asf");
+	AddNpc("蔷薇.ini",48,38,3);
+	SetNpcKind("蔷薇",3);
+	SetNpcScript("蔷薇","蔷薇对话.txt");
+	FadeIn();
+	
+	SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(2, "Trap02.txt");
+	Assign($Event, 1803);
+	Return;

@@ -1,0 +1,95 @@
+	If ($Event == 60) @Label1;
+	If ($Event == 70) @Label2;
+	If ($Event == 100) @Label4;
+	If ($Event == 110) @Label4;
+	If ($Event == 185) @Label5;
+	If ($Event == 957) @Event957;
+	If ($Event == 960) @Event960;
+
+	GetRandNum($result,0,1);
+	If ($result <> 0) @Label3;
+	Talk(871, 871); 
+	Goto @end;
+@Label3:
+	Talk(20330,20330);
+    	Goto @end;
+    	
+@Label1:
+	PlayerGoto(37,87);
+	SetPlayerDir(5);
+	SetNpcDir("张胜伟"1);
+	Talk(790, 800);
+	NpcSpecialAction("杨影枫","mpc010.asf");	
+	Sleep(4000);
+	Talk(810, 840);
+	SetNpcPos("张仲天",38,79);
+	SetNpcDir("张仲天",1);
+      NpcGoto("张仲天", 37, 85);  
+      SetNpcDir("张仲天", 7);
+	Talk(850, 850);
+	PlayerGoto(37,86);
+	SetPlayerDir(5);
+	SetNpcDir("张仲天",1);
+	Talk(860, 870);
+	Sleep(500);
+      NpcGoto("张仲天", 42, 71);
+	DelNpc("张仲天");
+	AddNpc("喝酒的张仲天.ini", 52, 70, 0);
+//	SetNpcPos("张仲天", 52, 70);
+//	SetNpcActionFile("张仲天", 0, "mpc013_喝酒.asf");
+//	SetNpcActionFile("张仲天", 1, "mpc013_喝酒.asf"); 
+	Assign($Event, 70);
+	SetMapTrap(5, "Trap05.txt");
+	Goto @end;
+
+
+@Label2:
+	If ($Talkyuelai == 0) @Talk0;
+	If ($Talkyuelai == 1) @Talk1;
+	If ($Talkyuelai == 2) @Talk2;
+	If ($Talkyuelai == 3) @Talk3;
+      Talk(876, 876);
+	Goto @end; 
+@Talk0:
+      Talk(872, 872); 
+	Assign($Talkyuelai, 1);
+	Goto @end;
+@Talk1:
+      Talk(873, 874);
+	Assign($Talkyuelai, 2);
+	Goto @end;
+@Talk2:
+      Talk(875, 875);
+	Assign($Talkyuelai, 3);
+	Goto @end;
+@Talk3:	
+      Talk(876, 876);
+	Goto @end; 
+
+
+@Label4:	
+	Talk(1241, 1241); 
+	Goto @end;
+	
+@Label5:
+	Say("张胜伟：杨公子，你来了，可是要住店吗？上次和你在一起的那位姑娘呢？", 61);
+	Say("杨影枫：谢谢，我这次不住店。那位姑娘有事没来。", 2);
+	Goto @end;	
+
+@Event957:
+	Talk(82260, 82270);
+	Talk(82280, 82280);
+//	Assign($Event96GetMsg2, 1);
+
+//	If ($Event96GetMsg1 <> 1) @end;
+//	If ($Event96GetMsg3 <> 1) @end;
+	Assign($Event, 960);
+	Goto @end;
+	
+@Event960:
+	Talk(82260, 82270);
+	Talk(82280, 82280);
+	Goto @end;
+
+@end:
+      Return;

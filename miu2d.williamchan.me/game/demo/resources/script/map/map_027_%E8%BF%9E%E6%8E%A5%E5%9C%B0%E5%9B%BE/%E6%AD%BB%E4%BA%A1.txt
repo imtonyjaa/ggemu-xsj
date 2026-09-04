@@ -1,0 +1,55 @@
+	If ($Event == 392) @Event392;
+	Goto @end;
+
+@Event392:
+	Add($NpcCount, -1);
+	If ($NpcCount == 0) @FirstClear;
+	Goto @end;
+
+@FirstClear:
+	Assign($Event ,400);
+	StopMusic();
+	FadeOut();
+	Say("一场恶战结束了，杨影枫来到月眉儿面前……");
+	SetPlayerState(0);
+	Sleep(1000);
+	SetPlayerPos(42, 58);//40,66
+	Watch("杨影枫","月眉儿",0);
+	FadeIn();
+	
+	PlayMusic("Mc008.mp3");
+	Talk(6870,6900);
+	Say("经过连日的战斗，月眉儿受伤不轻，终于不能支撑，昏倒在地……");
+	NpcSpecialAction("月眉儿","mpc090.asf");
+	Sleep(4300);
+	SetNpcActionFile("月眉儿",0,"mpc090-1.asf");
+	SetNpcActionFile("月眉儿",1,"mpc090-1.asf");	
+	Sleep(1000);
+	Talk(6940,6940);	
+	SetMapTrap(1,"trap01.txt");
+	SetMapTrap(2,"trap02.txt");
+	SaveMapTrap();
+
+	FadeOut();
+	EndRain();
+	SaveNpc();
+	ClearBody();
+	SaveObj();
+	LoadMap("map_028_连接地图.map");
+	ChangeMapColor(128,150,200);
+	ChangeAsfColor(128,150,200);
+	//LoadNpc("Event400.npc");	
+	SetPlayerPos(16, 66);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	AddNpc("月眉儿.ini",16,54,0);
+	SetNpcKind("月眉儿",0);
+	SetNpcActionFile("月眉儿",0,"mpc091.asf");
+	SetNpcActionFile("月眉儿",1,"mpc091.asf");
+	FadeIn();
+		
+	RunScript("事件41.txt");	
+	Goto @end;
+	
+@end:
+	Return;

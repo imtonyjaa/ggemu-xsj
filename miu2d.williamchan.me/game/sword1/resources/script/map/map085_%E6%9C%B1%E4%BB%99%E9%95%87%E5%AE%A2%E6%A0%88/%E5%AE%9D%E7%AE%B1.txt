@@ -1,0 +1,9 @@
+//打开宝箱
+
+	PlaySound("物_箱子开.wav");
+	OpenBox();
+	AddGoods("Goods209_玄参方.ini");
+	Sleep(600);
+	AddGoods("Goods042_蝉翼纱衣.ini");
+	SetObjScript("","");
+	Return;

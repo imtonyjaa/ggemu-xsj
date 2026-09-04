@@ -1,0 +1,3 @@
+		Talk(41540,41540);
+		BuyGoods("6-稻香村-药铺老板.ini");
+		Return;

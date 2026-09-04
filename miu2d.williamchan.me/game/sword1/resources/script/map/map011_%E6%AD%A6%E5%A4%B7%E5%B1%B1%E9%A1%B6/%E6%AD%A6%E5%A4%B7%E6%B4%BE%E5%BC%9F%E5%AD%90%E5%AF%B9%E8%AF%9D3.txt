@@ -1,0 +1,20 @@
+// 武夷派弟子对话3
+
+	GetRandNum($Talkwuyidizi,0,3);
+	If ($Talkwuyidizi == 0) @Talk0;
+	If ($Talkwuyidizi == 1) @Talk1;
+	If ($Talkwuyidizi == 2) @Talk2;
+	If ($Talkwuyidizi == 3) @Talk3;
+
+@Talk0:
+	Say("武夷派弟子：传说本派数十年前发生了一场巨变，江湖上很多高手都在那场巨变中丧身。", 0);
+	Return;
+@Talk1:	
+	Say("武夷派弟子：听说禁地和五色教有些关联，可惜谁也不能进去看看。", 0);
+	Return;
+@Talk2:
+	Say("武夷派弟子：好像后面的禁地和十年前的一场巨变有关，师傅禁止我们接近那个地方，还派了个师兄把守禁地的入口。", 0);	
+	Return;
+@Talk3:
+	Say("武夷派弟子：你如果想问我关于禁地的事情，我是不会告诉你的，这是本派的秘密。", 0);
+	Return;

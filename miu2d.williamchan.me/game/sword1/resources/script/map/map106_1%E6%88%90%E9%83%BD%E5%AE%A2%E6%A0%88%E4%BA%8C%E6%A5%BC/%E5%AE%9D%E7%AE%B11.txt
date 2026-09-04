@@ -1,0 +1,15 @@
+//打开宝箱
+
+	If ($Openbox2 == 1) @Open1;
+	
+	PlaySound("物_箱子开.wav");
+	OpenBox();
+	Say("箱子里空空如也");
+	Assign($Openbox2, 1);
+	Return;
+	
+@Open1:
+	Say("箱子里似乎有一层暗格……");
+	AddGoods("Goods060_三因剑.ini");
+	SetObjScript("","");
+	Return;

@@ -1,0 +1,5 @@
+	Talk(416, 416);
+	EnableNpcAI();
+    Assign($Event, 45);
+    Add($wangwei01, 1);
+	Return();

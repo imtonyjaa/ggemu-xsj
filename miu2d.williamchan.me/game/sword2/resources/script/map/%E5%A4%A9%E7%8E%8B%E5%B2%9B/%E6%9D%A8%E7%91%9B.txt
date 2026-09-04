@@ -1,0 +1,13 @@
+
+
+		Talk(35460,35490);
+		Talk(35530,35540);
+		Talk(35550,35590);
+		NpcGoto("杨瑛",47,83);
+		NpcGoto("杨瑛",45,90);
+		NpcGoto("杨瑛",38,77);
+		DelNpc("杨瑛");
+		AddNpc("杨瑛独孤剑.ini",20,56,7);
+		SaveNpc();
+		AddMagic("player-magic-洗髓经.ini");
+		Return;

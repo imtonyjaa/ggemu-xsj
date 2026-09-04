@@ -1,0 +1,62 @@
+// 与临安城居民孙老太的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	If ($Talksunlaotai1 == 0) @Talk0;
+	If ($Talksunlaotai1 == 1) @Talk1;
+	If ($Talksunlaotai1 == 2) @Talk2;
+	If ($Talksunlaotai1 == 3) @Talk3;
+	If ($Talksunlaotai1 == 4) @Talk4;
+	
+@Talk0:
+	Say("孙老太：这里的段铁匠有两样宝贝，你猜猜是什么？", 0);
+	Assign($Talksunlaotai1, 1);
+	Return;
+@Talk1:	
+	Say("孙老太：你不是本地人吧？连段铁匠的宝贝都说不出来。", 0);
+	Assign($Talksunlaotai1, 2);
+	Return;
+@Talk2:	
+	Say("孙老太：我就告诉你吧，一个宝贝是他搜集的一把宝剑，还有一个宝贝就是他的那个女儿。", 0);
+	Assign($Talksunlaotai1, 3);
+	Return;	
+@Talk3:	
+	Say("孙老太：这老家伙非常小气，尤其是对他的宝贝女儿，平日里碰也不许别人碰。", 0);
+	Assign($Talksunlaotai1, 4);
+	Return;		
+@Talk4:	
+	Say("孙老太：真奇怪，那个老家伙怎么会生出那么漂亮的一个宝贝女儿来的。", 0);
+	Return;	
+	
+	
+@YuanDan:	
+
+	If ($Talksunlaotai1 == 0) @Talk0YD;
+	If ($Talksunlaotai1 == 1) @Talk1YD;
+	If ($Talksunlaotai1 == 2) @Talk2YD;
+	If ($Talksunlaotai1 == 3) @Talk3YD;
+	If ($Talksunlaotai1 == 4) @Talk4YD;
+	
+@Talk0YD:
+	Say("孙老太：小伙子，新年好啊！这里的段铁匠有两样宝贝，你猜猜是什么？", 0);
+	Assign($Talksunlaotai1, 1);
+	Return;
+@Talk1YD:	
+	Say("孙老太：你不是本地人吧？连段铁匠的宝贝都说不出来。", 0);
+	Assign($Talksunlaotai1, 2);
+	Return;
+@Talk2YD:	
+	Say("孙老太：我就告诉你吧，一个宝贝是他搜集的一把宝剑，还有一个宝贝就是他的那个女儿。", 0);
+	Assign($Talksunlaotai1, 3);
+	Return;	
+@Talk3YD:	
+	Say("孙老太：这老家伙非常小气，尤其是对他的宝贝女儿，平日里碰也不许别人碰。", 0);
+	Assign($Talksunlaotai1, 4);
+	Return;		
+@Talk4YD:	
+	Say("孙老太：真奇怪，那个老家伙怎么会生出那么漂亮的一个宝贝女儿来的。", 0);
+	Return;			

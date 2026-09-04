@@ -1,0 +1,8 @@
+	If ($Event == 110 ) @Talk;
+	Talk(21260, 21260);
+	Goto @end;
+@Talk:
+	Talk(20471, 20474);
+	Goto @end;
+@end:
+	Return;

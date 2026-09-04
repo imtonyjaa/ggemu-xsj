@@ -1,0 +1,28 @@
+// 和小灵的对话
+
+	If ($Event == 280) @Event280;
+
+	GetRandNum($Talkxiaolin,0,1);
+	If ($Talkxiaolin == 0) @Talk0;
+	If ($Talkxiaolin == 1) @Talk1;	
+@Talk0:	
+	Say("小灵：大人说，不要惹你们这些背剑的人。", 0);
+	Return;
+@Talk1:
+	Say("小灵：那些金人真坏，妈妈说，就是因为那些金人，我们才没有饭吃。", 0);
+	Return;
+
+
+@Event280:
+	DelNpc("小雷");
+	DelNpc("段芙蓉");
+	SaveNpc();
+	GetRandNum($Talkxiaolin280,0,1);
+	If ($Talkxiaolin280 == 0) @Talk2;
+	If ($Talkxiaolin280 == 1) @Talk3;
+@Talk2:	
+	Say("小灵：大人说，不要惹你们这些背剑的人。", 0);
+	Return;
+@Talk3:
+	Say("小灵：那些金人真坏，妈妈说，就是因为那些金人，我们才没有饭吃。", 0);
+	Return;

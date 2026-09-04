@@ -1,0 +1,20 @@
+	If ($Event == 3020) @Talk3020;
+	If ($Event == 425) @Event425;
+
+	@Event425:
+		If ($NaLanZhenSense >= 20) @AddSenseEnd;
+			Add($SenseVal, 5);
+			Add($NaLanZhenSense, 5);
+		@AddSenseEnd:
+		Say("杨影枫：真儿，你累了吗？", 2);
+		Say("纳兰真：不累，我们还是先去禁地吧，爹在那里等着我们。", 9);
+		Goto @end;
+
+	@Talk3020:
+		Say("杨影枫：你还记得我们在一起的日子吗？在忘忧岛，那是我最快乐的时光，你是我最喜欢的人。", 2);
+		Say("纳兰真：记得呀……", 10);
+		Return;
+
+
+@end:
+	Return;

@@ -1,0 +1,48 @@
+//倪二哥
+If ($Result == 0) @Result0;
+If ($Result == 1) @Result1;
+If ($Result == 2) @Result2;
+If ($Result == 3) @Result3;
+Goto @end;
+
+@Result0:
+If ($Event == 185 ) @Talk3;
+If ($Event << 360 ) @Talk1;
+If ($Event >= 360 ) @Talk2;
+Goto @end; 
+
+@Result1:
+Talk(20680, 20680);
+Goto @end;
+
+
+@Result2:
+Talk(20680, 20680);
+Goto @end;
+
+@Result3:
+Talk(20680, 20680);
+Goto @end;
+
+
+@Talk1:
+Talk(20680, 20680);
+Goto @end;
+
+
+@Talk2:
+If ($Event >= 380) @TalkA380;
+Talk(40460, 40460);
+Goto @end;
+
+@TalkA380:
+Talk(40660,40660);
+Goto @end;
+
+@Talk3:
+Talk(20350, 20354);
+Goto @end;
+
+@end:
+Return;
+

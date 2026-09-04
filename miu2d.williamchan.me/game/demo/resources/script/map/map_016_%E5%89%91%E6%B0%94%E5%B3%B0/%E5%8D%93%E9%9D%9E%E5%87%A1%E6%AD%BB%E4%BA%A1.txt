@@ -1,0 +1,102 @@
+	
+	If ($Event == 494) @Label1;
+
+	Goto @end;
+	
+@Label1:
+	FadeOut();
+	StopMusic();
+	DelNpc("卓非凡"); 
+	ClearBody();
+    AddNpc("卓非凡.ini", 14, 36, 1);
+    SetPlayerPos(13, 37);
+    SetPlayerDir(5); 
+    SetPlayerState(0);
+    SetPlayerScn();
+	SetNpcKind("杨影枫", 1);
+	SetNpcKind("卓非凡", 2);
+	FullLife();
+	SetNpcKind("卓非凡", 1);
+	SetNpcKind("杨影枫", 2);
+	EnableFight();
+	EnableNpcAI();
+	Sleep(200);
+	ClearBody();
+	SetNpcRelation("卓非凡", 2);
+	SetNpcScript("卓非凡", "卓非凡对话.txt");
+	SetNpcActionFile("卓非凡", 1, "npc009_st.asf");
+	Watch("杨影枫","ALLNPC",X);
+	FadeIn();
+
+	Talk(8670, 8700);
+	PlayerGoto(13, 43);
+	NpcGoto("卓非凡", 13, 41);
+	SetNpcRelation("卓非凡", 1);
+	NpcSpecialAction("卓非凡", "npc009_at.asf");
+	Sleep(500);
+	NpcSpecialAction("杨影枫", "mpc107.asf");
+	Sleep(1000);
+	PlaySound("mpc107.wav");
+	DisableNpcAI();
+	SetNpcAction("卓非凡", 11, 0, 0);
+	Sleep(200);
+	Say("卓非凡：啊！……", 36);
+	Sleep(200);
+	Talk(8710, 8710);
+	Talk(8720, 8750);
+	Say("紫轩：……", 19);
+	Assign($Event, 496);
+
+	FadeOut();
+	SetPlayerPos(12, 39);
+	SetPlayerDir(4);
+	FadeIn();
+	
+	Say("紫轩：……李四，咱们……走吧。", 19);
+	NpcGotoEx("紫轩", 12, 38);
+    NpcGotoEx("李四", 6, 53);     
+    NpcGotoEx("藏剑山庄家丁1", 6, 56); 
+    NpcGotoEx("藏剑山庄家丁3", 6, 57); 
+    NpcGotoEx("藏剑山庄家丁5", 6, 55); 
+    NpcGotoEx("藏剑山庄家丁2", 7, 55); 
+	NpcGoto("藏剑山庄家丁4", 8, 54);
+	DelNpc("李四");
+	DelNpc("藏剑山庄家丁1");
+	DelNpc("藏剑山庄家丁3");
+	DelNpc("藏剑山庄家丁5");
+	DelNpc("藏剑山庄家丁2");
+	DelNpc("藏剑山庄家丁4");	
+	Sleep(500);
+	SetNpcDir("紫轩", 7);
+	Say("紫轩：……", 19);   
+ 	Say("杨影枫：……", 2);
+ 	NpcGoto("紫轩", 9, 53); 
+	DelNpc("紫轩");
+	
+	PlayerGoto(12, 36);
+	SetPlayerDir(2);
+	SetNpcDir("天星道长", 6);
+	NpcSpecialAction("杨影枫", "mpc108.asf");
+	Sleep(2000);
+	Talk(8760, 8800);
+
+	FadeOut();
+	PlayMusic("mc027.mp3");
+	SetPlayerPos(24, 18);
+	SetPlayerDir(6);
+	SetNpcPos("天星道长",25, 18);
+	SetNpcDir("天星道长"，2);
+	
+	SetMapPos(20, 4);
+	Sleep(200);
+	Watch("杨影枫","ALLNPC",X);
+	FadeIn();
+
+    SetNpcRelation("天星道长", 1);
+    EnableFight();
+	EnableNpcAI();
+	Assign($Event, 498);
+
+	
+@end:
+	Return;

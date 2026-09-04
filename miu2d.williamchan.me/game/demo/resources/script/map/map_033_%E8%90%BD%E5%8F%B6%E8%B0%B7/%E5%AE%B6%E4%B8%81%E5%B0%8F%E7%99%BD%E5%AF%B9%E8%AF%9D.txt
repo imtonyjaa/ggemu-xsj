@@ -1,0 +1,101 @@
+	If ($Event == 3120) @TalkE3120;
+	If ($Event == 3122) @TalkE3122;
+	If ($Event == 1818) @1818;
+	If ($Result == 0)  @Result0;
+	If ($Result == 1)  @Result1;
+	If ($Event >= 1810)  @1810;
+	If ($Event >= 1800)  @1800;
+	If ($Result == 2)  @Result2;
+	If ($Result == 3)  @Result3;
+	Goto @end;
+
+@1818:
+	Say("家丁小白：杨公子，今天怎么有功夫来落叶谷，是不是想蔷薇小姐了。");
+	Say("杨影枫：不是，我来找你们老爷有事。");
+	Return;
+
+@1810:
+	Say("家丁小白：杨公子，唉……小姐能找到你这样的人才，我真替她高兴，我只有默默的祝福你们啦。");
+	Say("杨影枫：我将你的心事告知她如何？");
+	Say("家丁小白：不，杨公子，千万不要，我配不上她，我会在心里默默的为她祈福！");
+	Say("杨影枫：那随你吧。");
+	Return;
+
+@1800:
+	Say("家丁小白：小姐不在的那几天我担心死啦，其实……我心里一直都很喜欢小姐，可是……我配不上她。");
+	Say("杨影枫：哦！……");
+	Return;
+
+@Result0:
+	Talk(22110, 22110);
+	Goto @end;
+
+@Result1:
+	If ($Event == 574) @Event574;
+	If ($Event ==591 ) @TalkA591;
+	Talk(22110, 22110);
+	Goto @end;
+
+@Result2:
+	Talk(22110, 22110);
+	Goto @end;
+
+@Result3:
+	If ($Event <= 870) @EventL870;
+	If ($Event <= 930) @EventL930;
+
+	GetRandNum($GanTalk, 5, 6);
+	If ($GanTalk == 5) @GanTalk35;
+	If ($GanTalk == 6) @GanTalk36;
+	@GanTalk35:
+		Say("小白：公子，你能不能带我出谷去闯荡江湖，我很向往侠客的生活。");
+		Say("杨影枫：对不起，我有些俗务缠身，恐怕不能如你所愿。", 2);
+		Goto @end;
+	@GanTalk36:
+		Say("系统消息：小白：听说《武道德经》是一本武学奇书，公子有没有看过？");
+		Say("系统消息：杨影枫：……", 2);
+		Goto @end;
+	Goto @end;
+	
+	@EventL870:
+		GetRandNum($GanTalk, 1, 2);
+		If ($GanTalk == 1) @GanTalk31;
+		If ($GanTalk == 2) @GanTalk32;
+		@GanTalk31:
+			Talk(22110, 22110);
+			Goto @end;
+		@GanTalk32:
+			Say("小白：公子，我们小姐以前都不把那些少年侠客放在眼里，不过她对你好像很特别哦。");
+			Say("杨影枫：……", 2);
+			Goto @end;
+		Goto @end;
+
+	@EventL930:
+		GetRandNum($GanTalk, 3, 4);
+		If ($GanTalk == 3) @GanTalk33;
+		If ($GanTalk == 4) @GanTalk34;
+		@GanTalk33:
+			Say("小白：小姐经常出去狩猎……不过大都是空手而归，这不，好几天了，都没看到带什么猎物回来。");
+			Goto @end;
+		@GanTalk34:
+			Say("小白：其实我对打猎很在行啊，可惜小姐不知道。");
+			Goto @end;
+		Goto @end;
+
+	Goto @end;
+
+@TalkA591:
+	Talk(60580,60590);
+	Goto @end;
+	
+@TalkE3120:
+@TalkE3122:
+	Talk(103440,103440);
+	Return;
+	
+@Event574:
+	Say("小白：公子，我们小姐以前都不把那些少年侠客放在眼里，不过她对你好像很特别哦。");
+	Return;	
+@end:
+	Return;
+

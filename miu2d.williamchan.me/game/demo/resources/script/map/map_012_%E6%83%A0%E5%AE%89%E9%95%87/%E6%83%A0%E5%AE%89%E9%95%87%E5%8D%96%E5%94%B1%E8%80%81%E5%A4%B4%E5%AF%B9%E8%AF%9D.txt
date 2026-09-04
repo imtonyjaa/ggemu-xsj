@@ -1,0 +1,30 @@
+
+	If ($Event == 146) @Event146;
+	Say("卖唱老头：公子，要听曲儿吗？小女唱曲儿可是远近闻名的啊！");
+	Say("杨影枫：谢谢，我还有事，不听了。", 3);
+	Return;
+@Event146:
+	Choose("还要听一遍吗？", "听。", "不听。", $SingASong);	
+	If ($SingASong == 0) @SingASong0;
+	If ($SingASong == 1) @SingASong1;
+@SingASong0:
+	Say("杨影枫：好啊，紫轩，我们再听一遍吧！", 3);
+	Say("紫轩：好歌百听不厌呢！", 16);
+	GetMoneyNum($SongMoney);
+	If ($SongMoney >= 1) @StartSing;
+	If ($SognMoney == 0) @NoMoneyNoSing;
+	@StartSing:
+		AddMoney(-1);
+		StopMusic();
+		PlayMovie("sing.avi");
+		Say("杨影枫：多谢姑娘的歌声！紫轩，我们走吧。", 3);
+		PlayMusic("mc003.mp3");
+		Return;
+	@NoMoneyNoSing:
+		Say("杨影枫：哎呀，不好意思，我的钱花玩了，下次吧。", 2);
+		Return;
+@SingASong1:
+	Say("杨影枫：谢谢，我还有事，不听了。", 3);
+	Return;
+
+	

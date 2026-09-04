@@ -1,0 +1,166 @@
+	If ($Event == 1819) @1819;
+	If ($Event == 1818) @1818;
+	If ($Event == 1806) @1805;
+	If ($Event == 1805) @1805;
+	If ($Event == 1804) @1804;
+	If ($Event == 1803) @1803;
+	If ($Event == 1800) @1800;
+	If ($Event == 3120) @Evt3120;
+	If ($Event == 3185) @Talk3185;
+	If ($Result == 0) @Result0;
+	If ($Result == 1) @Result1;
+	If ($Result == 2) @Result2;
+	If ($Result == 3) @Result3;
+	Return;
+
+@1819:
+	Say("侍女可意：公子，这不是落叶谷的蔷薇小姐吗？");
+	Say("杨影枫：不错。");
+	Say("侍女可意：真儿姑娘呢？");
+	Say("杨影枫：她在忘忧岛养伤。");
+	Return;
+
+@1818:
+	Say("侍女可意：公子，你回来了，真儿姑娘找到了吗？");
+	Say("杨影枫：已经找到了。");
+	Say("侍女可意：太好了，真儿姑娘怎么没有和你一起回来呢？");
+	Say("杨影枫：她在忘忧岛养伤。");
+	Return;
+
+@1805:
+	Say("侍女可意：公子对真儿姑娘真是太好了，我们不知哪辈子才能修来这样的福气。");
+	Say("杨影枫：我对你不是也挺好吗？",3);
+	Say("侍女可意：公子，别开玩笑了，我们这些下人怎么能跟真儿姑娘相提并论呢？");
+	Return;
+
+@1804:
+	Say("侍女可意：公子，找到真儿姑娘了吗？");
+	Say("杨影枫：还没有。");
+	Return;
+	
+@1803:
+	Say("侍女可意：公子，你回来了，找到真儿姑娘了吗？");
+	Say("杨影枫：还没有。");
+	Say("侍女可意：公子，你走了不久，来了一个人自称是飞龙堡的人，他告诉说真儿现在飞龙堡，如果要人就那什么《道德经》去换。");
+	Say("杨影枫：喔？那人呢？");
+	Say("侍女可意：他已经走了。");
+	Say("侍女可意：公子，飞龙堡是什么地方，他们为什么要绑架真儿姑娘呢？");
+	Say("杨影枫：这个我也不是很清楚（他们到底在玩什么把戏，为什么做了又不承认呢？）");
+	Say("侍女可意：公子，这位姑娘是谁呀？");
+	Say("杨影枫：这是武林盟主孟知秋的千金，蔷薇小姐。");
+	Say("侍女可意：奴婢见过蔷薇小姐");
+	Say("蔷薇：免礼，干嘛这么客气？");
+	Say("杨影枫：可意，你先回去吧，我要送蔷薇姑娘去回落叶谷。");
+	Say("侍女可意：是，公子。");
+	NpcGoto("侍女可意",54,209);
+	SetNpcPos("侍女可意",40,139);
+	SetMapTrap(1,"trap01.txt");
+	Assign($Event,1804);
+	Return;
+
+@1800:
+	Say("侍女可意：公子，纳兰小姐昨晚从偏门出去散步，到现在还没有回来，公子快去找找吧。");
+	Say("杨影枫：我现在就去找。",2);
+	Say("侍女可意：菩萨保佑，真儿姑娘千万别出什么事情。");
+	SetMapTrap(1,"trap01.txt");
+	SetMapTrap(5,"trap05.txt");
+	SetMapTrap(6,"trap06.txt");
+	Return;
+
+@Result0:
+	If ($Event == 475) @Label1;
+	If ($Event == 485) @Label2;
+	If ($Event == 490) @Label3;
+	If ($Event == 492) @Label4;
+	If ($Event == 500) @Label5;
+	If ($Event == 530) @Label6;
+	If ($Event == 562) @Label2;
+
+	Talk(21740, 21740);
+	Return;
+@Label1:
+	Talk(21740, 21740);
+	Return;
+@Label2:
+	Talk(21741, 21741);
+	Return;
+@Label3:
+	Talk(21742, 21742);
+	Return;
+@Label4:
+	Talk(21743, 21743);
+	Return;
+@Label5:
+	Talk(21744, 21744);
+	Return;
+@Label6:
+	Talk(21745, 21745);
+	Return;
+	
+	
+@Result1:
+	//If ($Event == 700) @Talk700;
+	//If ($Event >= 650) @TalkA650;
+	If ($Event == 600) @EventE600;
+	Talk(21740, 21740);
+	Return;
+
+@Result2:
+	If ($Event ==	767) @TalkE767;
+
+	If ($Event >= 750) @TalkA750;
+	If ($Event >= 720) @TalkA720;
+	Talk(21740, 21740);
+	Return;
+
+@Result3:
+	If ($Event >= 990) @Event990;
+
+	GetRandNum($KeyiTalk, 1, 2);
+	If ($KeyiTalk == 1) @KeyiTalk31;
+	If ($KeyiTalk == 2) @KeyiTalk32;
+	@KeyiTalk31:
+		Talk(80120, 80130);
+		Return;
+	@KeyiTalk32:
+		Talk(21740, 21740);
+		Return;
+
+	@Event990:
+		Talk(21740, 21740);
+		Return;
+
+	Return;
+	
+@EventE600:
+	Talk(60620,60620);
+	Return;
+	
+@TalkA650:
+	Talk(61180,61180);
+	Return;	
+@Talk700:
+	Talk(61580,61580);
+	Return;	
+	
+@TalkA720:
+	Talk(71020,71030);
+	Return;
+@TalkA750:
+	Talk(71900,71900);
+	Return;
+	
+@TalkE767:
+	Talk(72010,72010);
+	Return;
+
+@Evt3120:
+	Talk(103050,103050);
+	Return;
+
+@Talk3185:
+	Talk(103900,103900);
+	Return;	
+
+@end:
+	Return;

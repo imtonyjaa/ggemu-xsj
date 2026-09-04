@@ -1,0 +1,139 @@
+	If ($Event == 3185) @Talk3185;
+	If ($Event == 1819) @1819;
+	If ($Event == 1818) @1818;
+	If ($Event == 1806) @1806;
+	If ($Event == 1805) @1805;
+	If ($Event == 1804) @1804;
+	If ($Event == 1800) @1804;
+	If ($Event == 3120) @Evt3120;
+	If ($Result == 0) @Result0;
+	If ($Result == 1) @Result1;
+	If ($Result == 2) @Result2;
+	If ($Result == 3) @Result3;
+	Return;
+
+@1819:
+	Say("侍女可心：公子，你最近总是在四处奔波，要注意休息哦，别累坏了身子。");
+	Return;
+	
+@1818:
+	Say("侍女可心：公子，你怎么才回来，你不在的时候让我担心死了。");
+	Return;
+
+@1806:
+	Say("侍女可心：公子，你又要出去了。");
+	Return;
+
+@1805:
+	Say("侍女可心：公子，你回来了。");
+	Return;
+
+@1804:
+	Say("侍女可心：公子，你最近好像不太开心，要不要我陪你下盘棋解解闷。");
+	Say("杨影枫：不用了。");
+	Return;
+		
+@Result0:
+	If ($Event == 475) @Label1;
+	If ($Event == 520) @Label2;
+	If ($Event == 485) @Label3;
+	If ($Event == 490) @Label4;
+	If ($Event == 492) @Label5;
+	If ($Event == 500) @Label6;
+	If ($Event == 530) @Label7;
+	If ($Event == 562) @Label3;
+
+	Talk(21730, 21730);
+	Return;
+@Label1:
+	Talk(21730, 21730);
+	Return;
+@Label2:
+	RunScript("事件53_1.txt");
+	Return;
+@Label3:
+	Say("侍女可心：公子回来了？", 0);
+	Return;
+@Label4:
+	Say("侍女可心：公子早上好！", 0);
+	Return;
+@Label5:
+	Say("侍女可心：祝公子马到成功！得偿宿愿！",0);
+	Return;
+@Label6:
+	Say("侍女可心：恭喜公子打败卓非凡，威震江湖！",	0);
+	Return;
+@Label7:
+	Say("侍女可心：公子一定会战胜孟知秋的！我相信你！",0);
+	Return;
+
+@Result1:
+	//If ($Event == 700) @Talk700;
+	//If ($Event >=650) @TalkA650;
+	If ($Event ==600) @TalkE600;
+	
+	Talk(21730, 21730);
+	Return;
+
+@Result2:
+	If ($Event ==	767) @TalkE767;
+	If ($Event >= 750) @TalkA750;
+	If ($Event >= 720) @TalkA720;
+	Talk(21730,21730);
+	Return;
+
+@Result3:
+	If ($Event >= 990) @Event990;
+
+	GetRandNum($KexinTalk, 1, 2);
+	If ($KexinTalk == 1) @KexinTalk31;
+	If ($KexinTalk == 2) @KexinTalk32;
+	@KexinTalk31:
+		Talk(80110, 80110);
+		Return;
+	@KexinTalk32:
+		Talk(21730,21730);
+		Return;
+
+	@Event990:
+		Talk(21730,21730);
+		Return;
+
+	Return;
+
+@TalkE600:
+	Talk(60610,60610);	
+	Return;
+
+@TalkA650:
+	Talk(61170,61170);
+	Return;
+
+@Talk700:
+	Talk(61570,61570);
+	Return;
+
+@TalkA720:
+	Talk(71010,71010);
+	Return;	
+
+@TalkA750:
+	Talk(71890,71890);
+	Return;	
+	
+
+@TalkE767:
+	Talk(72000,72000);
+	Return;
+	
+@Evt3120:
+	Talk(103040,103040);
+	Return;
+	
+@Talk3185:
+	Talk(103880,103890);
+	Return;
+	
+		
+@end:
+	Return;

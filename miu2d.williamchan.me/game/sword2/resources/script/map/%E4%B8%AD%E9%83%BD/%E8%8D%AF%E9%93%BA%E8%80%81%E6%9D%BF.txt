@@ -1,0 +1,3 @@
+	Talk(13420,13420);
+	BuyGoods("5-中都-药铺老板.ini");
+	Return;

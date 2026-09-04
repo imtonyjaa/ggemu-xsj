@@ -1,0 +1,290 @@
+// 秦桧死亡
+
+	If ($Result == 3) @End3;
+	If ($Result == 5) @End5;
+	
+@End3:
+	FadeOut();
+	StopMusic();
+	PlayMusic("前途.mp3");
+	SetPlayerPos(12, 12); 
+	SetPlayerDir(3);
+	AddNpc("npc105_宋将1.ini", 5, 24, 5);
+	AddNpc("npc060_1金兵箭兵.ini", 3, 23, 5);
+	AddNpc("npc060_1金兵箭兵.ini", 4, 24, 5);
+	AddNpc("npc060_1金兵箭兵.ini", 4, 25, 5);
+	AddNpc("npc060_1金兵箭兵.ini", 4, 27, 5);
+	AddNpc("npc060_1金兵箭兵.ini", 5, 28, 5);
+	AddNpc("npc060_1金兵箭兵.ini", 3, 24, 5);
+	AddNpc("npc060_1金兵箭兵.ini", 3, 25, 5);
+	AddNpc("npc060_1金兵箭兵.ini", 3, 27, 5);
+	AddNpc("npc060_1金兵箭兵.ini", 4, 28, 5);
+	AddNpc("npc060_1金兵箭兵.ini", 4, 29, 5);
+	ClearEffect();
+	FadeIn();
+	
+	Say("独孤剑：元帅，王将军他们已经前往营救其他众将军……",1);
+	Say("岳飞：岳飞一生精忠报国，一心只为收复中原，想不到……",58);
+	Say("独孤剑：朝廷昏庸怯懦，竟然自拔栋梁……",9);
+	Say("岳飞：这全是奸佞当道，才致圣听蒙蔽……",58);
+	Say("独孤剑：元帅，我们快离开这里！",1);
+	Say("岳飞：皇上英明，岳飞定要面承圣上，洗脱这不白之冤！",58);
+	Say("独孤剑：……",1);
+	DelNpc("岳飞");
+	AddNpc("npc015_岳飞.ini", 11, 10, 7);
+	NpcGoto("宋将1", 8, 18);
+	SetNpcDir("宋将1", 5);
+	SetNpcDir("岳飞",1);
+	SetPlayerDir(1);
+	
+	Say("军官：圣旨到，岳飞接旨！");
+	NpcGotoEx("岳飞",10,13);
+	PlayerGoto(11,15);
+	SetNpcDir("岳飞",1);
+	SetPlayerDir(1);
+	Say("岳飞：臣岳飞接旨……",58);
+	AddNpc("npc008_杨瑛.ini",13,34,4);
+	AddNpc("npc025_杨湖.ini",12,34,4);
+	AddNpc("npc021_王佐.ini",13,33,4);
+	
+	NpcGotoEx("杨瑛",13,24);
+	NpcGotoEx("杨湖",12,27);
+	NpcGoto("王佐",14,26);
+	SetNpcDir("杨瑛",3);
+	SetNpcDir("杨湖",3);
+	SetNpcDir("王佐",3);
+	
+	Say("王佐：元帅小心！",63);
+	Say("独孤剑：元帅！",6);
+	Say("军官：射箭！射箭！");
+	
+	//NpcAttack("金兵",10,14); //可能有问题
+	PlayerRunTo(10,14);
+	SetPlayerDir(1);
+	PlaySound("战_男伤06.wav");
+	SetNpcActionFile("独孤剑",0, "mpc411_1.asf");
+	SetNpcActionFile("独孤剑",1, "mpc411_1.asf");
+	NpcSpecialAction("独孤剑", "mpc411.asf");
+	Sleep(1000);
+
+	//StopMusic();
+	SetPlayerPos(10,14);
+	SetPlayerDir(1);
+	SetNpcActionFile("独孤剑",0, "mpc411_1.asf");
+	SetNpcActionFile("独孤剑",1, "mpc411_1.asf");
+	NpcGoto("杨瑛", 11, 18);
+	SetNpcDir("杨瑛", 3);
+	Say("杨瑛：不要——独孤大哥！你不要死！！！",42);
+	Say("杨瑛：为什么？！为什么会这样！！为什么啊——",42);
+	Say("独孤剑：……",10);
+	Sleep(3000);
+	
+	FadeOut();
+	StopMusic();
+	PlayMusic("夜色.mp3");
+	Sleep(1500);
+	LoadMap("map102_后花园和小树林.map");
+	ChangeMapColor(0, 0, 0);
+	LoadNpc("map102.npc");
+	LoadObj("map102.obj");
+	PlayerChange(3);
+	SetPlayerPos(10, 6);
+	SetPlayerDir(5);
+	SetNpcKind("杨瑛", 2); 
+	DelNpc("独孤剑");
+	AddNpc("npc001_独孤剑.ini", 17, 14, 2);
+	SetNpcKind("独孤剑", 1);	
+	Sleep(1000);
+	HideInterface();
+	FadeIn();
+
+	Sleep(1000);
+	Say("独孤剑死后，杨瑛黯然回到天王帮，日日夜夜，眼前无法抹去的是独孤剑昔日的身影……");
+	Sleep(1000);
+	SetPlayerDir(7);
+	Sleep(1000);
+	Say("杨瑛：啊！",39);
+	PlayerGoto(14,14);
+	SetPlayerDir(6);
+	
+	Say("杨瑛：独孤大哥！是你吗……",39);
+	PlayerGotoEx(15,14);
+	NpcGoto("独孤剑",16,14);
+	SetPlayerDir(6);
+	SetNpcDir("独孤剑",2);
+	Sleep(1000);
+	FadeOut();
+	
+	SetNpcKind("杨瑛",1);
+	SetNpcActionFile("杨瑛",0,"mpc410.asf");
+	SetNpcActionFile("杨瑛",1,"mpc410.asf");
+	SetNpcPos("杨瑛",0,0);
+	DelNpc("独孤剑");
+	AddNpc("结局3.ini",15,14,0);
+	
+	FadeIn();
+	Sleep(1200);
+	Say("杨瑛：独孤大哥……",39);
+	Say("独孤剑：阿瑛……",1);
+	Sleep(1500);
+	
+	SetNpcPos("杨瑛",15,14);
+	SetNpcDir("杨瑛",6);
+	DelNpc("结局3");
+	SetNpcKind("杨瑛",2);
+	Sleep(2500);
+	SetNpcDir("杨瑛",4);
+	SetNpcActionFile("杨瑛", 0, "npc008_st.asf");
+	SetNpcActionFile("杨瑛", 1, "npc008_pst.asf");
+	Say("杨瑛：独孤大哥……",39);
+	Sleep(1400);
+	
+	PlayerGoto(14,11);
+	SetPlayerDir(4);
+	Sleep(1200);
+	Say("杨瑛：独孤大哥……",39);
+	Sleep(8000);
+	FadeOut();
+	ShowInterface();
+	StopMusic();
+	PlayMovie("over.avi", 0, 0, 0);
+	FreeMap();
+	ReturnToTitle();
+	Return;
+				
+		
+@End5:
+	If ($qinhuidie == 1) @end;
+	
+	Assign($qinhuidie, 1);	
+	FadeOut();
+	StopMusic();
+	Say("秦桧：老夫数十年心血……啊——", 94);
+	Sleep(500);
+	Say("宋兵：啊！秦……秦相爷死了！快跑呀——", 0);
+	
+	DelNpc("宋兵");
+	DelNpc("张如梦");
+	DelNpc("南宫彩虹");
+	DelNpc("杨瑛");
+	DelNpc("秦桧");
+	DelObj("张如梦尸体");
+	DelObj("南宫彩虹尸体");
+	DelObj("杨瑛尸体");
+	DelObj("秦桧尸体");
+	SaveObj();	
+	
+	SetPlayerPos(13, 14);
+	SetPlayerDir(7);
+	SetPlayerState(0);
+	ClearEffect();
+	SetNpcKind("张琳心", 1);
+	SetNpcPos("张琳心", 13, 16);
+	SetNpcDir("张琳心", 4);
+	SetNpcRelation("张琳心", 2);
+	AddNpc("npc002_张如梦.ini", 13, 15, 3);
+	AddNpc("npc005_南宫彩虹.ini", 14, 14, 2);
+	AddNpc("npc008_杨瑛.ini", 13, 13, 0);
+	AddNpc("npc073_莫须有秦桧.ini", 11, 18, 5);
+	SetNpcActionFile("秦桧", 0, "npc073_body.asf");
+	SetNpcActionFile("秦桧", 1, "npc073_body.asf");
+	SetNpcMagicFile("秦桧", "magic061_莫须有.ini");
+	ClearEffect();
+	FadeIn();
+	
+	Say("独孤剑：秦老贼已死，大家都没事吧？", 1);
+	Say("张如梦：只是受了点伤，没事。", 11);
+	Say("独孤剑：那好，张大哥、南宫姑娘、杨姑娘、琳儿，你们赶紧去和王将军等人汇合，帮助他们清除秦老贼残余的同党，我救下岳元帅，随后赶来。",1);
+	Say("张如梦：也好。", 11);
+	NpcGotoEx("张如梦", 17, 9);
+	NpcGotoEx("南宫彩虹", 17, 8);
+
+	Watch("独孤剑", "杨瑛", 0);
+	Say("杨瑛：杨大哥，那——我们先去了。", 39);
+	Say("独孤剑：嗯！", 2);
+	NpcGotoEx("杨瑛", 18, 10);
+
+	Watch("独孤剑", "张琳心", 0);
+	Say("张琳心：独孤哥哥，你要尽快来与我们汇合呀。", 21);
+	Say("独孤剑：放心，我很快就会赶来。", 2); 
+	NpcGoto("张琳心", 18, 12);
+	DelNpc("张如梦");
+	DelNpc("南宫彩虹");
+	DelNpc("杨瑛");
+	DelNpc("张琳心");
+	
+	SetPlayerDir(3);
+	Say("独孤剑：岳元帅，你没事吧，我这就来救你。", 2);
+	Say("岳飞：有劳少侠！", 58);
+	PlayerGoto(12, 12);
+	SetPlayerDir(3);
+	SetPlayerDir(3);
+	
+	Say("秦桧：你——去死吧！", 94);
+	SetNpcActionFile("秦桧", 0, "npc073_st.asf");
+	SetNpcActionFile("秦桧", 1, "npc073_pst.asf");
+	NpcSpecialAction("秦桧", "mpc414.asf");
+	Sleep(300);
+
+	SetPlayerDir(1);
+	NpcAttack("秦桧", 12, 12);
+	Sleep(3000);
+
+	PlaySound("战_男伤06.wav");
+	SetNpcActionFile("独孤剑", 0, "mpc415_2.asf");
+	SetNpcActionFile("独孤剑", 1, "mpc415_2.asf");
+	NpcSpecialAction("独孤剑", "mpc415_1.asf");
+	Sleep(1500);
+	ChangeLife("独孤剑",50);
+	ChangeThew("独孤剑",50);
+	ChangeMana("独孤剑",50);
+	Say("独孤剑：啊？！——你还没死？！", 10);	
+	Say("秦桧：哼！要我死？没那么容易！现在知道我“莫须有”神功的厉害了吧？哈哈哈哈——", 94);
+	Sleep(500);
+	Say("岳飞：独孤少侠！你没事吧？", 58);
+	Say("独孤剑：我……我没事。", 10);
+	NpcGoto("秦桧", 11, 14);
+	SetNpcDir("秦桧", 4);
+	Say("秦桧：哼！岳飞老儿，你到底还是要死在我手上！哈哈哈哈——", 94);
+	Say("岳飞：死有何惧！只是……连累了独孤少侠。", 58);
+	Sleep(500);
+	PlayMusic("北伐.mp3");
+	Say("岳飞：怒发冲冠，凭阑处，潇潇雨歇。抬望眼，仰天长啸，壮怀激烈。", 58);
+	Say("岳飞：三十功名尘与土，八千里路云和月。莫等闲、白了少年头，空悲切。", 58);
+	Say("岳飞：靖康耻，犹未雪。臣子恨，何时灭！驾长车，踏破贺兰山缺。", 58);
+	Say("岳飞：壮志饥餐胡虏肉，笑谈渴饮匈奴血。待从头收拾旧山河，朝天阙。", 58);
+	Say("岳飞：哈哈哈哈！", 58);
+	Sleep(1000);
+	Say("独孤剑：三十功名尘与土，八千里路云和月……壮志饥餐胡虏肉，笑谈渴饮匈奴血……", 10);
+	Say("独孤剑：满江红……满江红！我明白了！", 1);
+	
+	SetNpcActionFile("独孤剑", 0, "npc001_st.asf");
+	SetNpcActionFile("独孤剑", 1, "npc001_sst.asf");
+	NpcSpecialAction("独孤剑", "mpc415_3.asf");
+	Sleep(1000);
+	
+	Watch("秦桧", "独孤剑", 0);
+	Say("秦桧：啊？你！", 94);
+	
+	DelMagic("magic004_灵剑幻花.ini");
+	AddMagic("magic满江红.ini", 1);
+	MoveMagic("magic满江红.ini", 3); 
+	SetNpcMagicFile("独孤剑", "magic满江红.ini");
+	
+	Say("独孤剑领悟到词中意境，结合“灵剑幻花”的武功，新创了一门武功——“满江红”！");
+	AddExp(40000);
+	FullLife();
+	FullThew();
+	FullMana();
+	
+	Say("独孤剑：秦老贼！我就用新领悟的这招“满江红”来领教领教你的“莫须有” ！", 5);
+	Say("秦桧：啊？满江红！", 94);
+	Say("独孤剑：不错！满江红！", 5);
+	SetNpcRelation("秦桧", 1);
+	SetPlayerState(1);
+	SetNpcDeathScript("独孤剑", "主角死亡.txt");
+	SetNpcDeathScript("秦桧", "秦桧死亡2.txt");
+	Return;
+	
+@end:	
+	Return;

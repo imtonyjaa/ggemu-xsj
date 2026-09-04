@@ -1,0 +1,52 @@
+// 与临安城居民何方正的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	If ($Talkhefangzh1 == 0) @Talk0;
+	If ($Talkhefangzh1 == 1) @Talk1;
+	If ($Talkhefangzh1 == 2) @Talk2;
+	If ($Talkhefangzh1 == 3) @Talk3;
+		
+@Talk0:
+	Say("何方正：看他每下子都那么用力，不要脱手才好，否则伤了人还得给医药费。", 0);
+	Assign($Talkhefangzh1, 1);
+	Return;
+@Talk1:	
+	Say("何方正：可惜俺身上没有散钱，否则赏他两个又如何?", 0);
+	Assign($Talkhefangzh1, 2);
+	Return;
+@Talk2:	
+	Say("何方正：这位兄台，不如代我给几个赏钱。", 0);
+	Assign($Talkhefangzh1, 3);
+	Return;	
+@Talk3:	
+	Say("何方正：这年头要过生活也不容易啊。", 0);
+	Return;		
+	
+
+@YuanDan:	
+
+	If ($Talkhefangzh1 == 0) @Talk0YD;
+	If ($Talkhefangzh1 == 1) @Talk1YD;
+	If ($Talkhefangzh1 == 2) @Talk2YD;
+	If ($Talkhefangzh1 == 3) @Talk3YD;
+		
+@Talk0YD:
+	Say("何方正：新年好！", 0);
+	Assign($Talkhefangzh1, 1);
+	Return;
+@Talk1YD:	
+	Say("何方正：看他每下子都那么用力，不要脱手才好，否则伤了人还得给医药费。", 0);
+	Assign($Talkhefangzh1, 2);
+	Return;
+@Talk2YD:	
+	Say("何方正：可惜俺身上没有散钱，否则赏他两个又如何？这位兄台，不如代我给几个赏钱。", 0);
+	Assign($Talkhefangzh1, 3);
+	Return;	
+@Talk3YD:	
+	Say("何方正：这年头要过生活也不容易啊。", 0);
+	Return;		

@@ -1,0 +1,88 @@
+	If ($Event == 900) @Evt900;// 第2结局
+
+// 选择不管
+	If ($Event == 532) @Label1;
+// 选择收起捕兽夹
+	If ($Event == 534) @Label2;
+
+	Goto @end;
+	
+@Label1:
+	If ($SelectVal <> 0) @end;
+	
+	PlayerGoto(7, 122);
+	SetPlayerDir(7);
+	NpcGoto("李总管", 7, 123);
+	SetNpcDir("李总管", 3);
+	NpcSpecialAction("杨影枫", "mpc108.asf");
+	Sleep(2000);
+	Talk(9640, 9650);
+	SetNpcPos("家丁小黑", 9, 118);
+	NpcGoto("家丁小黑", 8, 122);
+	SetNpcDir("家丁小黑", 1);
+	SetNpcDir("李总管", 5);
+	Talk(9660, 9680);
+    NpcGoto("家丁小黑", 9, 118);
+	SetNpcPos("家丁小黑", 14, 100);
+	SetNpcDir("家丁小黑", 1);
+	Talk(9690, 9690);
+	SetNpcDir("李总管", 3);
+	Talk(9700, 9740);
+	NpcGoto("李总管", 8, 122);
+	SetNpcDir("李总管", 1);
+	Assign($Event, 535);
+	AddToMemo(90750);
+	SetNpcScript("李总管", "李总管对话.txt");
+	SetNpcScript("家丁阿甘", "家丁阿甘对话.txt");
+	SetNpcScript("家丁阿平", "家丁阿平对话.txt");
+	SetMapTrap(1, "Trap01.txt");
+	Goto @end;
+	
+@Label2:
+	If ($SelectVal <> 1) @end;
+	
+	PlayerGoto(7, 122);
+	SetPlayerDir(7);
+	NpcGoto("李总管", 7, 123);
+	SetNpcDir("李总管", 3);
+	NpcSpecialAction("杨影枫", "mpc108.asf");
+	Sleep(2000);
+	Talk(10050, 10060);
+	SetNpcPos("家丁小黑", 9, 118);
+	NpcGoto("家丁小黑", 8, 122);
+	SetNpcDir("家丁小黑", 1);
+	SetNpcDir("李总管", 5);
+	Talk(10070, 10090);
+    NpcGoto("家丁小黑", 9, 118);
+	SetNpcPos("家丁小黑", 14, 100);
+	SetNpcDir("家丁小黑", 1);
+	Talk(10100, 10100);
+	SetNpcDir("李总管", 3);
+	Talk(10110, 10150);
+	NpcGoto("李总管", 8, 122);
+	SetNpcDir("李总管", 1);
+	AddToMemo(90750);
+	SetNpcScript("李总管", "李总管对话.txt");
+	SetNpcScript("家丁阿甘", "家丁阿甘对话.txt");
+	SetNpcScript("家丁阿平", "家丁阿平对话.txt");
+	SetMapTrap(1, "Trap01.txt");
+	Assign($Event, 540);
+
+	Goto @end;
+	
+@end:
+	Return;
+	
+@Evt900:
+	PlayerRunTo(6,127);
+	SetPlayerDir(5);
+	Sleep(1000);
+	SetPlayerDir(3);
+	Sleep(1000);
+	SetPlayerDir(7);
+	Sleep(1000);
+	SetPlayerDir(5);
+	Say("杨影枫：这是怎么回事，难道落叶谷也……",4);
+	SetmapTrap(2,"");
+	Return;
+	

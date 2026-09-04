@@ -1,0 +1,51 @@
+// 南宫彩虹死
+
+	CloseTimeLimit();
+	If ($diejian == 1) @end;
+
+	FadeOut();
+	StopMusic();
+	PlayMusic("情缘音乐.mp3");
+	ClearBody();
+	DelNpc("南宫彩虹");
+	SetPlayerPos(0, 0);
+	SetMapPos(9, 5);
+	LoadNpc("nangongdie.npc");
+	Sleep(1000);
+	HideInterface();
+	FadeIn();
+	PlaySound("背_风.wav");
+	PlaySound("背_风.wav");
+	Sleep(3000);
+	Say("南宫彩虹死后，张如梦遵守诺言，上峨嵋山剃度出家，终生与青灯古佛相伴。");
+	Add($End, 100);  //设置结局参数
+	Assign($diejian, 1);     //为避免同时触发多个脚本
+	Sleep(8000);
+	
+	FadeOut();
+	PlayerChange(0);
+	LoadMap("map071_朱仙镇.map");
+	LoadNpc("map071.npc");
+	LoadObj("map071.obj");
+	SetPlayerPos(5, 71);
+	SetPlayerDir(7);
+	SetNpcRelation("独孤剑", 0);
+	AddNpc("npc004_张琳心.ini", 6, 72, 3);
+	Say("而在此时的朱仙镇……");
+	StopMusic();
+	PlayMusic("长路.mp3");
+	ShowInterface();
+	FadeIn();
+	
+	Say("张琳心：原来杨姑娘便是当日的黑衣人……独孤哥哥，杨姑娘对你也是一往情深……", 22);
+	Say("独孤剑：琳儿，我对你的心，难道你还不明白——", 2);
+	Say("张琳心：倘若琳儿有一天先你而去……", 24);
+	Say("独孤剑：琳儿，别胡思乱想了，我们快去岳元帅大营罢。", 1);
+	SetNpcKind("张琳心", 3);
+	SetNpcRelation("张琳心", 2);
+	SetNpcScript("张琳心", "张琳心对话.txt");
+	Return;
+
+@end:
+	Return;		
+	

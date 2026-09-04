@@ -1,0 +1,11 @@
+	Say("梁掌柜：这位公子，可要买些草药，居家旅行两便利，常备无患啊。", 80);
+	If ($Event << 120) @Sell0;
+	If ($Event << 240) @Sell1;
+	BuyGoods("高级药品.ini");
+	Return;
+@Sell0:
+	BuyGoods("低级药品.ini");
+	Return;
+@Sell1:
+	BuyGoods("中级药品.ini");
+	Return;

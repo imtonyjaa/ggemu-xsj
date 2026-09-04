@@ -1,0 +1,3 @@
+AddGoods("Goods-m11-荀草.ini");
+DelCurObj();
+Return;

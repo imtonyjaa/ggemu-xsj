@@ -1,0 +1,165 @@
+
+	FadeOut();
+	StopMusic();
+	//If ($EvilValue << 120) @Killed;
+	Talk(100430,100480);
+	Say("月眉儿：我怕是受了内伤了……",22);
+	Talk(100500,100510);
+	SetPlayerState(0);
+	FullLife();
+	FullMana();
+	FullThew();
+	ClearBody();
+	
+	LoadNpc("beimo.npc");
+
+	// zroc add
+	DelNpc("月眉儿");
+	DelNpc("月眉儿");
+	DelNpc("月眉儿");
+	DelNpc("月眉儿");
+	DelNpc("月眉儿");
+	AddNpc("月眉儿.ini", 56, 158, 0);
+
+	SetNpcPos("月眉儿",56,158);
+	ChangeMapColor(255,255,255);
+	ChangeAsfColor(255,255,255);
+	SetNpcKind("月眉儿",1);
+	SetPlayerPos(55,160);
+	SetNpcRes("月眉儿","npc016-躺着的月眉儿.ini");
+	Watch("杨影枫","月眉儿",0);
+	FadeIn();
+	PlayMusic("Mc019.mp3");
+	
+	Talk(100520,100620);
+	Sleep(1000);
+	FadeOut();
+	Say("第二天");
+	SetPlayerPos(50,160);
+	SetNpcPos("月眉儿",55,160);
+	SetNpcRes("月眉儿","npc016-月眉儿.ini");
+	
+	PlayerGotoEx(54,162);
+	FadeIn();
+	PlayerGoto(54,162);
+	Watch("杨影枫","月眉儿",0);
+	Talk(100622,100628);
+	
+	SetNpcKind("月眉儿",3);
+	PlayerGotoEx(48,157);
+	Sleep(1500);
+	FadeOut();
+	
+	SaveObj();
+	
+	LoadNpc("map030_LeaveYMR.npc");
+	
+	SetPlayerPos(55,202);
+	PlayerGotoEx(67,208);
+	Sleep(500);
+	
+	FadeIn();
+	PlayerGoto(67,208);
+	SetNpcKind("月眉儿",0);
+	NpcGoto("月眉儿",68,206);
+	Watch("杨影枫","月眉儿",0);
+	Sleep(500);
+	Talk(100629,100630);
+	NpcGoto("月眉儿",76,210);
+	Sleep(1000);
+	NpcGotoEx("杀手2",75,207);
+	NpcGotoEx("杀手5",74,209);
+	Sleep(1500);
+	NpcGotoEx("杀手3",75,206);
+	NpcGotoEx("杀手1",74,205);
+	Sleep(1500);
+	NpcGotoEx("杀手6",76,206);
+	NpcGotoEx("杀手4",74,208);
+	Sleep(1500);
+	DelNpc("杀手1");
+	DelNpc("杀手2");
+	DelNpc("杀手3");
+	DelNpc("杀手4");
+	DelNpc("杀手5");
+	DelNpc("杀手6");
+	DelNpc("月眉儿");
+	
+	PlayerGoto(76,210);
+	SetPlayerDir(7);
+	Say("杨影枫：原来飞龙堡是从这条路上过去。",2);
+	Sleep(1000);
+	FadeOut();
+	Say("一个月后");
+
+	LoadNpc("beimo.npc");
+	DelNpc("月眉儿");
+	SetPlayerPos(42,145);
+	FadeIn();
+	PlayerGoto(39,151);
+	
+	If ($EvilValue >> 112) @EvilTalk;
+	Memo("去飞龙堡查清纳兰真的去向。");
+	Say("杨影枫：真儿定然还在月眉儿手中，不知被她藏于何处？也不知眉儿伤势如何，不如我以看望她为由，到飞龙堡去查清真儿的去向。",2);
+	Say("杨影枫：唉，我对真儿始终是念念不忘。真儿，你现在");
+	Goto @Next;
+
+@EvilTalk:
+ 	//Say("杨影枫：现在月眉儿打不过我了，我要救出纳兰真", 2);
+ 	Memo("去飞龙堡看看月眉儿最近的情况。");
+ 	Say("杨影枫：月眉儿上次被我打伤，至今未有消息过来。估计");
+ 	Goto @Next;
+ 	
+ 	
+@Next:
+	Assign($Event,3175);			
+ 	
+ 	SetMapTrap(6,"Trap06.txt");
+ 	SetMapTrap(5,"Trap05.txt");
+ 	SetMapTrap(1,"");
+ 	SetTrap("map_012_惠安镇",1,"");
+ 	SetTrap("map_012_惠安镇",2,"");
+ 	Return;
+ 	
+ 	
+	
+	LoadMap("map_039_飞龙堡.map");
+	LoadNpc("map039_FindNLZ.npc");
+	LoadObj("map039_obj.obj");
+	DelObj("铁门");
+	SetMapTrap(1,"");
+	SetNpcKind("月眉儿",1);
+	SetNpcPos("月眉儿",3,80);
+	SetNpcRes("月眉儿","npc016-躺着的月眉儿.ini");
+	SaveNpc("map039_FindNLZ.npc");
+	LoadNpc("map039_FindNLZ.npc");
+	SetPlayerPos(3,86);
+	FadeIn();
+	Talk(100630,100690);
+	PlayerGoto(8,95);
+	Talk(100700,100700);
+	Assign($Event ,3180);
+	//AddToMemo(24450);
+	Return;
+
+@Killed:
+	FadeOut();
+	Talk(110000,110120);
+	Sleep(2000);
+	
+	ClearBody();
+	
+	LoadNpc("beimo.npc");
+	DelNpc("月眉儿");
+	SaveObj();
+	LoadObj("map030_obj.obj");
+	ChangeMapColor(255,255,255);
+	ChangeAsfColor(255,255,255);
+	SetPlayerPos(43,145);
+	FadeIn();
+	Talk(110170,110170);
+	SetMapTrap(6,"Trap06.txt");
+	Assign($Event ,3500);
+	Return;
+
+	
+

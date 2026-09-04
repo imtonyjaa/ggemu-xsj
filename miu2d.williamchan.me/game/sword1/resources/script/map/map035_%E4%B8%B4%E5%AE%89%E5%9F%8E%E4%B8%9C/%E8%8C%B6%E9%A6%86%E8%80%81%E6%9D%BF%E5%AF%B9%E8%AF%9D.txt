@@ -1,0 +1,27 @@
+// 与临安城东茶馆老板的对话
+
+	If ($Suba << 201) @Sub200;
+	If ($Suba == 201) @Sub201;
+	If ($Suba == 210) @Sub210;
+	
+	Say("酒肆老板：宁做太平犬，不为乱世人，唉！");
+	Return;
+	
+@Sub200:
+	Say("酒肆老板：岂有此理，我这里还没有敢吃霸王餐的。");
+	Return;
+
+@Sub201:
+	Say("酒肆老板：去去去，不要在这里捣乱！");
+	Return;
+
+@Sub210:
+	If ($Talkchalaoban == 1) @Talk1;
+	
+	Say("酒肆老板：算……了。没见过你这样爱管闲事的……");
+	Assign($Talkchalaoban, 1);
+	Return;
+	
+ @Talk1:
+	Say("酒肆老板：宁做太平犬，不为乱世人，唉！");
+	Return;

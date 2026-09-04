@@ -1,0 +1,20 @@
+// 与临安城东卖鱼人的对话
+
+	If ($Event == 80) @Event80;
+	
+	Say("卖鱼人：又肥又大的鲫鱼，活蹦乱跳的鲢鱼，买一条回去煲汤喝吧。", 0);
+	Return;
+	
+@Event80:
+	If ($Talkmap035maiyuren == 0) @Talk0;
+	If ($Talkmap035maiyuren == 1) @Talk1;
+@Talk0:	
+	Say("卖鱼人：连青天白日也有强抢民女的……唉，生逢乱世！", 0);
+	Say("独孤剑：老伯，那些人往那里去了？", 1);
+	Say("卖鱼人：那几个黑衣人像是往渔村方向去了。", 0);
+	Say("独孤剑：多谢！", 1);
+	Assign($Talkmap035maiyuren, 1);
+	Return;
+@Talk1:
+	Say("卖鱼人：小伙子，看你相貌堂堂，想要长寿的话，还是不要去惹那伙贼人了。", 0);
+	Return;

@@ -1,0 +1,15 @@
+// 与临安城居民卖瓜人的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	Say("卖瓜人：西瓜西瓜大西瓜，包红包甜包起沙，三包西瓜只我有，不买是个大傻瓜！", 0);
+	Return;		
+	
+@YuanDan:		
+
+	Say("卖瓜人：新年里也有西瓜卖，稀不稀罕？快来买一个尝尝鲜吧？", 0);
+	Return;		

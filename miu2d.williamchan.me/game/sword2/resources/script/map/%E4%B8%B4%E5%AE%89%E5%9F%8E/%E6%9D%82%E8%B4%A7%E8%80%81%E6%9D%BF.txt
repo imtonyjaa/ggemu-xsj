@@ -1,0 +1,3 @@
+		Talk(20650,20650);
+		BuyGoods("7-临安-杂货老板.ini");
+		Return;

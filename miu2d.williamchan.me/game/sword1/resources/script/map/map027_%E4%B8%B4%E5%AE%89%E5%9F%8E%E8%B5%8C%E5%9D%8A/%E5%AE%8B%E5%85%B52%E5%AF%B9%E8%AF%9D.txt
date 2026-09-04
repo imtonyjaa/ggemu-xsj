@@ -1,0 +1,31 @@
+// 与吕文才跟随士兵2的对话
+
+	If ($Event == 65) @Event65; 
+	If ($Event == 70) @Event70; 
+	If ($Event >= 80) @Eventmore80; 
+		
+	Say("宋兵：吕大人今天又输了，倒霉的可是我们手下！");
+	Return;
+	
+@Event65:
+	Return;
+	
+@Event70:	
+	If($Selectlast == 0) @Talk0;
+	If($Selectlast == 1) @Talk1;
+@Talk0:
+	Say("宋兵：你已经拿到令牌，还想怎样？", 0);
+	Return;
+@Talk1:
+	Say("宋兵：英雄饶命！", 0);
+	Return;
+	
+@Eventmore80:		
+	If($Selectlast == 0) @Talk2;
+	If($Selectlast == 1) @Talk3;
+@Talk2:
+	Say("宋兵：吕大人今天又输了，倒霉的可是我们手下！", 0);
+	Return;
+@Talk3:
+	Say("宋兵：小的没有得罪您老吧？", 0);
+	Return;	

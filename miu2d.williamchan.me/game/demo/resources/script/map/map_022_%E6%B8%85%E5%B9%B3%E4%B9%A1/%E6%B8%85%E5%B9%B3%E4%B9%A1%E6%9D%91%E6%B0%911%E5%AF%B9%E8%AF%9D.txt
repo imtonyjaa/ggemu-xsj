@@ -1,0 +1,37 @@
+//倩云
+
+
+	If ($Event == 164) @Label1;
+	If ($Event == 166) @Label4;
+	If ($Event == 168) @Label4;
+    If ($Event == 170) @Label2;
+    If ($Event >= 202) @Label3;
+		
+	Talk(20850, 20850);
+	Goto @end;
+	
+@Label1:
+	Talk(20851, 20851);
+	Talk(20854, 20857);
+	Goto @end;
+
+@Label2:
+	Talk(20852, 20852);
+	Goto @end;
+
+@Label3:	
+	If ($Event ==360 ) @TalkE360;
+	Talk(20850, 20850);
+	Goto @end;	
+
+@TalkE360:
+	Talk(40100,40110);
+	Goto @end;
+	
+@Label4:
+	Say("倩云：紫轩姑娘无父无母，遭人欺凌，真可怜啊！",	0);
+	Return;
+
+	
+@end:
+	Return;

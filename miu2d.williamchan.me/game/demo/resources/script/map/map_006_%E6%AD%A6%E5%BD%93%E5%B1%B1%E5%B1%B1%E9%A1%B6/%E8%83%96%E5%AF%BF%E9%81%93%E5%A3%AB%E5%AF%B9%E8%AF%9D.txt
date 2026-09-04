@@ -1,0 +1,109 @@
+	If ($Event == 1820) @1820;//结局2求证
+	If ($Event == 1819) @1819;//结局2求证
+	If ($Result == 3) @Result3;
+	If ($Event <= 45) @Label1;
+	If ($Event == 46) @Label2;
+	If ($Event == 790) @Event790;
+	If ($Event == 800) @Event800;
+	Goto @Label3;
+	
+@1820:
+	Say("守门道士：杨少侠慢走，有空再来。");
+	Return;
+
+@1819:
+	Say("杨影枫：在下杨影枫，有事想求见天星道长，劳烦两位通报一声。",2);
+	Say("守门道士：原来是杨少侠，久违久违。师父就在里面，少侠请吧。");
+	Return;
+	   
+@Label1:
+	Talk(503, 503); 
+    Return;        
+
+@Label2:
+	Talk(504, 504); 
+    Return;	
+
+@Label3:
+	Say("守门道士：原来是杨少侠，久违久违。少侠来得不巧，师父正在闭关修炼，请少侠改日再来拜访。");
+//	Talk(481, 481);
+	Return;
+
+@Event790:
+	Talk(15910,15920);
+	NpcGoto("胖道士Z",14,107);
+	NpcGoto("胖道士Z",21,86);
+	Sleep(1000);
+	NpcGoto("胖道士Z",14,107);
+	NpcGoto("胖道士Z",12,114);
+	SetNpcDir("胖道士Z",1);
+	Talk(75720,75720);
+	NpcGoto("胖道士Z",11,112);
+	SetNpcDir("胖道士Z",1);
+	Assign($Event,792);
+	Return;
+
+@Event800:
+	Say("杨少侠走好。");
+	Return;
+	
+	
+@Result3:
+	If ($Event == 955) @Event955;
+	If ($Event == 957) @Event957;
+	If ($Event >> 957) @EventG957;
+
+	Say("武当弟子：杨少侠，你来得真不巧，师父正在闭关，请少侠改日再来吧。");
+	Goto @end;
+
+	@Event955:
+		Say("武当弟子：杨少侠小心！");
+		Goto @end;
+	@Event957:
+		If ($LeaveWuDang == 1) @EventG957;
+		GetRandNum($XiaoDaoShiTalk, 1, 5);
+		If ($XiaoDaoShiTalk == 1) @XiaoDaoShiTalk1;
+		If ($XiaoDaoShiTalk == 2) @XiaoDaoShiTalk2;
+		If ($XiaoDaoShiTalk == 3) @XiaoDaoShiTalk3;
+		If ($XiaoDaoShiTalk == 4) @XiaoDaoShiTalk4;
+		If ($XiaoDaoShiTalk == 5) @XiaoDaoShiTalk5;
+		@XiaoDaoShiTalk1:
+			Say("武当弟子：这次多亏杨大侠帮忙，要不然后果不堪设想。");
+			Goto @end;
+		@XiaoDaoShiTalk2:
+			Say("武当弟子：杨大侠果然武艺高强。");
+			Goto @end;
+		@XiaoDaoShiTalk3:
+			Say("武当弟子：多谢杨大侠拔刀相助。");
+			Goto @end;
+		@XiaoDaoShiTalk4:
+			Say("武当弟子：杨大侠，你的武艺已今非昔比了。");
+			Goto @end;
+		@XiaoDaoShiTalk5:
+			Say("武当弟子：那些魔教众人竟敢攻打我武当山，简直不自量力。");
+			Goto @end;
+		Goto @end;
+	@EventG957:
+		GetRandNum($DaoShiTalk, 1, 2);
+		If ($DaoShiTalk == 1) @DaoShiTalk1;
+		If ($DaoShiTalk == 2) @DaoShiTalk2;
+		@DaoShiTalk1:
+			Say("武当弟子：杨大侠，你武艺高强，在下十分佩服。");
+			Goto @end;
+		@DaoShiTalk2:
+			Say("武当弟子：杨少侠，你来得真不巧，师父正在闭关，请少侠改日再来吧。");
+			Goto @end;
+		Goto @end;
+@end:
+	Return;
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+	If ($Event == 124) @end;
+	If ($Event == 110) @Label1;
+	If ($Event == 120) @Label2;
+	If ($Event == 130) @Label3;
+	If ($Event == 135) @Label4;
+	If ($Event == 480) @Label5;
+	If ($Event == 475) @Label6;
+	If ($Event == 478) @Label7;
+	
+	Talk(21321, 21321);
+	Return;
+	
+@Label1:
+	Talk(21320, 21320);
+	Return
+	
+@Label2:
+	Talk(21322, 21322);
+	Return;
+	
+@Label3:
+	Talk(21323, 21323);
+	Return;
+	
+@Label4:
+	Talk(21324, 21324);
+	Return;	
+
+@Label5:
+	Talk(21325, 21325);
+	Return;		
+	
+@Label6:
+	If ($Talkashui == 0) @Talk0;
+	If ($Talkashui == 1) @Talk1;
+	Say("家丁阿水：……", 0);
+	Return;
+@Talk0:
+	Say("家丁阿水：杨公子，你们悲魔山庄的名声现在越来越响了，呵呵。老实说，我早就不想在这里当差了，杨公子能不能赏口饭吃？", 0);
+	Say("杨影枫：像你这么伶俐的家丁我可不敢用哪，说不定什么时候就会被你给卖了，就像你现在背弃卓非凡一样！", 2);
+	Assign($Talkashui, 1);
+	Return;
+@Talk1:
+	Say("家丁阿水：……", 0);
+	Return;
+
+@Label7:		
+	Say("家丁阿水：……", 0);
+	Return;
+
+@end:
+	Return;

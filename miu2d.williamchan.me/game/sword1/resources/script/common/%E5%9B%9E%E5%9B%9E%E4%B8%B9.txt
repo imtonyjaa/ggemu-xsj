@@ -1,0 +1,9 @@
+//吃回回丹
+
+	DelGoods("Goods218_回回丹.ini");
+	PlaySound("物_银子a.wav");
+	FullLife();
+	FullThew();
+	FullMana();
+	Say("一股清凉的气息游遍全身。");
+	Return;

@@ -1,0 +1,64 @@
+//王铁匠
+If ($Result == 0) @Result0;
+If ($Result == 1) @Result1;
+If ($Result == 2) @Result2;
+If ($Result == 3) @Result3;
+Goto @end;
+
+@Result0:
+If ($Event << 360 ) @Talk1;
+If ($Event >= 380 ) @Talk2;
+Say("陈铁匠：公子，来来来，看看我新打的几柄剑，还有件护甲。", 86);
+BuyGoods("3级物品.ini");
+Say("陈铁匠：有空可以常来看看我这里的东西。", 86);
+Goto @end; 
+
+@Result1:
+Say("陈铁匠：我打的铁质量上乘，手工精美，价钱公道，童叟无欺。实话告诉你吧，孙悟空头上的金刚圈正是祖上打铸的！", 86);
+//Talk(20440, 20440);
+BuyGoods("铁4级物品.ini");
+Say("陈铁匠：多谢光顾。", 86);
+Goto @end;
+
+
+@Result2:
+Say("陈铁匠：我打的铁质量上乘，手工精美，价钱公道，童叟无欺。实话告诉你吧，孙悟空头上的金刚圈正是祖上打铸的！", 86);
+//Talk(20440, 20440);
+BuyGoods("铁4级物品.ini");
+Say("陈铁匠：欢迎下次再来。", 86);
+Goto @end;
+
+@Result3:
+Say("陈铁匠：我打的铁质量上乘，手工精美，价钱公道，童叟无欺。实话告诉你吧，孙悟空头上的金刚圈正是祖上打铸的！", 86);
+//Talk(20440, 20440);
+BuyGoods("铁4级物品.ini");
+Say("陈铁匠：你不多挑几件？", 86);
+Goto @end;
+
+@Talk1:
+Say("陈铁匠：我打的铁质量上乘，手工精美，价钱公道，童叟无欺。实话告诉你吧，孙悟空头上的金刚圈正是祖上打铸的！", 86);
+//Talk(20440, 20440);
+If ($Event << 120 ) @Buy1;
+If ($Event << 250 ) @Buy2;
+BuyGoods("铁3级物品.ini");
+Say("陈铁匠：欢迎下次再来。", 86);
+Goto @end;
+
+@Talk2:
+Talk(40510,40510);
+BuyGoods("铁3级物品.ini");
+Say("陈铁匠：多谢光顾。", 86);
+Goto @end;
+
+@Buy1:
+BuyGoods("铁1级物品.ini");
+Say("陈铁匠：有空可以常来看看我这里的东西。", 86);
+Goto @end;
+
+@Buy2:
+BuyGoods("铁2级物品.ini");
+Say("陈铁匠：有空可以常来看看我这里的东西。", 86);
+Goto @end;
+
+@end:
+Return;

@@ -1,0 +1,15 @@
+	Add($NpcCount,-1);
+	If ($NpcCount == 0) @Killed;
+	Return;	
+	
+@Killed:
+	StopMusic();
+	Say("终于干掉了所有的敌人。");
+	SetMapTrap(1,"trap01.txt");
+	SetMapTrap(2,"trap02.txt");
+	SetMapTrap(3,"trap03.txt");
+	SetTrap("map_065_天山古道",1,"trap01.txt");
+	SetTrap("map_065_天山古道",2,"trap02.txt");
+	Assign($Event, 2101);
+	PlayMusic("mc014.mp3");
+	Return;

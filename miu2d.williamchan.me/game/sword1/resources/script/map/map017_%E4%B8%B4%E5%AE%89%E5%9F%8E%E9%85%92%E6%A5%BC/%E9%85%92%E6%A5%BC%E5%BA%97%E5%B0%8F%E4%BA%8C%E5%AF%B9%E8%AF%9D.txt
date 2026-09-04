@@ -1,0 +1,54 @@
+// 与酒楼店小二的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	If ($Event == 50) @Event50; 
+	If ($Event == 180) @Event180; 
+
+	GetRandNum($jiulvdianxiao,0,1);
+	If ($jiulvdianxiao == 0) @Talk0;
+	If ($jiulvdianxiao == 1) @Talk1;
+@Talk0:
+	Say("店小二：这里的名酒“三碗不过岗”客官要不要试试？当年武松就是喝了这酒打死景阳岗猛虎的。", 0);
+	Return;
+@Talk1:
+	Say("店小二：客官随便坐。", 0);
+	Return;
+	
+@Event50:	
+	Say("店小二：好漂亮的女孩，唉，这世道……", 0);
+	Return;		
+	
+@Event180:
+	Say("店小二：有江湖中人说张大人是奸细，杀了我也不相信。", 0);
+	Return;	
+	
+	
+@YuanDan:	
+
+	If ($Event == 50) @Event50YD; 
+	If ($Event == 180) @Event180YD; 
+
+	GetRandNum($jiulvdianxiao,0,1);
+	If ($jiulvdianxiao == 0) @Talk0YD;
+	If ($jiulvdianxiao == 1) @Talk1YD;
+@Talk0YD:
+	Say("店小二：客官，新年好！咱们这里的名酒“三碗不过岗”客官要不要试试？当年武松就是喝了这酒打死景阳岗猛虎的。", 0);
+	Return;
+@Talk1YD:
+	Say("店小二：客官随便坐。", 0);
+	Return;
+	
+@Event50YD:	
+	Say("店小二：好漂亮的女孩，唉，这世道……", 0);
+	Return;		
+	
+@Event180YD:
+	Say("店小二：有江湖中人说张大人是奸细，杀了我也不相信。", 0);
+	Return;	
+
+	

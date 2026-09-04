@@ -1,0 +1,82 @@
+//第一次击败方勉
+
+	Say("方勉：啊——", 53);
+	FadeOut();
+	StopMusic();
+	PlayMusic("夜色.mp3");
+	ClearBody();
+	DelNpc("方勉");
+	Sleep(400);
+	SetNpcPos("张琳心",18,28);
+	SetNpcDir("张琳心",3);
+	SetPlayerPos(17,27);
+	SetPlayerDir(7);
+	SetNpcPos("张琳心",18,28);
+	SetNpcDir("张琳心",3);
+	AddNpc("npc011_凤凰山二战方勉.ini",14,29,6);
+	SetNpcActionFile("方勉",0,"npc011_body.asf");
+	SetNpcActionFile("方勉",1,"npc011_body.asf");
+	NpcSpecialAction("方勉","npc011_die.asf");
+	Sleep(2000);
+	SetPlayerState(0);
+	FadeIn();
+	Say("独孤剑：一切都结束了……", 1);
+	Say("张琳心：我想陪你回衡山……", 21);
+	Say("独孤剑：是啊，仿佛离开很久了……", 1);
+	Say("张琳心：独孤哥哥——",21);
+	Say("独孤剑：琳儿——",2);
+	Say("张琳心：从今以后……我们再也不分开……",22);
+	Sleep(500);
+	
+	StopMusic();
+	PlayMusic("沙场.mp3");	
+	AddNpc("npc008_杨瑛.ini",10,27,6);
+	Say("杨瑛：小心！", 42);
+	Say("方勉：——去死吧！", 53);
+
+	SetNpcActionFile("方勉",0,"npc011_st.asf");
+	SetNpcActionFile("方勉",1,"npc011_pst.asf");
+	NpcSpecialAction("方勉","mpc052.asf");
+	Sleep(300);
+
+	SetPlayerDir(2);
+	SetNpcKind("张琳心", 1);
+	SetNpcDir("张琳心", 2);
+	NpcAttack("方勉", 18, 28);
+	Sleep(1800);
+	PlaySound("战_男伤05.wav");
+	NpcSpecialAction("独孤剑", "npc001_bat.asf");
+	PlaySound("特_女落崖.wav");
+	SetNpcActionFile("张琳心",0,"empty.asf");
+	NpcSpecialAction("张琳心", "mpc053.asf");
+	Sleep(2000);
+	DelNpc("张琳心");
+	
+	PlayerGoto(18,28);
+	SetPlayerDir(6);
+	Say("独孤剑：琳儿！", 6);
+	Sleep(800);
+//	FadeOut();
+	
+	Say("独孤剑：琳——儿——",7);
+	Sleep(800);
+	
+//	FadeIn();
+	Say("方勉：哈哈哈哈——", 51);
+	NpcGoto("杨瑛",13,25);
+	SetNpcDir("杨瑛",7);
+	Say("杨瑛：张姑娘——", 42);
+	Say("方勉：小子，你害得老夫如此狼狈，这就是你的下场！哈哈哈哈——", 51);
+	Say("独孤剑：……", 7);
+	Sleep(600);
+	SetPlayerDir(2);
+	Say("独孤剑：方勉——我杀了你！", 5);
+	
+	SetNpcDeathScript("独孤剑", "主角死亡.txt");
+	SetNpcDeathScript("杨瑛", "主角死亡.txt");
+	SetNpcDeathScript("方勉","方勉第二次死亡.txt");
+	SetNpcRelation("方勉", 1);
+	SetNpcKind("杨瑛", 3);
+	SetNpcRelation("杨瑛",  0);
+	SetPartnerLevel("杨瑛", 45);
+	Return;

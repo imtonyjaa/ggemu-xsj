@@ -1,0 +1,9 @@
+//打开宝箱
+
+	PlaySound("物_箱子开.wav");
+	OpenBox();
+	AddGoods("Goods082_圣天王袍.ini");
+	Sleep(600);
+	AddGoods("Goods004_冲虚冠.ini");
+	SetObjScript("","");
+	Return;

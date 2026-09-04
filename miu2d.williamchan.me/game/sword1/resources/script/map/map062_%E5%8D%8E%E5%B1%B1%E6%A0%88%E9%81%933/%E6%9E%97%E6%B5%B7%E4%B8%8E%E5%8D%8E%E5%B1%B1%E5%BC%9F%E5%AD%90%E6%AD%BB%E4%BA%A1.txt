@@ -1,0 +1,76 @@
+//林海死亡
+
+	Add($fight062, 1);
+	If ($fight062 == 11) @Finished;
+	
+	Return;
+	
+@Finished:
+	FadeOut();
+	StopMusic();
+	PlayMusic("长路.mp3");
+	ClearBody();
+	SaveObj();
+	LoadNpc("map062_linhaidie.npc"); 
+	LoadObj("map062.obj");
+	AddObj("林海尸体.ini", 23, 23, 1);
+	SetPlayerPos(24, 23);
+	SetPlayerDir(3);
+	SetPlayerState(0);
+	SetNpcKind("张琳心", 1);
+	SetNpcPos("张琳心", 25, 22);
+	SetNpcDir("张琳心", 2);
+	SetNpcRelation("张琳心", 2);
+	Sleep(500);
+	SetNpcKind("张琳心", 3);
+	ClearEffect();
+	SetNpcKind("张琳心", 1);
+	FadeIn();
+	
+	Say("方勉：想不到林海为了贪图掌门之位，竟不惜……", 50);
+	Say("张琳心：这就叫——利令智昏。独孤哥哥，既然林海是五色教的人，不如搜搜他的身，也许会有其它线索。", 21);
+	Say("独孤剑：好！", 2);
+	
+	PlayerGoto(24, 24);
+	SetPlayerDir(3);
+	
+	SetNpcActionFile("独孤剑", 0, "mpc024_2.asf");		//独孤剑弯腰查看尸体
+	SetNpcActionFile("独孤剑", 1, "mpc024_2.asf");
+	NpcSpecialAction("独孤剑", "mpc024_1.asf");
+	Sleep(1200);
+	Say("独孤剑：咦？这里果然有一封书信。", 1);
+	
+	SetNpcActionFile("独孤剑", 0, "mpc024_4.asf");		//独孤剑站起来读信
+	SetNpcActionFile("独孤剑", 1, "mpc024_4.asf");
+	NpcSpecialAction("独孤剑", "mpc024_3.asf");
+	Sleep(1200);
+	Say("独孤剑：诸位，这就是林海写给五色教主的亲笔信。", 1);
+	Say("<color=Red>教主在上：属下林海已按计划顺利除掉顾枫，现已夺得掌门之位，特向教主报喜。白剑堂堂主林海叩首<color=Black>");
+	Sleep(500);
+	
+	SetNpcActionFile("独孤剑", 0, "npc001_st2.asf");		//独孤剑读完信抬起头
+	SetNpcActionFile("独孤剑", 1, "npc001_sst2.asf");
+	NpcSpecialAction("独孤剑", "mpc024_5.asf");
+	Sleep(1200);
+	
+	Watch("独孤剑", "方勉", 0);
+	Say("方勉：原来林海果然投靠了五色教，真是一个武林败类！", 50);
+	Say("独孤剑：这次多亏方大侠主持公道，我们才有机会揭穿林海的真实面目。", 2);
+	Say("方勉：公子此言差矣，此乃方某应尽之责，如何言谢？其实我们在场之人都觉此事蹊跷，只是没有什么凭据不好说话。今日二位除掉林海，为江湖除一大患，方某应该谢你们才是。", 50);
+	Say("独孤剑：方大侠过奖了，只是连林海这样有头有脸的人物都心甘情愿投靠五色教，看来五色教的势力我们还不清楚到底有多大。", 1);
+	Say("方勉：的确，所以独孤公子和张姑娘一路要多加小心，你们已经数次触犯了五色教，要小心他们暗算。不知你们现在有什么打算？", 50);
+	Say("独孤剑：暗杀名单上的下一个人是少林的无虚大师，我们准备去少林。", 1);
+	Say("方勉：你们若是从大路去少林，一定会受到五色教的截杀，虽然你们武功不弱，但却会因此而耽误不少时间，恐怕你们到时无虚大师已经遭了暗算。顾大侠曾经提到华山后山有一条小路可以直通少林寺，你们从后山走吧，一路上要多加小心！", 50);
+	Say("独孤剑：多谢方大侠指点。", 2);
+	SetNpcKind("张琳心", 3);
+	SetNpcRelation("张琳心", 0);
+	SetNpcScript("张琳心", "张琳心对话.txt");
+	SetMapTrap(1, "trap01.txt");
+	SetMapTrap(2, "trap02.txt");
+	SetMapTrap(3, "trap03.txt");
+	SetMapTrap(4, "trap04.txt");
+	Memo("独孤剑和张琳心带着林对儿回到华山顶上，当面与林海对质，林海见事机败露，欲杀人灭口，一场恶战，打败了林海，在其尸体上找到了他投靠五色教的书信。");
+	Memo("随后独孤剑和张琳心离开华山，前往少林。");
+	Assign($Event, 370);
+	Return;
+	

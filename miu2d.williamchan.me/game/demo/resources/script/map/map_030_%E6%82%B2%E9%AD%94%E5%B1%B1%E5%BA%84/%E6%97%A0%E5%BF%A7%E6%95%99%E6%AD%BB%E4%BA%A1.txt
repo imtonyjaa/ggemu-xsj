@@ -1,0 +1,13 @@
+	Add($NpcCount, -1);
+	If ($NpcCount == 0) @AllClear;
+	Return;
+
+@AllClear:
+	StopMusic();
+	Say("终于消灭了所有的敌人。");
+	SetMapTrap(1,"trap01.txt");
+	SetMapTrap(5,"trap05.txt");
+	SetMapTrap(6,"trap06.txt");
+	PlayMusic("mc013.mp3");
+	Return;
+	

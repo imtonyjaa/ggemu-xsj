@@ -1,0 +1,8 @@
+// 与金兵的对话8
+
+	If ($Event == 460) @Event460;
+	Return;
+	
+@Event460:
+	Say("金兵：走开！想吃军棍了，是不是？", 0);
+	Return;	

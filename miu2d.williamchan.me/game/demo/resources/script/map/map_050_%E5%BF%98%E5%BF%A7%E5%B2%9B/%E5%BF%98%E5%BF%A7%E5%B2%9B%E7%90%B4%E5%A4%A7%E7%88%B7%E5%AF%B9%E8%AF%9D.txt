@@ -1,0 +1,20 @@
+	If ($Event == 350) @Talk350;
+	If ($Event == 412) @Label;
+
+	Talk(21225, 21225);
+	Goto @end;
+	
+@Label:
+	Talk(21232, 21232);
+	Goto @end;
+	
+@Talk350:
+	Sleep(500);
+	Say("琴大爷：年轻人，虽然我已经老眼昏花，但还是看出了真儿对你的一片情意，你可不要辜负她呀。", 0);
+	Say("杨影枫：……", 2);
+	Return;	
+
+@end:
+	Return;
+
+

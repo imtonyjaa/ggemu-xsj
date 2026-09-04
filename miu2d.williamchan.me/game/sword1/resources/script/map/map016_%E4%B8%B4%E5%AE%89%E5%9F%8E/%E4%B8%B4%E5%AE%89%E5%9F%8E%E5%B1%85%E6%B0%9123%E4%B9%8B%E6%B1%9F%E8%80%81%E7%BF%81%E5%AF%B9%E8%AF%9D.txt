@@ -1,0 +1,16 @@
+// 与江老翁的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	Say("江老翁：老太婆成天就知道唠唠叨叨，我的耳朵都快起茧了，唉，她也不烦？", 0);
+	Return;
+	
+@YuanDan:
+
+	Say("江老翁：人活一世，图的就是个开心，希望你新的一年里能够笑口常开，可别像我那个老太婆，成天抱怨不休，活得多累！", 0);
+	Say("独孤剑：多谢指点，大爷！", 2);
+	Return;	

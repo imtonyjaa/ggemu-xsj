@@ -1,0 +1,24 @@
+// 普通弟子对话
+
+	If ($Event == 370) @Event370;
+	If ($Event >= 410) @Event410;
+	
+	Say("和尚：阿弥陀佛。", 0);
+	Return;
+
+@Event370:
+	Say("独孤剑：请问无虚大师在什么地方？", 1);
+	Say("和尚：阿弥陀佛。", 0);
+	Return;
+	
+@Event410:
+	GetRandNum($Talkheshang,0,1);
+	If ($Talkheshang == 0) @Talk0;
+	If ($Talkheshang == 1) @Talk1;
+@Talk0:
+	Say("和尚：阿弥陀佛，多谢施主替少林化解了一场无妄之灾。", 0);
+	Return;
+@Talk1:	
+	Say("和尚：施主慢走。", 0);
+	Return;
+	

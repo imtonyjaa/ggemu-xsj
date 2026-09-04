@@ -1,0 +1,7 @@
+//打开宝箱
+
+	PlaySound("物_箱子开.wav");
+	OpenBox();
+	AddGoods("Goods021_银铁护腕.ini");
+	SetObjScript("","");
+	Return;

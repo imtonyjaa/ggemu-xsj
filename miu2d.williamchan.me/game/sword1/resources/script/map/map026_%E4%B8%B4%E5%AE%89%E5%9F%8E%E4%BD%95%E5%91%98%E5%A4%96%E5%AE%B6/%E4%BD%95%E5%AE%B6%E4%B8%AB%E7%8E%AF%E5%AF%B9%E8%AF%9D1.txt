@@ -1,0 +1,26 @@
+// 何家丫环对话
+
+	If ($Event == 180) @Event180;
+	If ($Event << 180) @Eventlessthan180; 
+	If ($Event == 190) @Event190;
+	If ($Event >> 190) @Eventmorethan190;
+	
+@Event180:
+	Watch("何府丫环", "何梅", 0);
+	Say("丫环小云：哎呀，小姐，你总算回来啦，老爷为了你这几日一直茶饭不思，你快去见他吧！", 0);
+	Return;
+		
+@Eventlessthan180:
+	Say("丫环小云：老爷说，谁要是能把小姐找回来，就让他做姑爷。不知谁有这福气？", 0);
+	Return;	
+	
+@Event190:
+	Say("丫环小云：多谢公子救出我家小姐！", 0);
+	Return;
+		
+@Eventmorethan190:	
+	Say("丫环小云：公子是来看我们小姐的吗？", 0);
+	Return;		
+	
+	
+	

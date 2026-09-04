@@ -1,0 +1,72 @@
+//惠安镇渔夫陈放
+
+	If ($SubEvent14 <> 2) @Continue;
+
+	Say("杨影枫：敢问这位可是陈渔夫？", 2);
+	Say("陈放：正是小人，不知公子有何事？", 60);
+	Say("杨影枫：在下需要一鱼钩，听说兄台这里有，想买一个。", 2);
+	Say("陈放：小小鱼钩，怎么谈得上买，公子需要，拿去就是。", 60);
+	Say("杨影枫：如此多谢了！", 2);
+	AddGoods("Goods-e14-鱼钩.ini");
+	Assign($SubEvent14, 5);
+	Goto @end;
+	@Continue:
+
+If ($Result == 0) @Result0;
+If ($Result == 1) @Result1;
+If ($Result == 2) @Result2;
+If ($Result == 3) @Result3;
+Goto @end;
+
+@Result0:
+If ($Event << 360 ) @Talk1;
+If ($Event >= 360 ) @Talk2;
+Goto @end; 
+
+@Result1:
+Talk(20400, 20400);
+Goto @end;
+
+
+@Result2:
+Talk(20400, 20400);
+Goto @end;
+
+@Result3:
+If ($Event == 862) @Event862;
+Talk(20400, 20400);
+Goto @end;
+
+
+@Talk1:
+Talk(20400, 20400);
+Goto @end;
+
+
+@Talk2:
+If ($Event >= 380) @TalkA380; 
+Talk(40380,40380);
+Goto @end;
+	
+@TalkA380:
+Talk(40490,40490);
+Goto @end;
+	
+	
+	
+@Event862:
+		
+	Talk(17180, 17210);
+//	系统消息：发生事件87.2，找到渔夫，渔夫加入
+	SetNpcKind("陈放", 3);
+	SetNpcScript("陈放", "惠安镇渔夫与主角对话.txt");
+
+	Assign($Event, 864);
+	
+	
+	SaveNpc("map012_nofishman.npc");
+	
+	Goto @end;
+	
+@end:
+	Return;

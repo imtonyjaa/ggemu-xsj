@@ -1,0 +1,5 @@
+PlaySound("ç‰©-ç®±å­å¼€.wav");
+OpenBox();
+AddRandGoods("ä½Žçº§è¯å“.ini");
+SetObjScript("","");
+Return;

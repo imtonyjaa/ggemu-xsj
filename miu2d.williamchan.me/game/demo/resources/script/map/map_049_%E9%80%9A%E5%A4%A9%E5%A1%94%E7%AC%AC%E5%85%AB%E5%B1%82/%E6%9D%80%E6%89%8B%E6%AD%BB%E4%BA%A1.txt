@@ -1,0 +1,11 @@
+
+
+	If ($Event <> 1002) @end;
+
+	Add($Map049EnemyCount, 1);
+	If ($Map049EnemyCount << 4) @end;
+
+	RunScript("事件101_2.txt");
+
+@end:
+	Return;

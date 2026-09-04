@@ -1,0 +1,51 @@
+// 发现密洞石门
+
+	DisableNpcAI();
+	SaveNpc();
+	Say("独孤剑：这里好像是一个洞口，不过被巨石挡住了。", 1);
+	Say("张琳心：这洞里说不定有什么秘密，我们何不一起用内力将它推开？", 21);
+	Choose("独孤剑：推不推呢？","A 推","B 不推", $TalkJiguan);
+	If($TalkJiguan == 0) @Choose0;
+	If($TalkJiguan == 1) @Choose1;
+
+@Choose0:	
+	PlayerGoto(18, 13);
+	SetPlayerDir(4);
+	Say("独孤剑：好的，不过要小心，不知有什么机关。", 1);
+	SetNpcActionFile("独孤剑", 0, "");
+	SetNpcActionFile("独孤剑", 1, "");
+	NpcSpecialAction("独孤剑", "mpc400.asf");    
+	Sleep(800);
+	PlaySound("特_石门.wav");
+	OpenBox();  // 宝箱类物品，播放地图动画
+	Sleep(1000);
+	SaveObj();
+	
+	FadeOut();
+	StopMusic();
+	PlayMusic("黑影.mp3");
+	Sleep(500);
+	SaveNpc();
+	ClearBody();
+	SaveObj();
+	LoadMap("map009_武夷山禁地内洞2.map");
+	LoadNpc("map009.npc");
+	LoadObj("map009.obj");
+	SetNpcActionFile("独孤剑", 0, "npc001_st2.asf");
+	SetNpcActionFile("独孤剑", 1, "npc001_sst2.asf");
+	SetPlayerPos(3, 24);
+	SetPlayerDir(5);
+	Assign($Jiguan, 1);
+	SetNpcScript("张琳心", "张琳心对话.txt");
+	ClearEffect();
+	FadeIn();
+	Say("张琳心：哎呀！两具骷髅！", 25);
+	Say("独孤剑：看来这两个人已经死了很久了。", 1);
+	EnableNpcAI();
+	Return;
+	
+@Choose1:
+	Say("独孤剑：不知里面有什么古怪机关，还是不要贸然进入比较好。", 1);	
+	EnableNpcAI();
+	Return;
+		

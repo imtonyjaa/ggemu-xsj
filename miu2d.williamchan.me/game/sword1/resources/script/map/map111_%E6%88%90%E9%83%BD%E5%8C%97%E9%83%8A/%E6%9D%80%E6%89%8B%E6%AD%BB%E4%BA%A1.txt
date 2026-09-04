@@ -1,0 +1,20 @@
+//杀手死光
+
+	Add($fight111, 1);
+	If ($fight111 == 9) @finished;
+    	Return;
+    
+@finished:
+	Sleep(2000);
+	ClearEffect();
+	StopMusic();
+	PlayMusic("长路.mp3");
+	Say("杨瑛：我们上当了！客栈的留书是五色教故意安排的。", 39);
+	Say("独孤剑：那琳心和张兄……", 6);
+	Say("杨瑛：现在敌在暗，我在明……独孤大哥，我们不能鲁莽行动……先回城再说。", 39);
+	Say("独孤剑：……", 9);
+	Assign($Clue, 40);
+	Memo("两人按留信来到城北树林，不料没见到张如梦兄妹，反遭一群黑衣人伏击。看来只得另找线索。");
+	SetMapTrap(01,"trap01.txt");
+	SetMapTrap(02,"trap02.txt");
+	Return;

@@ -1,0 +1,136 @@
+	If ($Event == 3185) @Talk3185;
+	If ($Event == 3110) @Talk3110;
+	If ($Event == 1819) @1819;
+	If ($Event == 1818) @1818;
+	If ($Event == 1806) @1805;
+	If ($Event == 1805) @1805;
+	If ($Event == 1804) @1804;
+	If ($Event == 1800) @1800;
+	If ($Result == 0) @Result0;
+	If ($Result == 1) @Result1;
+	If ($Result == 2) @Result2;
+	If ($Result == 3) @Result3;
+	Return;
+
+@1819:
+	Say("侍女可容：公子，你要洗澡吗？我去热水。");
+	Say("杨影枫：不用了，我还有事要办。");
+	Return;
+
+@1818:
+	Say("侍女可容：公子，你累不累？要不我服侍你洗个澡。");
+	Say("杨影枫：不用了，我还有事要办。");
+	Return;
+
+@1805:
+	Say("侍女可容：公子，你这几天为真儿姑娘的事到处奔走，人都变瘦了。");
+	Return;
+
+@1804:
+	Say("侍女可容：公子，这位姑娘是谁呀，以前从来没见过。");
+	Say("杨影枫：这是武林盟主孟知秋的千金蔷薇小姐。");
+	Say("侍女可容：哦，原来是孟盟主的千金。");
+	Return;
+
+@1800:
+	Say("侍女可容：公子，真儿姑娘昨晚好像很不舒服的样子，不会生病了吧。");
+	Return;
+
+@Result0:
+	If ($Event == 475) @Label1;
+	If ($Event == 485) @Label2;
+	If ($Event == 490) @Label3;
+	If ($Event == 492) @Label4;
+	If ($Event == 500) @Label5;
+	If ($Event == 530) @Label6;
+	If ($Event == 562) @Label2;
+
+	Talk(21750, 21750);
+	Return;
+@Label1:
+	Talk(21750, 21750);
+	Return;
+@Label2:
+	Talk(21751, 21751);
+	Return;
+@Label3:
+	Talk(21752, 21752);
+	Return;
+@Label4:
+	Talk(21753, 21753);
+	Return;
+@Label5:
+	Talk(21754, 21754);
+	Return;
+@Label6:
+	Talk(21755, 21755);
+	Return;
+
+@Result1:
+//	If ($Event == 700) @Talk700;
+//	If ($Event >= 650) @TalkA650;
+	If ($Event == 600) @TalkE600;
+	
+	
+	Talk(21750, 21750);
+	Return;
+	
+@Result2:
+	If ($Event ==	767) @TalkE767;
+	If ($Event >= 750) @TalkA750;
+	If ($Event >= 720) @TalkA720;
+	Talk(21750, 21750);
+	Return;
+	
+@Result3:
+	If ($Event >= 990) @Event990;
+	
+	GetRandNum($KerongTalk, 1, 2);
+	If ($KerongTalk == 1) @KerongTalk31;
+	If ($KerongTalk == 2) @KerongTalk32;
+	@KerongTalk31:
+		Talk(80140, 80140);
+		Return;
+	@KerongTalk32:
+		Talk(21750, 21750);
+		Return;
+	
+	@Event990:
+		Talk(21750, 21750);
+		Return;
+
+	Return;
+			
+@TalkE600:
+	Talk(60630,60630);
+	Return;
+
+@TalkA650:
+	Talk(61190,61190);
+	Return;
+@Talk700:
+	Talk(61590,61590);
+	Return;	
+@Talk720:	
+	Talk(71040,71040);
+	Return;
+
+
+@TalkA750:
+	Talk(71910,71910);
+	Return;	
+
+@TalkE767:
+	Talk(72020,72020);
+	Return;
+
+@Talk3185:
+	Talk(103920,103920);
+	Return;
+	
+@Talk3110:
+	Say("侍女可容：庄主，你有什么需要吩咐的吗？");	
+	Return;
+
+@end:
+	Return;

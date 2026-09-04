@@ -1,0 +1,40 @@
+	SetPlayerDir(3);
+	SetPlayerPos(24, 39);
+	SetNpcActionFile("杨影枫", 0, "mpc001_跪.asf");
+	SetNpcActionFile("杨影枫", 1, "mpc001_跪.asf");
+	PlayMusic("Mc001.mp3");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	FadeIn();
+	//Say("<color=Red>十年后……");
+	Sleep(500);
+	Say("杨影枫：时间过得真快啊，爹，一眨眼，十年过去了。", 2_;
+	Say("杨影枫：十年前的那一幕，孩儿怎么也忘不了。这十年来，孩儿一直谨记你的遗嘱，不问世事，潜心练习家传武功，为的就是将来能完成你的遗愿。", 2);
+	Say("杨影枫：如今孩儿的武功已经小有所成，准备下山到江湖上去闯荡一番，特来向你辞行。", 2);
+	Say("杨影枫：爹，你放心吧，孩儿不会让你失望的，假以时日，孩儿一定会成为<color=Red>武功天下第一<color=Black>！",	2);
+//	Talk(0,0);
+	SetNpcActionFile("杨影枫", 0, "npc006_st2.asf");
+	SetNpcActionFile("杨影枫", 1, "npc006_sst2.asf");
+	NpcSpecialAction("杨影枫","mpc001.asf");
+	Sleep(1500);
+	AddToMemo(90000);
+	SetPlayerState(0);
+	Assign($Event, 10);
+	Assign($Result, 0);
+	Assign($EvilVal, 1000);
+	Assign($SenseVal, 1000);
+	PlayerGoto(24, 43);
+	SetPlayerDir(0);
+	EquipGoods(1, 5);
+	Say("欢迎进入剑侠的世界，你将在这个世界里完成一段关于月影的传说——");
+	Choose("请选择游戏的难易：", "难", "易", $Level);
+	If ($Level == 0) @Level;
+	SetLevelFile("Level-easy.ini");
+	SetNpcLevel("杨影枫", 5);
+	Goto @Begin;
+@Level:
+	SetLevelFile("Level-hard.ini");
+	Goto @Begin;
+@Begin:	
+	Return;
+

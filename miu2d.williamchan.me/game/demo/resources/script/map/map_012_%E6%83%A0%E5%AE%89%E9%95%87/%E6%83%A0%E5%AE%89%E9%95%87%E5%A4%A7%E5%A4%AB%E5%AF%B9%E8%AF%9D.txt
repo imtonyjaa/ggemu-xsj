@@ -1,0 +1,87 @@
+//取消	
+	If ($Event == 202) @Label1;
+//取消		
+	If ($Event == 205) @Label2;
+	If ($Event == 402) @402;	
+	If ($Event == 990) @Event990;
+	If ($Event == 991) @Event991;
+	If ($SubEvent15 == 2) @Sub1502;
+
+	Talk(20390, 20390);
+	Goto @end;
+
+//取消	
+@Label1:
+	Talk(2672, 2672);	
+	Goto @end;
+	
+//取消		
+@Label2:	
+	PlayerGoto(80,31);
+	SetPlayerDir(4);
+	Talk(2710, 2710);
+	SetNpcDir("王安",6);
+	Talk(2720, 2720);
+	SetPlayerDir(2);
+	Talk(2730, 2750);
+	Assign($Event, 208);
+	Sleep(500);
+	
+	FadeOut();
+	SaveNpc();
+	DelObj("躺着盖被的紫轩");
+	SaveObj();
+	LoadMap("map_063_药王谷.map");
+    LoadNpc("yaowanggu.npc"); 
+    SaveNpc("temp_yaowanggu.npc");
+	LoadNpc("temp_yaowanggu.npc");
+    LoadObj("map063_obj.obj");
+	SaveObj("temp_map063_obj.obj");
+	LoadObj("temp_map063_obj.obj");
+	AddObj("躺着的紫轩.ini"，34，73，0);
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(35, 77);
+	SetPlayerDir(5);
+	EnableNpcAI();
+	FadeIn();
+	RunScript("事件21_4.txt");
+	Goto @end;
+
+@Event990:
+	Say("杨影枫：大夫，你给这位姑娘看看…………", 2);
+	FadeOut();
+	FadeIn();
+	Say("杨影枫：大夫，她没事吧？", 8);
+	Say("大夫王安：这位姑娘并未受到什么伤害，只是失去记忆而已，想是因为受到重大刺激之故吧。", 53);
+	Say("杨影枫：那应如何救治？", 2);
+	Say("大夫王安：此病药石无效，只有用一些她印象深刻的事物慢慢唤醒她的记忆，或许有望回复。", 53);
+	Say("杨影枫：（真儿从小在忘忧岛长大，那又是我们相识之地，想来那里是她印象最深刻的地方了，不如就回到那里去吧。）", 2);
+	Say("杨影枫：多谢你了，大夫，我们先走了。", 2);
+	Say("大夫王安：不必客气，好走不送！", 53);
+	Say("杨影枫：真儿，我们回忘忧岛吧！", 2);
+	Say("纳兰真：嗯……", 15);
+
+	Assign($Event, 991);
+
+	Goto @end;
+@Event991:
+	Say("大夫王安：公子，这位姑娘需要回到她熟悉的地方，才有希望把病治好。", 53);
+	Goto @end;
+
+@Sub1502:
+	Say("大夫王安：公子，你有何事？", 53);
+	Say("杨影枫：大夫，那边有一人，面色发青，嘴唇发白，手掌发黑，想是中了毒。", 2);
+	Say("大夫王安：哦？这种症状应该是吃了一种有毒的蘑菇，没关系，我给你一剂药，你马上让他服下就没事儿了。", 53);
+	Say("杨影枫：好，谢谢大夫。", 2);
+	AddGoods("Goods-e18-金山毒霸.ini");
+	Assign($SubEvent15, 5);
+	Goto @end;
+	
+@402:
+	Say("杨影枫：有位姑娘受了内伤，大夫可否救治？", 2);
+	Say("大夫王安：要是中了风寒，亦或是中毒，老夫倒有办法，可是内伤……老夫不识武功，无从下手，少侠可以到城西南处的药店里去看看，那儿或许有疗伤的<color=Red>金创药<color=Black>。",53);
+	Say("杨影枫：多谢老人家指点，在下这就去。",2);
+	Return;
+@end:
+	Return;

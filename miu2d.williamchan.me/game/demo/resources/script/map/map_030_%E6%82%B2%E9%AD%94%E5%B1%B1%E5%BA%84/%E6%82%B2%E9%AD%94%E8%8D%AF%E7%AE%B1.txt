@@ -1,0 +1,6 @@
+PlaySound("物-箱子开.wav");
+OpenBox();
+AddRandGoods("Goods-m10-珊瑚.ini");
+AddRandGoods("Goods-m09-冰蚕.ini");
+SetObjScript("","关宝箱.txt");
+Return;

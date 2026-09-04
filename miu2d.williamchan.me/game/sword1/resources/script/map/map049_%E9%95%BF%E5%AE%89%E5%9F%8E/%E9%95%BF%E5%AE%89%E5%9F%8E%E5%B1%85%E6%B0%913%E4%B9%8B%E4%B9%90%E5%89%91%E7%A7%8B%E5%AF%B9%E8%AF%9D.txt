@@ -1,0 +1,39 @@
+// 与长安城居民乐剑秋的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	GetRandNum($Talklejianqiu,0,1);
+	If ($Talklejianqiu == 0) @Talk0;
+	If ($Talklejianqiu == 1) @Talk1;
+			
+@Talk0:
+	Say("乐剑秋：唉！山河破碎，辜负了这满塘荷花、一波春水呀！", 0);
+	Return;
+@Talk1:	
+	Say("乐剑秋：想那姚知节，本来是一磨墨小儿，厚颜无耻投靠金人，居然做起了长安知府，好笑！好笑！知节者，知节乎？", 0);
+	Return;		
+	
+	
+@YuanDan:	
+
+	If ($Talklejianqiu == 0) @Talk0YD;
+	If ($Talklejianqiu == 1) @Talk1YD;
+	If ($Talklejianqiu == 2) @Talk2YD;			
+	
+@Talk0YD:
+	Say("乐剑秋：“莫等闲，白了少年头，空悲切！”，匆匆又一年，小兄弟，这一年里你做了些什么？想了些什么？付出了什么？又收获了些什么？", 0);
+	Assign($Talklejianqiu, 1);
+	Return;
+	
+@Talk1YD:	
+	Say("乐剑秋：唉！山河破碎，辜负了这满塘荷花、一波春水呀！", 0);
+	Assign($Talklejianqiu, 2);
+	Return;
+	
+@Talk2YD:	
+	Say("乐剑秋：想那姚知节，本来是一磨墨小儿，厚颜无耻投靠金人，居然做起了长安知府，好笑！好笑！知节者，知节乎？", 0);
+	Return;			

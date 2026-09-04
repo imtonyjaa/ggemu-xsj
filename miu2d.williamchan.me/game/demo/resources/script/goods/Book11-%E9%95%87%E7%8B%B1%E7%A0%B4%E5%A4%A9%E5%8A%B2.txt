@@ -1,0 +1,6 @@
+//Book11-镇狱破天劲.ini
+	AddMagic("player-magic-镇狱破天劲.ini");
+	PlaySound("学会武功.wav");
+	DelGoods();
+	Add($EvilVal, -25);
+	Return;

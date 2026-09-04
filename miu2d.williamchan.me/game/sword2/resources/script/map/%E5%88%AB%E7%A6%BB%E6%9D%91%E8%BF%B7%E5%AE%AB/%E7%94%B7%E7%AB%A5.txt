@@ -1,0 +1,7 @@
+        
+   	Talk(31330,31340);
+	SetNpcKind("男童-1",3);
+   	DisableJump();
+	DisableRun();
+	Assign($BieLiMG,1);
+   	Return;        

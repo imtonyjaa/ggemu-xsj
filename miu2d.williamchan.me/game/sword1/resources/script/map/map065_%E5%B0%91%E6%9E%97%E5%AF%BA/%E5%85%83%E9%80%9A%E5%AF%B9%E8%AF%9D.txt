@@ -1,0 +1,51 @@
+//和元通对话
+	
+	If ($Event == 370) @Event370;
+	If ($Event >= 410) @Event410;
+
+	Say("元通：那猪八戒为什么也是秃头呢？", 0);
+	Return;
+	
+@Event370:	
+	
+	If ($Talkyuanzhen == 0) @TalkyuantongA;
+	If ($Talkyuanzhen == 1) @TalkyuantongB;
+
+@TalkyuantongA:
+	Say("元通：猴头！看你怎么逃得出佛祖的五指山！", 0);
+	Return;
+	
+@TalkyuantongB:
+	If ($Talkyuantong == 1) @Talkyuantong1;
+	
+	Say("独孤剑：你就是元通？", 1);
+	Say("元通：你们是什么人？", 0);
+	Say("独孤剑：你是不是抢了你师弟的泥人？如果你不归还给他，他禀明师傅，说你以大欺小，难道你不怕受寺规处罚？", 1);
+	Say("元通：元真他敢……要还他可以，你们先得解答我一个问题。", 0);
+	Say("独孤剑：好，你说吧。", 1);
+	Say("元通：我是和尚，孙行者也是和尚。为什么我是秃头，他却不是秃头呢？", 0);
+	
+	Choose("独孤剑：这……","A 解答","B 不知道", $Chooseyuantong);
+	If ($Chooseyuantong == 0) @Choose0;
+	If ($Chooseyuantong == 1) @Choose1;
+  @Choose0:
+	Say("独孤剑：因为他六根未净，而大师却勘破红尘了呀！", 2);
+	Say("元通：……不错！好吧，泥人你拿走吧！", 0);
+	AddGoods("Goods407_泥人.ini"); 
+	Assign($Talkyuantong, 1);
+	Return;
+  @Choose1:
+  	Say("独孤剑：他只是一只猴子，何必这么认真呢？", 8);
+  	Say("元通：……不错！好吧，泥人你拿走吧！", 0);
+	AddGoods("Goods407_泥人.ini"); 
+	Assign($Talkyuantong, 1);
+	Return;
+	
+ @Talkyuantong1:
+	Say("元通：那猪八戒为什么也是秃头呢？", 0);
+	Return;
+
+
+	
+@Event410:
+	Say("和尚：无相师叔居然是五色教的奸细，真是没想到！", 0);

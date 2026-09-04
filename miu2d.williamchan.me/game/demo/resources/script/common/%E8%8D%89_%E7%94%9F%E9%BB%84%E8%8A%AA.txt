@@ -1,0 +1,3 @@
+AddGoods("Goods-m07-生黄芩.ini");
+DelCurObj();
+Return;

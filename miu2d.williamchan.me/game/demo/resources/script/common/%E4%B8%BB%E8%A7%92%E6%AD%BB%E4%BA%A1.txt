@@ -1,0 +1,9 @@
+	StopMusic();
+	Sleep(2000);
+   	FadeOut();
+	PlayMovie("die.avi");
+	FreeMap();
+	PlayMusic("mc000.mp3");
+	ReturnToTitle();
+	Return;
+	

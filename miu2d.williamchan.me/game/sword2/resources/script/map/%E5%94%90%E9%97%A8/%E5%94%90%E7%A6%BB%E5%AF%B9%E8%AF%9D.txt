@@ -1,0 +1,10 @@
+
+	If ($TangLi >= 3) @Label;
+	Talk(32620,32620);
+	Add($TangLi,1);
+	Return;
+@Label:
+	Talk(32630,32630);
+	SetNpcRelation("唐离",1);
+	Return;
+	

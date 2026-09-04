@@ -1,0 +1,27 @@
+
+If ($SubEvent01 == 5) @end;
+If ($Result== 0) @Result0;
+If ($Result== 1) @Result1;
+If ($Result== 2) @Result2;
+If ($Result== 3) @Result3;
+Goto @end;
+
+@Result0:
+	If ($Event <= 19) @end;
+	Talk(41, 41);
+	Goto @end;
+
+@Result1:
+	Talk(41, 41);
+	Goto @end;
+
+@Result2:
+	Talk(41, 41);
+	Goto @end;
+
+@Result3:
+	Talk(41, 41);
+	Goto @end;
+
+@end:
+	Return;

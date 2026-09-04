@@ -1,0 +1,32 @@
+// 与长安城居民常三姑的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	GetRandNum($Talkchangsangu,0,1);
+	If ($Talkchangsangu == 0) @Talk0;
+	If ($Talkchangsangu == 1) @Talk1;
+			
+@Talk0:
+	Say("常三姑：那几个金兵拿了我两个瓜还没给钱呢！", 0);
+	Return;
+@Talk1:	
+	Say("常三姑：那些金兵经常买东西不给钱，哪里是士兵，简直是一群强盗！", 0);
+	Return;
+
+
+@YuanDan:
+
+	GetRandNum($Talkchangsangu,0,1);
+	If ($Talkchangsangu == 0) @Talk0YD;
+	If ($Talkchangsangu == 1) @Talk1YD;
+			
+@Talk0YD:
+	Say("常三姑：恭喜发财！买几个瓜吧？", 0);
+	Return;
+@Talk1YD:	
+	Say("常三姑：那些金兵经常买东西不给钱，哪里是士兵，简直是一群强盗！", 0);
+	Return;

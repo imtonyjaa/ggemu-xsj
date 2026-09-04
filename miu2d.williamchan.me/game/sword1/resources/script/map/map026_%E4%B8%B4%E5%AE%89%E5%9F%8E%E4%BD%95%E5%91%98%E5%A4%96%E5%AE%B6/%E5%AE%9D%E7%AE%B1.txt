@@ -1,0 +1,15 @@
+//打开宝箱
+
+	If ($Event >= 190) @Event190;
+	
+	Say("箱子锁上了。");
+	Return;
+	
+@Event190:
+	PlaySound("物_箱子开.wav");
+	OpenBox();
+	AddGoods("Goods009_玫瑰玉簪.ini");
+	Sleep(600);
+	AddGoods("Goods209_玄参方.ini");
+	SetObjScript("","");
+	Return;

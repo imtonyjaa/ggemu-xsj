@@ -1,0 +1,267 @@
+	If ($Event == 2034) @2034;
+	If ($Event == 2033) @2033;
+	If ($Event == 2032) @2032;
+	If ($Event == 2031) @2031;
+	If ($Event == 1804) @1804;
+	If ($Event == 1803) @1804;
+	If ($Result == 1)   @Result1;
+	Return;
+
+@2034:
+	Say("蔷薇：早去早回。",29);
+	Return;
+
+@2033:
+	If ($wangwei == 1) @bmb;
+	Say("杨影枫：薇儿……你这么早就起来了。",3);
+	Say("蔷薇：我不早……你们为什么不多睡一会儿呢？",30);
+	Say("纳兰真：（害羞）……",121);
+@bmb:
+	Say("杨影枫：薇儿……你感觉好些了吗？",3);
+	Say("蔷薇：好多了，真儿姐姐，这次多亏了你我才化险为夷，我真不知道要怎样才能报答你的救命之恩。",29);
+	Say("纳兰真：我们都是好姐妹，还谈什么报答呢。",9);
+	Say("蔷薇：真儿姐姐，你真好……",30);
+	Say("纳兰真：……",10);
+	Say("蔷薇：但是你爹为什么那么坏?",29);
+	Say("纳兰真：我爹他……唉……",12);
+	Say("杨影枫：薇儿，我和真儿打算去忘忧岛归隐，你有什么打算吗？",2);
+	Say("蔷薇：……影枫哥……不管你去哪里……我都跟着你。",29);
+	Say("杨影枫：那太好了！不过我想先去寒波谷看看眉儿和紫轩她们，你们在这里等我好吗？",3);
+	Say("蔷薇：好啊，影枫哥，最好能让她们一同去忘忧岛。",29);
+	Say("纳兰真：嗯……我们就在这里等你。",9);
+	FadeOut();
+	SetNpcKind("纳兰真",1);
+	SetPlayerPos(17,208);
+	SetPlayerDir(5);
+	SetNpcPos("纳兰真",18,201);
+	SetNpcDir("纳兰真",1);
+	SetNpcPos("蔷薇",19,202);
+	SetNpcDir("蔷薇",1);
+	FadeIn();
+	Say("纳兰真：一路小心……",9);
+	Say("蔷薇：早去早回……",29);
+	Say("杨影枫：我会的……",3);
+	SetMapTrap(5,"trap05.txt");
+	Assign($Event, 2034);
+	Memo("去寒波谷接月眉儿和紫轩");
+	Return;
+
+@2032:
+	Say("蔷薇看起来睡得很香");
+	Return;
+	
+@2031:
+	Say("蔷薇一副睡得很甜的样子");
+	Say("杨影枫：嗯……看来解药已经发挥作用了……",2);
+	Say("杨影枫：我就不打扰她了，让她好好睡一觉吧。",2);
+	Assign($Event, 2032);
+	Return;
+
+@Result1:
+	If ($Event == 576) @Event576;
+	If ($Event == 578) @Event578;//结婚夜遇纳兰真
+	If ($Event == 580) @Event580;
+	If ($Event == 590) @Talk590;
+	If ($Event == 592) @Event592;
+	If ($Event == 600) @Event600;//
+	Return;
+
+@Event576:
+@Event578:
+	
+	Talk(11490,11510);
+	Assign($Event ,580);
+	FadeOut();
+	StopMusic();
+	PlayMusic("mc013.mp3");
+	DelObj("喜字");
+	DelObj("一对灯笼");
+	SaveObj();
+	LoadNpc("beimo.npc");
+	LoadObj("map030_obj.obj");
+	DelNpc("蔷薇");
+	AddNpc("蔷薇.ini",55,161,2);
+	
+	SetNpcScript("蔷薇","蔷薇对话.txt");
+	ChangeMapColor(255,255,255);
+	ChangeAsfColor(255,255,255);
+	Talk(11520,11520);
+	FullLife();
+	FullThew();
+	FullMana();
+	SetPlayerPos(45,140);
+	SetMapTrap(1,"Trap01.txt");
+	SetMapTrap(5,"Trap05.txt");
+	SetMapTrap(6,"Trap06.txt");
+	PlayerGotoEx(39,152);
+	FadeIn();
+	PlayerGoto(39,152);
+Say("杨影枫：啊，转眼已经三个月过去了，近来我闭关修炼，功力大有进展……只是这些日子都没有出门，今天我不妨出去走走。",2);
+	SetNpcPos("蔷薇",45,140);
+	
+	Watch("杨影枫","蔷薇",1);
+	NpcGoto("蔷薇",39,151);
+	Watch("杨影枫","蔷薇",0);
+//	Talk(67160,67210);	by spe 因为有引号,改xls太麻烦了
+
+Say("蔷薇：枫哥哥，我们去后山狩猎吧！",29);
+Say("杨影枫：薇儿，今天我正好要出门逛逛，改天再陪你玩。",2);
+Say("蔷薇：不行！你得留下来陪我！",31);
+Say("杨影枫：（成亲以来我可是见识了薇儿的大小姐脾气了！唉，不好侍侯啊……想来真儿的善解人意，温柔体贴，实在令人想念！）",2);
+Say("蔷薇：你又在想什么？！整天神思恍惚的！你到底陪不陪我去？！",31);
+Say("杨影枫：别闹了，这些日子我天天陪你来不够吗？",2);
+Say("蔷薇：不行吗！我就要今天你陪我！",31);     
+Say("杨影枫：你别再胡闹了，我走了！",6);
+PlayerGoto(35,163);
+
+Say("蔷薇：你……给我回来！杨影枫，你混蛋！",31);
+Say("杨影枫：（……岂有此理！竟然当着这么多人破口大骂，哪有一点大家闺秀风范？！）",2);
+
+Memo("离开悲魔山庄去外面看看。");
+	Return;
+
+
+@Event580:
+	Talk(67230,67240);
+	Say("蔷薇：哼！",31);
+	NpcGotoEx("蔷薇",43,142);
+	Goto @end;
+
+@Talk590:
+	Talk(67380,67410);
+	NpcGotoEx("蔷薇",44,145);
+	Goto @end;
+	
+@Event592:
+	
+	Say("蔷薇：……",31);
+	Say("杨影枫：薇…",2);
+	Say("蔷薇：你走吧！我真得不想再看到你了！",32);
+	
+	SetNpcKind("杨影枫",1);
+	SetNpcKind("蔷薇",2);
+	PlayerRunTo(52,164);
+	SetNpcKind("杨影枫",2);
+	SetNpcKind("蔷薇",0);
+	SetPlayerScn();
+	Goto @end;
+	
+
+@Event600:
+	StopMusic();
+	PlayMusic("Mc018.mp3");
+	Talk(96570,96590);
+	PlayerGoto(52,164);
+	SetNpcDir("蔷薇",7);
+	Talk(96600,96600);
+	SetPlayerDir(3);
+	PlayerGoto(49,156);
+	Watch("杨影枫","蔷薇",0);
+	Talk(96610,96670);
+	NpcGotoEx("蔷薇",46,150);
+	Sleep(500);
+	Talk(96680,96680);
+	Sleep(500);
+	Watch("杨影枫","蔷薇",1);
+	Talk(96690,96690);
+	SetNpcDir("蔷薇",3);
+	NpcGotoEx("蔷薇",41,149);
+	SetPlayerDir(1);
+	Sleep(2000);
+	DelNpc("蔷薇");
+	Talk(96700,96700);
+	SetNpcPos("管家铁云",47,143);
+	NpcGoto("管家铁云",48,156);
+	Watch("杨影枫","管家铁云",0);
+	Talk(96692,96694);
+	PlayerGoto(51,163);
+	
+	Assign($Event ,610);
+	FadeOut();
+	SaveObj();
+	LoadNpc("beimo.npc");
+	DelNpc("蔷薇");
+	SetNpcPos("管家铁云",44,139);
+	SaveNpc("beimo.npc");
+	LoadObj("map030_obj.obj");
+	SetPlayerPos(44,141);
+	PlayerGotoEx(40,152);
+	SetPlayerScn();
+	FadeIn();
+	PlayerGoto(40,152);
+	SetPlayerDir(1);
+	Talk(96701,96701);
+	
+	NpcGoto("管家铁云",39,151);
+	Watch("管家铁云","杨影枫",0);
+	Talk(96702,96704);
+	SetPlayerDir(1);
+	NpcGoto("管家铁云",33，172);
+	Sleep(1000);
+	NpcGoto("管家铁云",39,151);
+	NpcGotoEx("纳兰真",30,169);
+	Watch("管家铁云","杨影枫",0);
+	Talk(96706,96706);
+	AddNpc("纳兰真.ini",26,170,5);
+	NpcGotoEx("纳兰真",30,169);
+	PlayerRunTo(31,168);
+	NpcGoto("纳兰真",30,169);
+	Watch("纳兰真","杨影枫",0);
+	Talk(96710,96860);
+	Sleep(500);
+	Talk(96870,96870);
+	NpcGotoEx("纳兰真",24,176);
+	Sleep(1000);
+	Talk(96880,96890);
+	Sleep(1000);
+	DelNpc("纳兰真");
+	Talk(96900,96900);
+	Assign($Event,3000);
+	AddToMemo(24350);
+	StopMusic();
+	PlayMusic("mc014.mp3");
+	Return;
+
+@end:
+	Return;
+
+	
+@1804:
+	Add($qiangwei,1);
+	If ($qiangwei == 1) @qiangwei1;
+	If ($qiangwei == 2) @qiangwei2;
+	If ($qiangwei == 3) @qiangwei3;
+	If ($qiangwei == 4) @qiangwei4;
+	If ($qiangwei == 5) @qiangwei5;
+	
+@qiangwei1:
+	Say("蔷薇：杨大哥，谢谢你救了我。",29);
+	Say("杨影枫：不用谢，应该的。",2);
+	Return;
+
+@qiangwei2:
+	Say("蔷薇：杨大哥，你会向我爹求亲吗？",29);
+	Say("杨影枫：我不能这么做……",2);
+	Say("蔷薇：杨大哥，你是不是已经有心上人了？",29);
+	Say("杨影枫：我……",5);
+	Return;
+	
+@qiangwei3:
+	Say("蔷薇：杨大哥，她叫什么名字？",29);
+	Say("杨影枫：纳兰真……",2);
+	Say("蔷薇：杨大哥，她长得很好看吗？",29);
+	Say("杨影枫：很美……", 2);
+	Return;
+
+@qiangwei4:
+	Say("蔷薇：杨大哥，你觉得我好看吗？",29);
+	Say("杨影枫：很好看……",2);
+	Say("蔷薇：杨大哥，那我和纳兰姑娘相比谁更好看呢？",29);
+	Say("杨影枫：都很美……",2);
+	Return;
+
+@qiangwei5:
+	Say("蔷薇：杨大哥，纳兰姑娘现在在哪里呢？",29);
+	Say("杨影枫：不知道，我也在找她。",5);
+	Assign($qiangwei,0);
+	Return;

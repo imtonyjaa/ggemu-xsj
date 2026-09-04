@@ -1,0 +1,9 @@
+//偏厅家丁
+	
+	If($FromFengChi == 2) Goto @Lable0;
+	Talk(24780,24780);
+	Return;
+
+@Lable0:	
+	Talk(25040,25050);
+	Return;

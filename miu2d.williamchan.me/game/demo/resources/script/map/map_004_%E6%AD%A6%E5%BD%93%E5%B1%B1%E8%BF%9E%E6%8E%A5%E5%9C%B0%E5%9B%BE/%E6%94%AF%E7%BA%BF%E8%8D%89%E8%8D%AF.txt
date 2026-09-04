@@ -1,0 +1,12 @@
+
+
+	If ($SubEvent02 << 2) @end;
+	
+	Say("杨影枫：这不是草葱吗。", 2);
+	DelObj("草葱");
+	AddGoods("Goods-e15-草葱.ini");
+	
+	Add($SubEvent02, 2);
+	SaveObj();
+@end:
+	Return;

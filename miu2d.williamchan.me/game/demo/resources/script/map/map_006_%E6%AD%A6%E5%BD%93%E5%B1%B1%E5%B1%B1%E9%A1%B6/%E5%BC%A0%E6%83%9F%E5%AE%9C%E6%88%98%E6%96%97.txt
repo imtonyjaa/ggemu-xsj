@@ -1,0 +1,13 @@
+	If ($wangwei01 >= 5) @Label1;
+	//Talk(261, 262);
+	Say("张惟宜：你先赢了我几个师弟，再来和我比试吧！",	47);
+	Say("杨影枫：（好大的口气，等会儿叫你知道我的厉害！）",	2);
+	Return;
+		
+@Label1:	
+    Talk(417, 417);
+    SetNpcRelation("张惟宜", 1);
+    EnableFight();
+    EnableNpcAI();
+	SetNpcDeathScript("杨影枫","杨影枫死亡.txt");
+    Return;

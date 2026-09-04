@@ -1,0 +1,10 @@
+	If($LinAnMianJu == 1) @Lable2;
+	Talk(20120,20120);
+	Return;
+@Lable2:
+	Talk(19770,19780);
+	Assign($FromFengChi,17);
+	SetNpcRelation("宋朝长刀手2",1);
+	SetNpcRelation("宋朝长刀手3",1);
+	EnableFight();
+	Return;

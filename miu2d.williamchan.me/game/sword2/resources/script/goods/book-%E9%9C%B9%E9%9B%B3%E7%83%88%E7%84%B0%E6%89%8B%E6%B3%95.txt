@@ -1,0 +1,2 @@
+			AddMagic("player-magic-霹雳烈焰手法.ini");
+			Return;

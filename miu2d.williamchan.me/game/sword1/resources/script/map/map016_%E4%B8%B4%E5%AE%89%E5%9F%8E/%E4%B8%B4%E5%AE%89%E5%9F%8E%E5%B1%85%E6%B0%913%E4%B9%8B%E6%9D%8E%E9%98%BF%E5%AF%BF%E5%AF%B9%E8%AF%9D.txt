@@ -1,0 +1,67 @@
+// 与临安城居民李阿寿的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	If ($Event == 180) @Event180;
+
+	If ($Talkliashou1 == 0) @Talk0;
+	If ($Talkliashou1 == 1) @Talk1;
+	If ($Talkliashou1 == 2) @Talk2;
+	If ($Talkliashou1 == 3) @Talk3;
+	
+@Talk0:
+	Say("李阿寿：临安风景如画，繁荣富庶，真是个好地方啊，难怪金人会垂涎三尺！", 0);
+	Assign($Talkliashou1, 1);
+	Return;
+@Talk1:	
+	Say("李阿寿：如果金兵打过来，我们的日子可怎么过呀！", 0);
+	Assign($Talkliashou1, 2);
+	Return;
+@Talk2:	
+	Say("李阿寿：朝廷不替老百姓着想，只贪图眼前的享乐，我看金兵南下是迟早的事，那时，唉……", 0);
+	Assign($Talkliashou1, 3);
+	Return;	
+@Talk3:	
+	Say("李阿寿：我刚才说什么来着？我自己都忘了。", 0);
+	Return;		
+	
+@Event180:
+	Say("李阿寿：听说有人抢了吕将军的令牌，官府正在到处抓那个人。", 0);
+	Return;		
+
+
+@YuanDan:	
+
+	If ($Event == 180) @Event180YD;
+
+	If ($Talkliashou1 == 0) @Talk0YD;
+	If ($Talkliashou1 == 1) @Talk1YD;
+	If ($Talkliashou1 == 2) @Talk2YD;
+	If ($Talkliashou1 == 3) @Talk3YD;
+	
+@Talk0YD:
+	Say("李阿寿：恭贺新禧！送你一个红包。", 0);
+	Say("独孤剑：谢谢！", 2);
+	Say("得到三十两银子。");
+	AddMoney(30);
+	Assign($Talkliashou1, 1);
+	Return;
+@Talk1YD:	
+	Say("李阿寿：临安风景如画，繁荣富庶，真是个好地方啊，难怪金人会垂涎三尺！", 0);
+	Assign($Talkliashou1, 2);
+	Return;
+@Talk2YD:	
+	Say("李阿寿：新的一年来了，可是如果金兵打过来，我们的日子怎么过呀！", 0);
+	Assign($Talkliashou1, 3);
+	Return;	
+@Talk3YD:	
+	Say("李阿寿：朝廷不替老百姓着想，只贪图眼前的享乐，我看金兵南下是迟早的事，那时，唉……", 0);
+	Return;		
+	
+@Event180YD:
+	Say("李阿寿：听说有人抢了吕将军的令牌，官府正在到处抓那个人。", 0);
+	Return;		

@@ -1,0 +1,24 @@
+// 和妓女春樱的对话
+
+	If ($Talkchunying == 0) @Talk0;
+	If ($Talkchunying == 1) @Talk1;
+	If ($Talkchunying == 2) @Talk2;
+	If ($Talkchunying == 3) @Talk3;
+	
+@Talk0:
+	Say("春樱：公子，你说，我的容貌能闭月羞花吗？", 0);
+	Assign($Talkchunying, 1);
+	Return;
+@Talk1:	
+	Say("春樱：公子，你好俊哦，我们俩在一起有一比：你就是那金童，我就是那玉女，你看象不象？", 0);
+	Assign($Talkchunying, 2);
+	Return;
+@Talk2:	
+	Say("春樱：公子，看你身背长剑，一定是江湖剑客，听说剑客特别风流勇猛，能让小女子见识一下吗？", 0);
+	Assign($Talkchunying, 3);
+	Return;
+@Talk3:	
+	Say("春樱：公子什么时候想让奴家伺候你就说一声。", 0);
+	Return;	
+		
+	

@@ -1,0 +1,51 @@
+//燕若雪
+
+	If ($BHGOFire==0) @talk1;
+	If ($BHGOFire==1) @talk2;
+	Return;
+
+@talk1:
+	Talk(40900,40910);
+	Return;
+	
+@talk2:
+	Talk(40930,40960);
+	SetNpcKind("燕若雪",3);
+	PlayerGoto(4,31);
+	FadeOut();
+	Talk(40970,40970);
+	StopMusic();
+	
+	LoadMap("铁门寨.map");
+	LoadObj("tmz.obj");
+	SetPlayerDir(1);
+	SetPlayerPos(65,20);
+	PlayMusic("Ks66.wav");
+	SetMapTrap(3,"");
+	FadeIn();
+	PlayerGoto(53,37);
+	Talk(43740,43770);
+	PlayerGoto(45,50);
+	PlayerGoto(39,59);
+	Talk(43780,43890);
+	PlayerGoto(30,77);
+	PlayerGoto(24,92);
+	FadeOut();
+	StopMusic();
+
+	LoadMap("狂沙镇.map");
+	LoadNpc("ks-2.npc");
+	LoadObj("ks.obj");
+	SetPlayerDir(1);
+	SetPlayerPos(126,77);
+	PlayMusic("ks69.wav");
+	DisableJump();
+	DisableRun();
+	FadeIn();
+	Talk(38950,39000);
+	SetMapTrap(5,"投店.txt");
+	SaveMapTrap();
+	SetNpcScript("燕若雪","燕若雪Talk.txt");
+	Assign($KsOQieHuan,2);
+	AddToMemo("带小仙女去客栈投店。");
+	Return;

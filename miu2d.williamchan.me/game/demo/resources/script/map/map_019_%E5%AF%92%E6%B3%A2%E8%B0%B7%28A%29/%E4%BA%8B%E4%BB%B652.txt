@@ -1,0 +1,61 @@
+
+	If ($Event == 510) @Label1;
+	
+	Goto @end;
+	
+@Label1:
+	PlayerGoto(24, 51);
+	SetPlayerDir(2);
+	SetNpcDir("紫轩", 6);
+	Talk(9120, 9180);
+	Select(9181, 9182, 9241, $SelectVal);
+// 不相信紫轩所言，翻脸
+	If ($SelectVal == 0) @Label2;
+// 心情极度复杂，不愿重提往事
+	If ($SelectVal == 1) @Label3;
+		
+@Label2:
+	Talk(9190, 9240);
+	SetNpcKind("杨影枫",1);
+        PlayerGoto(31, 60);
+        SetPlayerDir(7);
+	SetNpcKind("杨影枫",2);
+	Talk(9330, 9330);
+	Assign($Event, 520);
+	Goto @Label4;
+@Label3:
+	Talk(9250, 9320);
+	SetNpcKind("杨影枫",1);
+        PlayerGoto(31, 60);
+        SetPlayerDir(7);
+	SetNpcKind("杨影枫",2);
+	Talk(9340, 9340);
+	Assign($Event, 520);
+	Goto @Label4;
+
+@Label4:
+	FadeOut();
+	Sleep(200);
+        //Say("播放avi");
+	LoadMap("map_020_樱花谷.map");
+	SetMapPos(3, 0);
+	LoadNpc("yinghuagu-zixuanyuemei.npc");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	FadeIn();
+	Talk(9350, 9410);
+
+	FadeOut();
+	LoadMap("map_018_连接地图.map");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(2, 10);
+	SetPlayerDir(0);
+	SetPlayerScn();
+	EnableNpcAI();
+	FadeIn();
+		
+	Goto @end;
+	
+@end:
+	Return;

@@ -1,0 +1,16 @@
+If ($Event == 585) @Event585;
+Return;
+
+@Event585:
+Add($NpcCount ,-1);
+If ($NpcCount ==0) @AllDead;
+Return;
+
+@AllDead:
+FadeOut();
+Say("经过一场恶斗，杨影枫最终还是被蒙面人打败…");
+RunScript("杨影枫死亡.txt");
+Return;
+
+
+	

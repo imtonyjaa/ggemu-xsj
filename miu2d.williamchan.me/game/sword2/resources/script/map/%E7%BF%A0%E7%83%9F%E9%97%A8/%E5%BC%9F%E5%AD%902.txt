@@ -1,0 +1,5 @@
+//翠烟门弟子
+
+	Talk(43290,43320);
+	Add("$CuiYanMen2DiZi",1);
+	Return;

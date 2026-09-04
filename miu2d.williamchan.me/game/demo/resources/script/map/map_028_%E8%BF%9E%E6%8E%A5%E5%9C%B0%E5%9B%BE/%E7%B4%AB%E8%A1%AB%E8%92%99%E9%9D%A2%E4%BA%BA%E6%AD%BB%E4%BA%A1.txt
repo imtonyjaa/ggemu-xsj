@@ -1,0 +1,11 @@
+If ($Event == 585) @Event585;
+Return;
+
+@Event585:
+	FadeOut();
+	Say("杨影枫：呀！毒烟！你们……", 2);
+	RunScript("杨影枫死亡.txt");
+Return;
+
+
+	

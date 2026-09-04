@@ -1,0 +1,2 @@
+	AddMagic("player-magic-花飞蝶舞剑.ini");
+	Return;

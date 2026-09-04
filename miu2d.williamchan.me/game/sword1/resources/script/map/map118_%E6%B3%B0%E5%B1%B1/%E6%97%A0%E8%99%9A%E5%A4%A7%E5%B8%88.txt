@@ -1,0 +1,59 @@
+//和无虚大师对话
+
+	If ($Event == 800) @Event800;
+	If ($Event == 810) @Event810;
+	If ($Event == 820) @Event820;
+	
+@Event800:
+	Say("无虚大师：阿弥陀佛！独孤施主，老衲等候你多时了！", 56);
+	Say("独孤剑：方丈大师！", 6);
+	Say("无虚大师：老衲原本乃是方外之人。不过这次，老衲前来却有份私心。", 56);
+	Say("无虚大师：你我算有一式之缘，虽不敢妄称师徒之分，但老衲却是希望少侠能够担此大任，造福武林。如此，方不负刘大侠和张大侠的一番心意……", 56);
+	Say("独孤剑：晚辈当尽力而为！", 1);
+	Say("无虚大师：善哉！善哉！", 56);
+	Assign($Event, 805);
+	FadeOut();
+	DelNpc("江湖豪客5"); 
+	SetNpcPos("罗天强", 8, 23);
+	SetNpcDir("罗天强", 3);
+	SetPlayerPos(7, 20); 
+	SetPlayerDir(7);
+	FadeIn();
+	Say("池先秋：这次比武，只要任何人连胜四场，便是胜了所有英雄，“散行门”的罗天强罗大侠已经连胜两场了……下一场是罗天强罗大侠对衡山派掌门独孤剑独孤少侠。", 79);
+	
+	Say("江湖侠士：啊，这便是近来声名鹊起的衡山派新任掌门……");
+	Say("江湖侠士：听说他连南宫灭和方勉都打败了……", );
+	Say("卢青：师兄，加油啊！", 83);
+	Say("小雷：独孤大哥，嘿嘿，看你的了。", 69);
+	Say("独孤剑：罗大侠，请！", 1);
+	Say("罗天强：好！我来会会“仙剑客”的后人。", 77);
+	StopMusic();
+	PlayMusic("激战.mp3");
+	SetNpcRelation("罗天强", 1);
+	SetNpcScript("罗天强", "");
+	SetNpcDeathScript("独孤剑", "比武失败.txt");
+	Return;
+	
+@Event810:
+	Say("无虚大师：少侠可准备好了。", 56);
+	Choose("独孤剑：大师你……","A 请大师赐教","B 请大师稍候",$Choose);
+	If ($Choose == 0) @Choose0;
+	If ($Choose == 1) @Choose1;
+
+  @Choose0:
+	Say("无虚大师：好，少侠小心了！", 56);
+	SetNpcRelation("无虚大师", 1);
+	SetPlayerState(1);
+	SetNpcDeathScript("独孤剑", "比武失败.txt");
+	SetNpcScript("无虚大师", "");
+	PlayMusic("沙场.mp3");
+	Return;
+	
+  @Choose1:
+	Say("无虚大师：少侠已连胜三场，想必已经疲乏，不妨休息一会。", 56);
+	Say("独孤剑：多谢大师。", 1);
+	Return;
+	
+@Event820:
+	Say("无虚大师：施主不妨上山顶一趟，或有所得！阿弥陀佛……", 56);
+	Return;

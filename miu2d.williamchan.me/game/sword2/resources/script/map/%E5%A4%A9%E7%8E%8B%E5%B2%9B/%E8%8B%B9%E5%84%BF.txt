@@ -1,0 +1,23 @@
+//苹儿的大段对话
+
+	Talk(34200,34310);
+	DelGoods("goods-sj-1-天王令.ini");
+	Talk(34320,34410);
+	NpcGoto("苹儿",54,76);
+	NpcGotoEx("苹儿",45,77);
+	PlayerGoto(52,78);
+	PlayerGoto(48,84);
+	PlayerGoto(46,76);
+	SetNpcDir("苹儿",5);
+	SetPlayerDir(1);
+	Talk(34420,34580);
+	StopMusic();
+	FadeOut();
+	SetNpcPos("苹儿",74,69);
+	SetNpcDir("苹儿",7);
+	PlayMusic("Ks76.wav");
+	FadeIn();
+	Talk(34590,34590);
+	SetNpcScript("苹儿","苹儿1.txt");
+	Assign($TianWangPiEr,1);
+	Return;

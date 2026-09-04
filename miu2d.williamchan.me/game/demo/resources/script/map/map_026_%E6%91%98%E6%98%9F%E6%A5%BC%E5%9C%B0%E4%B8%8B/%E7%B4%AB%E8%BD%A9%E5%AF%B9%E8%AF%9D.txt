@@ -1,0 +1,52 @@
+	If ($Event == 2005) @L2005;
+	Return;
+	
+@L2005:
+	PlayerGoto(8,66);
+	Watch("杨影枫","紫轩",0);
+	Say("杨影枫：紫轩！",3);
+	Say("紫轩：杨大哥！真的是你？",20);
+	StopMusic();
+	PlayMusic("mc006.mp3");
+	Say("紫轩：我以为再也见不到你了。",20);
+	Say("杨影枫：你是怎么到这里来的？",4);
+	Say("紫轩：我得知月眉儿被魔教抓走，便一路打探来得摘星楼，结果被纳兰潜凛打伤，关在这里。",20);
+	Say("杨影枫：你的伤势怎么样？",4);
+	Say("紫轩：不要紧，休息一段时间就会好的。",20);
+	Say("杨影枫：你找到月眉儿了吗？",2);
+	Say("紫轩：没有，不过我打听到她们可能被关在飞龙堡的某个地方。",20);
+	Say("杨影枫：我先送你回寒波谷吧。",2);
+	Say("紫轩：你别管我，快去救月眉儿吧。我自己会照顾自己的……咳咳……",20);
+	Sleep(1000);
+	Say("杨影枫：紫轩……以前我错怪你了……",5);
+	Say("紫轩：杨大哥……是我对不起你……咳咳……",20);
+	Say("杨影枫：别说那么多了，以后我们再也不分开。",5);
+
+	SetNpcActionFile("紫轩", 0, "npc010_st.asf");
+	SetNpcActionFile("紫轩", 1, "npc010_pst.asf");
+	Sleep(1000);
+	ShowNpc("杨影枫", 0);
+	SetNpcActionFile("紫轩", 0, "mpc040-1.asf");
+	SetNpcActionFile("紫轩", 1, "mpc040-1.asf");
+	NpcSpecialAction("紫轩", "mpc040.asf");
+	Sleep(2500);
+	FadeOut();
+	Sleep(1000);
+	ShowNpc("杨影枫", 1);
+	SetNpcActionFile("紫轩", 0, "npc010_st.asf");
+	SetNpcActionFile("紫轩", 1, "npc010_pst.asf");
+	FadeIn();
+	
+	Say("杨影枫：我们走吧。",5);
+	Say("紫轩：咳咳……好的。",20);
+
+	SetNpcKind("紫轩",3);
+	SetMapTrap(1,"trap01.txt");
+	Assign($Event, 2006);
+
+	StopMusic();
+	PlayMusic("mc017.mp3");
+
+	Memo("送紫轩会寒波谷");
+	Return;
+	

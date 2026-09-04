@@ -1,0 +1,121 @@
+	If ($Event == 3120) @Evt3120;
+	If ($Event == 3185) @Talk3185;
+	If ($Event == 3210) @Talk3210;
+	If ($Event == 1819) @1800;
+	If ($Event == 1818) @1800;
+	If ($Event == 1806) @1800;
+	If ($Event == 1805) @1800;
+	If ($Event == 1804) @1800;
+	If ($Event == 1803) @1800;
+	If ($Event == 1802) @1800;
+	If ($Event == 1801) @1800;
+	If ($Event == 1800) @1800;//结局2
+	If ($Result == 0) @Result0;
+	If ($Result == 1) @Result1;
+	If ($Result == 2) @Result2;
+	If ($Result == 3) @Result3;
+	Return;
+		
+@1800:
+	Say("家丁阿柄：庄主，有什么吩咐？");
+	Return;
+
+@Result0:
+	If ($Event == 475) @Label1;
+	If ($Event == 485) @Label2;
+	If ($Event == 490) @Label3;
+	If ($Event == 492) @Label4;
+	If ($Event == 500) @Label5;
+	If ($Event == 530) @Label4;
+	If ($Event == 562) @Label2;
+
+	Talk(21770, 21770);
+	Return;
+@Label1:
+	Talk(21770, 21770);
+	Return;
+@Label2:
+	Talk(21771, 21771);
+	Return;
+@Label3:
+	Talk(21772, 21772);
+	Return;
+@Label4:
+	Talk(21773, 21773);
+	Return;
+@Label5:
+	Talk(21774, 21774);
+	Return;
+
+@Result1:
+	If ($Event == 700) @Talk700;
+	//If ($Event >= 650) @TalkA650;
+	If ($Event == 600) @TalkE600;
+	Talk(21770, 21770);
+	Return;
+	
+@Result2:
+	If ($Event ==	767) @TalkE767;
+
+	If ($Event >= 750) @TalkA750;
+	If($Event >= 720) @TalkA720;
+Talk(21770, 21770);
+	Return;	
+
+@Result3:
+	If ($Event >= 990) @Event990;
+
+	GetRandNum($AbingTalk, 1, 2);
+	If ($AbingTalk == 1) @AbingTalk31;
+	If ($AbingTalk == 2) @AbingTalk32;
+	@AbingTalk31:
+		Talk(80170, 80170);
+		Return;
+	@AbingTalk32:
+		Talk(21770, 21770);
+		Return;
+
+	@Event990:
+		Talk(21770, 21770);
+		Return;
+
+	Return;
+	
+	
+@TalkE600:
+	Talk(60650,60650);
+	Return;
+
+@TalkA650:
+	Talk(61210,61210);
+	Return;		
+@Talk700:
+	Talk(61610,61610);
+	Return;
+
+@TalkA720:
+	Talk(71070,71070);
+	Return;	
+	
+
+@TalkA750:
+	Talk(71930,71930);
+	Return;
+		
+@TalkE767:
+	Talk(72040,72040);
+	Return;
+
+@Evt3120:
+	Talk(103080,103080);
+	Return;
+
+@Talk3185:
+	Talk(103950,103950);
+	Return;	
+
+@Talk3210:
+	Return;
+	
+@end:
+	Return;

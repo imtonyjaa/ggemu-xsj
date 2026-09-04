@@ -1,0 +1,65 @@
+// 赌场老板对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	Choose("赌场老板：八十两一盘，赌不赌", "A 赌", "B 不赌", $ChooseDu);
+	If($ChooseDu == 0) @Choose0;
+	If($ChooseDu == 1) @Choose1;
+	
+@Choose0:
+
+	GetMoneyNum();
+	If($MoneyNum << 80) @NotenoughMon;
+	If($MoneyNum >= 80) @EnoughMon;
+@NotenoughMon:
+	Say("独孤剑：哎呀，我身上的银子不够了……", 1);
+	Say("赌场老板：穷鬼！", 91);
+	Return;
+@EnoughMon:
+	Gamble(80, 1, $map027laoban); 
+	If ($map027laoban == 1) @duwin;
+	Say("赌场老板：你输了，还赌吗？", 91);
+	Return;
+@duwin:
+	Say("赌场老板：小子，运气不错嘛！再来一盘吧？", 91);
+	Return;	
+	
+
+@Choose1:	
+	Say("赌场老板：不赌就别在这里瞎晃悠！", 91);
+	Return;
+	
+	
+@YuanDan:		
+
+	Say("赌场老板：来来来，新年里鸿运当头，逢赌必赢，八十两一盘，赌一盘吧？", 91);
+	Choose("赌场老板：赌不赌？", "A 赌", "B 不赌", $ChooseDu);
+	If($ChooseDu == 0) @Choose0YD;
+	If($ChooseDu == 1) @Choose1YD;
+	
+@Choose0YD:
+
+	GetMoneyNum();
+	If($MoneyNum << 80) @NotenoughMonYD;
+	If($MoneyNum >= 80) @EnoughMonYD;
+@NotenoughMonYD:
+	Say("独孤剑：哎呀，我身上的银子不够了……", 1);
+	Say("赌场老板：穷鬼！", 91);
+	Return;
+@EnoughMonYD:
+	Gamble(80, 1, $map027laoban); 
+	If ($map027laoban == 1) @duwinYD;
+	Say("赌场老板：你输了，还赌吗？", 91);
+	Return;
+@duwinYD:
+	Say("赌场老板：小子，运气不错嘛！再来一盘吧？", 91);
+	Return;	
+	
+
+@Choose1YD:	
+	Say("赌场老板：不赌就别在这里瞎晃悠！", 91);
+	Return;

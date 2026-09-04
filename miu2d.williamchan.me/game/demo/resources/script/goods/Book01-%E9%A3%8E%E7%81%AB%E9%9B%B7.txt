@@ -1,0 +1,5 @@
+//风火雷
+	AddMagic("player-magic-风火雷.ini");
+	PlaySound("学会武功.wav");
+	DelGoods();
+	Return;

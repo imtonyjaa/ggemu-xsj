@@ -1,0 +1,6 @@
+//太极剑谱
+	AddMagic("player-magic-银钩铁划.ini");
+	Add($EvilVal, 20);
+	PlaySound("学会武功.wav");
+	DelGoods();
+	Return;

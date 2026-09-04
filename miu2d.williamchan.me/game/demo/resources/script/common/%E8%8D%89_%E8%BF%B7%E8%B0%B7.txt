@@ -1,0 +1,3 @@
+AddGoods("Goods-m13-迷谷.ini");
+DelCurObj();
+Return;

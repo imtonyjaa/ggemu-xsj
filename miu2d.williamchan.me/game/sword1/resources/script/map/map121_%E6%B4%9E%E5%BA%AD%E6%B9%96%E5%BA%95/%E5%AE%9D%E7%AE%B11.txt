@@ -1,0 +1,33 @@
+//打开宝箱
+
+	If ($Openbox3 == 1) @Open1;
+	If ($Openbox3 == 2) @Open2;
+	If ($Openbox3 == 3) @Open3;
+	If ($Openbox3 == 4) @Open4;
+		
+	Say("箱子的锁已经坏了。");
+	Assign($Openbox3,1);
+	Return;
+	
+@Open1:
+	Say("箱子的锁已经坏了。");
+	Assign($Openbox3,2);
+	Return;
+	
+@Open2:
+	Say("箱子的锁已经坏了。");
+	Assign($Openbox3,3);
+	Return;
+	
+@Open3:
+	Say("箱子的锁已经坏了。");
+	Assign($Openbox3,4);
+	Return;
+	
+@Open4:
+	Say("你微运内力，将锈锁震断……");
+	PlaySound("物_箱子开.wav");
+	OpenBox();
+	AddGoods("Goods026_盘龙之臂.ini");
+	SetObjScript("","");
+	Return;

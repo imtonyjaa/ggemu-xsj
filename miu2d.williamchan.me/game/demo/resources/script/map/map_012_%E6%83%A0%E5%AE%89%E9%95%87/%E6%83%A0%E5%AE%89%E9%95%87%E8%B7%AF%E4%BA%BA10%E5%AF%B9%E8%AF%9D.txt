@@ -1,0 +1,22 @@
+
+	GetRandNum($TuFuTalk, 1, 4);
+	If ($TuFuTalk == 1) @TuFuTalk1;
+	If ($TuFuTalk == 2) @TuFuTalk2;
+	If ($TuFuTalk == 3) @TuFuTalk3;
+	If ($TuFuTalk == 4) @TuFuTalk4;
+
+	@TuFuTalk1:
+		If ($Event >> 470) @TuFuTalk2;
+		Say("胡屠夫：听说那藏剑山庄的卓大侠可不简单呀！一夜成名，找他挑战的人不知道有多少死在他的剑下。");
+		Return;
+	@TuFuTalk2:
+		Say("胡屠夫：配一把剑在江湖上走来走去一定很威风。如果不是有家有小的，我也去当大侠。");
+		Say("胡屠夫：看你的样子还真象一个大侠。");
+		Say("杨影枫：过奖了。", 3);
+		Return;
+	@TuFuTalk3:
+		Say("胡屠夫：我的肉最新鲜了，这惠安镇里哪个不知道。你要买肉吗？");
+		Return;
+	@TuFuTalk4:
+		Talk(20570, 20570);
+		Return;

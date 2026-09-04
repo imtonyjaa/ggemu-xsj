@@ -1,0 +1,16 @@
+	If ($Event == 170) @Label1;
+	If ($Event == 492) @Label2;
+	If ($Event == 496) @Label3;
+	Goto @end;
+@Label1:
+	Say("紫轩：杨公子，时辰不早了，我们还是快点回芭蕉小筑吧。", 16);
+	Say("杨影枫：好吧。", 3);
+	Goto @end; 	
+@Label2:
+	Talk(21940, 21940);
+	Goto @end;
+@Label3:
+	Talk(21941, 21941);
+	Goto @end;
+@end:
+	Return;

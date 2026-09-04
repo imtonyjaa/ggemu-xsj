@@ -1,0 +1,6 @@
+//捡到物品
+
+	PlaySound("特_捡到特殊物品.wav");
+	AddGoods("Goods213_仙人茶.ini");
+	DelCurObj();
+	Return;

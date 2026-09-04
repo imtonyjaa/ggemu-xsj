@@ -1,0 +1,80 @@
+
+	SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(2, "Trap02.txt");
+	SetMapTrap(3, "Trap03.txt");
+	
+	If ($Event <> 532) @Label1;
+	If ($SelectVal <> 1) @Label1;
+
+	FadeOut();
+	StopMusic();
+    DelNpc("蔷薇");
+    ClearBody();
+    LoadNpc("map032.npc");
+    AddNpc("蔷薇.ini", 32, 32, 2);
+    SetNpcKind("蔷薇",0);
+    SetNpcScript("蔷薇", "蔷薇对话.txt");
+    SetPlayerPos(31,32);
+    SetPlayerDir(6);
+    SetPlayerState(0);
+    SetPlayerScn();
+    EnableNpcAI();
+	Sleep(1000);
+	FadeIn();
+
+
+	Say("紫衣姑娘：看不出你还有两下子嘛！", 29);
+	Say("杨影枫：得罪姑娘。请问姑娘家住何处，怎会独自一人在这天山游玩？", 2);
+	Say("紫衣姑娘：我本来住在山脚下。上山来打猎，现在迷路了，也没有猎着什么。你送我回家好不好？", 29);
+	Say("杨影枫：这个……我有要事在身，恐有不便！", 2);
+	Say("紫衣姑娘：杨公子，你也算是佩剑之人，怎么全无助人之心？不怕被本姑娘笑话。", 29);
+	Say("杨影枫：如姑娘所说，杨某人看来是难以推辞了。只是天山脚下距此地有些路途，现在天色……", 2);
+	Say("紫衣姑娘：现在天色尚早，而且我家距离此地一点也不远。", 29);
+	Say("杨影枫：那……好吧！不知姑娘家在……", 2);
+	Say("紫衣姑娘：就在这天山南面。我们走吧！", 29);
+	Say("紫衣姑娘加入队伍。");
+	SetNpcKind("蔷薇", 3);
+	SetNpcScript("蔷薇", "蔷薇跟随对话.txt");
+	Memo("送紫衣姑娘回家。");
+
+//	Talk(10030, 10040);
+//	NpcGoto("蔷薇", 36, 37);
+//	DelNpc("蔷薇");
+	Assign($Event, 534);
+	Assign($XiaoHuaSub, 10);
+	PlayMusic("Mc022.mp3");
+    Goto @end;
+
+@Label1:
+	If ($Event <> 537) @Label2;
+	If ($SelectVal <> 0) @Label2;
+
+	FadeOut();
+	StopMusic();
+	DelNpc("蔷薇");
+	ClearBody();
+	LoadNpc("map032.npc");
+    AddNpc("蔷薇.ini", 32, 32, 2);
+    SetNpcKind("蔷薇",0);
+    SetNpcScript("蔷薇", "蔷薇对话.txt");
+    SetPlayerPos(31,32);
+    SetPlayerDir(6); 
+    SetPlayerState(0);
+    SetPlayerScn();
+    EnableNpcAI();
+	Sleep(1000); 
+    FadeIn();
+	
+	Talk(9870, 9930);
+	NpcGoto("蔷薇", 36, 37);
+	DelNpc("蔷薇");
+	Talk(9940, 9940);
+	Assign($Event, 540);
+    PlayMusic("Mc022.mp3");
+    Goto @end;
+
+@Label2:
+	Goto @end;
+
+@end:
+	Return;

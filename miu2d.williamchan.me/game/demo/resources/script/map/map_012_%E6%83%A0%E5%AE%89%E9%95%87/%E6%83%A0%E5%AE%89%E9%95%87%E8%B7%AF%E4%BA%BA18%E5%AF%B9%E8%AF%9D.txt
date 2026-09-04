@@ -1,0 +1,43 @@
+//宝宝
+If ($Result == 0) @Result0;
+If ($Result == 1) @Result1;
+If ($Result == 2) @Result2;
+If ($Result == 3) @Result3;
+Goto @end;
+
+@Result0:
+If ($Event << 360 ) @Talk1;
+If ($Event << 380 ) @Talk2;
+If ($Event >= 380 ) @Talk3;
+Goto @end; 
+
+@Result1:
+Talk(20710, 20710);
+Goto @end;
+
+
+@Result2:
+Talk(20710, 20710);
+Goto @end;
+
+@Result3:
+Talk(20710, 20710);
+Goto @end;
+
+
+@Talk1:
+Talk(20710, 20710);
+Goto @end;
+
+
+@Talk2:
+Say("宝宝：温恰姐姐整天坐在门口自言自语，也不陪我玩。");
+Goto @end;
+
+@Talk3:
+Talk(40670,40670);
+Goto @end;
+
+@end:
+Return;
+

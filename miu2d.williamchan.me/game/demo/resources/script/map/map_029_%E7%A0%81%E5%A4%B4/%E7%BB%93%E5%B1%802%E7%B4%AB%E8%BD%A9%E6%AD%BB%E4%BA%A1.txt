@@ -1,0 +1,71 @@
+	DisableNpcAI();
+	Sleep(500);
+	Say("<color=Blue>经过一场苦战，你终于击败了紫轩。");
+	Assign($Event,732);
+	FadeOut();
+	DelObj("紫轩尸体");
+	LoadNpc("map029.npc");
+	EnableNpcAI();
+	AddNpc("紫轩.ini",15,95,5);
+	SetNpcKind("紫轩",1);
+	SetNpcKind("杨影枫",2);
+	SetPlayerPos(13,99);
+	Watch("杨影枫","紫轩",0);
+	FadeIn();
+	SetMapTrap(1,"trap01.txt");
+	SaveMapTrap();
+	Say("紫轩由于受了内伤，一口血忍不住喷了出来。");
+	NpcSpecialAction("紫轩","mpc154.asf");
+	Sleep(2000);
+	Select(70020,70030,70040,$Choose);
+	If ($Choose == 0) @Choose0;
+	If ($Choose == 1) @Choose1;
+	Goto @end;
+
+// 不理
+@Choose0:
+
+	//Say("置之不理，叫她离开，此后形同陌路。紫轩含泪告诉他她此行并非真正与他为难，实为了相告飞龙堡人为夺秘笈挟持纳兰真。说完后离开。");
+	PlayerGoto(15,96);
+	Watch("杨影枫","紫轩",0);
+	Talk(14320,14420);
+	NpcGoto("紫轩",18,89);
+	Watch("杨影枫","紫轩",0);
+	Sleep(1000);
+	NpcGoto("紫轩",21,84);
+	Say("杨影枫：紫轩……");
+	MoveScreen(5,80,1);
+	Watch("杨影枫","紫轩",0);
+	Talk(70000,70000);
+	NpcGoto("紫轩",23,79);
+	MoveScreen(1,80,1);
+	DelNpc("紫轩");
+	Talk(14590,14590);
+	Assign($Event,744);
+	AddToMemo(79010);
+	Goto @end;
+
+// 理睬
+@Choose1:
+	
+	PlayerRunTo(15,96);
+	Talk(14430,14580);
+	NpcGoto("紫轩",17,92);
+	Watch("杨影枫","紫轩",0);
+	Sleep(1000);
+	NpcGoto("紫轩",21,84);
+	Watch("杨影枫","紫轩",0);
+	Say("杨影枫：紫轩……");
+	MoveScreen(5,80,1);
+	Talk(70010,70010);
+	NpcGoto("紫轩",23,79);
+	MoveScreen(1.80,1);
+	DelNpc("紫轩");
+	Talk(14590,14590);
+	Assign($Event,744);
+	AddToMemo(79010);
+	Goto @end;
+
+@end:
+
+	Return;

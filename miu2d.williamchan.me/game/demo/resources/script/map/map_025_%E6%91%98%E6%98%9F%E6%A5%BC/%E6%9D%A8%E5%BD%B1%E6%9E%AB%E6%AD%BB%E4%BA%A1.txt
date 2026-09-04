@@ -1,0 +1,505 @@
+
+If ($Result == 0)  @Result0;
+If ($Result == 1)  @Result1;
+If ($Result == 2)  @Result2;
+If ($Result == 3)  @Result3;
+Goto(@end);
+
+@Result0:
+Goto(@end);
+
+@Result1:
+//If ($Event == 665) @Event665;
+If ($Event == 3005) @Evt3005;
+Goto(@end);
+
+@Result2:
+Goto(@end);
+
+@Result3:
+Goto(@end);
+
+
+@Evt3005:
+	StopMusic();
+	//PlayMusic("Mc018.mp3");
+	SetPlayerState(0);
+	DisableNpcAI();
+	FadeOut();	
+	ClearBody();
+	FullLife();
+	FullThew();
+	FullMana();
+	SetNpcRelation("杨影枫",2);
+	LoadNpc("map025_HELP_QW.npc");
+	Watch("纳兰潜凛","杨影枫",1);
+	SetNpcActionFile("杨影枫",0,"mpc杨影枫被绑.asf");
+	SetNpcActionFile("杨影枫",1,"mpc杨影枫被绑.asf");
+	SetNpcRelation("纳兰潜凛",2);
+	
+	Sleep(1000);
+        SetPlayerPos(20,66);
+        SetPlayerState(0);
+        SetPlayerScn();
+        AddNpc("无忧教站立男弟子AA.ini",20,68,3);
+        AddNpc("无忧教站立男弟子AA.ini",21,66,3);
+	SetNpcPos("纳兰潜凛",19,64);
+	Watch("杨影枫","纳兰潜凛",0);
+	Sleep(500);
+	FadeIn();
+	
+	Talk(97060,97170);
+	Assign($EvilValue,100);
+	Choose("是否同意加入无忧教？","是","否",$douhao);
+	If ($douhao == 0) @yes; // 加入无忧教
+	Add($EvilValue,-5);
+
+	Talk(106170,106200);
+
+	Choose("是否同意加入无忧教？","是","否",$douhao);
+	If ($douhao == 0) @yes; // 加入无忧教
+	Add($EvilValue,-10);
+	Talk(106230,106260);
+	Choose("是否同意加入无忧教？","是","否",$douhao);
+	If ($douhao == 0) @yes; // 加入无忧教
+	Talk(106280,106290);
+	//FadeOut();
+	SetNpcDeathScript("杨影枫","主角死亡.txt");
+	SetNpcRelation("杨影枫",0);
+	SetNpcRelation("纳兰潜凛",1);
+	
+	NpcAttack("纳兰潜凛",20,66);
+	Sleep(2000);
+	//DelNpc("杨影枫");
+	//RunScript("主角死亡.txt");
+	//Sleep(2000);
+	Goto @end;
+	
+	
+	
+@yes: // 加入无忧教
+	Add($EvilValue,10);
+	Talk(106310,106330);
+	ClearBody();
+	SaveObj();
+	FadeOut();
+	DisableNpcAI();
+	SetNpcRes("杨影枫","z-杨影枫2.ini");
+	
+	LoadMap("map_026_摘星楼地下.map");
+	LoadNpc("map026_KILLQW.npc");
+	AddNpc("蔷薇.ini",34,79,1);
+	SetNpcActionFile("蔷薇",0,"mpc蔷薇被绑-站立.asf");
+	SetNpcActionFile("蔷薇",1,"mpc蔷薇被绑-站立.asf");
+	SetPlayerPos(28,92);
+	AddNpc("纳兰潜凛.ini",29,89,5);
+	NpcGotoEx("纳兰潜凛",33,79);
+	SetPlayerDir(5);
+	Sleep(500);
+	FadeIn();
+	Sleep(1000);
+	MoveScreen(5,50,2);
+	PlayerRunTo(34,80);
+	NpcGoto("纳兰潜凛",33,79);
+	
+	Watch("杨影枫","蔷薇",0);
+	
+	Talk(97270,97310);
+	Watch("杨影枫","纳兰潜凛",1);
+	Sleep(500);
+	Talk(97320,97330);
+	Watch("杨影枫","纳兰潜凛",0);
+	Sleep(500);
+	Talk(97340,97350);
+	
+	Choose("是否杀蔷薇","是","否",$KillQW1);
+	If ($KillQW1 == 0) @KillQW;
+	Add($EvilValue,-10);
+	Watch("杨影枫","蔷薇",0);
+	Sleep(500);
+	Talk(97370,97370);
+//	Watch("蔷薇","纳兰潜凛",0);
+	Sleep(500);
+	Talk(97400,97420);
+	Sleep(1000);
+	NpcGoto("纳兰潜凛",34,78);
+	Talk(97430,97430);
+	Watch("纳兰潜凛","蔷薇",0);
+	Watch("杨影枫","蔷薇",1);
+	Talk(97440,97450);
+	Sleep(500);
+	Talk(97460,97470);
+	SetNpcDir("蔷薇",5);
+	NpcSpecialAction("蔷薇","mpc撞墙自杀.asf");
+	Sleep(1200);
+	PlaySound("攻-女死02.wav");
+	FadeOut();
+	
+	SetNpcActionFile("蔷薇",0,"mpc撞墙自杀-body.asf");
+	SetNpcActionFile("蔷薇",1,"mpc撞墙自杀-body.asf");
+	Sleep(1000);
+	FadeIn();
+	Watch("杨影枫","纳兰潜凛",0);
+	
+	Say("杨影枫：……（蔷薇，你安息吧！他日大哥定会为你报仇的！）",5);
+	Say("纳兰潜凛：这……，我只想试试你的诚心，没想到孟知秋女儿竟然如此刚烈……！",38);
+	Say("杨影枫：……薇儿…",5);
+	Say("纳兰潜凛：算了，不管怎么样，今天我也换来了杨影枫你这位得力助手了，算是我无忧教之大幸了。我又何需再俱孟知秋呢？哈哈…",41);
+	Say("杨影枫：（薇儿……）",2);
+		
+	Goto @Next;
+	
+@KillQW:
+	Add($EvilValue ,15);
+	Watch("杨影枫","蔷薇",0);
+	Talk(97502,97504);
+	Say("杨影枫：蔷薇，对不起了！",117);
+	Talk(97506,97508);
+	NpcAttack("杨影枫",34,79);
+	Sleep(500);
+	PlaySound("攻-女死02.wav");
+	FadeOut();
+	SetNpcActionFile("蔷薇",0,"mpc撞墙自杀-body.asf");
+	SetNpcActionFile("蔷薇",1,"mpc撞墙自杀-body.asf");
+	FadeIn();
+	
+	Talk(97509,97510);
+	Goto @Next;
+	
+@Next:
+	
+	Talk(97512,97512);
+	FadeOut();
+	DisableNpcAI();
+	LoadMap("map_025_摘星楼.map");
+	LoadNpc("map025_HELP_QW.npc");
+	
+	SetNpcPos("纳兰潜凛",19,62);
+	SetPlayerPos(20,64);
+	SetPlayerDir(3);
+	Sleep(500);
+	FadeIn();
+	Watch("杨影枫","纳兰潜凛",0);
+	Talk(97514,97518);
+	
+	AddNpc("纳兰真.ini",6,108,5);
+	
+	SetNpcKind("杨影枫",1);
+	SetNpcKind("纳兰真",2);
+	SetPlayerScn();
+	PlayerGoto(8,101);
+	
+	Talk(97520,97520);
+	NpcGoto("无忧教徒",11,87);
+	Talk(97660,97660);
+	SetNpcKind("杨影枫",2);
+	SetNpcKind("纳兰真",0);
+	SetPlayerScn();
+	NpcGotoEx("纳兰潜凛",15,70);
+	PlayerGotoEx(16,73);
+	NpcGoto("纳兰潜凛",15,70);
+	PlayerGoto(16,73);
+	SetPlayerDir(1);
+	Talk(97670,97670);
+	FadeOut();
+	SetNpcPos("纳兰潜凛",19,62);
+	SetNpcPos("纳兰真",19,66);
+	SetPlayerPos(20,64);
+	Watch("纳兰真","纳兰潜凛",0);
+	FadeIn();
+	
+	Watch("纳兰真","纳兰潜凛",0);
+	Sleep(200);
+	Watch("纳兰真","杨影枫",0);
+	Sleep(200);
+	Talk(97680,97690);
+	Watch("纳兰真","纳兰潜凛",0);
+	Sleep(500);
+	Talk(97700,97710);
+	Watch("纳兰潜凛","杨影枫",0);
+	Talk(97720,97810);
+	NpcGoto("纳兰真",19,63);
+	Watch("纳兰真","纳兰潜凛",0);
+	Sleep(500);
+Say("纳兰潜凛：真儿，你都这么大了，我也该让你知道你娘的一些事情了。",38);
+
+	Talk(97830,97840);
+Say("纳兰潜凛：不过我们一直相敬如宾，也做了几年恩爱夫妻，后来我们有点误会，你娘一气之下离家出走，临走时抱走了你的姐姐。",38);
+	Talk(97851,97910);
+	Sleep(500);
+	PlayerGoto(19,64);
+	Watch("杨影枫","纳兰真",0);
+	Sleep(500);
+	Talk(97920,97940);
+	Sleep(500);
+	
+	//StopMusic();
+	PlayMusic("Mc018.mp3");
+	If ($KillQW1 == 0) @Dream2;
+@Dream1:
+//正的梦，天池遇蔷薇	
+	SaveObj();
+	FadeOut();
+	Say("此夜……");
+	SetNpcKind("杨影枫",2);
+	LoadMap("map_034_天池.map");
+	ChangeMapColor(0,0,0);
+	ChangeAsfColor(0,0,0);
+	SetPlayerPos(12,26);
+	SetPlayerDir(2);
+	AddNpc("蔷薇.ini",17,22,6);
+	FadeIn();
+	Talk(102450,102450);
+	SetPlayerDir(6);
+	Sleep(500);
+	MoveScreen(6,50,1);
+	Talk(102460,102460);
+	PlayerRunTo(16,22);
+	Watch("杨影枫","蔷薇",1);
+	Talk(102470,102470);
+	Sleep(3000);
+	Talk(102470,102470);
+	Watch("杨影枫","蔷薇",0);
+	Talk(102480,102570);
+	SetNpcDir("蔷薇",6);
+	Sleep(1000);
+	NpcGoto("蔷薇",17,23);
+	FadeOut();
+	Talk(102580,102580);
+	Sleep(2000);
+	Talk(102590,102590);
+	Goto @Next1;
+
+@Dream2:
+	FadeOut();
+	ChangeMapColor(0,0,0);
+	ChangeAsfColor(0,0,0);
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("map030_wedding.npc");
+	AddObj("喜字1.ini",44,136,0);
+	AddObj("喜字2.ini",48,144,0);
+	AddObj("一对灯笼.ini",40,151,0);
+	DelNpc("孟知秋");
+	SetPlayerDir(0);
+	AddNpc("孟知秋.ini",0,0,1);
+	
+	SetNpcKind("孟知秋",0);
+	SetNpcPos("蔷薇",44,141);
+	SetPlayerPos("杨影枫",44,140);
+	NpcGotoDir("蔷薇",1,2);
+	
+	SetPlayerScn();
+	SetMapPos(33,114);
+	FadeIn();
+	Talk(102620,102620);
+	MoveScreen(7,150,1);
+	Talk(102630,102630);
+	
+	Watch("蔷薇","杨影枫",1);
+	Talk(102640,102650);
+	Sleep(500);
+	Talk(102660,102660);
+	Watch("蔷薇","杨影枫",0);
+	Talk(102670,102670);
+	
+	
+	//FadeOut();
+	//Sleep(2000);
+	//SetMapPos(33,114);
+	//FadeIn();
+	//Talk(102620,102620);
+	//MoveScreen(7,150,1);
+	//SetNpcDir("蔷薇",1);
+	//Sleep(1000);
+	//Watch("蔷薇","杨影枫",1);
+	//Talk(102640,102650);
+	//Sleep(500);
+	//Talk(102660,102660);
+	//Watch("蔷薇","杨影枫",0);
+	//Talk(102670,102670);
+	
+	
+			
+
+	//FadeOut();
+	//Sleep(2000);
+	//SetMapPos(33,114);
+	//FadeIn();
+	//Talk(102620,102620);
+	//MoveScreen(7,150,1);
+	//SetNpcDir("蔷薇",1);
+	//Sleep(1000);
+	//Watch("蔷薇","杨影枫",1);
+	//Talk(102640,102650);
+	//Sleep(500);
+	//Talk(102660,102660);
+	//Watch("蔷薇","杨影枫",0);
+	//Talk(102670,102670);
+	
+	
+	
+	
+	//FadeOut();
+	//Sleep(2000);
+	//SetMapPos(33,114);
+	//DelNpc("蔷薇");
+	//FadeIn();
+	//Talk(102620,102620);
+	//MoveScreen(7,150,1);
+	//Sleep(4000);
+	//Talk(102640,102650);
+	//Talk(102680,102680);
+	//Sleep(500);
+	//Talk(102660,102660);
+	
+	Talk(102740,102740);
+	
+	SetNpcPos("孟知秋",38,153);
+	SetNpcDir("孟知秋",5);
+	SetPlayerDir(1);
+	MoveScreen(1,100,1);
+	Talk(102690,102690);
+	NpcGoto("孟知秋",42,145);
+	Talk(102700,102720);
+	NpcGoto("孟知秋",43,141);
+	FadeOut();
+	Watch("杨影枫","孟知秋",0);
+	Talk(102730,102730);
+	SetNpcRelation("孟知秋",1);
+	EnableNpcAI();
+	Sleep(2000);
+	Talk(102750,102750);
+	Goto @Next1;
+	
+	
+	
+	
+	
+	
+@Next1:
+
+	StopMusic();
+	LoadMap("map_025_摘星楼.map");
+	SetNpcKind("杨影枫",2);
+	LoadNpc("map025_QW_Night.npc");
+	LoadObj("map025_obj.obj");
+	ChangeMapColor(128,180,200);
+	ChangeAsfColor(128,180,200);
+	AddNpc("纳兰真.ini",30,40,5);
+	AddNpc("纳兰潜凛.ini",19,23,0);
+	SetNpcKind("纳兰真",0);
+	SetNpcKind("纳兰潜凛",0);
+	SetNpcPos("纳兰真",30,40);
+	SetNpcScript("纳兰真","纳兰真对话.txt");
+	SetNpcPos("纳兰潜凛",19,23);
+	SetNpcScript("纳兰潜凛","纳兰潜凛对话.txt");
+	SetNpcDeathScript("杨影枫","主角死亡.txt");	
+	Assign($Event,3010);
+	SetPlayerPos(11,42);
+	SetPlayerDir(5);
+	
+	StopMusic();
+	
+	FadeIn();
+	
+	
+	
+	PlayerGoto(9,45);
+	Sleep(1000);
+	PlayerGoto(12,40);
+	Sleep(1500);
+	PlayerGoto(10,43);
+	Sleep(2000);
+	SetPlayerDir(7);
+	
+	If ($KillQW1 == 0) @BadMan;
+	Talk(62410,62410);
+	Goto @end;
+
+@BadMan:
+	Say("杨影枫：想不到纳兰潜凛的武功竟然这样的上乘？可是，我以前作了许多对真儿不好的事情，而现今加入了无忧教后，与真儿的关系是非常重要的。对，我去看看真儿。",2);
+	Goto @end;	
+	
+		
+	
+	
+	
+
+
+
+@Event665:
+	FadeOut();
+	ClearBody();
+	FullLife();
+	SetNpcRelation("纳兰潜凛",2);
+	Sleep(1000);
+        SetPlayerPos(20,65);
+        SetPlayerState(0);
+        SetPlayerScn();
+	SetNpcPos("纳兰潜凛",19,62);
+	Watch("杨影枫","纳兰潜凛",0);
+	SetNpcKind("涟漪",0);
+	SetNpcPos("涟漪",20,67);
+	Watch("涟漪","纳兰潜凛",1);
+	Sleep(500);
+	FadeIn();
+	
+
+
+	Talk(13130,13180);
+	NpcGoto("涟漪",19,63);
+	Watch("涟漪","纳兰潜凛",0);
+	Sleep(1000);
+	Talk(13190,13252);
+	Sleep(500);
+	PlayerGoto(19,64);
+	Watch("杨影枫","涟漪",0);
+	Sleep(500);
+	Talk(13260,13260);
+	Sleep(500);
+	Talk(13264,13264);
+	SetNpcDeathScript("杨影枫","主角死亡.txt");
+	
+	FadeOut();
+	DisableNpcAI();
+	
+	LoadNpc("map025_NNQL_VS.npc");
+	SaveNpc("temp_map025.npc");
+	LoadNpc("temp_map025.npc");
+	SetPlayerPos(11,40);
+	//SetNpcPos("涟漪",20,19);
+	SetNpcKind("杨影枫",1);
+	SetNpcKind("纳兰潜凛",2);
+	
+	SetPlayerScn();
+	FadeIn();
+		
+		
+	NpcGoto("无忧教男弟子A",11,83);
+	SetNpcDir("无忧教男弟子A",5);
+	Talk(13270,13300);
+	PlayerGotoEx(10,92);
+	Sleep(1000);
+	//FollowNpc("无忧教男弟子A","纳兰潜凛");
+	SetNpcDir("无忧教男弟子A",1);
+	Sleep(1000);
+	FadeOut();
+	SetNpcKind("纳兰潜凛",1);
+	SetNpcKind("杨影枫",2);
+	
+	LoadNpc("map025_MZQ_VS.npc");
+	
+	//SetNpcKind("纳兰潜凛",1);
+	//SetNpcKind("杨影枫",2);
+	SetPlayerScn();
+	EnableFight();
+	EnableNpcAI();
+	FadeIn();
+	
+	Assign($Event,671);
+	Goto(@end);
+        
+
+@end:
+	Return;
+

@@ -1,0 +1,14 @@
+// 白煞
+
+	If ($BaiSha == 1) @talk2;
+	Talk(23070,23190);
+//	FadeOut();
+//	AddMagic("player-magic-杀意.ini");
+//	Sleep(1000);
+//	FadeIn();
+	Assign($BaiSha, 1);
+	Return;
+
+@talk2:
+	Talk(23200,23200);
+	Return;

@@ -1,0 +1,7 @@
+//打开宝箱
+
+	PlaySound("物_箱子开.wav");
+	OpenBox();
+	AddGoods("Goods210_药王金方.ini");
+	SetObjScript("","");
+	Return;

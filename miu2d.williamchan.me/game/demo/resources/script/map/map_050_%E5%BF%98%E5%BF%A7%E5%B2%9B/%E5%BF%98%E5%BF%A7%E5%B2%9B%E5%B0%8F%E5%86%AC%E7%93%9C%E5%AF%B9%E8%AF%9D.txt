@@ -1,0 +1,54 @@
+	If ($Event == 1818) @1813;
+	If ($Event == 1817) @1813;
+	If ($Event == 1813) @1813;
+	If ($Event == 350) @Talk350;
+	If ($Event >= 302) @Label;
+	Talk(21223, 21223);
+	Return;
+
+@1813:
+	Say("小冬瓜：大哥哥，你的剑真好看，给我玩玩好吗？");
+	Say("杨影枫：不行，你还小，等长大了再给你玩。");
+	Say("小冬瓜：唉，我什么时候才能长大呢？");
+	Return;
+	
+@Label:
+	If ($Event == 340) @Label2;
+	Talk(21231, 21231);
+	Return;
+	
+@Label2:
+	GetRandNum($xiaodonggua,0,3);
+	If ($xiaodonggua == 0) @Talk1;
+	If ($xiaodonggua == 1) @Talk2;
+	If ($xiaodonggua == 2) @Talk3;
+	If ($xiaodonggua == 3) @Talk4;
+	Goto @end;
+@Talk1:
+	Say("小冬瓜：哎呀，真儿姐姐！你去哪里玩了？");
+	Goto @end;	
+@Talk2:
+	Say("小冬瓜：真儿姐姐！我跟小豪豪天天都在等你跟我们一块儿玩呢！");
+	Goto @end;
+@Talk3:
+	Say("小冬瓜：真儿姐姐，你这么久没有回家，你爹爹会不会打你？我可不敢出去玩这么长时间呢。");
+	Goto @end;
+@Talk4:
+	Say("小冬瓜：真儿姐姐！你爹爹最近可凶了，我看见他就害怕！是不是因为你不听话？");
+	Goto @end;
+
+@TalkA750:
+	Talk(71610,71620);
+	Return;
+
+@Talk350:
+	Sleep(500);
+	Watch("小冬瓜" , "杨影枫", 0);
+	Say("小冬瓜：大哥哥，你不在这里陪真儿姐姐了吗？她会很寂寞的。", 0);
+	Say("杨影枫：……", 2);
+	Return;
+
+@end:
+	Return;
+
+

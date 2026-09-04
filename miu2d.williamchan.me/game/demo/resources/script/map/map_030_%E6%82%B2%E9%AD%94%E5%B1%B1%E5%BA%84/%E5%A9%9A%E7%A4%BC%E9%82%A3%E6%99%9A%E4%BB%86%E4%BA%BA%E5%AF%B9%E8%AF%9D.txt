@@ -1,0 +1,24 @@
+	If ($Event == 576) @Talk576;
+	If ($Event == 578) @Talk576;
+	Goto @end;
+
+
+
+@Talk576:
+	If ($F <> 0) @Last;
+	Watch("家丁阿东","侍女可含",0);
+	Talk(68000,68050);
+	Assign($F,1);
+        Goto @end;
+
+	
+@Last:
+	Watch("家丁阿东","侍女可含",0);
+	Talk(68060,68080);
+	Goto @end;
+
+
+@end:
+	Return;
+	
+	

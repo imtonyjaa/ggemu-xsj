@@ -1,0 +1,20 @@
+
+
+	If ($ZhongDuChenXiDanPuLiuQin==1) @Talk1;
+	If ($ZhongDuChenXiDanPuLiuQin==2) @Talk2;
+	Talk(12790,12810);
+	Return;
+	
+@Talk1:
+	Talk(12820,12830);
+	FadeOut();
+	Talk(12840,12840);
+	FadeIn();
+	Talk(12850,12870);
+	//得到武功秘笈
+	Assign($ZhongDuChenXiDanPuLiuQin,2);
+	Return;
+
+@Talk2:
+	Talk(12880,12880);
+	Return;

@@ -1,0 +1,253 @@
+	If ($Event == 1821) @1821;//结局2从武当求证回来
+	If ($Event == 810) @L810; //从武当求证回来
+	If ($Event == 800) @L800;
+	If ($Event == 408) @Label1;
+	If ($Event == 991) @Event991;
+	If ($Event == 680) @Label3;
+	If ($Event == 744) @TalkE744;
+	If ($Event == 750) @Label4;
+	If ($Event == 860) @Label7;
+	If ($Event == 862) @Label8;
+	If ($Event == 3020) @Evt3020;
+	
+	Say("船夫窦昊：客官，今日不开船。", 59);
+	Return;
+	
+@Label1:
+	//Say("系统消息：回忘忧岛");
+	//Say("系统消息：Event 的值变为 410");
+	Talk(40730,40750);
+	Assign($Event, 410);
+	StopMusic();
+	FadeOut();
+	SaveObj();
+	LoadMap("map_052_码头.map");
+	LoadNpc("map052.npc");
+	LoadObj("map052_Obj.Obj");
+	SetPlayerPos(8, 33);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	Talk(40760,40770);
+	FadeIn();
+	PlayMusic("Mc017.mp3");
+	AddToMemo(45070);
+	Assign($Event, 412);
+	Return;
+	
+@Event991:
+	//Say("系统消息：带假纳兰真去看她娘的信");
+	Talk(40730,40750);
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_052_码头.map");
+	LoadNpc("map052.npc");
+	LoadObj("map052_Obj.Obj");
+	SetPlayerPos(8, 33);
+	SetPlayerDir(6);
+	Talk(40760,40770);
+	FadeIn();
+	Return;
+	
+@Label3:
+
+	Talk(40730,40750);
+	FadeOut();
+	SaveObj();	
+	LoadMap("map_052_码头.map");
+	LoadNpc("map052.npc");
+	LoadObj("map052_Obj.Obj");
+	ChangeMapColor(120,180,250);
+	ChangeAsfColor(120,180,250);
+	SetPlayerPos(8, 33);
+	SetPlayerDir(6);
+	Talk(40760,40770);
+	FadeIn();
+
+	PlayerGoto(15,27);
+	Watch("杨影枫","涟漪",0);
+	Say("杨影枫：这里就是忘忧岛了");
+	Say("涟漪：是吗？");
+	Say("杨影枫：现在不早了，我带你去那边的海滩吧");
+
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_051_海边.map");
+	LoadNpc("map051.npc");
+	LoadObj("map051_Obj.Obj");
+	ChangeMapColor(120,180,250);
+	ChangeAsfColor(120,180,250);
+	ShowNpc("涟漪",0);
+	SetPlayerPos(3, 30);
+	SetNpcActionFile("杨影枫",0,"mpc140-0.asf");
+	SetNpcActionFile("杨影枫",1,"mpc140-0.asf");
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	//Talk(40760,40770);	
+	RunScript("海滩与涟漪.txt");
+	Return;
+	
+@Label4:
+	Talk(71250,71280);
+	FadeOut();
+	LoadMap("map_052_码头.map");
+	LoadNpc("map052.npc");
+	LoadObj("map052_Obj.Obj");
+	SetPlayerPos(8, 33);
+	SetPlayerDir(6);
+	Talk(71290,71330);
+	FadeIn();
+	Return;
+	
+@L810:
+	Talk(40730,40750);
+	FadeOut();
+	LoadMap("map_052_码头.map");
+	LoadNpc("map052.npc");
+	LoadObj("map052_Obj.Obj");
+	SetPlayerPos(8, 33);
+	SetPlayerDir(6);
+	Talk(40760,40770);
+	FadeIn();
+	Return;
+	
+@1821:
+	StopMusic();
+	Talk(40730,40750);
+	FadeOut();
+	LoadMap("map_052_码头.map");
+	LoadNpc("map052.npc");
+	LoadObj("map052_Obj.Obj");
+	SetPlayerPos(8, 33);
+	SetPlayerDir(6);
+	Talk(40760,40770);
+	FadeIn();
+	PlayMusic("mc023.mp3");
+	Return;
+
+@Label7:
+	
+	// 发生事件87.1
+	Talk(16910, 16910);
+	Talk(17110, 17170);
+	Assign($Event, 862);
+	Return;
+	
+@Label8:
+	GetRandNum($FishTalk, 1, 2);
+	If ($FishTalk == 1) @FishTalk1;
+	If ($FishTalk == 2) @FishTalk2;
+	Return;
+@FishTalk1:
+	Talk(16920, 16920);
+	Return;
+@FishTalk2:
+	Talk(16930, 16930);
+	Return;
+	
+
+@TalkE744:
+	Talk(71130,71150);
+	Return;
+	
+	
+@Evt3020:
+	Talk(40730,40750);
+	FadeOut();
+	SaveObj();	
+	LoadMap("map_052_码头.map");
+	LoadNpc("map052.npc");
+	LoadObj("map052_Obj.Obj");
+	ChangeMapColor(255,230,150);
+	ChangeAsfColor(255,230,150);
+	SetPlayerPos(8, 33);
+	SetPlayerDir(6);
+	StopMusic();
+	FadeIn();
+
+	PlayerGoto(15,27);
+	Sleep(1000);
+	Watch("杨影枫","纳兰真",0);
+	Talk(98100,98110);
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_051_海边.map");
+	LoadNpc("map051.npc");
+	LoadObj("map051_Obj.Obj");
+	ChangeMapColor(255,230,150);
+	ChangeAsfColor(255,230,150);
+	SetPlayerPos(7, 21);
+	SetPlayerDir(6);
+	PlayerGotoEx(3,30);
+	FadeIn();
+	PlayerGoto(3,30);
+	Sleep(1000);
+	Watch("杨影枫","纳兰真",0);
+	Talk(98120,98130);
+	FadeOut();
+	PlayMusic("mc014.mp3");
+	Say("与此同时");
+	LoadMap("map_025_摘星楼.map");
+	SetNpcDir("纳兰潜凛",1);
+	DisableNpcAI();
+	LoadNpc("map025_MZQ_VS_NNQL.npc");
+	SetNpcDir("纳兰潜凛",1);
+	DisableNpcAI();
+	
+	//RunScript("孟知秋打死纳兰潜凛.txt");
+	
+	ShowNpc("杨影枫",0);
+	ShowNpc("纳兰真",0);			
+	
+	SetNpcKind("杨影枫",1);
+	SetNpcKind("纳兰真",1);
+	SetNpcKind("纳兰潜凛",2);
+	SetPlayerScn();
+	FadeIn();
+		
+	NpcGoto("无忧教徒",12,87);
+	SetNpcDir("无忧教徒",5);
+	Watch("无忧教徒","纳兰潜凛",0);
+	Talk(97970,97970);
+	PlayerGotoEx(10,92);
+	//Sleep(1000);
+	//FollowNpc("无忧教男弟子A","纳兰潜凛");
+	MoveScreen(1,80,3);
+	Talk(97980,97990);
+	SetNpcDir("无忧教徒",1);
+	PlayerGoto(8,101);
+	Watch("纳兰潜凛","孟知秋",0);
+	Talk(97995,98020);
+	SetNpcKind("纳兰潜凛",1);
+	SetNpcKind("杨影枫",2);
+	SetNpcKind("纳兰真",3);
+	EnableNpcAI();
+	Sleep(3000);
+	
+	
+	
+	
+	FadeOut();
+	StopMusic();
+	LoadMap("map_051_海边.map");
+	LoadObj("map051_obj.obj");
+	ChangeMapColor(120,180,250);
+	ChangeAsfColor(120,180,250);
+	ShowNpc("纳兰真",0);
+	ShowNpc("杨影枫",1);
+	SetPlayerPos(3, 30);
+	SetNpcActionFile("杨影枫",0,"mpc140-0.asf");
+	SetNpcActionFile("杨影枫",1,"mpc140-0.asf");
+	SetPlayerDir(6);
+	SetPlayerScn();
+	EnableFight();
+	EnableNpcAI();
+	Sleep(2000);
+	FadeIn();
+	//Talk(40760,40770);	
+	RunScript("跟踪假纳兰真.txt");
+	Return;	
+		

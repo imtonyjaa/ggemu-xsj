@@ -1,0 +1,53 @@
+// 和妓院鸨母的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	If ($Talkbaomu == 0) @Talk0;
+	If ($Talkbaomu == 1) @Talk1;
+	If ($Talkbaomu == 2) @Talk2;
+@Talk0:
+	Say("鸨母：公子喜欢什么样的姑娘？是温柔一点的，还是泼辣一点的？看你还象个童男，筋骨也还强壮，干脆老娘亲自来陪陪你，意下如何？", 87);
+	Say("独孤剑：……", 8);
+//	PlayerGotoDir(5,3);
+	Say("鸨母：怎么，来这里还害羞啊！",87);
+	Assign($Talkbaomu, 1);
+	Return;
+	
+@Talk1:	
+	Say("鸨母：公子想叫位姑娘了？",87);
+	Assign($Talkbaomu, 2);
+	Return;
+	
+@Talk2:
+	Say("鸨母：你三番五次朝这儿跑，来了又不做生意，你究竟想干什么？", 87);
+	Return;
+	
+	
+@YuanDan:	
+
+	If ($Talkbaomu == 0) @Talk0YD;
+	If ($Talkbaomu == 1) @Talk1YD;
+	If ($Talkbaomu == 2) @Talk2YD;
+@Talk0YD:
+	Say("鸨母：哎哟——公子，新年好呀！公子喜欢什么样的姑娘？是温柔一点的，还是泼辣一点的？看你还象个童男，筋骨也还强壮，干脆老娘亲自来陪陪你，意下如何？", 87);
+	Say("独孤剑：……", 8);
+//	PlayerGotoDir(5,3);
+	Say("鸨母：怎么，来这里还害羞啊！",87);
+	Assign($Talkbaomu, 1);
+	Return;
+	
+@Talk1YD:	
+	Say("鸨母：公子想叫位姑娘了？",87);
+	Assign($Talkbaomu, 2);
+	Return;
+	
+@Talk2YD:
+	Say("鸨母：你三番五次朝这儿跑，来了又不做生意，你究竟想干什么？", 87);
+	Return;	
+
+		
+	

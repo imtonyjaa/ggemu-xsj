@@ -1,0 +1,5 @@
+//Book03-醉花诀.ini
+	AddMagic("player-magic-醉蝶狂舞.ini");
+	PlaySound("学会武功.wav");
+	DelGoods();
+	Return;

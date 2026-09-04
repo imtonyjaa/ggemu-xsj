@@ -1,0 +1,24 @@
+If ($Event <> 3182) @end;
+Add($NpcCount ,-1);
+If ($NpcCount == 0) @AllDead;
+	Return;
+
+@AllDead:
+	FadeOut();
+	SetPlayerState(0);
+	SetPlayerPos(10,127);
+	Watch("杨影枫","纳兰真",0);
+	FadeIn();
+	
+	Talk(106590,106590);
+	Sleep(1000);
+	Talk(106600,106640);
+	//AddToMemo(24560);
+	Memo("打开通天塔内每层的开关，救出纳兰真。");
+	SetMapTrap(1,"Trap01.txt");
+	SetMapTrap(2,"Trap02.txt");
+	PlayerGoto(12,124);
+	SetMapTrap(7,"Trap07.txt");
+	Return;
+@end:
+	Return;

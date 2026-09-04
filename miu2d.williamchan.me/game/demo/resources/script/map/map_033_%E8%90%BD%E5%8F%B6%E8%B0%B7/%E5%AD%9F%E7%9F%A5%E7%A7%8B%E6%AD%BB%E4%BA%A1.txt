@@ -1,0 +1,128 @@
+	
+	If ($Event == 558) @Label1;
+	If ($Event == 3140) @Evt3140;
+	
+	Goto @end;
+	
+@Label1:
+	StopMusic();
+   	FadeOut();
+	Sleep(1000);
+	DelObj("孟知秋尸体");
+	SetNpcRelation("孟知秋", 2);
+	AddNpc("孟知秋.ini", 18, 94, 7);
+    SetNpcScript("孟知秋", "孟知秋对话.txt");      
+//	SetNpcPos("孟知秋", 18, 94);
+//	SetNpcDir("孟知秋", 7);
+    SetPlayerPos(18, 95);
+    SetPlayerDir(3); 
+    SetPlayerState(0);
+    SetPlayerScn();
+	SetNpcKind("杨影枫", 1);
+	SetNpcKind("孟知秋", 2);
+	FullLife();
+	SetNpcKind("孟知秋", 1);
+	SetNpcKind("杨影枫", 2);
+	SetNpcScript("孟知秋","孟知秋对话.txt");
+	AddToMemo(90780);
+	FadeIn();
+
+	NpcSpecialAction("杨影枫", "mpc108.asf");
+	Sleep(2000);	
+	Say("杨影枫：承让！", 2);
+	Say("孟知秋：人说后生可畏，我今天方才信服！", 42);
+	Say("杨影枫：晚辈只是侥幸得胜，若论内力修为，晚辈是万万不及孟前辈的！", 2);
+	SetNpcPos("蔷薇", 23, 81);
+	NpcGoto("蔷薇", 19, 94);
+	SetNpcDir("蔷薇", 1);
+	Talk(10670, 10670);
+	NpcGoto("蔷薇", 18, 93);
+	SetNpcDir("蔷薇", 1);
+	Talk(10690, 10770);
+	NpcGoto("蔷薇", 13, 106);
+	SetNpcPos("蔷薇", 7, 123);
+	SetNpcDir("蔷薇", 5);
+	SetNpcScript("蔷薇","蔷薇对话.txt");
+	SetPlayerDir(1);
+	Talk(10780, 10780);
+	SetPlayerDir(3);
+	Talk(10790, 10830);
+	NpcSpecialAction("杨影枫", "mpc108.asf");
+	Sleep(2000);
+	Talk(10840, 10850);
+	Assign($Event, 560);
+	SetNpcDeathScript("杨影枫","主角死亡.txt");
+	SetMapTrap(9, "事件71_1.txt");
+	AddToMemo(90790);
+	Goto @end;
+	
+@Evt3140:
+	ShowSnow(0);
+	Sleep(1000);
+	FadeOut();
+	StopMusic();
+	Sleep(1000);
+	SetNpcKind("月眉儿",0);
+	DelNpc("月眉儿");
+	LoadNpc("map033_AfterKillMZQ.npc");
+	EnableNpcAI();
+	SetPlayerPos(12,111);
+	SetPlayerDir(5);
+	FadeIn();
+	SetPlayerState(0);
+	FullLife();
+	FullThew();
+	FullMana();
+
+	
+	Talk(100110,100110);
+	
+	If ($EvilValue >> 112) @EvilTalk;
+	Talk(100120,100130);
+	Sleep(1000);
+	Watch("月眉儿","杨影枫",1);
+	Talk(100140,100140);
+	Goto @Next;
+	
+@EvilTalk:
+	Watch("月眉儿","杨影枫",0);
+	Talk(100150,100170);
+	Goto @Next;
+
+@Next:
+	FadeOut();
+	SetMapTrap(1,"Trap01.txt");
+	LoadMap("map_030_悲魔山庄.map");
+	LoadNpc("beimo.npc");
+	DelNpc("蔷薇");
+	//SaveNpc("tempbeimo.npc");
+	//LoadNpc("tempbeimo.npc");
+	LoadObj("map030_obj.obj");
+	ChangeMapColor(255,255,255);
+	ChangeAsfColor(255,255,255);
+	SetPlayerPos(44,140);
+	Watch("杨影枫","月眉儿",0);
+	FadeIn();
+	Talk(100180,100180);
+	If($EvilValue >> 112) @EvilTalk1;
+	Talk(100190,100194);
+	Goto @Next1;
+
+@EvilTalk1:
+	Talk(100196,100199);
+	Goto @Next1;
+	
+@Next1:
+	Talk(100210,100210);	
+	AddToMemo(24430);
+	SetNpcKind("月眉儿",1);
+	SetNpcScript("月眉儿","月眉儿对话.txt");
+	SetMapTrap(1,"");
+	SetMapTrap(6,"");
+	Assign($Event,3145);
+	SetTrap("map_012_惠安镇",1,"Trap01.txt");
+	
+	
+	
+@end:
+	Return;

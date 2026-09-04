@@ -1,0 +1,34 @@
+// 与客栈掌柜对话
+	
+	If ($Event == 430) @Event430;
+	If ($Event == 440) @Event440;
+	If ($Event == 530) @Event530;
+	
+	Say("客栈掌柜：客官，要住店吗？五两银子一间房。", 86);
+	Return;
+
+@Event430:
+	Say("客栈掌柜：客官，要住店吗？五两银子一间房。", 86);
+	Say("张琳心：独孤哥哥，我想先去茶馆喝点茶。", 21);
+	Say("独孤剑：好吧。", 2);
+	Return;
+	
+@Event440:
+	Say("客栈掌柜：客官，昨晚休息得好吗？", 86);
+	Say("独孤剑：还不错。", 2);
+	Return;	
+	
+@Event530:
+	If ($Talkzhanggui == 0) @Talkzhanggui0;
+	If ($Talkzhanggui == 1) @Talkzhanggui1;
+ @Talkzhanggui0:	
+	Say("客栈掌柜：独孤少侠看起来气色好多了。", 86);
+	Say("独孤剑：琳儿说，这些日子多亏了大伯的照顾，独孤剑感激不尽！", 2);
+	Say("客栈掌柜：少侠不必客气。对了，王贤弟说他有些事情，在码头等候二位。", 86);
+	Assign($Talkzhanggui, 1);
+	Memo("掌柜告知王佐在码头等候两人。");
+	Return;
+ @Talkzhanggui1:
+	Say("客栈掌柜：王贤弟好像有事找二位，他正在码头等候。", 86);
+	Return;
+	

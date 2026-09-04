@@ -1,0 +1,58 @@
+
+	If ($Event <> 275) @end;
+
+	StopMusic();
+	PlayMusic("mc008.mp3");
+    SetNpcKind("纳兰潜凛",0);
+	PlayerGoto(12, 39);
+	SetPlayerDir(3);
+    EnableRun();
+	EnableJump();
+	NpcGoto("纳兰潜凛", 13, 39);
+	SetNpcDir("纳兰潜凛",3);
+	PlayerGoto(11, 37);
+	SetPlayerDir(4);	
+	NpcGoto("纳兰潜凛", 12, 38);
+    SetNpcDir("纳兰潜凛",4);	
+    Talk(4450, 4450);
+    PlayerGoto(11, 39);
+	SetPlayerDir(4);
+	NpcGoto("纳兰潜凛",11,37);
+    SetNpcDir("纳兰潜凛",4);
+    Talk(4460, 4470);
+	NpcSpecialAction("纳兰潜凛", "mpc061.asf");
+	Sleep(10000);
+    SetNpcDir("纳兰潜凛",4);
+	Talk(4480, 4500);
+	NpcGoto("纳兰潜凛",12,38);
+    SetNpcDir("纳兰潜凛",3);
+	PlayerGoto(11, 37);
+    SetPlayerDir(4);
+	Talk(4510, 4520);
+	NpcGoto("纳兰潜凛",16,36);
+    SetNpcDir("纳兰潜凛",5);
+	PlayerGoto(15, 35);
+	SetPlayerDir(7);
+	SetNpcDir("纳兰潜凛",3);
+	Talk(4530, 4580);
+	Sleep(200);
+	Talk(20160, 20160);
+	NpcGoto("纳兰潜凛",22,23);
+    DelNpc("纳兰潜凛");
+    PlayerRunTo(16, 35);
+    SetPlayerDir(5);
+	Talk(4590, 4590);
+	Sleep(500);
+	PlayerGoto(11, 37);
+	SetPlayerDir(4);
+	Talk(4600, 4620);
+	If ($SelectVal == 0) @Label;
+	Talk(4630, 4652);
+	Goto @Label;
+@Label:	
+	Assign($Event, 280);
+	
+	RunScript("事件29_1.txt");
+	
+@end:
+	Return;

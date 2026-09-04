@@ -1,0 +1,21 @@
+// 江旭对话
+
+	If ($Event >= 20) @Event20; 
+
+@Event20:
+	If ($Talkjiangxu == 0) @Talk0;
+	If ($Talkjiangxu == 1) @Talk1;
+	If ($Talkjiangxu == 2) @Talk2;
+@Talk0:
+	Say("江旭：师兄，下山后东南方向是去武夷山，东北方向是去京城临安，师傅曾带我去过。", 0);
+	Assign($Talkjiangxu, 1);
+	Return;
+@Talk1:	
+	Say("江旭：房子里有些出门用得着的东西，师兄你多带一些在身边吧。", 0);
+	Assign($Talkjiangxu, 2);
+	Return;
+@Talk2:	
+	Say("江旭：师兄一路保重，早去早回！ ", 0);
+	Return;
+
+	

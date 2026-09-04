@@ -1,0 +1,55 @@
+//和董铁嘴对话
+
+	GetRandNum($Talksuanminxs,0,2);
+	If ($Talksuanminxs == 0) @Talk0;
+	If ($Talksuanminxs == 1) @Talk1;
+	If ($Talksuanminxs == 2) @Talk2;
+
+@Talk0:
+	Say("董铁嘴：小小八卦盘，中西东北南。因缘天注定，祸福任我谈。");
+	Say("董铁嘴：公子是要算因缘呢，还是算前程？");
+	
+	Choose("独孤剑：在下要算……","A 因缘","B 前程",$Choose);
+	If ($Choose == 0) @Choose0;
+	If ($Choose == 1) @Choose1;
+	
+ @Choose0:
+	Say("董铁嘴：这一卦解的是<enter>   欲东欲西随君愿，北上中原便见晴。");
+	Return;
+	
+ @Choose1:
+	Say("董铁嘴：这一卦解的是<enter>   浮名浮利皆云去，不笑苍生笑孤身。");
+	Return;
+	
+@Talk1:	
+	Say("董铁嘴：小小八卦盘，中西东北南。因缘天注定，祸福任我谈。");
+	Say("董铁嘴：公子是要算现世呢，还是算来生？");
+	
+	Choose("独孤剑：在下要算……","A 现世","B 来生",$Choose);
+	If ($Choose == 0) @Choose2;
+	If ($Choose == 1) @Choose3;
+	
+ @Choose2:
+	Say("董铁嘴：这一卦解的是<enter>   亦真亦幻信中事，似颦似笑梦中人。");
+	Return;
+	
+ @Choose3:
+	Say("董铁嘴：未知今世，焉知来生？");
+	Return;
+	
+@Talk2:	
+	Say("董铁嘴：小小八卦盘，中西东北南。因缘天注定，祸福任我谈。");
+	Say("董铁嘴：是公子要算呢，还是这位姑娘要算？");
+	
+	Choose("独孤剑：乃是算……","A 自己","B 杨瑛",$Choose);
+	If ($Choose == 0) @Choose4;
+	If ($Choose == 1) @Choose5;
+
+ @Choose4:
+	Say("董铁嘴：这一卦解的是<enter>   一嗔二笑三牵挂，在山在水在人家。");
+	Return;
+	
+ @Choose5:
+	Say("董铁嘴：这一卦解的是<enter>   扮假扮痴难扮鸯，作王作主难做凰。");
+	Say("杨瑛：……",41);
+	Return;

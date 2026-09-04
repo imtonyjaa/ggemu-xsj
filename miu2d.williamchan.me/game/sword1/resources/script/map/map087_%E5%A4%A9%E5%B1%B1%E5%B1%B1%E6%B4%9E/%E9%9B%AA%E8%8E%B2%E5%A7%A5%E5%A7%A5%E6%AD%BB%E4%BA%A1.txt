@@ -1,0 +1,34 @@
+// 雪莲姥姥被击败
+
+	FadeOut();
+	StopMusic();
+	PlayMusic("夜色.mp3");
+	ClearBody();
+	DelNpc("雪莲姥姥");
+	AddNpc("npc047_雪莲姥姥.ini", 15, 20, 1);
+	SaveNpc();
+	SaveObj();
+	SetPlayerPos(14, 21);
+	SetPlayerDir(5);
+	ClearEffect();
+	FadeIn();
+	
+	Say("雪莲姥姥：哈哈哈哈，姥姥很久没有舒活舒活筋骨了！", 75);
+	Say("张琳心：……多谢姥姥成全！", 101);
+	Say("雪莲姥姥：娃娃，姥姥且问你，你这样拼死拼活为了那个——独孤小子，他可是你的心上人？", 75);
+	Say("张琳心：……姥姥，如果他死了，我……我也不能活了！", 104);
+	Say("雪莲姥姥：哈哈哈哈！——唉！……薄幸人，这下你又满意了！世上又多了一个可怜的女人，老天，你太不公平啊……", 75);
+	NpcGoto("雪莲姥姥", 16, 16);
+	SetNpcDir("雪莲姥姥", 5);
+	PlayerGoto(15, 19);
+	SetPlayerDir(5);
+	Say("张琳心：前辈！", 105);
+	Say("雪莲姥姥：你走，你走！拿着雪莲马上给我走！", 75);
+	Say("张琳心：姥姥——多谢姥姥！", 101);
+	AddGoods("Goods215_雪莲王.ini");
+	SetNpcScript("雪莲姥姥", "雪莲姥姥对话.txt");
+	SetMapTrap(01,"trap01.txt");
+	Assign($Event, 520);
+	Memo("张琳心来到天山，见到雪莲姥姥，打败她以后，得到雪莲王。");
+	Return;
+	

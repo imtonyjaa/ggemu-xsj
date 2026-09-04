@@ -1,0 +1,5 @@
+	OpenBox();
+	AddGoods("Goods-m03-黄钟李.ini");
+	PlaySound("物-箱子开.wav");
+	SetObjScript("","");
+	Return;

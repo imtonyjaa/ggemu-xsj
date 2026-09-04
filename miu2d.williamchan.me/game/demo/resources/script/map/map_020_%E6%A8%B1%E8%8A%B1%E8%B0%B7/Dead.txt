@@ -1,0 +1,15 @@
+       CloseTimeLimit();
+
+	Assign($Event, 450);
+	
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_060_禁地二层.map");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(14, 28);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+	Goto(@end);

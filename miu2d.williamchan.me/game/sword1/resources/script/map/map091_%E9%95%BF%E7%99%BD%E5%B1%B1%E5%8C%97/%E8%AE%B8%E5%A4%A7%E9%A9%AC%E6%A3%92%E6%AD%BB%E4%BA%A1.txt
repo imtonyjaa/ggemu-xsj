@@ -1,0 +1,16 @@
+// 许大马棒及众土匪死亡
+
+	Add($fight091, 1);
+	If ($fight091 == 7) @finished;
+    Return;
+
+@finished:
+	StopMusic();
+	PlayMusic("夜色.mp3");
+	ClearEffect();
+	AddGoods("Goods410_指南针.ini");
+	SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(2, "Trap02.txt");
+	Assign($Talktufei, 2);
+	Memo("打败土匪许大马棒，得到指南针。");
+	Return;

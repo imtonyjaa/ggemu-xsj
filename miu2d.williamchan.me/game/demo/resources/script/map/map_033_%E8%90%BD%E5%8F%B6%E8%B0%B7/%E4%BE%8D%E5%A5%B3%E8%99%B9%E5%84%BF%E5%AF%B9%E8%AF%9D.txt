@@ -1,0 +1,85 @@
+	If ($Event == 3120) @TalkE3120;
+	If ($Event == 3122) @TalkE3122;
+	If ($Event == 3130) @TalkE3130;
+	
+	If ($Result == 0)  @Result0;
+	If ($Result == 1)  @Result1;
+
+	If ($Event == 1819) @1819;//结局2求证
+	If ($Event >= 1811) @1811;//结局2救月眉儿
+	If ($Event == 1810) @1810;//结局2救月眉儿
+	If ($Event == 1809) @1809;//结局2救月眉儿
+	If ($Event >= 1800) @1800;//结局2救月眉儿
+
+	If ($Result == 2)  @Result2;
+	If ($Result == 3)  @Result3;
+	Return;
+
+@1819:
+	Say("侍女虹儿：杨公子，你和我们家小姐真是天生的一对呀。");
+	Return;
+
+@1811:
+	Say("侍女虹儿：纳兰姑娘长得真好看，也不知是哪辈子修来的福分。");
+	Return;
+
+@1810:
+	Say("侍女虹儿：以前为以我们家小姐长得已经很漂亮了，今天见到这位纳兰姑娘，长得可比我们家小姐要好看的多呢。");
+	Return;
+
+@1809:
+	Say("侍女虹儿：昨天去市集看到一块淡紫色的料子，小姐穿一定好看！");
+	Return;
+
+@1800:
+	Say("侍女虹儿：我们家小姐的衣物一直都是我打理的，小姐喜欢穿紫色的衣服。");
+	Return;
+
+@Result0:
+	Talk(22140, 22140);
+	Return;
+@Result1:
+	If ($Event ==574) @TalkA574;
+	If ($Event ==591) @TalkA591;
+	If ($Event ==592) @HongEr592;
+
+	Say("侍女虹儿：昨天去市集看到一块淡紫色的料子，我好喜欢，可惜不够钱买！");
+//	Talk(22140, 22140);
+	Return;
+	@HongEr592:
+		Say("侍女虹儿：姑爷，我们家小姐的衣物一直都是我打理的，小姐喜欢穿紫色的衣服。");
+		Return;
+@Result2:
+	Talk(22140, 22140);
+	Return;
+@Result3:
+	Talk(22140, 22140);
+	Return;
+	
+@TalkA574:
+	
+	Talk(60050,60050);
+	Return;	
+@TalkA591:
+	GetRandNum($RandTalk,0,1);
+	If ($RandTalk == 0) @TalkA591_0;
+	Talk(60470,60470);
+	Return;	
+	
+@TalkA591_0:
+	Talk(60710,60710);
+	Return;
+
+@TalkE3120:
+@TalkE3122:
+	Talk(103300,103320);
+	Return;
+	
+@TalkE3130:
+	Talk(102260,102260);
+	Return;	
+	
+
+@end:
+	Return;
+                                  

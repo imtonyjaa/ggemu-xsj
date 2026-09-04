@@ -1,0 +1,32 @@
+// 与张府门口卫兵的对话
+
+	If ($Event == 190) @Event190;
+	If ($Event == 200) @Event200;
+	
+	If ($Talkzhangfu == 0) @Talk0;
+	If ($Talkzhangfu == 1) @Talk1;
+@Talk0:
+	Say("张府卫兵：张大人外出巡视去了，不在府上，公子有事请改天再来吧。", 0);
+	Assign($Talkzhangfu, 1);
+	Return;
+@Talk1:	
+	Say("张府卫兵：张大人不在府上。", 0);
+	Return;	
+	
+@Event190:
+	Say("独孤剑：我是你家小姐的朋友，请问她在不在家？", 1);
+	Say("张府卫兵：我家小姐回家不久又出门去了，此刻她不在府里。", 0);
+	Return;		
+	
+@Event200:
+	If ($Ask == 0) @Ask0;
+	If ($Ask == 1) @Ask1;
+@Ask0:	
+	Say("独孤剑：请问你家小姐在吗？", 1);
+	Say("张府卫兵：我家小姐出门去了，好像去了南郊。", 0);
+	Assign($Ask, 1);
+	Memo("从张府卫兵处得知张琳心可能去了临安城南郊。");
+	Return;	
+@Ask1:	
+	Say("张府卫兵：我家小姐出门去了，好像去了南郊。", 0);
+	Return;

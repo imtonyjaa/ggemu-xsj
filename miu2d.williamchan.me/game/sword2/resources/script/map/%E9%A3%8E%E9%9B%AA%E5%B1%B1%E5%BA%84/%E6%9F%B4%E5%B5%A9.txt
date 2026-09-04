@@ -1,0 +1,6 @@
+
+	Talk(49740,49740);
+	SetNpcDir("柴嵩",5);
+	PlayerGoto(90,98);
+	Talk(49750,49750);
+	Return;

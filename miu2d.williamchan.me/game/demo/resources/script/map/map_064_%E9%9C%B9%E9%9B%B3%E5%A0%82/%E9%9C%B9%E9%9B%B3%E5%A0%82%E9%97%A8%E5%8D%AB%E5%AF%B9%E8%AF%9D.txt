@@ -1,0 +1,13 @@
+	
+	If ($Event <> 211) @end;
+        Talk(2971, 2971);
+        PlayerGotoDir(1, 1);
+        SetMapTrap(3, "霹雳堂门卫对话.txt");
+@end:
+	Return;
+
+
+        
+
+
+

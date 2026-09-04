@@ -1,0 +1,22 @@
+	If ($Event == 3000) @Talk3000;
+
+	If ($Talkdongfang == 0) @Talk0;
+	If ($Talkdongfang == 1) @Talk1;
+
+	Talk(20385, 20386);
+	Goto @end; 
+@Talk0:
+	Talk(20380, 20384); 
+	Assign($Talkdongfang, 1);
+	Goto @end;
+@Talk1:
+	Talk(20385, 20386);
+	Goto @end;
+
+@Talk3000:
+	Say("杨影枫：掌柜的可知如何去摘星楼吗？",2);
+	Say("东方忻：听说是在倚天山附近，具体的我就不知道了。");
+	Say("杨影枫：真是谢谢了。",2);
+	Return;
+@end:
+	Return;

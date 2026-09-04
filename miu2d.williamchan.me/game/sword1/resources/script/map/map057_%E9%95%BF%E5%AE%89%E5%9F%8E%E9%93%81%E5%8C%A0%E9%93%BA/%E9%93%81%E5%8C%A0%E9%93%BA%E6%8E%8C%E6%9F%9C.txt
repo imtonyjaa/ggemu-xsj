@@ -1,0 +1,130 @@
+//和铁匠铺掌柜对话
+	
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+	
+	If ($Talkyuanjizi == 0) @Talk1;
+	If ($Talkyuanjizi == 1) @Sell0; 
+
+@Talk1:
+	GetGoodsNum("Goods051_碧潮宝刃.ini");
+	If ($GoodsNum == 0) @Sell0;
+	If ($GoodsNum == 1) @Sell1;
+	
+@Sell0:
+	Say("袁矶子：公子光临，小店蓬荜生辉。请随便看看。", 89);
+	GetPlayerLevel($PlayerLevel);
+	If ($PlayerLevel << 10) @PlayerLevelL10;
+	If ($PlayerLevel << 16) @PlayerLevelL16;
+	If ($PlayerLevel << 22) @PlayerLevelL22;
+	If ($PlayerLevel << 28) @PlayerLevelL28;
+	If ($PlayerLevel << 34) @PlayerLevelL34;
+	If ($PlayerLevel << 40) @PlayerLevelL40;
+	Goto @PlayerLevelG40;
+	Goto @BuyEnd;
+@PlayerLevelL10:
+	SellGoods("buy1级武器.ini");
+	Goto @BuyEnd;
+@PlayerLevelL16:
+	SellGoods("buy2级武器.ini");
+	Goto @BuyEnd;
+@PlayerLevelL22:
+	SellGoods("buy3级武器.ini");
+	Goto @BuyEnd;
+@PlayerLevelL28:
+	SellGoods("buy4级武器.ini");
+	Goto @BuyEnd;
+@PlayerLevelL34:
+	SellGoods("buy5级武器.ini");
+	Goto @BuyEnd;
+@PlayerLevelL40:
+	SellGoods("buy6级武器.ini");
+	Goto @BuyEnd;
+@PlayerLevelG40:
+	SellGoods("buy7级武器.ini");
+	Goto @BuyEnd;
+@BuyEnd:
+	Return;
+	
+@Sell1:
+	Say("袁矶子：看公子是习武之人，不妨看看有没有中意的兵刃。", 89);
+	Say("袁矶子：这——莫非是，“碧潮宝刃”？", 89);
+	Say("独孤剑：先生所说的“碧潮宝刃”是什么？", 8);
+	Say("袁矶子：便是公子身上这柄宝剑。“碧潮宝刃”乃是五十年前碧海翁的独门兵器。这碧海翁平生有一套绝世武功唤作“碧海神功”，自从碧海翁死后就与这柄宝刃一块绝迹江湖，传说神功的秘笈便藏于宝刃的剑柄之中。", 89);
+	Say("独孤剑：“碧海神功”？", 8);
+	Sleep(600);
+	Say("袁矶子：果然是在这里。恭喜公子！");
+	Say("这“碧海神功”乃分阴阳两股真气，阳为“碧海潮生”，阴为“潮生碧海”。一阴一阳，相辅相成，乃是不世神功。");
+	AddMagic("magic012_碧海潮生.ini");
+	SetMagicLevel("magic012_碧海潮生.ini", 2);
+	AddOneMagic("张琳心", "magic018_潮生碧海.ini"); 
+	Say("独孤剑：多谢先生指点。", 2);
+	Say("袁矶子：这自是公子的福缘，老夫只是成人之美罢了！哈哈……", 89);
+	Assign($Talkyuanjizi, 1);
+	Return;
+	
+	
+@YuanDan:		
+
+	If ($Talkyuanjizi == 0) @Talk1YD;
+	If ($Talkyuanjizi == 1) @Sell0YD; 
+
+@Talk1YD:
+	GetGoodsNum("Goods051_碧潮宝刃.ini");
+	If ($GoodsNum == 0) @Sell0YD;
+	If ($GoodsNum == 1) @Sell1YD;
+	
+@Sell0YD:
+	Say("袁矶子：恭贺新禧！公子光临，小店蓬荜生辉。请随便看看。", 89);
+	GetPlayerLevel($PlayerLevel);
+	If ($PlayerLevel << 10) @PlayerLevelL10YD;
+	If ($PlayerLevel << 16) @PlayerLevelL16YD;
+	If ($PlayerLevel << 22) @PlayerLevelL22YD;
+	If ($PlayerLevel << 28) @PlayerLevelL28YD;
+	If ($PlayerLevel << 34) @PlayerLevelL34YD;
+	If ($PlayerLevel << 40) @PlayerLevelL40YD;
+	Goto @PlayerLevelG40YD;
+	Goto @BuyEndYD;
+@PlayerLevelL10YD:
+	SellGoods("buy过年1级武器.ini");
+	Goto @BuyEndYD;
+@PlayerLevelL16YD:
+	SellGoods("buy过年2级武器.ini");
+	Goto @BuyEndYD;
+@PlayerLevelL22YD:
+	SellGoods("buy过年3级武器.ini");
+	Goto @BuyEndYD;
+@PlayerLevelL28YD:
+	SellGoods("buy过年4级武器.ini");
+	Goto @BuyEndYD;
+@PlayerLevelL34YD:
+	SellGoods("buy过年5级武器.ini");
+	Goto @BuyEndYD;
+@PlayerLevelL40YD:
+	SellGoods("buy过年6级武器.ini");
+	Goto @BuyEndYD;
+@PlayerLevelG40YD:
+	SellGoods("buy过年7级武器.ini");
+	Goto @BuyEndYD;
+@BuyEndYD:
+	Return;
+	
+@Sell1YD:
+	Say("袁矶子：恭贺新禧！看公子是习武之人，不妨看看有没有中意的兵刃。", 89);
+	Say("袁矶子：这——莫非是，“碧潮宝刃”？", 89);
+	Say("独孤剑：先生所说的“碧潮宝刃”是什么？", 8);
+	Say("袁矶子：便是公子身上这柄宝剑。“碧潮宝刃”乃是五十年前碧海翁的独门兵器。这碧海翁平生有一套绝世武功唤作“碧海神功”，自从碧海翁死后就与这柄宝刃一块绝迹江湖，传说神功的秘笈便藏于宝刃的剑柄之中。", 89);
+	Say("独孤剑：“碧海神功”？", 8);
+	Sleep(600);
+	Say("袁矶子：果然是在这里。恭喜公子！");
+	Say("这“碧海神功”乃分阴阳两股真气，阳为“碧海潮生”，阴为“潮生碧海”。一阴一阳，相辅相成，乃是不世神功。");
+	AddMagic("magic012_碧海潮生.ini");
+	SetMagicLevel("magic012_碧海潮生.ini", 2);
+	AddOneMagic("张琳心", "magic018_潮生碧海.ini"); 
+	Say("独孤剑：多谢先生指点。", 2);
+	Say("袁矶子：这自是公子的福缘，老夫只是成人之美罢了！哈哈……", 89);
+	Assign($Talkyuanjizi, 1);
+	Return;

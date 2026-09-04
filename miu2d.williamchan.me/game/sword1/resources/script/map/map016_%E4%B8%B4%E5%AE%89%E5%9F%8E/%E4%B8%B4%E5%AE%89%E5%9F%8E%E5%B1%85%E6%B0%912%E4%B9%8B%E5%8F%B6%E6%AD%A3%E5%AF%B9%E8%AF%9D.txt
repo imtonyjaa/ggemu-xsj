@@ -1,0 +1,65 @@
+// 与临安城居民叶正的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	If ($Talkyezheng1 == 0) @Talk0;
+	If ($Talkyezheng1 == 1) @Talk1;
+	If ($Talkyezheng1 == 2) @Talk2;
+	If ($Talkyezheng1 == 3) @Talk3;
+	If ($Talkyezheng1 == 4) @Talk4;
+	
+@Talk0:
+	Say("叶正：张大人就是从金国那里护送秦桧回来的张风，听说他曾经是江湖上名动天下的“飞剑客”，现在官拜殿前都指挥使，掌管京中禁军。", 0);
+	Assign($Talkyezheng1, 1);
+	Return;
+@Talk1:	
+	Say("叶正：张大人的女儿可漂亮了，是临安四美人之一。", 0);
+	Assign($Talkyezheng1, 2);
+	Return;
+@Talk2:	
+	Say("叶正：张小姐的芳名叫张琳心，她最爱穿绿色衣服。", 0);
+	Assign($Talkyezheng1, 3);
+	Return;	
+@Talk3:	
+	Say("叶正：你见过她使那招家传绝技“天外飞仙”吗？真的象是仙子在天边飞过。", 0);
+	Assign($Talkyezheng1, 4);
+	Return;		
+@Talk4:	
+	Say("叶正：张姑娘不仅容貌出众，武功也非常了得，不知谁有福气……", 0);
+	Return;		
+	
+	
+@YuanDan:	
+
+	If ($Talkyezheng1 == 0) @Talk0YD;
+	If ($Talkyezheng1 == 1) @Talk1YD;
+	If ($Talkyezheng1 == 2) @Talk2YD;
+	If ($Talkyezheng1 == 3) @Talk3YD;
+	If ($Talkyezheng1 == 4) @Talk4YD;
+	
+@Talk0YD:
+	Say("叶正：恭贺新禧！送你一个红包。", 0);
+	Say("独孤剑：谢谢！", 2);
+	Say("得到八十两银子。");
+	AddMoney(80);
+	Assign($Talkyezheng1, 1);
+	Return;	
+@Talk1YD:	
+	Say("叶正：恭贺新禧！张大人就是从金国那里护送秦桧回来的张风，听说他曾经是江湖上名动天下的“飞剑客”，现在官拜殿前都指挥使，掌管京中禁军。", 0);
+	Assign($Talkyezheng1, 2);
+	Return;
+@Talk2YD:	
+	Say("叶正：恭贺新禧！张大人的女儿可漂亮了，是临安四美人之一。", 0);
+	Assign($Talkyezheng1, 3);
+	Return;	
+@Talk3YD:	
+	Say("叶正：恭贺新禧！张小姐的芳名叫张琳心，她最爱穿绿色衣服。", 0);
+	Assign($Talkyezheng1, 4);
+	Return;		
+@Talk4YD:	
+	Say("叶正：恭贺新禧！张姑娘不仅容貌出众，武功也非常了得，不知今年谁有福气……", 0);
+	Return;			

@@ -1,0 +1,137 @@
+//所有敌人死亡
+
+	Add($fight113, 1);
+	If ($fight113 == 3) @finished;
+    Return;
+	
+@finished:
+	StopMusic();
+	ClearEffect();
+	SetNpcActionFile("独孤剑",0,"npc001_st2.asf");
+	SetNpcActionFile("独孤剑",1,"npc001_sst2.asf");
+	SetPlayerState(0);
+	Sleep(800);
+	Say("独孤剑：琳儿！杨姑娘——", 10);
+	PlayerRunTo(12,12);
+	SetPlayerDir(5);
+	
+	FadeOut();
+	LoadMap("map111_成都北郊.map");
+	LoadNpc("map111.npc");
+	LoadObj("map111.obj");
+	AddObj("五色教杀手头目尸体.ini",16,17,2);
+	AddNpc("npc004_张琳心.ini",9,28,3);
+	AddNpc("npc008_杨瑛.ini",8,30,5);
+	AddNpc("npc002_张如梦.ini",16,20,5);
+	AddNpc("npc005_南宫彩虹.ini",18,14,1);
+	ChangeMapColor(255,255,255);
+	ChangeMapColor(255,255,255);
+	SetPlayerPos(8,27);
+	SetPlayerDir(0);
+	
+	GetGoodsNum("Goods218_回回丹.ini");
+	If ($GoodsNum == 0) @Lable0;
+	If ($GoodsNum == 1) @Lable1;
+	
+@Lable0:
+	Say("得到五色教解药“百辟丹”。");
+	AddGoods("Goods217_百辟丹.ini");
+	Say("独孤剑救出了张琳心，将“百辟丹”给杨瑛服下，三人离开了五剑堂。");
+	DelGoods("Goods217_百辟丹.ini");
+	Assign($huihuidan, 0); 
+	Goto @End;
+	
+@Lable1:
+	Say("独孤剑救出了张琳心，将“回回丹”给杨瑛服下，三人离开了五剑堂。");
+	DelGoods("Goods218_回回丹.ini");
+	Assign($huihuidan, 1); 
+	Goto @End;
+	
+@End:
+	PlayMusic("夜色.mp3");
+	FadeIn();
+	Say("张琳心：独孤哥哥——<enter>杨瑛：独孤大哥——", 110);
+	SetNpcDir("张琳心", 1);
+	Say("张琳心：……", 25);
+	Say("杨瑛：……", 41);
+	Sleep(2000);
+	SetPlayerDir(1);
+	Say("杨瑛：独孤少侠，既然五色教的事情已了，杨瑛也要回天王帮了。", 41);
+	Say("独孤剑：你——独自一人……", 1);
+	Say("杨瑛：杨右使他们很快就会赶来，少侠不必担心我……", 39);
+	Say("杨瑛：难道杨瑛一帮之主，还不会照顾自己？",39);
+	Say("独孤剑：……", 1);
+	Say("杨瑛：杨瑛就此别过。", 41);
+	SetPlayerDir(0);
+	SetNpcDir("张琳心",0);
+	NpcGoto("杨瑛",8,36);
+	SetNpcDir("杨瑛",4);
+	
+	//选择追不追杨瑛
+	Choose("追不追杨瑛", "A 追", "B 不追", $zhui);
+	If ($zhui == 0) @Choose0;
+	If ($zhui == 1) @Choose1;
+	
+@Choose0:
+	
+	PlayerRunTo(8,30);
+	Say("独孤剑：杨姑娘，你别走——", 6);
+	Say("杨瑛：张姑娘为你付出了那么多，你要对她很好很好，不必挂念我……", 39);
+	Say("独孤剑：可是……", 6);
+	Say("杨瑛：我……我还有天王帮，我和天王帮，谁也离不了谁，这么多年，我都是这么过来的……", 39);
+	Say("张琳心：杨姐姐……", 24);
+	Say("杨瑛：你们要多多保重，杨瑛祝两位白头偕老！", 39);
+	Say("独孤剑：……",6);
+	Say("张琳心：……",24);
+	NpcGoto("杨瑛",4,46);
+	Sleep(800);
+	NpcGoto("张琳心",11,32);
+	SetNpcDir("张琳心",6);
+	DelNpc("杨瑛");
+	SaveNpc();
+	
+	SetPlayerDir(6);
+	Say("独孤剑：琳儿！", 6);
+	Say("张琳心：其实杨姐姐对你也挺好，我……去找我哥哥！", 28);
+	NpcGotoEx("张琳心",16,35);
+	PlayerRunTo(10,32);
+	SetPlayerDir(6);
+	Sleep(600);
+	SetPlayerDir(1);
+	Sleep(900);
+	SetPlayerDir(6);
+	Say("独孤剑：……", 8);
+	SetNpcPos("张琳心",17,24);
+	SetNpcDir("张琳心",4);
+	Assign($Event, 660);
+	SetMapTrap(4, "trap04.txt");
+	Assign($Love,0); 			//结局参数
+	Memo("独孤剑打败林对儿等三人摆下的“真魔三劫阵”，救出了张琳心和杨瑛。杨瑛不愿让独孤剑为难，主动离去；而张琳心则伤心之下，独自去找张如梦。");
+	Return;
+	
+@Choose1:	
+	Say("独孤剑：杨姑娘，你……多多保重！", 1);
+	Say("杨瑛：多谢！你们也要保重，杨瑛祝两位白头偕老！", 39);
+	Say("独孤剑：……", 1);
+	NpcGoto("杨瑛",4,46);
+	Sleep(800);
+	Watch("独孤剑", "张琳心", 0);
+	Say("张琳心：独孤哥哥，我们也走吧！", 21);
+	NpcGoto("张琳心",11,32);
+	SetNpcDir("张琳心",6);
+	Say("张琳心：啊！哥哥！", 25);
+	DelNpc("杨瑛");
+	SaveNpc();
+	
+	NpcGoto("张琳心",16,35);
+	Say("独孤剑：琳儿！", 1);
+	PlayerGoto(10,32);
+	SetPlayerDir(6);
+	SetNpcPos("张琳心",17,24);
+	SetNpcDir("张琳心",4);
+	Assign($zhuiyang, 1);
+	Assign($Event, 660);
+	SetMapTrap(4, "trap04.txt");
+	Assign($Love,1); 			//结局参数
+	Memo("独孤剑打败林对儿等三人摆下的“真魔三劫阵”，救出了张琳心和杨瑛。杨瑛不愿让独孤剑为难，主动离去。");
+	Return;

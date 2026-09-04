@@ -1,0 +1,231 @@
+	If ($Event == 1818) @1818;
+	If ($Event == 1804) @1804;
+	If ($Result == 0)  @Result0;
+	If ($Result == 1)  @Result1;
+	If ($Event >= 1805)  @1805;
+	If ($Result == 2)  @Result2;
+	If ($Result == 3)  @Result3;
+	Return;
+
+@1818:
+	Say("家丁阿甘：杨公子，你来了，找我们家小姐吗？");
+	Say("杨影枫：不是，我是来找你们家老爷的，他在吗？");
+	Say("家丁阿甘：在，你快进去吧。");
+	Return;
+
+@1805:
+	Say("家丁阿甘：老爷最疼小姐啦，小姐说的他一定会听，所以我们做了错事都去求小姐。");
+	Return;
+
+@1804:
+	Say("家丁阿甘：小姐，你终于回来了，快进去吧，老爷正在为你的事发愁呢。");
+	Return;
+
+@Result0:
+	Talk(22070, 22070);
+	Return;
+
+@Result1:
+	If ($Event == 570) @Event570;
+	If ($Event == 574) @TalkE574;
+	If ($Event == 588) @Event588;
+	If ($Event == 590) @Event590;
+	If ($Event == 625) @Event625;
+	If ($Event == 3120) @Evt3120;
+	If ($Event == 3122) @end;
+	If ($Event == 572) @Event572;
+	If ($Event == 591) @end;
+	If ($Event == 592) @AGan592;
+	Watch("家丁阿甘","杨影枫",0);
+	Sleep(500);
+	Talk(68270,68270);
+	PlayerGoto(6,126);
+	SetMapTrap(19,"家丁阿甘对话.txt");
+	SetNpcDir("家丁阿甘",1);
+	Return;
+	
+	@AGan592:
+		Say("家丁阿甘：姑爷，有什么吩咐？");
+		Return;
+
+@Result2:
+	If ($Event ==770) @Event770;
+	Talk(22070, 22070);
+	Return;
+
+@Result3:
+	If ($Event == 890) @end;
+	If ($Event <= 870) @EventL870;
+	If ($Event <= 930) @EventL930;
+
+	GetRandNum($GanTalk, 5, 6);
+	If ($GanTalk == 5) @GanTalk35;
+	If ($GanTalk == 6) @GanTalk36;
+	@GanTalk35:
+		//系统消息：阿甘：公子，你最近名气大了很多啊！
+		//系统消息：杨影枫：……
+		Talk(83540, 83550);
+		Return;
+	@GanTalk36:
+		//系统消息：阿甘：公子，我好崇拜你耶，能不能收我当徒弟？
+		//系统消息：杨影枫：……呵呵，我现在还不想收徒弟，等以后吧。
+		Talk(83560, 83570);
+		Return;
+	Return;
+	
+	@EventL870:
+		GetRandNum($GanTalk, 1, 2);
+		If ($GanTalk == 1) @GanTalk31;
+		If ($GanTalk == 2) @GanTalk32;
+		@GanTalk31:
+			Talk(22070, 22070);
+			Return;
+		@GanTalk32:
+			Say("阿甘：公子，我想跟你学两招，不如你留在我们落叶谷吧。");
+			Return;
+		Return;
+
+	@EventL930:
+		GetRandNum($GanTalk, 3, 4);
+		If ($GanTalk == 3) @GanTalk33;
+		If ($GanTalk == 4) @GanTalk34;
+		@GanTalk33:
+			Talk(83580, 83580);
+			//系统消息：阿甘：蔷薇小姐脾气又发作了，这两天不知跑哪里去了，老爷正为这个生气呢。
+			Return;
+		@GanTalk34:
+			Talk(83590, 83590);
+			//"系统消息：阿甘：其实，我很喜欢蔷薇小姐，可是这两天都看不到她。
+			Return;
+		Return;
+
+
+	Return;
+
+
+@Event570:
+Watch("家丁阿甘","杨影枫",0);
+Sleep(500);
+Talk(69000,69020);
+//SetNpcScript("家丁阿甘","");
+SetPlayerDir(5);
+NpcGoto("家丁阿甘",13,105);
+Sleep(1000);
+NpcGoto("家丁阿甘",8,123);
+Watch("家丁阿甘","杨影枫",0);
+Talk(69030,69030);
+SetNpcDir("家丁阿甘",1);
+//SetMapTrap(1,"");
+Assign($Event,572);
+
+Return;
+
+@TalkE574:
+	If ($Event >=591 ) @TalkA591;
+		Talk(60120,60120);
+	Return;
+	
+@TalkA591:
+	GetRandNum($RandTalk,0,1);
+	If ($RandTalk == 0) @TalkA591_0;
+	Talk(60540,60541);
+	Return;
+	
+@TalkA591_0:	
+	Talk(60780,60790);
+	Return;
+	
+	
+@Event590:
+
+Watch("家丁阿甘","杨影枫",0);
+
+Sleep(500);
+//Talk(69040,69060);
+Say("杨影枫：岳父大人在不在府上？",2);
+Say("家丁阿甘：原来是杨姑爷，我家老爷在府上，你请进。");
+Say("杨影枫：嗯。",2);
+SetNpcDir("家丁阿甘",1);
+SetNpcScript("家丁阿甘","家丁阿甘对话.txt");
+Assign($Event ,591);
+Return;
+
+@Event625:
+Watch("家丁阿甘","杨影枫",0);
+Say("新增对话：孟知秋在吗");
+Say("新增对话：原来是杨少爷，请进！");
+SetNpcScript("孟府家丁","");
+Return;
+
+@Evt3120:
+	Watch("家丁阿甘","杨影枫",0);
+	Sleep(500);
+	Talk(69040,69060);
+	SetNpcDir("家丁阿甘",1);
+	SetNpcScript("家丁阿甘","家丁阿甘对话.txt");
+	
+	//DelObj("蔷薇之墓");
+	AddObj("蔷薇之墓.ini",33,15,0);
+	
+	DelNpc("孟知秋");
+	AddNpc("孟知秋.ini",35,18,3);
+	SetNpcScript("孟知秋","孟知秋对话.txt");
+	
+	Assign($Event,3122);
+	SetMapTrap(19,"");
+	SetMapTrap(1,"");
+	
+	Return;
+
+
+
+@Event770:
+	Watch("家丁阿甘","杨影枫",0);
+	Say("杨影枫：你家孟知秋在不在家？",2);
+	Say("阿甘：……");
+	Sleep(500);
+	Say("杨影枫！",29);
+	Watch("杨影枫","蔷薇",1);
+	MoveScreen(5,80,2);
+	Sleep(500);
+	
+	SetNpcKind("杨影枫",1);
+	SetNpcKind("月眉儿",1);
+	SetNpcKind("蔷薇",2);
+	
+	NpcGoto("蔷薇",8,121);
+	Watch("蔷薇","杨影枫",0);
+	Watch("月眉儿","蔷薇",1);
+	Talk(15430,15430);
+	Sleep(500);
+	Say("蔷薇：我们进去说话吧。",29);
+	SetNpcKind("杨影枫",3);
+	SetNpcKind("月眉儿",3);
+	SetNpcKind("蔷薇",2);
+	PlayerGoto(19,124);
+	Sleep(1000);
+	Watch("杨影枫","蔷薇",0);
+	Watch("月眉儿","蔷薇",1);
+	Sleep(1000);
+	
+	Talk(15440,15480);
+	Watch("蔷薇","月眉儿",0);
+	Talk(15490,15520);
+	Watch("蔷薇","杨影枫",0);
+	Talk(15530,15560);
+	
+	SetNpcKind("杨影枫",2);
+	SetNpcKind("月眉儿",3);
+	SetNpcKind("蔷薇",3);
+	Assign($Event,780);
+	
+	Return;
+
+@Event572:
+	Say("家丁阿甘：杨公子，老爷就在里面，你请进去吧！", 0);
+	Return;
+@end:
+	Return;
+
+
+

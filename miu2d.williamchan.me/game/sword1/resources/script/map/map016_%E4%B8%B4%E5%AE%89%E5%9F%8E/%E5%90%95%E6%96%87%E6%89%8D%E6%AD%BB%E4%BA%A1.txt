@@ -1,0 +1,21 @@
+// 吕文才死亡
+
+	Add($fight016, 1);
+	If ($fight016 == 23) @finished;
+    Return;
+    
+@finished:
+	StopMusic();
+	ClearEffect();
+	Say("宋兵：不好了！杀人了！吕将军被人杀了！快跑呀！", 0);
+	PlayMusic("追缘.mp3");
+	Sleep(500);
+	Watch("独孤剑", "张琳心", 0);
+	Say("张琳心：独孤大哥，我们去看看段铁匠怎么样了吧？", 21);
+	Say("独孤剑：好。", 1);
+	SetNpcScript("段铁匠", "段铁匠尸体脚本.txt");
+	SetNpcScript("张琳心", "张琳心对话.txt");
+	Return;
+	
+	
+	

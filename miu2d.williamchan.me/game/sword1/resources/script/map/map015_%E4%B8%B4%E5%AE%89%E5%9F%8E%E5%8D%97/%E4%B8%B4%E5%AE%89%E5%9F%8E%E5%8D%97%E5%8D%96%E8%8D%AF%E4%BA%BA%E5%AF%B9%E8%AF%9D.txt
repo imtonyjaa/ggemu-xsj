@@ -1,0 +1,24 @@
+// 临安城南卖药人对话
+
+
+	Say("卖药人玉郎：公子，买点什么药吗？", 0);
+	GetPlayerLevel($PlayerLevel);
+	If ($PlayerLevel << 16) @PlayerLevelL16;
+	If ($PlayerLevel << 31) @PlayerLevelL31;
+	Goto @PlayerLevelG30;
+	Return;
+
+
+@PlayerLevelL16:
+	SellGoods("低级药品.ini");
+	Return;
+@PlayerLevelL31:
+	SellGoods("中级药品.ini");
+	Return;
+@PlayerLevelG30:
+	SellGoods("高级药品.ini");
+	Return;
+
+
+
+

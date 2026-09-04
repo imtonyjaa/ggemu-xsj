@@ -1,0 +1,4 @@
+AddRandMoney(10,100);
+PlaySound("物-银子.wav");
+SetObjScript("","");
+Return;

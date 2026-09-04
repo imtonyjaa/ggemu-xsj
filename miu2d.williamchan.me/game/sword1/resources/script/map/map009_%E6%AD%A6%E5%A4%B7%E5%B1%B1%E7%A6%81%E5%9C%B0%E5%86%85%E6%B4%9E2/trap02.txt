@@ -1,0 +1,42 @@
+// 石桌前的trap
+
+	PlayerGoto(5, 17);
+	SetPlayerDir(5);
+	Say("独孤剑：咦？这桌子上有一封信。", 8);
+	SetNpcKind("张琳心", 1);
+	NpcGoto("张琳心", 5, 19); 
+	SetNpcDir("张琳心", 5);
+	Say("张琳心：哦？看看上面写的什么？", 21);
+	Say("独孤剑：是一首诗。", 1);
+	Say("<color=Red>西山东月起晚钟，云盘峰顶雾朝松。<enter>指点英雄一二事，乾坤倒转半枰中。<color=Black>");
+	Say("张琳心：这是什么意思？", 21);
+	Say("独孤剑：我也猜不透。", 1);
+	Say("张琳心：先把信收好，留着以后再慢慢琢磨。", 21);
+	Say("独孤剑：也好。", 1);
+	
+	SetNpcActionFile("独孤剑", 0, "mpc009_2.asf");
+	SetNpcActionFile("独孤剑", 1, "mpc009_2.asf");
+	NpcSpecialAction("独孤剑", "mpc009_1.asf");    // 独孤剑伸出手
+	Sleep(1000);
+	
+	PlaySound("特_捡到特殊物品.wav");
+	DelObj("武夷密洞书信");
+	AddObj("变成灰的信.ini", 6, 16, 0);
+	Sleep(500);
+	DelObj("变成灰的信");
+	SaveObj();
+	
+	SetNpcActionFile("独孤剑", 0, "npc001_st2.asf");
+	SetNpcActionFile("独孤剑", 1, "npc001_sst2.asf");
+	NpcSpecialAction("独孤剑", "mpc009_3.asf");    // 独孤剑缩回伸出的手
+	Sleep(1500);
+	
+	Say("张琳心：哎呀，糟糕！怎么变成飞灰了？", 25);
+	Say("独孤剑：恐怕是时间太久了，不知诗中藏有什么玄机。", 1);
+	Say("张琳心：把它记在心里吧，说不定日后遇到高人就能解开这谜。", 21);
+	Say("独孤剑：我们再四处看看。", 1);
+	SetNpcKind("张琳心", 3);
+
+	SetMapTrap(2,"");
+	Return;
+	

@@ -1,0 +1,7 @@
+	OpenBox();
+//	LoadGoods("\save\game\Goods1.ini");
+//	Talk(21520,21520);
+	AddRandGoods("7级物品.ini");
+	SetObjScript("","");
+	Return;
+	

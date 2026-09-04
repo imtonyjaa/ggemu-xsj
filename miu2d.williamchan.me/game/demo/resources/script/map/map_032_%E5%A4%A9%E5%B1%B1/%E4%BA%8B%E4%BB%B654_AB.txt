@@ -1,0 +1,85 @@
+	If ($Event == 530) @Label1;
+	If ($Event == 532) @Event532;
+	Return;
+	
+@Event532:
+	Select(9621, 9622, 9941, $SelectVal);
+	// 选第一项，不管
+	If ($SelectVal == 0) @NewSelectNo;
+	// 选第二项，把捕兽夹收起，会有蔷薇出来打架
+	If ($SelectVal == 1) @NewSelectYes;
+	@NewSelectNo:
+		Return;
+	@NewSelectYes:
+		Add($EvilVal, 20);
+		PlayerGoto(30, 21);
+		SetPlayerDir(6);
+		Goto @NowFight;
+		Return;
+	Return;
+
+@Label1:
+	PlayerGoto(30, 21);
+	SetPlayerDir(6);
+	Say("杨影枫：也不知是谁把这放在路中间，捕人还是捕兽呀！", 2);
+//	Talk(9620, 9620);
+	Select(9621, 9622, 9941, $SelectVal);
+	// 选第一项，不管
+	If ($SelectVal == 0) @Label2;
+	// 选第二项，把捕兽夹收起，会有蔷薇出来打架
+	If ($SelectVal == 1) @NowFight;
+	Return;
+	@Label2:
+		Talk(9630, 9630);
+		AddToMemo(90740);
+		Assign($Event, 532);
+		Add($EvilVal, -20);
+		SetMapTrap(1, "Trap01.txt");
+		SetMapTrap(2, "Trap02.txt");
+		SetMapTrap(3, "Trap03.txt");
+		Return;
+
+
+//  不要随便改动 zroc
+	@NowFight:
+		NpcSpecialAction("杨影枫", "mpc110.asf");
+		Sleep(200);
+		FadeOut();
+		StopMusic();
+		DelObj("捕兽夹");
+		SaveObj();
+
+		If ($Event == 532) @Continue;
+			AddToMemo(90740);
+		@Continue:
+
+		LoadNpc("tianshan-cangying.npc");
+		Sleep(800);
+		FadeIn();
+		NpcGoto("蔷薇", 32, 29);
+		SetNpcDir("蔷薇", 3);
+		Say("紫衣姑娘：喂，你是什么人？为什么动我的<color=Red>捕兽夹<color=Black>！", 29);
+//		Talk(9950, 9950);	
+		PlayerRunTo(31, 29);
+		SetPlayerDir(6);
+		SetNpcDir("蔷薇", 2);
+		Say("杨影枫：在下杨影枫。捕兽夹下在大路上，非但不能捕获猎物，也容易误伤路上行人。所以在下只好先将它收起来。既是姑娘的，请姑娘收回。", 2);
+		Say("紫衣姑娘：我若不收呢？", 29);
+		Say("杨影枫：那在下就替姑娘先收了！以免误伤行人，姑娘何时需要，向我取回就是了。", 2);
+		Say("紫衣姑娘：看你身负长剑，又如此好管闲事，身手应当不凡，姑娘近日新学了一些武功，就拿你先试试招罢！", 29);
+		Say("杨影枫：在下无意冒犯姑娘……", 2);
+		Say("紫衣姑娘：废话少说，我有<color=Red>苍鹰<color=Black>助战，你可要小心了！", 2);
+		Say("杨影枫：哎，姑娘……");
+//		Talk(9960, 10020);
+		SetNpcRelation("蔷薇", 1);
+		SetNpcRelation("苍鹰", 1);
+		EnableNpcAI();
+		PlayMusic("Mc026.mp3");
+		Assign($Event, 532);
+		Add($EvilVal, 20);
+		SetMapTrap(1, "Trap01.txt");
+		SetMapTrap(2, "Trap02.txt");
+		SetMapTrap(3, "Trap03.txt");
+		Return;
+@end:
+	Return;

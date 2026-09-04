@@ -1,0 +1,61 @@
+// 事件43 刚发生
+	If ($Event == 430) @Label1;
+	Return;
+	
+@Label1:
+	//CloseTimeLimit();
+	Sleep(1000);
+	SetMapTrap(1,"Trap01.txt");
+	StopMusic();
+	FadeOut();
+	CloseWaterEffect();
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	LoadMap("map_059_禁地一层.map");
+	LoadObj("map059_obj.obj");
+	SetPlayerPos(12, 26);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	FadeIn();
+
+	Sleep(1000);
+	SetPlayerDir(1);
+	Sleep(500);
+	SetPlayerDir(7);
+	Sleep(500);
+	SetPlayerDir(3);
+	Sleep(500);
+	SetPlayerDir(1);
+	Sleep(500);
+	Talk(7560,7560);
+	
+	FadeOut();
+	LoadMap("map_058_禁地.map");
+	LoadObj("map058_obj.obj");
+	LoadNpc("Event425saved.npc");
+	SetNpcKind("杨影枫",1);
+	SetNpcKind("纳兰潜凛",2);
+	SetPlayerScn();
+	FadeIn();
+	Watch("纳兰潜凛","纳兰真",0);
+	Sleep(1000);
+	Talk(7570,7620);	
+	Sleep(500);
+	SetNpcKind("纳兰潜凛",1);
+	SetNpcKind("杨影枫",2);
+	FadeOut();
+	
+	SaveObj();
+	LoadMap("map_059_禁地一层.map");
+	LoadNpc("map059.npc");
+	LoadObj("map059_obj.obj");
+	SetPlayerPos(12, 26);
+	SetPlayerDir(6);
+	EnableNpcAI();
+	SetMapTrap(1,"");
+	FadeIn();
+	Assign($Event, 440);
+	Return;
+	
+@end:
+	Return;

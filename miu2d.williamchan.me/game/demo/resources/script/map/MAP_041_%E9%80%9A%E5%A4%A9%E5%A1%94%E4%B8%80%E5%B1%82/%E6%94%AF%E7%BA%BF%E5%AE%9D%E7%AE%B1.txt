@@ -1,0 +1,11 @@
+
+	If ($YangPi1 == 0) @YangPi1;
+
+	SetObjScript("支线宝盒一", "");
+	Return;
+@YangPi1:
+	OpenBox("支线宝盒一");
+	Assign($YangPi1, 1);
+	AddGoods("Goods-e22-羊皮.ini");
+	Add($YangPiNo, 1);
+	Return;

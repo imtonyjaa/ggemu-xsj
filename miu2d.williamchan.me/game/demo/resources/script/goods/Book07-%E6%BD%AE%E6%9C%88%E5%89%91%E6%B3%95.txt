@@ -1,0 +1,6 @@
+//Book07-潮月剑法.ini
+	AddMagic("player-magic-潮起月盈.ini");
+	PlaySound("学会武功.wav");
+	DelGoods();
+	Add($EvilVal, 20);
+	Return;

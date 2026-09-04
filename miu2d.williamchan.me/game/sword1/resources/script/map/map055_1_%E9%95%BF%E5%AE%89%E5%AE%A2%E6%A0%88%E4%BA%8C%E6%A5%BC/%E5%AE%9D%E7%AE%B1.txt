@@ -1,0 +1,10 @@
+//打开宝箱
+
+	PlaySound("物_箱子开.wav");
+	OpenBox();
+	AddGoods("Goods209_玄参方.ini");
+	Sleep(600);
+	Say("得到二百两银子。");
+	AddMoney(200);
+	SetObjScript("","");
+	Return;

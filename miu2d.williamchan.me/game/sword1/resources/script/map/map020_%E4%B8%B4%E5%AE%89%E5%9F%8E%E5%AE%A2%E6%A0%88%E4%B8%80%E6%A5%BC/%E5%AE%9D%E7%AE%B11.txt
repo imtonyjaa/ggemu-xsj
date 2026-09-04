@@ -1,0 +1,10 @@
+//打开宝箱
+
+	PlaySound("物_箱子开.wav");
+	OpenBox();
+	AddGoods("Goods033_兽皮软甲.ini");
+	Sleep(600);
+	Say("得到三十两银子。");
+	AddMoney(30);
+	SetObjScript("","");
+	Return;

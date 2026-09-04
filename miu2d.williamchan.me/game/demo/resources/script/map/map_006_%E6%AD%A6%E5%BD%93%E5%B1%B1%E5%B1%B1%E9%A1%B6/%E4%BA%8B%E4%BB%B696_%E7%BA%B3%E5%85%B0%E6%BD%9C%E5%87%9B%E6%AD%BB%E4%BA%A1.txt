@@ -1,0 +1,49 @@
+
+
+
+	If ($Event == 955) @Label1;
+	
+	Goto @end;
+	
+@Label1:
+	If ($Result <> 3) @end;
+	
+	FadeOut();
+	Talk(81990, 81990);
+	Say("纳兰潜凛：我们走……", 38);
+	DelObj("纳兰潜凛尸体");
+	DelNpc("无忧教女弟子A");
+	DelNpc("无忧教女弟子B");
+	DelNpc("无忧教男弟子A");
+	DelNpc("无忧教男弟子B");
+	
+	SetPlayerPos(31, 96);
+	SetPlayerDir(5);
+	SetNpcPos("天星道长", 32, 93);
+	SetNpcDir("天星道长", 1);
+
+	FadeIn();
+
+	Talk(82010, 82010);
+	Say("杨影枫：不敢当，在下不过是微尽薄力。", 2);
+	Talk(82030, 82050);
+	Say("杨影枫：幸好落叶谷里的家丁武功不弱，虽然有些混乱，倒也没出大乱子。孟谷主受了点内伤，调养一些时日即可恢复。", 2);
+	Talk(82070, 82110);
+	Say("杨影枫：道长缪赞，晚辈不敢当。", 2);
+	Talk(82130, 82170);
+
+	NpcSpecialAction("杨影枫", "mpc108.asf");
+	Sleep(3000);
+
+	Assign($Event, 957);
+	
+	SetNpcScript("胖道士", "胖寿道士对话.txt");
+	SetNpcScript("瘦道士", "胖寿道士对话.txt");
+	SetNpcScript("天星道长", "天星道长对话.txt");
+	SetMapTrap(1, "Trap01.txt");
+	Assign($LeaveWuDang, 0);
+
+	Goto @end;
+	
+@end:
+	Return;

@@ -1,0 +1,4 @@
+		
+	Talk(35710,35710);	
+	BuyGoods("4-汉阳-药铺老板.ini");
+	Return;

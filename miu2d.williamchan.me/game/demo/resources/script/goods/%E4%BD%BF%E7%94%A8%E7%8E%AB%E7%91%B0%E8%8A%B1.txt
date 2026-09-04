@@ -1,0 +1,64 @@
+
+	GetPartnerIdx($PartnerNo);
+	
+	If ($PartnerNo == 0) @PartnerNo0;
+	If ($PartnerNo == 1) @PartnerNo1;
+	If ($PartnerNo == 2) @PartnerNo2;
+	If ($PartnerNo == 3) @PartnerNo3;
+	If ($PartnerNo == 4) @PartnerNo4;
+	If ($PartnerNo == 5) @PartnerNo5;
+		Say("杨影枫：（都不知道送给谁好些，现在先算了吧。）", 3);
+		Return;
+	@PartnerNo0:
+		Return;
+	@PartnerNo5:
+		Return;
+	@PartnerNo1:
+		Watch("杨影枫", "纳兰真", 0);
+		Say("杨影枫：真儿，这枝花你喜欢么？", 3);
+		Say("纳兰真：淡雅馨香，沁人心脾，我喜欢！", 10);
+		Say("杨影枫：古人以花喻美人，我一直以为俗气，现在看到你，方知是最恰当的比喻，你就像花儿一样娇艳！", 3);
+		//忘忧岛因花而美丽，更因你而添色。
+		Say("纳兰真：……", 121);
+		Say("杨影枫：真儿！", 3);
+		Say("纳兰真：嗯？", 121);
+		Say("杨影枫：待诸事办妥以后，我们一起在忘忧岛，种上一大片花，相伴看花开花谢、日出日落，好吗？", 2);
+		Say("纳兰真：嗯！", 121);
+		DelGoods("Goods-e21-玫瑰花.ini");
+		Say("<color=Red>玫瑰花送给纳兰真。", 0);
+		Goto @AddSenseVal;
+	@PartnerNo2:
+		Watch("杨影枫", "月眉儿", 0);
+		Say("杨影枫：这枝花送给你。", 3);
+		Say("月眉儿：啊！真漂亮！",22);
+		Say("杨影枫：再漂亮的花也比不上你！", 3);
+		Say("月眉儿：……", 123);
+		DelGoods("Goods-e21-玫瑰花.ini");
+		Say("<color=Red>玫瑰花送给月眉儿。", 0);
+		Goto @AddSenseVal;
+	@PartnerNo3:
+		Watch("杨影枫", "紫轩", 0);
+		Say("杨影枫：带露珠的花儿最美，紫轩，花儿在你面前也要自愧不如啊！", 3);
+		Say("紫轩（面飞红云）：杨大哥……", 122);
+		Say("杨影枫：此生见花，我都会想到你，想起同你一起度过的时光。", 3);
+//		Say("紫轩：杨大哥，我们能在一起么，我们会在一起么？", 122);
+//		Say("杨影枫：娉婷紫轩，人比花窈窕。如得你相傍，夫复何求？", 3);
+		Say("紫轩：杨大哥……", 122);
+		DelGoods("Goods-e21-玫瑰花.ini");
+		Say("<color=Red>玫瑰花送给紫轩。", 0);
+		Goto @AddSenseVal;
+	@PartnerNo4:
+		Watch("杨影枫", "蔷薇", 0);
+		Say("杨影枫：这枝花送给你。", 3);
+		Say("蔷薇：对花比红妆，花美还是我美？", 29);
+		Say("杨影枫：花儿当然难比你。我希望你不仅如花般娇艳，还能如花般轻柔。", 3);
+		DelGoods("Goods-e21-玫瑰花.ini");
+		Say("<color=Red>玫瑰花送给蔷薇。", 0);
+		Goto @AddSenseVal;
+	@AddSenseVal:
+		If ($FlowerSense << 50) @AddSense;
+		Return;
+		@AddSense:
+			Add($SenseVal, 5);
+			Add($FlowerSense, 5);
+			Return;

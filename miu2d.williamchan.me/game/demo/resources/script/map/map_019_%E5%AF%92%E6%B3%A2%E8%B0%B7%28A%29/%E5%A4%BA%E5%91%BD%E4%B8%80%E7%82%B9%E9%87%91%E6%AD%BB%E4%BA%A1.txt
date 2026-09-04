@@ -1,0 +1,51 @@
+    SetNpcDir("夺命一点金", 0);	
+    Add ($Enemy2, 1);
+	If ($Enemy2 >= 10) @finished;
+    Goto @end;
+
+@finished:
+    Sleep(500);
+	FadeOut();
+	StopMusic();
+    SetPlayerPos(32, 71);
+    SetPlayerDir(7);
+    SetPlayerScn();
+    SetPlayerState(0);
+	FadeIn();
+	SetNpcActionFile("杨影枫", 0, "mpc006_跪-1.asf");
+	SetNpcActionFile("杨影枫", 1, "mpc006_跪-1.asf");
+	NpcSpecialActionEx("杨影枫", "mpc006_跪.asf");
+//    Sleep(500);
+    Say("杨影枫：你醒醒啊，紫轩……", 5);
+    Say("杨影枫：紫轩啊紫轩，你可千万不能出事啊，大哥不能没有你……", 5); 
+//    Talk(2640, 2640);
+	EnableNpcAI();
+	Assign ($Event, 200);   
+    Sleep(200);
+	FadeOut();
+    LoadMap("map_012_惠安镇.map");
+	LoadNpc("huianzhen.npc");
+	SetNpcDir("陈嫂",0);
+	SetNpcDir("胡屠夫",0);
+	SetNpcDir("赵爹爹",0);
+	SetNpcDir("温怡",0);
+	SetNpcDir("韩公子",0);
+	SetNpcDir("乞丐",0);
+	SetNpcDir("倪二哥",0);
+	SetNpcDir("刘半仙",0);
+	LoadObj("map012_obj.obj");
+	AddObj("躺着盖被的紫轩.ini"，80，27，0);
+	
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetNpcPos("王安",79, 31);
+	SetNpcDir("王安",0);
+	SetPlayerPos(79, 33);
+	SetPlayerDir(4);
+	EnableNpcAI();
+	SetNpcActionFile("杨影枫", 0, "npc006_st2.asf");
+	SetNpcActionFile("杨影枫", 1, "npc006_sst2.asf");
+	FadeIn();
+    RunScript("Trap11_1.txt");
+@end:
+	Return();

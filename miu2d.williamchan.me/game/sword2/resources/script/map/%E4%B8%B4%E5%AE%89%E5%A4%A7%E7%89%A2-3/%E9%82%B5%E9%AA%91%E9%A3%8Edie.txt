@@ -1,0 +1,9 @@
+	DisableNpcAI();
+	FadeOut();
+	Talk(21570,21580);
+	Sleep(1000);
+	Assign($FromFengChi,14);
+	DelObj("邵骑风尸体");
+	FadeIn();
+	EnableNpcAI();
+	Return;

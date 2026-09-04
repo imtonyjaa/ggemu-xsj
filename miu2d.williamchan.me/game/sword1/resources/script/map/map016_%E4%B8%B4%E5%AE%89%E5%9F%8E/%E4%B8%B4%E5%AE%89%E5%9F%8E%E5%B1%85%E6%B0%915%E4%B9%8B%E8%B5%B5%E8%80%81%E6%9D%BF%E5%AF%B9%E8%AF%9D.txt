@@ -1,0 +1,67 @@
+// 与临安城居民赵老板的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	If ($Event == 180) @Event180;
+
+	If ($Talkzhaolaoban1 == 0) @Talk0;
+	If ($Talkzhaolaoban1 == 1) @Talk1;
+	If ($Talkzhaolaoban1 == 2) @Talk2;
+	If ($Talkzhaolaoban1 == 3) @Talk3;
+	
+@Talk0:
+	Say("赵老板：怡春院有一绝色女子，叫做南宫彩虹，是临安四美人之一。", 0);
+	Assign($Talkzhaolaoban1, 1);
+	Return;
+@Talk1:	
+	Say("赵老板：听说南宫彩虹虽然身在青楼，但始终持身如玉，而且那些王孙公子往往不惜千金见她一面，你说奇不奇怪？", 0);
+	Assign($Talkzhaolaoban1, 2);
+	Return;
+@Talk2:	
+	Say("赵老板：前天晚上，有人看见一个人影从她住的二楼房间跳下来，莫非是采花贼？", 0);
+	Assign($Talkzhaolaoban1, 3);
+	Return;	
+@Talk3:	
+	Say("赵老板：临安四美人我一个都没见到过,这一辈子算是白活了。", 0);
+	Return;		
+	
+@Event180:
+	Say("赵老板：我昨天见到了单枪匹马除掉碧霞岛十八位超级恶人的独孤大侠，你见到过那个俊小伙子没有？", 0);
+	Return;		
+
+	
+@YuanDan:	
+
+	If ($Event == 180) @Event180YD;
+
+	If ($Talkzhaolaoban1 == 0) @Talk0YD;
+	If ($Talkzhaolaoban1 == 1) @Talk1YD;
+	If ($Talkzhaolaoban1 == 2) @Talk2YD;
+	If ($Talkzhaolaoban1 == 3) @Talk3YD;
+	
+@Talk0YD:
+	Say("赵老板：祝你新年发大财！送你一个红包。", 0);
+	Say("独孤剑：谢谢！也祝你生意越来越红火！", 2);
+	Say("得到二百两银子。");
+	AddMoney(200);
+	Assign($Talkzhaolaoban1, 1);
+	Return;
+@Talk1YD:	
+	Say("赵老板：怡春院有一绝色女子，叫做南宫彩虹，是临安四美人之一。听说南宫彩虹虽然身在青楼，但始终持身如玉，而且那些王孙公子往往不惜千金见她一面。", 0);
+	Assign($Talkzhaolaoban1, 2);
+	Return;
+@Talk2YD:	
+	Say("赵老板：前天晚上，有人看见一个人影从她住的二楼房间跳下来，莫非是采花贼？", 0);
+	Assign($Talkzhaolaoban1, 3);
+	Return;	
+@Talk3YD:	
+	Say("赵老板：临安四美人我一个都没见到过,这一辈子算是白活了。", 0);
+	Return;		
+	
+@Event180YD:
+	Say("赵老板：我昨天见到了单枪匹马除掉碧霞岛十八位超级恶人的独孤大侠，你见到过那个俊小伙子没有？", 0);
+	Return;			

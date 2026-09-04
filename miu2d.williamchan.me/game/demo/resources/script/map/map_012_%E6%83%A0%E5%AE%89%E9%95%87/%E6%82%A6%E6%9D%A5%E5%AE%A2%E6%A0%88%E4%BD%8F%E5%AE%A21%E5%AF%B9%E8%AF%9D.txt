@@ -1,0 +1,34 @@
+	If ($Event == 70) @Event70;
+    If ($Event == 95) @Label1;
+	If ($Event == 100) @Label2;
+	If ($Event == 110) @Label2;
+	
+	// Talk(20350, 20350);
+	Say("陈大勇：哎，怎么随便进我的屋子，赶紧出去。");
+	Goto @end;        
+@Label1:
+	Talk(1110, 1110);
+	Goto @end;
+	
+@Label2:
+	Talk(1122, 1122); 
+	Goto @end;
+@Event70:
+	GetRandNum($ZhuKeTalk, 1, 3);
+	If ($ZhuKeTalk == 1) @ZhuKe1;
+	If ($ZhuKeTalk == 2) @ZhuKe2;
+	If ($ZhuKeTalk == 3) @ZhuKe3;
+	@ZhuKe1:
+		Say("陈大勇：这惠安镇一带就只有藏剑山庄的卓非凡还有点名头，我要去找他挑战。");
+		Goto @end;
+	@ZhuKe2:
+		Say("陈大勇：听说那卓非凡还有些本事。不过，我一定要让他败在我手下。");
+		Goto @end;
+	@ZhuKe3:
+		Say("陈大勇：看你佩剑，象是个侠客。要不要跟我比划比划？算了，现在冒充大侠的江湖后生多如牛毛，我还是去找如卓非凡、天星道长一般的角色。");
+		Goto @end;
+	Goto @end;
+@end:
+	Return;
+
+

@@ -1,0 +1,14 @@
+// 守门村民
+
+	If ($ksOguard1 == 0) @talk1;
+	If ($ksOguard1 == 1) @talk2;
+	Return;
+
+@talk1:
+	Talk(23680,23750);
+	Assign($ksOguard1, 1);
+	Return;
+
+@talk2:
+	Talk(23760,23760);
+	Return;

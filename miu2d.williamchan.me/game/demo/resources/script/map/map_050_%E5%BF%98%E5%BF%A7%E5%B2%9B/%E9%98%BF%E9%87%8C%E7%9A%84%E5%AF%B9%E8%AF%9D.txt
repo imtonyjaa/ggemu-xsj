@@ -1,0 +1,140 @@
+	If ($Event == 1818) @Label2;
+	If ($Event == 1817) @Label2;
+	If ($Event == 1814) @1814;
+	If ($Event == 1813) @1813;
+	If ($Event == 250) @Event250;
+	If ($Event == 254) @Label1;
+	If ($Event == 302) @Label2;
+	If ($Event == 340) @Label3;
+	If ($Event == 260) @Label4;
+	If ($Event == 350) @Talk350;
+	If ($Event == 412) @Talk412;
+	If ($Event == 700) @TalkE700;
+	If ($Event == 918) @Event918;
+	If ($Event == 920) @Event920;
+	If ($Result == 2) @Result2;
+	
+@Label2:
+	Say("阿里：不要看这个岛小，这里可有许多珍贵的药物呢，你看我在这岛上采的草药。", 56);
+	Goto @Buy;
+
+@1814:
+	Say("阿里：真儿姑娘！你又回来太好了！",56);
+	Say("阿里：看看我新采的草药吧。",56);
+	Goto @Buy;
+
+@1813:
+	Say("阿里：这不是杨公子吗？什么时候回来的？纳兰姑娘呢？怎么没有和你在一起？",56);
+	Say("杨影枫：（好多的问题呀）哎呀……总之一言难尽。", 2);
+	Say("阿里：那你看看我新采的草药。",56);
+	Goto @Buy;
+	
+@Event250:
+	Say("纳兰真：阿里，你知道哪里有上好的治疗内伤的药草吗？",9);
+	Say("阿里：在<color=Red>东南边<color=Black>的<color=Red>离忧山<color=Black>上生长有一种稀有的草药叫<color=Red>“银丝草”<color=Black>，对治疗内伤有奇效。不过凡有银丝草生长的地方必有大量的<color=Red>杀人蜂<color=Black>聚集，因此很难采集。", 56);
+	Say("纳兰真：我知道了，谢谢你，阿里！", 9);
+	Say("阿里：真儿，你问这个干嘛？", 56);
+	Say("纳兰真：我有个朋友受了很重的内伤，我需要一些治疗内伤的好药。", 9);
+	Say("阿里：哦，是这样。可是真儿，杀人蜂很可怕的……你还是不要去的好！", 56);
+	Say("纳兰真：没关系，我会小心的。", 9);
+	Say("阿里：真儿，如果你一定要去，我劝你还是带点药草防身吧。", 56);
+//	Talk(4100, 4140);
+	AddToMemo(4141);
+	Assign($Event, 254);
+	SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(2, "Trap02.txt");
+	SetMapTrap(3, "Trap03.txt");
+	SetMapTrap(4, "Trap04.txt");
+	Goto @Buy;
+	
+@Label1:
+	Talk(21227, 21227);	
+	Say("阿里：要多带些药草防身么？", 56);
+	Goto @Buy;
+
+@Label3:
+	If ($Talkali2 == 0) @Talk2;
+	If ($Talkali2 == 1) @Talk3;
+	Say("阿里：纳兰姑娘，你真勇敢啊！", 56);
+	Return;
+@Talk2:
+	Say("阿里：真儿，你跑到哪里去了？失踪了这么久，你爹爹派人四处找你呢！", 56);
+	Say("纳兰真：我知道了。", 9);
+	Assign($Talkali2, 1);
+	Return;
+@Talk3:
+	Say("阿里：你怎么了？好象脸色很差，出了什么事吗？", 56);
+	Say("纳兰真：没有，我挺好。", 9);
+	Return;
+	
+@Label4:	
+	If ($Talkali == 0) @Talk0;
+	If ($Talkali == 1) @Talk1;
+	Say("阿里：纳兰姑娘，你真勇敢啊！", 56);
+	Return;
+@Talk0:
+	Say("阿里：纳兰姑娘，你采到银丝草了吗？啊！你都受伤了！",  56);
+	Say("纳兰真：银丝草我已经采到了，这点伤不算什么！", 9);
+	Say("阿里：纳兰姑娘，你真勇敢啊！", 56);
+	Assign($Talkali, 1);
+	Return;
+@Talk1:
+	Say("阿里：纳兰姑娘，你真勇敢啊！", 56);
+	Return;
+
+@Talk350:
+	Say("阿里：真儿姑娘，自从杨公子来到忘忧岛以后，你比以前可开心多了，整日都能听见你的笑声。现在他要走了，你一定很伤心吧？", 56);
+	Say("纳兰真：……", 15);
+	Return;
+
+@Talk412:
+	GetRandNum($Temp,0,1);
+	If ($Temp == 0)	@TalkAnother;
+	Talk(40800,40800);
+	Goto @Buy;
+@TalkAnother:
+	Talk(40810, 40810);
+	Goto @Buy;
+
+
+@Event918:
+	Talk(18130, 18142);
+	Assign($Event, 920);
+	Return;
+	
+@Event920:
+	GetRandNum($Temp, 1, 2);
+	If ($Temp == 1) @Event920ALiTalk1;
+	If ($Temp == 2) @Event920ALiTalk2;
+	Return;
+@Event920ALiTalk1:
+	Talk(18143, 18144);
+	Return;
+@Event920ALiTalk2:
+	Talk(18145, 18146);
+	Return;
+	
+@TalkE700:
+	Talk(61430,61450);
+	Return;
+	
+@Result2:
+	If ($Event >= 750) @TalkA750;
+	Return;
+
+@TalkA750:
+	Talk(71480,71480);
+	Say("阿里：看看我近来采的草药吧。", 56);
+	Goto @Buy;
+
+@Buy:
+	If ($Result == 0) @Buy0;
+	BuyGoods("高级药品.ini");
+	Return;
+
+@Buy0:
+	BuyGoods("中级药品.ini");
+	Return;
+
+@end:
+	Return;

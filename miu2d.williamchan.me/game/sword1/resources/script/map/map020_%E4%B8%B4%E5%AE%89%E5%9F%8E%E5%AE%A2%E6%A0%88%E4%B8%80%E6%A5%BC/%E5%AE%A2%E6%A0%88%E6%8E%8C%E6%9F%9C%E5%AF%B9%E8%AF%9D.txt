@@ -1,0 +1,152 @@
+// 与临安城客栈老板的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	If ($Event == 180) @Event180;
+	If ($Event == 198) @Event198;
+	If ($Event == 200) @Event200;
+
+	Say("客栈老板：本店环境优雅，价钱公道，住宿一晚才十两银子。", 85);
+	Choose("客栈老板：公子要不要住店？", "A 住" , "B 不住", $Choosekezhan);
+	
+	If($Choosekezhan == 0) @Choose0;
+	If($Choosekezhan == 1) @Choose1;	
+	
+@Choose0:
+	GetMoneyNum();
+	If($MoneyNum << 10) @NotenoughMon;
+	If($MoneyNum >= 10) @EnoughMon;
+@NotenoughMon:
+	Say("独孤剑：哎呀，不好意思，我的银子不够，我不住了。", 1);
+	Say("客栈老板：唉，现在的生意真难做啊。", 85);
+	Return;
+@EnoughMon:
+	FadeOut();
+	Say("独孤剑在客栈休息了一夜。", 0);
+	SetPlayerPos(2, 37);
+	SetPlayerDir(7);
+	SetPlayerScn();
+	FullLife();
+	FullThew();
+	FullMana();
+	AddMoney(-10);
+	FadeIn();
+	Return;
+
+@Choose1:
+	Say("客栈老板：唉，现在的生意真难做啊。", 85);
+	Return;
+	
+@Event180:
+	Say("客栈老板：本店环境优雅，价钱公道，住宿一晚才十两银子。", 85);
+	Choose("客栈老板：公子要不要住店？", "A 住" , "B 不住", $Choosekezhan);
+	
+	If($Choosekezhan == 0) @Choose2;
+	If($Choosekezhan == 1) @Choose3;	
+	
+@Choose2:
+	Say("何梅：公子，这……这恐怕不妥吧！", 66);
+	Say("独孤剑：对不起，何姑娘……我，我不是这个意思。", 8);
+	Return;
+
+@Choose3:
+	Say("客栈老板：唉，现在的生意真难做啊。", 85);
+	Return;
+	
+@Event198:
+	Say("客栈老板：客官有什么吩咐？", 85);
+	Say("独孤剑：请问是谁送我来的？", 1);
+	Say("客栈老板：哦，是张大人的千金，公子已在这里已休息几天了。", 85);
+	Say("独孤剑：张姑娘？！对了，今天是什么日子？", 8);
+	Say("客栈老板：九月初一。", 85);
+	Say("独孤剑：张姑娘有没有来过？", 1);
+	Say("客栈老板：她刚走，张姑娘每天来看你……公子的运气可真不错，张小姐不仅人长得漂亮，武功也好，公子真是好福气啊。", 85);
+	Say("独孤剑：……", 1);
+	SetMapTrap(1, "Trap01.txt");
+	Assign($Event, 200);
+	Memo("从客栈老板那里，得知是张琳心送自己来客栈，于是先去找张琳心。");
+	Return;
+
+@Event200:
+	Say("客栈老板：公子还要休息？", 85);
+	Say("独孤剑：不必了。", 1);
+	Return;
+	
+	
+	
+	
+@YuanDan:		
+
+	If ($Event == 180) @Event180YD;
+	If ($Event == 198) @Event198YD;
+	If ($Event == 200) @Event200YD;
+
+	Say("客栈老板：新年大吉！本店环境优雅，价钱公道，住宿一晚才十两银子。", 85);
+	Choose("客栈老板：公子要不要住店？", "A 住" , "B 不住", $Choosekezhan);
+	
+	If($Choosekezhan == 0) @Choose0YD;
+	If($Choosekezhan == 1) @Choose1YD;	
+	
+@Choose0YD:
+	GetMoneyNum();
+	If($MoneyNum << 10) @NotenoughMonYD;
+	If($MoneyNum >= 10) @EnoughMonYD;
+@NotenoughMonYD:
+	Say("独孤剑：哎呀，不好意思，我的银子不够，我不住了。", 1);
+	Say("客栈老板：唉，现在的生意真难做啊。", 85);
+	Return;
+@EnoughMonYD:
+	FadeOut();
+	Say("独孤剑在客栈休息了一夜。", 0);
+	SetPlayerPos(2, 37);
+	SetPlayerDir(7);
+	SetPlayerScn();
+	FullLife();
+	FullThew();
+	FullMana();
+	AddMoney(-10);
+	FadeIn();
+	Return;
+
+@Choose1YD:
+	Say("客栈老板：唉，现在的生意真难做啊。", 85);
+	Return;
+	
+@Event180YD:
+	Say("客栈老板：本店环境优雅，价钱公道，住宿一晚才十两银子。", 85);
+	Choose("客栈老板：公子要不要住店？", "A 住" , "B 不住", $Choosekezhan);
+	
+	If($Choosekezhan == 0) @Choose2YD;
+	If($Choosekezhan == 1) @Choose3YD;	
+	
+@Choose2YD:
+	Say("何梅：公子，这……这恐怕不妥吧！", 66);
+	Say("独孤剑：对不起，何姑娘……我，我不是这个意思。", 8);
+	Return;
+
+@Choose3YD:
+	Say("客栈老板：唉，现在的生意真难做啊。", 85);
+	Return;
+	
+@Event198YD:
+	Say("客栈老板：客官有什么吩咐？", 85);
+	Say("独孤剑：请问是谁送我来的？", 1);
+	Say("客栈老板：哦，是张大人的千金，公子已在这里已休息几天了。", 85);
+	Say("独孤剑：张姑娘？！对了，今天是什么日子？", 8);
+	Say("客栈老板：九月初一。", 85);
+	Say("独孤剑：张姑娘有没有来过？", 1);
+	Say("客栈老板：她刚走，张姑娘每天来看你……公子的运气可真不错，张小姐不仅人长得漂亮，武功也好，公子真是好福气啊。", 85);
+	Say("独孤剑：……", 1);
+	SetMapTrap(1, "Trap01.txt");
+	Assign($Event, 200);
+	Memo("从客栈老板那里，得知是张琳心送自己来客栈，于是先去找张琳心。");
+	Return;
+
+@Event200YD:
+	Say("客栈老板：公子还要休息？", 85);
+	Say("独孤剑：不必了。", 1);
+	Return;

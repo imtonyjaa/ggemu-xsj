@@ -1,0 +1,7 @@
+//打开宝箱
+
+	PlaySound("物_箱子开.wav");
+	OpenBox();
+	AddGoods("Goods086_飞天霞影.ini");
+	SetObjScript("","");
+	Return;

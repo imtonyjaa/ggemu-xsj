@@ -1,0 +1,5 @@
+PlaySound("物-箱子开.wav");
+OpenBox();
+AddRandGoods("3级物品.ini");
+SetObjScript("","");
+Return;

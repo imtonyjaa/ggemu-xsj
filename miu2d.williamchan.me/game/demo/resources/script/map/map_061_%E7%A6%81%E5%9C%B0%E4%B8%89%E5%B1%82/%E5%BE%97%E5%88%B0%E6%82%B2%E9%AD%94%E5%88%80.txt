@@ -1,0 +1,24 @@
+	If ($Event == 455) @455;
+	Return;
+@455:	
+	Assign($Event ,460);
+	OpenBox();
+	PlaySound("物-箱子开.wav");
+	AddGoods("goods-w11-悲魔之刃.ini");
+	SetObjScript("","");
+	SetMapTrap(1,"trap01.txt");
+	SetMapTrap(2,"");
+	AddToMemo(45120);
+	Say("杨影枫：好独特的兵刃！记得爹爹曾经提过武林中有几件可遇不可求的奇异兵器，只有与物有缘之人才可能得到。这件象是其中的悲魔之刃。",2);
+	Say("杨影枫：它怎么会出现在这里，莫非是无忧教之物？据说这把兵刃带着很重的邪气！要不要还给纳兰前辈呢？",4);
+	Choose("请选择：", "交还", "自个留下", $SelectBlade);
+	If ($SelectBlade == 1) @GetSword;
+	Say("杨影枫：这刀来得奇异，还是还给前辈吧。", 2);
+	//Add($EvilVal,20);
+	Return;
+	
+@GetSword:
+	Say("杨影枫：好的兵刃就象良马一样难求，难得它又与我有不解之缘．留下吧！", 3);
+	Add($EvilVal,-20);
+	//AddToMemo(23380);
+	Return;

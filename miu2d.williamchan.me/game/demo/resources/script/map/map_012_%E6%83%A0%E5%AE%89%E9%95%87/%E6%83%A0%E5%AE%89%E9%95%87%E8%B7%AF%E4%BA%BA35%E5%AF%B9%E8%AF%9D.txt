@@ -1,0 +1,18 @@
+	GetRandNum($jxhTalk,0,1);
+
+	If ($jxhTalk == 0) @Label1;
+	If ($jxhTalk == 1) @Label2;
+
+	Goto @end;
+	
+@Label1:
+	Talk(22234, 22234);
+	Goto @end;
+	
+@Label2:
+	Talk(22235, 22235);
+	Goto @end;
+	
+@end:
+	Return;	
+

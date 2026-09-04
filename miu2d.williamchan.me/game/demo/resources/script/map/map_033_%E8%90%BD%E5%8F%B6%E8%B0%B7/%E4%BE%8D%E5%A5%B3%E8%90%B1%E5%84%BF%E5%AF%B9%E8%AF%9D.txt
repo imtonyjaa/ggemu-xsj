@@ -1,0 +1,76 @@
+	If ($Event == 3120) @TalkE3120;
+	If ($Event == 3122) @TalkE3122;
+	If ($Result == 0)  @Result0;
+	If ($Result == 1)  @Result1;
+	If ($Event == 1819) @1819;//结局2求证
+	If ($Event == 1808) @1808;//结局2救月眉儿
+	If ($Event == 1807) @1807;//结局2救月眉儿
+	If ($Event >= 1810) @1810;//结局2救月眉儿
+	If ($Event >= 1800) @1800;//结局2救月眉儿
+	If ($Result == 2)  @Result2;
+	If ($Result == 3)  @Result3;
+	Return;
+
+@1819:
+	Say("侍女萱儿：杨公子，你不在的时候，我们小姐整天闷闷不乐的，如今你来了，可要好好陪陪我们小姐呀。");
+	Return;
+
+@1810:
+	Say("侍女萱儿：杨公子，听说老爷要把小姐嫁给你是吗？那你可要对小姐好哟！我们家小姐什么都好，就是有些任性。");
+	Return;
+
+@1808:
+	Say("侍女萱儿：杨公子，你去天池找找我们家小姐吧，她经常去那里玩。");
+	Return;
+
+@1807:
+	Say("侍女萱儿：杨公子，你找我们家小姐吗？");
+	Say("杨影枫：知道你们小姐去哪里了吗？");
+	Say("侍女萱儿：可能又去天池玩了吧。");
+	SetMapTrap(1,"trap01.txt");
+	Assign($Event, 1808);
+	Return;
+
+@1800:
+	Say("侍女萱儿：杨公子，你不在的时候，我们家小姐经常讲起你呢！");
+	Say("杨影枫：是嘛？哦……");
+	Return;
+
+@Result0:
+	Talk(22200, 22200);
+	Return;
+
+@Result1:
+	If ($Event == 591 ) @TalkA591;
+	If ($Event == 574) @Event574;
+	Talk(22200, 22200);
+	Return;
+
+@Result2:
+	Talk(22200, 22200);
+	Return;
+
+@Result3:
+	Talk(22200, 22200);
+	Return;
+
+@TalkA591:
+	GetRandNum($RandTalk,0,1);
+	If ($RandTalk == 0) @TalkA591_0;
+	Talk(60530,60530);
+	Return;
+
+@TalkA591_0:
+	Talk(60770,60770);
+	Return;
+	
+@TalkE3120:
+@TalkE3122:
+	Talk(103390,103390);
+	Return;	
+@Event574:
+	Say("侍女萱儿：恭喜姑爷，贺喜姑爷！给个红包吧！", 0);
+	Say("杨影枫：这个……你也让我准备一下啊，下次吧！", 3);
+	Return;
+@end:
+	Return;

@@ -1,0 +1,11 @@
+// 城西卫兵对话
+
+	GetRandNum($Talkguarder,0,1);
+	If ($Talkguarder == 0) @Talk0;
+	If ($Talkguarder == 1) @Talk1;
+@Talk0:
+	Say("城门守卫：好几天戒严，都没有好好睡过一觉，真是累死了。", 0);
+	Return;
+@Talk1:	
+	Say("城门守卫：走开！", 0);
+	Return;	

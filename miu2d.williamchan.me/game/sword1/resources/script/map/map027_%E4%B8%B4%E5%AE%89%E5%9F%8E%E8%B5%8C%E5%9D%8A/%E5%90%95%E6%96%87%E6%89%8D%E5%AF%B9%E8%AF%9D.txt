@@ -1,0 +1,179 @@
+// 临安城赌场与吕文才的对话	
+
+	If ($Event == 60) @Event60; 
+	If ($Event == 65) @Event65; 
+	If ($Event == 70) @Event70; 
+	If ($Event >= 80) @Eventmore80; 
+	
+	
+	If ($Talkmap027lv == 0) @Talk0;
+	If ($Talkmap027lv == 1) @Talk1;
+@Talk0:
+	Say("吕文才：老子今天手气真他妈臭，别来烦老子！",57);
+	Assign($Talkmap027lv, 1);
+	Return;
+@Talk1:	
+	Say("吕文才：再不走开，老子扁你。", 57);
+	Return;
+
+
+	
+@Event60:		
+
+	If ($Talklvwencai60 == 0) @Talklvwencai600;
+	If ($Talklvwencai60 == 1) @Talklvwencai601;
+	
+@Talklvwencai600:	
+	Say("吕文才：你这龟儿子在老子面前晃来晃去，是不是想和老子赌一盘？", 57);
+	Choose("选择赌博或是战斗：","A 赌博","B 战斗", $Select);
+	If($Select == 0) @Choose0;
+	If($Select == 1) @Choose1;	
+
+@Choose0:
+	Say("独孤剑：好，我就和你赌一盘。", 1);
+	GetMoneyNum();
+	If($MoneyNum << 80) @NotenoughMon;
+	If($MoneyNum >= 80) @EnoughMon;
+@NotenoughMon:
+	Say("独孤剑：哎呀，我身上带的银子不够……", 1);
+	Say("吕文才：哼！竟敢拿本将军寻开心，不赌就滚远点！", 57);
+	Assign($Talklvwencai60, 1);
+	Return;
+@EnoughMon:
+	//转入小游戏
+	StopMusic();
+	Gamble(80, 0, $map027lwc); 
+	If ($map027lwc == 1) @duwin;
+	Say("吕文才：你这龟儿子既然想送钱给老子，老子可是来者不拒的喔，哈哈。", 57);
+	PlayMusic("追缘.mp3");
+	Assign($Talklvwencai60, 1);
+	Return;
+@duwin:
+	Say("吕文才：真晦气！老子又输了，现在老子没钱了，不过你这龟儿子可以要老子身上任何一样东西抵数。", 57);
+	Say("独孤剑：那就把你的令牌给我吧，反正你自己又不用。", 1);
+	Say("吕文才：这……", 57);
+	Say("独孤剑：怎么？想反悔？愿赌服输，你如果想耍赖，传出去可会被人笑死的！", 1);
+	Say("吕文才：哼！谁说我想耍赖？给就给！", 57);
+	AddGoods("Goods403_临安城东门令牌.ini");  // 得到令牌
+	PlayMusic("闲步.mp3");
+	Assign($Event, 70);   
+	Assign($Selectlast, 0);   
+	Memo("独孤剑在赌场找到吕文才，与他赌牌，他把本钱输得一干二净，不得已交出了东门令牌。");
+	Return;	
+	
+@Choose1:
+	Say("独孤剑：赌博我没兴趣，只想找你借出门的令牌一用。", 1);
+	Say("吕文才：好大的口气，哼，我看你小子是找死！", 57);
+	Say("独孤剑：那就休怪我无礼了！", 1);
+	
+	FadeOut();
+	StopMusic();
+	Say("众赌徒：哎呀，官兵要抓人啦，快跑啊！", 0);	
+	LoadNpc("map027_fight.npc");
+	LoadObj("map027_fight.obj");
+	
+	SetPlayerPos(6,21);
+	SetPlayerDir(6);
+	SetPlayerScn();
+	SetNpcRelation("吕文才", 1);
+	SetNpcRelation("宋兵1", 1);
+	SetNpcRelation("宋兵2", 1);
+	
+	EnableFight();
+	EnableNpcAI();
+	SetPlayerState(1);	
+	Assign($Event, 65);   
+	PlayMusic("激战.mp3");
+	SetMapTrap(1, "trap01.txt");
+	FadeIn();
+	Return;
+
+
+@Talklvwencai601:
+	Say("吕文才：怎么？赌输了不服气？还想和老子再赌一盘？", 57);
+	Choose("选择赌博或是战斗：","A 赌博","B 战斗", $Selectmore);
+	If($Selectmore == 0) @Choosemore0;
+	If($Selectmore == 1) @Choosemore1;	
+
+@Choosemore0:
+	Say("独孤剑：好，我就和你再赌一盘。", 1);
+	GetMoneyNum();
+	If($MoneyNum << 80) @NotenoughMon2;
+	If($MoneyNum >= 80) @EnoughMon2;
+@NotenoughMon2:
+	Say("独孤剑：哎呀，我身上带的银子不够了……", 1);
+	Say("吕文才：哼！竟敢拿本将军寻开心，不赌就滚远点！", 57);
+	Return;
+@EnoughMon2:
+	//转入小游戏
+	Gamble(80, 0, $map027lwcmore); 
+	If ($map027lwcmore == 1) @duwinmore;
+	Say("吕文才：你这龟儿子既然想送钱给老子，老子可是来者不拒的喔，哈哈。", 57);
+	PlayMusic("追缘.mp3");
+	Return;
+@duwinmore:
+	Say("吕文才：真晦气！老子又输了，现在老子没钱了，不过你这龟儿子可以要老子身上任何一样东西抵数。", 57);
+	Say("独孤剑：那就把你的令牌给我吧，反正你自己又不用。", 1);
+	Say("吕文才：这……", 57);
+	Say("独孤剑：怎么？想反悔？愿赌服输，你如果想耍赖，传出去可会被人笑死的！", 1);
+	Say("吕文才：哼！谁说我想耍赖？给就给！", 57);
+	AddGoods("Goods403_临安城东门令牌.ini");  // 得到令牌
+	PlayMusic("闲步.mp3");
+	Assign($Event, 70);   
+	Assign($Selectlast, 0);   
+	Memo("独孤剑在赌场找到吕文才，与他赌牌，他把本钱输得一干二净，不得已交出了东门令牌。");
+	Return;	
+	
+@Choosemore1:
+	Say("独孤剑：其实我对赌博没什么兴趣，只想找你借出门的令牌一用。", 1);
+	Say("吕文才：好大的口气，哼，我看你小子是找死！", 57);
+	Say("独孤剑：那就休怪我无礼了！", 1);
+	
+	FadeOut();
+	StopMusic();
+	Say("众赌徒：哎呀，官兵要抓人啦，快跑啊！", 0);	
+	LoadNpc("map027_fight.npc");
+	LoadObj("map027_fight.obj");
+	
+	SetPlayerPos(6,21);
+	SetPlayerDir(6);
+	SetPlayerScn();
+	SetNpcRelation("吕文才", 1);
+	SetNpcRelation("宋兵1", 1);
+	SetNpcRelation("宋兵2", 1);
+	
+	EnableFight();
+	EnableNpcAI();
+	SetPlayerState(1);	
+	Assign($Event, 65);   
+	PlayMusic("激战.mp3");
+	SetMapTrap(1, "trap01.txt");
+	FadeIn();	
+	Return;	
+
+
+
+@Event65:
+	Return;
+	
+	
+@Event70:	
+	If($Selectlast == 0) @Talk2;
+	If($Selectlast == 1) @Talk3;
+@Talk2:
+	Say("吕文才：我已经把令牌交给你了，你还想怎样？", 57);
+	Return;
+@Talk3:
+	Say("吕文才：英雄饶命，令牌已经给您老了，您老还有什么吩咐？", 57);
+	Return;
+
+
+@Eventmore80:		
+	If($Selectlast == 0) @Talk4;
+	If($Selectlast == 1) @Talk5;
+@Talk4:
+	Say("吕文才：老子今天手气真他妈臭，又输了一把！", 57);
+	Return;
+@Talk5:
+	Say("吕文才：英雄饶命，那令牌您老想用多久就用多久，您老还有什么吩咐？", 57);
+	Return;	

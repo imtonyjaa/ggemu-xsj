@@ -1,0 +1,20 @@
+        If ($Event == 95) @Label1;
+	If ($Event == 100) @Label2;
+	If ($Event == 110) @Label2;
+	
+        Talk(20360, 20360);
+        Goto @end;
+                
+@Label1:
+        Talk(1120, 1120);
+	Goto @end;
+	
+@Label2:
+	Talk(1123, 1123); 
+	Goto @end;
+@end:
+        Return;
+       
+       
+
+	

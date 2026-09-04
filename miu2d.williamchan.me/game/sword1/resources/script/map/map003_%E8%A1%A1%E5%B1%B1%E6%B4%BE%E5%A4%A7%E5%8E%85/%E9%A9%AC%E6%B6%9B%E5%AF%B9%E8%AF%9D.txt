@@ -1,0 +1,27 @@
+// 马涛对话
+
+	If ($Event >= 20) @Event20; 
+
+@Event20:
+	If ($Talkmatao == 0) @Talk0;
+	If ($Talkmatao == 1) @Talk1;
+	If ($Talkmatao == 2) @Talk2;
+	If ($Talkmatao == 3) @Talk3;
+	
+@Talk0:
+	Say("马涛：师傅的“丹心”剑真是一把好剑，当年师傅带我们俩在泰山玉皇顶观看“天剑”南宫灭和“心剑”方勉比剑，南宫灭凭借宝剑之利连断方大侠三口名剑，好在师傅以“丹心”剑相借，才抵住对方的宝剑之利。我有一次无意听师傅说“丹心”剑中好象有什么秘密。", 0);
+	Say("独孤剑：不错，听师傅说此剑有些来历。", 1);
+	Assign($Talkmatao, 1);
+	Return;
+@Talk1:	
+	Say("马涛：师兄，师傅常说，人在江湖要眼观四处，耳听八方。", 0);
+	Assign($Talkmatao, 2);
+	Return;
+@Talk2:	
+	Say("马涛：你做了本派掌门，以后本门要发扬光大就靠你了。", 0);
+	Assign($Talkmatao, 3);
+	Return;	
+@Talk3:	
+	Say("马涛：师兄一路保重。 ", 0);
+	Return;		
+	

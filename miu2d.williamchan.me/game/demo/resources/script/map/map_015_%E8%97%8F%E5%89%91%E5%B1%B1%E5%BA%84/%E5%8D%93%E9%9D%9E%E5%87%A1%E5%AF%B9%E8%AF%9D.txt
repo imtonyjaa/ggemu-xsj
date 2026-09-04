@@ -1,0 +1,57 @@
+
+	If ($Event == 120) @Label1;
+	If ($Event == 130) @Label2;
+	If ($Event == 135) @Label5;
+	If ($Event == 478) @Label3;
+	If ($Event == 480) @Label4;
+	Goto @end;
+	
+@Label1:
+	StopMusic();
+    Talk(1640, 1670);
+    SetNpcRelation("卓非凡", 1);
+	SetPlayerState(1);
+//	SetNpcDeathScript("杨影枫","杨影枫死亡.txt");
+    EnableFight();
+	EnableNpcAI();
+	PlayMusic("Mc027.mp3");
+    Assign($Event, 124);   
+    SetMapTrap(1, "Trap01.txt");
+    SetMapTrap(2, "Trap02.txt");
+	Goto @end;
+	
+@Label2:
+	Talk(1730, 1790);
+    SetNpcKind("卓非凡",3);
+    
+	
+    Sleep(500);
+    Talk(20090, 20090);
+	AddToMemo(90190);
+	Assign($Event, 135);
+	SetMapTrap(1, "Trap01.txt");
+    SetMapTrap(2, "Trap02.txt");
+	Goto @end;
+	
+@Label3:
+	PlayerGoto(29, 52);
+	SetPlayerDir(1);
+	SetNpcDir("卓非凡",5);
+	Talk(8320, 8390);
+	Assign($Event, 480);
+	AddToMemo(90710);
+	SetMapTrap(1, "Trap01.txt");
+    SetMapTrap(2, "Trap02.txt");
+	Goto @end;
+	
+@Label4:
+	Say("卓非凡：哼，那么我们明天就一见高下！", 34);  
+	Say("杨影枫：好，我们明天剑气峰见！到时你我之间的一切恩怨都要作个了断！", 2);
+	Goto @end;
+	
+@Label5:
+	Talk(1812, 1813);
+	Goto @end;
+
+@end:
+	Return;

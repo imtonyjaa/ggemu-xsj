@@ -1,0 +1,19 @@
+//高大个
+        If ($Event == 170) @Label1;
+
+	If ($Event == 360) @TalkE360;		
+	Talk(20980, 20980);
+	Goto @end;
+	
+@Label1:
+	Talk(20981, 20981);
+	Goto @end;
+
+@TalkE360:
+	Talk(40240,40240);
+	Goto @end;
+		
+@end:
+	Return;
+	
+	

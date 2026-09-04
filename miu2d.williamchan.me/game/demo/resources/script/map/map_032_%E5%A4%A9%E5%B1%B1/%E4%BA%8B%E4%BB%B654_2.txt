@@ -1,0 +1,38 @@
+	If ($Event == 535) @Label1;
+	
+	Goto @end;
+	
+@Label1:
+	If ($SelectVal <> 0) @end;
+	PlayerGoto(30, 21);
+	SetPlayerDir(6);
+	NpcSpecialAction("杨影枫", "mpc110.asf");
+	Sleep(300);
+	FadeOut();
+	DelObj("捕兽夹");
+	SaveObj();
+	Sleep(1000);
+	FadeIn();
+	StopMusic();
+	LoadNpc("tianshan-cangying.npc");
+	NpcGoto("蔷薇", 32, 29);
+	SetNpcDir("蔷薇", 3);
+	Talk(9750, 9750);	
+	PlayerRunTo(31, 29);
+	SetPlayerDir(6);
+	SetNpcDir("蔷薇", 2);
+	Talk(9760, 9860);
+	SetNpcRelation("蔷薇", 1);
+	SetNpcRelation("苍鹰", 1);
+    EnableFight();
+	EnableNpcAI();
+	PlayMusic("Mc026.mp3");
+	Assign($Event, 537);
+	SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(2, "Trap02.txt");
+	SetMapTrap(3, "Trap03.txt");
+
+	Goto @end;
+	
+@end:
+	Return;

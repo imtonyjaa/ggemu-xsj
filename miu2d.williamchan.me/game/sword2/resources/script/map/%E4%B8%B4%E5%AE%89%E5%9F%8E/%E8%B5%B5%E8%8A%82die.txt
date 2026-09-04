@@ -1,0 +1,10 @@
+	DisableNpcAI();
+	Talk(19820,19820);
+	SetMapTrap(11,"Trap11-地下迷宫.txt");
+	SaveMapTrap();
+	FadeOut();
+	DelNpc("赵节");
+	FadeIn();
+	Talk(19830,19830);
+	EnableNpcAI();	
+	Return;

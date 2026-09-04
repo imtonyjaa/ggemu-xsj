@@ -1,0 +1,134 @@
+//万俟卨死亡
+
+	If ($Result == 3) @End3;
+	If ($Result == 5) @End5;
+	
+@End3:
+	Add ($Fight120, 1);
+	If ($Fight120 == 29) @finished; 
+  	Return;
+    	
+@finished:
+	FadeOut();
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	SetPlayerPos(11, 11);
+	SetPlayerDir(3);
+	SetPlayerState(0);
+	ClearEffect();
+	FadeIn();
+	
+	Say("独孤剑：元帅，快走！",1);
+	Say("岳飞：少侠何必轻身犯险……岳某自问无愧于心，他们能奈我何？",58);
+	Say("岳飞：独孤少侠，你快走吧！",58);
+	
+	Say("秦桧：一个都别想走！", 94);
+	LoadNpc("map120_qinhui-1.npc");
+	SetPlayerDir(7);
+	MoveScreen(7,75,2);
+	Sleep(500);
+	Say("秦桧：岳飞！你果然勾结反贼，图谋不轨！这次你死而无憾了吧！",94);
+	
+	SetPlayerScn();
+	NpcGoto("秦桧", 14, 19);
+	SetNpcDir("秦桧", 4);
+	Say("岳飞：秦相国，岳某忠君之心，天日可鉴！", 58);
+	Say("秦桧：你勾结反贼，证据确凿，还敢狡辩！",94);
+	Say("岳飞：哼！欲加之罪，何患无词！",58);
+	Say("秦桧：你口口声声忠君报国，你又忠的是哪个君，报的是哪朝的国呢？要怪就怪你太不识时务罢！哈哈哈哈……",94);
+	Say("独孤剑：秦桧！眼看天下多少百姓遭金人屠戮，你们身居高位，却只顾一己之私，苟且贪安，陷害忠良……",5);
+	Say("独孤剑：老贼！今日便是你的死期！",5);
+	Say("秦桧：黄口小儿，自取死路！杀！", 94);
+	StopMusic();
+	PlayMusic("北伐.mp3");
+	SetNpcRelation("秦桧", 1);
+	SetNpcRelation("宋兵", 1); 
+	SetPlayerState(1);
+	Return;
+	
+		
+@End5:
+	Add ($Fight120, 1);
+	If ($Fight120 == 13) @finished1; 
+  	Return;
+    	
+@finished1:
+	FadeOut();
+	StopMusic();
+	PlayMusic("前途.mp3");
+	ClearBody();
+	SaveNpc();
+	SaveObj();
+	LoadNpc("map120_qinhui.npc");
+	LoadObj("map120.obj");
+	SetPlayerPos(12, 16);
+	SetPlayerDir(5);
+	SetPlayerState(0);
+	SetNpcKind("张琳心", 1);
+	SetNpcPos("张琳心", 12, 13);
+	SetNpcDir("张琳心", 1);
+	SetNpcKind("张琳心", 3);
+	ClearEffect();
+	SetNpcKind("张琳心", 1);
+	FadeIn();
+	Say("独孤剑：快点救岳元帅吧。", 1);
+	
+	PlayerRunTo(11, 13);
+	SetPlayerDir(3);
+	
+	Say("秦桧：大胆！", 94);
+	Say("张琳心：秦桧老贼！", 25);
+	SetPlayerDir(1);
+	SetNpcDir("张琳心", 1);
+	NpcGotoEx("张琳心", 13, 22);
+	Sleep(1000);
+	PlayerRunTo(12, 23);
+	SetNpcDir("张琳心", 0);
+	SetPlayerDir(0);
+	NpcGoto("秦桧", 10, 32);
+	NpcGoto("秦桧", 11, 29);
+	SetNpcDir("秦桧", 5);
+	Watch("独孤剑", "秦桧", 0);
+	Say("独孤剑：老贼！你卖身求荣、残害忠良！今日，你死期到了！", 5);
+	Say("岳飞：且慢！秦相国——岳某且这么称呼你——你既身居高位，如何还甘做金人的走狗！", 58);
+	Say("秦桧：哈哈哈哈，岳飞，你果然迂腐得很哪！", 94);
+	Say("秦桧：我秦桧岂会让金人支使！我只不过在利用金人灭掉赵宋江山，然后我便可以名正言顺的效仿赵匡胤，黄袍加身，高举反金大旗，天下自是一呼百应。", 94);
+	Say("杨瑛：做你的白日清秋梦吧，今日便是你的死期！", 27);
+	Say("秦桧：简直是螳臂当车，自取死路！", 94);
+	Sleep(500);
+	Say("张如梦：自取死路的人是你！", 16); 
+	NpcGotoEx("张如梦", 14, 21);
+	NpcGoto("南宫彩虹", 14, 20);
+	Watch("独孤剑", "张如梦", 0);
+	Say("独孤剑：张兄！", 2);
+	Say("张如梦：独孤兄，还记得我们第一次见面的时候联手教训了那个路达一顿吗？今天我们就一起教训教训秦桧老贼，如何？", 12);
+	Say("独孤剑：好！", 2);
+	Sleep(500);
+	Say("杨瑛：还有我！", 39);
+	AddNpc("npc008_杨瑛.ini", 18, 28, 3);
+	NpcGoto("杨瑛", 14, 29);
+	SetNpcDir("杨瑛", 2);
+	Watch("杨瑛", "独孤剑", 0);
+	Say("独孤剑：杨姑娘，你也来了……", 2);
+	Say("杨瑛：其他将军都已经安然救出，现在就等着收拾这个老贼！", 39);
+	Say("秦桧：既然都到齐了，那我就送你们一起上西天吧！", 94);
+	StopMusic();
+	PlayMusic("沙场.mp3");
+	SetNpcDir("张如梦", 1);
+	SetNpcDir("南宫彩虹", 1);
+	SetNpcKind("张琳心", 3);
+	SetNpcRelation("张琳心", 0);  //血很长，攻击力减弱
+	SetNpcRelation("张如梦", 0);
+	SetNpcRelation("南宫彩虹", 0);
+	SetNpcRelation("杨瑛", 0);
+	SetNpcRelation("秦桧", 1);
+	SetNpcRelation("宋兵", 1); 
+	SetPlayerState(1);
+	SetNpcDeathScript("独孤剑", "主角死亡.txt");
+	SetNpcDeathScript("张琳心", "主角死亡.txt");	
+	SetNpcDeathScript("张如梦", "张如梦死亡.txt");
+	SetNpcDeathScript("南宫彩虹", "南宫彩虹死亡.txt");
+	SetNpcDeathScript("杨瑛", "杨瑛死亡.txt");
+	Return;
+	

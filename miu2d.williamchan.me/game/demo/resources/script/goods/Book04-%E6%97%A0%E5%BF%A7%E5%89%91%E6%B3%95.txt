@@ -1,0 +1,4 @@
+	AddMagic("player-magic-推山填海.ini");
+	PlaySound("学会武功.wav");
+	DelGoods();
+	Return;

@@ -1,0 +1,20 @@
+	If ($Event == 350) @Talk350;
+	If ($Event >= 302) @Label;
+
+	Talk(21222, 21222);
+	Goto @end;
+	
+@Label:
+	Talk(21229, 21229);
+	Goto @end;
+	
+@Talk350:
+	Sleep(500);
+	Say("罗莲：杨公子，你要走了吗？什么时候再来忘忧岛呀？", 0);
+	Say("杨影枫：……", 2);
+	Return;	
+
+@end:
+	Return;
+
+

@@ -1,0 +1,70 @@
+//万柳堂
+	If ($Event == 1818) @1813;
+	If ($Event == 1817) @1817;
+	If ($Event == 1813) @1813;
+	If ($Event == 250) @Talk250;
+	If ($Event == 350) @Talk350;
+	If($Event == 412) @Talk412;
+	If ($Event == 700 ) @TalkE700;
+	If ($Event >= 302) @Label;
+	
+	Talk(21170, 21170);
+	Goto @end;
+		
+@1817:
+	Say("杨影枫：看到真儿了吗？");
+	Say("万柳堂：没有。");
+	Return;
+
+@1813:
+	Say("万柳堂：忘忧岛远离中原，远离那些尔虞我诈，这有多好啊。年轻人，报仇和武林第一真的那么重要吗？");
+	Say("杨影枫：……");
+	Return;	
+
+@Label:
+	Talk(21171, 21171);
+	Goto @end;
+
+@Talk250:
+	If ($Talkwanliutang == 0) @Talk0;
+	If ($Talkwanliutang == 1) @Talk1;
+	If ($Talkwanliutang == 2) @Talk2;
+	Talk(21174, 21174);
+	Goto @end;
+@Talk0:
+   	Talk(21172, 21172);
+	Assign($Talkwanliutang, 1);
+	Goto @end;
+@Talk1:
+   	Talk(21173, 21173);
+	Assign($Talkwanliutang, 2);
+	Goto @end;
+@Talk2:
+   	Talk(21174, 21174);
+	Goto @end;
+		
+
+@Talk412:
+	Talk(41000,41000);
+	Say("万柳堂：你自己逛吧，我还要摘蘑菇呢。");
+	Goto @end;
+
+@TalkE700:
+	Talk(61530,61530);
+	Goto @end;	
+	
+@TalkA750:
+	Talk(71550,71550);
+	Goto @end;
+	
+@Talk350:
+	Sleep(500);
+	Watch("万柳堂" , "杨影枫", 0);
+	Say("万柳堂：忘忧岛远离中原，远离那些尔虞我诈，这有多好啊。年轻人，报仇和武林第一真的那么重要吗？", 0);
+	Say("杨影枫：……", 2);
+	Return;	
+	
+@end:
+	Return;
+
+

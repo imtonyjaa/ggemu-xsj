@@ -1,0 +1,14 @@
+// 村民2
+
+	If ($ksOcunming2 == 0) @talk1;
+	If ($ksOcunming2 == 1) @talk2;
+	Return;
+
+@talk1:
+	Talk(23780,23820);
+	Assign($ksOcunming2, 1);
+	Return;
+
+@talk2:
+	Talk(23830,23830);
+	Return;

@@ -1,0 +1,13 @@
+// 和汤怀对话
+
+	If ($Event == 440) @Event440;	
+	If ($Event == 450) @Event450;
+	Return;
+
+@Event440:
+	Say("汤怀：岳元帅在主营帐。", 0);
+	Return;
+	
+@Event450:
+	Say("汤怀：两位真是胆识过人，我汤怀佩服！希望你们和王将军平安归来。", 0);
+	Return;

@@ -1,0 +1,98 @@
+	GetRandNum($MoneyTalk, 1, 5);
+
+	If ($SubEvent03 == 0) @SubEvent03;
+
+	Say("乞丐：多行善事，才可能成为一代大侠。武功越高，越应该行侠仗义，这样才能以德服人。", 107);
+//	Talk(20660, 20660);
+	
+	Goto @end;
+	
+@SubEvent03:
+
+	If ($Sub03TalkTimes << 10) @Sub03GetMoney;
+	If ($Sub03TalkTimes == 10) @Sub03GiveObj;
+
+	Talk(20660, 20660);
+	Goto @end;
+	
+@Sub03GetMoney:
+	Say("乞丐：这位大侠，你行行好，给点儿钱吧。", 107);
+	Choose("给乞丐８０两银子吗？", "给。", "不给。", $GiveMoney);
+	If ($GiveMoney == 0) @GiveMoneyYes;
+	If ($GiveMoney == 1) @GiveMoneyNo;
+	@GiveMoneyYes:
+		GetMoneyNum($TwentyMoney);
+		If ($TwentyMoney >= 80) @GiveTwenty;
+		Say("你没带这么多钱。");
+		Goto @end;
+		@GiveTwenty:
+			If ($MoenyTalk == 1) @MoneyTalk01;
+			If ($MoenyTalk == 2) @MoneyTalk02;
+			If ($MoenyTalk == 3) @MoneyTalk03;
+			If ($MoenyTalk == 4) @MoneyTalk04;
+			If ($MoenyTalk == 5) @MoneyTalk05;
+			@MoneyTalk01:
+				Say("乞丐：大侠你真是少有的好人呀！", 107);
+				Goto @MoneyTalk0End;
+			@MoneyTalk02:
+				Say("乞丐：好人会有好报的，谢谢大侠！", 107);
+				Goto @MoneyTalk0End;
+			@MoneyTalk03:
+				Say("乞丐：菩萨保佑你荣华富贵、功名利禄、大吉大利、千秋万代！谢谢大侠！", 107);
+				Goto @MoneyTalk0End;
+			@MoneyTalk04:
+				Say("乞丐：上至老祖，下至家小，对大侠的恩情都永生不忘！", 107);
+				Goto @MoneyTalk0End;
+			@MoneyTalk05:
+				Say("乞丐：感恩戴德！感恩戴德！", 107);
+				Goto @MoneyTalk0End;
+			@MoneyTalk0End:
+			AddMoney(-80);
+			Add($Sub03TalkTimes, 1);
+			Add($EvilVal, 5);
+			Goto @end;
+	@GiveMoneyNo:
+		If ($MoenyTalk == 1) @MoneyTalk11;
+		If ($MoenyTalk == 2) @MoneyTalk12;
+		If ($MoenyTalk == 3) @MoneyTalk13;
+		If ($MoenyTalk == 4) @MoneyTalk14;
+		If ($MoenyTalk == 5) @MoneyTalk15;
+		@MoneyTalk11:
+			Say("杨影枫：看你也不拐不瘸的，养活自己总不是问题吧！", 2);
+			Goto @end;
+		@MoneyTalk12:
+			Say("杨影枫：我怎么天天遇见你！", 2);
+			Goto @end;
+		@MoneyTalk13:
+			Say("杨影枫：上回不是已经给过你！", 2);
+			Goto @end;
+		@MoneyTalk14:
+			Say("杨影枫：象你这样的角儿我见得多了！", 2);
+			Goto @end;
+		@MoneyTalk15:
+			Say("杨影枫：我可怜你，谁来可怜我呀！", 2);
+			Goto @end;
+		Goto @end;
+	Goto @end;
+@Sub03GiveObj:
+	// 给主角物品
+	Say("乞丐：这位大侠，你经常给我施舍，真是个好人呐！我这里捡到一本书，你知道我不识字儿留着也没用，大侠你走南闯北，兴许用得着，就送给你了！", 107);
+	Choose("收下这本书吗？", "收下。", "不收。", $GetStone);
+	If ($GetStone == 0) @GetStoneYes;
+	If ($GetStone == 1) @GetStoneNo;
+	@GetStoneYes:
+		Say("杨影枫：如此多谢了！", 2);
+		AddGoods("Book07-潮月剑法.ini");
+		Add($Sub03TalkTimes, 1);
+		Assign($SubEvent03, 10);
+		Add($EvilVal, -40);
+		Goto @end;
+	@GetStoneNo:
+		Say("杨影枫：我给你施舍，并不是为了让你报答，你还是留着吧！", 2);
+		Add($Sub03TalkTimes, 1);
+		Add($EvilVal, 10);
+		Assign($SubEvent03, 10);
+		Goto @end;
+	Goto @end;
+@end:
+	Return;

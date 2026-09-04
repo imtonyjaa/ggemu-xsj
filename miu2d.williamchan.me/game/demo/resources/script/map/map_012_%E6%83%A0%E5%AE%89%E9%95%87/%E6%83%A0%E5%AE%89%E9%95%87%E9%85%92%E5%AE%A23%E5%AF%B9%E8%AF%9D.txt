@@ -1,0 +1,31 @@
+
+
+	If ($Event == 3145) @Talk3145;
+	If ($Event == 3175) @Talk3175;
+	If ($Event == 957) @Event957;
+	If ($Event == 960) @Event960;
+	Talk(22420, 22421);
+	Goto @end;
+
+@Event957:
+	Say("酒客牟宽：近来倚天山一带好像不是很太平，常有江湖人物走动，我每次行商路过那里，都提心吊胆的。");
+//	Assign($Event96GetMsg1, 1);
+
+//	If ($Event96GetMsg2 <> 1) @end;
+//	If ($Event96GetMsg3 <> 1) @end;
+	Assign($Event, 960);
+	Goto @end;
+@Event960:
+	Say("酒客牟宽：近来倚天山一带好像不是很太平，常有江湖人物走动，我每次行商路过那里，都提心吊胆的。");
+	Goto @end;
+	
+@Talk3145:
+	Talk(103634,103634);
+	Return;
+	
+@Talk3175:
+	Talk(103790,103800);
+	Return;
+
+@end:
+	Return;

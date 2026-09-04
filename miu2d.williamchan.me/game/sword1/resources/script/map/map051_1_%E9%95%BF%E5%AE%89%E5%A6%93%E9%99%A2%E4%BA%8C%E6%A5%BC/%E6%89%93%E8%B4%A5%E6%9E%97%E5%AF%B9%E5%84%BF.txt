@@ -1,0 +1,140 @@
+// 打败林对儿
+
+	FadeOut();
+	StopMusic();
+	PlayMusic("追缘.mp3");
+	ClearBody();
+	DelNpc("林对儿");
+	SaveNpc();
+
+// 长安城东
+	
+	LoadMap("map047_长安城东.map");
+	LoadNpc("map047.npc");
+	LoadObj("map047.obj");
+	SetPlayerPos(14, 34);
+	SetPlayerDir(5);
+	SetPlayerState(0);
+	AddNpc("npc004_张琳心.ini", 14, 35, 4);
+	SetNpcKind("张琳心", 1);
+	AddNpc("npc041_被擒林对儿.ini", 15, 32, 1);
+	ClearEffect();
+	FadeIn();
+	
+	Say("林对儿：你……你们想把我怎么样？我叔叔若是知道你们抓了我，一定会杀了你们！", 98);
+	Say("独孤剑：这个就不劳你操心了，就算我们不抓你，我想你叔叔也不会放过我们的。", 1);
+	Say("张琳心：林对儿，老实说出你叔叔林海的阴谋，否则别怪本姑娘剑下无情。", 21);
+	Say("林对儿：你……你们是什么人，怎么知道……", 98);
+	Say("独孤剑：林对儿，将林海夺掌门之位的内情一五一十的告诉我们！", 9);
+	Say("林对儿：哼！你们休想从我口中得到什么，不告诉你们是死，告诉你们我叔叔也不会放过我的，你们要杀……就杀吧！", 98);
+	Say("张琳心：这家伙死活不开口，怎么办？", 24);
+	Sleep(500);
+	
+	AddNpc("飘落黑衣蒙面人.ini", 15, 35, 0);    // 将黑衣蒙面人作为站立的NPC载入，载入点是落在地图的位置点
+	PlaySound("战_箭放快.wav");   //蒙面人飘落时的音效
+	NpcSpecialAction("黑衣蒙面人", "mpc023_1.asf");  
+	Sleep(1500);
+	DelNpc("黑衣蒙面人");   //对存盘的处理
+	AddNpc("站立黑衣蒙面人.ini", 15, 35, 3);
+	SaveNpc();
+	
+	SetPlayerDir(7);
+	SetNpcDir("张琳心", 6);
+	Sleep(500);
+	Say("张琳心：你是谁？", 21);
+	Say("黑衣人：我是谁并不重要，重要的是如何叫这厮开口。", 0);
+	Say("独孤剑：请教！", 1);
+	Say("黑衣人：很简单。姓林的平日里自负风流倜傥，武艺过人。今日如果他不肯说，就拨去他的衣裳，将他倒挂在妓院外，让整个长安城的人都看看这个堂堂华山弟子的丑态。", 0);
+	Say("张琳心：哈哈，好办法！好玩！", 21);
+	Say("林对儿：你，你好歹毒！哼，独孤剑，你也算是一派掌门，我已经输给了你，你这样做不怕有违江湖道义吗？", 98);
+	Say("张琳心：他当然不会这样做。不过，本姑娘可是无门无派；而且平日里最恨的就是那些奸淫之徒——这个主意倒是妙得很。", 21);
+	Say("黑衣人：姑娘既然认为这个办法好。不如再在他身上写下“江湖败类，无耻下流”八个大字。", 0);
+	Say("林对儿：算你们狠！好，好，我说，我说……", 98);
+	SetPlayerDir(5);
+	SetNpcDir("张琳心", 4);
+	SetNpcDir("黑衣蒙面人", 3);
+	Sleep(500);
+	
+	Say("林对儿：我叔叔从小就不受师祖喜欢，师祖只喜欢师伯。所以叔叔从小就立志要当掌门，要师伯看看他的能耐。", 98);
+	Say("林对儿：十年前师祖在江南病死，死前没有来得及交代后事，所以叔叔和师伯这么多年谁也不让谁。后来五色教愿意帮他除掉顾老头，让我叔叔做了白剑堂堂主，并给他一份五色教的独门奇药“神功散”。从一年前开始我们就暗地给顾老头服用“神功散”，服了这药的人功力会慢慢减弱，所以今天比武自然就是我叔叔胜了。", 98);
+	Say("独孤剑：好歹毒的计划！", 9);
+	Sleep(500);
+	Watch("独孤剑", "张琳心", 0);
+	Say("张琳心：我们不如现在就带他上华山，揭穿林海的假面具。", 21);
+	SetPlayerDir(6);
+	SetNpcDir("张琳心", 6);
+	Say("独孤剑：好。对了，多谢兄台相助，请问高姓大名？", 2);
+	Say("黑衣人：好说，好说。我就是人称“大盗独行倒采采花大盗盗中盗盗王”盗空天是也。咱们后会有期！", 0);
+	NpcGoto("黑衣蒙面人", 17, 50);
+	DelNpc("黑衣蒙面人");
+	SaveNpc();
+	SetPlayerDir(7);
+	SetNpcDir("张琳心", 7);
+	Say("独孤剑：看来这又是一位深藏不露的侠士。琳儿，我们走吧。", 1);	
+	SetNpcKind("张琳心", 3);
+	Assign($Event, 366);
+	Memo("独孤剑和张琳心在长安妓院找到了林海的侄子林对儿，在一个黑衣人的帮助下，使妙计逼林对儿说出了林海投靠五色教毒死顾枫的真相。");
+	
+// 华山顶上	
+	
+	FadeOut();
+	StopMusic();
+	PlayMusic("杀机.mp3");
+	DelNpc("林对儿");
+	SaveNpc();
+	SaveObj();
+	LoadMap("map063_华山派大厅.map");
+	LoadNpc("map063.npc");
+	LoadObj("map063.obj");
+	SetPlayerPos(11, 29);
+	SetPlayerDir(0);
+	SetNpcKind("张琳心", 1);
+	SetNpcPos("张琳心", 12, 30);
+	SetNpcDir("张琳心", 1); 
+	SetNpcPos("方勉", 10, 29);
+	SetNpcDir("方勉", 6);
+	AddNpc("npc041_林对儿.ini", 11, 25, 0);
+	FadeIn();
+	
+	Sleep(500);
+	Say("独孤剑：各位，这就是事情的真相。你们面前的林海——新任华山派掌门，其实真实身份是五色教的白剑堂堂主。就是他，暗害了自己的同门师兄——顾枫顾大侠！", 5);
+	Say("方勉：林海，想不到你竟是五色教的人！", 50);
+	Say("江湖人士：想不到林海竟然作出屠戮同门的事！", 0);
+	Sleep(500);
+	Say("林海：哼！想不到老夫多年苦心的经营，竟一朝败在你们这两个乳臭未干的小孩手中！真是一着不慎，满盘皆输！没想到自己的致命伤竟然是自己的亲侄子！", 72);
+	Say("林对儿：叔叔，我……", 98);
+	Say("林海：罢！罢！罢！既然事已至此，我就找你们两个来作陪葬！", 72);
+	Assign($Event, 367);
+	
+// 华山栈道3	
+	
+	FadeOut();
+	SetNpcKind("张琳心", 3);
+	SetNpcRelation("张琳心", 0);
+	SaveNpc();
+	SaveObj();
+	LoadMap("map062_华山栈道3.map");
+	LoadNpc("map062_event367.npc"); 
+	LoadObj("map062.obj");
+	SetPlayerPos(24, 23);
+	SetPlayerDir(3);
+	SetNpcDeathScript("张琳心", "主角死亡.txt");
+	SetNpcDeathScript("独孤剑", "主角死亡.txt");
+	FadeIn();
+	
+	Say("林海：哼！明年今天就是你们的祭日，受死吧！", 72);
+	Say("独孤剑：琳儿，小心！", 1);
+	StopMusic();
+	PlayMusic("沙场.mp3");
+	SetNpcRelation("林海", 1);
+	SetNpcRelation("华山派弟子", 1);
+	SetPlayerState(1);
+    EnableFight();
+	EnableNpcAI();
+	Assign($Event, 368);
+	SetMapTrap(1, "trap01.txt");
+	SetMapTrap(2, "trap02.txt");
+	SetMapTrap(3, "trap03.txt");
+	SetMapTrap(4, "trap04.txt");
+	Return;
+	

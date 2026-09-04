@@ -1,0 +1,159 @@
+//敲击石碑
+
+	If ($Knock == 0) @Knock0;
+	If ($Knock == 1) @Knock1;
+	If ($Knock == 2) @Knock2;
+	If ($Knock == 3) @Knock3;
+	If ($Knock == 4) @Knock4;
+	If ($Knock == 5) @Knock5;
+	If ($Knock == 6) @Knock6;
+	If ($Knock == 7) @Knock7;
+	If ($Knock == 8) @Knock8;
+	If ($Knock == 9) @Knock9;
+	
+@Knock0:
+	Say("石碑上传来嗡嗡之声，后面的石壁上写着“一秤峰朝阳”。");
+	Say("张琳心：独孤大哥，这里便是一秤峰顶了。", 21);
+	Assign($Knock, 1);
+	Return;
+	
+@Knock1:
+	Say("石碑上传来嗡嗡之声，后面的石壁上写着“一秤峰朝阳”。");
+	Assign($Knock, 2);
+	Return;
+	
+@Knock2:
+	Say("石碑上传来嗡嗡之声，后面的石壁上写着“一秤峰朝阳”。");
+	Assign($Knock, 3);
+	Return;
+	
+@Knock3:
+	Say("石碑上传来嗡嗡之声，后面的石壁上写着“一秤峰朝阳”。");
+	Assign($Knock, 4);
+	Return;
+	
+@Knock4:
+	Say("石碑上传来嗡嗡之声，后面的石壁上写着“一秤峰朝阳”。");
+	Assign($Knock, 5);
+	Return;
+	
+@Knock5:
+	Say("石碑上传来嗡嗡之声，后面的石壁上写着“一秤峰朝阳”。");
+	Assign($Knock, 6);
+	Return;
+	
+@Knock6:
+	Say("石碑上传来嗡嗡之声，后面的石壁上写着“一秤峰朝阳”。");
+	Assign($Knock, 7);
+	Return;
+	
+@Knock7:
+	Say("石碑上传来嗡嗡之声，后面的石壁上写着“一秤峰朝阳”。");
+	Assign($Knock, 8);
+	Return;
+	
+@Knock8:
+	Say("石碑上传来嗡嗡之声，后面的石壁上写着“一秤峰朝阳”。");
+	Assign($Knock, 9);
+	Return;
+	
+@Knock9:
+	Say("石碑上传来嗡嗡之声，后面的石壁上写着“一秤峰朝阳”。");
+	
+	If ($Sub <> 160) @Subno;
+	If ($Sub == 160) @Subhave;
+	
+ @Subno:
+	Say("张琳心：独孤大哥，这里便是一秤峰顶了。", 21);
+	Return;
+	
+ @Subhave:
+ 	GetGoodsNum("一张药方")；
+ 	If ($GoodsNum == 0) @Lable0;
+ 	If ($GoodsNum == 1) @Lable1;
+ 	
+  @Lable0:
+  	If ($Event >> 330) @Baowu0;
+  	If ($Event <= 330) @Baowu1;
+  	
+   @Baowu0:
+   	PlaySound("特_石门.wav");
+	Say("张琳心：独孤大哥，这石碑后原来有个机关——", 25);
+	Say("张琳心：咦，什么都没有……", 25);
+	Say("独孤剑：如果曾有过什么，看来也早有人取走了。", 1);
+	SetObjScript("石碑", "");
+	Return;
+	
+   @Baowu1:
+	PlaySound("特_石门.wav"); 
+	Say("张琳心：独孤大哥，这石碑后原来有个机关——", 21);
+	Say("张琳心：这是……一套兵甲！", 25);
+	
+	Say("得到武林奇兵“霁云之武”。");
+	Sleep(600);
+	
+	PlaySound("特_捡到特殊物品.wav"); //得到宝物
+	AddGoods("Goods005_霁云盔.ini");
+	Sleep(600);
+	
+	PlaySound("特_捡到特殊物品.wav"); //得到宝物
+	AddGoods("Goods037_霁云铠.ini");
+	Sleep(600);
+	
+	PlaySound("特_捡到特殊物品.wav"); //得到宝物
+	AddGoods("Goods069_霁云铛.ini");
+	Sleep(600);
+	
+	PlaySound("特_捡到特殊物品.wav"); //得到宝物
+	AddGoods("Goods052_霁云枪.ini");
+	Sleep(600);
+	
+	PlaySound("特_捡到特殊物品.wav"); //得到宝物
+	AddGoods("Goods024_霁云之腕.ini");
+	Sleep(600);
+	
+	PlaySound("特_捡到特殊物品.wav"); //得到宝物
+	AddGoods("Goods080_霁云之护.ini");
+	Sleep(600);
+	
+	Say("张琳心：太好了，这便是世景良所说的前唐名将南霁云的宝物。");
+	SetObjScript("石碑", "");
+	Assign($Sub, 170);
+	Return;
+	
+  @Lable1:
+  	PlaySound("特_石门.wav");
+	Say("张琳心：独孤大哥，这石碑后原来有个机关——", 21);
+	Say("张琳心：这是……一套兵甲！", 25);
+	
+	
+	Say("得到武林奇兵“霁云之武”。");
+	Sleep(600);
+	
+	PlaySound("特_捡到特殊物品.wav"); //得到宝物
+	AddGoods("Goods005_霁云盔.ini");
+	Sleep(600);
+	
+	PlaySound("特_捡到特殊物品.wav"); //得到宝物
+	AddGoods("Goods037_霁云铠.ini");
+	Sleep(600);
+	
+	PlaySound("特_捡到特殊物品.wav"); //得到宝物
+	AddGoods("Goods069_霁云铛.ini.ini");
+	Sleep(600);
+	
+	PlaySound("特_捡到特殊物品.wav"); //得到宝物
+	AddGoods("Goods052_霁云枪.ini");
+	Sleep(600);
+	
+	PlaySound("特_捡到特殊物品.wav"); //得到宝物
+	AddGoods("Goods024_霁云之腕.ini");
+	Sleep(600);
+	
+	PlaySound("特_捡到特殊物品.wav"); //得到宝物
+	AddGoods("Goods080_霁云之护.ini");
+	Sleep(600);
+	
+	Say("张琳心：太好了，这便是世景良所说的前唐名将南霁云的宝物。");
+	SetObjScript("石碑", "");
+	Return;

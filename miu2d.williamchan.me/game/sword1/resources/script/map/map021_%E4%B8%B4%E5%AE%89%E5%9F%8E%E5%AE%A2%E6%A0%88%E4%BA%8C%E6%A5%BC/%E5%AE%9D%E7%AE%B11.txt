@@ -1,0 +1,9 @@
+//打开宝箱
+
+	PlaySound("物_箱子开.wav");
+	OpenBox();
+	AddGoods("Goods017_冰珠挂链.ini");
+	Sleep(600);
+	AddGoods("Goods066_流云履.ini");
+	SetObjScript("","");
+	Return;

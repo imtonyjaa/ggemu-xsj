@@ -1,0 +1,104 @@
+	//小豪豪
+	If ($Event == 1818) @1813;
+	If ($Event == 1817) @1813;
+	If ($Event == 1813) @1813;
+	If ($Event == 254) @Talk254;
+	If ($Event == 260) @Talk260;
+	If ($Event == 340) @Talk340;
+	If ($Event == 350) @Talk350;
+	If ($Event == 412) @Talk412;
+	If ($Event == 415) @Talk415;
+	If ($Event == 700 ) @TalkE700;
+	If ($Event >= 302) @Label;
+//	If ($Result == 2) @Result2;
+
+	Say("小豪豪：婆婆要我去采一些蘑菇，可是蘑菇长的是什么样子的呢？", 118);
+	Goto @end;
+
+@1813:
+	Say("小豪豪：杨大哥，真儿姐姐在哪里？我要去找她玩", 118);
+	Return;
+
+@Label:
+	Say("小豪豪：我只采了十几个野果，如果现在回家，婆婆肯定会骂我偷懒的……", 118);
+	Goto @end;
+	
+
+@Talk254:
+	If ($Talkxiaohao == 0) @Talk0;
+	If ($Talkxiaohao == 1) @Talk1;
+	Goto @end;
+@Talk0:
+   	Say("小豪豪：真儿姐姐，你要上离忧山采草药是吗？带我一起去吧！",	118);
+	Say("纳兰真：不行，山上有杀人蜂，很危险的。姐姐下次陪你去采蘑菇好吗？",	9);
+	Say("小豪豪：我不怕，我有刀，我会保护你的。", 118);
+	Say("纳兰真：小豪豪，婆婆不是叫你去采蘑菇吗？",	9);
+	Say("小豪豪：噢，我差点儿忘记了。",	118);
+	Assign($Talkxiaohao, 1);
+	Goto @end;
+@Talk1:
+   	Say("纳兰真：小豪豪，婆婆不是叫你去采蘑菇吗？",	9);
+	Say("小豪豪：噢，我差点儿忘记了。",	118);
+	Goto @end;	
+	
+	
+@Talk260:
+	Say("小豪豪：真儿姐姐，你回来了呀？离忧山好玩吗？",	118);
+	Say("纳兰真：很好玩呢！", 9);
+	Goto @end;	
+	
+@Talk340:
+	If ($Talkxiaohao1 == 0) @Talk2;
+	If ($Talkxiaohao1 == 1) @Talk3;
+	If ($Talkxiaohao1 == 2) @Talk4;
+	If ($Talkxiaohao1 == 3) @Talk5;
+	Goto @end;
+@Talk2:
+    Say("小豪豪：真儿姐姐，你回来啦！我好想好想你噢。", 118);
+	Assign($Talkxiaohao1, 1);
+	Goto @end;
+@Talk3:
+	Say("小豪豪：真儿姐姐，我天天盼着你回来呢！", 118);
+	Assign($Talkxiaohao1, 2);
+	Goto @end;
+@Talk4:
+	Say("小豪豪：真儿姐姐，你是不是发现了什么好玩的地方？下次带我一起去吧！", 118);
+	Assign($Talkxiaohao1, 3);
+	Goto @end;
+@Talk5:
+	Say("小豪豪：真儿姐姐，福婆婆说你成天跑来跑去，让你爹爹担心呢。", 118);
+	Goto @end;
+
+
+@Talk412:
+	Say("小豪豪：真儿姐姐最近心情不好，都很少和我玩了。", 118);
+	Goto @end;
+	
+@Talk415:
+	Say("小豪豪：我没空和你们玩啊，今天我还得再去摘野果。",	118);
+	Goto @end;	
+
+@Result2:
+	If ($Event >= 750) @TalkA750;
+	Say("小豪豪：婆婆要我去采一些蘑菇，可是蘑菇长的是什么样子的呢？", 118);
+	Goto @end;	
+
+@TalkE700:
+	Say("小豪豪：昨晚我看到真儿一个人走向禁地了，她到底回来没有？",	118);
+	Goto @end;
+
+@TalkA750:
+	Say("小豪豪：真儿回来啦，看到你好高兴！", 118);
+	Goto @end;
+
+@Talk350:
+	Sleep(500);
+	Watch("田田" , "杨影枫", 0);
+	Say("小豪豪：杨公子，你要走了吗？真儿姐姐会很伤心的，你不要走好吗？", 118);
+	Say("杨影枫：……", 2);
+	Return;
+
+@end:
+	Return;
+
+

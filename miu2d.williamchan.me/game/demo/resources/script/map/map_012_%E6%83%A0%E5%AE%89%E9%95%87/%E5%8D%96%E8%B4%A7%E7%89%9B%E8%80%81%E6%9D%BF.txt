@@ -1,0 +1,31 @@
+	If ($Wooy << 1) @FirstMeet;
+	If ($Wooy == 1) @SecondMeet;
+	If ($Wooy == 2) @ThirdMeet;
+	Goto @MeetAgain;
+	
+@FirstMeet:
+	Talk(94270,94310);
+	BuyGoods("货1级.ini");
+	Assign($Wooy, 1);
+	Goto @end;
+@SecondMeet:
+	Talk(94320,94320);
+	BuyGoods("货1级.ini");
+	Talk(94330,94340);
+	Assign($Wooy, 2);
+	Goto @end;
+@ThirdMeet:
+	Talk(94350,94360);
+	BuyGoods("货2级.ini");
+	Assign($Wooy, 3);
+	Goto @end;
+@MeetAgain:
+	Talk(94370,94370);
+	If ($Event << 390) @Sell;
+	BuyGoods("货4级.ini");
+	Goto @end;
+@Sell:
+	BuyGoods("货3级.ini");
+	Goto @end;
+@end:
+	Return;

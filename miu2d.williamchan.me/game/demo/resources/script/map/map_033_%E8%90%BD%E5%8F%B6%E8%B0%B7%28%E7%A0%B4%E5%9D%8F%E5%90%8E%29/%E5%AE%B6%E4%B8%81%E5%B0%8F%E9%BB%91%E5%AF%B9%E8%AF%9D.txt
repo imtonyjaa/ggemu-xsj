@@ -1,0 +1,13 @@
+
+	GetRandNum($TalkFight, 1, 2);
+	If ($TalkFight == 1) @TalkFight31;
+	If ($TalkFight == 2) @TalkFight32;
+	
+	@TalkFight31:
+		Talk(80860, 80860);
+		Goto @end;
+	@TalkFight32:
+		Say("小黑：还是我们老爷教给我的武功厉害，我一个人打跑了三个无忧教的人。");
+		Goto @end;
+@end:
+	Return;

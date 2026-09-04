@@ -1,0 +1,9 @@
+//打开宝箱
+
+	PlaySound("物_箱子开.wav");
+	OpenBox();
+	AddGoods("Goods074_凌波靴.ini");
+	Sleep(600);
+	AddGoods("Goods013_赤霞珠链.ini");
+	SetObjScript("","");
+	Return;

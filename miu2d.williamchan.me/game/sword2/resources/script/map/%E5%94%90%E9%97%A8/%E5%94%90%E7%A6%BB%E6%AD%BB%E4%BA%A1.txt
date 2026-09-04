@@ -1,0 +1,7 @@
+// 唐离死亡	
+	Sleep(2000);
+	StopMusic();
+	Talk(32600,32610);
+	PlaySound("游戏结束.wav");
+	ReturnToTitle();
+	Return;

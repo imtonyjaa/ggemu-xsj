@@ -1,0 +1,61 @@
+//沈起凤
+	If ($Event == 1818) @1818;
+	If ($Event == 1817) @1817;
+	If ($Event == 1813) @1813;
+	If ($Event == 350) @Talk350;
+	If ($Event >= 302) @Label;
+
+	Talk(21180, 21180);
+	Return;
+
+@1818:
+	Say("沈起凤：杨公子，真儿对你的情意，你可要珍惜哪！", 0);
+	Return;
+
+@1817:
+	Say("杨影枫：看到真儿了吗？");
+	Say("沈起凤：没有。");
+	Return;
+
+@1813:
+	Say("沈起凤：杨公子，又回来啦！");
+	Say("杨影枫：嗯。");
+	Say("沈起凤：怎么没看到真儿姑娘呢？");
+	Say("杨影枫：她在海边。");
+	Say("沈起凤：真儿姑娘对你那么好，我看你就不要再走了。");
+	Return;
+
+
+@Label:
+	If ($Event == 340) @Label2;
+	If ($Event == 412) @Talk412;
+	If ($Event == 415) @Talk415;
+	If ($Event == 700) @Talk700;
+	Talk(21181, 21181);
+	Return;
+@Label2:
+	Talk(21690, 21690);
+	Return;
+
+@Talk412:
+	Talk(41030,41030);
+	Return;
+	
+@Talk415:
+	Talk(41040,41040);
+	Return;
+
+@Talk700:
+	Talk(61540,61540);
+	Return;	
+
+
+@Talk350:
+	Sleep(500);
+	Watch("沈起凤" , "杨影枫", 0);
+	Say("沈起凤：杨公子，真儿对你的情意，你可要珍惜哪！", 0);
+	Say("杨影枫：……", 2);
+	Return;
+
+@end:
+	Return;

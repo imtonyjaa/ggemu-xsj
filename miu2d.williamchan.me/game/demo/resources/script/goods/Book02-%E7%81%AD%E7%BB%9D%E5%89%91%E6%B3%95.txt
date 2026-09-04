@@ -1,0 +1,5 @@
+	AddMagic("player-magic-绝情断意剑.ini");
+	Add($EvilVal, -25);
+	PlaySound("学会武功.wav");
+	DelGoods();
+	Return;

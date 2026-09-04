@@ -1,0 +1,100 @@
+	DisableInput();
+	Talk(11260,11280);
+	NpcSpecialAction("杨影枫","mpc122.asf");
+	NpcSpecialAction("蔷薇","mpc123.asf");
+	Sleep(6000);
+	
+	
+	
+	FadeOut();
+	LoadNpc("map030_wedding.npc");
+	Sleep(2000);
+	DelNpc("孟知秋");
+	ChangeMapColor(100,120,160);
+	ChangeAsfColor(100,120,160);
+	AddNpc("孟知秋.ini",44,139,1);
+	SetNpcKind("孟知秋",0);
+	SetNpcPos("蔷薇",44,141);
+	Watch("孟知秋","杨影枫",0);
+	Watch("孟知秋","蔷薇",1);
+	FadeIn();
+	
+	
+	Talk(11290,11320);
+	Watch("孟知秋","蔷薇",0);
+	Watch("杨影枫","蔷薇",1);
+	Talk(11330,11350);	
+
+	
+	NpcGoto("孟知秋",41,147);
+	Watch("蔷薇","孟知秋",1);
+	NpcGotoDir("蔷薇",1,2);
+	Talk(11360,11360);
+	Watch("孟知秋","蔷薇",0);
+	Watch("杨影枫","孟知秋",1);
+
+
+	
+	
+	Talk(11370,11380);
+	Sleep(1000);
+	NpcGoto("孟知秋",38,157);
+	//Sleep(2000);
+	DelNpc("孟知秋");
+	
+	SetPlayerScn();
+	Watch("蔷薇","杨影枫",1);
+	Talk(67320,67340);
+	Sleep(500);
+	Watch("蔷薇","杨影枫",0);
+	Talk(67350,67350);
+	FadeOut();
+	Sleep(500);
+	ChangeMapColor(128,150,200);
+	ChangeAsfColor(128,150,200);
+	LoadNpc("map030_wedding_night.npc");
+	LoadObj("map030_obj.obj");
+	SetPlayerPos(50,160);
+	StopMusic();
+	AddNpc("蔷薇.ini",55,159,0);
+	//SetNpcPos("蔷薇",55,159);
+	SetNpcRes("蔷薇","npc019-坐着的蔷薇.ini");
+	SetNpcDir("蔷薇",0);
+	SetNpcScript("蔷薇","蔷薇对话.txt");
+	FadeIn();
+	
+	Talk(11390,11390);
+	PlayerGoto(51,165);
+	PlayerGoto(54,159);
+	SetPlayerDir(7);
+	Talk(95670,95680);
+	
+	PlaySound("飞人.wav");
+	MoveScreen(6,80,4);
+	//MoveScreen(0,80,4);
+	Talk(11410,11410);
+	AddNpc("纳兰真.ini",65,184,7);
+	SetPlayerScn();
+	//SetNpcDir("蔷薇",5);
+	//MoveScreen(5,40,4);
+	PlayerGoto(55,160);
+	Watch("杨影枫","蔷薇",1);
+	Talk(95700,95700);
+	SetPlayerScn();
+	PlayerRunTo(50,162);
+	//SetNpcDir("蔷薇",1);
+	MoveScreen(5,50,2);
+	Talk(95710,95710);
+	SetPlayerScn();
+	PlayerRunTo(36,161);
+	Assign($Event,576);
+	EnableInput();
+	AddToMemo(24310);
+	SetMapTrap(14,"Trap14.txt");
+	PlayMusic("Mc018.mp3");
+	Goto @end;
+	
+	
+	
+	@end:
+	Return;

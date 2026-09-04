@@ -1,0 +1,95 @@
+//门口
+	If ($Event <> 110) @end;
+	StopMusic();
+	PlayMusic("Mc015.mp3");
+	PlayerGoto(40, 31);
+	SetPlayerDir(1);
+	NpcSpecialAction("杨影枫", "mpc026_主角.asf");
+	Sleep(1500);
+	Talk(1290, 1310);
+    NpcGoto("李四", 31, 45);
+	SetNpcDir("李四", 7); 
+	PlayerGoto(40, 32);
+    SetPlayerDir(1);
+    NpcGoto("卓非凡", 39, 34); 
+    SetNpcDir("卓非凡", 5);
+    Sleep(200);
+    PlayerGoto(39, 33);
+    SetPlayerDir(1);
+    Sleep(200);
+    Talk(1320, 1320);
+	NpcSpecialAction("杨影枫", "mpc026_主角.asf");
+	Sleep(1500);
+	Talk(1330, 1360);
+    Sleep(200);
+    NpcGoto("卓非凡", 38, 35); 
+    SetNpcDir("卓非凡", 1);
+    PlayerGoto(39, 34);
+    SetPlayerDir(1);
+    FadeOut();
+    Assign($Event, 112);
+        
+//餐厅
+    Sleep(500);
+	SetPlayerPos(40, 98);
+	SetPlayerDir(6);
+	SetPlayerScn();
+    SetNpcPos("卓非凡",41,98);
+    SetNpcDir("卓非凡", 2);
+	SetNpcActionFile("杨影枫", 0, "mpc027-1.asf");
+	SetNpcActionFile("杨影枫", 1, "mpc027-1.asf");
+	SetNpcActionFile("卓非凡", 0, "mpc027-2.asf");
+	SetNpcActionFile("卓非凡", 1, "mpc027-2.asf");
+	AddObj("菜2.ini", 40, 97, 0);
+	AddObj("菜4.ini", 40, 98, 0);
+	AddObj("菜6.ini", 39, 97, 0);
+    FadeIn();
+    Say("卓非凡：敢问杨少侠何故受困于惠安镇的悦来客栈？", 33);
+    Say("杨影枫：说来话长，昨日在下欲投宿悦来客栈，不料盘缠被窃，幸得一位行商的张姓兄弟资助，不料今日早起，张兄竟然遭人暗算。可恨那掌柜竟然诬赖为我所害，幸亏卓庄主派人解围方得以脱身，唉，想张兄也不过一本份商人，竟然不明不白横死他乡！我一定要查出那些贼人的下落！", 2);
+    Talk(1390, 1560);
+	Say("杨影枫：在下自然求之不得，能与卓庄主结为八拜之交，那是在下的荣幸。不过在下只是一个碌碌无名之辈，若与庄主结拜，只怕会辱没了庄主…",	2);
+	Say("卓非凡：哪里的话！杨兄弟过谦了，大丈夫相交，贵在知心，你我义气相投，又何必看重身份！", 33);
+	Say("杨影枫：卓庄主如此盛情，那小弟就恭敬不如从命了！",	2);
+	Say("卓非凡：好！杨兄弟真是一个爽快的人！拣日不如撞日，我们此刻就去祠堂行结拜之礼！",	33);
+    FadeOut();
+    Assign($Event, 114);
+
+
+//祠堂
+    Sleep(500);
+	SetPlayerPos(46, 88);
+	SetPlayerDir(5);
+	SetPlayerScn();
+    SetNpcPos("卓非凡",45,86);
+    SetNpcDir("卓非凡", 5);
+	SetNpcActionFile("杨影枫", 0, "npc006_st2.asf");
+	SetNpcActionFile("杨影枫", 1, "npc006_sst2.asf");
+	SetNpcActionFile("卓非凡", 0, "npc009_st.asf");
+	SetNpcActionFile("卓非凡", 1, "npc009_pst.asf");
+	DelObj("菜2");
+	DelObj("菜4");
+	DelObj("菜6");
+    FadeIn();
+    Talk(1580, 1610);
+	NpcSpecialAction("卓非凡", "mpc031_卓非凡.asf");
+	NpcSpecialAction("杨影枫", "mpc031_主角.asf");
+	Sleep(2000);
+	NpcGoto("卓非凡", 45, 88);
+	SetNpcDir("卓非凡", 6);
+	SetPlayerDir(2);
+	Talk(1620, 1631);
+    SetNpcPos("李四",19,78);
+    SetNpcDir("李四", 5);
+    NpcGoto("卓非凡", 37, 75); 
+    SetNpcPos("卓非凡",22, 76);
+    SetNpcDir("卓非凡", 5);   
+	AddToMemo(90170);
+	Assign($Event, 120);
+	SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(2, "Trap02.txt");
+	SetNpcScript("李四", "管家对话.txt");
+	SetNpcScript("家丁阿扁", "家丁阿扁对话.txt");
+	SetNpcScript("家丁阿水", "家丁阿水对话.txt");
+
+@end:
+	Return;

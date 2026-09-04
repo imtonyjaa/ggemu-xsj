@@ -1,0 +1,29 @@
+// 曲霞对话
+
+	If ($Event >= 20) @Event20; 
+
+@Event20:
+	If ($Talkquxia == 0) @Talk0;
+	If ($Talkquxia == 1) @Talk1;
+	If ($Talkquxia == 2) @Talk2;
+	If ($Talkquxia == 3) @Talk3;
+@Talk0:
+	Say("曲霞：大师兄，不，掌门师兄，师傅吩咐过丹心剑留给你，我给你拿来。", 0);
+	Say("独孤剑：我现在武功低微，怎么敢使用师傅留下的宝剑？", 1);
+	Assign($Talkquxia, 1);
+	Return;
+@Talk1:	
+	Say("曲霞：师兄什么时候需要宝剑就吩咐一声。", 0);
+	Assign($Talkquxia, 2);
+	Return;
+@Talk2:	
+	Say("曲霞：房子里有些出门用得着的东西，师兄你多带一些在身边吧。", 0);
+	Assign($Talkquxia, 3);
+	Return;
+@Talk3:
+	Say("曲霞：师兄，你……一定要多多保重！", 0);
+	Return;	
+	
+	
+
+	

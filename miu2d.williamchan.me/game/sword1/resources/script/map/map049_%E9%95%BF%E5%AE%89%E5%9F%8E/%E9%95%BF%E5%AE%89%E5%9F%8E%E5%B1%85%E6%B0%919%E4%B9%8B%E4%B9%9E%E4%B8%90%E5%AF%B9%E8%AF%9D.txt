@@ -1,0 +1,39 @@
+// 与长安城乞丐的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	Say("乞丐：唉！这长安城如此冷清，我的生意也不好做了！那些金人真可恨！", 0);
+	Return;
+	
+@YuanDan:		
+	
+	If ($Event == 304) @zhang;
+	If ($Event == 305) @zhang;
+	
+	Say("乞丐：新年又怎么样？咱们乞丐还不是一样吃不饱饭？", 0);
+	Choose("给不给红包", "A 给", "B 不给", $hongbao);
+	If ($hongbao == 0) @Choose0;
+	If ($hongbao == 1) @Choose1;
+@Choose0:
+	GetMoneyNum();
+	If($MoneyNum << 10) @NotenoughMon;
+	If($MoneyNum >= 10) @EnoughMon;
+@NotenoughMon:
+	Say("独孤剑：哎呀，我身上的银子不够了……", 8);
+	Say("乞丐：原来是个穷鬼……", 0);
+	Return;
+@EnoughMon:
+	Say("独孤剑：独乐乐不如众乐乐，小兄弟，我送你一个红包，但愿你新的一年不用再靠乞讨度日。", 2);
+	Say("乞丐：要是世人都像你这般好心，那这个世界就太平啰！", 0);
+	AddMoney(-10);
+	Return;
+@Choose1:	
+	Return;
+	
+@zhang:
+	Say("乞丐：新年又怎么样？咱们乞丐还不是一样吃不饱饭？", 0);
+	Return;		

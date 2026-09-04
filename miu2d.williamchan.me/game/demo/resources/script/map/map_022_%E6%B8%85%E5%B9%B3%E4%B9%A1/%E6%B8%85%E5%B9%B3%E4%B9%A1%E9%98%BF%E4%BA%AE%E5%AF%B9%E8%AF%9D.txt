@@ -1,0 +1,47 @@
+
+
+	If ($SubEvent08 == 5) @SubEvent085;
+
+	GetRandNum($ALangTalk, 1, 5);
+	If ($ALangTalk == 1) @ALangTalk1;
+	If ($ALangTalk == 2) @ALangTalk2;
+	If ($ALangTalk == 3) @ALangTalk3;
+	If ($ALangTalk == 4) @ALangTalk4;
+	If ($ALangTalk == 5) @ALangTalk5;
+	@ALangTalk1:
+		Say("阿亮：大哥哥，这附近好像有兔子。", 87);
+		Goto @end;
+	@ALangTalk2:
+		Say("阿亮：大哥哥，我最喜欢兔子了。", 87);
+		Goto @end;
+	@ALangTalk3:
+		Say("阿亮：大哥哥，我妈妈老是不准我出去玩儿。", 87);
+		Goto @end;
+	@ALangTalk4:
+		Say("阿亮：大哥哥，你陪我一起玩儿好不好？", 87);
+		Goto @end;
+	@ALangTalk5:
+		Say("阿亮：大哥哥，我们一起去抓兔子吧！", 87);
+		Goto @end;
+
+	Goto @end;
+@SubEvent085:
+	Say("杨影枫：小弟弟，你可是阿亮？", 3);
+	Say("阿亮：是呀，我就是，大哥哥，你要跟我一起玩儿吗？", 87);
+	Say("杨影枫：你娘正在找你，赶快回去吧。", 3);
+	Say("阿亮：我刚才正在追一只兔子，可是跑到这里就不见啦，现在还没找到呢！", 87);
+	Say("杨影枫：哦，是这样。赶快回家吧，免得你娘焦急。", 3);
+	Say("阿亮：好吧，我回去啦。", 87);
+
+	NpcGoto("阿亮", 72, 131);
+	NpcGoto("阿亮", 69, 121);
+	SetNpcPos("阿亮", 21, 88);
+	SetNpcDir("阿亮", 0);
+
+	Assign($SubEvent08, 10);
+	Add($EvilVal, 20);
+
+	Goto @end;
+
+@end:
+	Return;

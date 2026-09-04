@@ -1,0 +1,67 @@
+	If ($Event == 540) @Label1;
+	Return;
+	
+@Label1:
+	StopMusic();
+	//PlayerGoto(17,24);
+	//SetPlayerDir(7);
+	Watch("杨影枫","蔷薇", 1);
+	Talk(10160, 10180);
+	SetNpcActionFile("蔷薇", 0, "mpc113-1.asf");
+	SetNpcActionFile("蔷薇", 1, "mpc113-1.asf");
+	NpcSpecialAction("蔷薇", "mpc113.asf");
+	Sleep(1500);
+	PlaySound("mpc000-丢发钗.wav");
+	Talk(10190,10250);
+	PlayerRunTo(17,23);
+	SetPlayerDir(6);
+	NpcSpecialAction("杨影枫", "mpc114.asf");
+	Sleep(1200);
+	PlaySound("mpc114.wav");
+		
+	FadeOut();
+	SaveNpc();
+	SaveObj();
+	LoadMap("map_035_天池内部.map");
+	LoadNpc("tianchi-shirenyu.npc");
+	LoadObj("map035_obj.obj");
+	SetPlayerPos(8,12);
+	SetPlayerDir(0);
+	EnableNpcAI();
+		
+//	SetNpcActionFile("杨影枫", 0, "npc007_st.asf");
+//	SetNpcActionFile("杨影枫", 1, "npc007_st2.asf");
+	NpcSpecialAction("杨影枫", "mpc118下.asf");
+	OpenWaterEffect();
+	ChangeMapColor(150, 180, 255);
+	ChangeAsfColor(150, 180, 255);
+	FadeIn();
+
+	Sleep(1200);
+	Say("杨影枫：天池之水果然奇寒无比，看来我必须尽快拣到发钗离开这里，否则定会葬身池底，我可不想成为食人鱼的美餐！", 2);
+	OpenTimeLimit(180);
+	PlayMusic("Mc028.mp3");
+	SetTimeScript(0, "主角死亡.txt");
+	Assign($Event, 542);
+	AddToMemo(90760);
+
+	GetRandNum($wangwei, 0, 2);
+	If ($wangwei == 0) @000;
+	If ($wangwei == 1) @001;
+		
+	AddObj("发钗.ini",53,11,0);
+	SetObjScript("发钗","发钗.txt");
+	Return;
+
+@000:
+	AddObj("发钗.ini",7,161,0);
+	SetObjScript("发钗","发钗.txt");
+	Return;
+
+@001:	
+	AddObj("发钗.ini",34,15,0);
+	SetObjScript("发钗","发钗.txt");
+	Return;
+	
+@end:
+	Return;

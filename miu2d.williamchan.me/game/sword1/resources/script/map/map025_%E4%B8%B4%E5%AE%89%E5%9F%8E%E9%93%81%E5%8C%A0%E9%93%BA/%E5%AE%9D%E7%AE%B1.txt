@@ -1,0 +1,14 @@
+//打开宝箱
+
+	PlaySound("物_箱子开.wav");
+	OpenBox();
+	AddGoods("Goods061_烟火霹雳弹.ini");
+	AddGoods("Goods061_烟火霹雳弹.ini");
+	AddGoods("Goods061_烟火霹雳弹.ini");
+	AddGoods("Goods061_烟火霹雳弹.ini");
+	AddGoods("Goods061_烟火霹雳弹.ini");
+	Sleep(500);
+	SetObjScript("","");
+	AddMagic("magic056_烟火霹雳弹.ini", 1);
+	SetMagicLevel("magic056_烟火霹雳弹.ini", 9);
+	Return;

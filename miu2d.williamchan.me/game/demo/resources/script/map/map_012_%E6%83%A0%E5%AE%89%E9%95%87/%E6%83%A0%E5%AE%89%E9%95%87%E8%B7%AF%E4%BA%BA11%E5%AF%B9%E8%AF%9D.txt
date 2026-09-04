@@ -1,0 +1,40 @@
+//赵爹爹
+If ($Result == 0) @Result0;
+If ($Result == 1) @Result1;
+If ($Result == 2) @Result2;
+If ($Result == 3) @Result3;
+Goto @end;
+
+@Result0:
+If ($Event << 360 ) @Talk1;
+If ($Event >= 380 ) @Talk2;
+Goto @end; 
+
+@Result1:
+Talk(20600, 20610);
+Goto @end;
+
+
+@Result2:
+Talk(20600, 20610);
+Goto @end;
+
+@Result3:
+Talk(20600, 20610);
+Goto @end;
+
+
+@Talk1:
+Talk(20600, 20610);
+Goto @end;
+
+
+@Talk2:
+
+Talk(40620, 40620);
+
+Goto @end;
+
+@end:
+Return;
+

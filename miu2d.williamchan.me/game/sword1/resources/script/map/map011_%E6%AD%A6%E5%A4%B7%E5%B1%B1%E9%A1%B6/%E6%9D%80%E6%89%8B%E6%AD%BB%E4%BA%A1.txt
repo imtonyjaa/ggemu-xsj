@@ -1,0 +1,23 @@
+// 所有敌人死亡
+
+	Add($fight011, 1);
+	If ($fight011 == 30) @finished; 
+    Return;
+	
+@finished:
+	StopMusic();
+	PlayMusic("追缘.mp3");
+	ClearEffect();
+	Sleep(500);
+	Watch("独孤剑", "张琳心", 0);
+	Say("张琳心：战斗的时候你干吗老挡在我前面？", 23);
+	Say("独孤剑：你是女孩子嘛。", 2);
+	Say("张琳心：女孩子怎么啦？你……小瞧我？", 23);
+	Say("独孤剑：不，你误会了……我只是想保护你。", 8);
+	Say("张琳心：……", 22);
+	SetNpcScript("张琳心", "张琳心对话.txt");
+	Assign($Event, 220);
+	SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(2, "Trap02.txt");
+	SetMapTrap(3, "Trap03.txt");
+	Return;

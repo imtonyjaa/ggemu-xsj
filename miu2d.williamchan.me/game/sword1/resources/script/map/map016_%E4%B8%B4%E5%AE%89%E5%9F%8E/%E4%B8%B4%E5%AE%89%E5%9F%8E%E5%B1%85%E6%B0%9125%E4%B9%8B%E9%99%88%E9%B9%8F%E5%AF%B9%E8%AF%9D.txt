@@ -1,0 +1,93 @@
+//和陈鹏对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	If ($Sub == 120) @Sub120;
+	If ($Sub >> 120) @Submore120;
+	
+	Say("陈鹏：老子怎么就这么背？船坊的吴二狗子凭空拣了笔大财宝，老子逛了一天，才拣了这张破药方……", 0);
+	Say("陈鹏：龙生龙，凤生凤，耗子的崽子会打洞……唉！", 0);
+	Assign($Talkchenpeng, 1);
+	Return;
+	
+@Sub120:
+	If ($Talkchenpeng == 0) @Talk0;
+	If ($Talkchenpeng == 1) @Talk1;
+	
+ @Talk0:
+	Say("陈鹏：老子怎么就这么背？船坊的吴二狗子凭空拣了笔大财宝，老子逛了一天，才拣了张破药方……", 0);
+	Say("陈鹏：龙生龙，凤生凤，耗子的崽子会打洞……唉！", 0);
+	Say("独孤剑：这位兄台，你最近拾到过一份药方？", 1);
+	Say("陈鹏：是啊。药铺的陆掌柜说他专要各种怪方，刚才十文钱卖给他了。");
+	Assign($Talkchenpeng,2);
+	Assign($Sub,130);
+	Return;
+	
+ @Talk1:
+	Say("独孤剑：这位兄台，听说你最近拾到过一份药方？", 1);
+	Say("陈鹏：是啊。药铺的陆掌柜说他专要各种怪方，刚才十文钱卖给他了。");
+	Assign($Sub,130);
+	Return;
+	
+@Submore120:
+	GetRandNum($Talkchenp,0,1);
+	If($Talkchenp == 0) @Talk3;
+	If($Talkchenp == 1) @Talk4;
+
+@Talk3:
+	Say("陈鹏：你说这吴二狗子论相貌没我英俊，论出身……他大爷是挑粪的，他二爷是……");
+	Say("陈鹏：没道理啊，这……");
+	Return;
+ 
+@Talk4:
+ 	Say("陈鹏：你说的那张怪方，药铺的陆掌柜买走了……才十文钱，小气鬼！");
+ 	Return;
+
+
+@YuanDan:
+	
+	If ($Sub == 120) @Sub120YD;
+	If ($Sub >> 120) @Submore120YD;
+	
+	Say("陈鹏：新年刚到老子怎么就这么背？船坊的吴二狗子凭空拣了笔大财宝，老子逛了一天，才拣了这张破药方……", 0);
+	Say("陈鹏：龙生龙，凤生凤，耗子的崽子会打洞……唉！", 0);
+	Assign($Talkchenpeng, 1);
+	Return;
+	
+@Sub120YD:
+	If ($Talkchenpeng == 0) @Talk0YD;
+	If ($Talkchenpeng == 1) @Talk1YD;
+	
+ @Talk0YD:
+	Say("陈鹏：老子怎么就这么背？船坊的吴二狗子凭空拣了笔大财宝，老子逛了一天，才拣了张破药方……", 0);
+	Say("陈鹏：龙生龙，凤生凤，耗子的崽子会打洞……唉！", 0);
+	Say("独孤剑：这位兄台，你最近拾到过一份药方？", 1);
+	Say("陈鹏：是啊。药铺的陆掌柜说他专要各种怪方，刚才十文钱卖给他了。");
+	Assign($Talkchenpeng,2);
+	Assign($Sub,130);
+	Return;
+	
+ @Talk1YD:
+	Say("独孤剑：这位兄台，听说你最近拾到过一份药方？", 1);
+	Say("陈鹏：是啊。药铺的陆掌柜说他专要各种怪方，刚才十文钱卖给他了。");
+	Assign($Sub,130);
+	Return;
+	
+@Submore120YD:
+	GetRandNum($Talkchenp,0,1);
+	If($Talkchenp == 0) @Talk3YD;
+	If($Talkchenp == 1) @Talk4YD;
+
+@Talk3YD:
+	Say("陈鹏：你说这吴二狗子论相貌没我英俊，论出身……他大爷是挑粪的，他二爷是……");
+	Say("陈鹏：没道理啊，这……");
+	Return;
+ 
+@Talk4YD:
+ 	Say("陈鹏：你说的那张怪方，药铺的陆掌柜买走了……才十文钱，小气鬼！");
+ 	Return;
+ 	

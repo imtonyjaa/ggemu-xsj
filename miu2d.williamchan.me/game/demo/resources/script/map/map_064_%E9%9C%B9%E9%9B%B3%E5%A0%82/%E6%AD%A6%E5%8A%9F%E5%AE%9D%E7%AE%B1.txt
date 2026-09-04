@@ -1,0 +1,5 @@
+PlaySound("物-箱子开.wav");
+OpenBox();
+AddGoods("Book01-风火雷.ini");
+SetObjScript("","");
+Return;

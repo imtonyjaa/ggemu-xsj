@@ -1,0 +1,63 @@
+	LimitMana(1);
+	PlayerChange(1);
+	LoadMap("map_051_海边.map");
+	
+	//参看 鼓眼鱼.txt,不影响剧情
+	Assign($RecentlyMeetWooy, 0);
+	
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(19, 38);
+	SetPlayerDir(3);
+	//AddLife(-5000);
+	AddThew(-1000);
+	AddMana(-1000);
+	SetMapPos(8, 23);
+	LoadNpc("seashore-yangyf.npc");
+	SetNpcPos("杨影枫", 11, 35);	
+	SetNpcActionFile("杨影枫", 0, "mpc056-1.asf");
+	SetNpcActionFile("杨影枫", 1, "mpc056-1.asf");
+	LoadObj("map051_obj.obj");
+	FadeIn();	
+	Talk(3990, 3990);
+	Sleep(500);
+	SetNpcActionFile("杨影枫", 0, "mpc056-2.asf");
+	SetNpcActionFile("杨影枫", 1, "mpc056-2.asf");
+    NpcSpecialAction("杨影枫", "mpc056.asf");  
+    Sleep(5000);
+    Talk(4000, 4000);
+	SetNpcKind("纳兰真",1);
+	NpcGoto("纳兰真", 13, 39);
+	SetNpcKind("纳兰真",2);
+//	SetPlayerScn();
+    PlayerGoto(11,37);
+    SetPlayerDir(4);
+	//Talk(4010, 4080);
+	Say("蓝衣少女：你醒啦！你已经昏迷了三天三夜啦！", 9);
+	Say("杨影枫：这里是什么地方？在下怎会在此……", 2);
+	Say("蓝衣少女：这是<color=Red>忘忧岛<color=Black>。说起来你也真是命大，我在海边捡贝壳的时候，发现你昏迷在沙滩边，全身浮肿、伤痕累累，已经奄奄一息。我看你可怜，把你带了回来。", 9);
+	Say("杨影枫：多谢姑娘相救，姑娘是……", 2);
+	Say("蓝衣少女：我叫<color=Red>纳兰真<color=Black>，岛上的人都叫我真儿，你叫什么名字？", 9);
+	Say("杨影枫：在下名叫杨影枫。",	2);
+	Say("纳兰真：原来是杨大哥。杨大哥，快躺着不要起来，你的伤势很严重。", 9);
+	Say("杨影枫：为什么？我为什么提不起一点内力，难道我已功力尽失……不可能！这不是真的！！", 4); 
+	FadeOut();
+	StopMusic();
+	PlayMusic("Mc017.mp3");
+	LoadNpc("seashore-yangyf2.npc");
+    SetPlayerPos(14,38);
+    SetPlayerDir(5);
+	SetPlayerScn();
+	EnableRun();
+	FadeIn();
+    Talk(4090, 4090);
+	Sleep(500);
+	Talk(20190, 20190);
+	//FullLife();
+	FullThew();
+	FullMana();
+	AddToMemo(4092);
+    Assign($Event, 250);
+    Return;
+    
+    

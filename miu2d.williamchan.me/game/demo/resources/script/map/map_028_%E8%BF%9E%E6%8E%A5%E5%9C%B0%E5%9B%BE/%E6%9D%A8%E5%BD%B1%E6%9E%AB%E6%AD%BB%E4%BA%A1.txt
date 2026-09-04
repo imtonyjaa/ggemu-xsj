@@ -1,0 +1,66 @@
+
+If ($Result == 0)  @Result0;
+If ($Result == 1)  @Result1;
+If ($Result == 2)  @Result2;
+If ($Result == 3)  @Result3;
+Goto(@end);
+
+@Result0:
+Goto(@end);
+
+@Result1:
+If ($Event == 585) @Event585;
+Goto(@Die);
+
+@Result2:
+Goto(@end);
+
+@Result3:
+Goto(@end);
+
+@Event585:
+
+FadeOut();
+SaveObj();
+StopMusic();
+Say("紫衫蒙面人：杨大侠，你不是武功盖世吗？！哈哈哈！",0);
+Say("黑衣蒙面人：我们干脆把他杀了！永绝后患！",0);
+Say("黄衣蒙面人：很好，正合我意！",0);
+Say("紫衫蒙面人：慢…我们尚未得到主人的指示，还是不忙下手罢！",0);
+Say("红衫蒙面人：不必等了！主人知道了只会夸我们干得漂亮！",0);
+Say("紫衫蒙面人：……如此杀了他未免太便宜他了！",0);
+Say("黑衣蒙面人：哼，我看你是…",0);
+Say("紫衫蒙面人：姐姐多心了，我对他恨之入骨，巴不得将他千刀万剐才解恨！",0);
+Say("黑衣蒙面人：那你的意思…？",0);
+Say("紫衫蒙面人：这个人和我恩怨颇深，我想和他单独做个了断，还望你们成全。",0);
+Say("黑衣蒙面人：好吧，既然你还如此耿耿于怀旧事，我们也不便阻挡。你好自为之吧！",0);
+Say("紫衫蒙面人：多谢了！",0);
+Say("紫衫蒙面人：杨影枫！你听着！十日后，芭蕉小筑，月圆之夜我要与你了结这段恩怨！",0);
+Say("紫衫蒙面人：我们走！",0);
+Sleep(1000);
+DelObj("杨影枫尸体");
+ClearBody();
+LoadNpc("map028_bird.npc");
+//LoadObj("map028_obj.obj");
+SetPlayerState(0);
+FullLife();
+FullThew();
+FullMana();
+
+AddToMemo(24320);
+SetPlayerPos(16,58);
+FadeIn();
+Talk(11626,11630);
+SetMapTrap(1,"trap01.txt");
+SetMapTrap(2,"trap02.txt");
+SetMapTrap(3,"trap03.txt");
+SetNpcDeathScript("杨影枫","主角死亡.txt");
+PlayMusic("Mc019.mp3");
+Goto(@end);
+
+@Die:
+RunScript("主角死亡.txt");
+Goto @end;
+
+@end:
+Return;

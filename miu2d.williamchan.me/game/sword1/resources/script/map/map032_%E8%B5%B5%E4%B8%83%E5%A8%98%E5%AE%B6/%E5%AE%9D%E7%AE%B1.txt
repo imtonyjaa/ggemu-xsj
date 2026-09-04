@@ -1,0 +1,18 @@
+//打开宝箱
+
+	If ($Openboxzhao == 1) @Open1; 
+	
+	PlaySound("特_捡到特殊物品.wav");
+	OpenBox();
+	Say("箱子里什么也没有。");
+	Assign($Openboxzhao, 1);
+	Return;
+	
+@Open1:
+	Say("包裹下面好像藏着什么……");
+	AddGoods("Goods079_游龙披风.ini");
+	Sleep(600);
+	Say("得到五十两银子。");
+	AddMoney(50);
+	SetObjScript("","");
+	Return;

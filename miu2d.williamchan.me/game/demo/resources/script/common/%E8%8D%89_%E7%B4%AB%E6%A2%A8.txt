@@ -1,0 +1,3 @@
+AddGoods("Goods-m06-紫梨.ini");
+DelCurObj();
+Return;

@@ -1,0 +1,9 @@
+
+
+	If ($SubEvent20 == 2) @SubEvent20;
+	
+	Return;
+	@SubEvent20:
+		Say("杨影枫：啊，有了，那书生的下联，我对出来了！", 3);
+		Assign($SubEvent20, 5);
+		Return;

@@ -1,0 +1,8 @@
+//打开宝箱
+
+	PlaySound("物_箱子开.wav");
+	OpenBox();
+	Say("得到五百两银子。");
+	AddMoney(500);
+	SetObjScript("","");
+	Return;

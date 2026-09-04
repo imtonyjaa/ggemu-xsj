@@ -1,0 +1,27 @@
+// 事件42.1 刚发生
+	If ($Event == 412) @Label1;
+	If ($Event == 415) @Label2;
+	Return;
+	
+@Label1:
+	MoveScreenEx(6, 27, 4);
+	Sleep(1000);
+	Say("杨影枫：是真儿！", 2);
+	SetPlayerScn();
+	PlayerRunTo(4, 26);
+	SetPlayerDir(2);
+	Say("真儿！", 2);
+	Watch("杨影枫","纳兰真",0);
+	Talk(7160,7240);
+	Watch("杨影枫","纳兰真",0);
+	Talk(7250,7270);
+	SetNpcKind("纳兰真", 3);
+	Assign($Event, 415);
+	AddToMemo(45080);
+	//Say("纳兰真加入队列");
+	Return;
+
+@Label2:
+	Say("杨影枫：真儿，你瘦多了。", 2);
+	Say("纳兰真：没有关系，你回来了就好。", 10);
+Return;

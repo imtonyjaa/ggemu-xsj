@@ -1,0 +1,76 @@
+// 在码头上与老王的对话
+
+	If ($Event == 125) @Event125;
+	If ($Event == 180) @Event180;
+	If ($Event == 200) @Event200;
+	If ($Event == 270) @Event270;
+	If ($Event >> 180) @Eventmore180;
+	Return;
+
+@Event125:
+	Say("渔夫老王：走吧！这么晚了还要出海，真是不要命了。", 65);
+	FadeOut();
+	DelNpc("渔夫老王");
+	SaveNpc();
+	SaveObj();
+	StopMusic();
+	PlayMusic("战斗.mp3");
+	LoadMap("map037_碧霞岛.map");
+	LoadNpc("map037_killer.npc");
+	LoadObj("map037_killer.obj");
+	AddNpc("npc029_老王.ini", 21, 92, 3);
+	SetNpcScript("渔夫老王", "渔夫老王对话.txt");
+	SetPlayerPos(20, 91);
+	SetPlayerDir(7);
+	FadeIn();
+	Say("老王：公子，碧霞岛到了，这里强人出没无常，公子多加小心。", 65);
+	Say("独孤剑：我知道了，多谢。", 2);
+	NpcGoto("渔夫老王", 22, 94);
+	NpcGoto("渔夫老王", 23, 94);
+	DelNpc("渔夫老王");
+	SaveNpc();
+	Memo("独孤剑和老王一起乘船来到碧霞岛。");	
+	Assign($Event, 130);	
+	Return;
+
+@Event180:
+    Say("老王：老汉还真没把你看出来，一个人就把这么多贼人都收拾掉，救回两位姑娘，我这回算真是遇到一位少年英雄了，呵呵。", 65);
+	Say("独孤剑：过奖了。", 2);
+	Say("老王：公子什么时候要船，我就什么时候出海。", 65);
+	Return;
+	
+@Eventmore180:	
+	Say("老王：公子还要出海吗？", 65);
+	Say("独孤剑：哦，我只是来看看您，不出海。", 2);
+	Say("老王：公子真是有心了，老汉心领了。", 65);
+	Return;
+	
+@Event200:
+	If ($Talklaowang200 == 0) @Talk0;
+	If ($Talklaowang200 == 1) @Talk1;
+@Talk0:
+	Say("老王：原来是独孤公子，找我有什么事吗？", 65);
+	Say("独孤剑：老王，张琳心姑娘有没有来找过你？", 1);
+	Say("老王：没有啊，自从上次从碧霞岛回来以后，她就再没有来过海边小渔村。", 65);
+	Say("独孤剑：我知道了，多谢！", 1);
+	Assign($Talklaowang200, 1);
+	Return;	
+@Talk1:
+	Say("老王：放心吧独孤公子，如果我见到了张琳心姑娘，我会告诉她你在找她。", 65);
+	Say("独孤剑：好的，多谢。", 1);	
+	Return;
+	
+@Event270:	
+	If ($Talklaowang270 == 0) @Talk2;
+	If ($Talklaowang270 == 1) @Talk3;
+@Talk2:
+	Say("老王：原来是独孤公子，找我有什么事吗？", 65);
+	Say("独孤剑：老王，临安城的段芙蓉姑娘是你的外孙女吗？", 1);
+	Say("老王：是啊。", 65);
+	Say("独孤剑：她的父亲被狗官吕文才所害，临死之前托我们把段姑娘送到她成都姑妈家去。", 1);
+	Say("老王：哦，我已经知道了，有一个叫小雷的小叫化已经告诉了我们一切，唉！这孩子的命真苦啊！", 65);
+	Assign($Talklaowang270, 1);
+	Return;	
+@Talk3:
+	Say("老王：唉！这孩子的命真苦啊！", 65);
+	Return;

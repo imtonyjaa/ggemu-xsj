@@ -1,0 +1,26 @@
+
+	Assign($Event, 455);
+	
+	SetMapTrap(1,"Trap01.txt");
+	SetMapTrap(2,"Trap02.txt");
+	SetMapTrap(3,"Trap03.txt");
+	SetMapTrap(4,"Trap04.txt");
+	StopMusic();
+	FadeOut();
+	ShowSnow(0);
+	LoadMap("map_061_禁地三层.map");
+	LoadObj("map061_getsword.obj");
+	//CloseTimeLimit();
+	//LoadNpc("假纳兰真1.npc");
+	ChangeMapColor(255, 255, 255);
+	ChangeAsfColor(255, 255, 255);
+	SetPlayerPos(11, 29);
+	SetPlayerDir(6);
+	SetMapTrap(1,"");
+	SetMapTrap(2,"");
+	EnableNpcAI();
+	FadeIn();
+	PlayMusic("Mc021.mp3");
+	
+	Talk(41460,41460);
+	Return;

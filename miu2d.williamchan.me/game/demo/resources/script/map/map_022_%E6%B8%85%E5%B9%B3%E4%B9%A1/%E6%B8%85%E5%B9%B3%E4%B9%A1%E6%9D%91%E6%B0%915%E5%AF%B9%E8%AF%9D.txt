@@ -1,0 +1,28 @@
+	
+	If ($Event == 168) @Label1;
+    If ($Event == 170) @Label2;
+    If ($Event >= 202) @Label3;
+		
+	Talk(20890, 20890);
+	Goto @end;
+		
+@Label1:
+	Talk(20961, 20961);
+	Goto @end;
+
+@Label2:
+	Talk(20962, 20962);
+	Goto @end;
+		
+@Label3:	
+	If ($Event == 360 ) @TalkE360;
+	Talk(20963, 20963);
+	Goto @end;
+	
+@TalkA360:
+	Talk(40180,40180);
+	Goto @end;	
+@end:
+	Return;	
+	
+	

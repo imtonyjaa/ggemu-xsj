@@ -1,0 +1,32 @@
+//
+//
+
+	If ($Event <> 80) @end;
+
+	LoadNpc("huianzhen-heiyiren.npc");
+	Say("杨影枫：什么人？", 4);
+	SetNpcActionFile("杨影枫", 0, "npc006_st2.asf");
+	SetNpcActionFile("杨影枫", 1, "npc006_sst2.asf");
+	NpcSpecialAction("杨影枫", "mpc017.asf");
+
+	PlayerGoto(46, 52);
+	SetPlayerDir(7);
+	Say("杨影枫：你们是什么人？在这里干什么？", 2);
+	NpcGoto("黑衣人头子",47,56);
+	SetNpcDir("黑衣人头子",3);
+	Say("黑衣人：嘿嘿，什么人，要你命的人！", 65);
+	Say("杨影枫：诸位好兴致呀，半夜三更还在这里上窜下窜的，是不是漫漫长夜，无心睡眠？那我就陪你们练练拳脚吧，不过天这么黑，难免有误伤，千万不要见怪呀！", 2);
+	Say("黑衣人：拿人钱财，与人消灾！你受死吧！", 65);
+	SetNpcRelation("黑衣人头子", 1);
+    SetNpcRelation("黑衣人", 1);
+	SetPlayerState(1);
+    EnableFight();
+	EnableNpcAI();
+	AddToMemo(90120);
+	SetMapTrap(1, "Trap01.txt");
+	SetMapTrap(2, "Trap02.txt");
+	SetMapTrap(3, "Trap03.txt");
+	Assign($Event, 85);
+
+@end:
+	Return;

@@ -1,0 +1,12 @@
+//杀手死光
+
+	Add($fight112, 1);
+	If ($fight112 == 20) @finished; //设置杀手数目
+    Return;
+    	
+@finished:
+	Assign($shashousw, 1);
+	ClearEffect();
+	SetMapTrap(01,"trap01.txt");
+	SetMapTrap(02,"trap02.txt");
+	Return;

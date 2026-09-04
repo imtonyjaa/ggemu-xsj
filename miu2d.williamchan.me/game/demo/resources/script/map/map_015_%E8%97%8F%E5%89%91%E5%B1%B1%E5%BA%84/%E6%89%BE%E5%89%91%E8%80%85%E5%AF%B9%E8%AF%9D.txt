@@ -1,0 +1,52 @@
+
+
+	If ($SubEvent21 == 0) @Sub21Talk;
+	If ($SubEvent21 == 1) @Sub21Talk;
+	If ($SubEvent21 == 2) @Sub21Talk;
+	If ($SubEvent21 == 3) @Sub21Talk;
+	If ($SubEvent21 == 4) @Sub21Talk;
+	If ($SubEvent21 == 5) @Sub21Talk;
+	If ($SubEvent21 == 6) @Sub21Goods;
+	If ($SubEvent21 == 10) @Sub21Continue;
+
+	@Sub21Talk:
+		Say("杨影枫：你在做什么？", 2);
+		Say("挖地者：啊！没……没做什么，公子，你千万不要跟别人说。");
+		Say("杨影枫：那你告诉我你在做什么？", 3);
+		Say("挖地者：我……我听说藏剑山庄埋藏有名剑，故此来碰碰运气。");
+		Say("杨影枫：哦？哈哈……老兄还真是好雅兴。",3);
+		Add($SubEvent21, 1);
+		Return;
+	@Sub21Goods:
+		Say("杨影枫：老兄，怎么样？挖到否？", 2);
+		Say("挖地者：啊！！我终于挖到啦！哈哈哈……");
+		Say("杨影枫：看看是何物？", 2);
+		Say("挖地者：咦？这是什么？不是剑！唉，那有什么用。大侠，不如卖给你吧，一双怪鞋，我要来实在无用。这样吧，便宜一点，２０两银子，怎么样？");
+		Choose("杨影枫：", "那好吧！", "老兄，我要来也没用啊。", $BuyShoeCheck);
+//		Choose("买下这双鞋吗？", "买。", "不买。", $BuyShoeCheck);
+		If ($BuyShoeCheck == 0) @BuyShoeYes;
+		If ($BuyShoeCheck == 1) @BuyShoeNo;
+		@BuyShoeYes:
+//			Say("杨影枫：那好吧！", 2);
+			GetMoneyNum($ShoeMoney);
+			If ($ShoeMoney << 20) @NoMoney;
+			If ($ShoeMoney >= 20) @BuyShoe;
+			@BuyShoe:
+				AddGoods("goods-f08-速攻鞋.ini");
+				AddMoney(-20);
+				Assign($SubEvent21, 10);
+				Return;
+			@NoMoney:
+				Say("杨影枫：哎呀，不好，我忘带钱了。老兄，实在没办法。", 2);
+				Say("挖地者：不是吧，大侠，２０两银子都不愿出？哎，这年头，大侠也这么小气。看你这么可怜，就送给你吧。");
+				AddGoods("goods-f08-速攻鞋.ini");
+				Assign($SubEvent21, 10);
+				Return;
+		@BuyShoeNo:
+//			Say("杨影枫：老兄，我要来也没用啊，还是你留者吧！", 2);
+			Say("挖地者：不要算了，也没指望你能给多少钱。我还是继续找我的剑吧。");
+			Assign($SubEvent21, 10);
+			Return;
+	@Sub21Continue:
+		Say("挖地者：我就不信我挖不到。");
+		Return;

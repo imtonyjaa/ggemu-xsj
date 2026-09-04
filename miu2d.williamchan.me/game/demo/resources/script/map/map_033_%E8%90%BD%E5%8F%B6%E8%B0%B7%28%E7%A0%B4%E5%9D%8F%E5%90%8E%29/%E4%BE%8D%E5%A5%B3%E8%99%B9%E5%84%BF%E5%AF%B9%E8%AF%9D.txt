@@ -1,0 +1,14 @@
+
+	GetRandNum($TalkFight, 1, 2);
+	If ($TalkFight == 1) @TalkFight31;
+	If ($TalkFight == 2) @TalkFight32;
+	
+	@TalkFight31:
+		Talk(80770, 80770);
+		Goto @end;
+	@TalkFight32:
+		Say("虹儿：公子，我们姐妹练了一个阵法，叫“落叶缤纷阵”，这次跟无忧教战斗，发挥了大作用，公子要不要看看？");
+		Say("杨影枫：不用了。", 2);
+		Goto @end;
+@end:
+	Return;

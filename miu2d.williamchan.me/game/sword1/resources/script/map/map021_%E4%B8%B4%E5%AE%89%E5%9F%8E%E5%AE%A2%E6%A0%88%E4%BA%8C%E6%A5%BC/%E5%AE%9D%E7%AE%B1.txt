@@ -1,0 +1,7 @@
+//打开宝箱
+
+	PlaySound("物_箱子开.wav");
+	OpenBox();
+	AddGoods("Goods011_迦蓝挂链.ini");
+	SetObjScript("","");
+	Return;

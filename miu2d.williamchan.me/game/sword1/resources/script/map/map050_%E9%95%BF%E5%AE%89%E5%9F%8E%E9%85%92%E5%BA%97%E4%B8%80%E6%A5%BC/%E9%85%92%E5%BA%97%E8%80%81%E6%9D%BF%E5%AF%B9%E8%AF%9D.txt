@@ -1,0 +1,70 @@
+// 与酒店老板对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	If ($Event == 301) @Event301;
+	If ($Event == 304) @Event304;
+	If ($Event == 305) @Event304;	
+	
+	GetRandNum($Talklaoban, 0, 2);
+	If($Talklaoban == 0) @Talklaoban0;
+	If($Talklaoban == 1) @Talklaoban1;
+	If($Talklaoban == 2) @Talklaoban2;
+	
+ @Talklaoban0:
+	Say("酒店掌柜：时逢乱世，生意也不好做啊，每天都这么冷冷清清，没几个人上门。", 85);
+	Return;
+ @Talklaoban1:
+	Say("酒店掌柜：客官若想清静就请上二楼。", 85);
+	Return;
+ @Talklaoban2:
+	Say("酒店掌柜：公子相貌堂堂，气度不凡，真是稀客啊！", 85);	
+	Return;
+
+
+@Event301:
+	Say("酒店掌柜：最近有个年轻人经常来喝得酩酊大醉，好象有什么心事想不开哪。", 85);
+	Return;
+
+@Event304:
+	Say("酒店掌柜：公子还要喝酒吗？这里有新到的苏州林记的陈年女儿红。", 85);
+	Say("张如梦：下……下次吧。", 20);
+	Return;
+	
+	
+	
+@YuanDan:		
+
+	If ($Event == 301) @Event301YD;
+	If ($Event == 304) @Event304YD;
+	If ($Event == 305) @Event304YD;	
+	
+	GetRandNum($Talklaoban, 0, 2);
+	If($Talklaoban == 0) @Talklaoban0YD;
+	If($Talklaoban == 1) @Talklaoban1YD;
+	If($Talklaoban == 2) @Talklaoban2YD;
+	
+ @Talklaoban0YD:
+	Say("酒店掌柜：恭贺新禧！时逢乱世，生意也不好做啊，每天都这么冷冷清清，没几个人上门。", 85);
+	Return;
+ @Talklaoban1YD:
+	Say("酒店掌柜：恭贺新禧！客官若想清静就请上二楼。", 85);
+	Return;
+ @Talklaoban2YD:
+	Say("酒店掌柜：恭贺新禧！公子相貌堂堂，气度不凡，真是稀客啊！", 85);	
+	Return;
+
+
+@Event301YD:
+	Say("酒店掌柜：最近有个年轻人经常来喝得酩酊大醉，好象有什么心事想不开哪。", 85);
+	Return;
+
+@Event304YD:
+	Say("酒店掌柜：公子还要喝酒吗？这里有新到的苏州林记的陈年女儿红。", 85);
+	Say("张如梦：下……下次吧。", 20);
+	Return;
+	

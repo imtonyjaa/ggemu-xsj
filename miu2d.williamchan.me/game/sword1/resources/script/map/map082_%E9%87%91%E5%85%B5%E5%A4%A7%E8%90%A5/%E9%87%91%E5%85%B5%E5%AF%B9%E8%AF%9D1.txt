@@ -1,0 +1,8 @@
+// 与金兵的对话1
+
+	If ($Event == 460) @Event460;
+	Return;
+	
+@Event460:
+	Say("金兵：小心宋兵来劫营！", 0);
+	Return;	

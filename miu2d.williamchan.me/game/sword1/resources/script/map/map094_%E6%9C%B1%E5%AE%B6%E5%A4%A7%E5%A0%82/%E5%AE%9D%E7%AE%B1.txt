@@ -1,0 +1,7 @@
+//打开宝箱
+
+	PlaySound("物_箱子开.wav");
+	OpenBox();
+	AddGoods("Goods045_岚枫雪衣.ini");
+	SetObjScript("","");
+	Return;

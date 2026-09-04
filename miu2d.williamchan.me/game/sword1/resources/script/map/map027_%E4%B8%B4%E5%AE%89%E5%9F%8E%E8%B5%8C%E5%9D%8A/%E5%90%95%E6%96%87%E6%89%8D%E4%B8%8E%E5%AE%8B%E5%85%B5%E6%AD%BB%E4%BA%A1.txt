@@ -1,0 +1,48 @@
+// 赌场战斗胜利
+
+	Add($map027Enemy, 1);
+	If ($map027Enemy == 3) @finished;
+    Return;
+    
+@finished:
+	FadeOut();
+	StopMusic();
+	LoadNpc("map027_win.npc");
+	LoadObj("map027_win.obj");
+	
+	SetPlayerPos(7, 20);
+	SetPlayerDir(7);
+	SetPlayerScn();
+	SetPlayerState(0);
+	
+	SetNpcPos("吕文才", 7, 21);
+	SetNpcDir("吕文才", 3);
+	SetNpcRelation("吕文才", 2);
+	
+	SetNpcPos("宋兵1", 7, 23);
+	SetNpcDir("宋兵1", 4);
+	SetNpcRelation("宋兵1", 2);
+	
+	SetNpcPos("宋兵2", 8, 20);
+	SetNpcDir("宋兵2", 1);
+	SetNpcRelation("宋兵2", 2);
+	
+	PlayMusic("闲步.mp3");
+	ClearEffect();
+	FadeIn();
+	
+	Say("吕文才：小子，胆敢殴打朝廷命官，分明是不想活了。", 57);
+	Say("独孤剑：打还是轻的，象你这种混帐东西，杀了也不过分。", 9);
+	Say("吕文才：你敢！我可是秦相爷的亲戚，你敢动我一根毫毛我就让你……", 57);
+	Say("独孤剑：哈哈！刚才我动了你多少根毫毛你知道吗？要不要再动几百根给你瞧瞧？", 2);
+	Say("吕文才：别……别动手，英雄，有话好说，有话好说！", 57);
+	Say("独孤剑：快把出城的令牌拿来使使！", 9);
+	Say("吕文才：是是是！小事一桩，小事一桩！英雄别打我就成。", 57);
+	Say("独孤剑：还不快点！", 9);
+	Say("吕文才：好、好，令牌给你。", 57);
+	AddGoods("Goods403_临安城东门令牌.ini");  // 得到令牌
+	Assign($Event, 70);  
+	Assign($Selectlast, 1);    
+	Memo("独孤剑在赌场找到吕文才，与他比试一场，把他打得鬼哭狼嚎，得到东门令牌。");
+	SetMapTrap(1, "trap01.txt");
+	Return;

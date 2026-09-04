@@ -1,0 +1,16 @@
+// 与江老太的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	Say("江老太：死老头子，整天不做事，就知道翘起二郎腿抽他的旱烟袋！", 0);
+	Return;
+	
+	
+@YuanDan:	
+	
+	Say("江老太：小伙子，新年好啊，我们那个老头子，整天不做事，就知道翘起二郎腿抽他的旱烟袋！", 0);
+	Return;

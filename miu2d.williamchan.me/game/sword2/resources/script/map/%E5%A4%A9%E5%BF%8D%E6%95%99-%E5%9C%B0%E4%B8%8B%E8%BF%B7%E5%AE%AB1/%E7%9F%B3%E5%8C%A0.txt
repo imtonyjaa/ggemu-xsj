@@ -1,0 +1,25 @@
+    If($TrjDxmgshijiang==2) @Talk2;
+    If($TrjDxmgshijiang==1) @Talk1;
+    Talk(32830,32840);
+    Assign($TrjDxmgshijiang,1);
+    Return;
+@Talk1:
+    Talk(32850,32850);
+    Return;
+@Talk2:
+    Talk(32860,32870);
+    PlayerGoto(75,93);	
+    SetPlayerDir(7);	
+    NpcGoto("铁匠",76,94);
+    SetNpcDir(7);	
+    FadeOut();
+    DelObj("大铁门1");		
+    SetNpcScript("铁匠","");
+    FadeIn();
+    DisableNpcAI();
+    NpcGoto("铁匠",78,98);
+    Talk(32880,32890);
+    NpcGotoEx("铁匠",84,115);
+    DelGoods("goods-sj-11-金刚锤.ini");
+    EnableNpcAI();
+    Return;

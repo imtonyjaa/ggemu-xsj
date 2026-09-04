@@ -1,0 +1,8 @@
+If ($Event == 3145) @Talk3145;
+Talk(22430, 22430);
+Return;
+
+@Talk3145:
+	Talk(103570,103580);
+	Return;
+	

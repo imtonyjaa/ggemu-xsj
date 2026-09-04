@@ -1,0 +1,98 @@
+// 姚公子及跟班死亡
+
+	Add($fight051, 1);
+	If ($fight051 == 3) @Finished;
+    Return;
+    	
+@Finished:
+	FadeOut();
+	StopMusic();
+	LoadNpc("map051.npc");
+	ClearBody();
+	SaveObj();
+	SetPlayerPos(13, 40);
+	SetPlayerDir(3);
+	SetPlayerState(0);
+	AddNpc("npc038_跪着的姚公子.ini", 12, 38, 7);
+	PlayMusic("春潮.mp3");
+	ClearEffect();
+	FadeIn();
+	
+	Say("姚公子：大、大爷，不，干、干爹——饶命啊！", 71);
+	Say("张如梦：嘿嘿，好干儿子，你做的坏事已经够你死一千次了，饶你不得！", 11);
+	
+	SetNpcActionFile("张如梦", 0, "mpc020_2.asf");
+	SetNpcActionFile("张如梦", 1, "mpc020_2.asf");
+	NpcSpecialAction("张如梦", "mpc020_1.asf");    // 张如梦举剑
+	Sleep(1000);
+	
+	Say("独孤剑：且慢！", 1);
+	
+	SetNpcActionFile("张如梦", 0, "npc003_st.asf");
+	SetNpcActionFile("张如梦", 1, "npc003_pst.asf");
+	NpcSpecialAction("张如梦", "mpc020_3.asf");    // 张如梦放下剑
+	Sleep(1000);
+	SetPlayerDir(7);
+	Sleep(500);
+	AddNpc("npc001_独孤剑.ini", 15, 42, 3);
+	AddNpc("npc004_张琳心.ini", 14, 43, 3);
+	SetNpcKind("独孤剑", 1);
+	SetNpcKind("张琳心", 1);
+	Sleep(500);
+	NpcGotoEx("独孤剑", 13, 38);
+	Sleep(200);
+	NpcGoto("张琳心", 13, 39);
+	Sleep(500);
+	SetNpcDir("独孤剑", 1);
+	SetNpcDir("张琳心", 2);
+	SetNpcDir("张如梦", 4);
+	
+	Say("张如梦：独孤兄？", 11);
+	Say("独孤剑：张兄暂且留下这狗贼一命，小弟尚有一事要着落在他身上，我需要他带我去大牢救一位姓李的朋友。", 1);
+	Say("张如梦：既然如此，那就先记下这厮的狗头。", 12);
+	Say("姚公子：多、多谢大侠，多、多谢大侠！", 71);
+	SetNpcDir("独孤剑", 2);
+	Say("独孤剑：如果你不想死的话，就乖乖听我们的吩咐！起来！", 5);
+	
+	SetNpcActionFile("姚公子", 0, "npc038_st.asf");
+	SetNpcActionFile("姚公子", 1, "npc038_pst.asf");
+	NpcSpecialAction("姚公子", "mpc019_2.asf");    // 姚公子站起来
+	Sleep(2000);
+	DelNpc("姚公子"); 	//对存盘的处理
+	AddNpc("npc038_姚公子.ini", 12, 38, 7);
+	SaveNpc();
+	
+	Say("姚公子：小的一定、一定照办。", 71);
+	SetNpcDir("独孤剑", 1);
+	Say("独孤剑：张兄，那我们先去监牢救人，过会在酒楼见面。", 1);
+	Say("张如梦：好的。琳儿你……", 11);
+	Say("张琳心：哥……我先陪独孤哥哥去救人。", 22);
+
+	DelNpc("独孤剑");	
+	PlayerChange(0);
+	SetPlayerPos(13, 38);
+	SetPlayerDir(1);
+	SetNpcRelation("独孤剑", 0);
+	SetNpcKind("独孤剑", 2); 
+
+	AddNpc("npc003_喝醉酒的张如梦.ini", 13, 40, 7);
+	SetNpcKind("张如梦", 1);
+	SetNpcRelation("张如梦", 2);
+	SetNpcScript("张如梦", "张如梦对话.txt");
+	
+	SetPlayerScn();
+	
+	SetNpcKind("张琳心", 3);
+	SetNpcKind("姚公子", 3);
+	SetNpcRelation("张琳心", 2);
+	SetNpcRelation("姚公子", 2);
+	SetNpcScript("张琳心", "张琳心对话.txt");
+	SetNpcScript("姚公子", "姚公子对话.txt");
+	Say("您开始控制独孤剑。");	
+
+	Assign($Event, 307);
+	Memo("喝醉酒的张如梦来到妓院，遇到恶少姚公子正在调戏民女。张如梦趁着酒性教训了姚公子一顿，独孤剑赶到，带姚公子去大牢救李三。");
+	SetMapTrap(1,"trap01.txt");
+	SetMapTrap(2,"trap02.txt");
+	Return;
+	

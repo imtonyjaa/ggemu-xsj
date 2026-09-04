@@ -1,0 +1,48 @@
+//叶馨
+If ($Result == 0) @Result0;
+If ($Result == 1) @Result1;
+If ($Result == 2) @Result2;
+If ($Result == 3) @Result3;
+Goto @end;
+
+@Result0:
+If ($Event == 185 ) @Talk3;
+If ($Event << 360 ) @Talk1;
+If ($Event << 380 ) @Talk4;
+If ($Event >= 380 ) @Talk2;
+Goto @end; 
+
+@Result1:
+Talk(20530, 20540);
+Goto @end;
+
+
+@Result2:
+Talk(20530, 20540);
+Goto @end;
+
+@Result3:
+Talk(20530, 20540);
+Goto @end;
+
+
+@Talk1:
+Talk(20530, 20540);
+Goto @end;
+
+
+@Talk2:
+Talk(40590,40590);
+Goto @end;
+
+@Talk3:
+Talk(20541, 20541);
+Goto @end;
+
+@Talk4:
+Say("叶馨：我这里的菜是镇上最好的，要不要买点？");
+Goto @end;
+
+@end:
+Return;
+

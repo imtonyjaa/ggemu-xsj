@@ -1,0 +1,77 @@
+//春泥
+If ($Result == 0) @Result0;
+If ($Result == 1) @Result1;
+If ($Result == 2) @Result2;
+	Return;
+
+@Result0:
+	If ($Event == 185 ) @Talk185;
+
+	Say("春妮儿：卖花了……，玫瑰花……，公子，你要不要来一枝，只要一百两，送给姑娘最合适了。");
+	Choose("杨影枫：", "给我来一枝吧。", "不用了。", $BuyFlower);
+	If ($BuyFlower == 0) @BuyFlowerYes;
+	If ($BuyFlower == 1) @BuyFlowerNo;
+	@BuyFlowerYes:
+		GetMoneyNum($FlowerMoney);
+		If ($FlowerMoney << 100) @NoMoney;
+			AddGoods("Goods-e21-玫瑰花.ini");
+			AddMoney(-100);
+			Return;
+		@NoMoney:
+			Say("杨影枫：哎呀，不好，我忘带钱了，姑娘，不好意思，我下次再买吧。", 2);
+			Say("春妮儿：没钱还想买花，臭美吗？");
+			Return;
+	@BuyFlowerNo:
+		Say("春妮儿：公子不买啊！干嘛不买给自己喜欢的姑娘呢！");
+		Return;
+
+	@Talk185:
+		Talk(20721, 20725);
+		Return;
+
+@Result1:
+	If ($Event == 680) @TalkE680;
+
+	Say("春妮儿：卖花了……，玫瑰花……，公子，你要不要来一枝，只要一百两，送给姑娘最合适了。");
+	Choose("杨影枫：", "给我来一枝吧。", "不用了。", $BuyFlower);
+	If ($BuyFlower == 0) @BuyFlowerYes;
+	If ($BuyFlower == 1) @BuyFlowerNo;
+	@BuyFlowerYes:
+		GetMoneyNum($FlowerMoney);
+		If ($FlowerMoney << 100) @NoMoney;
+			AddGoods("Goods-e21-玫瑰花.ini");
+			AddMoney(-100);
+			Return;
+		@NoMoney:
+			Say("杨影枫：哎呀，不好，我忘带钱了，姑娘，不好意思，我下次再买吧。", 2);
+			Say("春妮儿：没钱还想买花，臭美吗？");
+			Return;
+	@BuyFlowerNo:
+		Say("春妮儿：公子不买啊！干嘛不买给自己喜欢的姑娘呢！");
+		Return;
+		
+	@TalkE680:
+		Talk(20720, 20720);
+		Say("春妮儿：这位公子身边的姑娘真是漂亮，为什么公子不买枝花，送给她？");
+		Say("月眉儿：我不要！");
+		Return;
+
+@Result2:
+	Say("春妮儿：卖花了……，玫瑰花……，公子，你要不要来一枝，只要一百两，送给姑娘最合适了。");
+	Choose("杨影枫：", "给我来一枝吧。", "不用了。", $BuyFlower);
+	If ($BuyFlower == 0) @BuyFlowerYes;
+	If ($BuyFlower == 1) @BuyFlowerNo;
+	@BuyFlowerYes:
+		GetMoneyNum($FlowerMoney);
+		If ($FlowerMoney << 100) @NoMoney;
+			AddGoods("Goods-e21-玫瑰花.ini");
+			AddMoney(-20);
+			Return;
+		@NoMoney:
+			Say("杨影枫：哎呀，不好，我忘带钱了，姑娘，不好意思，我下次再买吧。", 2);
+			Say("春妮儿：没钱还想买花，臭美吗？");
+			Return;
+		Return;
+	@BuyFlowerNo:
+		Say("春妮儿：公子不买啊！干嘛不买给自己喜欢的姑娘呢！");
+		Return;

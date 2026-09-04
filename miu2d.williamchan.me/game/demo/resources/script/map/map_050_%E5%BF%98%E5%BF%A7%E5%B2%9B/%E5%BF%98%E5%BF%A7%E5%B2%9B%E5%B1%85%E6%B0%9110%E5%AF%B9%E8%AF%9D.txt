@@ -1,0 +1,47 @@
+//钟灵秀
+	If ($Event == 1818) @1813;
+	If ($Event == 1817) @1813;
+	If ($Event == 1813) @1813;
+	If ($Event == 350) @Talk350;
+	If ($Event >= 302) @Label;
+	Talk(21200, 21200);
+	Return;
+
+@1813:
+	Say("钟灵秀：杨公子，真儿是一个好姑娘，你可不要辜负她呀。");
+	Say("杨影枫：……");
+	Return;
+
+@Label:
+	If ($Event == 340) @Label2;
+	If ($Event == 412) @Talk412;
+	If ($Event == 415) @Talk415;
+	Talk(21201, 21201);
+	Return;
+@Label2:
+	Talk(21700, 21700);
+	Return;
+	
+@Talk412:
+	Talk(41100,41100);
+	Return;
+
+
+@Talk415:
+	Talk(41110,41120);
+	Return;
+
+@TalkA750:
+	Talk(71590,71600);
+	Return;
+
+@Talk350:
+	Sleep(500);
+	Say("钟灵秀：杨公子，真儿是一个好姑娘，你可不要辜负她呀。", 0);
+	Say("杨影枫：……", 2);
+	Return;
+	
+@end:
+	Return;
+
+	

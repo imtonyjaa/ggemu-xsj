@@ -1,0 +1,13 @@
+
+	GetRandNum($TalkFight, 1, 2);
+	If ($TalkFight == 1) @TalkFight31;
+	If ($TalkFight == 2) @TalkFight32;
+	
+	@TalkFight31:
+		Talk(80880, 80880);
+		Goto @end;
+	@TalkFight32:
+		Say("李总管：公子，我们落叶谷家丁都训练有素，说明我平时的工作还是卓有成效的，谷主应该给我加点儿薪啊。", 74);
+		Goto @end;
+@end:
+	Return;

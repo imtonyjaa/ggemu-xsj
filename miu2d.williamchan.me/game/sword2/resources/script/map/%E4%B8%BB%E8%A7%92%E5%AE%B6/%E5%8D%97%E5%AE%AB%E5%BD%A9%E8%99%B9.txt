@@ -1,0 +1,17 @@
+// 南宫彩虹
+
+	If ($NanGongCaiHong == 1) @talk2;
+	If ($NanGongCaiHong == 2) @talk3;
+	Talk(22920,22920);
+	Assign($NanGongCaiHong, 1);
+	Return;
+
+@talk2:
+	Talk(22930,23050);
+	SetNpcDir("南宫彩虹",1);
+	Assign($NanGongCaiHong, 2);
+	Return;
+
+@talk3:
+	Talk(23060,23060);
+	Return;

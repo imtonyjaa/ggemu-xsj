@@ -1,0 +1,61 @@
+// 与临安城居民卖艺人的对话
+
+	CheckYear($Value);  
+	If ($Value == 0) @NotYuanDan;	
+	If ($Value == 1) @YuanDan;	
+	
+@NotYuanDan:
+
+	If ($Talkmaiyiren1 == 0) @Talk0;
+	If ($Talkmaiyiren1 == 1) @Talk1;
+	If ($Talkmaiyiren1 == 2) @Talk2;
+	If ($Talkmaiyiren1 == 3) @Talk3;
+	If ($Talkmaiyiren1 == 4) @Talk4;
+	
+@Talk0:
+	Say("卖艺人：各位乡亲父老，大家有钱的帮个钱场，没钱的帮个人场。", 0);
+	Assign($Talkmaiyiren1, 1);
+	Return;
+@Talk1:	
+	Say("卖艺人：看我夜叉探海。", 0);
+	Assign($Talkmaiyiren1, 2);
+	Return;
+@Talk2:	
+	Say("卖艺人：看我金蛇狂舞。", 0);
+	Assign($Talkmaiyiren1, 3);
+	Return;	
+@Talk3:	
+	Say("卖艺人：您要是觉得好，就赏两个钱，道个好，要是您觉得不好，我就重新来过。", 0);
+	Assign($Talkmaiyiren1, 4);
+	Return;		
+@Talk4:	
+	Say("卖艺人：请道上的朋友多多帮衬！", 0);
+	Return;		
+	
+@YuanDan:		
+
+	If ($Talkmaiyiren1 == 0) @Talk0YD;
+	If ($Talkmaiyiren1 == 1) @Talk1YD;
+	If ($Talkmaiyiren1 == 2) @Talk2YD;
+	If ($Talkmaiyiren1 == 3) @Talk3YD;
+	If ($Talkmaiyiren1 == 4) @Talk4YD;
+	
+@Talk0YD:
+	Say("卖艺人：各位乡亲父老，新年好！祝大家合家幸福，万事如意！大家有钱的帮个钱场，没钱的帮个人场。", 0);
+	Assign($Talkmaiyiren1, 1);
+	Return;
+@Talk1YD:	
+	Say("卖艺人：看我夜叉探海。", 0);
+	Assign($Talkmaiyiren1, 2);
+	Return;
+@Talk2YD:	
+	Say("卖艺人：看我金蛇狂舞。", 0);
+	Assign($Talkmaiyiren1, 3);
+	Return;	
+@Talk3YD:	
+	Say("卖艺人：您要是觉得好，就赏两个钱，道个好，要是您觉得不好，我就重新来过。", 0);
+	Assign($Talkmaiyiren1, 4);
+	Return;		
+@Talk4YD:	
+	Say("卖艺人：请道上的朋友多多帮衬！", 0);
+	Return;		

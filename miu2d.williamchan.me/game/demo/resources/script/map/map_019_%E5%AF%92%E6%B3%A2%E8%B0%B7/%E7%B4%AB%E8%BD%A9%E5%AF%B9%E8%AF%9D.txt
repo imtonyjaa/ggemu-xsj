@@ -1,0 +1,169 @@
+	If ($Event == 2036) @L2036; // 紫轩在身边
+	If ($Event == 2035) @L2035; // 紫轩不在身边
+	If ($Event == 2007) @L2007; // 去救纳兰真，月眉儿等人
+	If ($Event == 144) @Label1;
+	If ($Event == 146) @Label4;
+	If ($Event == 170) @Label2;
+	If ($Event == 185) @Label3;
+	If ($Event == 440) @Label440;
+	Return;
+
+@Label440:	
+	Say("紫轩：杨大哥，快救我。", 16);
+	Return;
+	
+	
+@Label1:	
+	If ($Talkzx0191 == 0) @Talk0;
+	If ($Talkzx0191 == 1) @Talk1;
+	If ($Talkzx0191 == 2) @Talk2;
+	Goto @end;
+@Talk0:
+	If ($ZiXuanSense >> 20) @AddSenseEnd;
+	Add($ZiXuanSense, 5);
+	Add($SenseVal, 5);
+@AddSenseEnd:
+	Say("紫轩：杨公子，你为何会客居与此，你是芭蕉小筑主人的朋友吗？", 16);
+	Say("杨影枫：此地主人是我的结义大哥，蒙他盛情，我来这里小住几日。", 2);
+	Assign($Talkzx0191, 1);
+	Return;
+@Talk1:	
+	If ($ZiXuanSense >> 20) @AddSenseEnd1;
+	Add($ZiXuanSense, 5);
+	Add($SenseVal, 5);
+@AddSenseEnd1:
+	Say("紫轩：杨公子，你的结义大哥是何人？", 16);
+	Say("杨影枫：我大哥乃是江湖上人人景仰的藏剑山庄庄主卓非凡，我与他萍水相逢，彼此意气相投，承蒙他不弃，结为八拜之交。",2);
+	Assign($Talkzx0191, 2);
+	Return;
+@Talk2:	
+	If ($ZiXuanSense >> 20) @AddSenseEnd2;
+	Add($ZiXuanSense, 5);
+	Add($SenseVal, 5);
+@AddSenseEnd2:
+	Say("杨影枫：本来我有事不便久留，在大哥盛情挽留之下我才来这里小住几日，没想到竟然遇上了你，现在想想真要感谢我大哥才对！", 3);
+	Say("紫轩：这……也许就是天意吧。", 122);
+	Return;
+	
+	
+@Label2:
+	If ($Talkzixuan19 == 0) @Talk3;
+	If ($Talkzixuan19 == 1) @Talk4;
+	Return;
+@Talk3:
+	If ($ZiXuanSense >> 20) @AddSenseEnd3;
+	Add($ZiXuanSense, 5);
+	Add($SenseVal, 5);
+@AddSenseEnd3:
+	Say("紫轩：芭蕉小筑真是一个修身养性的好地方啊。", 16);
+	Say("杨影枫：我义兄是一个极豪爽的人，如果你愿意，尽可以住下来，不必担心太多。", 3);
+	Say("紫轩：……", 17);
+	Assign($Talkzixuan19, 1);
+	Return;
+@Talk4:
+	If ($ZiXuanSense >> 20) @AddSenseEnd4;
+	Add($ZiXuanSense, 5);
+	Add($SenseVal, 5);
+@AddSenseEnd4:
+	Say("紫轩：…… ", 17);
+	Say("杨影枫：怎么啦？紫轩，你的脸色为何这么苍白？不舒服吗？", 5);
+	Say("紫轩：我……没事，就是有点累。", 17);
+	Say("杨影枫：你今天确实辛苦了，我们此刻就回芭蕉小筑吧。", 3);
+	Return;
+	
+	
+@Label4:
+	If ($Talkzx0192 == 0) @Talk5;
+	If ($Talkzx0192 == 1) @Talk6;
+	If ($Talkzx0192 == 2) @Talk7;
+	If ($Talkzx0192 == 3) @Talk8;
+	Goto @end;
+@Talk5:
+	If ($ZiXuanSense >> 20) @AddSenseEnd5;
+	Add($ZiXuanSense, 5);
+	Add($SenseVal, 5);
+@AddSenseEnd5:
+	Say("紫轩：我小时候，隔壁有一个老爷爷，经常给我们讲一些当年大侠南宫飞云行侠仗义的故事，杨公子，我看你整日手不离剑，你想必也是一位剑侠吧？", 16);
+	Say("杨影枫：在下自幼习武，这剑是我爹遗留给我的，所以从不离身。", 2);	
+	Assign($Talkzx0192, 1);
+	Return;
+@Talk6:	
+	If ($ZiXuanSense >> 20) @AddSenseEnd6;
+	Add($ZiXuanSense, 5);
+	Add($SenseVal, 5);
+@AddSenseEnd6:
+	Say("紫轩：杨公子，你的武功是和谁学的？", 16);
+	Say("杨影枫：爹爹生前教过我一些，但他不幸早逝。他过世之后，我就自学家传武功，没有再拜别的师父。",2);
+	Assign($Talkzx0192, 2);
+	Return;
+@Talk7:		
+	If ($ZiXuanSense >> 20) @AddSenseEnd7;
+	Add($ZiXuanSense, 5);
+	Add($SenseVal, 5);
+@AddSenseEnd7:
+	Say("紫轩：哦，你爹爹在去世之前，给你留下了家传的武功秘笈，然后你就自己照着秘笈练习，是吗？", 16);
+	Say("杨影枫：是啊，如果爹爹还活着，我有不懂之处就可以得到他的指点，那我的武功肯定会不止如此。", 2);
+	Assign($Talkzx0192, 3);
+	Return;
+@Talk8:
+	Say("杨影枫：紫轩，你怎么会突然想起问这些？	", 2);
+	Say("紫轩：哦，我自小就对那些快意恩仇的江湖侠客十分倾慕，所以多问了几句，你不会介意吧？", 16); 
+	Say("杨影枫：当然不会。", 2);
+	Return;
+		
+	
+@Label3:
+	Talk(2502, 2502);
+	Return;
+	
+	
+@L2007:
+	Say("紫轩：你快去吧，不要为我担心。",20);
+	Say("杨影枫：万一我回不来了，你要珍惜自己，好好活下去。", 2);
+	Say("紫轩：……咳咳……我会的，你一定要回来，我等你。",20);
+	Say("杨影枫：那我走了，保重。", 2);
+	Say("紫轩：……咳咳……",20);
+	Return;
+
+@L2035:// 紫轩在身边
+	Return;
+
+@L2036:// 紫轩不在身边
+	StopMusic();
+	PlayMusic("mc013.mp3");
+	Say("杨影枫：紫轩……我们要走了，你难道真不跟我们一起走吗？",2);
+	Say("紫轩：杨大哥……我舍不得离开这里，你们走吧。",17);
+	Say("杨影枫：也好……你的伤势还没痊愈，就先在这里静养一段时间吧。",2);
+	Watch("杨影枫","月眉儿",0);
+	Say("杨影枫：眉儿……你去收拾一下，我们准备出发吧。",2);
+	Say("月眉儿：紫轩妹，你一个人在这里要多多保重呀。",22);
+	Say("紫轩：我会的……",17);
+	FadeOut();
+	Say("月眉儿收拾好了行装");
+	SetNpcPos("紫轩",30,91);
+	SetNpcDir("紫轩",7);
+	SetPlayerPos(32,99);
+	SetPlayerDir(3);
+	SetNpcPos("月眉儿",32,100);
+	SetNpcDir("月眉儿",3);
+	FadeIn();
+	Say("杨影枫：紫轩……再见。",2);
+	Say("月眉儿：紫轩妹，再见。",22);
+	Say("紫轩：杨大哥……眉儿姐……再见……",17);
+	PlayerGotoEx(36,88);
+	Sleep(2000);
+	FadeOut();
+	Say("两人收拾好行装，离开了寒波谷。");
+	SetNpcLevel("月眉儿", 53);
+	LoadMap("map_018_连接地图.map");
+	LoadNpc("map018.npc");
+	LoadObj("map018_obj.obj");
+	SetPlayerPos(3, 35);
+	SetPlayerDir(6);
+	FadeIn();
+	SetNpcDeathScript("杨影枫","主角死亡.txt");
+	SetNpcDeathScript("月眉儿","主角死亡.txt");
+	SetNpcDeathScript("紫轩","主角死亡.txt");
+	Assign($Event, 2040);
+	Assign($zixuan, 0);
+	Return;

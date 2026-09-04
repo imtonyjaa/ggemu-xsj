@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <!-- 根据 URL 立即切换游戏专属 manifest，Chrome 读标签时已是正确图标 -->
+    <script>
+      (function () {
+        var m = location.pathname.match(/^\/game\/([^/]+)/);
+        if (m) {
+          var slug = m[1];
+          var base = '/miu2d.williamchan.me:10443' || '';
+          document.querySelector('link[rel="manifest"]').href = base + '/game/' + slug + '/api/manifest';
+          document.querySelector('link[rel="apple-touch-icon"]').href = base + '/game/' + slug + '/api/logo/192';
+        }
+      })();
+    </script>
+    <meta name="theme-color" content="#1a1a2e" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Miu2D" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- Miu2D Engine - Modern 2D RPG Game Engine -->
+    <title>Miu2D Engine - Web-based 2D RPG Game Engine</title>
+    <meta name="description" content="Miu2D Engine is a modern, TypeScript-based 2D RPG game engine for the web. Built with React 19 and HTML5 Canvas, featuring tile-based maps, sprite animations, scripting system, and classic RPG mechanics." />
+    <meta name="keywords" content="Miu2D Engine, 2D game engine, RPG engine, TypeScript, React, Canvas, web game, game development, vibe coding" />
+    <meta name="author" content="Miu2D Engine Team" />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Miu2D Engine - Web-based 2D RPG Game Engine" />
+    <meta property="og:description" content="A modern TypeScript 2D RPG game engine. Features include tile-based maps, A* pathfinding, sprite animations, scripting system, magic system, and NPC interactions." />
+    <meta property="og:site_name" content="Miu2D Engine" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Miu2D Engine - Web-based 2D RPG Game Engine" />
+    <meta name="twitter:description" content="Build classic 2D RPG games for the web with TypeScript, React, and Canvas." />
+
+    <!-- Technical Info -->
+    <meta name="generator" content="Vite 7 + React 19 + TypeScript 5.9" />
+
+    <style>
+      body { margin: 0; padding: 0; overflow: hidden; background: #000; }
+    </style>
+    <script type="module" crossorigin src="/assets/index-D4tsONPY.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-COnpUsM8.js">
+    <link rel="modulepreload" crossorigin href="/assets/LibsI18n-Dw-DIPNE.js">
+    <link rel="modulepreload" crossorigin href="/assets/LibsReact-BxvMX97-.js">
+    <link rel="modulepreload" crossorigin href="/assets/LibsMotion-4vOB3qBq.js">
+    <link rel="modulepreload" crossorigin href="/assets/LibsTrpc-Duk7LUcE.js">
+    <link rel="modulepreload" crossorigin href="/assets/LibsIcons-HgOTS08i.js">
+    <link rel="modulepreload" crossorigin href="/assets/types-DGUgXLOr.js">
+    <link rel="modulepreload" crossorigin href="/assets/game-api-BXrzfG2Z.js">
+    <link rel="modulepreload" crossorigin href="/assets/path-finder-B3gQ5S8K.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-D0gbF9UN.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"4540f608a0814bd49737a36702ada347","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

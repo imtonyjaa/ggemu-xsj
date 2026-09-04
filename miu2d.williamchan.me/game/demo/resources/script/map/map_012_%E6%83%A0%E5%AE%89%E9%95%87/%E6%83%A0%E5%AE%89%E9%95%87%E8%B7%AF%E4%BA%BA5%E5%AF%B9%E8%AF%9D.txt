@@ -1,0 +1,51 @@
+//孙凯
+//
+If ($Result == 0) @Result0;
+If ($Result == 1) @Result1;
+If ($Result == 2) @Result2;
+If ($Result == 3) @Result3;
+Goto @end;
+
+@Result0:
+If ($Event == 60 ) @Talk3;
+If ($Event << 380 ) @Talk1;
+If ($Event >= 380 ) @Talk2;
+Goto @end; 
+
+@Result1:
+Say("孙凯：唉，这个世道就是这个样子。今天太平，明天就不会太平了；明天不太平，候天又太平了，唉。");
+Goto @end;
+
+
+@Result2:
+Talk(20510, 20510);
+Goto @end;
+
+@Result3:
+Talk(20510, 20510);
+Goto @end;
+
+
+@Talk1:
+Talk(20510, 20510);
+Goto @end;
+
+@Talk2:
+Talk(40570,40570);
+Goto @end;
+
+@Talk3:
+	If ($Talksunkai == 0) @Talk0;
+	Talk(20510, 20510);
+	Goto @end;
+@Talk0:
+   	Talk(20511, 20515);
+   	Assign($Talksunkai, 1);
+	Goto @end;
+
+
+
+@end:
+Return;
+
+

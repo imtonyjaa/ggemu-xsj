@@ -1,0 +1,171 @@
+If ($Event == 3060) @Event3060;
+Return;
+
+@Event3060:
+Add($NpcCount,-1);
+If ($NpcCount == 0) @AllClear;
+Return;
+
+@AllClear:
+	
+	FadeOut();
+	StopMusic();
+	FullLife();
+	FullMana();
+	FullThew();
+	
+	Sleep(2000);
+	LoadMap("map_052_码头.map");
+	LoadNpc("map052_SayBybe.npc");
+	SetPlayerPos(13,27);
+	SetNpcPos("月眉儿",13,29);
+	SetNpcKind("月眉儿",1);
+	SetNpcDir("月眉儿",6);
+	SetPlayerDir(6);
+	SetNpcScript("月眉儿","月眉儿跟随对话.txt");
+	
+	FadeIn();
+Say("王玲嫂：杨公子，多谢了！要不是你来得及时……这里后果不堪设想！",0);
+Say("杨影枫：不必客气！",2);
+Say("杨影枫：我们还有要事在身，先走了。",2);
+Say("忘忧岛居民：噢，那好，请杨公子保重！");
+Say("杨影枫：多谢了！各位请回吧！",2);
+Say("荆十娘：杨公子，真儿怎么没有跟你回来呢？");
+Say("杨影枫：真儿……和她爹在一起。",2);
+Say("荆十娘：原来如此。唉，纳兰教主为何要离开忘忧岛呢？无忧教在的时候，那些天杀的匪贼可不敢来忘忧岛行恶！",0);
+Say("福婆婆：杨公子，多亏你保护我们忘忧岛的子孙啊，菩萨会保佑你一生平安！",0);
+Say("杨影枫：多谢福婆婆！",2);
+Say("月眉儿：（小声的）好罗嗦的老太婆！",22);
+Say("小冬瓜：杨哥哥，我长大也要学武功，保卫忘忧岛！",0);
+Say("杨影枫：呵呵，小冬瓜好志气！",2);
+Say("小冬瓜：杨哥哥，我好想念真儿姐姐……你下次见到她叫她快点回忘忧岛，好不好？",0);
+Say("杨影枫：好的，我会转告她的。",2);
+Say("小冬瓜：谢谢杨哥哥！",0);
+Say("荆十娘：这位姑娘是谁？好像有点面熟啊！",0);
+Say("杨影枫：是吗？……她是在下的一个朋友。",2);
+
+
+
+
+
+
+
+
+	PlayerGotoEx(8,31);
+	SetNpcKind("月眉儿",3);
+	Sleep(1500);
+		
+	PlayMusic("Mc018.mp3");
+	FadeOut();	
+	//Talk(98040,98040);
+	LoadMap("map_029_码头.map");
+	LoadNpc("map029.npc");
+	LoadObj("map029_obj.obj");
+	SetPlayerPos(10, 105);
+	SetPlayerDir(2);
+	ShowNpc("杨影枫",1);
+	ShowNpc("月眉儿",1);
+	SetNpcRelation("杨影枫",0);
+	SetNpcRelation("月眉儿",0);
+	Watch("杨影枫","月眉儿",0);
+	
+	//SetNpcRelation("纳兰潜凛",2);
+	EnableInput();
+	AddNpc("紫轩.ini",15,58,7);
+	FadeIn();
+	Talk(98630,98630);
+	Assign($Event,3100);
+	PlayerGoto(16,89);
+	
+	NpcGotoEx("紫轩",18,68);
+	Talk(98640,98640);
+	Sleep(500);
+	Talk(98634,98634);
+	PlayerGotoEx(18,76);
+	Sleep(2000);
+	SetNpcKind("月眉儿",1);
+	//
+	
+	NpcGotoEx("月眉儿",16,77);
+	Sleep(1000);
+	NpcGoto("紫轩",18,68);
+	PlayerGoto(18,70);
+	Watch("紫轩","杨影枫",0);
+	Talk(98650,98650);
+	Talk(98680,98680);
+	SetNpcKind("月眉儿",1);
+	If ($EvilValue >> 100) @EvilTalk;
+	
+	Talk(98851,98853);
+	
+	NpcGoto("月眉儿",17,69);
+	Watch("月眉儿","紫轩",0);
+	Talk(98660,98670);
+	Talk(98710,98710);
+	Watch("月眉儿","杨影枫",0);
+	Talk(98720,98720);
+	Watch("紫轩","杨影枫",0);
+	Talk(98730,98730);
+	Sleep(1000);
+	Talk(98750,98750)
+	Watch("杨影枫","月眉儿",0);
+	Talk(98760,98780);
+	Talk(98854,98854);
+	Watch("月眉儿","杨影枫",1);
+	Goto @Next;
+	
+@EvilTalk:
+	Watch("杨影枫","紫轩",0);
+	Talk(98690,98700);
+	NpcGoto("月眉儿",17,69);
+	
+	Watch("月眉儿","紫轩",0);
+	Talk(98660,98670);
+	Talk(98710,98710);
+	Watch("月眉儿","杨影枫",0);
+	Talk(98720,98720);
+	Watch("紫轩","杨影枫",0);
+	Talk(98730,98730);
+	Watch("月眉儿","杨影枫",1);
+	Sleep(1000);
+	Goto @Next;
+	
+	
+@Next:	
+	Choose("是否杀紫轩？","是","否",$KillZX);
+	
+	If ($KillZX == 0 ) @Yes;
+	Add($EvilValue, -10);
+	Talk(98790,98800);
+	Watch("月眉儿","紫轩",0);
+	//NpcAttack("月眉儿",18,68);
+	FadeOut();
+	Watch("杨影枫","紫轩",0);
+	DelNpc("紫轩");
+	PlaySound("攻-女死01.wav");
+	AddObj("紫轩尸体.ini",18,68,0);
+	FadeIn();
+	Say("杨影枫：轩儿！",7);
+	Talk(98855,98855);
+	Sleep(1000);
+	Watch("杨影枫","月眉儿",0);
+	Talk(98856,98856);
+	SetNpcKind("月眉儿",3);
+	Goto @end;
+@Yes:
+	Add($EvilValue, 10);
+	
+	Watch("杨影枫","紫轩",0);
+	Talk(98820,98850);
+	NpcAttack("杨影枫",18,68);
+	FadeOut();
+	PlaySound("攻-女死01.wav");
+	DelNpc("紫轩");
+	AddObj("紫轩尸体.ini",18,68,0);
+	FadeIn();		
+	Talk(98857,98859);
+	SetNpcKind("月眉儿",3);
+	Goto @end;	
+	
+@end:
+	Return;	

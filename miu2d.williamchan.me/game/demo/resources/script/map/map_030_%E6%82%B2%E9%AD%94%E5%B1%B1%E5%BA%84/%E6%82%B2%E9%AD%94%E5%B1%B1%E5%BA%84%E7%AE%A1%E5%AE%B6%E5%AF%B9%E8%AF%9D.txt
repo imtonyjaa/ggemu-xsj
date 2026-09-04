@@ -1,0 +1,268 @@
+	If ($Event == 1819) @1819;
+	If ($Event == 1818) @1818;
+	If ($Event == 1806) @1806;
+	If ($Event == 1805) @1805;
+	If ($Event == 1804) @1804;
+	If ($Event == 1800) @1800;
+	If ($Event == 3120) @Evt3120;
+	If ($Event == 3185) @Talk3185;
+	If ($Event == 3000) @Talk3000;
+	If ($Event == 600) @Talk600;
+	If ($Result == 0) @Result0;
+	If ($Result == 1) @Result1;
+	If ($Result == 2) @Result2;
+	If ($Result == 3) @Result3;
+	Return;
+		
+@1819:
+	Say("管家铁云：庄主，你回来了，这不是蔷薇姑娘吗？",92);
+	Say("杨影枫：不错，我要和她去一趟武当山。",2);
+	Say("管家铁云：庄主放心去吧，庄里的事交给我好了。",92);
+	Return;
+
+@1818:
+	Say("管家铁云：庄主，你回来了，找到纳兰姑娘了吗？",92);
+	Say("杨影枫：找到了。",2);
+	Say("管家铁云：怎么没看到纳兰姑娘呢？",92);
+	Say("杨影枫：她被孟知秋打伤了，现在正在养伤。",2);
+	Say("管家铁云：啊？孟知秋为什么要打伤纳兰姑娘？",92);
+	Say("杨影枫：为了抢夺真儿的《武道德经》。",2);
+	Say("管家铁云：想不到孟知秋原来如此卑鄙。",92);
+	Say("杨影枫：我现在就去落叶谷找他算帐。",2);
+	Say("管家铁云：庄主放心去吧，庄里的事交给我好了。",92);
+	SetMapTrap(1,"trap01.txt");
+	Return;
+
+@1806:
+	Say("管家铁云：庄主，你要走了？",92);
+	Say("杨影枫：庄里的事你就多费心了。",2);
+	Say("管家铁云：庄主，你放心吧，这里的事交给我好了。",92);
+	Return;
+
+@1805:
+	StopMusic();
+	Say("管家铁云：庄主，你不在的时候飞龙堡的少堡主月眉儿来找过你。",92);
+	Say("杨影枫：啊！？她现在哪里？我正想找她。",4);
+	Say("管家铁云：她看你不在，就留了个口信说约你明天在凌绝峰顶见面。",92);
+	Say("杨影枫：凌绝峰顶！？那不是我爹和她爹当年决斗的地方吗？",4);
+	Say("管家铁云：庄主，你是不是要去赴约呢？用不用多带一些人？",92);
+	Say("杨影枫：不必了，明天我一个人去就行了……",2);
+	FadeOut();
+	Say("第二天早上");
+	SetPlayerPos(55,160);
+	SetPlayerDir(1);
+	FadeIn();
+	Say("杨影枫：看来今天我要和月眉儿之间又要有一场生死之战……",2);
+	SetMapTrap(1,"");
+	SetMapTrap(5,"trap05.txt");
+	SetMapTrap(6,"");
+	Assign($Event, 1806);
+	PlayMusic("mc018.mp3");
+	Return;
+
+@1804:
+	Say("管家铁云：庄主，你要去哪里？",92);
+	Say("杨影枫：我要送蔷薇姑娘去落叶谷。",2);
+	Say("管家铁云：庄主，你放心吧，这里的事交给我好了。",92);
+	Return;
+
+@1800:
+	Say("管家铁云：庄主，早上好。",92);
+	Say("杨影枫：铁云，看到真儿了吗？",2);
+	Say("管家铁云：没有看到，庄主。",92);
+	Return;
+
+@Result0:
+	If ($Event == 475) @Label1;
+	If ($Event == 485) @Label2;
+	If ($Event == 525) @Label2;
+	If ($Event == 490) @Label3;
+	If ($Event == 492) @Label4;
+	If ($Event == 500) @Label5;
+	If ($Event == 562) @Label6;
+	
+	Talk(21720, 21720);
+	Return;
+@Label1:
+	Talk(21720, 21720);
+	Return;
+@Label2:
+	Talk(21721, 21721);
+	Return;
+	Return;
+@Label3:
+	Talk(21722, 21722);
+	Return;
+@Label4:
+	Talk(21723, 21723);
+	Return;
+@Label5:
+	Talk(21724, 21724);
+	Return;
+@Label6:
+	Talk(21721, 21721);
+	Return;
+	
+@Result1:
+	If ($Event == 700) @Talk700;
+	If($Event == 574) @Marrage;
+	If($Event == 585) @Event585;
+	//If ($Event >= 591) @TalkA591;
+	Talk(25000,25000);
+	Return;
+
+
+@Event585:
+	Talk(11640,11650);
+	Assign($Event,590);
+	Say("Event = 590");
+	Return;
+
+
+@Marrage:
+	//PlayerGoto(43, 143);
+	Talk(11210,11250);
+	NpcGoto("管家铁云",42,143);
+	NpcGotoEx("管家铁云",38,153);
+	Sleep(500);
+	SetPlayerDir(6);
+Say("杨影枫：没想到几天后就要娶落叶谷孟知秋之女蔷薇了，这些全然都是为了……。不知道真儿现在会在哪里？真儿会知道这些事情吗？",2);
+//	Talk(11251,11251);
+	Sleep(2000);
+Say("杨影枫：……不想这些！。十日后可是我杨影枫成亲的大喜日子，而我娶得的是中原武林泰斗孟知秋的女儿蔷薇，我应该感到高兴才对。哈…对！",2);
+//	Talk(11252,11252);
+	PlayerGotoEx(41,147);
+	Sleep(1000);
+
+
+	FadeOut();
+	StopMusic();
+	PlayMusic("Mc011.mp3");
+	Sleep(1000);
+	LoadNpc("map030_BeforeWed.npc");	
+	LoadObj("map030_obj.obj");
+	AddObj("喜字1.ini",44,136,0);
+	AddObj("喜字2.ini",48,144,0);
+	AddObj("一对灯笼.ini",40,151,0);
+	SetPlayerPos(39,155);
+	SetPlayerDir(1);
+	FullLife();
+	FullThew();
+	FullMana();
+	FadeIn();
+	
+	SetMapTrap(1,"");
+	SetMapTrap(5,"");
+	SetMapTrap(6,"");
+	NpcGoto("孟知秋",36,158);
+	MoveScreen(1,150,1);
+	Talk(106790,106810);
+	PlayerGoto(36,161);
+	SetPlayerDir(1);
+
+	Talk(106840,106900);
+	FadeOut();
+	LoadNpc("map030_WedFight.npc");
+	
+	LoadObj("map030_Obj.obj");
+	AddObj("喜字1.ini",44,136,0);
+	AddObj("喜字2.ini",48,144,0);
+	AddObj("一对灯笼.ini",40,151,0);
+	DisableNpcAI();
+	SetPlayerPos(14,30);
+	SetPlayerDir(1);
+	SetPlayerScn();
+	FadeIn();
+	NpcGoto("挑战者",12,32);
+	Watch("挑战者","杨影枫",0);
+	Talk(106930,106940);
+	
+	
+	SetNpcRelation("挑战者",1);
+	SetNpcDeathScript("挑战者","挑战者死亡.txt");
+	EnableNpcAI();
+	Memo("战胜所有的挑战者。");
+	Return;
+
+
+
+
+
+	
+	
+	
+
+@Result2:
+	If ($Event ==	767) @TalkE767;
+
+	If ($Event >= 750) @TalkA750;
+	If ($Event >= 720) @TalkA720;
+	Talk(21720, 21720);
+	Return;
+	
+@Result3:
+	If ($Event >= 990) @Event990;
+
+	GetRandNum($GuanjiaTalk, 1, 2);
+	If ($GuanjiaTalk == 1) @GuanjiaTalk31;
+	If ($GuanjiaTalk == 2) @GuanjiaTalk32;
+	@GuanjiaTalk31:
+		Talk(80220, 80220);
+		Return;
+	@GuanjiaTalk32:
+		Talk(21720, 21720);
+		Return;
+
+	@Event990:
+		Talk(21720, 21720);
+		Return;
+
+	Return;
+	
+	
+@TalkA591:
+	Talk(60690,60690);
+	Return;	
+	
+@Talk700:
+	Talk(61650,61660);
+	Return;
+	
+@TalkA720:
+	Talk(71120,71120);
+	Return;	
+
+
+@TalkA750:
+	Talk(71970,71990);
+	Return;	
+
+@TalkE767:
+	Talk(72080,72090);
+	Return;
+@Talk600:
+	Talk(62380,62380);
+	Return;	
+
+@Evt3120:
+	Talk(103140,103150);
+	Return;
+	
+@Talk3185:
+	Talk(104000,104010);
+	Return;	
+		
+		
+@Talk3000:
+	Say("管家铁云：庄主，纳兰真小姐找庄主有什么事呀？",92);		
+	Say("杨影枫：薇儿，昨晚被无忧教教主纳兰潜凛给逮住了，大事不好，我要立即去摘星楼将薇儿救回来！你好好照应着庄里。",6);
+	Say("管家铁云：是真的吗？那庄主你赶快去救小姐吧，庄里你不用担心了。",92);
+	Say("杨影枫：嗯。不过，你可知摘星楼在何处？",2);
+	Say("管家铁云：据我听说，好像是在倚天山附近，庄主你可去惠安镇问一问吧。",92);
+	Say("杨影枫：那好！我先走了！");
+	Return;
+	
+	
+		
+@end:
+	Return;

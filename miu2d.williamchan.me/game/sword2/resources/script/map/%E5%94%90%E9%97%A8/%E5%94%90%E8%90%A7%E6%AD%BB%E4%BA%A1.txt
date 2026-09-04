@@ -1,0 +1,15 @@
+
+	DisableNpcAI();
+	Sleep(2000);
+	Talk(32590,32590);
+	FadeOut();
+	SetNpcPos("唐萧",91,191);
+	SetNpcPos("唐离",90,190);
+	FollowPlayer("唐离");
+	SetNpcRelation("唐离",1);
+	SetNpcLevel("唐萧",100);
+	SetNpcLevel("唐离",100);
+	SetNpcDeathScript("南宫飞云","主角被抓.txt");
+	FadeIn();
+	EnableNpcAI();
+	Return;

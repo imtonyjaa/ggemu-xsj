@@ -1,0 +1,24 @@
+	If ($Event >= 302) @Label;
+	Talk(21224, 21224);
+	Goto @end;
+	
+@Label:
+	If ($Event == 350) @Talk350;
+	If ($Event >=312) @TalkA312;
+	Talk(21224, 21224);
+	Goto @end;
+
+@TalkA312:
+	Talk(41150,41150);
+	Goto @end;
+	
+@Talk350:
+	Say("老三：人生在世，就图个自由自在，开心就好，何必执着于那些名利恩怨呢？徒增烦忧罢了！", 0);
+	Say("杨影枫：……", 2);
+	Return;	
+	
+
+@end:
+	Return;
+
+

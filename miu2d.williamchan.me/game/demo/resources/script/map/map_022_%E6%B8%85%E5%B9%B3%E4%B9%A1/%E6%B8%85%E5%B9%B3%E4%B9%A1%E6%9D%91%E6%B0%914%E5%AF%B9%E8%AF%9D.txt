@@ -1,0 +1,48 @@
+//顺子
+
+	If ($SubEvent08 == 5) @SubEvent085;
+
+	If ($Event == 164) @Label1;
+	If ($Event == 166) @Label1;
+	If ($Event == 168) @Label1;
+	If ($Event == 170) @Label2;
+	If ($Event == 202) @Label3;
+	If ($Event == 203) @Label3;
+	If ($Event == 205) @Label3;
+	If ($Event >= 360) @TalkA360;
+		
+	Talk(20880, 20880);
+	Goto @end;
+	
+@Label1:
+	Talk(20881, 20881);
+	Goto @end;
+
+@Label2:
+	Talk(20882, 20882);
+	Goto @end;
+		
+@Label3:	
+	Talk(20883, 20883);
+	Goto @end;
+	
+@TalkA360:
+	Talk(40170,40170);
+	Goto @end;
+@SubEvent085:
+	If ($HaveTalk == 0) @FirstTalk;
+		Say("顺子：大哥哥，我一个人不好玩，你找到阿亮哥哥了吗？");
+		Say("杨影枫：还没有。", 3);
+		Goto @end;
+	@FirstTalk:
+		Say("杨影枫：小弟弟，你认识阿亮吗？", 3);
+		Say("顺子：当然认识啦，以前我们常常在破庙那边捉迷藏。");
+		Say("杨影枫：那你知道阿亮现在在哪吗？", 3);
+		Say("顺子：你找他啊，我也不知道。最近，他总是一个人玩，不理我了。");
+		Assign($HaveTalk, 1);
+		Goto @end;
+	Goto @end;
+
+@end:
+	Return;
+

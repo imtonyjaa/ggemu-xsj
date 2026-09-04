@@ -1,0 +1,31 @@
+//张猎户	
+	If ($Event == 164) @Label1;
+	If ($Event == 166) @Label1;
+	If ($Event == 168) @Label1;
+    If ($Event == 170) @Label2;
+	If ($Event == 202) @Label3;
+	If ($Event == 203) @Label3;
+	If ($Event == 205) @Label3;
+	If ($Event >= 360) @TalkA360;
+	
+	Talk(21010, 21010);
+	Goto @end;
+	
+@Label1:
+	Talk(21011, 21011);
+	Goto @end;
+
+@Label2:
+	Talk(21012, 21013);
+	Goto @end;
+	
+@Label3:	
+	Talk(21014, 21014);
+	Goto @end;
+
+@TalkA360:
+	Talk(40260,40260);
+	Goto @end;
+	
+@end:
+	Return;	
