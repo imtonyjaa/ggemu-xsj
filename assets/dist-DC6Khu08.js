@@ -1,0 +1,1 @@
+import"./LibsI18n-Dw-DIPNE.js";import{t as e}from"./dist-VaMluxdy.js";export{e as default};

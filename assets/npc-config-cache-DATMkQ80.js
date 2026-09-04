@@ -1,0 +1,1 @@
+import"./types-DGUgXLOr.js";import"./game-api-BXrzfG2Z.js";import"./LibsReact-BxvMX97-.js";import"./cache-registry-DNLEmGQw.js";import{r as e,t}from"./npc-config-cache-DqknbevP.js";export{t as getNpcConfigFromCache,e as isNpcConfigLoaded};
