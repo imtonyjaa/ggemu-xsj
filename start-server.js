@@ -18,16 +18,20 @@ const mimeTypes = {
 };
 
 const server = http.createServer((req, res) => {
-  // CORS
+  // CORS & No-Cache
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'content-type, authorization');
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+
   if (req.method === 'OPTIONS') {
     res.writeHead(200);
     res.end();
     return;
   }
 
-  // --- 纯净版：无任何 tRPC 拦截，恢复到最初的状态 ---
+  // --- 纯净版：无任何 tRPC 拦截 ---
   const urlPath = req.url.split('?')[0];
 
   const possiblePaths = [
@@ -54,17 +58,28 @@ const server = http.createServer((req, res) => {
     res.setHeader('Content-Type', mimeTypes[ext] || 'application/octet-stream');
     fs.createReadStream(foundPath).pipe(res);
   } else {
-    const indexPath = path.join(PUBLIC_DIR, 'index.html');
-    if (fs.existsSync(indexPath)) {
-      res.setHeader('Content-Type', 'text/html; charset=utf-8');
-      fs.createReadStream(indexPath).pipe(res);
-    } else {
-      res.writeHead(404);
-      res.end('Not found');
+    // 区分前端页面路由和静态资源请求
+    const ext = path.extname(urlPath);
+    const isResource = (ext && ext !== '.html') || 
+                       urlPath.includes('/resources/') || 
+                       urlPath.includes('/assets/') || 
+                       urlPath.includes('/api/');
+                       
+    if (!isResource) {
+      const indexPath = path.join(PUBLIC_DIR, 'index.html');
+      if (fs.existsSync(indexPath)) {
+        res.setHeader('Content-Type', 'text/html; charset=utf-8');
+        fs.createReadStream(indexPath).pipe(res);
+        return;
+      }
     }
+    
+    // 针对不存在的资源请求，返回 404 JSON
+    res.writeHead(404, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ error: "File not found" }));
   }
 });
 
 server.listen(PORT, () => {
-  console.log(`本地纯净版服务器已启动，请访问: http://localhost:${PORT}`);
+  console.log(`本地服务器已启动，请访问: http://127.0.0.1:${PORT}/game/demo`);
 });
