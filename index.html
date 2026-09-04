@@ -18,6 +18,174 @@
           document.querySelector('link[rel="manifest"]').href = base + '/game/' + slug + '/api/manifest';
           document.querySelector('link[rel="apple-touch-icon"]').href = base + '/game/' + slug + '/api/logo/192';
         }
+        
+        // --- 强制伪装成 embed 模式，不依赖 URL 参数 ---
+        const originalGet = URLSearchParams.prototype.get;
+        URLSearchParams.prototype.get = function(name) {
+          if (name === 'embed') return '1';
+          return originalGet.call(this, name);
+        };
+        
+        // --- 拦截 tRPC 并接管本地存档到 IndexedDB ---
+        const originalFetch = window.fetch;
+        const DB_NAME = 'Miu2D_Saves';
+        const STORE_NAME = 'saves';
+        
+        function initDB() {
+          return new Promise((resolve, reject) => {
+            const request = indexedDB.open(DB_NAME, 1);
+            request.onupgradeneeded = (e) => {
+              const db = e.target.result;
+              if (!db.objectStoreNames.contains(STORE_NAME)) {
+                db.createObjectStore(STORE_NAME, { keyPath: 'id' });
+              }
+            };
+            request.onsuccess = () => resolve(request.result);
+            request.onerror = () => reject(request.error);
+          });
+        }
+
+        async function getDB() {
+          if (!window.__miu2d_db) window.__miu2d_db = await initDB();
+          return window.__miu2d_db;
+        }
+
+        async function getAllSaves() {
+          const db = await getDB();
+          return new Promise((resolve) => {
+            const tx = db.transaction(STORE_NAME, 'readonly');
+            const store = tx.objectStore(STORE_NAME);
+            const req = store.getAll();
+            req.onsuccess = () => resolve(req.result);
+          });
+        }
+
+        async function putSave(saveObj) {
+          const db = await getDB();
+          return new Promise((resolve) => {
+            const tx = db.transaction(STORE_NAME, 'readwrite');
+            const store = tx.objectStore(STORE_NAME);
+            store.put(saveObj);
+            tx.oncomplete = () => resolve();
+          });
+        }
+
+        async function getSave(id) {
+          const db = await getDB();
+          return new Promise((resolve) => {
+            const tx = db.transaction(STORE_NAME, 'readonly');
+            const store = tx.objectStore(STORE_NAME);
+            const req = store.get(id);
+            req.onsuccess = () => resolve(req.result);
+          });
+        }
+
+        async function deleteSave(id) {
+          const db = await getDB();
+          return new Promise((resolve) => {
+            const tx = db.transaction(STORE_NAME, 'readwrite');
+            const store = tx.objectStore(STORE_NAME);
+            store.delete(id);
+            tx.oncomplete = () => resolve();
+          });
+        }
+
+        function createTrpcResponse(data, isBatch) {
+          const payload = { result: { data } };
+          return new Response(JSON.stringify(isBatch ? [payload] : payload), {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' }
+          });
+        }
+
+        window.fetch = async function(resource, config) {
+          const urlStr = typeof resource === 'string' ? resource : resource.url;
+          const url = new URL(urlStr, window.location.origin);
+          
+          const trpcIndex = url.pathname.indexOf('/trpc/');
+          if (trpcIndex !== -1) {
+            let route = url.pathname.substring(trpcIndex + 6);
+            if (route.includes(',')) route = route.split(',')[0];
+            
+            const isBatch = url.searchParams.get('batch') === '1';
+            
+            if (route === 'user.getProfile') {
+              return createTrpcResponse({
+                id: "local_user", name: "本地玩家", email: "local@player",
+                emailVerified: true, role: "USER", status: "ACTIVE", avatarUrl: "", settings: {},
+                createdAt: new Date().toISOString(), updatedAt: new Date().toISOString()
+              }, isBatch);
+            }
+            
+            if (route === 'auth.login' && config?.method === 'POST') {
+              return createTrpcResponse({
+                user: { id: "local_user", name: "本地玩家", email: "local@player", emailVerified: true, role: "USER", status: "ACTIVE" },
+                defaultGameSlug: "demo"
+              }, isBatch);
+            }
+
+            if (route === 'save.list') {
+              const inputStr = url.searchParams.get('input');
+              let gameSlug = 'demo';
+              try {
+                const inputObj = JSON.parse(inputStr);
+                gameSlug = (isBatch ? inputObj['0'].gameSlug : inputObj['0'].json.gameSlug) || gameSlug;
+              } catch(e) {}
+              
+              const allSaves = await getAllSaves();
+              const list = allSaves.filter(s => s.gameSlug === gameSlug).map(s => {
+                const { data, ...rest } = s;
+                return rest;
+              });
+              return createTrpcResponse(list, isBatch);
+            }
+
+            if (route === 'save.get') {
+              const inputStr = url.searchParams.get('input');
+              let saveId = '';
+              try {
+                const inputObj = JSON.parse(inputStr);
+                saveId = isBatch ? inputObj['0'].saveId : inputObj['0'].json.saveId;
+              } catch(e) {}
+              
+              const save = await getSave(saveId);
+              return createTrpcResponse(save || null, isBatch);
+            }
+
+            if (route === 'save.upsert' && config?.method === 'POST') {
+              const body = JSON.parse(config.body);
+              const input = (isBatch ? body['0'] : body['0']?.json) || {};
+              const saveId = input.saveId || `save_${Date.now()}`;
+              
+              const existing = await getSave(saveId);
+              const newSave = {
+                id: saveId,
+                gameSlug: input.gameSlug || 'demo',
+                name: input.name || `存档 ${new Date().toLocaleString('zh-CN')}`,
+                screenshot: input.screenshot,
+                mapName: input.mapName,
+                level: input.level,
+                playerName: input.playerName,
+                data: input.data,
+                isShared: false,
+                createdAt: existing ? existing.createdAt : new Date().toISOString(),
+                updatedAt: new Date().toISOString()
+              };
+              
+              await putSave(newSave);
+              return createTrpcResponse(newSave, isBatch);
+            }
+
+            if (route === 'save.delete' && config?.method === 'POST') {
+              const body = JSON.parse(config.body);
+              const input = (isBatch ? body['0'] : body['0']?.json) || {};
+              await deleteSave(input.saveId);
+              return createTrpcResponse({ success: true }, isBatch);
+            }
+          }
+          
+          return originalFetch(resource, config);
+        };
       })();
     </script>
     <meta name="theme-color" content="#1a1a2e" />
