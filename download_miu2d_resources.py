@@ -20,8 +20,10 @@ from urllib.parse import quote, unquote, urlsplit
 from urllib.request import Request, urlopen
 
 
-DEFAULT_SOURCE = Path(__file__).resolve().parent / "downloads" / "miu2d.williamchan.me:10443" / "game" / "demo"
-DEFAULT_BASE_URL = "https://miu2d.williamchan.me:10443/game/demo"
+GAME_ROOT = Path(__file__).resolve().parent / "miu2d.williamchan.me" / "game"
+REPORT_ROOT = Path(__file__).resolve().parent / "reports"
+GAME_NAMES = ("demo", "sword1", "sword2")
+DEFAULT_GAME_BASE_URL = "https://miu2d.williamchan.me:10443/game"
 RESOURCE_COMMANDS = (
     "LoadMap",
     "LoadNpc",
@@ -636,6 +638,13 @@ class Downloader:
                 return candidate
         return None
 
+    def existing_group_path(self, group: DownloadGroup) -> tuple[str, Path] | None:
+        for candidate in group.candidates:
+            path = self.existing_path(f"resources/{candidate}")
+            if path:
+                return candidate, path
+        return None
+
     def read_json(self, remote_path: str) -> Any | None:
         path = self.existing_path(remote_path)
         if path:
@@ -665,12 +674,20 @@ class Downloader:
         except (OSError, UnicodeDecodeError, json.JSONDecodeError):
             return None
 
-    def download_group(self, group: DownloadGroup, missing: set[str]) -> tuple[str, str | None]:
-        if any(self.existing_path(f"resources/{candidate}") for candidate in group.candidates):
+    def download_group(
+        self,
+        group: DownloadGroup,
+        missing: set[str],
+        overwrite: bool = False,
+    ) -> tuple[str, str | None]:
+        existing = self.existing_group_path(group)
+        if existing and not overwrite:
             with self.lock:
                 self.skipped.append(group.candidates[0])
             return "skipped", None
         candidates = [candidate for candidate in group.candidates if candidate not in missing]
+        if overwrite and existing and existing[0] in candidates:
+            candidates = [existing[0]]
         if not candidates:
             with self.lock:
                 self.known_missing.append(group.candidates[0])
@@ -714,6 +731,67 @@ def load_required_json(source: Path, relative: str) -> dict[str, Any]:
         raise SystemExit(f"缺少必要文件：{path}") from error
     except json.JSONDecodeError as error:
         raise SystemExit(f"JSON 格式错误：{path}: {error}") from error
+
+
+def copy_if_missing(source: str, destination: str) -> str:
+    target = Path(destination)
+    if target.is_file() and target.stat().st_size > 0:
+        return destination
+    return shutil.copy2(source, destination)
+
+
+def print_missing_status(downloader: Downloader, group: DownloadGroup) -> None:
+    if not downloader.existing_group_path(group):
+        print(f"[缺失] {' | '.join(group.candidates)} ({group.reason})")
+
+
+def build_report(
+    game: str,
+    base_url: str,
+    source: Path,
+    output: Path,
+    collector: ResourceCollector,
+    downloader: Downloader,
+    dry_run: bool,
+) -> dict[str, Any]:
+    groups = list(collector.groups.values())
+    missing_files = [
+        {
+            "status": "missing",
+            "paths": list(group.candidates),
+            "reason": group.reason,
+            "optional": group.optional,
+        }
+        for group in groups
+        if not downloader.existing_group_path(group)
+    ]
+    existing_count = len(groups) - len(missing_files)
+    return {
+        "game": game,
+        "dryRun": dry_run,
+        "baseUrl": base_url,
+        "source": str(source),
+        "output": str(output),
+        "sceneCount": len(collector.scenes),
+        "resourceGroupCount": len(groups),
+        "existingCount": existing_count,
+        "missingFileCount": len(missing_files),
+        "downloadedCount": len(downloader.downloaded),
+        "skippedCount": existing_count if dry_run else len(downloader.skipped),
+        "knownMissingCount": len(downloader.known_missing),
+        "failedCount": len(downloader.failed),
+        "missingFiles": missing_files,
+        "downloaded": downloader.downloaded,
+        "knownMissing": downloader.known_missing,
+        "failed": downloader.failed,
+    }
+
+
+def write_report(game: str, report: dict[str, Any]) -> Path:
+    report_path = REPORT_ROOT / game / "download-report.json"
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+    return report_path
 
 
 def discover_scenes(
@@ -820,21 +898,32 @@ def parse_base_url(value: str) -> str:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="下载 Miu2D 抓取快照中引用但尚未下载的资源")
-    parser.add_argument("--source", type=Path, default=DEFAULT_SOURCE, help="已有抓取目录")
-    parser.add_argument("--output", type=Path, required=True, help="完整资源输出目录")
-    parser.add_argument("--base-url", type=parse_base_url, default=DEFAULT_BASE_URL, help="游戏服务根 URL")
+    parser.add_argument("--game", choices=GAME_NAMES, required=True, help="游戏名称")
+    parser.add_argument("--source", type=Path, help="已有抓取目录，默认根据游戏名称自动生成")
+    parser.add_argument(
+        "--base-url",
+        type=parse_base_url,
+        help="游戏服务根 URL，默认根据游戏名称自动生成",
+    )
     parser.add_argument("--workers", type=int, default=12, help="并发下载数，默认 12")
     parser.add_argument("--timeout", type=float, default=20, help="单次请求超时秒数")
     parser.add_argument("--retries", type=int, default=2, help="失败重试次数")
     parser.add_argument("--no-copy-existing", action="store_true", help="不把已有文件复制到输出目录")
+    parser.add_argument("--overwrite", action="store_true", help="覆盖并重新下载已有资源")
     parser.add_argument("--dry-run", action="store_true", help="只扫描并显示计划，不发起网络请求")
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
-    source = args.source.resolve()
-    output = args.output.resolve()
+    source_arg = args.source.resolve() if args.source else None
+    if source_arg and source_arg.name != args.game:
+        print(f"--game {args.game} 与源目录 {source_arg.name} 不一致", file=sys.stderr)
+        return 2
+    game = args.game
+    source = source_arg or GAME_ROOT / game
+    output = GAME_ROOT / game
+    base_url = args.base_url or f"{DEFAULT_GAME_BASE_URL}/{encoded_path(game)}"
     if not source.is_dir():
         print(f"源目录不存在：{source}", file=sys.stderr)
         return 2
@@ -846,17 +935,18 @@ def main() -> int:
         return 2
 
     if not args.dry_run and not args.no_copy_existing and source != output:
-        shutil.copytree(source, output, dirs_exist_ok=True)
+        copy_function = shutil.copy2 if args.overwrite else copy_if_missing
+        shutil.copytree(source, output, dirs_exist_ok=True, copy_function=copy_function)
     if not args.dry_run:
         output.mkdir(parents=True, exist_ok=True)
 
-    config = load_required_json(source, "api/config.json")
-    data = load_required_json(source, "api/data.json")
+    config = load_required_json(source, "api/config")
+    data = load_required_json(source, "api/data")
     collector = ResourceCollector()
     collector.scan_data(data)
     collector.scan_config(config)
 
-    client = HttpClient(args.base_url, args.timeout, args.retries)
+    client = HttpClient(base_url, args.timeout, args.retries)
     downloader = Downloader(source, output, client, args.dry_run)
     scan_local_scripts(collector, (output, source))
     scan_reporter = ScanReporter()
@@ -866,14 +956,18 @@ def main() -> int:
 
     groups = list(collector.groups.values())
     existing_count = sum(
-        any(downloader.existing_path(f"resources/{path}") for path in group.candidates)
+        downloader.existing_group_path(group) is not None
         for group in groups
     )
     print(f"发现 {len(collector.scenes)} 个场景、{len(groups)} 组资源；已有 {existing_count} 组")
+    reported_groups = set()
+    for group in groups:
+        print_missing_status(downloader, group)
+        reported_groups.add(group.candidates)
     if args.dry_run:
-        for group in groups:
-            if not any(downloader.existing_path(f"resources/{path}") for path in group.candidates):
-                print(f"[计划] {' | '.join(group.candidates)} ({group.reason})")
+        report = build_report(game, base_url, source, output, collector, downloader, True)
+        report_path = write_report(game, report)
+        print(f"报告：{report_path}")
         return 0
 
     processed_groups: set[tuple[str, ...]] = set()
@@ -886,40 +980,40 @@ def main() -> int:
             if key not in processed_groups
         ]
         if pending_groups:
-            progress.add_batch(len(pending_groups))
-            with ThreadPoolExecutor(max_workers=args.workers) as executor:
-                futures = {
-                    executor.submit(downloader.download_group, group, collector.missing): group
-                    for group in pending_groups
-                }
-                for future in as_completed(futures):
-                    group = futures[future]
-                    status, error = future.result()
-                    progress.advance(status, group.candidates[0], error)
+            download_groups = []
+            for group in pending_groups:
+                existing = downloader.existing_group_path(group)
+                if group.candidates not in reported_groups:
+                    print_missing_status(downloader, group)
+                    reported_groups.add(group.candidates)
+                if existing and not args.overwrite:
+                    downloader.skipped.append(group.candidates[0])
+                else:
+                    download_groups.append(group)
+            if download_groups:
+                progress.add_batch(len(download_groups))
+                with ThreadPoolExecutor(max_workers=args.workers) as executor:
+                    futures = {
+                        executor.submit(
+                            downloader.download_group,
+                            group,
+                            collector.missing,
+                            args.overwrite,
+                        ): group
+                        for group in download_groups
+                    }
+                    for future in as_completed(futures):
+                        group = futures[future]
+                        status, error = future.result()
+                        progress.advance(status, group.candidates[0], error)
             processed_groups.update(group.candidates for group in pending_groups)
         newly_scanned = scan_local_scripts(collector, (output, source))
         if not pending_groups and newly_scanned == 0:
             break
     progress.finish()
 
-    groups = list(collector.groups.values())
-
-    report = {
-        "baseUrl": args.base_url,
-        "source": str(source),
-        "output": str(output),
-        "sceneCount": len(collector.scenes),
-        "resourceGroupCount": len(groups),
-        "downloadedCount": len(downloader.downloaded),
-        "skippedCount": len(downloader.skipped),
-        "knownMissingCount": len(downloader.known_missing),
-        "failedCount": len(downloader.failed),
-        "downloaded": downloader.downloaded,
-        "knownMissing": downloader.known_missing,
-        "failed": downloader.failed,
-    }
-    report_path = output / "download-report.json"
-    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+    report = build_report(game, base_url, source, output, collector, downloader, False)
+    report_path = write_report(game, report)
     print(
         f"完成：下载 {len(downloader.downloaded)}，跳过 {len(downloader.skipped)}，"
         f"已知缺失 {len(downloader.known_missing)}，失败 {len(downloader.failed)}"
