@@ -498,6 +498,7 @@ class ResourceCollector:
         npcs = data.get("npcs", {})
         self.npc_configs = self._config_index(npcs.get("npcs", []))
         for entry in [*npcs.get("npcs", []), *npcs.get("resources", [])]:
+            self._scan_entity_scripts(entry, None, "NPC 配置")
             for resource in (entry.get("resources") or {}).values():
                 if isinstance(resource, dict):
                     self.add_sprite(resource.get("image"), ("asf/character", "asf/interlude"), "NPC 动画")
@@ -506,6 +507,7 @@ class ResourceCollector:
         objs = data.get("objs", {})
         self.obj_configs = self._config_index(objs.get("objs", []))
         for entry in [*objs.get("objs", []), *objs.get("resources", [])]:
+            self._scan_entity_scripts(entry, None, "物体配置")
             for resource in (entry.get("resources") or {}).values():
                 if isinstance(resource, dict):
                     self.add_sprite(resource.get("image"), ("asf/object",), "物体动画")
@@ -606,7 +608,8 @@ class ResourceCollector:
             self.add_group((path,), "地图瓦片")
         for script_map in (manifest.get("scripts", {}), manifest.get("traps", {})):
             if isinstance(script_map, dict):
-                for text in script_map.values():
+                for name, text in script_map.items():
+                    self.add_script(name, owner_scene, "场景内嵌脚本")
                     self.scan_script(text, owner_scene)
 
     def scan_scene_entities(self, entries: list[dict[str, Any]], owner_scene: str, entity_type: str) -> None:
