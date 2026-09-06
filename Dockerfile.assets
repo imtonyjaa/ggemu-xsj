@@ -1,0 +1,4 @@
+# scratch 是 Docker 中最小的空白基础镜像（0 MB）
+FROM scratch
+# 把本地庞大的资源打包进镜像
+COPY miu2d.williamchan.me /data/
