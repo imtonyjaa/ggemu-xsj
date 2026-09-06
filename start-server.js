@@ -53,6 +53,41 @@ const server = http.createServer((req, res) => {
     }
   }
 
+  // --- 针对 Linux 服务器的兜底策略：忽略大小写查找 ---
+  if (!foundPath) {
+    for (let p of possiblePaths) {
+      const fullPath = path.join(PUBLIC_DIR, p);
+      if (!fullPath.startsWith(PUBLIC_DIR)) continue;
+      
+      let currentPath = PUBLIC_DIR;
+      const relativePath = path.relative(PUBLIC_DIR, fullPath);
+      if (relativePath === '') continue;
+      
+      const parts = relativePath.split(path.sep);
+      let matched = true;
+      
+      for (let part of parts) {
+        if (!fs.existsSync(currentPath) || !fs.statSync(currentPath).isDirectory()) {
+          matched = false;
+          break;
+        }
+        const files = fs.readdirSync(currentPath);
+        const lowerPart = part.toLowerCase();
+        const match = files.find(f => f.toLowerCase() === lowerPart);
+        if (!match) {
+          matched = false;
+          break;
+        }
+        currentPath = path.join(currentPath, match);
+      }
+      
+      if (matched && fs.statSync(currentPath).isFile()) {
+        foundPath = currentPath;
+        break;
+      }
+    }
+  }
+
   if (foundPath) {
     const ext = path.extname(foundPath);
     res.setHeader('Content-Type', mimeTypes[ext] || 'application/octet-stream');
