@@ -1,7 +1,6 @@
 /* Hide controls that are not available in the local build. */
 div[style*="bottom: 4px"][style*="right: 8px"],
 div[style*="bottom:4px"][style*="right:8px"],
-button[class*="px-2.5 py-1 text-xs text-white/40"],
 button[title="分享"],
 button[title="取消分享"] {
   display: none !important;
