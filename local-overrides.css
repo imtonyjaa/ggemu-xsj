@@ -1,0 +1,15 @@
+/* Hide controls that are not available in the local build. */
+div[style*="bottom: 4px"][style*="right: 8px"],
+div[style*="bottom:4px"][style*="right:8px"],
+button[class*="px-2.5 py-1 text-xs text-white/40"],
+button[title="分享"],
+button[title="取消分享"] {
+  display: none !important;
+}
+
+/* Hide the theme selector while keeping the resolution controls visible. */
+div[class~="flex-1"][class~="overflow-y-auto"][class~="p-4"][class~="space-y-5"]
+  > div:nth-child(2)
+  > div:nth-child(2) {
+  display: none !important;
+}
