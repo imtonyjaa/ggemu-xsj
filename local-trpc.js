@@ -42,8 +42,14 @@
     return new Promise((resolve, reject) => {
       const tx = db.transaction(STORE_NAME, mode);
       const request = operation(tx.objectStore(STORE_NAME));
-      request.onsuccess = () => resolve(request.result);
+      let result;
+      request.onsuccess = () => {
+        result = request.result;
+      };
       request.onerror = () => reject(request.error);
+      tx.oncomplete = () => resolve(result);
+      tx.onerror = () => reject(tx.error || new Error('IndexedDB transaction failed.'));
+      tx.onabort = () => reject(tx.error || new Error('IndexedDB transaction was aborted.'));
     });
   }
 
